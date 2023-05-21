@@ -14,12 +14,17 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  go_router: ^7.0.2
+  nhost_dart: ^1.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^2.0.0
+  go_router_builder: ^2.0.0
+  build_runner: ^2.0.0
+  build_verify: ^2.0.0
 
 flutter:
   uses-material-design: true
