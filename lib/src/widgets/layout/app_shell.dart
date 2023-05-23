@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 import 'package:tubes_promvis_kelompok_8/src/providers/settings/settings_controller.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/route_params_type.dart';
 import 'package:tubes_promvis_kelompok_8/src/widgets/layout/app_navbar.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 
 class AppShell extends StatefulWidget {
   AppShell({required this.child, required this.settingsController, super.key});
@@ -37,7 +39,7 @@ class AppShell extends StatefulWidget {
 }
 
 class AppShellState extends State<AppShell> {
-  int getCurrentIndex(BuildContext context) {
+  int? getCurrentIndex(BuildContext context) {
     final String location = GoRouter.of(context).location;
     final candidates = widget._routeData
         .asMap()
@@ -49,6 +51,7 @@ class AppShellState extends State<AppShell> {
       final bLen = b.value.path.length;
       return aLen > bLen ? 1 : (aLen == bLen ? 0 : -1);
     });
+    if (candidates.isEmpty) return null;
     return candidates[0].key;
   }
 
@@ -67,22 +70,29 @@ class AppShellState extends State<AppShell> {
 
   @override
   Widget build(BuildContext context) {
-    final int selectedIndex = getCurrentIndex(context);
+    final int? selectedIndex = getCurrentIndex(context);
 
     return Scaffold(
-      key: scaffoldKey,
-      appBar: AppBar(
-        title: Text(widget._routeData[selectedIndex].title),
-      ),
-      drawer: Drawer(
-        child: AppNavbar(
-            routeData: widget._routeData,
-            scaffoldKey: scaffoldKey,
-            settingsController: widget.settingsController),
-      ),
-      body: Row(
-        children: <Widget>[Expanded(child: widget.child)],
-      ),
-    );
+        key: scaffoldKey,
+        appBar: AppBar(
+          title: Text(selectedIndex != null
+              ? widget._routeData[selectedIndex].title
+              : "App"),
+        ),
+        drawer: Drawer(
+          child: AppNavbar(
+              routeData: widget._routeData,
+              scaffoldKey: scaffoldKey,
+              settingsController: widget.settingsController),
+        ),
+        body: TalkerWrapper(
+          talker: Logger.talker,
+          options: const TalkerWrapperOptions(
+            enableErrorAlerts: true,
+          ),
+          child: Row(
+            children: <Widget>[Expanded(child: widget.child)],
+          ),
+        ));
   }
 }

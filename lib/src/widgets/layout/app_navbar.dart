@@ -20,7 +20,7 @@ class AppNavbar extends StatefulWidget {
 }
 
 class AppNavbarState extends State<AppNavbar> {
-  int getCurrentIndex(BuildContext context) {
+  int? getCurrentIndex(BuildContext context) {
     final String location = GoRouter.of(context).location;
     final candidates = widget.routeData
         .asMap()
@@ -32,6 +32,7 @@ class AppNavbarState extends State<AppNavbar> {
       final bLen = b.value.path.length;
       return aLen > bLen ? 1 : (aLen == bLen ? 0 : -1);
     });
+    if (candidates.isEmpty) return null;
     return candidates[0].key;
   }
 
@@ -48,7 +49,7 @@ class AppNavbarState extends State<AppNavbar> {
 
   @override
   Widget build(BuildContext context) {
-    final int _selectedIndex = getCurrentIndex(context);
+    final int? selectedIndex = getCurrentIndex(context);
 
     return ListView.builder(
         itemCount: widget.routeData.length,
@@ -56,7 +57,7 @@ class AppNavbarState extends State<AppNavbar> {
           return ListTile(
             leading: Icon(widget.routeData[index].icon),
             title: Text(widget.routeData[index].title),
-            selected: index == _selectedIndex,
+            selected: index == selectedIndex,
             onTap: () => handleTap(context, widget.routeData[index]),
           );
         });

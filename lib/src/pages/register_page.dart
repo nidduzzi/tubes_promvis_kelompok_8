@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/register_page_type.dart';
-
-/// Displays the various settings that can be customized by the user.
-///
-/// When a user changes a setting, the SettingsController is updated and
-/// Widgets that listen to the SettingsController are rebuilt.
+import 'package:tubes_promvis_kelompok_8/src/widgets/register/register_form.dart';
 
 class RegisterPageParams {
   final RegisterPageType type;
@@ -24,6 +20,15 @@ class RegisterPage extends StatelessWidget implements RegisterPageParams {
   Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.all(16),
-        child: Text("Register ${type.toShortString()}"));
+        child: Column(
+          children: [
+            Text(type == RegisterPageType.UMKM
+                ? "Ayo Daftarkan UMKM Anda, untuk Peluang Lebih Baik!"
+                : "Mari Investasikan danamu disini! "),
+            const Text("Mohon lengkapi data diri anda."),
+            const Text("REGISTRASI"),
+            RegisterForm(type: type)
+          ],
+        ));
   }
 }
