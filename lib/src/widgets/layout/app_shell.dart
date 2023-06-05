@@ -1,36 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 import 'package:tubes_promvis_kelompok_8/src/providers/settings/settings_controller.dart';
+import 'package:tubes_promvis_kelompok_8/src/routes.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/route_params_type.dart';
 import 'package:tubes_promvis_kelompok_8/src/widgets/layout/app_navbar.dart';
-import 'package:talker_flutter/talker_flutter.dart';
+import 'package:tubes_promvis_kelompok_8/src/helpers/navbar.dart';
 
 class AppShell extends StatefulWidget {
-  AppShell({required this.child, required this.settingsController, super.key});
+  const AppShell(
+      {required this.child, required this.settingsController, super.key});
   final Widget child;
   final SettingsController settingsController;
-  final List<RouteParams> _routeData = [
-    RouteParams(icon: Icons.home, label: 'Home', path: '/', title: 'Home'),
-    RouteParams(
-        icon: Icons.business,
-        label: 'Daftar Sebagai UMKM',
-        path: '/register/UMKM',
-        title: 'Register UMKM'),
-    RouteParams(
-        icon: Icons.person,
-        label: 'Daftar Sebagai Investor',
-        path: '/register/Investor',
-        title: 'Register Investor'),
-    RouteParams(icon: Icons.pages, label: 'Blog', path: '/blog', title: 'Blog'),
-    RouteParams(
-        icon: Icons.login, label: 'Login', path: '/login', title: 'Login'),
-    RouteParams(
-        icon: Icons.settings,
-        label: 'Settings',
-        path: '/settings',
-        title: 'Settings'),
-  ];
 
   @override
   State<StatefulWidget> createState() {
@@ -39,49 +22,104 @@ class AppShell extends StatefulWidget {
 }
 
 class AppShellState extends State<AppShell> {
-  int? getCurrentIndex(BuildContext context) {
-    final String location = GoRouter.of(context).location;
-    final candidates = widget._routeData
-        .asMap()
-        .entries
-        .where((element) => element.value.path.startsWith(location))
-        .toList();
-    candidates.sort((a, b) {
-      final aLen = a.value.path.length;
-      final bLen = b.value.path.length;
-      return aLen > bLen ? 1 : (aLen == bLen ? 0 : -1);
-    });
-    if (candidates.isEmpty) return null;
-    return candidates[0].key;
-  }
+  final List<RouteNavbarParams> routeData = [
+    RouteNavbarParams(
+        icon: Icons.home,
+        label: 'Home',
+        path: '/',
+        title: 'Home',
+        private: false,
+        publicOnly: false),
+    RouteNavbarParams(
+        icon: Icons.dashboard,
+        label: 'Dashboard',
+        path: '/dashboard',
+        title: 'Dashboard',
+        private: true,
+        publicOnly: false),
+    RouteNavbarParams(
+        icon: Icons.business,
+        label: 'Daftar Sebagai UMKM',
+        path: '/register/UMKM',
+        title: 'Register UMKM',
+        private: false,
+        publicOnly: true),
+    RouteNavbarParams(
+        icon: Icons.person,
+        label: 'Daftar Sebagai Investor',
+        path: '/register/Investor',
+        title: 'Register Investor',
+        private: false,
+        publicOnly: true),
+    RouteNavbarParams(
+        icon: Icons.pages,
+        label: 'Blog',
+        path: '/blog',
+        title: 'Blog',
+        private: false,
+        publicOnly: false),
+    RouteNavbarParams(
+        icon: Icons.login,
+        label: 'Login',
+        path: '/login',
+        title: 'Login',
+        private: false,
+        publicOnly: true),
+    RouteNavbarParams(
+        icon: Icons.logout,
+        label: 'Logout',
+        path: '/logout',
+        title: 'Logout',
+        private: true,
+        publicOnly: false),
+    RouteNavbarParams(
+        icon: Icons.settings,
+        label: 'Settings',
+        path: '/settings',
+        title: 'Settings',
+        private: false,
+        publicOnly: false),
+  ];
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  void handleTap(BuildContext context, RouteParams routeParam) {
-    if (scaffoldKey.currentState!.isDrawerOpen) {
-      scaffoldKey.currentState!.closeDrawer();
-      //close drawer, if drawer is open
-    } else {
-      scaffoldKey.currentState!.openDrawer();
-      //open drawer, if drawer is closed
-    }
-    context.go(routeParam.path);
-  }
-
   @override
   Widget build(BuildContext context) {
-    final int? selectedIndex = getCurrentIndex(context);
-
+    final int? selectedIndex = getCurrentIndex(context, routeData);
+    final auth = NhostAuthProvider.of(context);
+    final location = GoRouter.of(context).location;
+    late Widget child;
+    switch (auth?.authenticationState) {
+      case AuthenticationState.signedIn:
+        child = widget.child;
+        break;
+      case AuthenticationState.signedOut:
+        final locationRoute =
+            AppRouter.routes.where((element) => element.path == location);
+        if (locationRoute.isNotEmpty && locationRoute.first.private) {
+          child = const CircularProgressIndicator();
+          Future.delayed(Duration.zero, () {
+            context.go('/login');
+          });
+        } else {
+          child = widget.child;
+        }
+        break;
+      case AuthenticationState.inProgress:
+        child = const CircularProgressIndicator();
+        break;
+      default:
+        child = const Text("undetermined authentication state");
+    }
     return Scaffold(
         key: scaffoldKey,
         appBar: AppBar(
-          title: Text(selectedIndex != null
-              ? widget._routeData[selectedIndex].title
-              : "App"),
+          title: Text(
+              selectedIndex != null ? routeData[selectedIndex].title : "App"),
         ),
         drawer: Drawer(
           child: AppNavbar(
-              routeData: widget._routeData,
+              routeData: routeData,
               scaffoldKey: scaffoldKey,
               settingsController: widget.settingsController),
         ),
@@ -91,7 +129,10 @@ class AppShellState extends State<AppShell> {
             enableErrorAlerts: true,
           ),
           child: Row(
-            children: <Widget>[Expanded(child: widget.child)],
+            children: <Widget>[
+              Expanded(
+                  child: Padding(padding: EdgeInsets.all(8.0), child: child))
+            ],
           ),
         ));
   }

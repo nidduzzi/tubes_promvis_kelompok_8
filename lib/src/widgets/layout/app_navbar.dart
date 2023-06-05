@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
 import 'package:tubes_promvis_kelompok_8/src/providers/settings/settings_controller.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/route_params_type.dart';
+import 'package:tubes_promvis_kelompok_8/src/helpers/navbar.dart';
 
 class AppNavbar extends StatefulWidget {
   const AppNavbar(
@@ -11,7 +13,7 @@ class AppNavbar extends StatefulWidget {
       super.key});
   final SettingsController settingsController;
   final GlobalKey<ScaffoldState> scaffoldKey;
-  final List<RouteParams> routeData;
+  final List<RouteNavbarParams> routeData;
 
   @override
   State<StatefulWidget> createState() {
@@ -20,23 +22,7 @@ class AppNavbar extends StatefulWidget {
 }
 
 class AppNavbarState extends State<AppNavbar> {
-  int? getCurrentIndex(BuildContext context) {
-    final String location = GoRouter.of(context).location;
-    final candidates = widget.routeData
-        .asMap()
-        .entries
-        .where((element) => element.value.path.startsWith(location))
-        .toList();
-    candidates.sort((a, b) {
-      final aLen = a.value.path.length;
-      final bLen = b.value.path.length;
-      return aLen > bLen ? 1 : (aLen == bLen ? 0 : -1);
-    });
-    if (candidates.isEmpty) return null;
-    return candidates[0].key;
-  }
-
-  void handleTap(BuildContext context, RouteParams routeParam) {
+  void handleTap(BuildContext context, RouteNavbarParams routeParam) {
     if (widget.scaffoldKey.currentState!.isDrawerOpen) {
       widget.scaffoldKey.currentState!.closeDrawer();
       //close drawer, if drawer is open
@@ -49,17 +35,36 @@ class AppNavbarState extends State<AppNavbar> {
 
   @override
   Widget build(BuildContext context) {
-    final int? selectedIndex = getCurrentIndex(context);
-
+    final int? selectedIndex = getCurrentIndex(context, widget.routeData);
+    final auth = NhostAuthProvider.of(context);
     return ListView.builder(
         itemCount: widget.routeData.length,
         itemBuilder: (_, index) {
-          return ListTile(
-            leading: Icon(widget.routeData[index].icon),
-            title: Text(widget.routeData[index].title),
-            selected: index == selectedIndex,
-            onTap: () => handleTap(context, widget.routeData[index]),
-          );
+          switch (auth?.authenticationState) {
+            case AuthenticationState.signedIn:
+              if (widget.routeData[index].private ||
+                  !widget.routeData[index].publicOnly) {
+                return ListTile(
+                  leading: Icon(widget.routeData[index].icon),
+                  title: Text(widget.routeData[index].title),
+                  selected: index == selectedIndex,
+                  onTap: () => handleTap(context, widget.routeData[index]),
+                );
+              }
+              return const SizedBox();
+            case AuthenticationState.signedOut:
+              if (!widget.routeData[index].private) {
+                return ListTile(
+                  leading: Icon(widget.routeData[index].icon),
+                  title: Text(widget.routeData[index].title),
+                  selected: index == selectedIndex,
+                  onTap: () => handleTap(context, widget.routeData[index]),
+                );
+              }
+              return const SizedBox();
+            default:
+              return const SizedBox();
+          }
         });
   }
 }

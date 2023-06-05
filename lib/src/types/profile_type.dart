@@ -21,8 +21,8 @@ class Profile {
       profile_id: json['profile_id'],
       profile_first_name: json['profile_first_name'],
       profile_address: json['profile_address'],
-      updated_at: json['updated_at'],
-      created_at: json['created_at'],
+      updated_at: DateTime.parse(json['updated_at']),
+      created_at: DateTime.parse(json['created_at']),
     );
   }
 
