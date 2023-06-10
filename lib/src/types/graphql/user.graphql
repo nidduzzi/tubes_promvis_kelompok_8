@@ -1,0 +1,22 @@
+fragment userData on users {
+    id
+    email
+    displayName
+    defaultRole
+    roles {
+        role
+    }
+}
+
+fragment userProfile on users {
+    profile {
+        ...profileData
+    }
+}
+
+query GetUserByPkQuery($user_id: uuid) {
+    users(where: { id: { _eq: $user_id } }) {
+        ...userData
+        ...userProfile
+    }
+}

@@ -1,0 +1,33 @@
+targets:
+    $default:
+        builders:
+            graphql_codegen:
+                options:
+                    clients:
+                        - graphql_flutter
+                    outputDirectory: "__generated"
+                    generatedFileHeader: "// GENERATED FILE\n// DO NOT MODIFY\n"
+                    scalars:
+                        jsonb:
+                            type: JSONB
+                            fromJsonFunctionName: jsonbFromJson
+                            toJsonFunctionName: jsonbToJson
+                            import: package:tubes_promvis_kelompok_8/src/types/graphql/scalar.dart
+                        uuid:
+                            type: UUID
+                            fromJsonFunctionName: uuidFromJson
+                            toJsonFunctionName: uuidToJson
+                            import: package:tubes_promvis_kelompok_8/src/types/graphql/scalar.dart
+                        timestamptz:
+                            type: DateTime
+                        bigint:
+                            type: int
+                        bytea:
+                            type: String
+                        citext:
+                            type: Citext
+                            fromJsonFunctionName: citextFromJson
+                            toJsonFunctionName: citextToJson
+                            import: package:tubes_promvis_kelompok_8/src/types/graphql/scalar.dart
+                        date:
+                            type: DateTime

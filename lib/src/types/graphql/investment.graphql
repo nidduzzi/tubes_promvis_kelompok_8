@@ -1,0 +1,101 @@
+fragment investmentData on investment {
+    investment_id
+    investor_id
+    investment_amount
+    updated_at
+    created_at
+}
+
+mutation InsertInvestmentMutation($data: investment_insert_input!) {
+    insert_investment_one(object: $data) {
+        ...investmentData
+    }
+}
+
+mutation UpdateInvestmentMutation(
+    $data: investment_set_input!
+    $investment_id: Int
+) {
+    update_investment(
+        _set: $data
+        where: { investment_id: { _eq: $investment_id } }
+    ) {
+        returning {
+            ...investmentData
+        }
+    }
+}
+
+query GetByPkInvestmentQuery($investment_id: Int!) {
+    investment_by_pk(investment_id: $investment_id) {
+        ...investmentData
+        investor {
+            ...investorData
+        }
+    }
+}
+
+query GetInvestorInvestmentAggregateQuery(
+    $investor_id: Int
+    $limit: Int
+    $distinct_on: [investment_select_column!]
+    $offset: Int
+    $order_by: [investment_order_by!]
+) {
+    investment_aggregate(
+        where: { investor_id: { _eq: $investor_id } }
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        aggregate {
+            count
+            sum {
+                investment_amount
+            }
+            avg {
+                investment_amount
+            }
+        }
+    }
+}
+
+query GetAllInvestmentQuery(
+    $where: investment_bool_exp
+    $limit: Int
+    $distinct_on: [investment_select_column!]
+    $offset: Int
+    $order_by: [investment_order_by!]
+) {
+    investment(
+        where: $where
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...investmentData
+    }
+}
+
+query GetAllInvestmentInvestorQuery(
+    $where: investment_bool_exp
+    $limit: Int
+    $distinct_on: [investment_select_column!]
+    $offset: Int
+    $order_by: [investment_order_by!]
+) {
+    investment(
+        where: $where
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...investmentData
+        investor {
+            ...investorData
+        }
+    }
+}

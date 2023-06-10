@@ -1,0 +1,50 @@
+fragment profileData on profile {
+    profile_id
+    profile_first_name
+    profile_last_name
+    profile_address
+    profile_ktp_no
+    profile_npwp_no
+    profile_phone
+    user_id
+    created_at
+    updated_at
+}
+
+mutation InsertProfileMutation($data: profile_insert_input!) {
+    insert_profile_one(object: $data) {
+        ...profileData
+    }
+}
+
+mutation UpdateProfileMutation($data: profile_set_input, $user_id: uuid) {
+    update_profile(_set: $data, where: { user_id: { _eq: $user_id } }) {
+        returning {
+            ...profileData
+        }
+    }
+}
+
+query GetAllProfileQuery(
+    $where: profile_bool_exp
+    $limit: Int
+    $distinct_on: [profile_select_column!]
+    $offset: Int
+    $order_by: [profile_order_by!]
+) {
+    profile(
+        where: $where
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...profileData
+    }
+}
+
+# query GetProfileQuery {
+#     profile {
+#         ...profileData
+#     }
+# }

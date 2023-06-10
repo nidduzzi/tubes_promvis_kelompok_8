@@ -93,10 +93,10 @@ packages:
     dependency: "direct dev"
     description:
       name: build_runner
-      sha256: "220ae4553e50d7c21a17c051afc7b183d28a24a420502e842f303f8e4e6edced"
+      sha256: "5e1929ad37d48bd382b124266cb8e521de5548d406a45a5ae6656c13dab73e37"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.4"
+    version: "2.4.5"
   build_runner_core:
     dependency: transitive
     description:
@@ -265,6 +265,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.4"
+  file_picker:
+    dependency: transitive
+    description:
+      name: file_picker
+      sha256: b85eb92b175767fdaa0c543bf3b0d1f610fe966412ea72845fe5ba7801e763ff
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.2.10"
   fixnum:
     dependency: transitive
     description:
@@ -294,6 +302,54 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.18.6"
+  flutter_keyboard_visibility:
+    dependency: transitive
+    description:
+      name: flutter_keyboard_visibility
+      sha256: "4983655c26ab5b959252ee204c2fffa4afeb4413cd030455194ec0caa3b8e7cb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.4.1"
+  flutter_keyboard_visibility_linux:
+    dependency: transitive
+    description:
+      name: flutter_keyboard_visibility_linux
+      sha256: "6fba7cd9bb033b6ddd8c2beb4c99ad02d728f1e6e6d9b9446667398b2ac39f08"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
+  flutter_keyboard_visibility_macos:
+    dependency: transitive
+    description:
+      name: flutter_keyboard_visibility_macos
+      sha256: c5c49b16fff453dfdafdc16f26bdd8fb8d55812a1d50b0ce25fc8d9f2e53d086
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
+  flutter_keyboard_visibility_platform_interface:
+    dependency: transitive
+    description:
+      name: flutter_keyboard_visibility_platform_interface
+      sha256: e43a89845873f7be10cb3884345ceb9aebf00a659f479d1c8f4293fcb37022a4
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
+  flutter_keyboard_visibility_web:
+    dependency: transitive
+    description:
+      name: flutter_keyboard_visibility_web
+      sha256: d3771a2e752880c79203f8d80658401d0c998e4183edca05a149f5098ce6e3d1
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
+  flutter_keyboard_visibility_windows:
+    dependency: transitive
+    description:
+      name: flutter_keyboard_visibility_windows
+      sha256: fc4b0f0b6be9b93ae527f3d527fb56ee2d918cd88bbca438c478af7bcfd0ef73
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -307,6 +363,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_plugin_android_lifecycle:
+    dependency: transitive
+    description:
+      name: flutter_plugin_android_lifecycle
+      sha256: "950e77c2bbe1692bc0874fc7fb491b96a4dc340457f4ea1641443d0a6c1ea360"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.15"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -357,6 +421,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.14.0"
+  gql_code_builder:
+    dependency: transitive
+    description:
+      name: gql_code_builder
+      sha256: "66fc942416d9703e59ac732b2cb4e8442261fc90e1fcf89881b5b796d0803d02"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.7.1"
   gql_dedupe_link:
     dependency: transitive
     description:
@@ -421,6 +493,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.2.0-beta.1"
+  graphql_codegen:
+    dependency: "direct dev"
+    description:
+      name: graphql_codegen
+      sha256: "572cfa1ca69050bf8763e8b9e151df6240f08b41e961916a2f88882b4ff897f5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.12.2"
   graphql_flutter:
     dependency: "direct main"
     description:
@@ -765,6 +845,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  pointer_interceptor:
+    dependency: transitive
+    description:
+      name: pointer_interceptor
+      sha256: "6aa680b30d96dccef496933d00208ad25f07e047f644dc98ce03ec6141633a9a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.9.3+4"
   pool:
     dependency: transitive
     description:
@@ -805,6 +893,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.3"
+  quill_html_editor:
+    dependency: "direct main"
+    description:
+      name: quill_html_editor
+      sha256: "16d09a35742aaa0059c1a332ab2cef4570c22053495d1b9dafd9d2573b837d94"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.9"
+  recase:
+    dependency: transitive
+    description:
+      name: recase
+      sha256: e4eb4ec2dcdee52dcf99cb4ceabaffc631d7424ee55e56f280bc039737f89213
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.1.0"
   rxdart:
     dependency: transitive
     description:
@@ -1154,6 +1258,38 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  webview_flutter:
+    dependency: transitive
+    description:
+      name: webview_flutter
+      sha256: "789d52bd789373cc1e100fb634af2127e86c99cf9abde09499743270c5de8d00"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.2.2"
+  webview_flutter_android:
+    dependency: transitive
+    description:
+      name: webview_flutter_android
+      sha256: "57a22c86065375c1598b57224f92d6008141be0c877c64100de8bfb6f71083d8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.7.1"
+  webview_flutter_platform_interface:
+    dependency: transitive
+    description:
+      name: webview_flutter_platform_interface
+      sha256: "656e2aeaef318900fffd21468b6ddc7958c7092a642f0e7220bac328b70d4a81"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.1"
+  webview_flutter_wkwebview:
+    dependency: transitive
+    description:
+      name: webview_flutter_wkwebview
+      sha256: "6bbc6ade302b842999b27cbaa7171241c273deea8a9c73f92ceb3d811c767de2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.4.4"
   win32:
     dependency: transitive
     description:

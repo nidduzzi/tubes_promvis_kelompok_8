@@ -1,0 +1,70 @@
+fragment investorData on investor {
+    investor_id
+    investor_name
+    investor_investment_amount
+    user_id
+    updated_at
+    created_at
+}
+
+mutation InsertInvestorMutation($data: investor_insert_input!) {
+    insert_investor_one(object: $data) {
+        ...investorData
+    }
+}
+
+mutation UpdateInvestorMutation($data: investor_set_input!, $user_id: uuid) {
+    update_investor(_set: $data, where: { user_id: { _eq: $user_id } }) {
+        returning {
+            ...investorData
+        }
+    }
+}
+
+query GetByPkInvestorQuery($investor_id: Int!) {
+    investor_by_pk(investor_id: $investor_id) {
+        ...investorData
+        user {
+            ...userProfile
+        }
+    }
+}
+
+query GetAllInvestorQuery(
+    $where: investor_bool_exp
+    $limit: Int
+    $distinct_on: [investor_select_column!]
+    $offset: Int
+    $order_by: [investor_order_by!]
+) {
+    investor(
+        where: $where
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...investorData
+    }
+}
+
+query GetAllInvestorProfileQuery(
+    $where: investor_bool_exp
+    $limit: Int
+    $distinct_on: [investor_select_column!]
+    $offset: Int
+    $order_by: [investor_order_by!]
+) {
+    investor(
+        where: $where
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...investorData
+        user {
+            ...userProfile
+        }
+    }
+}

@@ -1,0 +1,46 @@
+fragment blogData on blog {
+    blog_id
+    blog_title
+    blog_content
+    blog_date
+    updated_at
+    created_at
+}
+
+mutation InsertBlogMutation($data: blog_insert_input!) {
+    insert_blog_one(object: $data) {
+        ...blogData
+    }
+}
+
+mutation UpdateBlogMutation($data: blog_set_input!, $blog_id: Int) {
+    update_blog(_set: $data, where: { blog_id: { _eq: $blog_id } }) {
+        returning {
+            ...blogData
+        }
+    }
+}
+
+query GetByPkBlogQuery($blog_id: Int!) {
+    blog_by_pk(blog_id: $blog_id) {
+        ...blogData
+    }
+}
+
+query GetAllBlogQuery(
+    $where: blog_bool_exp
+    $limit: Int
+    $distinct_on: [blog_select_column!]
+    $offset: Int
+    $order_by: [blog_order_by!]
+) {
+    blog(
+        where: $where
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...blogData
+    }
+}

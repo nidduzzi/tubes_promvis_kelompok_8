@@ -1,0 +1,73 @@
+fragment cs_messageData on cs_message {
+    cs_message_id
+    cs_agent_user_id
+    cs_message_content
+    cs_message_date
+    updated_at
+    created_at
+}
+
+mutation InsertCsMessageMutation($data: cs_message_insert_input!) {
+    insert_cs_message_one(object: $data) {
+        ...cs_messageData
+    }
+}
+
+mutation UpdateCsMessageMutation(
+    $data: cs_message_set_input!
+    $cs_message_id: Int
+) {
+    update_cs_message(
+        _set: $data
+        where: { cs_message_id: { _eq: $cs_message_id } }
+    ) {
+        returning {
+            ...cs_messageData
+        }
+    }
+}
+
+query GetByPkCsMessageQuery($cs_message_id: Int!) {
+    cs_message_by_pk(cs_message_id: $cs_message_id) {
+        ...cs_messageData
+    }
+}
+
+query GetAllCsMessageQuery(
+    $where: cs_message_bool_exp
+    $limit: Int
+    $distinct_on: [cs_message_select_column!]
+    $offset: Int
+    $order_by: [cs_message_order_by!]
+) {
+    cs_message(
+        where: $where
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...cs_messageData
+    }
+}
+
+query GetAllCsMessageAgentQuery(
+    $where: cs_message_bool_exp
+    $limit: Int
+    $distinct_on: [cs_message_select_column!]
+    $offset: Int
+    $order_by: [cs_message_order_by!]
+) {
+    cs_message(
+        where: $where
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...cs_messageData
+        cs_agent {
+            ...userData
+        }
+    }
+}

@@ -1,0 +1,100 @@
+fragment proposalData on proposal {
+    proposal_id
+    umkm_id
+    proposal_content
+    proposal_amount
+    proposal_date
+    updated_at
+    created_at
+}
+
+mutation InsertProposalMutation($data: proposal_insert_input!) {
+    insert_proposal_one(object: $data) {
+        ...proposalData
+    }
+}
+
+mutation UpdateProposalMutation($data: proposal_set_input!, $proposal_id: Int) {
+    update_proposal(
+        _set: $data
+        where: { proposal_id: { _eq: $proposal_id } }
+    ) {
+        returning {
+            ...proposalData
+        }
+    }
+}
+
+query GetByPkProposalQuery($proposal_id: Int!) {
+    proposal_by_pk(proposal_id: $proposal_id) {
+        ...proposalData
+        umkm {
+            ...umkmData
+        }
+    }
+}
+
+query GetUMKMProposalAggregateQuery(
+    $umkm_id: Int
+    $limit: Int
+    $distinct_on: [proposal_select_column!]
+    $offset: Int
+    $order_by: [proposal_order_by!]
+) {
+    proposal_aggregate(
+        where: { umkm_id: { _eq: $umkm_id } }
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        aggregate {
+            count
+            sum {
+                proposal_amount
+            }
+            avg {
+                proposal_amount
+            }
+        }
+    }
+}
+
+query GetAllProposalQuery(
+    $where: proposal_bool_exp
+    $limit: Int
+    $distinct_on: [proposal_select_column!]
+    $offset: Int
+    $order_by: [proposal_order_by!]
+) {
+    proposal(
+        where: $where
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...proposalData
+    }
+}
+
+query GetAllProposalUMKMQuery(
+    $where: proposal_bool_exp
+    $limit: Int
+    $distinct_on: [proposal_select_column!]
+    $offset: Int
+    $order_by: [proposal_order_by!]
+) {
+    proposal(
+        where: $where
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...proposalData
+        umkm {
+            ...umkmData
+        }
+    }
+}

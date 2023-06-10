@@ -1,0 +1,72 @@
+fragment umkmData on umkm {
+    umkm_desc
+    umkm_id
+    umkm_name
+    umkm_performance
+    umkm_shares
+    updated_at
+    user_id
+    created_at
+}
+
+mutation InsertUMKMMutation($data: umkm_insert_input!) {
+    insert_umkm_one(object: $data) {
+        ...umkmData
+    }
+}
+
+mutation UpdateUMKMMutation($data: umkm_set_input!, $user_id: uuid) {
+    update_umkm(_set: $data, where: { user_id: { _eq: $user_id } }) {
+        returning {
+            ...umkmData
+        }
+    }
+}
+
+query GetByPkUMKMQuery($umkm_id: Int!) {
+    umkm_by_pk(umkm_id: $umkm_id) {
+        ...umkmData
+        user {
+            ...userProfile
+        }
+    }
+}
+
+query GetAllUMKMQuery(
+    $where: umkm_bool_exp
+    $limit: Int
+    $distinct_on: [umkm_select_column!]
+    $offset: Int
+    $order_by: [umkm_order_by!]
+) {
+    umkm(
+        where: $where
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...umkmData
+    }
+}
+
+query GetAllUMKMProfileQuery(
+    $where: umkm_bool_exp
+    $limit: Int
+    $distinct_on: [umkm_select_column!]
+    $offset: Int
+    $order_by: [umkm_order_by!]
+) {
+    umkm(
+        where: $where
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...umkmData
+        user {
+            ...userProfile
+        }
+    }
+}

@@ -20,6 +20,7 @@ dependencies:
   graphql_flutter: ^5.1.2
   nhost_dart: ^1.0.0
   nhost_flutter_graphql: ^3.0.0
+  quill_html_editor: ^2.1.9
   shared_preferences: ^2.1.1
   talker_flutter: ^2.0.5
 
@@ -29,8 +30,9 @@ dev_dependencies:
 
   flutter_lints: ^2.0.0
   go_router_builder: ^2.0.0
-  build_runner: ^2.0.0
+  build_runner: ^2.4.5
   build_verify: ^2.0.0
+  graphql_codegen: ^0.12.2
 
 flutter:
   uses-material-design: true
