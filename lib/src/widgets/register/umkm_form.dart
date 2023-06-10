@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:go_router/go_router.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
+import 'package:tubes_promvis_kelompok_8/src/helpers/navigation.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/graphql.dart';
 
 class UMKMProfileForm extends StatefulWidget {
@@ -91,7 +91,10 @@ class UMKMProfileFormState extends State<UMKMProfileForm> {
               options: MutationOptions(document: insertProfileMutation),
               builder: (runMutation, result) {
                 if (result?.isConcrete ?? false) {
-                  context.go('/dashboard');
+                  goTo(
+                    context,
+                    '/dashboard',
+                  );
                 }
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

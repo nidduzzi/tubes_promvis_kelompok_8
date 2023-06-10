@@ -3,7 +3,8 @@ import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/register_page_type.dart';
 import 'dart:developer' as developer;
 
-import 'package:tubes_promvis_kelompok_8/src/widgets/profile/umkm_form.dart';
+import 'package:tubes_promvis_kelompok_8/src/widgets/register/umkm_form.dart';
+import 'package:tubes_promvis_kelompok_8/src/widgets/register/investor_form.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({super.key, required this.type});
@@ -41,7 +42,7 @@ class RegisterFormState extends State<RegisterForm> {
     passwordController.dispose();
   }
 
-  void trySignUp() async {
+  void trySignUp(BuildContext context) async {
     final auth = NhostAuthProvider.of(context)!;
 
     try {
@@ -57,6 +58,7 @@ class RegisterFormState extends State<RegisterForm> {
           defaultRole:
               widget.type == RegisterPageType.Investor ? "investor" : "umkm");
       final user = res.user;
+      assert(user != null, "user sign up returned no user");
       if (user != null) {
         setState(() {
           userId = user.id;
@@ -64,9 +66,18 @@ class RegisterFormState extends State<RegisterForm> {
         // auth.signIn
       }
     } on ApiException catch (e, st) {
+      final reason =
+          e.response.reasonPhrase != null ? " ${e.response.reasonPhrase}" : "";
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Sign up Failed$reason'),
+        ),
+      );
+      developer.log("signup failed", error: e, stackTrace: st);
+    } on Exception catch (e, st) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Sign up Failed'),
+          content: Text('Sign up Failed due to internal error'),
         ),
       );
       developer.log("signup failed", error: e, stackTrace: st);
@@ -80,7 +91,7 @@ class RegisterFormState extends State<RegisterForm> {
         case RegisterPageType.UMKM:
           return const UMKMProfileForm();
         case RegisterPageType.Investor:
-          break;
+          return const InvestorProfileForm();
         default:
       }
     }
@@ -98,7 +109,7 @@ class RegisterFormState extends State<RegisterForm> {
                 border: OutlineInputBorder(),
               ),
               autofocus: true,
-              onFieldSubmitted: (_) => trySignUp(),
+              onFieldSubmitted: (_) => trySignUp(context),
             ),
             const SizedBox(height: 12),
             TextFormField(
@@ -108,7 +119,7 @@ class RegisterFormState extends State<RegisterForm> {
                 border: OutlineInputBorder(),
               ),
               autofocus: true,
-              onFieldSubmitted: (_) => trySignUp(),
+              onFieldSubmitted: (_) => trySignUp(context),
             ),
             const SizedBox(height: 12),
             TextFormField(
@@ -118,11 +129,11 @@ class RegisterFormState extends State<RegisterForm> {
                 border: OutlineInputBorder(),
               ),
               obscureText: true,
-              onFieldSubmitted: (_) => trySignUp(),
+              onFieldSubmitted: (_) => trySignUp(context),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: trySignUp,
+              onPressed: () => trySignUp(context),
               child: const Text('DAFTAR'),
             )
           ],

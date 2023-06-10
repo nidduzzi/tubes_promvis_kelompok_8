@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
+import 'package:tubes_promvis_kelompok_8/src/helpers/navigation.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 import 'dart:math';
 
@@ -44,7 +44,7 @@ class LoginPageState extends State<LoginPage> {
           email: emailController.text, password: passwordController.text);
       Logger.talker.log(res);
       Logger.talker.log(res.session?.accessToken);
-      return true;
+      if (context.mounted) goTo(context, '/dashboard');
     } on ApiException catch (err, st) {
       Logger.talker.error(err, st);
       ScaffoldMessenger.of(context).showSnackBar(
@@ -78,7 +78,7 @@ class LoginPageState extends State<LoginPage> {
                 Form(
                     key: formKey,
                     child: Center(
-                        child: Container(
+                        child: SizedBox(
                       width: min(mediaQuery.width * .8, 500),
                       child: FocusTraversalGroup(
                         policy: ReadingOrderTraversalPolicy(),
@@ -98,9 +98,7 @@ class LoginPageState extends State<LoginPage> {
                                 }
                                 return null;
                               },
-                              onFieldSubmitted: (_) => trySignIn(context).then(
-                                  (value) =>
-                                      {if (value) context.go('/dashboard')}),
+                              onFieldSubmitted: (_) => trySignIn(context),
                             ),
                             const SizedBox(height: 12),
                             TextFormField(
@@ -116,15 +114,11 @@ class LoginPageState extends State<LoginPage> {
                                 }
                                 return null;
                               },
-                              onFieldSubmitted: (_) => trySignIn(context).then(
-                                  (value) =>
-                                      {if (value) context.go('/dashboard')}),
+                              onFieldSubmitted: (_) => trySignIn(context),
                             ),
                             const SizedBox(height: 20),
                             ElevatedButton(
-                              onPressed: () => trySignIn(context).then(
-                                  (value) =>
-                                      {if (value) context.go('/dashboard')}),
+                              onPressed: () => trySignIn(context),
                               child: const Text('MASUK'),
                             )
                           ],
@@ -133,10 +127,17 @@ class LoginPageState extends State<LoginPage> {
                     )))
               ])),
         );
+      case AuthenticationState.signedIn:
+        goTo(
+          context,
+          '/dashboard',
+        );
+        return const CircularProgressIndicator();
       default:
-        Future.delayed(Duration.zero, () {
-          context.go('/');
-        });
+        goTo(
+          context,
+          '/',
+        );
         return const CircularProgressIndicator();
     }
   }

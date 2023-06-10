@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
 import 'package:talker_flutter/talker_flutter.dart';
+import 'package:tubes_promvis_kelompok_8/src/helpers/navigation.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 import 'package:tubes_promvis_kelompok_8/src/providers/settings/settings_controller.dart';
 import 'package:tubes_promvis_kelompok_8/src/routes.dart';
@@ -98,9 +99,7 @@ class AppShellState extends State<AppShell> {
             AppRouter.routes.where((element) => element.path == location);
         if (locationRoute.isNotEmpty && locationRoute.first.private) {
           child = const CircularProgressIndicator();
-          Future.delayed(Duration.zero, () {
-            context.go('/login');
-          });
+          goTo(context, '/login');
         } else {
           child = widget.child;
         }
@@ -131,7 +130,8 @@ class AppShellState extends State<AppShell> {
           child: Row(
             children: <Widget>[
               Expanded(
-                  child: Padding(padding: EdgeInsets.all(8.0), child: child))
+                  child:
+                      Padding(padding: const EdgeInsets.all(8.0), child: child))
             ],
           ),
         ));

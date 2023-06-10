@@ -26,9 +26,23 @@ class P2PApp extends StatefulWidget {
 class P2PAppState extends State<P2PApp> {
   late NhostClient nhostClient;
 
+  loginWithStoredCredentials(SharedPreferencesAuthStore authStore) async {
+    if ((await authStore.getString('nhostRefreshToken')) != null) {
+      Logger.talker.log("loging in with stored credentials");
+      // this will fetch refresh token and will sign user in!
+      nhostClient.auth
+          .signInWithStoredCredentials()
+          .then((value) => Logger.talker.log('user is signed in $value'))
+          .catchError((error, st) => Logger.talker.handle(error, st));
+    } else {
+      Logger.talker.log("no stored credentials found");
+    }
+  }
+
   @override
   void initState() {
     super.initState();
+    final authStore = SharedPreferencesAuthStore();
     // Create a new Nhost client using your project's subdomain and region.
     nhostClient = NhostClient(
       subdomain: Subdomain(
@@ -36,13 +50,9 @@ class P2PAppState extends State<P2PApp> {
         region: ConfigService.apiRegion,
       ),
       // Instruct the client to store tokens using shared preferences.
-      authStore: SharedPreferencesAuthStore(),
+      authStore: authStore,
     );
-    // this will fetch refresh token and will sign user in!
-    nhostClient.auth
-        .signInWithStoredCredentials()
-        .then((value) => Logger.talker.log('user is signed in $value'))
-        .catchError((error, st) => Logger.talker.handle(error, st));
+    loginWithStoredCredentials(authStore);
   }
 
   @override

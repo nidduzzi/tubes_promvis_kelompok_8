@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
+import 'package:tubes_promvis_kelompok_8/src/helpers/navigation.dart';
 import 'package:tubes_promvis_kelompok_8/src/providers/settings/settings_controller.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/route_params_type.dart';
 import 'package:tubes_promvis_kelompok_8/src/helpers/navbar.dart';
@@ -30,7 +30,7 @@ class AppNavbarState extends State<AppNavbar> {
       widget.scaffoldKey.currentState!.openDrawer();
       //open drawer, if drawer is closed
     }
-    context.go(routeParam.path);
+    goTo(context, routeParam.path);
   }
 
   @override
