@@ -6,17 +6,18 @@ class RouteNavbarParams {
   IconData icon;
   String label;
   String title;
-  bool private; // flag if navbar item should only appear when logged in
+  List<String> allowedRoles;
   bool publicOnly; // flag if navbar item shouldn't appear when logged in
-  RouteNavbarParams(
-      {required this.path,
-      required this.icon,
-      required this.label,
-      required this.title,
-      this.private = true,
-      this.publicOnly = false}) {
-    assert(!(private == true && publicOnly == true),
-        "Route navbar params cannot be both private=true and publicOnly=true");
+  RouteNavbarParams({
+    required this.path,
+    required this.icon,
+    required this.label,
+    required this.title,
+    this.allowedRoles = const [],
+    this.publicOnly = false,
+  }) {
+    assert(!(allowedRoles.isNotEmpty && publicOnly == true),
+        "Route navbar params cannot be both private (allowedRoles not empty) and publicOnly=true");
   }
 
   @override

@@ -42,8 +42,10 @@ class AppNavbarState extends State<AppNavbar> {
         itemBuilder: (_, index) {
           switch (auth?.authenticationState) {
             case AuthenticationState.signedIn:
-              if (widget.routeData[index].private ||
-                  !widget.routeData[index].publicOnly) {
+              final routeData = widget.routeData[index];
+              if (routeData.allowedRoles.any((element) =>
+                      auth?.currentUser?.roles.contains(element) ?? false) ||
+                  !routeData.publicOnly) {
                 return ListTile(
                   leading: Icon(widget.routeData[index].icon),
                   title: Text(widget.routeData[index].title),
@@ -51,9 +53,14 @@ class AppNavbarState extends State<AppNavbar> {
                   onTap: () => handleTap(context, widget.routeData[index]),
                 );
               }
+              if (auth?.currentUser?.roles.any((element) =>
+                      widget.routeData[index].allowedRoles.contains(element)) ??
+                  false) {
+                return const SizedBox();
+              }
               return const SizedBox();
             case AuthenticationState.signedOut:
-              if (!widget.routeData[index].private) {
+              if (widget.routeData[index].allowedRoles.isEmpty) {
                 return ListTile(
                   leading: Icon(widget.routeData[index].icon),
                   title: Text(widget.routeData[index].title),
