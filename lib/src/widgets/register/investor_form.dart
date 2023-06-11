@@ -1,176 +1,143 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
 import 'package:tubes_promvis_kelompok_8/src/helpers/navigation.dart';
-import 'package:tubes_promvis_kelompok_8/src/types/graphql.dart';
+import 'package:tubes_promvis_kelompok_8/src/logger.dart';
+import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/investor.graphql.dart';
+import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/schema.graphql.dart';
+import 'package:tubes_promvis_kelompok_8/src/types/register_page_type.dart';
 
-class InvestorProfileForm extends StatefulWidget {
-  const InvestorProfileForm({super.key});
-
-  @override
-  State<InvestorProfileForm> createState() => InvestorProfileFormState();
-}
-
-class InvestorProfileFormState extends State<InvestorProfileForm> {
+class InvestorProfileForm extends HookWidget {
+  InvestorProfileForm(
+      {super.key,
+      required this.handleCancel,
+      required this.handleContinue,
+      required this.handleGoTo});
+  final void Function() handleCancel;
+  final void Function() handleContinue;
+  final void Function(int index) handleGoTo;
   final formKey = GlobalKey<FormState>();
-  late TextEditingController firstNameController;
-  late TextEditingController lastNameController;
-  late TextEditingController addressController;
-  late TextEditingController phoneController;
-  late TextEditingController ktpController;
-  late TextEditingController npwpController;
-
-  @override
-  void initState() {
-    super.initState();
-    firstNameController = TextEditingController(
-      text: '',
-    );
-    lastNameController = TextEditingController(
-      text: '',
-    );
-    addressController = TextEditingController(
-      text: '',
-    );
-    phoneController = TextEditingController(
-      text: '',
-    );
-    ktpController = TextEditingController(
-      text: '',
-    );
-    npwpController = TextEditingController(
-      text: '',
-    );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    firstNameController.dispose();
-    lastNameController.dispose();
-    addressController.dispose();
-    phoneController.dispose();
-    ktpController.dispose();
-    npwpController.dispose();
-  }
-
-  void tryInsertProfile(RunMutation runMutation) async {
-    try {
-      final auth = NhostAuthProvider.of(context)!;
-      final userId = auth.currentUser?.id;
-      if (userId != null) {
-        runMutation({
-          "data": {
-            "profile_first_name": firstNameController.text,
-            "profile_last_name": lastNameController.text,
-            "profile_address": addressController.text,
-            "profile_ktp_no": ktpController.text,
-            "profile_npwp_no": npwpController.text,
-            "profile_phone": phoneController.text,
-            "user_id": userId
-          }
-        });
-      }
-    } on ApiException {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Failed to create profile'),
-        ),
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: formKey,
-      child: FocusTraversalGroup(
-          policy: ReadingOrderTraversalPolicy(),
-          child: Mutation(
-              options: MutationOptions(document: insertProfileMutation),
-              builder: (runMutation, result) {
-                if (result?.isConcrete ?? false) {
-                  goTo(context, '/dashboard');
-                }
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextFormField(
-                      controller: firstNameController,
-                      decoration: const InputDecoration(
-                        labelText: 'First Name',
-                        border: OutlineInputBorder(),
-                      ),
-                      autofocus: true,
-                      onFieldSubmitted: (_) => tryInsertProfile(
-                        runMutation,
-                      ),
-                    ),
-                    TextFormField(
-                      controller: lastNameController,
-                      decoration: const InputDecoration(
-                        labelText: 'Last Name',
-                        border: OutlineInputBorder(),
-                      ),
-                      autofocus: true,
-                      onFieldSubmitted: (_) => tryInsertProfile(
-                        runMutation,
-                      ),
-                    ),
-                    TextFormField(
-                      controller: addressController,
-                      decoration: const InputDecoration(
-                        labelText: 'Address',
-                        border: OutlineInputBorder(),
-                      ),
-                      autofocus: true,
-                      onFieldSubmitted: (_) => tryInsertProfile(
-                        runMutation,
-                      ),
-                    ),
-                    TextFormField(
-                      controller: phoneController,
-                      decoration:
-                          const InputDecoration(labelText: "Enter your number"),
-                      keyboardType: TextInputType.number,
-                      autofocus: true,
-                      inputFormatters: <TextInputFormatter>[
-                        FilteringTextInputFormatter.digitsOnly
-                      ], // Only numbers can be entered
-                      onFieldSubmitted: (_) => tryInsertProfile(
-                        runMutation,
-                      ),
-                    ),
-                    TextFormField(
-                      controller: ktpController,
-                      decoration: const InputDecoration(labelText: "No. KTP"),
-                      keyboardType: TextInputType.number,
-                      autofocus: true,
-                      inputFormatters: <TextInputFormatter>[
-                        FilteringTextInputFormatter.digitsOnly
-                      ], // Only numbers can be entered
-                      onFieldSubmitted: (_) => tryInsertProfile(
-                        runMutation,
-                      ),
-                    ),
-                    TextFormField(
-                      controller: npwpController,
-                      decoration: const InputDecoration(labelText: "No. NPWP"),
-                      autofocus: true,
-                      onFieldSubmitted: (_) => tryInsertProfile(
-                        runMutation,
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    const SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: () => tryInsertProfile(runMutation),
-                      child: const Text('SIMPAN PROFIL'),
-                    )
-                  ],
-                );
-              })),
-    );
+    final auth = NhostAuthProvider.of(context)!;
+    final userId = auth.currentUser?.id;
+    if (userId == null) {
+      handleGoTo(0);
+      return const SizedBox();
+    }
+    final investorNameController = useTextEditingController();
+    final getInvestor = useQuery$GetAllInvestorQuery(
+        Options$Query$GetAllInvestorQuery(
+            variables: Variables$Query$GetAllInvestorQuery(
+                where: Input$investor_bool_exp(
+                    user_id: Input$uuid_comparison_exp($_eq: userId)))));
+    final insertInvestor = useMutation$InsertInvestorMutation();
+    final updateInvestor = useMutation$UpdateInvestorMutation();
+
+    final tryInsertInvestor = useCallback(() async {
+      try {
+        if (!(formKey.currentState?.validate() ?? false)) {
+          return false;
+        }
+        final investors = getInvestor.result.parsedData?.investor;
+        if (investors != null && investors.isNotEmpty) {
+          Logger.talker.log("updating investor");
+          final res = await updateInvestor
+              .runMutation(Variables$Mutation$UpdateInvestorMutation(
+                  user_id: userId,
+                  data: Input$investor_set_input(
+                    investor_name: investorNameController.text,
+                    investor_investment_amount: 0,
+                  )))
+              .networkResult;
+
+          if (res?.hasException == true) {
+            handleCancel();
+            Logger.talker.error("update investor failed", res?.exception);
+          }
+          if (res == null) {
+            goTo(context,
+                '/register/${RegisterPageType.Investor.toShortString()}');
+            throw Exception("response is null");
+          }
+        } else {
+          Logger.talker.log("creating investor");
+          final res = await insertInvestor
+              .runMutation(Variables$Mutation$InsertInvestorMutation(
+                  data: Input$investor_insert_input(
+                      investor_name: investorNameController.text,
+                      investor_investment_amount: 0,
+                      user_id: userId)))
+              .networkResult;
+
+          if (res?.hasException == true) {
+            handleCancel();
+            Logger.talker.error("insert investor failed", res?.exception);
+          }
+          if (res == null) {
+            goTo(context,
+                '/register/${RegisterPageType.Investor.toShortString()}');
+            throw Exception("response is null");
+          }
+        }
+        goTo(context, '/dashboard');
+      } on ApiException catch (err, st) {
+        final decodedBody = const JsonDecoder().convert(err.response.body);
+        final reasonPhrase =
+            decodedBody["message"] != null ? ": ${decodedBody["message"]}" : "";
+        Logger.talker.error("Failed to create Investor ", err, st);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+                'Failed to create Investor  (HTTP STATUS ${err.response.statusCode}$reasonPhrase)'),
+          ),
+        );
+      } catch (err, st) {
+        Logger.talker.error("Failed to create Investor ", err, st);
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Failed to create Investor  due to internal error'),
+          ),
+        );
+      }
+    }, [investorNameController.text, userId, formKey]);
+
+    if (getInvestor.result.isConcrete) {
+      final umkmList = getInvestor.result.parsedData?.investor;
+      if (umkmList != null && umkmList.isNotEmpty) {
+        Logger.talker.log("displaying existing profile data");
+        final umkm = umkmList.first;
+        investorNameController.text = umkm.investor_name;
+      }
+      return Form(
+        key: formKey,
+        child: FocusTraversalGroup(
+            policy: ReadingOrderTraversalPolicy(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TextFormField(
+                  controller: investorNameController,
+                  decoration: const InputDecoration(
+                    labelText: 'Nama Investor',
+                    border: OutlineInputBorder(),
+                  ),
+                  autofocus: true,
+                  onFieldSubmitted: (_) => tryInsertInvestor(),
+                ),
+                const SizedBox(height: 12),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () => tryInsertInvestor(),
+                  child: const Text('SIMPAN INFORMASI INVESTOR'),
+                )
+              ],
+            )),
+      );
+    }
+    return const CircularProgressIndicator.adaptive();
   }
 }

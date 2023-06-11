@@ -17,7 +17,7 @@ mutation InsertProfileMutation($data: profile_insert_input!) {
     }
 }
 
-mutation UpdateProfileMutation($data: profile_set_input, $user_id: uuid) {
+mutation UpdateProfileMutation($data: profile_set_input, $user_id: uuid!) {
     update_profile(_set: $data, where: { user_id: { _eq: $user_id } }) {
         returning {
             ...profileData

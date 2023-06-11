@@ -98,6 +98,7 @@ class AppShellState extends State<AppShell> {
         final locationRoute =
             AppRouter.routes.where((element) => element.path == location);
         if (locationRoute.isNotEmpty && locationRoute.first.private) {
+          Logger.talker.log('route is private, redirecting to login');
           child = const CircularProgressIndicator();
           goTo(context, '/login');
         } else {

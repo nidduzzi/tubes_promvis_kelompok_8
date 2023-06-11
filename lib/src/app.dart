@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
@@ -79,8 +80,10 @@ class P2PAppState extends State<P2PApp> {
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
+            FormBuilderLocalizations.delegate,
           ],
           supportedLocales: const [
+            Locale('id', ''),
             Locale('en', ''), // English, no country code
           ],
 

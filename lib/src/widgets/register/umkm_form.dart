@@ -1,179 +1,157 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
 import 'package:tubes_promvis_kelompok_8/src/helpers/navigation.dart';
-import 'package:tubes_promvis_kelompok_8/src/types/graphql.dart';
+import 'package:tubes_promvis_kelompok_8/src/logger.dart';
+import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/schema.graphql.dart';
+import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/umkm.graphql.dart';
+import 'package:tubes_promvis_kelompok_8/src/types/register_page_type.dart';
 
-class UMKMProfileForm extends StatefulWidget {
-  const UMKMProfileForm({super.key});
-
-  @override
-  State<UMKMProfileForm> createState() => UMKMProfileFormState();
-}
-
-class UMKMProfileFormState extends State<UMKMProfileForm> {
+class UMKMProfileForm extends HookWidget {
+  UMKMProfileForm(
+      {super.key,
+      required this.handleCancel,
+      required this.handleContinue,
+      required this.handleGoTo});
+  final void Function() handleCancel;
+  final void Function() handleContinue;
+  final void Function(int index) handleGoTo;
   final formKey = GlobalKey<FormState>();
-  late TextEditingController firstNameController;
-  late TextEditingController lastNameController;
-  late TextEditingController addressController;
-  late TextEditingController phoneController;
-  late TextEditingController ktpController;
-  late TextEditingController npwpController;
-
-  @override
-  void initState() {
-    super.initState();
-    firstNameController = TextEditingController(
-      text: '',
-    );
-    lastNameController = TextEditingController(
-      text: '',
-    );
-    addressController = TextEditingController(
-      text: '',
-    );
-    phoneController = TextEditingController(
-      text: '',
-    );
-    ktpController = TextEditingController(
-      text: '',
-    );
-    npwpController = TextEditingController(
-      text: '',
-    );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    firstNameController.dispose();
-    lastNameController.dispose();
-    addressController.dispose();
-    phoneController.dispose();
-    ktpController.dispose();
-    npwpController.dispose();
-  }
-
-  void tryInsertProfile(RunMutation runMutation) async {
-    try {
-      final auth = NhostAuthProvider.of(context)!;
-      final userId = auth.currentUser?.id;
-      if (userId != null) {
-        runMutation({
-          "data": {
-            "profile_first_name": firstNameController.text,
-            "profile_last_name": lastNameController.text,
-            "profile_address": addressController.text,
-            "profile_ktp_no": ktpController.text,
-            "profile_npwp_no": npwpController.text,
-            "profile_phone": phoneController.text,
-            "user_id": userId
-          }
-        });
-      }
-    } on ApiException {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Failed to create profile'),
-        ),
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: formKey,
-      child: FocusTraversalGroup(
-          policy: ReadingOrderTraversalPolicy(),
-          child: Mutation(
-              options: MutationOptions(document: insertProfileMutation),
-              builder: (runMutation, result) {
-                if (result?.isConcrete ?? false) {
-                  goTo(
-                    context,
-                    '/dashboard',
-                  );
-                }
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextFormField(
-                      controller: firstNameController,
-                      decoration: const InputDecoration(
-                        labelText: 'First Name',
-                        border: OutlineInputBorder(),
-                      ),
-                      autofocus: true,
-                      onFieldSubmitted: (_) => tryInsertProfile(
-                        runMutation,
-                      ),
-                    ),
-                    TextFormField(
-                      controller: lastNameController,
-                      decoration: const InputDecoration(
-                        labelText: 'Last Name',
-                        border: OutlineInputBorder(),
-                      ),
-                      autofocus: true,
-                      onFieldSubmitted: (_) => tryInsertProfile(
-                        runMutation,
-                      ),
-                    ),
-                    TextFormField(
-                      controller: addressController,
-                      decoration: const InputDecoration(
-                        labelText: 'Address',
-                        border: OutlineInputBorder(),
-                      ),
-                      autofocus: true,
-                      onFieldSubmitted: (_) => tryInsertProfile(
-                        runMutation,
-                      ),
-                    ),
-                    TextFormField(
-                      controller: phoneController,
-                      decoration:
-                          const InputDecoration(labelText: "Enter your number"),
-                      keyboardType: TextInputType.number,
-                      autofocus: true,
-                      inputFormatters: <TextInputFormatter>[
-                        FilteringTextInputFormatter.digitsOnly
-                      ], // Only numbers can be entered
-                      onFieldSubmitted: (_) => tryInsertProfile(
-                        runMutation,
-                      ),
-                    ),
-                    TextFormField(
-                      controller: ktpController,
-                      decoration: const InputDecoration(labelText: "No. KTP"),
-                      keyboardType: TextInputType.number,
-                      autofocus: true,
-                      inputFormatters: <TextInputFormatter>[
-                        FilteringTextInputFormatter.digitsOnly
-                      ], // Only numbers can be entered
-                      onFieldSubmitted: (_) => tryInsertProfile(
-                        runMutation,
-                      ),
-                    ),
-                    TextFormField(
-                      controller: npwpController,
-                      decoration: const InputDecoration(labelText: "No. NPWP"),
-                      autofocus: true,
-                      onFieldSubmitted: (_) => tryInsertProfile(
-                        runMutation,
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    const SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: () => tryInsertProfile(runMutation),
-                      child: const Text('SIMPAN PROFIL'),
-                    )
-                  ],
-                );
-              })),
-    );
+    final auth = NhostAuthProvider.of(context)!;
+    final userId = auth.currentUser?.id;
+    if (userId == null) {
+      handleGoTo(0);
+      return const SizedBox();
+    }
+    final umkmNameController = useTextEditingController();
+    final umkmDescriptionController = useTextEditingController();
+    final getUMKM = useQuery$GetAllUMKMQuery(Options$Query$GetAllUMKMQuery(
+        variables: Variables$Query$GetAllUMKMQuery(
+            where: Input$umkm_bool_exp(
+                user_id: Input$uuid_comparison_exp($_eq: userId)))));
+    final insertUMKM = useMutation$InsertUMKMMutation();
+    final updateUMKM = useMutation$UpdateUMKMMutation();
+
+    final tryInsertUMKM = useCallback(() async {
+      try {
+        if (!(formKey.currentState?.validate() ?? false)) {
+          return false;
+        }
+        final umkms = getUMKM.result.parsedData?.umkm;
+        if (umkms != null && umkms.isNotEmpty) {
+          Logger.talker.log("updating umkm");
+          final res = await updateUMKM
+              .runMutation(Variables$Mutation$UpdateUMKMMutation(
+                  user_id: userId,
+                  data: Input$umkm_set_input(
+                      umkm_name: umkmNameController.text,
+                      umkm_desc: umkmDescriptionController.text,
+                      user_id: userId)))
+              .networkResult;
+
+          if (res?.hasException == true) {
+            handleCancel();
+            Logger.talker.error("update umkm failed", res?.exception);
+          }
+          if (res == null) {
+            goTo(context, '/register/${RegisterPageType.UMKM.toShortString()}');
+            throw Exception("response is null");
+          }
+        } else {
+          Logger.talker.log("updating umkm");
+          final res = await insertUMKM
+              .runMutation(Variables$Mutation$InsertUMKMMutation(
+                  data: Input$umkm_insert_input(
+                      umkm_name: umkmNameController.text,
+                      umkm_desc: umkmDescriptionController.text,
+                      umkm_performance: "",
+                      umkm_shares: 0,
+                      user_id: userId)))
+              .networkResult;
+
+          if (res?.hasException == true) {
+            handleCancel();
+            Logger.talker.error("insert umkm failed", res?.exception);
+          }
+          if (res == null) {
+            goTo(context, '/register/${RegisterPageType.UMKM.toShortString()}');
+            throw Exception("response is null");
+          }
+        }
+        goTo(context, '/dashboard');
+      } on ApiException catch (err, st) {
+        final decodedBody = const JsonDecoder().convert(err.response.body);
+        final reasonPhrase =
+            decodedBody["message"] != null ? ": ${decodedBody["message"]}" : "";
+        Logger.talker.error("Failed to create UMKM", err, st);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+                'Tidak dapat membuat UMKM (HTTP STATUS ${err.response.statusCode}$reasonPhrase)'),
+          ),
+        );
+      } catch (err, st) {
+        Logger.talker.error("Failed to create UMKM", err, st);
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Tidak dapat membuat UMKM karena error internal'),
+          ),
+        );
+      }
+    }, [
+      umkmNameController.text,
+      umkmDescriptionController.text,
+      userId,
+      formKey
+    ]);
+    if (getUMKM.result.isConcrete) {
+      final umkmList = getUMKM.result.parsedData?.umkm;
+      if (umkmList != null && umkmList.isNotEmpty) {
+        Logger.talker.log("displaying existing profile data");
+        final umkm = umkmList.first;
+        umkmNameController.text = umkm.umkm_name;
+        umkmDescriptionController.text = umkm.umkm_desc;
+      }
+      return Form(
+        key: formKey,
+        child: FocusTraversalGroup(
+            policy: ReadingOrderTraversalPolicy(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TextFormField(
+                  controller: umkmNameController,
+                  decoration: const InputDecoration(
+                    labelText: 'Nama UMKM',
+                    border: OutlineInputBorder(),
+                  ),
+                  autofocus: true,
+                  onFieldSubmitted: (_) => tryInsertUMKM(),
+                ),
+                TextFormField(
+                  controller: umkmDescriptionController,
+                  decoration: const InputDecoration(
+                    labelText: 'Deskripsi UMKM',
+                    border: OutlineInputBorder(),
+                  ),
+                  autofocus: true,
+                  onFieldSubmitted: (_) => tryInsertUMKM(),
+                ),
+                const SizedBox(height: 12),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () => tryInsertUMKM(),
+                  child: const Text('SIMPAN INFORMASI UMKM'),
+                )
+              ],
+            )),
+      );
+    }
+    return const CircularProgressIndicator.adaptive();
   }
 }

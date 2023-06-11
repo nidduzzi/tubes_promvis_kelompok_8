@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/register_page_type.dart';
-import 'package:tubes_promvis_kelompok_8/src/widgets/register/register_form.dart';
+import 'package:tubes_promvis_kelompok_8/src/widgets/register/register_stepper.dart';
 
 class RegisterPageParams {
   final RegisterPageType type;
@@ -27,7 +27,7 @@ class RegisterPage extends StatelessWidget implements RegisterPageParams {
                 : "Mari Investasikan danamu disini! "),
             const Text("Mohon lengkapi data diri anda."),
             const Text("REGISTRASI"),
-            RegisterForm(type: type)
+            RegisterStepper(type: type)
           ],
         ));
   }

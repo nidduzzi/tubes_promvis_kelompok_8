@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
-import 'package:tubes_promvis_kelompok_8/src/types/graphql.dart';
+import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/schema.graphql.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/profile_type.dart';
 import 'package:tubes_promvis_kelompok_8/src/widgets/stateful_wrapper.dart';
+import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/profile.graphql.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
@@ -32,8 +32,12 @@ class DashboardPage extends StatelessWidget {
         },
         child: Padding(
             padding: const EdgeInsets.all(16),
-            child: Query(
-                options: QueryOptions(document: getProfileQuery),
+            child: Query$GetAllProfileQuery$Widget(
+                options: Options$Query$GetAllProfileQuery(
+                    variables: Variables$Query$GetAllProfileQuery(
+                        where: Input$profile_bool_exp(
+                            user_id: Input$uuid_comparison_exp(
+                                $_eq: currentUser?.id)))),
                 builder: (result, {fetchMore, refetch}) {
                   if (result.isLoading) return const Text('Loading…');
                   if (!result.isConcrete) return const SizedBox();
