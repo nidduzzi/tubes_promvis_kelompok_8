@@ -54,17 +54,16 @@ class ProfileForm extends HookWidget {
         if (profiles != null && profiles.isNotEmpty) {
           Logger.talker.log("updating profile");
           final res = await updateProfile
-              .runMutation(
-                  variables: Variables$Mutation$UpdateProfileMutation(
-                      user_id: userId,
-                      data: Input$profile_set_input(
-                        profile_first_name: firstNameController.text,
-                        profile_last_name: lastNameController.text,
-                        profile_address: addressController.text,
-                        profile_ktp_no: ktpController.text,
-                        profile_npwp_no: npwpController.text,
-                        profile_phone: phoneController.text,
-                      )))
+              .runMutation(Variables$Mutation$UpdateProfileMutation(
+                  user_id: userId,
+                  data: Input$profile_set_input(
+                    profile_first_name: firstNameController.text,
+                    profile_last_name: lastNameController.text,
+                    profile_address: addressController.text,
+                    profile_ktp_no: ktpController.text,
+                    profile_npwp_no: npwpController.text,
+                    profile_phone: phoneController.text,
+                  )))
               .networkResult;
 
           if (res == null) {

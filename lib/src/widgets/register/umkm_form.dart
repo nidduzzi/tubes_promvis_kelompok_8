@@ -54,13 +54,13 @@ class UMKMProfileForm extends HookWidget {
                       user_id: userId)))
               .networkResult;
 
-          if (res?.hasException == true) {
-            handleCancel();
-            Logger.talker.error("update umkm failed", res?.exception);
-          }
           if (res == null) {
             goTo(context, '/register/${RegisterPageType.UMKM.toShortString()}');
             throw Exception("response is null");
+          }
+          if (res.hasException == true) {
+            handleCancel();
+            Logger.talker.error("update umkm failed", res.exception);
           }
         } else {
           Logger.talker.log("updating umkm");
@@ -74,13 +74,13 @@ class UMKMProfileForm extends HookWidget {
                       user_id: userId)))
               .networkResult;
 
-          if (res?.hasException == true) {
-            handleCancel();
-            Logger.talker.error("insert umkm failed", res?.exception);
-          }
           if (res == null) {
             goTo(context, '/register/${RegisterPageType.UMKM.toShortString()}');
             throw Exception("response is null");
+          }
+          if (res.hasException == true) {
+            handleCancel();
+            Logger.talker.error("insert umkm failed", res.exception);
           }
         }
         goTo(context, '/dashboard');

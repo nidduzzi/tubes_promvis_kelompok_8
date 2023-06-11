@@ -34,16 +34,6 @@ class RegisterForm extends HookWidget {
         if (!(formKey.currentState?.validate() ?? false)) {
           return false;
         }
-        // await auth
-        //     .signInEmailPassword(
-        //         email: emailController.text, password: passwordController.text)
-        //     .then((signInRes) {
-        //   if (signInRes.user != null) {
-        //     goTo(context, '/dashboard');
-        //   }
-        // }).catchError((e) {
-        //   Logger.talker.log(e);
-        // });
         if (auth.authenticationState == AuthenticationState.signedOut) {
           final res = await auth.signUp(
               email: emailController.text,

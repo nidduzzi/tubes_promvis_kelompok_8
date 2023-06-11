@@ -957,11 +957,11 @@ class Mutation$InsertProfileMutation$Widget
 class Variables$Mutation$UpdateProfileMutation {
   factory Variables$Mutation$UpdateProfileMutation({
     Input$profile_set_input? data,
-    UUID? user_id,
+    required UUID user_id,
   }) =>
       Variables$Mutation$UpdateProfileMutation._({
         if (data != null) r'data': data,
-        if (user_id != null) r'user_id': user_id,
+        r'user_id': user_id,
       });
 
   Variables$Mutation$UpdateProfileMutation._(this._$data);
@@ -975,11 +975,8 @@ class Variables$Mutation$UpdateProfileMutation {
           ? null
           : Input$profile_set_input.fromJson((l$data as Map<String, dynamic>));
     }
-    if (data.containsKey('user_id')) {
-      final l$user_id = data['user_id'];
-      result$data['user_id'] =
-          l$user_id == null ? null : uuidFromJson(l$user_id);
-    }
+    final l$user_id = data['user_id'];
+    result$data['user_id'] = uuidFromJson(l$user_id);
     return Variables$Mutation$UpdateProfileMutation._(result$data);
   }
 
@@ -987,17 +984,15 @@ class Variables$Mutation$UpdateProfileMutation {
 
   Input$profile_set_input? get data =>
       (_$data['data'] as Input$profile_set_input?);
-  UUID? get user_id => (_$data['user_id'] as UUID?);
+  UUID get user_id => (_$data['user_id'] as UUID);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('data')) {
       final l$data = data;
       result$data['data'] = l$data?.toJson();
     }
-    if (_$data.containsKey('user_id')) {
-      final l$user_id = user_id;
-      result$data['user_id'] = l$user_id == null ? null : uuidToJson(l$user_id);
-    }
+    final l$user_id = user_id;
+    result$data['user_id'] = uuidToJson(l$user_id);
     return result$data;
   }
 
@@ -1026,9 +1021,6 @@ class Variables$Mutation$UpdateProfileMutation {
     }
     final l$user_id = user_id;
     final lOther$user_id = other.user_id;
-    if (_$data.containsKey('user_id') != other._$data.containsKey('user_id')) {
-      return false;
-    }
     if (l$user_id != lOther$user_id) {
       return false;
     }
@@ -1041,7 +1033,7 @@ class Variables$Mutation$UpdateProfileMutation {
     final l$user_id = user_id;
     return Object.hashAll([
       _$data.containsKey('data') ? l$data : const {},
-      _$data.containsKey('user_id') ? l$user_id : const {},
+      l$user_id,
     ]);
   }
 }
@@ -1081,7 +1073,8 @@ class _CopyWithImpl$Variables$Mutation$UpdateProfileMutation<TRes>
       _then(Variables$Mutation$UpdateProfileMutation._({
         ..._instance._$data,
         if (data != _undefined) 'data': (data as Input$profile_set_input?),
-        if (user_id != _undefined) 'user_id': (user_id as UUID?),
+        if (user_id != _undefined && user_id != null)
+          'user_id': (user_id as UUID),
       }));
 }
 
@@ -1259,7 +1252,7 @@ const documentNodeMutationUpdateProfileMutation = DocumentNode(definitions: [
         variable: VariableNode(name: NameNode(value: 'user_id')),
         type: NamedTypeNode(
           name: NameNode(value: 'uuid'),
-          isNonNull: false,
+          isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
@@ -1344,7 +1337,7 @@ class Options$Mutation$UpdateProfileMutation
     extends graphql.MutationOptions<Mutation$UpdateProfileMutation> {
   Options$Mutation$UpdateProfileMutation({
     String? operationName,
-    Variables$Mutation$UpdateProfileMutation? variables,
+    required Variables$Mutation$UpdateProfileMutation variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -1356,7 +1349,7 @@ class Options$Mutation$UpdateProfileMutation
     graphql.OnError? onError,
   })  : onCompletedWithParsed = onCompleted,
         super(
-          variables: variables?.toJson() ?? {},
+          variables: variables.toJson(),
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -1393,7 +1386,7 @@ class WatchOptions$Mutation$UpdateProfileMutation
     extends graphql.WatchQueryOptions<Mutation$UpdateProfileMutation> {
   WatchOptions$Mutation$UpdateProfileMutation({
     String? operationName,
-    Variables$Mutation$UpdateProfileMutation? variables,
+    required Variables$Mutation$UpdateProfileMutation variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -1405,7 +1398,7 @@ class WatchOptions$Mutation$UpdateProfileMutation
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables?.toJson() ?? {},
+          variables: variables.toJson(),
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -1425,14 +1418,12 @@ extension ClientExtension$Mutation$UpdateProfileMutation
     on graphql.GraphQLClient {
   Future<graphql.QueryResult<Mutation$UpdateProfileMutation>>
       mutate$UpdateProfileMutation(
-              [Options$Mutation$UpdateProfileMutation? options]) async =>
-          await this
-              .mutate(options ?? Options$Mutation$UpdateProfileMutation());
+              Options$Mutation$UpdateProfileMutation options) async =>
+          await this.mutate(options);
   graphql.ObservableQuery<Mutation$UpdateProfileMutation>
       watchMutation$UpdateProfileMutation(
-              [WatchOptions$Mutation$UpdateProfileMutation? options]) =>
-          this.watchMutation(
-              options ?? WatchOptions$Mutation$UpdateProfileMutation());
+              WatchOptions$Mutation$UpdateProfileMutation options) =>
+          this.watchMutation(options);
 }
 
 class Mutation$UpdateProfileMutation$HookResult {
@@ -1451,9 +1442,9 @@ Mutation$UpdateProfileMutation$HookResult useMutation$UpdateProfileMutation(
   final result = graphql_flutter
       .useMutation(options ?? WidgetOptions$Mutation$UpdateProfileMutation());
   return Mutation$UpdateProfileMutation$HookResult(
-    ({variables, optimisticResult, typedOptimisticResult}) =>
+    (variables, {optimisticResult, typedOptimisticResult}) =>
         result.runMutation(
-      variables?.toJson() ?? const {},
+      variables.toJson(),
       optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
     ),
     result.result,
@@ -1462,9 +1453,8 @@ Mutation$UpdateProfileMutation$HookResult useMutation$UpdateProfileMutation(
 
 graphql.ObservableQuery<Mutation$UpdateProfileMutation>
     useWatchMutation$UpdateProfileMutation(
-            [WatchOptions$Mutation$UpdateProfileMutation? options]) =>
-        graphql_flutter.useWatchMutation(
-            options ?? WatchOptions$Mutation$UpdateProfileMutation());
+            WatchOptions$Mutation$UpdateProfileMutation options) =>
+        graphql_flutter.useWatchMutation(options);
 
 class WidgetOptions$Mutation$UpdateProfileMutation
     extends graphql.MutationOptions<Mutation$UpdateProfileMutation> {
@@ -1514,8 +1504,8 @@ class WidgetOptions$Mutation$UpdateProfileMutation
 }
 
 typedef RunMutation$Mutation$UpdateProfileMutation
-    = graphql.MultiSourceResult<Mutation$UpdateProfileMutation> Function({
-  Variables$Mutation$UpdateProfileMutation? variables,
+    = graphql.MultiSourceResult<Mutation$UpdateProfileMutation> Function(
+  Variables$Mutation$UpdateProfileMutation, {
   Object? optimisticResult,
   Mutation$UpdateProfileMutation? typedOptimisticResult,
 });
@@ -1538,13 +1528,13 @@ class Mutation$UpdateProfileMutation$Widget
             result,
           ) =>
               builder(
-            ({
-              variables,
+            (
+              variables, {
               optimisticResult,
               typedOptimisticResult,
             }) =>
                 run(
-              variables?.toJson() ?? const {},
+              variables.toJson(),
               optimisticResult:
                   optimisticResult ?? typedOptimisticResult?.toJson(),
             ),

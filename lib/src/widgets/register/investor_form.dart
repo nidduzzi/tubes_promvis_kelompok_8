@@ -54,14 +54,14 @@ class InvestorProfileForm extends HookWidget {
                   )))
               .networkResult;
 
-          if (res?.hasException == true) {
-            handleCancel();
-            Logger.talker.error("update investor failed", res?.exception);
-          }
           if (res == null) {
             goTo(context,
                 '/register/${RegisterPageType.Investor.toShortString()}');
             throw Exception("response is null");
+          }
+          if (res.hasException == true) {
+            handleCancel();
+            Logger.talker.error("update investor failed", res.exception);
           }
         } else {
           Logger.talker.log("creating investor");
@@ -72,15 +72,14 @@ class InvestorProfileForm extends HookWidget {
                       investor_investment_amount: 0,
                       user_id: userId)))
               .networkResult;
-
-          if (res?.hasException == true) {
-            handleCancel();
-            Logger.talker.error("insert investor failed", res?.exception);
-          }
           if (res == null) {
             goTo(context,
                 '/register/${RegisterPageType.Investor.toShortString()}');
             throw Exception("response is null");
+          }
+          if (res.hasException == true) {
+            handleCancel();
+            Logger.talker.error("insert investor failed", res.exception);
           }
         }
         goTo(context, '/dashboard');
@@ -99,18 +98,18 @@ class InvestorProfileForm extends HookWidget {
         Logger.talker.error("Failed to create Investor ", err, st);
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Failed to create Investor  due to internal error'),
+            content: Text('Failed to create Investor due to internal error'),
           ),
         );
       }
     }, [investorNameController.text, userId, formKey]);
 
     if (getInvestor.result.isConcrete) {
-      final umkmList = getInvestor.result.parsedData?.investor;
-      if (umkmList != null && umkmList.isNotEmpty) {
-        Logger.talker.log("displaying existing profile data");
-        final umkm = umkmList.first;
-        investorNameController.text = umkm.investor_name;
+      final investorList = getInvestor.result.parsedData?.investor;
+      if (investorList != null && investorList.isNotEmpty) {
+        Logger.talker.log("displaying existing investor data");
+        final investor = investorList.first;
+        investorNameController.text = investor.investor_name;
       }
       return Form(
         key: formKey,
