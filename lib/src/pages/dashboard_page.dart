@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/schema.graphql.dart';
-import 'package:tubes_promvis_kelompok_8/src/types/profile_type.dart';
 import 'package:tubes_promvis_kelompok_8/src/widgets/stateful_wrapper.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/profile.graphql.dart';
 
@@ -48,10 +47,7 @@ class DashboardPage extends StatelessWidget {
                         'your backend using the quick-start at '
                         'https://docs.nhost.io?');
                   }
-                  final Profile? profile =
-                      (result.data!['profile'] as List).isNotEmpty
-                          ? Profile.fromJson(result.data!['profile'][0])
-                          : null;
+                  final profile = result.parsedData?.profile.first;
 
                   return Column(children: [
                     Text("Name: ${currentUser?.displayName}"),
