@@ -824,11 +824,11 @@ class Mutation$InsertInvestmentMutation$Widget
 class Variables$Mutation$UpdateInvestmentMutation {
   factory Variables$Mutation$UpdateInvestmentMutation({
     required Input$investment_set_input data,
-    int? investment_id,
+    required int investment_id,
   }) =>
       Variables$Mutation$UpdateInvestmentMutation._({
         r'data': data,
-        if (investment_id != null) r'investment_id': investment_id,
+        r'investment_id': investment_id,
       });
 
   Variables$Mutation$UpdateInvestmentMutation._(this._$data);
@@ -839,10 +839,8 @@ class Variables$Mutation$UpdateInvestmentMutation {
     final l$data = data['data'];
     result$data['data'] =
         Input$investment_set_input.fromJson((l$data as Map<String, dynamic>));
-    if (data.containsKey('investment_id')) {
-      final l$investment_id = data['investment_id'];
-      result$data['investment_id'] = (l$investment_id as int?);
-    }
+    final l$investment_id = data['investment_id'];
+    result$data['investment_id'] = (l$investment_id as int);
     return Variables$Mutation$UpdateInvestmentMutation._(result$data);
   }
 
@@ -850,15 +848,13 @@ class Variables$Mutation$UpdateInvestmentMutation {
 
   Input$investment_set_input get data =>
       (_$data['data'] as Input$investment_set_input);
-  int? get investment_id => (_$data['investment_id'] as int?);
+  int get investment_id => (_$data['investment_id'] as int);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$data = data;
     result$data['data'] = l$data.toJson();
-    if (_$data.containsKey('investment_id')) {
-      final l$investment_id = investment_id;
-      result$data['investment_id'] = l$investment_id;
-    }
+    final l$investment_id = investment_id;
+    result$data['investment_id'] = l$investment_id;
     return result$data;
   }
 
@@ -884,10 +880,6 @@ class Variables$Mutation$UpdateInvestmentMutation {
     }
     final l$investment_id = investment_id;
     final lOther$investment_id = other.investment_id;
-    if (_$data.containsKey('investment_id') !=
-        other._$data.containsKey('investment_id')) {
-      return false;
-    }
     if (l$investment_id != lOther$investment_id) {
       return false;
     }
@@ -900,7 +892,7 @@ class Variables$Mutation$UpdateInvestmentMutation {
     final l$investment_id = investment_id;
     return Object.hashAll([
       l$data,
-      _$data.containsKey('investment_id') ? l$investment_id : const {},
+      l$investment_id,
     ]);
   }
 }
@@ -941,8 +933,8 @@ class _CopyWithImpl$Variables$Mutation$UpdateInvestmentMutation<TRes>
         ..._instance._$data,
         if (data != _undefined && data != null)
           'data': (data as Input$investment_set_input),
-        if (investment_id != _undefined)
-          'investment_id': (investment_id as int?),
+        if (investment_id != _undefined && investment_id != null)
+          'investment_id': (investment_id as int),
       }));
 }
 
@@ -1122,7 +1114,7 @@ const documentNodeMutationUpdateInvestmentMutation = DocumentNode(definitions: [
         variable: VariableNode(name: NameNode(value: 'investment_id')),
         type: NamedTypeNode(
           name: NameNode(value: 'Int'),
-          isNonNull: false,
+          isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],

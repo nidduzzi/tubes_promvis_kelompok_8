@@ -14,7 +14,7 @@ mutation InsertInvestmentMutation($data: investment_insert_input!) {
 
 mutation UpdateInvestmentMutation(
     $data: investment_set_input!
-    $investment_id: Int
+    $investment_id: Int!
 ) {
     update_investment(
         _set: $data

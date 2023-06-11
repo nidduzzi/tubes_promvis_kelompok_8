@@ -15,7 +15,7 @@ mutation InsertCsMessageMutation($data: cs_message_insert_input!) {
 
 mutation UpdateCsMessageMutation(
     $data: cs_message_set_input!
-    $cs_message_id: Int
+    $cs_message_id: Int!
 ) {
     update_cs_message(
         _set: $data
@@ -52,14 +52,14 @@ query GetAllCsMessageQuery(
 }
 
 query GetAllCsMessageAgentQuery(
-    $where: cs_message_bool_exp
+    $cs_agent_user_id: uuid!
     $limit: Int
     $distinct_on: [cs_message_select_column!]
     $offset: Int
     $order_by: [cs_message_order_by!]
 ) {
     cs_message(
-        where: $where
+        where: { user_id: { _eq: $cs_agent_user_id } }
         limit: $limit
         distinct_on: $distinct_on
         offset: $offset

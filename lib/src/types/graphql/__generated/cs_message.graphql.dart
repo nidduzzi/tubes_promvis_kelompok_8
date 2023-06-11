@@ -852,11 +852,11 @@ class Mutation$InsertCsMessageMutation$Widget
 class Variables$Mutation$UpdateCsMessageMutation {
   factory Variables$Mutation$UpdateCsMessageMutation({
     required Input$cs_message_set_input data,
-    int? cs_message_id,
+    required int cs_message_id,
   }) =>
       Variables$Mutation$UpdateCsMessageMutation._({
         r'data': data,
-        if (cs_message_id != null) r'cs_message_id': cs_message_id,
+        r'cs_message_id': cs_message_id,
       });
 
   Variables$Mutation$UpdateCsMessageMutation._(this._$data);
@@ -867,10 +867,8 @@ class Variables$Mutation$UpdateCsMessageMutation {
     final l$data = data['data'];
     result$data['data'] =
         Input$cs_message_set_input.fromJson((l$data as Map<String, dynamic>));
-    if (data.containsKey('cs_message_id')) {
-      final l$cs_message_id = data['cs_message_id'];
-      result$data['cs_message_id'] = (l$cs_message_id as int?);
-    }
+    final l$cs_message_id = data['cs_message_id'];
+    result$data['cs_message_id'] = (l$cs_message_id as int);
     return Variables$Mutation$UpdateCsMessageMutation._(result$data);
   }
 
@@ -878,15 +876,13 @@ class Variables$Mutation$UpdateCsMessageMutation {
 
   Input$cs_message_set_input get data =>
       (_$data['data'] as Input$cs_message_set_input);
-  int? get cs_message_id => (_$data['cs_message_id'] as int?);
+  int get cs_message_id => (_$data['cs_message_id'] as int);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$data = data;
     result$data['data'] = l$data.toJson();
-    if (_$data.containsKey('cs_message_id')) {
-      final l$cs_message_id = cs_message_id;
-      result$data['cs_message_id'] = l$cs_message_id;
-    }
+    final l$cs_message_id = cs_message_id;
+    result$data['cs_message_id'] = l$cs_message_id;
     return result$data;
   }
 
@@ -912,10 +908,6 @@ class Variables$Mutation$UpdateCsMessageMutation {
     }
     final l$cs_message_id = cs_message_id;
     final lOther$cs_message_id = other.cs_message_id;
-    if (_$data.containsKey('cs_message_id') !=
-        other._$data.containsKey('cs_message_id')) {
-      return false;
-    }
     if (l$cs_message_id != lOther$cs_message_id) {
       return false;
     }
@@ -928,7 +920,7 @@ class Variables$Mutation$UpdateCsMessageMutation {
     final l$cs_message_id = cs_message_id;
     return Object.hashAll([
       l$data,
-      _$data.containsKey('cs_message_id') ? l$cs_message_id : const {},
+      l$cs_message_id,
     ]);
   }
 }
@@ -969,8 +961,8 @@ class _CopyWithImpl$Variables$Mutation$UpdateCsMessageMutation<TRes>
         ..._instance._$data,
         if (data != _undefined && data != null)
           'data': (data as Input$cs_message_set_input),
-        if (cs_message_id != _undefined)
-          'cs_message_id': (cs_message_id as int?),
+        if (cs_message_id != _undefined && cs_message_id != null)
+          'cs_message_id': (cs_message_id as int),
       }));
 }
 
@@ -1149,7 +1141,7 @@ const documentNodeMutationUpdateCsMessageMutation = DocumentNode(definitions: [
         variable: VariableNode(name: NameNode(value: 'cs_message_id')),
         type: NamedTypeNode(
           name: NameNode(value: 'Int'),
-          isNonNull: false,
+          isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
@@ -2739,14 +2731,14 @@ class Query$GetAllCsMessageQuery$Widget
 
 class Variables$Query$GetAllCsMessageAgentQuery {
   factory Variables$Query$GetAllCsMessageAgentQuery({
-    Input$cs_message_bool_exp? where,
+    required UUID cs_agent_user_id,
     int? limit,
     List<Enum$cs_message_select_column>? distinct_on,
     int? offset,
     List<Input$cs_message_order_by>? order_by,
   }) =>
       Variables$Query$GetAllCsMessageAgentQuery._({
-        if (where != null) r'where': where,
+        r'cs_agent_user_id': cs_agent_user_id,
         if (limit != null) r'limit': limit,
         if (distinct_on != null) r'distinct_on': distinct_on,
         if (offset != null) r'offset': offset,
@@ -2758,13 +2750,8 @@ class Variables$Query$GetAllCsMessageAgentQuery {
   factory Variables$Query$GetAllCsMessageAgentQuery.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    if (data.containsKey('where')) {
-      final l$where = data['where'];
-      result$data['where'] = l$where == null
-          ? null
-          : Input$cs_message_bool_exp.fromJson(
-              (l$where as Map<String, dynamic>));
-    }
+    final l$cs_agent_user_id = data['cs_agent_user_id'];
+    result$data['cs_agent_user_id'] = uuidFromJson(l$cs_agent_user_id);
     if (data.containsKey('limit')) {
       final l$limit = data['limit'];
       result$data['limit'] = (l$limit as int?);
@@ -2791,8 +2778,7 @@ class Variables$Query$GetAllCsMessageAgentQuery {
 
   Map<String, dynamic> _$data;
 
-  Input$cs_message_bool_exp? get where =>
-      (_$data['where'] as Input$cs_message_bool_exp?);
+  UUID get cs_agent_user_id => (_$data['cs_agent_user_id'] as UUID);
   int? get limit => (_$data['limit'] as int?);
   List<Enum$cs_message_select_column>? get distinct_on =>
       (_$data['distinct_on'] as List<Enum$cs_message_select_column>?);
@@ -2801,10 +2787,8 @@ class Variables$Query$GetAllCsMessageAgentQuery {
       (_$data['order_by'] as List<Input$cs_message_order_by>?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if (_$data.containsKey('where')) {
-      final l$where = where;
-      result$data['where'] = l$where?.toJson();
-    }
+    final l$cs_agent_user_id = cs_agent_user_id;
+    result$data['cs_agent_user_id'] = uuidToJson(l$cs_agent_user_id);
     if (_$data.containsKey('limit')) {
       final l$limit = limit;
       result$data['limit'] = l$limit;
@@ -2841,12 +2825,9 @@ class Variables$Query$GetAllCsMessageAgentQuery {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$where = where;
-    final lOther$where = other.where;
-    if (_$data.containsKey('where') != other._$data.containsKey('where')) {
-      return false;
-    }
-    if (l$where != lOther$where) {
+    final l$cs_agent_user_id = cs_agent_user_id;
+    final lOther$cs_agent_user_id = other.cs_agent_user_id;
+    if (l$cs_agent_user_id != lOther$cs_agent_user_id) {
       return false;
     }
     final l$limit = limit;
@@ -2910,13 +2891,13 @@ class Variables$Query$GetAllCsMessageAgentQuery {
 
   @override
   int get hashCode {
-    final l$where = where;
+    final l$cs_agent_user_id = cs_agent_user_id;
     final l$limit = limit;
     final l$distinct_on = distinct_on;
     final l$offset = offset;
     final l$order_by = order_by;
     return Object.hashAll([
-      _$data.containsKey('where') ? l$where : const {},
+      l$cs_agent_user_id,
       _$data.containsKey('limit') ? l$limit : const {},
       _$data.containsKey('distinct_on')
           ? l$distinct_on == null
@@ -2943,7 +2924,7 @@ abstract class CopyWith$Variables$Query$GetAllCsMessageAgentQuery<TRes> {
       _CopyWithStubImpl$Variables$Query$GetAllCsMessageAgentQuery;
 
   TRes call({
-    Input$cs_message_bool_exp? where,
+    UUID? cs_agent_user_id,
     int? limit,
     List<Enum$cs_message_select_column>? distinct_on,
     int? offset,
@@ -2965,7 +2946,7 @@ class _CopyWithImpl$Variables$Query$GetAllCsMessageAgentQuery<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? where = _undefined,
+    Object? cs_agent_user_id = _undefined,
     Object? limit = _undefined,
     Object? distinct_on = _undefined,
     Object? offset = _undefined,
@@ -2973,7 +2954,8 @@ class _CopyWithImpl$Variables$Query$GetAllCsMessageAgentQuery<TRes>
   }) =>
       _then(Variables$Query$GetAllCsMessageAgentQuery._({
         ..._instance._$data,
-        if (where != _undefined) 'where': (where as Input$cs_message_bool_exp?),
+        if (cs_agent_user_id != _undefined && cs_agent_user_id != null)
+          'cs_agent_user_id': (cs_agent_user_id as UUID),
         if (limit != _undefined) 'limit': (limit as int?),
         if (distinct_on != _undefined)
           'distinct_on': (distinct_on as List<Enum$cs_message_select_column>?),
@@ -2990,7 +2972,7 @@ class _CopyWithStubImpl$Variables$Query$GetAllCsMessageAgentQuery<TRes>
   TRes _res;
 
   call({
-    Input$cs_message_bool_exp? where,
+    UUID? cs_agent_user_id,
     int? limit,
     List<Enum$cs_message_select_column>? distinct_on,
     int? offset,
@@ -3159,10 +3141,10 @@ const documentNodeQueryGetAllCsMessageAgentQuery = DocumentNode(definitions: [
     name: NameNode(value: 'GetAllCsMessageAgentQuery'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'where')),
+        variable: VariableNode(name: NameNode(value: 'cs_agent_user_id')),
         type: NamedTypeNode(
-          name: NameNode(value: 'cs_message_bool_exp'),
-          isNonNull: false,
+          name: NameNode(value: 'uuid'),
+          isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
@@ -3218,7 +3200,18 @@ const documentNodeQueryGetAllCsMessageAgentQuery = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'where'),
-            value: VariableNode(name: NameNode(value: 'where')),
+            value: ObjectValueNode(fields: [
+              ObjectFieldNode(
+                name: NameNode(value: 'user_id'),
+                value: ObjectValueNode(fields: [
+                  ObjectFieldNode(
+                    name: NameNode(value: '_eq'),
+                    value:
+                        VariableNode(name: NameNode(value: 'cs_agent_user_id')),
+                  )
+                ]),
+              )
+            ]),
           ),
           ArgumentNode(
             name: NameNode(value: 'limit'),
@@ -3296,7 +3289,7 @@ class Options$Query$GetAllCsMessageAgentQuery
     extends graphql.QueryOptions<Query$GetAllCsMessageAgentQuery> {
   Options$Query$GetAllCsMessageAgentQuery({
     String? operationName,
-    Variables$Query$GetAllCsMessageAgentQuery? variables,
+    required Variables$Query$GetAllCsMessageAgentQuery variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -3308,7 +3301,7 @@ class Options$Query$GetAllCsMessageAgentQuery
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
-          variables: variables?.toJson() ?? {},
+          variables: variables.toJson(),
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -3344,7 +3337,7 @@ class WatchOptions$Query$GetAllCsMessageAgentQuery
     extends graphql.WatchQueryOptions<Query$GetAllCsMessageAgentQuery> {
   WatchOptions$Query$GetAllCsMessageAgentQuery({
     String? operationName,
-    Variables$Query$GetAllCsMessageAgentQuery? variables,
+    required Variables$Query$GetAllCsMessageAgentQuery variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -3356,7 +3349,7 @@ class WatchOptions$Query$GetAllCsMessageAgentQuery
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables?.toJson() ?? {},
+          variables: variables.toJson(),
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -3376,10 +3369,10 @@ class FetchMoreOptions$Query$GetAllCsMessageAgentQuery
     extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$GetAllCsMessageAgentQuery({
     required graphql.UpdateQuery updateQuery,
-    Variables$Query$GetAllCsMessageAgentQuery? variables,
+    required Variables$Query$GetAllCsMessageAgentQuery variables,
   }) : super(
           updateQuery: updateQuery,
-          variables: variables?.toJson() ?? {},
+          variables: variables.toJson(),
           document: documentNodeQueryGetAllCsMessageAgentQuery,
         );
 }
@@ -3388,37 +3381,35 @@ extension ClientExtension$Query$GetAllCsMessageAgentQuery
     on graphql.GraphQLClient {
   Future<graphql.QueryResult<Query$GetAllCsMessageAgentQuery>>
       query$GetAllCsMessageAgentQuery(
-              [Options$Query$GetAllCsMessageAgentQuery? options]) async =>
-          await this
-              .query(options ?? Options$Query$GetAllCsMessageAgentQuery());
+              Options$Query$GetAllCsMessageAgentQuery options) async =>
+          await this.query(options);
   graphql.ObservableQuery<Query$GetAllCsMessageAgentQuery>
       watchQuery$GetAllCsMessageAgentQuery(
-              [WatchOptions$Query$GetAllCsMessageAgentQuery? options]) =>
-          this.watchQuery(
-              options ?? WatchOptions$Query$GetAllCsMessageAgentQuery());
+              WatchOptions$Query$GetAllCsMessageAgentQuery options) =>
+          this.watchQuery(options);
   void writeQuery$GetAllCsMessageAgentQuery({
     required Query$GetAllCsMessageAgentQuery data,
-    Variables$Query$GetAllCsMessageAgentQuery? variables,
+    required Variables$Query$GetAllCsMessageAgentQuery variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
           operation: graphql.Operation(
               document: documentNodeQueryGetAllCsMessageAgentQuery),
-          variables: variables?.toJson() ?? const {},
+          variables: variables.toJson(),
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
   Query$GetAllCsMessageAgentQuery? readQuery$GetAllCsMessageAgentQuery({
-    Variables$Query$GetAllCsMessageAgentQuery? variables,
+    required Variables$Query$GetAllCsMessageAgentQuery variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
         operation: graphql.Operation(
             document: documentNodeQueryGetAllCsMessageAgentQuery),
-        variables: variables?.toJson() ?? const {},
+        variables: variables.toJson(),
       ),
       optimistic: optimistic,
     );
@@ -3430,25 +3421,23 @@ extension ClientExtension$Query$GetAllCsMessageAgentQuery
 
 graphql_flutter.QueryHookResult<Query$GetAllCsMessageAgentQuery>
     useQuery$GetAllCsMessageAgentQuery(
-            [Options$Query$GetAllCsMessageAgentQuery? options]) =>
-        graphql_flutter
-            .useQuery(options ?? Options$Query$GetAllCsMessageAgentQuery());
+            Options$Query$GetAllCsMessageAgentQuery options) =>
+        graphql_flutter.useQuery(options);
 graphql.ObservableQuery<Query$GetAllCsMessageAgentQuery>
     useWatchQuery$GetAllCsMessageAgentQuery(
-            [WatchOptions$Query$GetAllCsMessageAgentQuery? options]) =>
-        graphql_flutter.useWatchQuery(
-            options ?? WatchOptions$Query$GetAllCsMessageAgentQuery());
+            WatchOptions$Query$GetAllCsMessageAgentQuery options) =>
+        graphql_flutter.useWatchQuery(options);
 
 class Query$GetAllCsMessageAgentQuery$Widget
     extends graphql_flutter.Query<Query$GetAllCsMessageAgentQuery> {
   Query$GetAllCsMessageAgentQuery$Widget({
     widgets.Key? key,
-    Options$Query$GetAllCsMessageAgentQuery? options,
+    required Options$Query$GetAllCsMessageAgentQuery options,
     required graphql_flutter.QueryBuilder<Query$GetAllCsMessageAgentQuery>
         builder,
   }) : super(
           key: key,
-          options: options ?? Options$Query$GetAllCsMessageAgentQuery(),
+          options: options,
           builder: builder,
         );
 }

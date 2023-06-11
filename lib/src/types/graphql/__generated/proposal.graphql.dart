@@ -876,11 +876,11 @@ class Mutation$InsertProposalMutation$Widget
 class Variables$Mutation$UpdateProposalMutation {
   factory Variables$Mutation$UpdateProposalMutation({
     required Input$proposal_set_input data,
-    int? proposal_id,
+    required int proposal_id,
   }) =>
       Variables$Mutation$UpdateProposalMutation._({
         r'data': data,
-        if (proposal_id != null) r'proposal_id': proposal_id,
+        r'proposal_id': proposal_id,
       });
 
   Variables$Mutation$UpdateProposalMutation._(this._$data);
@@ -891,10 +891,8 @@ class Variables$Mutation$UpdateProposalMutation {
     final l$data = data['data'];
     result$data['data'] =
         Input$proposal_set_input.fromJson((l$data as Map<String, dynamic>));
-    if (data.containsKey('proposal_id')) {
-      final l$proposal_id = data['proposal_id'];
-      result$data['proposal_id'] = (l$proposal_id as int?);
-    }
+    final l$proposal_id = data['proposal_id'];
+    result$data['proposal_id'] = (l$proposal_id as int);
     return Variables$Mutation$UpdateProposalMutation._(result$data);
   }
 
@@ -902,15 +900,13 @@ class Variables$Mutation$UpdateProposalMutation {
 
   Input$proposal_set_input get data =>
       (_$data['data'] as Input$proposal_set_input);
-  int? get proposal_id => (_$data['proposal_id'] as int?);
+  int get proposal_id => (_$data['proposal_id'] as int);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$data = data;
     result$data['data'] = l$data.toJson();
-    if (_$data.containsKey('proposal_id')) {
-      final l$proposal_id = proposal_id;
-      result$data['proposal_id'] = l$proposal_id;
-    }
+    final l$proposal_id = proposal_id;
+    result$data['proposal_id'] = l$proposal_id;
     return result$data;
   }
 
@@ -936,10 +932,6 @@ class Variables$Mutation$UpdateProposalMutation {
     }
     final l$proposal_id = proposal_id;
     final lOther$proposal_id = other.proposal_id;
-    if (_$data.containsKey('proposal_id') !=
-        other._$data.containsKey('proposal_id')) {
-      return false;
-    }
     if (l$proposal_id != lOther$proposal_id) {
       return false;
     }
@@ -952,7 +944,7 @@ class Variables$Mutation$UpdateProposalMutation {
     final l$proposal_id = proposal_id;
     return Object.hashAll([
       l$data,
-      _$data.containsKey('proposal_id') ? l$proposal_id : const {},
+      l$proposal_id,
     ]);
   }
 }
@@ -993,7 +985,8 @@ class _CopyWithImpl$Variables$Mutation$UpdateProposalMutation<TRes>
         ..._instance._$data,
         if (data != _undefined && data != null)
           'data': (data as Input$proposal_set_input),
-        if (proposal_id != _undefined) 'proposal_id': (proposal_id as int?),
+        if (proposal_id != _undefined && proposal_id != null)
+          'proposal_id': (proposal_id as int),
       }));
 }
 
@@ -1171,7 +1164,7 @@ const documentNodeMutationUpdateProposalMutation = DocumentNode(definitions: [
         variable: VariableNode(name: NameNode(value: 'proposal_id')),
         type: NamedTypeNode(
           name: NameNode(value: 'Int'),
-          isNonNull: false,
+          isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],

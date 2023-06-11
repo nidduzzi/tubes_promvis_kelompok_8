@@ -901,11 +901,11 @@ class Mutation$InsertUMKMMutation$Widget
 class Variables$Mutation$UpdateUMKMMutation {
   factory Variables$Mutation$UpdateUMKMMutation({
     required Input$umkm_set_input data,
-    UUID? user_id,
+    required UUID user_id,
   }) =>
       Variables$Mutation$UpdateUMKMMutation._({
         r'data': data,
-        if (user_id != null) r'user_id': user_id,
+        r'user_id': user_id,
       });
 
   Variables$Mutation$UpdateUMKMMutation._(this._$data);
@@ -916,26 +916,21 @@ class Variables$Mutation$UpdateUMKMMutation {
     final l$data = data['data'];
     result$data['data'] =
         Input$umkm_set_input.fromJson((l$data as Map<String, dynamic>));
-    if (data.containsKey('user_id')) {
-      final l$user_id = data['user_id'];
-      result$data['user_id'] =
-          l$user_id == null ? null : uuidFromJson(l$user_id);
-    }
+    final l$user_id = data['user_id'];
+    result$data['user_id'] = uuidFromJson(l$user_id);
     return Variables$Mutation$UpdateUMKMMutation._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
   Input$umkm_set_input get data => (_$data['data'] as Input$umkm_set_input);
-  UUID? get user_id => (_$data['user_id'] as UUID?);
+  UUID get user_id => (_$data['user_id'] as UUID);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$data = data;
     result$data['data'] = l$data.toJson();
-    if (_$data.containsKey('user_id')) {
-      final l$user_id = user_id;
-      result$data['user_id'] = l$user_id == null ? null : uuidToJson(l$user_id);
-    }
+    final l$user_id = user_id;
+    result$data['user_id'] = uuidToJson(l$user_id);
     return result$data;
   }
 
@@ -961,9 +956,6 @@ class Variables$Mutation$UpdateUMKMMutation {
     }
     final l$user_id = user_id;
     final lOther$user_id = other.user_id;
-    if (_$data.containsKey('user_id') != other._$data.containsKey('user_id')) {
-      return false;
-    }
     if (l$user_id != lOther$user_id) {
       return false;
     }
@@ -976,7 +968,7 @@ class Variables$Mutation$UpdateUMKMMutation {
     final l$user_id = user_id;
     return Object.hashAll([
       l$data,
-      _$data.containsKey('user_id') ? l$user_id : const {},
+      l$user_id,
     ]);
   }
 }
@@ -1017,7 +1009,8 @@ class _CopyWithImpl$Variables$Mutation$UpdateUMKMMutation<TRes>
         ..._instance._$data,
         if (data != _undefined && data != null)
           'data': (data as Input$umkm_set_input),
-        if (user_id != _undefined) 'user_id': (user_id as UUID?),
+        if (user_id != _undefined && user_id != null)
+          'user_id': (user_id as UUID),
       }));
 }
 
@@ -1191,7 +1184,7 @@ const documentNodeMutationUpdateUMKMMutation = DocumentNode(definitions: [
         variable: VariableNode(name: NameNode(value: 'user_id')),
         type: NamedTypeNode(
           name: NameNode(value: 'uuid'),
-          isNonNull: false,
+          isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],

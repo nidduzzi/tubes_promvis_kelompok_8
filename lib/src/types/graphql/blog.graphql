@@ -13,7 +13,7 @@ mutation InsertBlogMutation($data: blog_insert_input!) {
     }
 }
 
-mutation UpdateBlogMutation($data: blog_set_input!, $blog_id: Int) {
+mutation UpdateBlogMutation($data: blog_set_input!, $blog_id: Int!) {
     update_blog(_set: $data, where: { blog_id: { _eq: $blog_id } }) {
         returning {
             ...blogData

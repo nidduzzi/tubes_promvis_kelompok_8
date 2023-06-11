@@ -14,7 +14,7 @@ mutation InsertProposalMutation($data: proposal_insert_input!) {
     }
 }
 
-mutation UpdateProposalMutation($data: proposal_set_input!, $proposal_id: Int) {
+mutation UpdateProposalMutation($data: proposal_set_input!, $proposal_id: Int!) {
     update_proposal(
         _set: $data
         where: { proposal_id: { _eq: $proposal_id } }

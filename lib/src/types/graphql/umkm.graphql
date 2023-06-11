@@ -15,7 +15,7 @@ mutation InsertUMKMMutation($data: umkm_insert_input!) {
     }
 }
 
-mutation UpdateUMKMMutation($data: umkm_set_input!, $user_id: uuid) {
+mutation UpdateUMKMMutation($data: umkm_set_input!, $user_id: uuid!) {
     update_umkm(_set: $data, where: { user_id: { _eq: $user_id } }) {
         returning {
             ...umkmData

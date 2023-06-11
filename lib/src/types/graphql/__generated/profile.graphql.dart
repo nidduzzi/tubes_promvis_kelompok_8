@@ -1706,6 +1706,688 @@ class _CopyWithStubImpl$Mutation$UpdateProfileMutation$update_profile<TRes>
   returning(_fn) => _res;
 }
 
+class Variables$Query$GetUserProfileQuery {
+  factory Variables$Query$GetUserProfileQuery({
+    required UUID user_id,
+    int? limit,
+    List<Enum$profile_select_column>? distinct_on,
+    int? offset,
+    List<Input$profile_order_by>? order_by,
+  }) =>
+      Variables$Query$GetUserProfileQuery._({
+        r'user_id': user_id,
+        if (limit != null) r'limit': limit,
+        if (distinct_on != null) r'distinct_on': distinct_on,
+        if (offset != null) r'offset': offset,
+        if (order_by != null) r'order_by': order_by,
+      });
+
+  Variables$Query$GetUserProfileQuery._(this._$data);
+
+  factory Variables$Query$GetUserProfileQuery.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$user_id = data['user_id'];
+    result$data['user_id'] = uuidFromJson(l$user_id);
+    if (data.containsKey('limit')) {
+      final l$limit = data['limit'];
+      result$data['limit'] = (l$limit as int?);
+    }
+    if (data.containsKey('distinct_on')) {
+      final l$distinct_on = data['distinct_on'];
+      result$data['distinct_on'] = (l$distinct_on as List<dynamic>?)
+          ?.map((e) => fromJson$Enum$profile_select_column((e as String)))
+          .toList();
+    }
+    if (data.containsKey('offset')) {
+      final l$offset = data['offset'];
+      result$data['offset'] = (l$offset as int?);
+    }
+    if (data.containsKey('order_by')) {
+      final l$order_by = data['order_by'];
+      result$data['order_by'] = (l$order_by as List<dynamic>?)
+          ?.map((e) =>
+              Input$profile_order_by.fromJson((e as Map<String, dynamic>)))
+          .toList();
+    }
+    return Variables$Query$GetUserProfileQuery._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  UUID get user_id => (_$data['user_id'] as UUID);
+  int? get limit => (_$data['limit'] as int?);
+  List<Enum$profile_select_column>? get distinct_on =>
+      (_$data['distinct_on'] as List<Enum$profile_select_column>?);
+  int? get offset => (_$data['offset'] as int?);
+  List<Input$profile_order_by>? get order_by =>
+      (_$data['order_by'] as List<Input$profile_order_by>?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$user_id = user_id;
+    result$data['user_id'] = uuidToJson(l$user_id);
+    if (_$data.containsKey('limit')) {
+      final l$limit = limit;
+      result$data['limit'] = l$limit;
+    }
+    if (_$data.containsKey('distinct_on')) {
+      final l$distinct_on = distinct_on;
+      result$data['distinct_on'] = l$distinct_on
+          ?.map((e) => toJson$Enum$profile_select_column(e))
+          .toList();
+    }
+    if (_$data.containsKey('offset')) {
+      final l$offset = offset;
+      result$data['offset'] = l$offset;
+    }
+    if (_$data.containsKey('order_by')) {
+      final l$order_by = order_by;
+      result$data['order_by'] = l$order_by?.map((e) => e.toJson()).toList();
+    }
+    return result$data;
+  }
+
+  CopyWith$Variables$Query$GetUserProfileQuery<
+          Variables$Query$GetUserProfileQuery>
+      get copyWith => CopyWith$Variables$Query$GetUserProfileQuery(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Query$GetUserProfileQuery) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (l$user_id != lOther$user_id) {
+      return false;
+    }
+    final l$limit = limit;
+    final lOther$limit = other.limit;
+    if (_$data.containsKey('limit') != other._$data.containsKey('limit')) {
+      return false;
+    }
+    if (l$limit != lOther$limit) {
+      return false;
+    }
+    final l$distinct_on = distinct_on;
+    final lOther$distinct_on = other.distinct_on;
+    if (_$data.containsKey('distinct_on') !=
+        other._$data.containsKey('distinct_on')) {
+      return false;
+    }
+    if (l$distinct_on != null && lOther$distinct_on != null) {
+      if (l$distinct_on.length != lOther$distinct_on.length) {
+        return false;
+      }
+      for (int i = 0; i < l$distinct_on.length; i++) {
+        final l$distinct_on$entry = l$distinct_on[i];
+        final lOther$distinct_on$entry = lOther$distinct_on[i];
+        if (l$distinct_on$entry != lOther$distinct_on$entry) {
+          return false;
+        }
+      }
+    } else if (l$distinct_on != lOther$distinct_on) {
+      return false;
+    }
+    final l$offset = offset;
+    final lOther$offset = other.offset;
+    if (_$data.containsKey('offset') != other._$data.containsKey('offset')) {
+      return false;
+    }
+    if (l$offset != lOther$offset) {
+      return false;
+    }
+    final l$order_by = order_by;
+    final lOther$order_by = other.order_by;
+    if (_$data.containsKey('order_by') !=
+        other._$data.containsKey('order_by')) {
+      return false;
+    }
+    if (l$order_by != null && lOther$order_by != null) {
+      if (l$order_by.length != lOther$order_by.length) {
+        return false;
+      }
+      for (int i = 0; i < l$order_by.length; i++) {
+        final l$order_by$entry = l$order_by[i];
+        final lOther$order_by$entry = lOther$order_by[i];
+        if (l$order_by$entry != lOther$order_by$entry) {
+          return false;
+        }
+      }
+    } else if (l$order_by != lOther$order_by) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$user_id = user_id;
+    final l$limit = limit;
+    final l$distinct_on = distinct_on;
+    final l$offset = offset;
+    final l$order_by = order_by;
+    return Object.hashAll([
+      l$user_id,
+      _$data.containsKey('limit') ? l$limit : const {},
+      _$data.containsKey('distinct_on')
+          ? l$distinct_on == null
+              ? null
+              : Object.hashAll(l$distinct_on.map((v) => v))
+          : const {},
+      _$data.containsKey('offset') ? l$offset : const {},
+      _$data.containsKey('order_by')
+          ? l$order_by == null
+              ? null
+              : Object.hashAll(l$order_by.map((v) => v))
+          : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Variables$Query$GetUserProfileQuery<TRes> {
+  factory CopyWith$Variables$Query$GetUserProfileQuery(
+    Variables$Query$GetUserProfileQuery instance,
+    TRes Function(Variables$Query$GetUserProfileQuery) then,
+  ) = _CopyWithImpl$Variables$Query$GetUserProfileQuery;
+
+  factory CopyWith$Variables$Query$GetUserProfileQuery.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$GetUserProfileQuery;
+
+  TRes call({
+    UUID? user_id,
+    int? limit,
+    List<Enum$profile_select_column>? distinct_on,
+    int? offset,
+    List<Input$profile_order_by>? order_by,
+  });
+}
+
+class _CopyWithImpl$Variables$Query$GetUserProfileQuery<TRes>
+    implements CopyWith$Variables$Query$GetUserProfileQuery<TRes> {
+  _CopyWithImpl$Variables$Query$GetUserProfileQuery(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Query$GetUserProfileQuery _instance;
+
+  final TRes Function(Variables$Query$GetUserProfileQuery) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? user_id = _undefined,
+    Object? limit = _undefined,
+    Object? distinct_on = _undefined,
+    Object? offset = _undefined,
+    Object? order_by = _undefined,
+  }) =>
+      _then(Variables$Query$GetUserProfileQuery._({
+        ..._instance._$data,
+        if (user_id != _undefined && user_id != null)
+          'user_id': (user_id as UUID),
+        if (limit != _undefined) 'limit': (limit as int?),
+        if (distinct_on != _undefined)
+          'distinct_on': (distinct_on as List<Enum$profile_select_column>?),
+        if (offset != _undefined) 'offset': (offset as int?),
+        if (order_by != _undefined)
+          'order_by': (order_by as List<Input$profile_order_by>?),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Query$GetUserProfileQuery<TRes>
+    implements CopyWith$Variables$Query$GetUserProfileQuery<TRes> {
+  _CopyWithStubImpl$Variables$Query$GetUserProfileQuery(this._res);
+
+  TRes _res;
+
+  call({
+    UUID? user_id,
+    int? limit,
+    List<Enum$profile_select_column>? distinct_on,
+    int? offset,
+    List<Input$profile_order_by>? order_by,
+  }) =>
+      _res;
+}
+
+class Query$GetUserProfileQuery {
+  Query$GetUserProfileQuery({
+    required this.profile,
+    this.$__typename = 'query_root',
+  });
+
+  factory Query$GetUserProfileQuery.fromJson(Map<String, dynamic> json) {
+    final l$profile = json['profile'];
+    final l$$__typename = json['__typename'];
+    return Query$GetUserProfileQuery(
+      profile: (l$profile as List<dynamic>)
+          .map(
+              (e) => Fragment$profileData.fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final List<Fragment$profileData> profile;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$profile = profile;
+    _resultData['profile'] = l$profile.map((e) => e.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$profile = profile;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      Object.hashAll(l$profile.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetUserProfileQuery) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$profile = profile;
+    final lOther$profile = other.profile;
+    if (l$profile.length != lOther$profile.length) {
+      return false;
+    }
+    for (int i = 0; i < l$profile.length; i++) {
+      final l$profile$entry = l$profile[i];
+      final lOther$profile$entry = lOther$profile[i];
+      if (l$profile$entry != lOther$profile$entry) {
+        return false;
+      }
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetUserProfileQuery
+    on Query$GetUserProfileQuery {
+  CopyWith$Query$GetUserProfileQuery<Query$GetUserProfileQuery> get copyWith =>
+      CopyWith$Query$GetUserProfileQuery(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Query$GetUserProfileQuery<TRes> {
+  factory CopyWith$Query$GetUserProfileQuery(
+    Query$GetUserProfileQuery instance,
+    TRes Function(Query$GetUserProfileQuery) then,
+  ) = _CopyWithImpl$Query$GetUserProfileQuery;
+
+  factory CopyWith$Query$GetUserProfileQuery.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetUserProfileQuery;
+
+  TRes call({
+    List<Fragment$profileData>? profile,
+    String? $__typename,
+  });
+  TRes profile(
+      Iterable<Fragment$profileData> Function(
+              Iterable<CopyWith$Fragment$profileData<Fragment$profileData>>)
+          _fn);
+}
+
+class _CopyWithImpl$Query$GetUserProfileQuery<TRes>
+    implements CopyWith$Query$GetUserProfileQuery<TRes> {
+  _CopyWithImpl$Query$GetUserProfileQuery(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetUserProfileQuery _instance;
+
+  final TRes Function(Query$GetUserProfileQuery) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? profile = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GetUserProfileQuery(
+        profile: profile == _undefined || profile == null
+            ? _instance.profile
+            : (profile as List<Fragment$profileData>),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  TRes profile(
+          Iterable<Fragment$profileData> Function(
+                  Iterable<CopyWith$Fragment$profileData<Fragment$profileData>>)
+              _fn) =>
+      call(
+          profile:
+              _fn(_instance.profile.map((e) => CopyWith$Fragment$profileData(
+                    e,
+                    (i) => i,
+                  ))).toList());
+}
+
+class _CopyWithStubImpl$Query$GetUserProfileQuery<TRes>
+    implements CopyWith$Query$GetUserProfileQuery<TRes> {
+  _CopyWithStubImpl$Query$GetUserProfileQuery(this._res);
+
+  TRes _res;
+
+  call({
+    List<Fragment$profileData>? profile,
+    String? $__typename,
+  }) =>
+      _res;
+  profile(_fn) => _res;
+}
+
+const documentNodeQueryGetUserProfileQuery = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'GetUserProfileQuery'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'user_id')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'uuid'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'limit')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'distinct_on')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'profile_select_column'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'offset')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'order_by')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'profile_order_by'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'profile'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: ObjectValueNode(fields: [
+              ObjectFieldNode(
+                name: NameNode(value: 'user_id'),
+                value: ObjectValueNode(fields: [
+                  ObjectFieldNode(
+                    name: NameNode(value: '_eq'),
+                    value: VariableNode(name: NameNode(value: 'user_id')),
+                  )
+                ]),
+              )
+            ]),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'limit'),
+            value: VariableNode(name: NameNode(value: 'limit')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'distinct_on'),
+            value: VariableNode(name: NameNode(value: 'distinct_on')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'offset'),
+            value: VariableNode(name: NameNode(value: 'offset')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'order_by'),
+            value: VariableNode(name: NameNode(value: 'order_by')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FragmentSpreadNode(
+            name: NameNode(value: 'profileData'),
+            directives: [],
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+  fragmentDefinitionprofileData,
+]);
+Query$GetUserProfileQuery _parserFn$Query$GetUserProfileQuery(
+        Map<String, dynamic> data) =>
+    Query$GetUserProfileQuery.fromJson(data);
+typedef OnQueryComplete$Query$GetUserProfileQuery = FutureOr<void> Function(
+  Map<String, dynamic>?,
+  Query$GetUserProfileQuery?,
+);
+
+class Options$Query$GetUserProfileQuery
+    extends graphql.QueryOptions<Query$GetUserProfileQuery> {
+  Options$Query$GetUserProfileQuery({
+    String? operationName,
+    required Variables$Query$GetUserProfileQuery variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$GetUserProfileQuery? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$GetUserProfileQuery? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$GetUserProfileQuery(data),
+                  ),
+          onError: onError,
+          document: documentNodeQueryGetUserProfileQuery,
+          parserFn: _parserFn$Query$GetUserProfileQuery,
+        );
+
+  final OnQueryComplete$Query$GetUserProfileQuery? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
+}
+
+class WatchOptions$Query$GetUserProfileQuery
+    extends graphql.WatchQueryOptions<Query$GetUserProfileQuery> {
+  WatchOptions$Query$GetUserProfileQuery({
+    String? operationName,
+    required Variables$Query$GetUserProfileQuery variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$GetUserProfileQuery? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQueryGetUserProfileQuery,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$GetUserProfileQuery,
+        );
+}
+
+class FetchMoreOptions$Query$GetUserProfileQuery
+    extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$GetUserProfileQuery({
+    required graphql.UpdateQuery updateQuery,
+    required Variables$Query$GetUserProfileQuery variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables.toJson(),
+          document: documentNodeQueryGetUserProfileQuery,
+        );
+}
+
+extension ClientExtension$Query$GetUserProfileQuery on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$GetUserProfileQuery>>
+      query$GetUserProfileQuery(
+              Options$Query$GetUserProfileQuery options) async =>
+          await this.query(options);
+  graphql.ObservableQuery<Query$GetUserProfileQuery>
+      watchQuery$GetUserProfileQuery(
+              WatchOptions$Query$GetUserProfileQuery options) =>
+          this.watchQuery(options);
+  void writeQuery$GetUserProfileQuery({
+    required Query$GetUserProfileQuery data,
+    required Variables$Query$GetUserProfileQuery variables,
+    bool broadcast = true,
+  }) =>
+      this.writeQuery(
+        graphql.Request(
+          operation:
+              graphql.Operation(document: documentNodeQueryGetUserProfileQuery),
+          variables: variables.toJson(),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$GetUserProfileQuery? readQuery$GetUserProfileQuery({
+    required Variables$Query$GetUserProfileQuery variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation:
+            graphql.Operation(document: documentNodeQueryGetUserProfileQuery),
+        variables: variables.toJson(),
+      ),
+      optimistic: optimistic,
+    );
+    return result == null ? null : Query$GetUserProfileQuery.fromJson(result);
+  }
+}
+
+graphql_flutter.QueryHookResult<Query$GetUserProfileQuery>
+    useQuery$GetUserProfileQuery(Options$Query$GetUserProfileQuery options) =>
+        graphql_flutter.useQuery(options);
+graphql.ObservableQuery<Query$GetUserProfileQuery>
+    useWatchQuery$GetUserProfileQuery(
+            WatchOptions$Query$GetUserProfileQuery options) =>
+        graphql_flutter.useWatchQuery(options);
+
+class Query$GetUserProfileQuery$Widget
+    extends graphql_flutter.Query<Query$GetUserProfileQuery> {
+  Query$GetUserProfileQuery$Widget({
+    widgets.Key? key,
+    required Options$Query$GetUserProfileQuery options,
+    required graphql_flutter.QueryBuilder<Query$GetUserProfileQuery> builder,
+  }) : super(
+          key: key,
+          options: options,
+          builder: builder,
+        );
+}
+
 class Variables$Query$GetAllProfileQuery {
   factory Variables$Query$GetAllProfileQuery({
     Input$profile_bool_exp? where,

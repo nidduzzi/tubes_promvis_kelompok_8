@@ -843,11 +843,11 @@ class Mutation$InsertBlogMutation$Widget
 class Variables$Mutation$UpdateBlogMutation {
   factory Variables$Mutation$UpdateBlogMutation({
     required Input$blog_set_input data,
-    int? blog_id,
+    required int blog_id,
   }) =>
       Variables$Mutation$UpdateBlogMutation._({
         r'data': data,
-        if (blog_id != null) r'blog_id': blog_id,
+        r'blog_id': blog_id,
       });
 
   Variables$Mutation$UpdateBlogMutation._(this._$data);
@@ -858,25 +858,21 @@ class Variables$Mutation$UpdateBlogMutation {
     final l$data = data['data'];
     result$data['data'] =
         Input$blog_set_input.fromJson((l$data as Map<String, dynamic>));
-    if (data.containsKey('blog_id')) {
-      final l$blog_id = data['blog_id'];
-      result$data['blog_id'] = (l$blog_id as int?);
-    }
+    final l$blog_id = data['blog_id'];
+    result$data['blog_id'] = (l$blog_id as int);
     return Variables$Mutation$UpdateBlogMutation._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
   Input$blog_set_input get data => (_$data['data'] as Input$blog_set_input);
-  int? get blog_id => (_$data['blog_id'] as int?);
+  int get blog_id => (_$data['blog_id'] as int);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$data = data;
     result$data['data'] = l$data.toJson();
-    if (_$data.containsKey('blog_id')) {
-      final l$blog_id = blog_id;
-      result$data['blog_id'] = l$blog_id;
-    }
+    final l$blog_id = blog_id;
+    result$data['blog_id'] = l$blog_id;
     return result$data;
   }
 
@@ -902,9 +898,6 @@ class Variables$Mutation$UpdateBlogMutation {
     }
     final l$blog_id = blog_id;
     final lOther$blog_id = other.blog_id;
-    if (_$data.containsKey('blog_id') != other._$data.containsKey('blog_id')) {
-      return false;
-    }
     if (l$blog_id != lOther$blog_id) {
       return false;
     }
@@ -917,7 +910,7 @@ class Variables$Mutation$UpdateBlogMutation {
     final l$blog_id = blog_id;
     return Object.hashAll([
       l$data,
-      _$data.containsKey('blog_id') ? l$blog_id : const {},
+      l$blog_id,
     ]);
   }
 }
@@ -958,7 +951,8 @@ class _CopyWithImpl$Variables$Mutation$UpdateBlogMutation<TRes>
         ..._instance._$data,
         if (data != _undefined && data != null)
           'data': (data as Input$blog_set_input),
-        if (blog_id != _undefined) 'blog_id': (blog_id as int?),
+        if (blog_id != _undefined && blog_id != null)
+          'blog_id': (blog_id as int),
       }));
 }
 
@@ -1132,7 +1126,7 @@ const documentNodeMutationUpdateBlogMutation = DocumentNode(definitions: [
         variable: VariableNode(name: NameNode(value: 'blog_id')),
         type: NamedTypeNode(
           name: NameNode(value: 'Int'),
-          isNonNull: false,
+          isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
