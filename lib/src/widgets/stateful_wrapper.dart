@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 /// https://medium.com/filledstacks/how-to-call-a-function-on-start-in-flutter-stateless-widgets-28d90ab3bf49
 
 class StatefulWrapper extends StatefulWidget {
-  final Function onInit;
+  final Function? onInit;
   final Widget child;
-  const StatefulWrapper({super.key, required this.onInit, required this.child});
+  const StatefulWrapper({super.key, this.onInit, required this.child});
   @override
   createState() => _StatefulWrapperState();
 }
@@ -15,7 +15,10 @@ class _StatefulWrapperState extends State<StatefulWrapper> {
   @override
   void initState() {
     super.initState();
-    widget.onInit();
+    final initFunction = widget.onInit;
+    if (initFunction != null) {
+      initFunction();
+    }
   }
 
   @override

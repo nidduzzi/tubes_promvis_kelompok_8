@@ -4,6 +4,8 @@ import 'package:tubes_promvis_kelompok_8/src/helpers/navigation.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 import 'dart:math';
 
+import 'package:tubes_promvis_kelompok_8/src/widgets/spinner.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -132,13 +134,13 @@ class LoginPageState extends State<LoginPage> {
           context,
           '/dashboard',
         );
-        return const CircularProgressIndicator();
+        return const Spinner();
       default:
         goTo(
           context,
           '/',
         );
-        return const CircularProgressIndicator();
+        return const Spinner();
     }
   }
 }

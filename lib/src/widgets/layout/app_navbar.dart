@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
 import 'package:tubes_promvis_kelompok_8/src/helpers/navigation.dart';
-import 'package:tubes_promvis_kelompok_8/src/providers/settings/settings_controller.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/route_params_type.dart';
 import 'package:tubes_promvis_kelompok_8/src/helpers/navbar.dart';
 
 class AppNavbar extends StatefulWidget {
   const AppNavbar(
-      {required this.scaffoldKey,
-      required this.settingsController,
-      required this.routeData,
-      super.key});
-  final SettingsController settingsController;
+      {required this.scaffoldKey, required this.routeData, super.key});
   final GlobalKey<ScaffoldState> scaffoldKey;
   final List<RouteNavbarParams> routeData;
 

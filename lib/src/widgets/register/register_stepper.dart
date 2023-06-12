@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
-import 'package:tubes_promvis_kelompok_8/src/types/register_page_type.dart';
+import 'package:tubes_promvis_kelompok_8/src/types/customer_role_type.dart';
+import 'package:tubes_promvis_kelompok_8/src/widgets/register/account_info_form.dart';
 import 'package:tubes_promvis_kelompok_8/src/widgets/register/investor_form.dart';
 import 'package:tubes_promvis_kelompok_8/src/widgets/register/profile_form.dart';
-import 'package:tubes_promvis_kelompok_8/src/widgets/register/register_form.dart';
 import 'package:tubes_promvis_kelompok_8/src/widgets/register/umkm_form.dart';
 
 class RegisterStepper extends HookWidget {
   const RegisterStepper({super.key, required this.type});
 
-  final RegisterPageType type;
+  final CustomerRoleType type;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class RegisterStepper extends HookWidget {
           title: const Text('Account Information'),
           content: Container(
             alignment: Alignment.centerLeft,
-            child: RegisterForm(
+            child: AccountInfoForm(
                 type: type,
                 handleCancel: handleCancel,
                 handleContinue: handleContinue,
@@ -68,7 +68,7 @@ class RegisterStepper extends HookWidget {
         Step(
             title: Text('${type.toShortString()} Information'),
             content: Builder(builder: (context) {
-              if (type == RegisterPageType.Investor) {
+              if (type == CustomerRoleType.Investor) {
                 return InvestorProfileForm(
                     handleCancel: handleCancel,
                     handleContinue: handleContinue,

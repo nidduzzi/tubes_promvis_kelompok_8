@@ -10,25 +10,12 @@ class DashboardPage extends StatelessWidget {
 
   static const routeName = '/dashboard';
 
-  void testContext() {
-    // final ctx = useContext();
-    // final auth = NhostAuthProvider.of(ctx)!;
-    // final currentUser = auth.currentUser!;
-    // Logger.talker.log(currentUser);
-    // final client = useGraphQLClient();
-    // Logger.talker.log(client.query(QueryOptions(document: getProfileQuery)));
-    Logger.talker.log('dashboard');
-  }
-
   @override
   Widget build(BuildContext context) {
     final auth = NhostAuthProvider.of(context)!;
     final currentUser = auth.currentUser;
 
     return StatefulWrapper(
-        onInit: () {
-          testContext();
-        },
         child: Padding(
             padding: const EdgeInsets.all(16),
             child: Query$GetAllProfileQuery$Widget(

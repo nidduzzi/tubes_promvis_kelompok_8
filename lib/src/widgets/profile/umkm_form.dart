@@ -7,7 +7,6 @@ import 'package:tubes_promvis_kelompok_8/src/helpers/navigation.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/schema.graphql.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/umkm.graphql.dart';
-import 'package:tubes_promvis_kelompok_8/src/types/customer_role_type.dart';
 import 'package:tubes_promvis_kelompok_8/src/widgets/spinner.dart';
 
 class UMKMProfileForm extends HookWidget {
@@ -43,6 +42,9 @@ class UMKMProfileForm extends HookWidget {
         if (!(formKey.currentState?.validate() ?? false)) {
           return false;
         }
+        if (!(auth.currentUser?.roles.contains('umkm') ?? false)) {
+          throw Exception("user doesn't have umkm role");
+        }
         final umkm = getUMKM.result.parsedData?.umkm.first;
         if (umkm != null) {
           Logger.talker.log("updating umkm");
@@ -60,7 +62,7 @@ class UMKMProfileForm extends HookWidget {
               .networkResult;
 
           if (res == null) {
-            goTo(context, '/register/${CustomerRoleType.UMKM.toShortString()}');
+            goTo(context, '/profile');
             throw Exception("response is null");
           }
           if (res.hasException == true) {
@@ -79,14 +81,13 @@ class UMKMProfileForm extends HookWidget {
               .networkResult;
 
           if (res == null) {
-            goTo(context, '/register/${CustomerRoleType.UMKM.toShortString()}');
+            goTo(context, '/profile');
             throw Exception("response is null");
           }
           if (res.hasException == true) {
             Logger.talker.error("insert umkm failed", res.exception);
           }
         }
-        goTo(context, '/dashboard');
       } on ApiException catch (err, st) {
         final decodedBody = const JsonDecoder().convert(err.response.body);
         final reasonPhrase =
@@ -95,14 +96,15 @@ class UMKMProfileForm extends HookWidget {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-                'Tidak dapat membuat UMKM (HTTP STATUS ${err.response.statusCode}$reasonPhrase)'),
+                'Terjadi kesalahan menyimpan UMKM (HTTP STATUS ${err.response.statusCode}$reasonPhrase)'),
           ),
         );
       } catch (err, st) {
         Logger.talker.error("Failed to create UMKM", err, st);
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Tidak dapat membuat UMKM karena error internal'),
+            content:
+                Text('Terjadi kesalahan menyimpan UMKM karena error internal'),
           ),
         );
       }
@@ -120,6 +122,9 @@ class UMKMProfileForm extends HookWidget {
         umkmNameController.text = umkm.umkm_name;
         umkmDescriptionController.text = umkm.umkm_desc;
       }
+      Future.delayed(Duration.zero, () {
+        formKey.currentState?.validate();
+      });
       return Form(
         key: formKey,
         child: FocusTraversalGroup(
@@ -127,24 +132,28 @@ class UMKMProfileForm extends HookWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextFormField(
-                  controller: umkmNameController,
-                  decoration: const InputDecoration(
-                    labelText: 'Nama UMKM',
-                    border: OutlineInputBorder(),
-                  ),
-                  autofocus: true,
-                  onFieldSubmitted: (_) => tryInsertUMKM(),
-                ),
-                TextFormField(
-                  controller: umkmDescriptionController,
-                  decoration: const InputDecoration(
-                    labelText: 'Deskripsi UMKM',
-                    border: OutlineInputBorder(),
-                  ),
-                  autofocus: true,
-                  onFieldSubmitted: (_) => tryInsertUMKM(),
-                ),
+                Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 6),
+                    child: TextFormField(
+                      controller: umkmNameController,
+                      decoration: const InputDecoration(
+                        labelText: 'Nama UMKM',
+                        border: OutlineInputBorder(),
+                      ),
+                      autofocus: true,
+                      onFieldSubmitted: (_) => tryInsertUMKM(),
+                    )),
+                Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 6),
+                    child: TextFormField(
+                      controller: umkmDescriptionController,
+                      decoration: const InputDecoration(
+                        labelText: 'Deskripsi UMKM',
+                        border: OutlineInputBorder(),
+                      ),
+                      autofocus: true,
+                      onFieldSubmitted: (_) => tryInsertUMKM(),
+                    )),
                 const SizedBox(height: 12),
                 const SizedBox(height: 20),
                 ElevatedButton(

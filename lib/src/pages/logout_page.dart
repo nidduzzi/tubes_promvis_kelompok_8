@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
 import 'package:tubes_promvis_kelompok_8/src/helpers/navigation.dart';
+import 'package:tubes_promvis_kelompok_8/src/widgets/spinner.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 
 class LogoutPage extends StatelessWidget {
@@ -16,10 +17,10 @@ class LogoutPage extends StatelessWidget {
           builder: (context, snapshot) {
             switch (snapshot.connectionState) {
               case ConnectionState.waiting:
-                return const CircularProgressIndicator();
+                return const Spinner();
               case ConnectionState.none:
                 goTo(context, '/');
-                return const CircularProgressIndicator();
+                return const Spinner();
               default:
                 if (snapshot.hasError) {
                   Logger.talker.debug(snapshot.error);
@@ -33,10 +34,10 @@ class LogoutPage extends StatelessWidget {
         );
 
       case AuthenticationState.inProgress:
-        return const CircularProgressIndicator();
+        return const Spinner();
       default:
         goTo(context, '/');
-        return const CircularProgressIndicator();
+        return const Spinner();
     }
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../providers/settings/settings_controller.dart';
 
@@ -7,12 +8,11 @@ import '../providers/settings/settings_controller.dart';
 /// When a user changes a setting, the SettingsController is updated and
 /// Widgets that listen to the SettingsController are rebuilt.
 class SettingsPage extends StatelessWidget {
-  const SettingsPage({super.key, required this.controller});
-
-  final SettingsController controller;
+  const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Provider.of<SettingsController>(context);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16),

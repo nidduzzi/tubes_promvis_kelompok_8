@@ -3,7 +3,7 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
-import 'package:tubes_promvis_kelompok_8/src/logger.dart';
+import 'package:provider/provider.dart';
 import 'package:tubes_promvis_kelompok_8/src/providers/auth/auth_store.dart';
 import 'package:tubes_promvis_kelompok_8/src/providers/config/config_service.dart';
 import 'package:tubes_promvis_kelompok_8/src/providers/settings/settings_service.dart';
@@ -27,19 +27,6 @@ class P2PApp extends StatefulWidget {
 class P2PAppState extends State<P2PApp> {
   late NhostClient nhostClient;
 
-  loginWithStoredCredentials(SharedPreferencesAuthStore authStore) async {
-    if ((await authStore.getString('nhostRefreshToken')) != null) {
-      Logger.talker.log("loging in with stored credentials");
-      // this will fetch refresh token and will sign user in!
-      nhostClient.auth
-          .signInWithStoredCredentials()
-          .then((value) => Logger.talker.log('user is signed in $value'))
-          .catchError((error, st) => Logger.talker.handle(error, st));
-    } else {
-      Logger.talker.log("no stored credentials found");
-    }
-  }
-
   @override
   void initState() {
     super.initState();
@@ -53,7 +40,6 @@ class P2PAppState extends State<P2PApp> {
       // Instruct the client to store tokens using shared preferences.
       authStore: authStore,
     );
-    loginWithStoredCredentials(authStore);
   }
 
   @override
@@ -63,50 +49,61 @@ class P2PAppState extends State<P2PApp> {
     // The AnimatedBuilder Widget listens to the SettingsController for changes.
     // Whenever the user updates their settings, the MaterialApp is rebuilt.
 
-    return NhostGraphQLProvider(
-        nhostClient: nhostClient,
-        child: MaterialApp.router(
-          // Providing a restorationScopeId allows the Navigator built by the
-          // MaterialApp to restore the navigation stack when a user leaves and
-          // returns to the app after it has been killed while running in the
-          // background.
-          restorationScopeId: 'app',
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => P2PApp.settingsController)
+        ],
+        child: NhostGraphQLProvider(
+            nhostClient: nhostClient,
+            child: AnimatedBuilder(
+              animation: P2PApp.settingsController,
+              builder: (context, child) {
+                return MaterialApp.router(
+                  // Providing a restorationScopeId allows the Navigator built by the
+                  // MaterialApp to restore the navigation stack when a user leaves and
+                  // returns to the app after it has been killed while running in the
+                  // background.
+                  restorationScopeId: 'app',
 
-          // Provide the generated AppLocalizations to the MaterialApp. This
-          // allows descendant Widgets to display the correct translations
-          // depending on the user's locale.
-          localizationsDelegates: const [
-            AppLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-            FormBuilderLocalizations.delegate,
-          ],
-          supportedLocales: const [
-            Locale('id', ''),
-            Locale('en', ''), // English, no country code
-          ],
+                  // Provide the generated AppLocalizations to the MaterialApp. This
+                  // allows descendant Widgets to display the correct translations
+                  // depending on the user's locale.
+                  localizationsDelegates: const [
+                    AppLocalizations.delegate,
+                    GlobalMaterialLocalizations.delegate,
+                    GlobalWidgetsLocalizations.delegate,
+                    GlobalCupertinoLocalizations.delegate,
+                    FormBuilderLocalizations.delegate,
+                  ],
+                  supportedLocales: const [
+                    Locale('id', ''),
+                    Locale('en', ''), // English, no country code
+                  ],
 
-          // Use AppLocalizations to configure the correct application title
-          // depending on the user's locale.
-          //
-          // The appTitle is defined in .arb files found in the localization
-          // directory.
-          onGenerateTitle: (BuildContext context) =>
-              AppLocalizations.of(context)!.appTitle,
+                  // Use AppLocalizations to configure the correct application title
+                  // depending on the user's locale.
+                  //
+                  // The appTitle is defined in .arb files found in the localization
+                  // directory.
+                  onGenerateTitle: (BuildContext context) =>
+                      AppLocalizations.of(context)!.appTitle,
 
-          // Define a light and dark color theme. Then, read the user's
-          // preferred ThemeMode (light, dark, or system default) from the
-          // SettingsController to display the correct theme.
-          theme: ThemeData(),
-          darkTheme: ThemeData.dark(),
-          themeMode: P2PApp.settingsController.themeMode,
+                  // Define a light and dark color theme. Then, read the user's
+                  // preferred ThemeMode (light, dark, or system default) from the
+                  // SettingsController to display the correct theme.
+                  theme: ThemeData(),
+                  darkTheme: ThemeData.dark(),
+                  themeMode: P2PApp.settingsController.themeMode,
 
-          // Define a function to handle named routes in order to support
-          // Flutter web url navigation and deep linking.
-          routeInformationProvider: AppRouter.router.routeInformationProvider,
-          routeInformationParser: AppRouter.router.routeInformationParser,
-          routerDelegate: AppRouter.router.routerDelegate,
-        ));
+                  // Define a function to handle named routes in order to support
+                  // Flutter web url navigation and deep linking.
+                  routeInformationProvider:
+                      AppRouter.router.routeInformationProvider,
+                  routeInformationParser:
+                      AppRouter.router.routeInformationParser,
+                  routerDelegate: AppRouter.router.routerDelegate,
+                );
+              },
+            )));
   }
 }

@@ -9,17 +9,14 @@ import 'package:tubes_promvis_kelompok_8/src/helpers/navigation.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/profile.graphql.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/schema.graphql.dart';
-import 'package:tubes_promvis_kelompok_8/src/types/customer_role_type.dart';
 import 'package:tubes_promvis_kelompok_8/src/widgets/spinner.dart';
 
 class ProfileForm extends HookWidget {
   ProfileForm(
       {super.key,
-      required this.type,
       required this.handleCancel,
       required this.handleContinue,
       required this.handleGoTo});
-  final CustomerRoleType type;
   final void Function() handleCancel;
   final void Function() handleContinue;
   final void Function(int index) handleGoTo;
@@ -45,34 +42,52 @@ class ProfileForm extends HookWidget {
     final insertProfile = useMutation$InsertProfileMutation();
     final updateProfile = useMutation$UpdateProfileMutation();
 
-    final tryInsertProfile = useCallback(() async {
+    final tryUpdateProfile = useCallback(() async {
       try {
         if (!(formKey.currentState?.validate() ?? false)) {
           return false;
         }
-        final profiles = getProfile.result.parsedData?.profile;
-        if (profiles != null && profiles.isNotEmpty) {
+        final profile = getProfile.result.parsedData?.profile.first;
+
+        if (profile != null) {
           Logger.talker.log("updating profile");
           final res = await updateProfile
               .runMutation(Variables$Mutation$UpdateProfileMutation(
                   user_id: userId,
                   data: Input$profile_set_input(
-                    profile_first_name: firstNameController.text,
-                    profile_last_name: lastNameController.text,
-                    profile_address: addressController.text,
-                    profile_ktp_no: ktpController.text,
-                    profile_npwp_no: npwpController.text,
-                    profile_phone: phoneController.text,
+                    profile_first_name:
+                        profile.profile_first_name != firstNameController.text
+                            ? firstNameController.text
+                            : null,
+                    profile_last_name: (profile.profile_last_name ?? "") !=
+                            lastNameController.text
+                        ? lastNameController.text
+                        : null,
+                    profile_address:
+                        profile.profile_address != addressController.text
+                            ? addressController.text
+                            : null,
+                    profile_ktp_no: profile.profile_ktp_no != ktpController.text
+                        ? ktpController.text
+                        : null,
+                    profile_npwp_no:
+                        (profile.profile_npwp_no ?? "") != npwpController.text
+                            ? npwpController.text
+                            : null,
+                    profile_phone:
+                        (profile.profile_phone) != phoneController.text
+                            ? phoneController.text
+                            : null,
                   )))
               .networkResult;
-
           if (res == null) {
-            goTo(context, '/register/${type.toShortString()}');
+            goTo(context, '/profile');
             throw Exception("response is null");
           }
           if (res.hasException == true) {
             Logger.talker.error("update profile failed", res.exception);
           }
+          await getProfile.refetch();
         } else {
           Logger.talker.log("inserting profile");
           final res = await insertProfile
@@ -88,15 +103,13 @@ class ProfileForm extends HookWidget {
               .networkResult;
 
           if (res == null) {
-            goTo(context, '/register/${type.toShortString()}');
+            goTo(context, '/  profile');
             throw Exception("response is null");
           }
           if (res.hasException == true) {
             Logger.talker.error("insert profile failed", res.exception);
           }
         }
-        Logger.talker.log("continuing to next step from profile");
-        handleContinue();
         return true;
       } on ApiException catch (err, st) {
         final decodedBody = const JsonDecoder().convert(err.response.body);
@@ -141,6 +154,9 @@ class ProfileForm extends HookWidget {
         npwpController.text = profile.profile_npwp_no ?? "";
         phoneController.text = profile.profile_phone;
       }
+      Future.delayed(Duration.zero, () {
+        formKey.currentState?.validate();
+      });
       return Form(
         key: formKey,
         child: FocusTraversalGroup(
@@ -148,77 +164,97 @@ class ProfileForm extends HookWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextFormField(
-                  controller: firstNameController,
-                  decoration: const InputDecoration(
-                    labelText: 'Nama Depan',
-                    border: OutlineInputBorder(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 6),
+                  child: TextFormField(
+                    controller: firstNameController,
+                    decoration: const InputDecoration(
+                      labelText: 'Nama Depan',
+                      border: OutlineInputBorder(),
+                    ),
+                    autofocus: true,
+                    validator: FormBuilderValidators.compose([
+                      FormBuilderValidators.required(),
+                      FormBuilderValidators.minLength(1)
+                    ]),
+                    onFieldSubmitted: (_) => tryUpdateProfile(),
                   ),
-                  autofocus: true,
-                  validator: FormBuilderValidators.compose([
-                    FormBuilderValidators.required(),
-                    FormBuilderValidators.minLength(1)
-                  ]),
-                  onFieldSubmitted: (_) => tryInsertProfile(),
                 ),
-                TextFormField(
-                  controller: lastNameController,
-                  decoration: const InputDecoration(
-                    labelText: 'Nama Belakang',
-                    border: OutlineInputBorder(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 6),
+                  child: TextFormField(
+                    controller: lastNameController,
+                    decoration: const InputDecoration(
+                      labelText: 'Nama Belakang',
+                      border: OutlineInputBorder(),
+                    ),
+                    autofocus: true,
+                    onFieldSubmitted: (_) => tryUpdateProfile(),
                   ),
-                  autofocus: true,
-                  onFieldSubmitted: (_) => tryInsertProfile(),
                 ),
-                TextFormField(
-                  controller: addressController,
-                  decoration: const InputDecoration(
-                    labelText: 'Alamat',
-                    border: OutlineInputBorder(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 6),
+                  child: TextFormField(
+                    controller: addressController,
+                    decoration: const InputDecoration(
+                      labelText: 'Alamat',
+                      border: OutlineInputBorder(),
+                    ),
+                    autofocus: true,
+                    validator: FormBuilderValidators.compose([
+                      FormBuilderValidators.required(),
+                      FormBuilderValidators.minWordsCount(1)
+                    ]),
+                    onFieldSubmitted: (_) => tryUpdateProfile(),
                   ),
-                  autofocus: true,
-                  validator: FormBuilderValidators.compose([
-                    FormBuilderValidators.required(),
-                    FormBuilderValidators.minWordsCount(1)
-                  ]),
-                  onFieldSubmitted: (_) => tryInsertProfile(),
                 ),
-                TextFormField(
-                  controller: phoneController,
-                  decoration: const InputDecoration(labelText: "No. HP"),
-                  keyboardType: TextInputType.number,
-                  autofocus: true,
-                  validator: FormBuilderValidators.compose([
-                    FormBuilderValidators.required(),
-                  ]),
-                  inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.digitsOnly
-                  ], // Only numbers can be entered
-                  onFieldSubmitted: (_) => tryInsertProfile(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 6),
+                  child: TextFormField(
+                    controller: phoneController,
+                    decoration: const InputDecoration(labelText: "No. HP"),
+                    keyboardType: TextInputType.number,
+                    autofocus: true,
+                    validator: FormBuilderValidators.compose([
+                      FormBuilderValidators.required(),
+                    ]),
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ], // Only numbers can be entered
+                    onFieldSubmitted: (_) => tryUpdateProfile(),
+                  ),
                 ),
-                TextFormField(
-                  controller: ktpController,
-                  decoration: const InputDecoration(labelText: "No. KTP"),
-                  keyboardType: TextInputType.number,
-                  autofocus: true,
-                  inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.digitsOnly
-                  ], // Only numbers can be entered
-                  validator: FormBuilderValidators.compose([
-                    FormBuilderValidators.required(),
-                  ]),
-                  onFieldSubmitted: (_) => tryInsertProfile(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 6),
+                  child: TextFormField(
+                    controller: ktpController,
+                    decoration: const InputDecoration(labelText: "No. KTP"),
+                    keyboardType: TextInputType.number,
+                    autofocus: true,
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ], // Only numbers can be entered
+                    validator: FormBuilderValidators.compose([
+                      FormBuilderValidators.required(),
+                      FormBuilderValidators.numeric(),
+                      FormBuilderValidators.equalLength(16)
+                    ]),
+                    onFieldSubmitted: (_) => tryUpdateProfile(),
+                  ),
                 ),
-                TextFormField(
-                  controller: npwpController,
-                  decoration: const InputDecoration(labelText: "No. NPWP"),
-                  autofocus: true,
-                  onFieldSubmitted: (_) => tryInsertProfile(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 6),
+                  child: TextFormField(
+                    controller: npwpController,
+                    decoration: const InputDecoration(labelText: "No. NPWP"),
+                    autofocus: true,
+                    onFieldSubmitted: (_) => tryUpdateProfile(),
+                  ),
                 ),
                 const SizedBox(height: 12),
                 const SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: () => tryInsertProfile(),
+                  onPressed: () => tryUpdateProfile(),
                   child: const Text('SIMPAN PROFIL'),
                 )
               ],

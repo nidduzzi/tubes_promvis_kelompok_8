@@ -4,18 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
-import 'package:tubes_promvis_kelompok_8/src/helpers/navigation.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
-import 'package:tubes_promvis_kelompok_8/src/types/register_page_type.dart';
+import 'package:tubes_promvis_kelompok_8/src/types/customer_role_type.dart';
 
-class RegisterForm extends HookWidget {
-  RegisterForm(
+class AccountInfoForm extends HookWidget {
+  AccountInfoForm(
       {super.key,
       required this.type,
       required this.handleCancel,
       required this.handleContinue,
       required this.handleGoTo});
-  final RegisterPageType type;
+  final CustomerRoleType type;
   final void Function() handleCancel;
   final void Function() handleContinue;
   final void Function(int index) handleGoTo;
@@ -40,12 +39,12 @@ class RegisterForm extends HookWidget {
               password: passwordController.text,
               displayName: usernameController.text,
               roles: [
-                type == RegisterPageType.Investor ? "investor" : "umkm",
+                type == CustomerRoleType.Investor ? "investor" : "umkm",
                 "me",
                 "user"
               ],
               defaultRole:
-                  type == RegisterPageType.Investor ? "investor" : "umkm");
+                  type == CustomerRoleType.Investor ? "investor" : "umkm");
 
           assert(res.user != null, "user sign up returned no user");
           if (res.user == null) {

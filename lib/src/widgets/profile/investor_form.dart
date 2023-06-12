@@ -7,7 +7,6 @@ import 'package:tubes_promvis_kelompok_8/src/helpers/navigation.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/investor.graphql.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/schema.graphql.dart';
-import 'package:tubes_promvis_kelompok_8/src/types/customer_role_type.dart';
 import 'package:tubes_promvis_kelompok_8/src/widgets/spinner.dart';
 
 class InvestorProfileForm extends HookWidget {
@@ -43,20 +42,25 @@ class InvestorProfileForm extends HookWidget {
         if (!(formKey.currentState?.validate() ?? false)) {
           return false;
         }
-        final investors = getInvestor.result.parsedData?.investor;
-        if (investors != null && investors.isNotEmpty) {
+        if (!(auth.currentUser?.roles.contains('investor') ?? false)) {
+          throw Exception("user doesn't have investor role");
+        }
+        final investor = getInvestor.result.parsedData?.investor.first;
+        if (investor != null) {
           Logger.talker.log("updating investor");
           final res = await updateInvestor
               .runMutation(Variables$Mutation$UpdateInvestorMutation(
                   user_id: userId,
                   data: Input$investor_set_input(
-                    investor_name: investorNameController.text,
+                    investor_name:
+                        (investor.investor_name != investorNameController.text
+                            ? investorNameController.text
+                            : null),
                   )))
               .networkResult;
 
           if (res == null) {
-            goTo(context,
-                '/register/${CustomerRoleType.Investor.toShortString()}');
+            goTo(context, '/profile');
             throw Exception("response is null");
           }
           if (res.hasException == true) {
@@ -72,15 +76,13 @@ class InvestorProfileForm extends HookWidget {
                       user_id: userId)))
               .networkResult;
           if (res == null) {
-            goTo(context,
-                '/register/${CustomerRoleType.Investor.toShortString()}');
+            goTo(context, '/profile');
             throw Exception("response is null");
           }
           if (res.hasException == true) {
             Logger.talker.error("insert investor failed", res.exception);
           }
         }
-        goTo(context, '/dashboard');
       } on ApiException catch (err, st) {
         final decodedBody = const JsonDecoder().convert(err.response.body);
         final reasonPhrase =
@@ -89,14 +91,15 @@ class InvestorProfileForm extends HookWidget {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-                'Failed to create Investor  (HTTP STATUS ${err.response.statusCode}$reasonPhrase)'),
+                'Terjadi kesalahan menyimpan Investor  (HTTP STATUS ${err.response.statusCode}$reasonPhrase)'),
           ),
         );
       } catch (err, st) {
         Logger.talker.error("Failed to create Investor ", err, st);
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Failed to create Investor due to internal error'),
+            content: Text(
+                'Terjadi kesalahan menyimpan Investor due to internal error'),
           ),
         );
       }
@@ -109,6 +112,9 @@ class InvestorProfileForm extends HookWidget {
         final investor = investorList.first;
         investorNameController.text = investor.investor_name;
       }
+      Future.delayed(Duration.zero, () {
+        formKey.currentState?.validate();
+      });
       return Form(
         key: formKey,
         child: FocusTraversalGroup(

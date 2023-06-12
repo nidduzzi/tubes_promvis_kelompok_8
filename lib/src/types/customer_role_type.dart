@@ -1,7 +1,7 @@
 // ignore: constant_identifier_names
-enum RegisterPageType { UMKM, Investor }
+enum CustomerRoleType { UMKM, Investor }
 
-extension ParseToString on RegisterPageType {
+extension ParseToString on CustomerRoleType {
   String toShortString() {
     return toString().split('.').last;
   }
