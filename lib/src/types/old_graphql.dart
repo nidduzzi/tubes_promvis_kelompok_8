@@ -65,7 +65,6 @@ query GetProfileQuery {
   }
 }
 ''');
-
 final updateUMKMMutation = gql('''
 mutation UpdateUMKMMutation (\$data: umkm_set_input!, \$user_id: uuid) {
   update_umkm(_set: \$data, where: {user_id: {_eq: \$user_id}}) {
@@ -100,6 +99,53 @@ mutation InsertUMKMMutation (\$data: umkm_insert_input!) {
 
 final getUMKMQuery = gql('''
 query GetUMKMQuery {
+  profile {
+    user_id
+    profile_npwp_no
+    profile_last_name
+    profile_ktp_no
+    profile_id
+    profile_first_name
+    profile_address
+    updated_at
+    created_at
+  }
+}
+''');
+
+final updateInvestorMutation = gql('''
+mutation UpdateInvestorMutation (\$data: investor_set_input!, \$user_id: uuid) {
+  update_investor(_set: \$data, where: {user_id: {_eq: \$user_id}}) {
+    returning {
+      investor_id
+      investor_name
+      investor_performance
+      investor_desc
+      investor_shares
+      user_id
+      updated_at
+      created_at
+    }
+  }
+}
+''');
+
+final insertInvestorMutation = gql('''
+mutation InsertinvestorMutation (\$data: investor_insert_input!) {
+  insert_investor_one(object: \$data) {
+    investor_desc
+    investor_id
+    investor_name
+    investor_investment_amount
+    user_id
+    investment
+    user
+  }
+}
+''');
+
+final getInvestorQuery = gql('''
+query GetinvestorQuery {
   profile {
     user_id
     profile_npwp_no

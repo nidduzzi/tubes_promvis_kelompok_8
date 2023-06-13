@@ -10,6 +10,7 @@ import 'package:tubes_promvis_kelompok_8/src/pages/register_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/sample_item_details_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/sample_item_list_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/settings_page.dart';
+//import 'package:tubes_promvis_kelompok_8/src/pages/profile_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/providers/settings/settings_controller.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/register_page_type.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/route_params_type.dart';
@@ -59,6 +60,10 @@ class AppRouter {
         private: false),
     RouteParams(
         path: '/dashboard',
+        builder: (context, state) => const DashboardPage(),
+        private: true),
+    RouteParams(
+        path: '/profile',
         builder: (context, state) => const DashboardPage(),
         private: true),
     RouteParams(

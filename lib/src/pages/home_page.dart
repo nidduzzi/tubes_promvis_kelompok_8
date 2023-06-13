@@ -1,10 +1,17 @@
+// Homepage yang belum di login alias untuk visitor 
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const Padding(padding: EdgeInsets.all(16), child: Text("Home Page"));
+  HomePageState createState() => HomePageState();
+}
+
+class HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext Context) {
+    return Scaffold();
+      
   }
 }
