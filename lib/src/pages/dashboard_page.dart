@@ -34,16 +34,21 @@ class DashboardPage extends StatelessWidget {
                         'your backend using the quick-start at '
                         'https://docs.nhost.io?');
                   }
-                  final profile = result.parsedData?.profile.first;
+                  final profileList = result.parsedData?.profile;
+                  if (profileList?.isNotEmpty ?? false) {
+                    final profile = profileList?.first;
 
-                  return Column(children: [
-                    Text("Name: ${currentUser?.displayName}"),
-                    Text("Email: ${currentUser?.email}"),
-                    if (profile != null)
-                      Text("First Name: ${profile.profile_first_name}"),
-                    if (profile != null)
-                      Text("Last Name: ${profile.profile_last_name}"),
-                  ]);
+                    return Column(children: [
+                      Text("Name: ${currentUser?.displayName}"),
+                      Text("Email: ${currentUser?.email}"),
+                      if (profile != null)
+                        Text("First Name: ${profile.profile_first_name}"),
+                      if (profile != null)
+                        Text("Last Name: ${profile.profile_last_name}"),
+                    ]);
+                  } else {
+                    return const SizedBox();
+                  }
                 })));
   }
 }

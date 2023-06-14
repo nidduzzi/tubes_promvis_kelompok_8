@@ -1,11 +1,9 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
-import 'package:tubes_promvis_kelompok_8/src/helpers/navigation.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/profile.graphql.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/schema.graphql.dart';
@@ -16,10 +14,14 @@ class ProfileForm extends HookWidget {
       {super.key,
       required this.handleCancel,
       required this.handleContinue,
-      required this.handleGoTo});
+      required this.handleGoTo,
+      required this.fallbackRedirect,
+      this.isRegister = false});
   final void Function() handleCancel;
   final void Function() handleContinue;
   final void Function(int index) handleGoTo;
+  final void Function(BuildContext context) fallbackRedirect;
+  final bool isRegister;
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -81,7 +83,7 @@ class ProfileForm extends HookWidget {
                   )))
               .networkResult;
           if (res == null) {
-            goTo(context, '/profile');
+            if (context.mounted) fallbackRedirect(context);
             throw Exception("response is null");
           }
           if (res.hasException == true) {
@@ -103,13 +105,14 @@ class ProfileForm extends HookWidget {
               .networkResult;
 
           if (res == null) {
-            goTo(context, '/  profile');
+            if (context.mounted) fallbackRedirect(context);
             throw Exception("response is null");
           }
           if (res.hasException == true) {
             Logger.talker.error("insert profile failed", res.exception);
           }
         }
+        if (isRegister) handleContinue();
         return true;
       } on ApiException catch (err, st) {
         final decodedBody = const JsonDecoder().convert(err.response.body);
@@ -145,7 +148,6 @@ class ProfileForm extends HookWidget {
     if (getProfile.result.isConcrete) {
       final profileList = getProfile.result.parsedData?.profile;
       if (profileList != null && profileList.isNotEmpty) {
-        Logger.talker.log("displaying existing profile data");
         final profile = profileList.first;
         firstNameController.text = profile.profile_first_name;
         lastNameController.text = profile.profile_last_name ?? "";
@@ -154,9 +156,11 @@ class ProfileForm extends HookWidget {
         npwpController.text = profile.profile_npwp_no ?? "";
         phoneController.text = profile.profile_phone;
       }
-      Future.delayed(Duration.zero, () {
-        formKey.currentState?.validate();
-      });
+      if (!isRegister) {
+        Future.delayed(Duration.zero, () {
+          formKey.currentState?.validate();
+        });
+      }
       return Form(
         key: formKey,
         child: FocusTraversalGroup(
@@ -220,7 +224,7 @@ class ProfileForm extends HookWidget {
                     ]),
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.digitsOnly
-                    ], // Only numbers can be entered
+                    ],
                     onFieldSubmitted: (_) => tryUpdateProfile(),
                   ),
                 ),
@@ -233,7 +237,7 @@ class ProfileForm extends HookWidget {
                     autofocus: true,
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.digitsOnly
-                    ], // Only numbers can be entered
+                    ],
                     validator: FormBuilderValidators.compose([
                       FormBuilderValidators.required(),
                       FormBuilderValidators.numeric(),
@@ -264,171 +268,3 @@ class ProfileForm extends HookWidget {
     return const Spinner();
   }
 }
-
-// class ProfileFormState {
-//   final formKey = GlobalKey<FormState>();
-//   late TextEditingController firstNameController;
-//   late TextEditingController lastNameController;
-//   late TextEditingController addressController;
-//   late TextEditingController phoneController;
-//   late TextEditingController ktpController;
-//   late TextEditingController npwpController;
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     firstNameController = TextEditingController(
-//       text: '',
-//     );
-//     lastNameController = TextEditingController(
-//       text: '',
-//     );
-//     addressController = TextEditingController(
-//       text: '',
-//     );
-//     phoneController = TextEditingController(
-//       text: '',
-//     );
-//     ktpController = TextEditingController(
-//       text: '',
-//     );
-//     npwpController = TextEditingController(
-//       text: '',
-//     );
-//   }
-
-//   @override
-//   void dispose() {
-//     super.dispose();
-//     firstNameController.dispose();
-//     lastNameController.dispose();
-//     addressController.dispose();
-//     phoneController.dispose();
-//     ktpController.dispose();
-//     npwpController.dispose();
-//   }
-
-//   void tryInsertProfile(
-//       MultiSourceResult<Mutation$InsertProfileMutation> Function(
-//               Variables$Mutation$InsertProfileMutation,
-//               {Object? optimisticResult,
-//               Mutation$InsertProfileMutation? typedOptimisticResult})
-//           runMutation) async {
-//     try {
-//       final auth = NhostAuthProvider.of(context)!;
-//       final userId = auth.currentUser?.id;
-//       if (userId != null) {
-//         runMutation(Variables$Mutation$InsertProfileMutation(
-//             data: Input$profile_insert_input(
-//                 profile_first_name: firstNameController.text,
-//                 profile_last_name: lastNameController.text,
-//                 profile_address: addressController.text,
-//                 profile_ktp_no: ktpController.text,
-//                 profile_npwp_no: npwpController.text,
-//                 profile_phone: phoneController.text,
-//                 user_id: userId)));
-//       }
-//     } on ApiException {
-//       ScaffoldMessenger.of(context).showSnackBar(
-//         const SnackBar(
-//           content: Text('Failed to create profile'),
-//         ),
-//       );
-//     }
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Form(
-//       child: FocusTraversalGroup(
-//           policy: ReadingOrderTraversalPolicy(),
-//           child: Mutation$InsertProfileMutation$Widget(
-//               options: WidgetOptions$Mutation$InsertProfileMutation(),
-//               builder: (runMutation, result) {
-//                 if (result?.isConcrete ?? false) {
-//                   goTo(
-//                     context,
-//                     '/dashboard',
-//                   );
-//                 }
-//                 return Column(
-//                   crossAxisAlignment: CrossAxisAlignment.start,
-//                   children: [
-//                     TextFormField(
-//                       controller: firstNameController,
-//                       decoration: const InputDecoration(
-//                         labelText: 'First Name',
-//                         border: OutlineInputBorder(),
-//                       ),
-//                       autofocus: true,
-//                       onFieldSubmitted: (_) => tryInsertProfile(
-//                         runMutation,
-//                       ),
-//                     ),
-//                     TextFormField(
-//                       controller: lastNameController,
-//                       decoration: const InputDecoration(
-//                         labelText: 'Last Name',
-//                         border: OutlineInputBorder(),
-//                       ),
-//                       autofocus: true,
-//                       onFieldSubmitted: (_) => tryInsertProfile(
-//                         runMutation,
-//                       ),
-//                     ),
-//                     TextFormField(
-//                       controller: addressController,
-//                       decoration: const InputDecoration(
-//                         labelText: 'Address',
-//                         border: OutlineInputBorder(),
-//                       ),
-//                       autofocus: true,
-//                       onFieldSubmitted: (_) => tryInsertProfile(
-//                         runMutation,
-//                       ),
-//                     ),
-//                     TextFormField(
-//                       controller: phoneController,
-//                       decoration:
-//                           const InputDecoration(labelText: "Enter your number"),
-//                       keyboardType: TextInputType.number,
-//                       autofocus: true,
-//                       inputFormatters: <TextInputFormatter>[
-//                         FilteringTextInputFormatter.digitsOnly
-//                       ], // Only numbers can be entered
-//                       onFieldSubmitted: (_) => tryInsertProfile(
-//                         runMutation,
-//                       ),
-//                     ),
-//                     TextFormField(
-//                       controller: ktpController,
-//                       decoration: const InputDecoration(labelText: "No. KTP"),
-//                       keyboardType: TextInputType.number,
-//                       autofocus: true,
-//                       inputFormatters: <TextInputFormatter>[
-//                         FilteringTextInputFormatter.digitsOnly
-//                       ], // Only numbers can be entered
-//                       onFieldSubmitted: (_) => tryInsertProfile(
-//                         runMutation,
-//                       ),
-//                     ),
-//                     TextFormField(
-//                       controller: npwpController,
-//                       decoration: const InputDecoration(labelText: "No. NPWP"),
-//                       autofocus: true,
-//                       onFieldSubmitted: (_) => tryInsertProfile(
-//                         runMutation,
-//                       ),
-//                     ),
-//                     const SizedBox(height: 12),
-//                     const SizedBox(height: 20),
-//                     ElevatedButton(
-//                       onPressed: () => tryInsertProfile(runMutation),
-//                       child: const Text('SIMPAN PROFIL'),
-//                     )
-//                   ],
-//                 );
-//               })),
-//     );
-//   }
-// }

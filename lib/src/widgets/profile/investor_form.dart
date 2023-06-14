@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
@@ -14,10 +13,14 @@ class InvestorProfileForm extends HookWidget {
       {super.key,
       required this.handleCancel,
       required this.handleContinue,
-      required this.handleGoTo});
+      required this.handleGoTo,
+      required this.fallbackRedirect,
+      this.isRegister = false});
   final void Function() handleCancel;
   final void Function() handleContinue;
   final void Function(int index) handleGoTo;
+  final void Function(BuildContext context) fallbackRedirect;
+  final bool isRegister;
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -45,9 +48,14 @@ class InvestorProfileForm extends HookWidget {
         if (!(auth.currentUser?.roles.contains('investor') ?? false)) {
           throw Exception("user doesn't have investor role");
         }
-        final investor = getInvestor.result.parsedData?.investor.first;
-        if (investor != null) {
+        final listInvestor = getInvestor.result.parsedData?.investor;
+        if (listInvestor?.isNotEmpty ?? false) {
           Logger.talker.log("updating investor");
+          final investor = getInvestor.result.parsedData?.investor.first;
+          if (investor == null) {
+            throw Exception(
+                'list investor is not empty but first element is null');
+          }
           final res = await updateInvestor
               .runMutation(Variables$Mutation$UpdateInvestorMutation(
                   user_id: userId,
@@ -60,7 +68,7 @@ class InvestorProfileForm extends HookWidget {
               .networkResult;
 
           if (res == null) {
-            goTo(context, '/profile');
+            if (context.mounted) fallbackRedirect(context);
             throw Exception("response is null");
           }
           if (res.hasException == true) {
@@ -76,13 +84,14 @@ class InvestorProfileForm extends HookWidget {
                       user_id: userId)))
               .networkResult;
           if (res == null) {
-            goTo(context, '/profile');
+            if (context.mounted) fallbackRedirect(context);
             throw Exception("response is null");
           }
           if (res.hasException == true) {
             Logger.talker.error("insert investor failed", res.exception);
           }
         }
+        if (isRegister && context.mounted) goTo(context, '/dashboard');
       } on ApiException catch (err, st) {
         final decodedBody = const JsonDecoder().convert(err.response.body);
         final reasonPhrase =
@@ -112,9 +121,11 @@ class InvestorProfileForm extends HookWidget {
         final investor = investorList.first;
         investorNameController.text = investor.investor_name;
       }
-      Future.delayed(Duration.zero, () {
-        formKey.currentState?.validate();
-      });
+      if (!isRegister) {
+        Future.delayed(Duration.zero, () {
+          formKey.currentState?.validate();
+        });
+      }
       return Form(
         key: formKey,
         child: FocusTraversalGroup(
@@ -122,20 +133,23 @@ class InvestorProfileForm extends HookWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextFormField(
-                  controller: investorNameController,
-                  decoration: const InputDecoration(
-                    labelText: 'Nama Investor',
-                    border: OutlineInputBorder(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 6),
+                  child: TextFormField(
+                    controller: investorNameController,
+                    decoration: const InputDecoration(
+                      labelText: 'Nama Investor',
+                      border: OutlineInputBorder(),
+                    ),
+                    autofocus: true,
+                    onFieldSubmitted: (_) => tryInsertInvestor(),
                   ),
-                  autofocus: true,
-                  onFieldSubmitted: (_) => tryInsertInvestor(),
                 ),
                 const SizedBox(height: 12),
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () => tryInsertInvestor(),
-                  child: const Text('SIMPAN INFORMASI INVESTOR'),
+                  child: const Text('SIMPAN INVESTOR'),
                 )
               ],
             )),

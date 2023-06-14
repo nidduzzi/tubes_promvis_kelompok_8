@@ -14,10 +14,14 @@ class UMKMProfileForm extends HookWidget {
       {super.key,
       required this.handleCancel,
       required this.handleContinue,
-      required this.handleGoTo});
+      required this.handleGoTo,
+      required this.fallbackRedirect,
+      this.isRegister = false});
   final void Function() handleCancel;
   final void Function() handleContinue;
   final void Function(int index) handleGoTo;
+  final void Function(BuildContext context) fallbackRedirect;
+  final bool isRegister;
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -45,9 +49,13 @@ class UMKMProfileForm extends HookWidget {
         if (!(auth.currentUser?.roles.contains('umkm') ?? false)) {
           throw Exception("user doesn't have umkm role");
         }
-        final umkm = getUMKM.result.parsedData?.umkm.first;
-        if (umkm != null) {
+        final listUMKM = getUMKM.result.parsedData?.umkm;
+        if (listUMKM?.isNotEmpty ?? false) {
           Logger.talker.log("updating umkm");
+          final umkm = getUMKM.result.parsedData?.umkm.first;
+          if (umkm == null) {
+            throw Exception('list umkm is not empty but first element is null');
+          }
           final res = await updateUMKM
               .runMutation(Variables$Mutation$UpdateUMKMMutation(
                   user_id: userId,
@@ -62,7 +70,7 @@ class UMKMProfileForm extends HookWidget {
               .networkResult;
 
           if (res == null) {
-            goTo(context, '/profile');
+            if (context.mounted) fallbackRedirect(context);
             throw Exception("response is null");
           }
           if (res.hasException == true) {
@@ -81,13 +89,14 @@ class UMKMProfileForm extends HookWidget {
               .networkResult;
 
           if (res == null) {
-            goTo(context, '/profile');
+            if (context.mounted) fallbackRedirect(context);
             throw Exception("response is null");
           }
           if (res.hasException == true) {
             Logger.talker.error("insert umkm failed", res.exception);
           }
         }
+        if (isRegister && context.mounted) goTo(context, '/dashboard');
       } on ApiException catch (err, st) {
         final decodedBody = const JsonDecoder().convert(err.response.body);
         final reasonPhrase =
@@ -122,9 +131,11 @@ class UMKMProfileForm extends HookWidget {
         umkmNameController.text = umkm.umkm_name;
         umkmDescriptionController.text = umkm.umkm_desc;
       }
-      Future.delayed(Duration.zero, () {
-        formKey.currentState?.validate();
-      });
+      if (!isRegister) {
+        Future.delayed(Duration.zero, () {
+          formKey.currentState?.validate();
+        });
+      }
       return Form(
         key: formKey,
         child: FocusTraversalGroup(
