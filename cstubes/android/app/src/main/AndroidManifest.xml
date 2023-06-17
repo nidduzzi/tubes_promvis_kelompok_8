@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.cstubes">
+    package="com.example.tubes_promvis_kelompok_8">
    <application
-        android:label="cstubes"
+        android:label="tubes_promvis_kelompok_8"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
