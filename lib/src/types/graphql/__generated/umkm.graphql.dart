@@ -1623,6 +1623,678 @@ class _CopyWithStubImpl$Mutation$UpdateUMKMMutation$update_umkm<TRes>
   returning(_fn) => _res;
 }
 
+class Variables$Query$GetUserUMKMQuery {
+  factory Variables$Query$GetUserUMKMQuery({
+    required UUID user_id,
+    int? limit,
+    List<Enum$umkm_select_column>? distinct_on,
+    int? offset,
+    List<Input$umkm_order_by>? order_by,
+  }) =>
+      Variables$Query$GetUserUMKMQuery._({
+        r'user_id': user_id,
+        if (limit != null) r'limit': limit,
+        if (distinct_on != null) r'distinct_on': distinct_on,
+        if (offset != null) r'offset': offset,
+        if (order_by != null) r'order_by': order_by,
+      });
+
+  Variables$Query$GetUserUMKMQuery._(this._$data);
+
+  factory Variables$Query$GetUserUMKMQuery.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$user_id = data['user_id'];
+    result$data['user_id'] = uuidFromJson(l$user_id);
+    if (data.containsKey('limit')) {
+      final l$limit = data['limit'];
+      result$data['limit'] = (l$limit as int?);
+    }
+    if (data.containsKey('distinct_on')) {
+      final l$distinct_on = data['distinct_on'];
+      result$data['distinct_on'] = (l$distinct_on as List<dynamic>?)
+          ?.map((e) => fromJson$Enum$umkm_select_column((e as String)))
+          .toList();
+    }
+    if (data.containsKey('offset')) {
+      final l$offset = data['offset'];
+      result$data['offset'] = (l$offset as int?);
+    }
+    if (data.containsKey('order_by')) {
+      final l$order_by = data['order_by'];
+      result$data['order_by'] = (l$order_by as List<dynamic>?)
+          ?.map(
+              (e) => Input$umkm_order_by.fromJson((e as Map<String, dynamic>)))
+          .toList();
+    }
+    return Variables$Query$GetUserUMKMQuery._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  UUID get user_id => (_$data['user_id'] as UUID);
+  int? get limit => (_$data['limit'] as int?);
+  List<Enum$umkm_select_column>? get distinct_on =>
+      (_$data['distinct_on'] as List<Enum$umkm_select_column>?);
+  int? get offset => (_$data['offset'] as int?);
+  List<Input$umkm_order_by>? get order_by =>
+      (_$data['order_by'] as List<Input$umkm_order_by>?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$user_id = user_id;
+    result$data['user_id'] = uuidToJson(l$user_id);
+    if (_$data.containsKey('limit')) {
+      final l$limit = limit;
+      result$data['limit'] = l$limit;
+    }
+    if (_$data.containsKey('distinct_on')) {
+      final l$distinct_on = distinct_on;
+      result$data['distinct_on'] =
+          l$distinct_on?.map((e) => toJson$Enum$umkm_select_column(e)).toList();
+    }
+    if (_$data.containsKey('offset')) {
+      final l$offset = offset;
+      result$data['offset'] = l$offset;
+    }
+    if (_$data.containsKey('order_by')) {
+      final l$order_by = order_by;
+      result$data['order_by'] = l$order_by?.map((e) => e.toJson()).toList();
+    }
+    return result$data;
+  }
+
+  CopyWith$Variables$Query$GetUserUMKMQuery<Variables$Query$GetUserUMKMQuery>
+      get copyWith => CopyWith$Variables$Query$GetUserUMKMQuery(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Query$GetUserUMKMQuery) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (l$user_id != lOther$user_id) {
+      return false;
+    }
+    final l$limit = limit;
+    final lOther$limit = other.limit;
+    if (_$data.containsKey('limit') != other._$data.containsKey('limit')) {
+      return false;
+    }
+    if (l$limit != lOther$limit) {
+      return false;
+    }
+    final l$distinct_on = distinct_on;
+    final lOther$distinct_on = other.distinct_on;
+    if (_$data.containsKey('distinct_on') !=
+        other._$data.containsKey('distinct_on')) {
+      return false;
+    }
+    if (l$distinct_on != null && lOther$distinct_on != null) {
+      if (l$distinct_on.length != lOther$distinct_on.length) {
+        return false;
+      }
+      for (int i = 0; i < l$distinct_on.length; i++) {
+        final l$distinct_on$entry = l$distinct_on[i];
+        final lOther$distinct_on$entry = lOther$distinct_on[i];
+        if (l$distinct_on$entry != lOther$distinct_on$entry) {
+          return false;
+        }
+      }
+    } else if (l$distinct_on != lOther$distinct_on) {
+      return false;
+    }
+    final l$offset = offset;
+    final lOther$offset = other.offset;
+    if (_$data.containsKey('offset') != other._$data.containsKey('offset')) {
+      return false;
+    }
+    if (l$offset != lOther$offset) {
+      return false;
+    }
+    final l$order_by = order_by;
+    final lOther$order_by = other.order_by;
+    if (_$data.containsKey('order_by') !=
+        other._$data.containsKey('order_by')) {
+      return false;
+    }
+    if (l$order_by != null && lOther$order_by != null) {
+      if (l$order_by.length != lOther$order_by.length) {
+        return false;
+      }
+      for (int i = 0; i < l$order_by.length; i++) {
+        final l$order_by$entry = l$order_by[i];
+        final lOther$order_by$entry = lOther$order_by[i];
+        if (l$order_by$entry != lOther$order_by$entry) {
+          return false;
+        }
+      }
+    } else if (l$order_by != lOther$order_by) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$user_id = user_id;
+    final l$limit = limit;
+    final l$distinct_on = distinct_on;
+    final l$offset = offset;
+    final l$order_by = order_by;
+    return Object.hashAll([
+      l$user_id,
+      _$data.containsKey('limit') ? l$limit : const {},
+      _$data.containsKey('distinct_on')
+          ? l$distinct_on == null
+              ? null
+              : Object.hashAll(l$distinct_on.map((v) => v))
+          : const {},
+      _$data.containsKey('offset') ? l$offset : const {},
+      _$data.containsKey('order_by')
+          ? l$order_by == null
+              ? null
+              : Object.hashAll(l$order_by.map((v) => v))
+          : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Variables$Query$GetUserUMKMQuery<TRes> {
+  factory CopyWith$Variables$Query$GetUserUMKMQuery(
+    Variables$Query$GetUserUMKMQuery instance,
+    TRes Function(Variables$Query$GetUserUMKMQuery) then,
+  ) = _CopyWithImpl$Variables$Query$GetUserUMKMQuery;
+
+  factory CopyWith$Variables$Query$GetUserUMKMQuery.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$GetUserUMKMQuery;
+
+  TRes call({
+    UUID? user_id,
+    int? limit,
+    List<Enum$umkm_select_column>? distinct_on,
+    int? offset,
+    List<Input$umkm_order_by>? order_by,
+  });
+}
+
+class _CopyWithImpl$Variables$Query$GetUserUMKMQuery<TRes>
+    implements CopyWith$Variables$Query$GetUserUMKMQuery<TRes> {
+  _CopyWithImpl$Variables$Query$GetUserUMKMQuery(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Query$GetUserUMKMQuery _instance;
+
+  final TRes Function(Variables$Query$GetUserUMKMQuery) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? user_id = _undefined,
+    Object? limit = _undefined,
+    Object? distinct_on = _undefined,
+    Object? offset = _undefined,
+    Object? order_by = _undefined,
+  }) =>
+      _then(Variables$Query$GetUserUMKMQuery._({
+        ..._instance._$data,
+        if (user_id != _undefined && user_id != null)
+          'user_id': (user_id as UUID),
+        if (limit != _undefined) 'limit': (limit as int?),
+        if (distinct_on != _undefined)
+          'distinct_on': (distinct_on as List<Enum$umkm_select_column>?),
+        if (offset != _undefined) 'offset': (offset as int?),
+        if (order_by != _undefined)
+          'order_by': (order_by as List<Input$umkm_order_by>?),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Query$GetUserUMKMQuery<TRes>
+    implements CopyWith$Variables$Query$GetUserUMKMQuery<TRes> {
+  _CopyWithStubImpl$Variables$Query$GetUserUMKMQuery(this._res);
+
+  TRes _res;
+
+  call({
+    UUID? user_id,
+    int? limit,
+    List<Enum$umkm_select_column>? distinct_on,
+    int? offset,
+    List<Input$umkm_order_by>? order_by,
+  }) =>
+      _res;
+}
+
+class Query$GetUserUMKMQuery {
+  Query$GetUserUMKMQuery({
+    required this.umkm,
+    this.$__typename = 'query_root',
+  });
+
+  factory Query$GetUserUMKMQuery.fromJson(Map<String, dynamic> json) {
+    final l$umkm = json['umkm'];
+    final l$$__typename = json['__typename'];
+    return Query$GetUserUMKMQuery(
+      umkm: (l$umkm as List<dynamic>)
+          .map((e) => Fragment$umkmData.fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final List<Fragment$umkmData> umkm;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$umkm = umkm;
+    _resultData['umkm'] = l$umkm.map((e) => e.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$umkm = umkm;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      Object.hashAll(l$umkm.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetUserUMKMQuery) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$umkm = umkm;
+    final lOther$umkm = other.umkm;
+    if (l$umkm.length != lOther$umkm.length) {
+      return false;
+    }
+    for (int i = 0; i < l$umkm.length; i++) {
+      final l$umkm$entry = l$umkm[i];
+      final lOther$umkm$entry = lOther$umkm[i];
+      if (l$umkm$entry != lOther$umkm$entry) {
+        return false;
+      }
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetUserUMKMQuery on Query$GetUserUMKMQuery {
+  CopyWith$Query$GetUserUMKMQuery<Query$GetUserUMKMQuery> get copyWith =>
+      CopyWith$Query$GetUserUMKMQuery(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Query$GetUserUMKMQuery<TRes> {
+  factory CopyWith$Query$GetUserUMKMQuery(
+    Query$GetUserUMKMQuery instance,
+    TRes Function(Query$GetUserUMKMQuery) then,
+  ) = _CopyWithImpl$Query$GetUserUMKMQuery;
+
+  factory CopyWith$Query$GetUserUMKMQuery.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetUserUMKMQuery;
+
+  TRes call({
+    List<Fragment$umkmData>? umkm,
+    String? $__typename,
+  });
+  TRes umkm(
+      Iterable<Fragment$umkmData> Function(
+              Iterable<CopyWith$Fragment$umkmData<Fragment$umkmData>>)
+          _fn);
+}
+
+class _CopyWithImpl$Query$GetUserUMKMQuery<TRes>
+    implements CopyWith$Query$GetUserUMKMQuery<TRes> {
+  _CopyWithImpl$Query$GetUserUMKMQuery(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetUserUMKMQuery _instance;
+
+  final TRes Function(Query$GetUserUMKMQuery) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? umkm = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GetUserUMKMQuery(
+        umkm: umkm == _undefined || umkm == null
+            ? _instance.umkm
+            : (umkm as List<Fragment$umkmData>),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  TRes umkm(
+          Iterable<Fragment$umkmData> Function(
+                  Iterable<CopyWith$Fragment$umkmData<Fragment$umkmData>>)
+              _fn) =>
+      call(
+          umkm: _fn(_instance.umkm.map((e) => CopyWith$Fragment$umkmData(
+                e,
+                (i) => i,
+              ))).toList());
+}
+
+class _CopyWithStubImpl$Query$GetUserUMKMQuery<TRes>
+    implements CopyWith$Query$GetUserUMKMQuery<TRes> {
+  _CopyWithStubImpl$Query$GetUserUMKMQuery(this._res);
+
+  TRes _res;
+
+  call({
+    List<Fragment$umkmData>? umkm,
+    String? $__typename,
+  }) =>
+      _res;
+  umkm(_fn) => _res;
+}
+
+const documentNodeQueryGetUserUMKMQuery = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'GetUserUMKMQuery'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'user_id')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'uuid'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'limit')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'distinct_on')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'umkm_select_column'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'offset')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'order_by')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'umkm_order_by'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'umkm'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: ObjectValueNode(fields: [
+              ObjectFieldNode(
+                name: NameNode(value: 'user_id'),
+                value: ObjectValueNode(fields: [
+                  ObjectFieldNode(
+                    name: NameNode(value: '_eq'),
+                    value: VariableNode(name: NameNode(value: 'user_id')),
+                  )
+                ]),
+              )
+            ]),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'limit'),
+            value: VariableNode(name: NameNode(value: 'limit')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'distinct_on'),
+            value: VariableNode(name: NameNode(value: 'distinct_on')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'offset'),
+            value: VariableNode(name: NameNode(value: 'offset')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'order_by'),
+            value: VariableNode(name: NameNode(value: 'order_by')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FragmentSpreadNode(
+            name: NameNode(value: 'umkmData'),
+            directives: [],
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+  fragmentDefinitionumkmData,
+]);
+Query$GetUserUMKMQuery _parserFn$Query$GetUserUMKMQuery(
+        Map<String, dynamic> data) =>
+    Query$GetUserUMKMQuery.fromJson(data);
+typedef OnQueryComplete$Query$GetUserUMKMQuery = FutureOr<void> Function(
+  Map<String, dynamic>?,
+  Query$GetUserUMKMQuery?,
+);
+
+class Options$Query$GetUserUMKMQuery
+    extends graphql.QueryOptions<Query$GetUserUMKMQuery> {
+  Options$Query$GetUserUMKMQuery({
+    String? operationName,
+    required Variables$Query$GetUserUMKMQuery variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$GetUserUMKMQuery? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$GetUserUMKMQuery? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$GetUserUMKMQuery(data),
+                  ),
+          onError: onError,
+          document: documentNodeQueryGetUserUMKMQuery,
+          parserFn: _parserFn$Query$GetUserUMKMQuery,
+        );
+
+  final OnQueryComplete$Query$GetUserUMKMQuery? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
+}
+
+class WatchOptions$Query$GetUserUMKMQuery
+    extends graphql.WatchQueryOptions<Query$GetUserUMKMQuery> {
+  WatchOptions$Query$GetUserUMKMQuery({
+    String? operationName,
+    required Variables$Query$GetUserUMKMQuery variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$GetUserUMKMQuery? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQueryGetUserUMKMQuery,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$GetUserUMKMQuery,
+        );
+}
+
+class FetchMoreOptions$Query$GetUserUMKMQuery extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$GetUserUMKMQuery({
+    required graphql.UpdateQuery updateQuery,
+    required Variables$Query$GetUserUMKMQuery variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables.toJson(),
+          document: documentNodeQueryGetUserUMKMQuery,
+        );
+}
+
+extension ClientExtension$Query$GetUserUMKMQuery on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$GetUserUMKMQuery>> query$GetUserUMKMQuery(
+          Options$Query$GetUserUMKMQuery options) async =>
+      await this.query(options);
+  graphql.ObservableQuery<Query$GetUserUMKMQuery> watchQuery$GetUserUMKMQuery(
+          WatchOptions$Query$GetUserUMKMQuery options) =>
+      this.watchQuery(options);
+  void writeQuery$GetUserUMKMQuery({
+    required Query$GetUserUMKMQuery data,
+    required Variables$Query$GetUserUMKMQuery variables,
+    bool broadcast = true,
+  }) =>
+      this.writeQuery(
+        graphql.Request(
+          operation:
+              graphql.Operation(document: documentNodeQueryGetUserUMKMQuery),
+          variables: variables.toJson(),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$GetUserUMKMQuery? readQuery$GetUserUMKMQuery({
+    required Variables$Query$GetUserUMKMQuery variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation:
+            graphql.Operation(document: documentNodeQueryGetUserUMKMQuery),
+        variables: variables.toJson(),
+      ),
+      optimistic: optimistic,
+    );
+    return result == null ? null : Query$GetUserUMKMQuery.fromJson(result);
+  }
+}
+
+graphql_flutter.QueryHookResult<Query$GetUserUMKMQuery>
+    useQuery$GetUserUMKMQuery(Options$Query$GetUserUMKMQuery options) =>
+        graphql_flutter.useQuery(options);
+graphql.ObservableQuery<Query$GetUserUMKMQuery> useWatchQuery$GetUserUMKMQuery(
+        WatchOptions$Query$GetUserUMKMQuery options) =>
+    graphql_flutter.useWatchQuery(options);
+
+class Query$GetUserUMKMQuery$Widget
+    extends graphql_flutter.Query<Query$GetUserUMKMQuery> {
+  Query$GetUserUMKMQuery$Widget({
+    widgets.Key? key,
+    required Options$Query$GetUserUMKMQuery options,
+    required graphql_flutter.QueryBuilder<Query$GetUserUMKMQuery> builder,
+  }) : super(
+          key: key,
+          options: options,
+          builder: builder,
+        );
+}
+
 class Variables$Query$GetByPkUMKMQuery {
   factory Variables$Query$GetByPkUMKMQuery({required int umkm_id}) =>
       Variables$Query$GetByPkUMKMQuery._({

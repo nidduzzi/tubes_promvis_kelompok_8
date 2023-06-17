@@ -21,6 +21,24 @@ mutation UpdateInvestorMutation($data: investor_set_input!, $user_id: uuid!) {
     }
 }
 
+query GetUserInvestorQuery(
+    $user_id: uuid!
+    $limit: Int
+    $distinct_on: [investor_select_column!]
+    $offset: Int
+    $order_by: [investor_order_by!]
+) {
+    investor(
+        where: { user_id: { _eq: $user_id } }
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...investorData
+    }
+}
+
 query GetByPkInvestorQuery($investor_id: Int!) {
     investor_by_pk(investor_id: $investor_id) {
         ...investorData

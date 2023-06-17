@@ -3202,7 +3202,7 @@ const documentNodeQueryGetAllCsMessageAgentQuery = DocumentNode(definitions: [
             name: NameNode(value: 'where'),
             value: ObjectValueNode(fields: [
               ObjectFieldNode(
-                name: NameNode(value: 'user_id'),
+                name: NameNode(value: 'cs_agent_user_id'),
                 value: ObjectValueNode(fields: [
                   ObjectFieldNode(
                     name: NameNode(value: '_eq'),

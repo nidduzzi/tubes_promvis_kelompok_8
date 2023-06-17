@@ -91,7 +91,7 @@ class InvestorProfileForm extends HookWidget {
             Logger.talker.error("insert investor failed", res.exception);
           }
         }
-        if (isRegister && context.mounted) goTo(context, '/dashboard');
+        if (isRegister && context.mounted) goTo(context, '/');
       } on ApiException catch (err, st) {
         final decodedBody = const JsonDecoder().convert(err.response.body);
         final reasonPhrase =

@@ -26,6 +26,24 @@ mutation UpdateInvestmentMutation(
     }
 }
 
+query GetUserInvestorInvestmentQuery(
+    $user_id: uuid!
+    $limit: Int
+    $distinct_on: [investment_select_column!]
+    $offset: Int
+    $order_by: [investment_order_by!]
+) {
+    investment(
+        where: { investor: { user_id: { _eq: $user_id } } }
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...investmentData
+    }
+}
+
 query GetByPkInvestmentQuery($investment_id: Int!) {
     investment_by_pk(investment_id: $investment_id) {
         ...investmentData
@@ -35,7 +53,19 @@ query GetByPkInvestmentQuery($investment_id: Int!) {
     }
 }
 
-query GetInvestorInvestmentAggregateQuery(
+fragment investmentsAggregate on investment_aggregate {
+    aggregate {
+        count
+        sum {
+            investment_amount
+        }
+        avg {
+            investment_amount
+        }
+    }
+}
+
+query GetInvestorInvestmentAggregate(
     $investor_id: Int
     $limit: Int
     $distinct_on: [investment_select_column!]
@@ -49,15 +79,25 @@ query GetInvestorInvestmentAggregateQuery(
         offset: $offset
         order_by: $order_by
     ) {
-        aggregate {
-            count
-            sum {
-                investment_amount
-            }
-            avg {
-                investment_amount
-            }
-        }
+        ...investmentsAggregate
+    }
+}
+
+query GetUserInvestmentAggregate(
+    $user_id: uuid!
+    $limit: Int
+    $distinct_on: [investment_select_column!]
+    $offset: Int
+    $order_by: [investment_order_by!]
+) {
+    investment_aggregate(
+        where: { investor: { user_id: { _eq: $user_id } } }
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...investmentsAggregate
     }
 }
 

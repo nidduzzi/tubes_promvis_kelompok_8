@@ -96,7 +96,7 @@ class UMKMProfileForm extends HookWidget {
             Logger.talker.error("insert umkm failed", res.exception);
           }
         }
-        if (isRegister && context.mounted) goTo(context, '/dashboard');
+        if (isRegister && context.mounted) goTo(context, '/');
       } on ApiException catch (err, st) {
         final decodedBody = const JsonDecoder().convert(err.response.body);
         final reasonPhrase =

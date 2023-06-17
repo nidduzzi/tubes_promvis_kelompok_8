@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
+import 'package:tubes_promvis_kelompok_8/src/helpers/auth.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/customer_role_type.dart';
 
@@ -42,7 +43,7 @@ class AccountInfoForm extends HookWidget {
           if (type == null) {
             throw Exception("account info form type is null");
           }
-          if (auth.authenticationState == AuthenticationState.signedOut) {
+          if (isSignedOut(context)) {
             final role = type.toShortString().toLowerCase();
             final res = await auth.signUp(
                 email: emailController.text,
@@ -60,7 +61,7 @@ class AccountInfoForm extends HookWidget {
             return true;
           }
         } else {
-          if (auth.authenticationState == AuthenticationState.signedIn) {
+          if (isSignedIn(context)) {
             if (auth.currentUser?.email?.toLowerCase() !=
                 emailController.text.toLowerCase()) {
               await auth.changeEmail(emailController.text);

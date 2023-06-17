@@ -1,11 +1,13 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
 import 'package:provider/provider.dart';
-import 'package:tubes_promvis_kelompok_8/src/providers/auth/auth_store.dart';
-import 'package:tubes_promvis_kelompok_8/src/providers/config/config_service.dart';
+import 'package:tubes_promvis_kelompok_8/src/logger.dart';
+import 'package:tubes_promvis_kelompok_8/src/providers/auth/app_auth_state.dart';
 import 'package:tubes_promvis_kelompok_8/src/providers/settings/settings_service.dart';
 import 'package:tubes_promvis_kelompok_8/src/routes.dart';
 import 'providers/settings/settings_controller.dart';
@@ -19,27 +21,18 @@ class P2PApp extends StatefulWidget {
 
   static final SettingsController settingsController =
       SettingsController(SettingsService());
+  static final AppAuthState appAuthState = AppAuthState();
 
   @override
   State<StatefulWidget> createState() => P2PAppState();
 }
 
 class P2PAppState extends State<P2PApp> {
-  late NhostClient nhostClient;
-
+  late GoRouter router;
   @override
   void initState() {
     super.initState();
-    final authStore = SharedPreferencesAuthStore();
-    // Create a new Nhost client using your project's subdomain and region.
-    nhostClient = NhostClient(
-      subdomain: Subdomain(
-        subdomain: ConfigService.apiSubdomain,
-        region: ConfigService.apiRegion,
-      ),
-      // Instruct the client to store tokens using shared preferences.
-      authStore: authStore,
-    );
+    router = AppRouter.getRouter(P2PApp.appAuthState);
   }
 
   @override
@@ -49,15 +42,20 @@ class P2PAppState extends State<P2PApp> {
     // The AnimatedBuilder Widget listens to the SettingsController for changes.
     // Whenever the user updates their settings, the MaterialApp is rebuilt.
 
-    return MultiProvider(
-        providers: [
-          ChangeNotifierProvider(create: (context) => P2PApp.settingsController)
-        ],
-        child: NhostGraphQLProvider(
-            nhostClient: nhostClient,
+    return NhostGraphQLProvider(
+        nhostClient: P2PApp.appAuthState.nhostClient,
+        child: MultiProvider(
+            providers: [
+              ChangeNotifierProvider(
+                  create: (context) => P2PApp.settingsController),
+              ChangeNotifierProvider(create: (context) => P2PApp.appAuthState)
+            ],
             child: AnimatedBuilder(
               animation: P2PApp.settingsController,
               builder: (context, child) {
+                Logger.talker.critical("Rebuilding Whole App");
+                final settingsController =
+                    Provider.of<SettingsController>(context);
                 return MaterialApp.router(
                   // Providing a restorationScopeId allows the Navigator built by the
                   // MaterialApp to restore the navigation stack when a user leaves and
@@ -93,15 +91,22 @@ class P2PAppState extends State<P2PApp> {
                   // SettingsController to display the correct theme.
                   theme: ThemeData(),
                   darkTheme: ThemeData.dark(),
-                  themeMode: P2PApp.settingsController.themeMode,
+                  themeMode: settingsController.themeMode,
 
                   // Define a function to handle named routes in order to support
                   // Flutter web url navigation and deep linking.
-                  routeInformationProvider:
-                      AppRouter.router.routeInformationProvider,
-                  routeInformationParser:
-                      AppRouter.router.routeInformationParser,
-                  routerDelegate: AppRouter.router.routerDelegate,
+                  routeInformationProvider: router.routeInformationProvider,
+                  routeInformationParser: router.routeInformationParser,
+                  routerDelegate: router.routerDelegate,
+
+                  scrollBehavior: const MaterialScrollBehavior().copyWith(
+                    dragDevices: {
+                      PointerDeviceKind.mouse,
+                      PointerDeviceKind.touch,
+                      PointerDeviceKind.stylus,
+                      PointerDeviceKind.unknown
+                    },
+                  ),
                 );
               },
             )));

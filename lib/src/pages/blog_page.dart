@@ -11,6 +11,6 @@ class BlogPageState extends State<BlogPage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Text("Blog");
+    return const Text("Blog");
   }
 }

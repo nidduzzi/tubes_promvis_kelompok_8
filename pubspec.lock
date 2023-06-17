@@ -109,10 +109,10 @@ packages:
     dependency: "direct dev"
     description:
       name: build_verify
-      sha256: b136572561f0b70c2e60c2a1afe5104027af533de65508e5f421922a28d8a74a
+      sha256: abbb9b9eda076854ac1678d284c053a5ec608e64da741d0801f56d4bbea27e23
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.0"
+    version: "3.1.0"
   built_collection:
     dependency: transitive
     description:
@@ -369,7 +369,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_web_plugins:
-    dependency: transitive
+    dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -401,10 +401,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: "00d1b67d6e9fa443331da229084dd3eb04407f5a2dff22940bd7bba6af5722c3"
+      sha256: da08429b5c1026cc78bd60c60bfff34f0b273b29feddeab00d3f5b56fb6f35ed
       url: "https://pub.dev"
     source: hosted
-    version: "7.1.1"
+    version: "8.0.5"
   go_router_builder:
     dependency: "direct dev"
     description:
@@ -1110,10 +1110,10 @@ packages:
     dependency: "direct main"
     description:
       name: talker_flutter
-      sha256: b828cacc28e6a58d15e2f4a650183aafe58180bd6755cc37adcd260bb55de8e2
+      sha256: "862ae098d5e38e7a560a94c1179e5a5106dd487b86910c0f23d2c58ca66e27f7"
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.1"
+    version: "3.1.4"
   talker_logger:
     dependency: transitive
     description:
@@ -1182,10 +1182,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_platform_interface
-      sha256: "6c9ca697a5ae218ce56cece69d46128169a58aa8653c1b01d26fcd4aad8c4370"
+      sha256: bfdfa402f1f3298637d71ca8ecfe840b4696698213d5346e9d12d4ab647ee2ea
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.2"
+    version: "2.1.3"
   url_launcher_web:
     dependency: transitive
     description:
@@ -1222,10 +1222,10 @@ packages:
     dependency: transitive
     description:
       name: vm_service
-      sha256: f3743ca475e0c9ef71df4ba15eb2d7684eecd5c8ba20a462462e4e8b561b2e11
+      sha256: c620a6f783fa22436da68e42db7ebbf18b8c44b9a46ab911f666ff09ffd9153f
       url: "https://pub.dev"
     source: hosted
-    version: "11.6.0"
+    version: "11.7.1"
   watcher:
     dependency: transitive
     description:
@@ -1262,10 +1262,10 @@ packages:
     dependency: transitive
     description:
       name: webview_flutter_android
-      sha256: "57a22c86065375c1598b57224f92d6008141be0c877c64100de8bfb6f71083d8"
+      sha256: "532135f6f6b8030cd039f30eab23f340d650350e29f38e9b37d2eaad028f1018"
       url: "https://pub.dev"
     source: hosted
-    version: "3.7.1"
+    version: "3.8.0"
   webview_flutter_platform_interface:
     dependency: transitive
     description:
@@ -1278,10 +1278,10 @@ packages:
     dependency: transitive
     description:
       name: webview_flutter_wkwebview
-      sha256: "6bbc6ade302b842999b27cbaa7171241c273deea8a9c73f92ceb3d811c767de2"
+      sha256: ecc9e9ea15216afc5ba3b1f14aa19414ceba526e57b19cebd970bfa91a0f4058
       url: "https://pub.dev"
     source: hosted
-    version: "3.4.4"
+    version: "3.5.0"
   win32:
     dependency: transitive
     description:

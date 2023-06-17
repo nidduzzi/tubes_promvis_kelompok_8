@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
+import 'package:provider/provider.dart';
 import 'package:tubes_promvis_kelompok_8/src/helpers/navigation.dart';
+import 'package:tubes_promvis_kelompok_8/src/providers/auth/app_auth_state.dart';
 import 'package:tubes_promvis_kelompok_8/src/widgets/spinner.dart';
-import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 
 class LogoutPage extends StatelessWidget {
   const LogoutPage({super.key});
@@ -10,33 +11,14 @@ class LogoutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final auth = NhostAuthProvider.of(context);
-    switch (auth?.authenticationState) {
+    final appAuthState = Provider.of<AppAuthState>(context);
+    switch (appAuthState.authState) {
       case AuthenticationState.signedIn:
-        return FutureBuilder(
-          future: auth?.signOut(),
-          builder: (context, snapshot) {
-            switch (snapshot.connectionState) {
-              case ConnectionState.waiting:
-                return const Spinner();
-              case ConnectionState.none:
-                goTo(context, '/');
-                return const Spinner();
-              default:
-                if (snapshot.hasError) {
-                  Logger.talker.debug(snapshot.error);
-                  return Text('Error: ${snapshot.error}');
-                } else {
-                  goTo(context, '/');
-                  return const Text("logged out successfully");
-                }
-            }
-          },
-        );
-
+        auth?.signOut().then((value) => goTo(context, '/'));
+        return const Spinner();
       case AuthenticationState.inProgress:
         return const Spinner();
       default:
-        goTo(context, '/');
         return const Spinner();
     }
   }

@@ -59,7 +59,7 @@ query GetAllCsMessageAgentQuery(
     $order_by: [cs_message_order_by!]
 ) {
     cs_message(
-        where: { user_id: { _eq: $cs_agent_user_id } }
+        where: { cs_agent_user_id: { _eq: $cs_agent_user_id } }
         limit: $limit
         distinct_on: $distinct_on
         offset: $offset
