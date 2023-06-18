@@ -1,42 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
+import 'package:provider/provider.dart';
 import 'package:tubes_promvis_kelompok_8/src/helpers/navigation.dart';
-import 'package:tubes_promvis_kelompok_8/src/widgets/spinner.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
+import 'package:tubes_promvis_kelompok_8/src/providers/auth/app_auth_state.dart';
+import 'package:tubes_promvis_kelompok_8/src/widgets/spinner.dart';
 
-class LogoutPage extends StatelessWidget {
+class LogoutPage extends HookWidget {
   const LogoutPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final auth = NhostAuthProvider.of(context);
-    switch (auth?.authenticationState) {
-      case AuthenticationState.signedIn:
-        return FutureBuilder(
-          future: auth?.signOut(),
-          builder: (context, snapshot) {
-            switch (snapshot.connectionState) {
-              case ConnectionState.waiting:
-                return const Spinner();
-              case ConnectionState.none:
-                goTo(context, '/');
-                return const Spinner();
-              default:
-                if (snapshot.hasError) {
-                  Logger.talker.debug(snapshot.error);
-                  return Text('Error: ${snapshot.error}');
-                } else {
-                  goTo(context, '/');
-                  return const Text("logged out successfully");
-                }
-            }
-          },
-        );
+    final appAuthState = Provider.of<AppAuthState>(context);
 
+    switch (appAuthState.authState) {
+      case AuthenticationState.signedIn:
+        auth?.signOut();
+        return const Spinner();
       case AuthenticationState.inProgress:
         return const Spinner();
+      case AuthenticationState.signedOut:
+        Logger.talker.log("user signed out and redirecting to logout");
+        goToNamed(context, 'logout');
+        return const Spinner();
       default:
-        goTo(context, '/');
         return const Spinner();
     }
   }

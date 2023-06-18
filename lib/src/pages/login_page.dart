@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
+import 'package:provider/provider.dart';
 import 'package:tubes_promvis_kelompok_8/src/helpers/navigation.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
+import 'package:tubes_promvis_kelompok_8/src/providers/auth/app_auth_state.dart';
+import 'package:tubes_promvis_kelompok_8/src/widgets/layout/app_header.dart';
 import 'dart:math';
 
 import 'package:tubes_promvis_kelompok_8/src/widgets/spinner.dart';
@@ -37,7 +40,10 @@ class LoginPageState extends State<LoginPage> {
   }
 
   Future<bool> trySignIn(BuildContext context) async {
-    final auth = NhostAuthProvider.of(context)!;
+    final auth = NhostAuthProvider.of(context);
+    if (auth == null) {
+      throw Exception('auth is null in trySignIn() login page');
+    }
     if (!formKey.currentState!.validate()) {
       return false;
     }
@@ -46,12 +52,12 @@ class LoginPageState extends State<LoginPage> {
           email: emailController.text, password: passwordController.text);
       Logger.talker.log(res);
       Logger.talker.log(res.session?.accessToken);
-      if (context.mounted) goTo(context, '/dashboard');
-    } on ApiException catch (err, st) {
-      Logger.talker.error(err, st);
+    } on ApiException catch (err) {
+      Logger.talker.error(err);
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Sign in Failed'),
+        SnackBar(
+          content: Text(
+              'Sign in Failed (${err.statusCode}: ${err.responseBody['message'] ?? ''})'),
         ),
       );
     } catch (err, st) {
@@ -62,12 +68,12 @@ class LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    final auth = NhostAuthProvider.of(context);
+    final appAuthState = Provider.of<AppAuthState>(context);
     final mediaQuery = MediaQuery.of(context).size;
-
-    switch (auth?.authenticationState) {
+    late Widget page;
+    switch (appAuthState.authState) {
       case AuthenticationState.signedOut:
-        return Scaffold(
+        page = Scaffold(
           body: SingleChildScrollView(
               padding: EdgeInsets.symmetric(vertical: mediaQuery.height * .05),
               child: Column(children: [
@@ -129,18 +135,15 @@ class LoginPageState extends State<LoginPage> {
                     )))
               ])),
         );
+        break;
       case AuthenticationState.signedIn:
-        goTo(
-          context,
-          '/dashboard',
-        );
-        return const Spinner();
+        Logger.talker.log("user already logged in");
+        back(context);
+        page = const Spinner();
+        break;
       default:
-        goTo(
-          context,
-          '/',
-        );
-        return const Spinner();
+        page = const Spinner();
     }
+    return AppHeader(child: page);
   }
 }

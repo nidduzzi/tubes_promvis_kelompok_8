@@ -2916,12 +2916,16 @@ type cs_message {
   created_at: timestamptz
 
   """An object relationship"""
-  cs_agent: users!
-  cs_agent_user_id: uuid!
+  cs_agent: users
+  cs_agent_user_id: uuid
   cs_message_content: String!
   cs_message_date: date!
   cs_message_id: Int!
   updated_at: timestamptz
+
+  """An object relationship"""
+  user: users!
+  user_id: uuid!
 }
 
 """
@@ -3013,6 +3017,8 @@ input cs_message_bool_exp {
   cs_message_date: date_comparison_exp
   cs_message_id: Int_comparison_exp
   updated_at: timestamptz_comparison_exp
+  user: users_bool_exp
+  user_id: uuid_comparison_exp
 }
 
 """
@@ -3035,6 +3041,8 @@ input cs_message_insert_input {
   cs_message_content: String
   cs_message_date: date
   updated_at: timestamptz
+  user: users_obj_rel_insert_input
+  user_id: uuid
 }
 
 """aggregate max on columns"""
@@ -3045,6 +3053,7 @@ type cs_message_max_fields {
   cs_message_date: date
   cs_message_id: Int
   updated_at: timestamptz
+  user_id: uuid
 }
 
 """
@@ -3057,6 +3066,7 @@ input cs_message_max_order_by {
   cs_message_date: order_by
   cs_message_id: order_by
   updated_at: order_by
+  user_id: order_by
 }
 
 """aggregate min on columns"""
@@ -3067,6 +3077,7 @@ type cs_message_min_fields {
   cs_message_date: date
   cs_message_id: Int
   updated_at: timestamptz
+  user_id: uuid
 }
 
 """
@@ -3079,6 +3090,7 @@ input cs_message_min_order_by {
   cs_message_date: order_by
   cs_message_id: order_by
   updated_at: order_by
+  user_id: order_by
 }
 
 """
@@ -3110,6 +3122,8 @@ input cs_message_order_by {
   cs_message_date: order_by
   cs_message_id: order_by
   updated_at: order_by
+  user: users_order_by
+  user_id: order_by
 }
 
 """primary key columns input for table: cs_message"""
@@ -3138,6 +3152,9 @@ enum cs_message_select_column {
 
   """column name"""
   updated_at
+
+  """column name"""
+  user_id
 }
 
 """
@@ -3149,6 +3166,7 @@ input cs_message_set_input {
   cs_message_content: String
   cs_message_date: date
   updated_at: timestamptz
+  user_id: uuid
 }
 
 """aggregate stddev on columns"""
@@ -3206,6 +3224,7 @@ input cs_message_stream_cursor_value_input {
   cs_message_date: date
   cs_message_id: Int
   updated_at: timestamptz
+  user_id: uuid
 }
 
 """aggregate sum on columns"""
@@ -3238,6 +3257,9 @@ enum cs_message_update_column {
 
   """column name"""
   updated_at
+
+  """column name"""
+  user_id
 }
 
 input cs_message_updates {
@@ -4285,17 +4307,6 @@ type investor_aggregate {
   nodes: [investor!]!
 }
 
-input investor_aggregate_bool_exp {
-  count: investor_aggregate_bool_exp_count
-}
-
-input investor_aggregate_bool_exp_count {
-  arguments: [investor_select_column!]
-  distinct: Boolean
-  filter: investor_bool_exp
-  predicate: Int_comparison_exp!
-}
-
 """
 aggregate fields of "investor"
 """
@@ -4313,45 +4324,10 @@ type investor_aggregate_fields {
   variance: investor_variance_fields
 }
 
-"""
-order by aggregate values of table "investor"
-"""
-input investor_aggregate_order_by {
-  avg: investor_avg_order_by
-  count: order_by
-  max: investor_max_order_by
-  min: investor_min_order_by
-  stddev: investor_stddev_order_by
-  stddev_pop: investor_stddev_pop_order_by
-  stddev_samp: investor_stddev_samp_order_by
-  sum: investor_sum_order_by
-  var_pop: investor_var_pop_order_by
-  var_samp: investor_var_samp_order_by
-  variance: investor_variance_order_by
-}
-
-"""
-input type for inserting array relation for remote table "investor"
-"""
-input investor_arr_rel_insert_input {
-  data: [investor_insert_input!]!
-
-  """upsert condition"""
-  on_conflict: investor_on_conflict
-}
-
 """aggregate avg on columns"""
 type investor_avg_fields {
   investor_id: Float
   investor_investment_amount: Float
-}
-
-"""
-order by avg() on columns of table "investor"
-"""
-input investor_avg_order_by {
-  investor_id: order_by
-  investor_investment_amount: order_by
 }
 
 """
@@ -4380,6 +4356,11 @@ enum investor_constraint {
   unique or primary key constraint on columns "investor_id"
   """
   investor_pkey
+
+  """
+  unique or primary key constraint on columns "user_id"
+  """
+  investor_user_id_key
 }
 
 """
@@ -4412,18 +4393,6 @@ type investor_max_fields {
   user_id: uuid
 }
 
-"""
-order by max() on columns of table "investor"
-"""
-input investor_max_order_by {
-  created_at: order_by
-  investor_id: order_by
-  investor_investment_amount: order_by
-  investor_name: order_by
-  updated_at: order_by
-  user_id: order_by
-}
-
 """aggregate min on columns"""
 type investor_min_fields {
   created_at: timestamptz
@@ -4432,18 +4401,6 @@ type investor_min_fields {
   investor_name: String
   updated_at: timestamptz
   user_id: uuid
-}
-
-"""
-order by min() on columns of table "investor"
-"""
-input investor_min_order_by {
-  created_at: order_by
-  investor_id: order_by
-  investor_investment_amount: order_by
-  investor_name: order_by
-  updated_at: order_by
-  user_id: order_by
 }
 
 """
@@ -4533,40 +4490,16 @@ type investor_stddev_fields {
   investor_investment_amount: Float
 }
 
-"""
-order by stddev() on columns of table "investor"
-"""
-input investor_stddev_order_by {
-  investor_id: order_by
-  investor_investment_amount: order_by
-}
-
 """aggregate stddev_pop on columns"""
 type investor_stddev_pop_fields {
   investor_id: Float
   investor_investment_amount: Float
 }
 
-"""
-order by stddev_pop() on columns of table "investor"
-"""
-input investor_stddev_pop_order_by {
-  investor_id: order_by
-  investor_investment_amount: order_by
-}
-
 """aggregate stddev_samp on columns"""
 type investor_stddev_samp_fields {
   investor_id: Float
   investor_investment_amount: Float
-}
-
-"""
-order by stddev_samp() on columns of table "investor"
-"""
-input investor_stddev_samp_order_by {
-  investor_id: order_by
-  investor_investment_amount: order_by
 }
 
 """
@@ -4594,14 +4527,6 @@ input investor_stream_cursor_value_input {
 type investor_sum_fields {
   investor_id: Int
   investor_investment_amount: Int
-}
-
-"""
-order by sum() on columns of table "investor"
-"""
-input investor_sum_order_by {
-  investor_id: order_by
-  investor_investment_amount: order_by
 }
 
 """
@@ -4639,40 +4564,16 @@ type investor_var_pop_fields {
   investor_investment_amount: Float
 }
 
-"""
-order by var_pop() on columns of table "investor"
-"""
-input investor_var_pop_order_by {
-  investor_id: order_by
-  investor_investment_amount: order_by
-}
-
 """aggregate var_samp on columns"""
 type investor_var_samp_fields {
   investor_id: Float
   investor_investment_amount: Float
 }
 
-"""
-order by var_samp() on columns of table "investor"
-"""
-input investor_var_samp_order_by {
-  investor_id: order_by
-  investor_investment_amount: order_by
-}
-
 """aggregate variance on columns"""
 type investor_variance_fields {
   investor_id: Float
   investor_investment_amount: Float
-}
-
-"""
-order by variance() on columns of table "investor"
-"""
-input investor_variance_order_by {
-  investor_id: order_by
-  investor_investment_amount: order_by
 }
 
 scalar jsonb
@@ -6065,17 +5966,6 @@ type profile_aggregate {
   nodes: [profile!]!
 }
 
-input profile_aggregate_bool_exp {
-  count: profile_aggregate_bool_exp_count
-}
-
-input profile_aggregate_bool_exp_count {
-  arguments: [profile_select_column!]
-  distinct: Boolean
-  filter: profile_bool_exp
-  predicate: Int_comparison_exp!
-}
-
 """
 aggregate fields of "profile"
 """
@@ -6093,43 +5983,9 @@ type profile_aggregate_fields {
   variance: profile_variance_fields
 }
 
-"""
-order by aggregate values of table "profile"
-"""
-input profile_aggregate_order_by {
-  avg: profile_avg_order_by
-  count: order_by
-  max: profile_max_order_by
-  min: profile_min_order_by
-  stddev: profile_stddev_order_by
-  stddev_pop: profile_stddev_pop_order_by
-  stddev_samp: profile_stddev_samp_order_by
-  sum: profile_sum_order_by
-  var_pop: profile_var_pop_order_by
-  var_samp: profile_var_samp_order_by
-  variance: profile_variance_order_by
-}
-
-"""
-input type for inserting array relation for remote table "profile"
-"""
-input profile_arr_rel_insert_input {
-  data: [profile_insert_input!]!
-
-  """upsert condition"""
-  on_conflict: profile_on_conflict
-}
-
 """aggregate avg on columns"""
 type profile_avg_fields {
   profile_id: Float
-}
-
-"""
-order by avg() on columns of table "profile"
-"""
-input profile_avg_order_by {
-  profile_id: order_by
 }
 
 """
@@ -6160,6 +6016,11 @@ enum profile_constraint {
   unique or primary key constraint on columns "profile_id"
   """
   profile_pkey
+
+  """
+  unique or primary key constraint on columns "user_id"
+  """
+  profile_user_id_key
 }
 
 """
@@ -6192,22 +6053,6 @@ type profile_max_fields {
   user_id: uuid
 }
 
-"""
-order by max() on columns of table "profile"
-"""
-input profile_max_order_by {
-  created_at: order_by
-  profile_address: order_by
-  profile_first_name: order_by
-  profile_id: order_by
-  profile_ktp_no: order_by
-  profile_last_name: order_by
-  profile_npwp_no: order_by
-  profile_phone: order_by
-  updated_at: order_by
-  user_id: order_by
-}
-
 """aggregate min on columns"""
 type profile_min_fields {
   created_at: timestamptz
@@ -6223,22 +6068,6 @@ type profile_min_fields {
 }
 
 """
-order by min() on columns of table "profile"
-"""
-input profile_min_order_by {
-  created_at: order_by
-  profile_address: order_by
-  profile_first_name: order_by
-  profile_id: order_by
-  profile_ktp_no: order_by
-  profile_last_name: order_by
-  profile_npwp_no: order_by
-  profile_phone: order_by
-  updated_at: order_by
-  user_id: order_by
-}
-
-"""
 response of any mutation on the table "profile"
 """
 type profile_mutation_response {
@@ -6247,6 +6076,16 @@ type profile_mutation_response {
 
   """data from the rows affected by the mutation"""
   returning: [profile!]!
+}
+
+"""
+input type for inserting object relation for remote table "profile"
+"""
+input profile_obj_rel_insert_input {
+  data: profile_insert_input!
+
+  """upsert condition"""
+  on_conflict: profile_on_conflict
 }
 
 """
@@ -6333,35 +6172,14 @@ type profile_stddev_fields {
   profile_id: Float
 }
 
-"""
-order by stddev() on columns of table "profile"
-"""
-input profile_stddev_order_by {
-  profile_id: order_by
-}
-
 """aggregate stddev_pop on columns"""
 type profile_stddev_pop_fields {
   profile_id: Float
 }
 
-"""
-order by stddev_pop() on columns of table "profile"
-"""
-input profile_stddev_pop_order_by {
-  profile_id: order_by
-}
-
 """aggregate stddev_samp on columns"""
 type profile_stddev_samp_fields {
   profile_id: Float
-}
-
-"""
-order by stddev_samp() on columns of table "profile"
-"""
-input profile_stddev_samp_order_by {
-  profile_id: order_by
 }
 
 """
@@ -6392,13 +6210,6 @@ input profile_stream_cursor_value_input {
 """aggregate sum on columns"""
 type profile_sum_fields {
   profile_id: Int
-}
-
-"""
-order by sum() on columns of table "profile"
-"""
-input profile_sum_order_by {
-  profile_id: order_by
 }
 
 """
@@ -6444,35 +6255,14 @@ type profile_var_pop_fields {
   profile_id: Float
 }
 
-"""
-order by var_pop() on columns of table "profile"
-"""
-input profile_var_pop_order_by {
-  profile_id: order_by
-}
-
 """aggregate var_samp on columns"""
 type profile_var_samp_fields {
   profile_id: Float
 }
 
-"""
-order by var_samp() on columns of table "profile"
-"""
-input profile_var_samp_order_by {
-  profile_id: order_by
-}
-
 """aggregate variance on columns"""
 type profile_variance_fields {
   profile_id: Float
-}
-
-"""
-order by variance() on columns of table "profile"
-"""
-input profile_variance_order_by {
-  profile_id: order_by
 }
 
 """
@@ -6517,6 +6307,7 @@ type proposal {
     where: investment_bool_exp
   ): investment_aggregate!
   proposal_amount: Int!
+  proposal_approved: Boolean!
   proposal_content: String!
   proposal_date: date!
   proposal_id: Int!
@@ -6536,7 +6327,23 @@ type proposal_aggregate {
 }
 
 input proposal_aggregate_bool_exp {
+  bool_and: proposal_aggregate_bool_exp_bool_and
+  bool_or: proposal_aggregate_bool_exp_bool_or
   count: proposal_aggregate_bool_exp_count
+}
+
+input proposal_aggregate_bool_exp_bool_and {
+  arguments: proposal_select_column_proposal_aggregate_bool_exp_bool_and_arguments_columns!
+  distinct: Boolean
+  filter: proposal_bool_exp
+  predicate: Boolean_comparison_exp!
+}
+
+input proposal_aggregate_bool_exp_bool_or {
+  arguments: proposal_select_column_proposal_aggregate_bool_exp_bool_or_arguments_columns!
+  distinct: Boolean
+  filter: proposal_bool_exp
+  predicate: Boolean_comparison_exp!
 }
 
 input proposal_aggregate_bool_exp_count {
@@ -6617,6 +6424,7 @@ input proposal_bool_exp {
   investments: investment_bool_exp
   investments_aggregate: investment_aggregate_bool_exp
   proposal_amount: Int_comparison_exp
+  proposal_approved: Boolean_comparison_exp
   proposal_content: String_comparison_exp
   proposal_date: date_comparison_exp
   proposal_id: Int_comparison_exp
@@ -6650,6 +6458,7 @@ input proposal_insert_input {
   created_at: timestamptz
   investments: investment_arr_rel_insert_input
   proposal_amount: Int
+  proposal_approved: Boolean
   proposal_content: String
   proposal_date: date
   umkm: umkm_obj_rel_insert_input
@@ -6740,6 +6549,7 @@ input proposal_order_by {
   created_at: order_by
   investments_aggregate: investment_aggregate_order_by
   proposal_amount: order_by
+  proposal_approved: order_by
   proposal_content: order_by
   proposal_date: order_by
   proposal_id: order_by
@@ -6764,6 +6574,9 @@ enum proposal_select_column {
   proposal_amount
 
   """column name"""
+  proposal_approved
+
+  """column name"""
   proposal_content
 
   """column name"""
@@ -6780,11 +6593,28 @@ enum proposal_select_column {
 }
 
 """
+select "proposal_aggregate_bool_exp_bool_and_arguments_columns" columns of table "proposal"
+"""
+enum proposal_select_column_proposal_aggregate_bool_exp_bool_and_arguments_columns {
+  """column name"""
+  proposal_approved
+}
+
+"""
+select "proposal_aggregate_bool_exp_bool_or_arguments_columns" columns of table "proposal"
+"""
+enum proposal_select_column_proposal_aggregate_bool_exp_bool_or_arguments_columns {
+  """column name"""
+  proposal_approved
+}
+
+"""
 input type for updating data in table "proposal"
 """
 input proposal_set_input {
   created_at: timestamptz
   proposal_amount: Int
+  proposal_approved: Boolean
   proposal_content: String
   proposal_date: date
   umkm_id: Int
@@ -6854,6 +6684,7 @@ input proposal_stream_cursor_input {
 input proposal_stream_cursor_value_input {
   created_at: timestamptz
   proposal_amount: Int
+  proposal_approved: Boolean
   proposal_content: String
   proposal_date: date
   proposal_id: Int
@@ -6886,6 +6717,9 @@ enum proposal_update_column {
 
   """column name"""
   proposal_amount
+
+  """column name"""
+  proposal_approved
 
   """column name"""
   proposal_content
@@ -7398,7 +7232,9 @@ type query_root {
     where: buckets_bool_exp
   ): buckets_aggregate!
 
-  """An array relationship"""
+  """
+  fetch data from the table: "cs_message"
+  """
   cs_message(
     """distinct select on columns"""
     distinct_on: [cs_message_select_column!]
@@ -7416,7 +7252,9 @@ type query_root {
     where: cs_message_bool_exp
   ): [cs_message!]!
 
-  """An aggregate relationship"""
+  """
+  fetch aggregated fields from the table: "cs_message"
+  """
   cs_message_aggregate(
     """distinct select on columns"""
     distinct_on: [cs_message_select_column!]
@@ -7521,7 +7359,9 @@ type query_root {
   """fetch data from the table: "investment" using primary key columns"""
   investment_by_pk(investment_id: Int!): investment
 
-  """An array relationship"""
+  """
+  fetch data from the table: "investor"
+  """
   investor(
     """distinct select on columns"""
     distinct_on: [investor_select_column!]
@@ -7539,7 +7379,9 @@ type query_root {
     where: investor_bool_exp
   ): [investor!]!
 
-  """An aggregate relationship"""
+  """
+  fetch aggregated fields from the table: "investor"
+  """
   investor_aggregate(
     """distinct select on columns"""
     distinct_on: [investor_select_column!]
@@ -7560,7 +7402,9 @@ type query_root {
   """fetch data from the table: "investor" using primary key columns"""
   investor_by_pk(investor_id: Int!): investor
 
-  """An array relationship"""
+  """
+  fetch data from the table: "profile"
+  """
   profile(
     """distinct select on columns"""
     distinct_on: [profile_select_column!]
@@ -7578,7 +7422,9 @@ type query_root {
     where: profile_bool_exp
   ): [profile!]!
 
-  """An aggregate relationship"""
+  """
+  fetch aggregated fields from the table: "profile"
+  """
   profile_aggregate(
     """distinct select on columns"""
     distinct_on: [profile_select_column!]
@@ -8310,7 +8156,9 @@ type subscription_root {
     where: buckets_bool_exp
   ): [buckets!]!
 
-  """An array relationship"""
+  """
+  fetch data from the table: "cs_message"
+  """
   cs_message(
     """distinct select on columns"""
     distinct_on: [cs_message_select_column!]
@@ -8328,7 +8176,9 @@ type subscription_root {
     where: cs_message_bool_exp
   ): [cs_message!]!
 
-  """An aggregate relationship"""
+  """
+  fetch aggregated fields from the table: "cs_message"
+  """
   cs_message_aggregate(
     """distinct select on columns"""
     distinct_on: [cs_message_select_column!]
@@ -8475,7 +8325,9 @@ type subscription_root {
     where: investment_bool_exp
   ): [investment!]!
 
-  """An array relationship"""
+  """
+  fetch data from the table: "investor"
+  """
   investor(
     """distinct select on columns"""
     distinct_on: [investor_select_column!]
@@ -8493,7 +8345,9 @@ type subscription_root {
     where: investor_bool_exp
   ): [investor!]!
 
-  """An aggregate relationship"""
+  """
+  fetch aggregated fields from the table: "investor"
+  """
   investor_aggregate(
     """distinct select on columns"""
     distinct_on: [investor_select_column!]
@@ -8528,7 +8382,9 @@ type subscription_root {
     where: investor_bool_exp
   ): [investor!]!
 
-  """An array relationship"""
+  """
+  fetch data from the table: "profile"
+  """
   profile(
     """distinct select on columns"""
     distinct_on: [profile_select_column!]
@@ -8546,7 +8402,9 @@ type subscription_root {
     where: profile_bool_exp
   ): [profile!]!
 
-  """An aggregate relationship"""
+  """
+  fetch aggregated fields from the table: "profile"
+  """
   profile_aggregate(
     """distinct select on columns"""
     distinct_on: [profile_select_column!]
@@ -8882,6 +8740,11 @@ enum umkm_constraint {
   unique or primary key constraint on columns "umkm_id"
   """
   umkm_pkey
+
+  """
+  unique or primary key constraint on columns "user_id"
+  """
+  umkm_user_id_key
 }
 
 """
@@ -9125,12 +8988,12 @@ type umkm_variance_fields {
 User account information. Don't modify its structure as Hasura Auth relies on it to function properly.
 """
 type users {
+  """An object relationship"""
+  UMKMById: umkm
   activeMfaType: String
-  avatarUrl: String!
-  createdAt: timestamptz!
 
   """An array relationship"""
-  cs_message(
+  agent_cs_messages(
     """distinct select on columns"""
     distinct_on: [cs_message_select_column!]
 
@@ -9148,7 +9011,45 @@ type users {
   ): [cs_message!]!
 
   """An aggregate relationship"""
-  cs_message_aggregate(
+  agent_cs_messages_aggregate(
+    """distinct select on columns"""
+    distinct_on: [cs_message_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [cs_message_order_by!]
+
+    """filter the rows returned"""
+    where: cs_message_bool_exp
+  ): cs_message_aggregate!
+  avatarUrl: String!
+  createdAt: timestamptz!
+
+  """An array relationship"""
+  cs_messages(
+    """distinct select on columns"""
+    distinct_on: [cs_message_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [cs_message_order_by!]
+
+    """filter the rows returned"""
+    where: cs_message_bool_exp
+  ): [cs_message!]!
+
+  """An aggregate relationship"""
+  cs_messages_aggregate(
     """distinct select on columns"""
     distinct_on: [cs_message_select_column!]
 
@@ -9175,41 +9076,8 @@ type users {
   emailVerified: Boolean!
   id: uuid!
 
-  """An array relationship"""
-  investor(
-    """distinct select on columns"""
-    distinct_on: [investor_select_column!]
-
-    """limit the number of rows returned"""
-    limit: Int
-
-    """skip the first n rows. Use only with order_by"""
-    offset: Int
-
-    """sort the rows by one or more columns"""
-    order_by: [investor_order_by!]
-
-    """filter the rows returned"""
-    where: investor_bool_exp
-  ): [investor!]!
-
-  """An aggregate relationship"""
-  investor_aggregate(
-    """distinct select on columns"""
-    distinct_on: [investor_select_column!]
-
-    """limit the number of rows returned"""
-    limit: Int
-
-    """skip the first n rows. Use only with order_by"""
-    offset: Int
-
-    """sort the rows by one or more columns"""
-    order_by: [investor_order_by!]
-
-    """filter the rows returned"""
-    where: investor_bool_exp
-  ): investor_aggregate!
+  """An object relationship"""
+  investorById: investor
   isAnonymous: Boolean!
   lastSeen: timestamptz
   locale: String!
@@ -9225,41 +9093,8 @@ type users {
   phoneNumber: String
   phoneNumberVerified: Boolean!
 
-  """An array relationship"""
-  profile(
-    """distinct select on columns"""
-    distinct_on: [profile_select_column!]
-
-    """limit the number of rows returned"""
-    limit: Int
-
-    """skip the first n rows. Use only with order_by"""
-    offset: Int
-
-    """sort the rows by one or more columns"""
-    order_by: [profile_order_by!]
-
-    """filter the rows returned"""
-    where: profile_bool_exp
-  ): [profile!]!
-
-  """An aggregate relationship"""
-  profile_aggregate(
-    """distinct select on columns"""
-    distinct_on: [profile_select_column!]
-
-    """limit the number of rows returned"""
-    limit: Int
-
-    """skip the first n rows. Use only with order_by"""
-    offset: Int
-
-    """sort the rows by one or more columns"""
-    order_by: [profile_order_by!]
-
-    """filter the rows returned"""
-    where: profile_bool_exp
-  ): profile_aggregate!
+  """An object relationship"""
+  profile: profile
 
   """An array relationship"""
   refreshTokens(
@@ -9482,14 +9317,17 @@ input users_arr_rel_insert_input {
 Boolean expression to filter rows from the table "auth.users". All fields are combined with a logical 'AND'.
 """
 input users_bool_exp {
+  UMKMById: umkm_bool_exp
   _and: [users_bool_exp!]
   _not: users_bool_exp
   _or: [users_bool_exp!]
   activeMfaType: String_comparison_exp
+  agent_cs_messages: cs_message_bool_exp
+  agent_cs_messages_aggregate: cs_message_aggregate_bool_exp
   avatarUrl: String_comparison_exp
   createdAt: timestamptz_comparison_exp
-  cs_message: cs_message_bool_exp
-  cs_message_aggregate: cs_message_aggregate_bool_exp
+  cs_messages: cs_message_bool_exp
+  cs_messages_aggregate: cs_message_aggregate_bool_exp
   currentChallenge: String_comparison_exp
   defaultRole: String_comparison_exp
   defaultRoleByRole: authRoles_bool_exp
@@ -9498,8 +9336,7 @@ input users_bool_exp {
   email: citext_comparison_exp
   emailVerified: Boolean_comparison_exp
   id: uuid_comparison_exp
-  investor: investor_bool_exp
-  investor_aggregate: investor_aggregate_bool_exp
+  investorById: investor_bool_exp
   isAnonymous: Boolean_comparison_exp
   lastSeen: timestamptz_comparison_exp
   locale: String_comparison_exp
@@ -9512,7 +9349,6 @@ input users_bool_exp {
   phoneNumber: String_comparison_exp
   phoneNumberVerified: Boolean_comparison_exp
   profile: profile_bool_exp
-  profile_aggregate: profile_aggregate_bool_exp
   refreshTokens: authRefreshTokens_bool_exp
   refreshTokens_aggregate: authRefreshTokens_aggregate_bool_exp
   roles: authUserRoles_bool_exp
@@ -9572,10 +9408,12 @@ input users_delete_key_input {
 input type for inserting data into table "auth.users"
 """
 input users_insert_input {
+  UMKMById: umkm_obj_rel_insert_input
   activeMfaType: String
+  agent_cs_messages: cs_message_arr_rel_insert_input
   avatarUrl: String
   createdAt: timestamptz
-  cs_message: cs_message_arr_rel_insert_input
+  cs_messages: cs_message_arr_rel_insert_input
   currentChallenge: String
   defaultRole: String
   defaultRoleByRole: authRoles_obj_rel_insert_input
@@ -9584,7 +9422,7 @@ input users_insert_input {
   email: citext
   emailVerified: Boolean
   id: uuid
-  investor: investor_arr_rel_insert_input
+  investorById: investor_obj_rel_insert_input
   isAnonymous: Boolean
   lastSeen: timestamptz
   locale: String
@@ -9596,7 +9434,7 @@ input users_insert_input {
   passwordHash: String
   phoneNumber: String
   phoneNumberVerified: Boolean
-  profile: profile_arr_rel_insert_input
+  profile: profile_obj_rel_insert_input
   refreshTokens: authRefreshTokens_arr_rel_insert_input
   roles: authUserRoles_arr_rel_insert_input
   securityKeys: authUserSecurityKeys_arr_rel_insert_input
@@ -9739,10 +9577,12 @@ input users_on_conflict {
 
 """Ordering options when selecting data from "auth.users"."""
 input users_order_by {
+  UMKMById: umkm_order_by
   activeMfaType: order_by
+  agent_cs_messages_aggregate: cs_message_aggregate_order_by
   avatarUrl: order_by
   createdAt: order_by
-  cs_message_aggregate: cs_message_aggregate_order_by
+  cs_messages_aggregate: cs_message_aggregate_order_by
   currentChallenge: order_by
   defaultRole: order_by
   defaultRoleByRole: authRoles_order_by
@@ -9751,7 +9591,7 @@ input users_order_by {
   email: order_by
   emailVerified: order_by
   id: order_by
-  investor_aggregate: investor_aggregate_order_by
+  investorById: investor_order_by
   isAnonymous: order_by
   lastSeen: order_by
   locale: order_by
@@ -9763,7 +9603,7 @@ input users_order_by {
   passwordHash: order_by
   phoneNumber: order_by
   phoneNumberVerified: order_by
-  profile_aggregate: profile_aggregate_order_by
+  profile: profile_order_by
   refreshTokens_aggregate: authRefreshTokens_aggregate_order_by
   roles_aggregate: authUserRoles_aggregate_order_by
   securityKeys_aggregate: authUserSecurityKeys_aggregate_order_by

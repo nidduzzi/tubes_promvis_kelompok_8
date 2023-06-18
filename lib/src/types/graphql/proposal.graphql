@@ -14,7 +14,10 @@ mutation InsertProposalMutation($data: proposal_insert_input!) {
     }
 }
 
-mutation UpdateProposalMutation($data: proposal_set_input!, $proposal_id: Int!) {
+mutation UpdateProposalMutation(
+    $data: proposal_set_input!
+    $proposal_id: Int!
+) {
     update_proposal(
         _set: $data
         where: { proposal_id: { _eq: $proposal_id } }
@@ -22,6 +25,24 @@ mutation UpdateProposalMutation($data: proposal_set_input!, $proposal_id: Int!) 
         returning {
             ...proposalData
         }
+    }
+}
+
+query GetUserUMKMProposalQuery(
+    $user_id: uuid!
+    $limit: Int
+    $distinct_on: [proposal_select_column!]
+    $offset: Int
+    $order_by: [proposal_order_by!]
+) {
+    proposal(
+        where: { umkm: { user_id: { _eq: $user_id } } }
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...proposalData
     }
 }
 
@@ -34,7 +55,19 @@ query GetByPkProposalQuery($proposal_id: Int!) {
     }
 }
 
-query GetUMKMProposalAggregateQuery(
+fragment proposalAggregate on proposal_aggregate {
+    aggregate {
+        count
+        sum {
+            proposal_amount
+        }
+        avg {
+            proposal_amount
+        }
+    }
+}
+
+query GetUMKMProposalAggregate(
     $umkm_id: Int
     $limit: Int
     $distinct_on: [proposal_select_column!]
@@ -48,15 +81,35 @@ query GetUMKMProposalAggregateQuery(
         offset: $offset
         order_by: $order_by
     ) {
-        aggregate {
-            count
-            sum {
-                proposal_amount
-            }
-            avg {
-                proposal_amount
+        ...proposalAggregate
+        nodes {
+            investments_aggregate {
+                ...investmentsAggregate
             }
         }
+    }
+}
+
+query GetUserProposalAggregate(
+    $user_id: uuid!
+    $limit: Int
+    $distinct_on: [proposal_select_column!]
+    $offset: Int
+    $order_by: [proposal_order_by!]
+) {
+    proposal_aggregate(
+        where: { umkm: { user_id: { _eq: $user_id } } }
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...proposalAggregate
+    }
+    investment_aggregate(
+        where: { proposal: { umkm: { user_id: { _eq: $user_id } } } }
+    ) {
+        ...investmentsAggregate
     }
 }
 

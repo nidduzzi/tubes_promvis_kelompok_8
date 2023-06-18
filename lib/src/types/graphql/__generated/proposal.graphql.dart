@@ -1,10 +1,12 @@
 // GENERATED FILE
 // DO NOT MODIFY
 import 'dart:async';
+import 'investment.graphql.dart';
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
+import 'package:tubes_promvis_kelompok_8/src/types/graphql/scalar.dart';
 import 'schema.graphql.dart';
 import 'umkm.graphql.dart';
 
@@ -361,6 +363,717 @@ extension ClientExtension$Fragment$proposalData on graphql.GraphQLClient {
     );
     return result == null ? null : Fragment$proposalData.fromJson(result);
   }
+}
+
+class Fragment$proposalAggregate {
+  Fragment$proposalAggregate({
+    this.aggregate,
+    this.$__typename = 'proposal_aggregate',
+  });
+
+  factory Fragment$proposalAggregate.fromJson(Map<String, dynamic> json) {
+    final l$aggregate = json['aggregate'];
+    final l$$__typename = json['__typename'];
+    return Fragment$proposalAggregate(
+      aggregate: l$aggregate == null
+          ? null
+          : Fragment$proposalAggregate$aggregate.fromJson(
+              (l$aggregate as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Fragment$proposalAggregate$aggregate? aggregate;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$aggregate = aggregate;
+    _resultData['aggregate'] = l$aggregate?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$aggregate = aggregate;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$aggregate,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$proposalAggregate) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$aggregate = aggregate;
+    final lOther$aggregate = other.aggregate;
+    if (l$aggregate != lOther$aggregate) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$proposalAggregate
+    on Fragment$proposalAggregate {
+  CopyWith$Fragment$proposalAggregate<Fragment$proposalAggregate>
+      get copyWith => CopyWith$Fragment$proposalAggregate(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$proposalAggregate<TRes> {
+  factory CopyWith$Fragment$proposalAggregate(
+    Fragment$proposalAggregate instance,
+    TRes Function(Fragment$proposalAggregate) then,
+  ) = _CopyWithImpl$Fragment$proposalAggregate;
+
+  factory CopyWith$Fragment$proposalAggregate.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$proposalAggregate;
+
+  TRes call({
+    Fragment$proposalAggregate$aggregate? aggregate,
+    String? $__typename,
+  });
+  CopyWith$Fragment$proposalAggregate$aggregate<TRes> get aggregate;
+}
+
+class _CopyWithImpl$Fragment$proposalAggregate<TRes>
+    implements CopyWith$Fragment$proposalAggregate<TRes> {
+  _CopyWithImpl$Fragment$proposalAggregate(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$proposalAggregate _instance;
+
+  final TRes Function(Fragment$proposalAggregate) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? aggregate = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$proposalAggregate(
+        aggregate: aggregate == _undefined
+            ? _instance.aggregate
+            : (aggregate as Fragment$proposalAggregate$aggregate?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Fragment$proposalAggregate$aggregate<TRes> get aggregate {
+    final local$aggregate = _instance.aggregate;
+    return local$aggregate == null
+        ? CopyWith$Fragment$proposalAggregate$aggregate.stub(_then(_instance))
+        : CopyWith$Fragment$proposalAggregate$aggregate(
+            local$aggregate, (e) => call(aggregate: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$proposalAggregate<TRes>
+    implements CopyWith$Fragment$proposalAggregate<TRes> {
+  _CopyWithStubImpl$Fragment$proposalAggregate(this._res);
+
+  TRes _res;
+
+  call({
+    Fragment$proposalAggregate$aggregate? aggregate,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Fragment$proposalAggregate$aggregate<TRes> get aggregate =>
+      CopyWith$Fragment$proposalAggregate$aggregate.stub(_res);
+}
+
+const fragmentDefinitionproposalAggregate = FragmentDefinitionNode(
+  name: NameNode(value: 'proposalAggregate'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'proposal_aggregate'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'aggregate'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FieldNode(
+          name: NameNode(value: 'count'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: 'sum'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: SelectionSetNode(selections: [
+            FieldNode(
+              name: NameNode(value: 'proposal_amount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ]),
+        ),
+        FieldNode(
+          name: NameNode(value: 'avg'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: SelectionSetNode(selections: [
+            FieldNode(
+              name: NameNode(value: 'proposal_amount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ]),
+        ),
+        FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+      ]),
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
+const documentNodeFragmentproposalAggregate = DocumentNode(definitions: [
+  fragmentDefinitionproposalAggregate,
+]);
+
+extension ClientExtension$Fragment$proposalAggregate on graphql.GraphQLClient {
+  void writeFragment$proposalAggregate({
+    required Fragment$proposalAggregate data,
+    required Map<String, dynamic> idFields,
+    bool broadcast = true,
+  }) =>
+      this.writeFragment(
+        graphql.FragmentRequest(
+          idFields: idFields,
+          fragment: const graphql.Fragment(
+            fragmentName: 'proposalAggregate',
+            document: documentNodeFragmentproposalAggregate,
+          ),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Fragment$proposalAggregate? readFragment$proposalAggregate({
+    required Map<String, dynamic> idFields,
+    bool optimistic = true,
+  }) {
+    final result = this.readFragment(
+      graphql.FragmentRequest(
+        idFields: idFields,
+        fragment: const graphql.Fragment(
+          fragmentName: 'proposalAggregate',
+          document: documentNodeFragmentproposalAggregate,
+        ),
+      ),
+      optimistic: optimistic,
+    );
+    return result == null ? null : Fragment$proposalAggregate.fromJson(result);
+  }
+}
+
+class Fragment$proposalAggregate$aggregate {
+  Fragment$proposalAggregate$aggregate({
+    required this.count,
+    this.sum,
+    this.avg,
+    this.$__typename = 'proposal_aggregate_fields',
+  });
+
+  factory Fragment$proposalAggregate$aggregate.fromJson(
+      Map<String, dynamic> json) {
+    final l$count = json['count'];
+    final l$sum = json['sum'];
+    final l$avg = json['avg'];
+    final l$$__typename = json['__typename'];
+    return Fragment$proposalAggregate$aggregate(
+      count: (l$count as int),
+      sum: l$sum == null
+          ? null
+          : Fragment$proposalAggregate$aggregate$sum.fromJson(
+              (l$sum as Map<String, dynamic>)),
+      avg: l$avg == null
+          ? null
+          : Fragment$proposalAggregate$aggregate$avg.fromJson(
+              (l$avg as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int count;
+
+  final Fragment$proposalAggregate$aggregate$sum? sum;
+
+  final Fragment$proposalAggregate$aggregate$avg? avg;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$count = count;
+    _resultData['count'] = l$count;
+    final l$sum = sum;
+    _resultData['sum'] = l$sum?.toJson();
+    final l$avg = avg;
+    _resultData['avg'] = l$avg?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$count = count;
+    final l$sum = sum;
+    final l$avg = avg;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$count,
+      l$sum,
+      l$avg,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$proposalAggregate$aggregate) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$count = count;
+    final lOther$count = other.count;
+    if (l$count != lOther$count) {
+      return false;
+    }
+    final l$sum = sum;
+    final lOther$sum = other.sum;
+    if (l$sum != lOther$sum) {
+      return false;
+    }
+    final l$avg = avg;
+    final lOther$avg = other.avg;
+    if (l$avg != lOther$avg) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$proposalAggregate$aggregate
+    on Fragment$proposalAggregate$aggregate {
+  CopyWith$Fragment$proposalAggregate$aggregate<
+          Fragment$proposalAggregate$aggregate>
+      get copyWith => CopyWith$Fragment$proposalAggregate$aggregate(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$proposalAggregate$aggregate<TRes> {
+  factory CopyWith$Fragment$proposalAggregate$aggregate(
+    Fragment$proposalAggregate$aggregate instance,
+    TRes Function(Fragment$proposalAggregate$aggregate) then,
+  ) = _CopyWithImpl$Fragment$proposalAggregate$aggregate;
+
+  factory CopyWith$Fragment$proposalAggregate$aggregate.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$proposalAggregate$aggregate;
+
+  TRes call({
+    int? count,
+    Fragment$proposalAggregate$aggregate$sum? sum,
+    Fragment$proposalAggregate$aggregate$avg? avg,
+    String? $__typename,
+  });
+  CopyWith$Fragment$proposalAggregate$aggregate$sum<TRes> get sum;
+  CopyWith$Fragment$proposalAggregate$aggregate$avg<TRes> get avg;
+}
+
+class _CopyWithImpl$Fragment$proposalAggregate$aggregate<TRes>
+    implements CopyWith$Fragment$proposalAggregate$aggregate<TRes> {
+  _CopyWithImpl$Fragment$proposalAggregate$aggregate(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$proposalAggregate$aggregate _instance;
+
+  final TRes Function(Fragment$proposalAggregate$aggregate) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? count = _undefined,
+    Object? sum = _undefined,
+    Object? avg = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$proposalAggregate$aggregate(
+        count: count == _undefined || count == null
+            ? _instance.count
+            : (count as int),
+        sum: sum == _undefined
+            ? _instance.sum
+            : (sum as Fragment$proposalAggregate$aggregate$sum?),
+        avg: avg == _undefined
+            ? _instance.avg
+            : (avg as Fragment$proposalAggregate$aggregate$avg?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Fragment$proposalAggregate$aggregate$sum<TRes> get sum {
+    final local$sum = _instance.sum;
+    return local$sum == null
+        ? CopyWith$Fragment$proposalAggregate$aggregate$sum.stub(
+            _then(_instance))
+        : CopyWith$Fragment$proposalAggregate$aggregate$sum(
+            local$sum, (e) => call(sum: e));
+  }
+
+  CopyWith$Fragment$proposalAggregate$aggregate$avg<TRes> get avg {
+    final local$avg = _instance.avg;
+    return local$avg == null
+        ? CopyWith$Fragment$proposalAggregate$aggregate$avg.stub(
+            _then(_instance))
+        : CopyWith$Fragment$proposalAggregate$aggregate$avg(
+            local$avg, (e) => call(avg: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$proposalAggregate$aggregate<TRes>
+    implements CopyWith$Fragment$proposalAggregate$aggregate<TRes> {
+  _CopyWithStubImpl$Fragment$proposalAggregate$aggregate(this._res);
+
+  TRes _res;
+
+  call({
+    int? count,
+    Fragment$proposalAggregate$aggregate$sum? sum,
+    Fragment$proposalAggregate$aggregate$avg? avg,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Fragment$proposalAggregate$aggregate$sum<TRes> get sum =>
+      CopyWith$Fragment$proposalAggregate$aggregate$sum.stub(_res);
+  CopyWith$Fragment$proposalAggregate$aggregate$avg<TRes> get avg =>
+      CopyWith$Fragment$proposalAggregate$aggregate$avg.stub(_res);
+}
+
+class Fragment$proposalAggregate$aggregate$sum {
+  Fragment$proposalAggregate$aggregate$sum({
+    this.proposal_amount,
+    this.$__typename = 'proposal_sum_fields',
+  });
+
+  factory Fragment$proposalAggregate$aggregate$sum.fromJson(
+      Map<String, dynamic> json) {
+    final l$proposal_amount = json['proposal_amount'];
+    final l$$__typename = json['__typename'];
+    return Fragment$proposalAggregate$aggregate$sum(
+      proposal_amount: (l$proposal_amount as int?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int? proposal_amount;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$proposal_amount = proposal_amount;
+    _resultData['proposal_amount'] = l$proposal_amount;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$proposal_amount = proposal_amount;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$proposal_amount,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$proposalAggregate$aggregate$sum) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$proposal_amount = proposal_amount;
+    final lOther$proposal_amount = other.proposal_amount;
+    if (l$proposal_amount != lOther$proposal_amount) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$proposalAggregate$aggregate$sum
+    on Fragment$proposalAggregate$aggregate$sum {
+  CopyWith$Fragment$proposalAggregate$aggregate$sum<
+          Fragment$proposalAggregate$aggregate$sum>
+      get copyWith => CopyWith$Fragment$proposalAggregate$aggregate$sum(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$proposalAggregate$aggregate$sum<TRes> {
+  factory CopyWith$Fragment$proposalAggregate$aggregate$sum(
+    Fragment$proposalAggregate$aggregate$sum instance,
+    TRes Function(Fragment$proposalAggregate$aggregate$sum) then,
+  ) = _CopyWithImpl$Fragment$proposalAggregate$aggregate$sum;
+
+  factory CopyWith$Fragment$proposalAggregate$aggregate$sum.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$proposalAggregate$aggregate$sum;
+
+  TRes call({
+    int? proposal_amount,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Fragment$proposalAggregate$aggregate$sum<TRes>
+    implements CopyWith$Fragment$proposalAggregate$aggregate$sum<TRes> {
+  _CopyWithImpl$Fragment$proposalAggregate$aggregate$sum(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$proposalAggregate$aggregate$sum _instance;
+
+  final TRes Function(Fragment$proposalAggregate$aggregate$sum) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? proposal_amount = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$proposalAggregate$aggregate$sum(
+        proposal_amount: proposal_amount == _undefined
+            ? _instance.proposal_amount
+            : (proposal_amount as int?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Fragment$proposalAggregate$aggregate$sum<TRes>
+    implements CopyWith$Fragment$proposalAggregate$aggregate$sum<TRes> {
+  _CopyWithStubImpl$Fragment$proposalAggregate$aggregate$sum(this._res);
+
+  TRes _res;
+
+  call({
+    int? proposal_amount,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Fragment$proposalAggregate$aggregate$avg {
+  Fragment$proposalAggregate$aggregate$avg({
+    this.proposal_amount,
+    this.$__typename = 'proposal_avg_fields',
+  });
+
+  factory Fragment$proposalAggregate$aggregate$avg.fromJson(
+      Map<String, dynamic> json) {
+    final l$proposal_amount = json['proposal_amount'];
+    final l$$__typename = json['__typename'];
+    return Fragment$proposalAggregate$aggregate$avg(
+      proposal_amount: (l$proposal_amount as num?)?.toDouble(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final double? proposal_amount;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$proposal_amount = proposal_amount;
+    _resultData['proposal_amount'] = l$proposal_amount;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$proposal_amount = proposal_amount;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$proposal_amount,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$proposalAggregate$aggregate$avg) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$proposal_amount = proposal_amount;
+    final lOther$proposal_amount = other.proposal_amount;
+    if (l$proposal_amount != lOther$proposal_amount) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$proposalAggregate$aggregate$avg
+    on Fragment$proposalAggregate$aggregate$avg {
+  CopyWith$Fragment$proposalAggregate$aggregate$avg<
+          Fragment$proposalAggregate$aggregate$avg>
+      get copyWith => CopyWith$Fragment$proposalAggregate$aggregate$avg(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$proposalAggregate$aggregate$avg<TRes> {
+  factory CopyWith$Fragment$proposalAggregate$aggregate$avg(
+    Fragment$proposalAggregate$aggregate$avg instance,
+    TRes Function(Fragment$proposalAggregate$aggregate$avg) then,
+  ) = _CopyWithImpl$Fragment$proposalAggregate$aggregate$avg;
+
+  factory CopyWith$Fragment$proposalAggregate$aggregate$avg.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$proposalAggregate$aggregate$avg;
+
+  TRes call({
+    double? proposal_amount,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Fragment$proposalAggregate$aggregate$avg<TRes>
+    implements CopyWith$Fragment$proposalAggregate$aggregate$avg<TRes> {
+  _CopyWithImpl$Fragment$proposalAggregate$aggregate$avg(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$proposalAggregate$aggregate$avg _instance;
+
+  final TRes Function(Fragment$proposalAggregate$aggregate$avg) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? proposal_amount = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$proposalAggregate$aggregate$avg(
+        proposal_amount: proposal_amount == _undefined
+            ? _instance.proposal_amount
+            : (proposal_amount as double?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Fragment$proposalAggregate$aggregate$avg<TRes>
+    implements CopyWith$Fragment$proposalAggregate$aggregate$avg<TRes> {
+  _CopyWithStubImpl$Fragment$proposalAggregate$aggregate$avg(this._res);
+
+  TRes _res;
+
+  call({
+    double? proposal_amount,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Variables$Mutation$InsertProposalMutation {
@@ -1609,6 +2322,700 @@ class _CopyWithStubImpl$Mutation$UpdateProposalMutation$update_proposal<TRes>
   returning(_fn) => _res;
 }
 
+class Variables$Query$GetUserUMKMProposalQuery {
+  factory Variables$Query$GetUserUMKMProposalQuery({
+    required UUID user_id,
+    int? limit,
+    List<Enum$proposal_select_column>? distinct_on,
+    int? offset,
+    List<Input$proposal_order_by>? order_by,
+  }) =>
+      Variables$Query$GetUserUMKMProposalQuery._({
+        r'user_id': user_id,
+        if (limit != null) r'limit': limit,
+        if (distinct_on != null) r'distinct_on': distinct_on,
+        if (offset != null) r'offset': offset,
+        if (order_by != null) r'order_by': order_by,
+      });
+
+  Variables$Query$GetUserUMKMProposalQuery._(this._$data);
+
+  factory Variables$Query$GetUserUMKMProposalQuery.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$user_id = data['user_id'];
+    result$data['user_id'] = uuidFromJson(l$user_id);
+    if (data.containsKey('limit')) {
+      final l$limit = data['limit'];
+      result$data['limit'] = (l$limit as int?);
+    }
+    if (data.containsKey('distinct_on')) {
+      final l$distinct_on = data['distinct_on'];
+      result$data['distinct_on'] = (l$distinct_on as List<dynamic>?)
+          ?.map((e) => fromJson$Enum$proposal_select_column((e as String)))
+          .toList();
+    }
+    if (data.containsKey('offset')) {
+      final l$offset = data['offset'];
+      result$data['offset'] = (l$offset as int?);
+    }
+    if (data.containsKey('order_by')) {
+      final l$order_by = data['order_by'];
+      result$data['order_by'] = (l$order_by as List<dynamic>?)
+          ?.map((e) =>
+              Input$proposal_order_by.fromJson((e as Map<String, dynamic>)))
+          .toList();
+    }
+    return Variables$Query$GetUserUMKMProposalQuery._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  UUID get user_id => (_$data['user_id'] as UUID);
+  int? get limit => (_$data['limit'] as int?);
+  List<Enum$proposal_select_column>? get distinct_on =>
+      (_$data['distinct_on'] as List<Enum$proposal_select_column>?);
+  int? get offset => (_$data['offset'] as int?);
+  List<Input$proposal_order_by>? get order_by =>
+      (_$data['order_by'] as List<Input$proposal_order_by>?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$user_id = user_id;
+    result$data['user_id'] = uuidToJson(l$user_id);
+    if (_$data.containsKey('limit')) {
+      final l$limit = limit;
+      result$data['limit'] = l$limit;
+    }
+    if (_$data.containsKey('distinct_on')) {
+      final l$distinct_on = distinct_on;
+      result$data['distinct_on'] = l$distinct_on
+          ?.map((e) => toJson$Enum$proposal_select_column(e))
+          .toList();
+    }
+    if (_$data.containsKey('offset')) {
+      final l$offset = offset;
+      result$data['offset'] = l$offset;
+    }
+    if (_$data.containsKey('order_by')) {
+      final l$order_by = order_by;
+      result$data['order_by'] = l$order_by?.map((e) => e.toJson()).toList();
+    }
+    return result$data;
+  }
+
+  CopyWith$Variables$Query$GetUserUMKMProposalQuery<
+          Variables$Query$GetUserUMKMProposalQuery>
+      get copyWith => CopyWith$Variables$Query$GetUserUMKMProposalQuery(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Query$GetUserUMKMProposalQuery) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (l$user_id != lOther$user_id) {
+      return false;
+    }
+    final l$limit = limit;
+    final lOther$limit = other.limit;
+    if (_$data.containsKey('limit') != other._$data.containsKey('limit')) {
+      return false;
+    }
+    if (l$limit != lOther$limit) {
+      return false;
+    }
+    final l$distinct_on = distinct_on;
+    final lOther$distinct_on = other.distinct_on;
+    if (_$data.containsKey('distinct_on') !=
+        other._$data.containsKey('distinct_on')) {
+      return false;
+    }
+    if (l$distinct_on != null && lOther$distinct_on != null) {
+      if (l$distinct_on.length != lOther$distinct_on.length) {
+        return false;
+      }
+      for (int i = 0; i < l$distinct_on.length; i++) {
+        final l$distinct_on$entry = l$distinct_on[i];
+        final lOther$distinct_on$entry = lOther$distinct_on[i];
+        if (l$distinct_on$entry != lOther$distinct_on$entry) {
+          return false;
+        }
+      }
+    } else if (l$distinct_on != lOther$distinct_on) {
+      return false;
+    }
+    final l$offset = offset;
+    final lOther$offset = other.offset;
+    if (_$data.containsKey('offset') != other._$data.containsKey('offset')) {
+      return false;
+    }
+    if (l$offset != lOther$offset) {
+      return false;
+    }
+    final l$order_by = order_by;
+    final lOther$order_by = other.order_by;
+    if (_$data.containsKey('order_by') !=
+        other._$data.containsKey('order_by')) {
+      return false;
+    }
+    if (l$order_by != null && lOther$order_by != null) {
+      if (l$order_by.length != lOther$order_by.length) {
+        return false;
+      }
+      for (int i = 0; i < l$order_by.length; i++) {
+        final l$order_by$entry = l$order_by[i];
+        final lOther$order_by$entry = lOther$order_by[i];
+        if (l$order_by$entry != lOther$order_by$entry) {
+          return false;
+        }
+      }
+    } else if (l$order_by != lOther$order_by) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$user_id = user_id;
+    final l$limit = limit;
+    final l$distinct_on = distinct_on;
+    final l$offset = offset;
+    final l$order_by = order_by;
+    return Object.hashAll([
+      l$user_id,
+      _$data.containsKey('limit') ? l$limit : const {},
+      _$data.containsKey('distinct_on')
+          ? l$distinct_on == null
+              ? null
+              : Object.hashAll(l$distinct_on.map((v) => v))
+          : const {},
+      _$data.containsKey('offset') ? l$offset : const {},
+      _$data.containsKey('order_by')
+          ? l$order_by == null
+              ? null
+              : Object.hashAll(l$order_by.map((v) => v))
+          : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Variables$Query$GetUserUMKMProposalQuery<TRes> {
+  factory CopyWith$Variables$Query$GetUserUMKMProposalQuery(
+    Variables$Query$GetUserUMKMProposalQuery instance,
+    TRes Function(Variables$Query$GetUserUMKMProposalQuery) then,
+  ) = _CopyWithImpl$Variables$Query$GetUserUMKMProposalQuery;
+
+  factory CopyWith$Variables$Query$GetUserUMKMProposalQuery.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$GetUserUMKMProposalQuery;
+
+  TRes call({
+    UUID? user_id,
+    int? limit,
+    List<Enum$proposal_select_column>? distinct_on,
+    int? offset,
+    List<Input$proposal_order_by>? order_by,
+  });
+}
+
+class _CopyWithImpl$Variables$Query$GetUserUMKMProposalQuery<TRes>
+    implements CopyWith$Variables$Query$GetUserUMKMProposalQuery<TRes> {
+  _CopyWithImpl$Variables$Query$GetUserUMKMProposalQuery(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Query$GetUserUMKMProposalQuery _instance;
+
+  final TRes Function(Variables$Query$GetUserUMKMProposalQuery) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? user_id = _undefined,
+    Object? limit = _undefined,
+    Object? distinct_on = _undefined,
+    Object? offset = _undefined,
+    Object? order_by = _undefined,
+  }) =>
+      _then(Variables$Query$GetUserUMKMProposalQuery._({
+        ..._instance._$data,
+        if (user_id != _undefined && user_id != null)
+          'user_id': (user_id as UUID),
+        if (limit != _undefined) 'limit': (limit as int?),
+        if (distinct_on != _undefined)
+          'distinct_on': (distinct_on as List<Enum$proposal_select_column>?),
+        if (offset != _undefined) 'offset': (offset as int?),
+        if (order_by != _undefined)
+          'order_by': (order_by as List<Input$proposal_order_by>?),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Query$GetUserUMKMProposalQuery<TRes>
+    implements CopyWith$Variables$Query$GetUserUMKMProposalQuery<TRes> {
+  _CopyWithStubImpl$Variables$Query$GetUserUMKMProposalQuery(this._res);
+
+  TRes _res;
+
+  call({
+    UUID? user_id,
+    int? limit,
+    List<Enum$proposal_select_column>? distinct_on,
+    int? offset,
+    List<Input$proposal_order_by>? order_by,
+  }) =>
+      _res;
+}
+
+class Query$GetUserUMKMProposalQuery {
+  Query$GetUserUMKMProposalQuery({
+    required this.proposal,
+    this.$__typename = 'query_root',
+  });
+
+  factory Query$GetUserUMKMProposalQuery.fromJson(Map<String, dynamic> json) {
+    final l$proposal = json['proposal'];
+    final l$$__typename = json['__typename'];
+    return Query$GetUserUMKMProposalQuery(
+      proposal: (l$proposal as List<dynamic>)
+          .map((e) =>
+              Fragment$proposalData.fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final List<Fragment$proposalData> proposal;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$proposal = proposal;
+    _resultData['proposal'] = l$proposal.map((e) => e.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$proposal = proposal;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      Object.hashAll(l$proposal.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetUserUMKMProposalQuery) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$proposal = proposal;
+    final lOther$proposal = other.proposal;
+    if (l$proposal.length != lOther$proposal.length) {
+      return false;
+    }
+    for (int i = 0; i < l$proposal.length; i++) {
+      final l$proposal$entry = l$proposal[i];
+      final lOther$proposal$entry = lOther$proposal[i];
+      if (l$proposal$entry != lOther$proposal$entry) {
+        return false;
+      }
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetUserUMKMProposalQuery
+    on Query$GetUserUMKMProposalQuery {
+  CopyWith$Query$GetUserUMKMProposalQuery<Query$GetUserUMKMProposalQuery>
+      get copyWith => CopyWith$Query$GetUserUMKMProposalQuery(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GetUserUMKMProposalQuery<TRes> {
+  factory CopyWith$Query$GetUserUMKMProposalQuery(
+    Query$GetUserUMKMProposalQuery instance,
+    TRes Function(Query$GetUserUMKMProposalQuery) then,
+  ) = _CopyWithImpl$Query$GetUserUMKMProposalQuery;
+
+  factory CopyWith$Query$GetUserUMKMProposalQuery.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetUserUMKMProposalQuery;
+
+  TRes call({
+    List<Fragment$proposalData>? proposal,
+    String? $__typename,
+  });
+  TRes proposal(
+      Iterable<Fragment$proposalData> Function(
+              Iterable<CopyWith$Fragment$proposalData<Fragment$proposalData>>)
+          _fn);
+}
+
+class _CopyWithImpl$Query$GetUserUMKMProposalQuery<TRes>
+    implements CopyWith$Query$GetUserUMKMProposalQuery<TRes> {
+  _CopyWithImpl$Query$GetUserUMKMProposalQuery(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetUserUMKMProposalQuery _instance;
+
+  final TRes Function(Query$GetUserUMKMProposalQuery) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? proposal = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GetUserUMKMProposalQuery(
+        proposal: proposal == _undefined || proposal == null
+            ? _instance.proposal
+            : (proposal as List<Fragment$proposalData>),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  TRes proposal(
+          Iterable<Fragment$proposalData> Function(
+                  Iterable<
+                      CopyWith$Fragment$proposalData<Fragment$proposalData>>)
+              _fn) =>
+      call(
+          proposal:
+              _fn(_instance.proposal.map((e) => CopyWith$Fragment$proposalData(
+                    e,
+                    (i) => i,
+                  ))).toList());
+}
+
+class _CopyWithStubImpl$Query$GetUserUMKMProposalQuery<TRes>
+    implements CopyWith$Query$GetUserUMKMProposalQuery<TRes> {
+  _CopyWithStubImpl$Query$GetUserUMKMProposalQuery(this._res);
+
+  TRes _res;
+
+  call({
+    List<Fragment$proposalData>? proposal,
+    String? $__typename,
+  }) =>
+      _res;
+  proposal(_fn) => _res;
+}
+
+const documentNodeQueryGetUserUMKMProposalQuery = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'GetUserUMKMProposalQuery'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'user_id')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'uuid'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'limit')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'distinct_on')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'proposal_select_column'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'offset')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'order_by')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'proposal_order_by'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'proposal'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: ObjectValueNode(fields: [
+              ObjectFieldNode(
+                name: NameNode(value: 'umkm'),
+                value: ObjectValueNode(fields: [
+                  ObjectFieldNode(
+                    name: NameNode(value: 'user_id'),
+                    value: ObjectValueNode(fields: [
+                      ObjectFieldNode(
+                        name: NameNode(value: '_eq'),
+                        value: VariableNode(name: NameNode(value: 'user_id')),
+                      )
+                    ]),
+                  )
+                ]),
+              )
+            ]),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'limit'),
+            value: VariableNode(name: NameNode(value: 'limit')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'distinct_on'),
+            value: VariableNode(name: NameNode(value: 'distinct_on')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'offset'),
+            value: VariableNode(name: NameNode(value: 'offset')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'order_by'),
+            value: VariableNode(name: NameNode(value: 'order_by')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FragmentSpreadNode(
+            name: NameNode(value: 'proposalData'),
+            directives: [],
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+  fragmentDefinitionproposalData,
+]);
+Query$GetUserUMKMProposalQuery _parserFn$Query$GetUserUMKMProposalQuery(
+        Map<String, dynamic> data) =>
+    Query$GetUserUMKMProposalQuery.fromJson(data);
+typedef OnQueryComplete$Query$GetUserUMKMProposalQuery = FutureOr<void>
+    Function(
+  Map<String, dynamic>?,
+  Query$GetUserUMKMProposalQuery?,
+);
+
+class Options$Query$GetUserUMKMProposalQuery
+    extends graphql.QueryOptions<Query$GetUserUMKMProposalQuery> {
+  Options$Query$GetUserUMKMProposalQuery({
+    String? operationName,
+    required Variables$Query$GetUserUMKMProposalQuery variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$GetUserUMKMProposalQuery? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$GetUserUMKMProposalQuery? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$GetUserUMKMProposalQuery(data),
+                  ),
+          onError: onError,
+          document: documentNodeQueryGetUserUMKMProposalQuery,
+          parserFn: _parserFn$Query$GetUserUMKMProposalQuery,
+        );
+
+  final OnQueryComplete$Query$GetUserUMKMProposalQuery? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
+}
+
+class WatchOptions$Query$GetUserUMKMProposalQuery
+    extends graphql.WatchQueryOptions<Query$GetUserUMKMProposalQuery> {
+  WatchOptions$Query$GetUserUMKMProposalQuery({
+    String? operationName,
+    required Variables$Query$GetUserUMKMProposalQuery variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$GetUserUMKMProposalQuery? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQueryGetUserUMKMProposalQuery,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$GetUserUMKMProposalQuery,
+        );
+}
+
+class FetchMoreOptions$Query$GetUserUMKMProposalQuery
+    extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$GetUserUMKMProposalQuery({
+    required graphql.UpdateQuery updateQuery,
+    required Variables$Query$GetUserUMKMProposalQuery variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables.toJson(),
+          document: documentNodeQueryGetUserUMKMProposalQuery,
+        );
+}
+
+extension ClientExtension$Query$GetUserUMKMProposalQuery
+    on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$GetUserUMKMProposalQuery>>
+      query$GetUserUMKMProposalQuery(
+              Options$Query$GetUserUMKMProposalQuery options) async =>
+          await this.query(options);
+  graphql.ObservableQuery<Query$GetUserUMKMProposalQuery>
+      watchQuery$GetUserUMKMProposalQuery(
+              WatchOptions$Query$GetUserUMKMProposalQuery options) =>
+          this.watchQuery(options);
+  void writeQuery$GetUserUMKMProposalQuery({
+    required Query$GetUserUMKMProposalQuery data,
+    required Variables$Query$GetUserUMKMProposalQuery variables,
+    bool broadcast = true,
+  }) =>
+      this.writeQuery(
+        graphql.Request(
+          operation: graphql.Operation(
+              document: documentNodeQueryGetUserUMKMProposalQuery),
+          variables: variables.toJson(),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$GetUserUMKMProposalQuery? readQuery$GetUserUMKMProposalQuery({
+    required Variables$Query$GetUserUMKMProposalQuery variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation: graphql.Operation(
+            document: documentNodeQueryGetUserUMKMProposalQuery),
+        variables: variables.toJson(),
+      ),
+      optimistic: optimistic,
+    );
+    return result == null
+        ? null
+        : Query$GetUserUMKMProposalQuery.fromJson(result);
+  }
+}
+
+graphql_flutter.QueryHookResult<Query$GetUserUMKMProposalQuery>
+    useQuery$GetUserUMKMProposalQuery(
+            Options$Query$GetUserUMKMProposalQuery options) =>
+        graphql_flutter.useQuery(options);
+graphql.ObservableQuery<Query$GetUserUMKMProposalQuery>
+    useWatchQuery$GetUserUMKMProposalQuery(
+            WatchOptions$Query$GetUserUMKMProposalQuery options) =>
+        graphql_flutter.useWatchQuery(options);
+
+class Query$GetUserUMKMProposalQuery$Widget
+    extends graphql_flutter.Query<Query$GetUserUMKMProposalQuery> {
+  Query$GetUserUMKMProposalQuery$Widget({
+    widgets.Key? key,
+    required Options$Query$GetUserUMKMProposalQuery options,
+    required graphql_flutter.QueryBuilder<Query$GetUserUMKMProposalQuery>
+        builder,
+  }) : super(
+          key: key,
+          options: options,
+          builder: builder,
+        );
+}
+
 class Variables$Query$GetByPkProposalQuery {
   factory Variables$Query$GetByPkProposalQuery({required int proposal_id}) =>
       Variables$Query$GetByPkProposalQuery._({
@@ -2359,15 +3766,15 @@ class _CopyWithStubImpl$Query$GetByPkProposalQuery$proposal_by_pk<TRes>
       CopyWith$Fragment$umkmData.stub(_res);
 }
 
-class Variables$Query$GetUMKMProposalAggregateQuery {
-  factory Variables$Query$GetUMKMProposalAggregateQuery({
+class Variables$Query$GetUMKMProposalAggregate {
+  factory Variables$Query$GetUMKMProposalAggregate({
     int? umkm_id,
     int? limit,
     List<Enum$proposal_select_column>? distinct_on,
     int? offset,
     List<Input$proposal_order_by>? order_by,
   }) =>
-      Variables$Query$GetUMKMProposalAggregateQuery._({
+      Variables$Query$GetUMKMProposalAggregate._({
         if (umkm_id != null) r'umkm_id': umkm_id,
         if (limit != null) r'limit': limit,
         if (distinct_on != null) r'distinct_on': distinct_on,
@@ -2375,9 +3782,9 @@ class Variables$Query$GetUMKMProposalAggregateQuery {
         if (order_by != null) r'order_by': order_by,
       });
 
-  Variables$Query$GetUMKMProposalAggregateQuery._(this._$data);
+  Variables$Query$GetUMKMProposalAggregate._(this._$data);
 
-  factory Variables$Query$GetUMKMProposalAggregateQuery.fromJson(
+  factory Variables$Query$GetUMKMProposalAggregate.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('umkm_id')) {
@@ -2405,7 +3812,7 @@ class Variables$Query$GetUMKMProposalAggregateQuery {
               Input$proposal_order_by.fromJson((e as Map<String, dynamic>)))
           .toList();
     }
-    return Variables$Query$GetUMKMProposalAggregateQuery._(result$data);
+    return Variables$Query$GetUMKMProposalAggregate._(result$data);
   }
 
   Map<String, dynamic> _$data;
@@ -2444,9 +3851,9 @@ class Variables$Query$GetUMKMProposalAggregateQuery {
     return result$data;
   }
 
-  CopyWith$Variables$Query$GetUMKMProposalAggregateQuery<
-          Variables$Query$GetUMKMProposalAggregateQuery>
-      get copyWith => CopyWith$Variables$Query$GetUMKMProposalAggregateQuery(
+  CopyWith$Variables$Query$GetUMKMProposalAggregate<
+          Variables$Query$GetUMKMProposalAggregate>
+      get copyWith => CopyWith$Variables$Query$GetUMKMProposalAggregate(
             this,
             (i) => i,
           );
@@ -2455,7 +3862,7 @@ class Variables$Query$GetUMKMProposalAggregateQuery {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$GetUMKMProposalAggregateQuery) ||
+    if (!(other is Variables$Query$GetUMKMProposalAggregate) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2551,15 +3958,14 @@ class Variables$Query$GetUMKMProposalAggregateQuery {
   }
 }
 
-abstract class CopyWith$Variables$Query$GetUMKMProposalAggregateQuery<TRes> {
-  factory CopyWith$Variables$Query$GetUMKMProposalAggregateQuery(
-    Variables$Query$GetUMKMProposalAggregateQuery instance,
-    TRes Function(Variables$Query$GetUMKMProposalAggregateQuery) then,
-  ) = _CopyWithImpl$Variables$Query$GetUMKMProposalAggregateQuery;
+abstract class CopyWith$Variables$Query$GetUMKMProposalAggregate<TRes> {
+  factory CopyWith$Variables$Query$GetUMKMProposalAggregate(
+    Variables$Query$GetUMKMProposalAggregate instance,
+    TRes Function(Variables$Query$GetUMKMProposalAggregate) then,
+  ) = _CopyWithImpl$Variables$Query$GetUMKMProposalAggregate;
 
-  factory CopyWith$Variables$Query$GetUMKMProposalAggregateQuery.stub(
-          TRes res) =
-      _CopyWithStubImpl$Variables$Query$GetUMKMProposalAggregateQuery;
+  factory CopyWith$Variables$Query$GetUMKMProposalAggregate.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$GetUMKMProposalAggregate;
 
   TRes call({
     int? umkm_id,
@@ -2570,16 +3976,16 @@ abstract class CopyWith$Variables$Query$GetUMKMProposalAggregateQuery<TRes> {
   });
 }
 
-class _CopyWithImpl$Variables$Query$GetUMKMProposalAggregateQuery<TRes>
-    implements CopyWith$Variables$Query$GetUMKMProposalAggregateQuery<TRes> {
-  _CopyWithImpl$Variables$Query$GetUMKMProposalAggregateQuery(
+class _CopyWithImpl$Variables$Query$GetUMKMProposalAggregate<TRes>
+    implements CopyWith$Variables$Query$GetUMKMProposalAggregate<TRes> {
+  _CopyWithImpl$Variables$Query$GetUMKMProposalAggregate(
     this._instance,
     this._then,
   );
 
-  final Variables$Query$GetUMKMProposalAggregateQuery _instance;
+  final Variables$Query$GetUMKMProposalAggregate _instance;
 
-  final TRes Function(Variables$Query$GetUMKMProposalAggregateQuery) _then;
+  final TRes Function(Variables$Query$GetUMKMProposalAggregate) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -2590,7 +3996,7 @@ class _CopyWithImpl$Variables$Query$GetUMKMProposalAggregateQuery<TRes>
     Object? offset = _undefined,
     Object? order_by = _undefined,
   }) =>
-      _then(Variables$Query$GetUMKMProposalAggregateQuery._({
+      _then(Variables$Query$GetUMKMProposalAggregate._({
         ..._instance._$data,
         if (umkm_id != _undefined) 'umkm_id': (umkm_id as int?),
         if (limit != _undefined) 'limit': (limit as int?),
@@ -2602,9 +4008,9 @@ class _CopyWithImpl$Variables$Query$GetUMKMProposalAggregateQuery<TRes>
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$GetUMKMProposalAggregateQuery<TRes>
-    implements CopyWith$Variables$Query$GetUMKMProposalAggregateQuery<TRes> {
-  _CopyWithStubImpl$Variables$Query$GetUMKMProposalAggregateQuery(this._res);
+class _CopyWithStubImpl$Variables$Query$GetUMKMProposalAggregate<TRes>
+    implements CopyWith$Variables$Query$GetUMKMProposalAggregate<TRes> {
+  _CopyWithStubImpl$Variables$Query$GetUMKMProposalAggregate(this._res);
 
   TRes _res;
 
@@ -2618,26 +4024,24 @@ class _CopyWithStubImpl$Variables$Query$GetUMKMProposalAggregateQuery<TRes>
       _res;
 }
 
-class Query$GetUMKMProposalAggregateQuery {
-  Query$GetUMKMProposalAggregateQuery({
+class Query$GetUMKMProposalAggregate {
+  Query$GetUMKMProposalAggregate({
     required this.proposal_aggregate,
     this.$__typename = 'query_root',
   });
 
-  factory Query$GetUMKMProposalAggregateQuery.fromJson(
-      Map<String, dynamic> json) {
+  factory Query$GetUMKMProposalAggregate.fromJson(Map<String, dynamic> json) {
     final l$proposal_aggregate = json['proposal_aggregate'];
     final l$$__typename = json['__typename'];
-    return Query$GetUMKMProposalAggregateQuery(
+    return Query$GetUMKMProposalAggregate(
       proposal_aggregate:
-          Query$GetUMKMProposalAggregateQuery$proposal_aggregate.fromJson(
+          Query$GetUMKMProposalAggregate$proposal_aggregate.fromJson(
               (l$proposal_aggregate as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Query$GetUMKMProposalAggregateQuery$proposal_aggregate
-      proposal_aggregate;
+  final Query$GetUMKMProposalAggregate$proposal_aggregate proposal_aggregate;
 
   final String $__typename;
 
@@ -2665,7 +4069,7 @@ class Query$GetUMKMProposalAggregateQuery {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetUMKMProposalAggregateQuery) ||
+    if (!(other is Query$GetUMKMProposalAggregate) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2683,43 +4087,42 @@ class Query$GetUMKMProposalAggregateQuery {
   }
 }
 
-extension UtilityExtension$Query$GetUMKMProposalAggregateQuery
-    on Query$GetUMKMProposalAggregateQuery {
-  CopyWith$Query$GetUMKMProposalAggregateQuery<
-          Query$GetUMKMProposalAggregateQuery>
-      get copyWith => CopyWith$Query$GetUMKMProposalAggregateQuery(
+extension UtilityExtension$Query$GetUMKMProposalAggregate
+    on Query$GetUMKMProposalAggregate {
+  CopyWith$Query$GetUMKMProposalAggregate<Query$GetUMKMProposalAggregate>
+      get copyWith => CopyWith$Query$GetUMKMProposalAggregate(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$GetUMKMProposalAggregateQuery<TRes> {
-  factory CopyWith$Query$GetUMKMProposalAggregateQuery(
-    Query$GetUMKMProposalAggregateQuery instance,
-    TRes Function(Query$GetUMKMProposalAggregateQuery) then,
-  ) = _CopyWithImpl$Query$GetUMKMProposalAggregateQuery;
+abstract class CopyWith$Query$GetUMKMProposalAggregate<TRes> {
+  factory CopyWith$Query$GetUMKMProposalAggregate(
+    Query$GetUMKMProposalAggregate instance,
+    TRes Function(Query$GetUMKMProposalAggregate) then,
+  ) = _CopyWithImpl$Query$GetUMKMProposalAggregate;
 
-  factory CopyWith$Query$GetUMKMProposalAggregateQuery.stub(TRes res) =
-      _CopyWithStubImpl$Query$GetUMKMProposalAggregateQuery;
+  factory CopyWith$Query$GetUMKMProposalAggregate.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetUMKMProposalAggregate;
 
   TRes call({
-    Query$GetUMKMProposalAggregateQuery$proposal_aggregate? proposal_aggregate,
+    Query$GetUMKMProposalAggregate$proposal_aggregate? proposal_aggregate,
     String? $__typename,
   });
-  CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate<TRes>
+  CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate<TRes>
       get proposal_aggregate;
 }
 
-class _CopyWithImpl$Query$GetUMKMProposalAggregateQuery<TRes>
-    implements CopyWith$Query$GetUMKMProposalAggregateQuery<TRes> {
-  _CopyWithImpl$Query$GetUMKMProposalAggregateQuery(
+class _CopyWithImpl$Query$GetUMKMProposalAggregate<TRes>
+    implements CopyWith$Query$GetUMKMProposalAggregate<TRes> {
+  _CopyWithImpl$Query$GetUMKMProposalAggregate(
     this._instance,
     this._then,
   );
 
-  final Query$GetUMKMProposalAggregateQuery _instance;
+  final Query$GetUMKMProposalAggregate _instance;
 
-  final TRes Function(Query$GetUMKMProposalAggregateQuery) _then;
+  final TRes Function(Query$GetUMKMProposalAggregate) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -2727,46 +4130,44 @@ class _CopyWithImpl$Query$GetUMKMProposalAggregateQuery<TRes>
     Object? proposal_aggregate = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$GetUMKMProposalAggregateQuery(
+      _then(Query$GetUMKMProposalAggregate(
         proposal_aggregate:
             proposal_aggregate == _undefined || proposal_aggregate == null
                 ? _instance.proposal_aggregate
                 : (proposal_aggregate
-                    as Query$GetUMKMProposalAggregateQuery$proposal_aggregate),
+                    as Query$GetUMKMProposalAggregate$proposal_aggregate),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate<TRes>
+  CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate<TRes>
       get proposal_aggregate {
     final local$proposal_aggregate = _instance.proposal_aggregate;
-    return CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate(
+    return CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate(
         local$proposal_aggregate, (e) => call(proposal_aggregate: e));
   }
 }
 
-class _CopyWithStubImpl$Query$GetUMKMProposalAggregateQuery<TRes>
-    implements CopyWith$Query$GetUMKMProposalAggregateQuery<TRes> {
-  _CopyWithStubImpl$Query$GetUMKMProposalAggregateQuery(this._res);
+class _CopyWithStubImpl$Query$GetUMKMProposalAggregate<TRes>
+    implements CopyWith$Query$GetUMKMProposalAggregate<TRes> {
+  _CopyWithStubImpl$Query$GetUMKMProposalAggregate(this._res);
 
   TRes _res;
 
   call({
-    Query$GetUMKMProposalAggregateQuery$proposal_aggregate? proposal_aggregate,
+    Query$GetUMKMProposalAggregate$proposal_aggregate? proposal_aggregate,
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate<TRes>
+  CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate<TRes>
       get proposal_aggregate =>
-          CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate.stub(
-              _res);
+          CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate.stub(_res);
 }
 
-const documentNodeQueryGetUMKMProposalAggregateQuery =
-    DocumentNode(definitions: [
+const documentNodeQueryGetUMKMProposalAggregate = DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.query,
-    name: NameNode(value: 'GetUMKMProposalAggregateQuery'),
+    name: NameNode(value: 'GetUMKMProposalAggregate'),
     variableDefinitions: [
       VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'umkm_id')),
@@ -2859,53 +4260,25 @@ const documentNodeQueryGetUMKMProposalAggregateQuery =
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
+          FragmentSpreadNode(
+            name: NameNode(value: 'proposalAggregate'),
+            directives: [],
+          ),
           FieldNode(
-            name: NameNode(value: 'aggregate'),
+            name: NameNode(value: 'nodes'),
             alias: null,
             arguments: [],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                name: NameNode(value: 'count'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'sum'),
+                name: NameNode(value: 'investments_aggregate'),
                 alias: null,
                 arguments: [],
                 directives: [],
                 selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'proposal_amount'),
-                    alias: null,
-                    arguments: [],
+                  FragmentSpreadNode(
+                    name: NameNode(value: 'investmentsAggregate'),
                     directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'avg'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'proposal_amount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
                   ),
                   FieldNode(
                     name: NameNode(value: '__typename'),
@@ -2943,29 +4316,31 @@ const documentNodeQueryGetUMKMProposalAggregateQuery =
       ),
     ]),
   ),
+  fragmentDefinitionproposalAggregate,
+  fragmentDefinitioninvestmentsAggregate,
 ]);
-Query$GetUMKMProposalAggregateQuery
-    _parserFn$Query$GetUMKMProposalAggregateQuery(Map<String, dynamic> data) =>
-        Query$GetUMKMProposalAggregateQuery.fromJson(data);
-typedef OnQueryComplete$Query$GetUMKMProposalAggregateQuery = FutureOr<void>
+Query$GetUMKMProposalAggregate _parserFn$Query$GetUMKMProposalAggregate(
+        Map<String, dynamic> data) =>
+    Query$GetUMKMProposalAggregate.fromJson(data);
+typedef OnQueryComplete$Query$GetUMKMProposalAggregate = FutureOr<void>
     Function(
   Map<String, dynamic>?,
-  Query$GetUMKMProposalAggregateQuery?,
+  Query$GetUMKMProposalAggregate?,
 );
 
-class Options$Query$GetUMKMProposalAggregateQuery
-    extends graphql.QueryOptions<Query$GetUMKMProposalAggregateQuery> {
-  Options$Query$GetUMKMProposalAggregateQuery({
+class Options$Query$GetUMKMProposalAggregate
+    extends graphql.QueryOptions<Query$GetUMKMProposalAggregate> {
+  Options$Query$GetUMKMProposalAggregate({
     String? operationName,
-    Variables$Query$GetUMKMProposalAggregateQuery? variables,
+    Variables$Query$GetUMKMProposalAggregate? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$GetUMKMProposalAggregateQuery? typedOptimisticResult,
+    Query$GetUMKMProposalAggregate? typedOptimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
-    OnQueryComplete$Query$GetUMKMProposalAggregateQuery? onComplete,
+    OnQueryComplete$Query$GetUMKMProposalAggregate? onComplete,
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
@@ -2983,15 +4358,14 @@ class Options$Query$GetUMKMProposalAggregateQuery
                     data,
                     data == null
                         ? null
-                        : _parserFn$Query$GetUMKMProposalAggregateQuery(data),
+                        : _parserFn$Query$GetUMKMProposalAggregate(data),
                   ),
           onError: onError,
-          document: documentNodeQueryGetUMKMProposalAggregateQuery,
-          parserFn: _parserFn$Query$GetUMKMProposalAggregateQuery,
+          document: documentNodeQueryGetUMKMProposalAggregate,
+          parserFn: _parserFn$Query$GetUMKMProposalAggregate,
         );
 
-  final OnQueryComplete$Query$GetUMKMProposalAggregateQuery?
-      onCompleteWithParsed;
+  final OnQueryComplete$Query$GetUMKMProposalAggregate? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -3002,16 +4376,16 @@ class Options$Query$GetUMKMProposalAggregateQuery
       ];
 }
 
-class WatchOptions$Query$GetUMKMProposalAggregateQuery
-    extends graphql.WatchQueryOptions<Query$GetUMKMProposalAggregateQuery> {
-  WatchOptions$Query$GetUMKMProposalAggregateQuery({
+class WatchOptions$Query$GetUMKMProposalAggregate
+    extends graphql.WatchQueryOptions<Query$GetUMKMProposalAggregate> {
+  WatchOptions$Query$GetUMKMProposalAggregate({
     String? operationName,
-    Variables$Query$GetUMKMProposalAggregateQuery? variables,
+    Variables$Query$GetUMKMProposalAggregate? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$GetUMKMProposalAggregateQuery? typedOptimisticResult,
+    Query$GetUMKMProposalAggregate? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
@@ -3025,119 +4399,126 @@ class WatchOptions$Query$GetUMKMProposalAggregateQuery
           cacheRereadPolicy: cacheRereadPolicy,
           optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
-          document: documentNodeQueryGetUMKMProposalAggregateQuery,
+          document: documentNodeQueryGetUMKMProposalAggregate,
           pollInterval: pollInterval,
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Query$GetUMKMProposalAggregateQuery,
+          parserFn: _parserFn$Query$GetUMKMProposalAggregate,
         );
 }
 
-class FetchMoreOptions$Query$GetUMKMProposalAggregateQuery
+class FetchMoreOptions$Query$GetUMKMProposalAggregate
     extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$GetUMKMProposalAggregateQuery({
+  FetchMoreOptions$Query$GetUMKMProposalAggregate({
     required graphql.UpdateQuery updateQuery,
-    Variables$Query$GetUMKMProposalAggregateQuery? variables,
+    Variables$Query$GetUMKMProposalAggregate? variables,
   }) : super(
           updateQuery: updateQuery,
           variables: variables?.toJson() ?? {},
-          document: documentNodeQueryGetUMKMProposalAggregateQuery,
+          document: documentNodeQueryGetUMKMProposalAggregate,
         );
 }
 
-extension ClientExtension$Query$GetUMKMProposalAggregateQuery
+extension ClientExtension$Query$GetUMKMProposalAggregate
     on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$GetUMKMProposalAggregateQuery>>
-      query$GetUMKMProposalAggregateQuery(
-              [Options$Query$GetUMKMProposalAggregateQuery? options]) async =>
-          await this
-              .query(options ?? Options$Query$GetUMKMProposalAggregateQuery());
-  graphql.ObservableQuery<Query$GetUMKMProposalAggregateQuery>
-      watchQuery$GetUMKMProposalAggregateQuery(
-              [WatchOptions$Query$GetUMKMProposalAggregateQuery? options]) =>
-          this.watchQuery(
-              options ?? WatchOptions$Query$GetUMKMProposalAggregateQuery());
-  void writeQuery$GetUMKMProposalAggregateQuery({
-    required Query$GetUMKMProposalAggregateQuery data,
-    Variables$Query$GetUMKMProposalAggregateQuery? variables,
+  Future<graphql.QueryResult<Query$GetUMKMProposalAggregate>>
+      query$GetUMKMProposalAggregate(
+              [Options$Query$GetUMKMProposalAggregate? options]) async =>
+          await this.query(options ?? Options$Query$GetUMKMProposalAggregate());
+  graphql.ObservableQuery<
+      Query$GetUMKMProposalAggregate> watchQuery$GetUMKMProposalAggregate(
+          [WatchOptions$Query$GetUMKMProposalAggregate? options]) =>
+      this.watchQuery(options ?? WatchOptions$Query$GetUMKMProposalAggregate());
+  void writeQuery$GetUMKMProposalAggregate({
+    required Query$GetUMKMProposalAggregate data,
+    Variables$Query$GetUMKMProposalAggregate? variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
           operation: graphql.Operation(
-              document: documentNodeQueryGetUMKMProposalAggregateQuery),
+              document: documentNodeQueryGetUMKMProposalAggregate),
           variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
-  Query$GetUMKMProposalAggregateQuery? readQuery$GetUMKMProposalAggregateQuery({
-    Variables$Query$GetUMKMProposalAggregateQuery? variables,
+  Query$GetUMKMProposalAggregate? readQuery$GetUMKMProposalAggregate({
+    Variables$Query$GetUMKMProposalAggregate? variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
         operation: graphql.Operation(
-            document: documentNodeQueryGetUMKMProposalAggregateQuery),
+            document: documentNodeQueryGetUMKMProposalAggregate),
         variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
     );
     return result == null
         ? null
-        : Query$GetUMKMProposalAggregateQuery.fromJson(result);
+        : Query$GetUMKMProposalAggregate.fromJson(result);
   }
 }
 
-graphql_flutter.QueryHookResult<Query$GetUMKMProposalAggregateQuery>
-    useQuery$GetUMKMProposalAggregateQuery(
-            [Options$Query$GetUMKMProposalAggregateQuery? options]) =>
+graphql_flutter.QueryHookResult<Query$GetUMKMProposalAggregate>
+    useQuery$GetUMKMProposalAggregate(
+            [Options$Query$GetUMKMProposalAggregate? options]) =>
         graphql_flutter
-            .useQuery(options ?? Options$Query$GetUMKMProposalAggregateQuery());
-graphql.ObservableQuery<Query$GetUMKMProposalAggregateQuery>
-    useWatchQuery$GetUMKMProposalAggregateQuery(
-            [WatchOptions$Query$GetUMKMProposalAggregateQuery? options]) =>
+            .useQuery(options ?? Options$Query$GetUMKMProposalAggregate());
+graphql.ObservableQuery<Query$GetUMKMProposalAggregate>
+    useWatchQuery$GetUMKMProposalAggregate(
+            [WatchOptions$Query$GetUMKMProposalAggregate? options]) =>
         graphql_flutter.useWatchQuery(
-            options ?? WatchOptions$Query$GetUMKMProposalAggregateQuery());
+            options ?? WatchOptions$Query$GetUMKMProposalAggregate());
 
-class Query$GetUMKMProposalAggregateQuery$Widget
-    extends graphql_flutter.Query<Query$GetUMKMProposalAggregateQuery> {
-  Query$GetUMKMProposalAggregateQuery$Widget({
+class Query$GetUMKMProposalAggregate$Widget
+    extends graphql_flutter.Query<Query$GetUMKMProposalAggregate> {
+  Query$GetUMKMProposalAggregate$Widget({
     widgets.Key? key,
-    Options$Query$GetUMKMProposalAggregateQuery? options,
-    required graphql_flutter.QueryBuilder<Query$GetUMKMProposalAggregateQuery>
+    Options$Query$GetUMKMProposalAggregate? options,
+    required graphql_flutter.QueryBuilder<Query$GetUMKMProposalAggregate>
         builder,
   }) : super(
           key: key,
-          options: options ?? Options$Query$GetUMKMProposalAggregateQuery(),
+          options: options ?? Options$Query$GetUMKMProposalAggregate(),
           builder: builder,
         );
 }
 
-class Query$GetUMKMProposalAggregateQuery$proposal_aggregate {
-  Query$GetUMKMProposalAggregateQuery$proposal_aggregate({
+class Query$GetUMKMProposalAggregate$proposal_aggregate
+    implements Fragment$proposalAggregate {
+  Query$GetUMKMProposalAggregate$proposal_aggregate({
     this.aggregate,
     this.$__typename = 'proposal_aggregate',
+    required this.nodes,
   });
 
-  factory Query$GetUMKMProposalAggregateQuery$proposal_aggregate.fromJson(
+  factory Query$GetUMKMProposalAggregate$proposal_aggregate.fromJson(
       Map<String, dynamic> json) {
     final l$aggregate = json['aggregate'];
     final l$$__typename = json['__typename'];
-    return Query$GetUMKMProposalAggregateQuery$proposal_aggregate(
+    final l$nodes = json['nodes'];
+    return Query$GetUMKMProposalAggregate$proposal_aggregate(
       aggregate: l$aggregate == null
           ? null
-          : Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate
+          : Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate
               .fromJson((l$aggregate as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
+      nodes: (l$nodes as List<dynamic>)
+          .map((e) =>
+              Query$GetUMKMProposalAggregate$proposal_aggregate$nodes.fromJson(
+                  (e as Map<String, dynamic>)))
+          .toList(),
     );
   }
 
-  final Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate?
-      aggregate;
+  final Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate? aggregate;
 
   final String $__typename;
+
+  final List<Query$GetUMKMProposalAggregate$proposal_aggregate$nodes> nodes;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
@@ -3145,6 +4526,8 @@ class Query$GetUMKMProposalAggregateQuery$proposal_aggregate {
     _resultData['aggregate'] = l$aggregate?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
+    final l$nodes = nodes;
+    _resultData['nodes'] = l$nodes.map((e) => e.toJson()).toList();
     return _resultData;
   }
 
@@ -3152,9 +4535,11 @@ class Query$GetUMKMProposalAggregateQuery$proposal_aggregate {
   int get hashCode {
     final l$aggregate = aggregate;
     final l$$__typename = $__typename;
+    final l$nodes = nodes;
     return Object.hashAll([
       l$aggregate,
       l$$__typename,
+      Object.hashAll(l$nodes.map((v) => v)),
     ]);
   }
 
@@ -3163,7 +4548,7 @@ class Query$GetUMKMProposalAggregateQuery$proposal_aggregate {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetUMKMProposalAggregateQuery$proposal_aggregate) ||
+    if (!(other is Query$GetUMKMProposalAggregate$proposal_aggregate) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3177,123 +4562,160 @@ class Query$GetUMKMProposalAggregateQuery$proposal_aggregate {
     if (l$$__typename != lOther$$__typename) {
       return false;
     }
+    final l$nodes = nodes;
+    final lOther$nodes = other.nodes;
+    if (l$nodes.length != lOther$nodes.length) {
+      return false;
+    }
+    for (int i = 0; i < l$nodes.length; i++) {
+      final l$nodes$entry = l$nodes[i];
+      final lOther$nodes$entry = lOther$nodes[i];
+      if (l$nodes$entry != lOther$nodes$entry) {
+        return false;
+      }
+    }
     return true;
   }
 }
 
-extension UtilityExtension$Query$GetUMKMProposalAggregateQuery$proposal_aggregate
-    on Query$GetUMKMProposalAggregateQuery$proposal_aggregate {
-  CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate<
-          Query$GetUMKMProposalAggregateQuery$proposal_aggregate>
+extension UtilityExtension$Query$GetUMKMProposalAggregate$proposal_aggregate
+    on Query$GetUMKMProposalAggregate$proposal_aggregate {
+  CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate<
+          Query$GetUMKMProposalAggregate$proposal_aggregate>
       get copyWith =>
-          CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate(
+          CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate<
+abstract class CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate<
     TRes> {
-  factory CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate(
-    Query$GetUMKMProposalAggregateQuery$proposal_aggregate instance,
-    TRes Function(Query$GetUMKMProposalAggregateQuery$proposal_aggregate) then,
-  ) = _CopyWithImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate;
+  factory CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate(
+    Query$GetUMKMProposalAggregate$proposal_aggregate instance,
+    TRes Function(Query$GetUMKMProposalAggregate$proposal_aggregate) then,
+  ) = _CopyWithImpl$Query$GetUMKMProposalAggregate$proposal_aggregate;
 
-  factory CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate.stub(
+  factory CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate;
+      _CopyWithStubImpl$Query$GetUMKMProposalAggregate$proposal_aggregate;
 
   TRes call({
-    Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate? aggregate,
+    Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate? aggregate,
     String? $__typename,
+    List<Query$GetUMKMProposalAggregate$proposal_aggregate$nodes>? nodes,
   });
-  CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate<
-      TRes> get aggregate;
+  CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate<TRes>
+      get aggregate;
+  TRes nodes(
+      Iterable<Query$GetUMKMProposalAggregate$proposal_aggregate$nodes> Function(
+              Iterable<
+                  CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$nodes<
+                      Query$GetUMKMProposalAggregate$proposal_aggregate$nodes>>)
+          _fn);
 }
 
-class _CopyWithImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate<TRes>
+class _CopyWithImpl$Query$GetUMKMProposalAggregate$proposal_aggregate<TRes>
     implements
-        CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate<TRes> {
-  _CopyWithImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate(
+        CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate<TRes> {
+  _CopyWithImpl$Query$GetUMKMProposalAggregate$proposal_aggregate(
     this._instance,
     this._then,
   );
 
-  final Query$GetUMKMProposalAggregateQuery$proposal_aggregate _instance;
+  final Query$GetUMKMProposalAggregate$proposal_aggregate _instance;
 
-  final TRes Function(Query$GetUMKMProposalAggregateQuery$proposal_aggregate)
-      _then;
+  final TRes Function(Query$GetUMKMProposalAggregate$proposal_aggregate) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? aggregate = _undefined,
     Object? $__typename = _undefined,
+    Object? nodes = _undefined,
   }) =>
-      _then(Query$GetUMKMProposalAggregateQuery$proposal_aggregate(
+      _then(Query$GetUMKMProposalAggregate$proposal_aggregate(
         aggregate: aggregate == _undefined
             ? _instance.aggregate
             : (aggregate
-                as Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate?),
+                as Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
+        nodes: nodes == _undefined || nodes == null
+            ? _instance.nodes
+            : (nodes as List<
+                Query$GetUMKMProposalAggregate$proposal_aggregate$nodes>),
       ));
-  CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate<
-      TRes> get aggregate {
+  CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate<TRes>
+      get aggregate {
     final local$aggregate = _instance.aggregate;
     return local$aggregate == null
-        ? CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate
+        ? CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate
             .stub(_then(_instance))
-        : CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate(
+        : CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate(
             local$aggregate, (e) => call(aggregate: e));
   }
+
+  TRes nodes(
+          Iterable<Query$GetUMKMProposalAggregate$proposal_aggregate$nodes> Function(
+                  Iterable<
+                      CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$nodes<
+                          Query$GetUMKMProposalAggregate$proposal_aggregate$nodes>>)
+              _fn) =>
+      call(
+          nodes: _fn(_instance.nodes.map((e) =>
+              CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$nodes(
+                e,
+                (i) => i,
+              ))).toList());
 }
 
-class _CopyWithStubImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate<
-        TRes>
+class _CopyWithStubImpl$Query$GetUMKMProposalAggregate$proposal_aggregate<TRes>
     implements
-        CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate<TRes> {
-  _CopyWithStubImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate(
+        CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate<TRes> {
+  _CopyWithStubImpl$Query$GetUMKMProposalAggregate$proposal_aggregate(
       this._res);
 
   TRes _res;
 
   call({
-    Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate? aggregate,
+    Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate? aggregate,
     String? $__typename,
+    List<Query$GetUMKMProposalAggregate$proposal_aggregate$nodes>? nodes,
   }) =>
       _res;
-  CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate<
-          TRes>
+  CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate<TRes>
       get aggregate =>
-          CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate
+          CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate
               .stub(_res);
+  nodes(_fn) => _res;
 }
 
-class Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate {
-  Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate({
+class Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate
+    implements Fragment$proposalAggregate$aggregate {
+  Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate({
     required this.count,
     this.sum,
     this.avg,
     this.$__typename = 'proposal_aggregate_fields',
   });
 
-  factory Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate.fromJson(
+  factory Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate.fromJson(
       Map<String, dynamic> json) {
     final l$count = json['count'];
     final l$sum = json['sum'];
     final l$avg = json['avg'];
     final l$$__typename = json['__typename'];
-    return Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate(
+    return Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate(
       count: (l$count as int),
       sum: l$sum == null
           ? null
-          : Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum
+          : Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum
               .fromJson((l$sum as Map<String, dynamic>)),
       avg: l$avg == null
           ? null
-          : Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg
+          : Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg
               .fromJson((l$avg as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
@@ -3301,11 +4723,9 @@ class Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate {
 
   final int count;
 
-  final Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum?
-      sum;
+  final Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum? sum;
 
-  final Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg?
-      avg;
+  final Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg? avg;
 
   final String $__typename;
 
@@ -3342,7 +4762,7 @@ class Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate {
       return true;
     }
     if (!(other
-            is Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate) ||
+            is Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3370,57 +4790,55 @@ class Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate {
   }
 }
 
-extension UtilityExtension$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate
-    on Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate {
-  CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate<
-          Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate>
+extension UtilityExtension$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate
+    on Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate {
+  CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate<
+          Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate>
       get copyWith =>
-          CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate(
+          CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate<
+abstract class CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate<
     TRes> {
-  factory CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate(
-    Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate instance,
-    TRes Function(
-            Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate)
+  factory CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate(
+    Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate instance,
+    TRes Function(Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate)
         then,
-  ) = _CopyWithImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate;
+  ) = _CopyWithImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate;
 
-  factory CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate.stub(
+  factory CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate;
+      _CopyWithStubImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate;
 
   TRes call({
     int? count,
-    Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum? sum,
-    Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg? avg,
+    Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum? sum,
+    Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg? avg,
     String? $__typename,
   });
-  CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum<
-      TRes> get sum;
-  CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg<
-      TRes> get avg;
+  CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum<TRes>
+      get sum;
+  CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg<TRes>
+      get avg;
 }
 
-class _CopyWithImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate<
+class _CopyWithImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate<
         TRes>
     implements
-        CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate<
+        CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate<
             TRes> {
-  _CopyWithImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate(
+  _CopyWithImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate(
     this._instance,
     this._then,
   );
 
-  final Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate
-      _instance;
+  final Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate _instance;
 
   final TRes Function(
-      Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate) _then;
+      Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -3430,83 +4848,82 @@ class _CopyWithImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggre
     Object? avg = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate(
+      _then(Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate(
         count: count == _undefined || count == null
             ? _instance.count
             : (count as int),
         sum: sum == _undefined
             ? _instance.sum
             : (sum
-                as Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum?),
+                as Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum?),
         avg: avg == _undefined
             ? _instance.avg
             : (avg
-                as Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg?),
+                as Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum<
-      TRes> get sum {
+  CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum<TRes>
+      get sum {
     final local$sum = _instance.sum;
     return local$sum == null
-        ? CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum
+        ? CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum
             .stub(_then(_instance))
-        : CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum(
+        : CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum(
             local$sum, (e) => call(sum: e));
   }
 
-  CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg<
-      TRes> get avg {
+  CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg<TRes>
+      get avg {
     final local$avg = _instance.avg;
     return local$avg == null
-        ? CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg
+        ? CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg
             .stub(_then(_instance))
-        : CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg(
+        : CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg(
             local$avg, (e) => call(avg: e));
   }
 }
 
-class _CopyWithStubImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate<
+class _CopyWithStubImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate<
         TRes>
     implements
-        CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate<
+        CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate<
             TRes> {
-  _CopyWithStubImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate(
+  _CopyWithStubImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate(
       this._res);
 
   TRes _res;
 
   call({
     int? count,
-    Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum? sum,
-    Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg? avg,
+    Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum? sum,
+    Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg? avg,
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum<
-          TRes>
+  CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum<TRes>
       get sum =>
-          CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum
+          CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum
               .stub(_res);
-  CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg<
-          TRes>
+  CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg<TRes>
       get avg =>
-          CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg
+          CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg
               .stub(_res);
 }
 
-class Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum {
-  Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum({
+class Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum
+    implements Fragment$proposalAggregate$aggregate$sum {
+  Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum({
     this.proposal_amount,
     this.$__typename = 'proposal_sum_fields',
   });
 
-  factory Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum.fromJson(
+  factory Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum.fromJson(
       Map<String, dynamic> json) {
     final l$proposal_amount = json['proposal_amount'];
     final l$$__typename = json['__typename'];
-    return Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum(
+    return Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum(
       proposal_amount: (l$proposal_amount as int?),
       $__typename: (l$$__typename as String),
     );
@@ -3541,7 +4958,7 @@ class Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum {
       return true;
     }
     if (!(other
-            is Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum) ||
+            is Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3559,30 +4976,29 @@ class Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum {
   }
 }
 
-extension UtilityExtension$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum
-    on Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum {
-  CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum<
-          Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum>
+extension UtilityExtension$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum
+    on Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum {
+  CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum<
+          Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum>
       get copyWith =>
-          CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum(
+          CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum<
+abstract class CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum<
     TRes> {
-  factory CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum(
-    Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum
-        instance,
+  factory CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum(
+    Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum instance,
     TRes Function(
-            Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum)
+            Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum)
         then,
-  ) = _CopyWithImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum;
+  ) = _CopyWithImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum;
 
-  factory CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum.stub(
+  factory CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum;
+      _CopyWithStubImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum;
 
   TRes call({
     int? proposal_amount,
@@ -3590,22 +5006,21 @@ abstract class CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$a
   });
 }
 
-class _CopyWithImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum<
+class _CopyWithImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum<
         TRes>
     implements
-        CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum<
+        CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum<
             TRes> {
-  _CopyWithImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum(
+  _CopyWithImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum(
     this._instance,
     this._then,
   );
 
-  final Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum
+  final Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum
       _instance;
 
   final TRes Function(
-          Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum)
-      _then;
+      Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -3613,8 +5028,7 @@ class _CopyWithImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggre
     Object? proposal_amount = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(
-          Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum(
+      _then(Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum(
         proposal_amount: proposal_amount == _undefined
             ? _instance.proposal_amount
             : (proposal_amount as int?),
@@ -3624,12 +5038,12 @@ class _CopyWithImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggre
       ));
 }
 
-class _CopyWithStubImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum<
+class _CopyWithStubImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum<
         TRes>
     implements
-        CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum<
+        CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum<
             TRes> {
-  _CopyWithStubImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$sum(
+  _CopyWithStubImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$sum(
       this._res);
 
   TRes _res;
@@ -3641,17 +5055,18 @@ class _CopyWithStubImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$a
       _res;
 }
 
-class Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg {
-  Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg({
+class Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg
+    implements Fragment$proposalAggregate$aggregate$avg {
+  Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg({
     this.proposal_amount,
     this.$__typename = 'proposal_avg_fields',
   });
 
-  factory Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg.fromJson(
+  factory Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg.fromJson(
       Map<String, dynamic> json) {
     final l$proposal_amount = json['proposal_amount'];
     final l$$__typename = json['__typename'];
-    return Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg(
+    return Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg(
       proposal_amount: (l$proposal_amount as num?)?.toDouble(),
       $__typename: (l$$__typename as String),
     );
@@ -3686,7 +5101,7 @@ class Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg {
       return true;
     }
     if (!(other
-            is Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg) ||
+            is Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3704,30 +5119,29 @@ class Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg {
   }
 }
 
-extension UtilityExtension$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg
-    on Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg {
-  CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg<
-          Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg>
+extension UtilityExtension$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg
+    on Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg {
+  CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg<
+          Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg>
       get copyWith =>
-          CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg(
+          CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg<
+abstract class CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg<
     TRes> {
-  factory CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg(
-    Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg
-        instance,
+  factory CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg(
+    Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg instance,
     TRes Function(
-            Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg)
+            Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg)
         then,
-  ) = _CopyWithImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg;
+  ) = _CopyWithImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg;
 
-  factory CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg.stub(
+  factory CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg;
+      _CopyWithStubImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg;
 
   TRes call({
     double? proposal_amount,
@@ -3735,22 +5149,21 @@ abstract class CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$a
   });
 }
 
-class _CopyWithImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg<
+class _CopyWithImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg<
         TRes>
     implements
-        CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg<
+        CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg<
             TRes> {
-  _CopyWithImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg(
+  _CopyWithImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg(
     this._instance,
     this._then,
   );
 
-  final Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg
+  final Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg
       _instance;
 
   final TRes Function(
-          Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg)
-      _then;
+      Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -3758,8 +5171,7 @@ class _CopyWithImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggre
     Object? proposal_amount = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(
-          Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg(
+      _then(Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg(
         proposal_amount: proposal_amount == _undefined
             ? _instance.proposal_amount
             : (proposal_amount as double?),
@@ -3769,12 +5181,12 @@ class _CopyWithImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggre
       ));
 }
 
-class _CopyWithStubImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg<
+class _CopyWithStubImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg<
         TRes>
     implements
-        CopyWith$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg<
+        CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg<
             TRes> {
-  _CopyWithStubImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$aggregate$avg(
+  _CopyWithStubImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$aggregate$avg(
       this._res);
 
   TRes _res;
@@ -3784,6 +5196,907 @@ class _CopyWithStubImpl$Query$GetUMKMProposalAggregateQuery$proposal_aggregate$a
     String? $__typename,
   }) =>
       _res;
+}
+
+class Query$GetUMKMProposalAggregate$proposal_aggregate$nodes {
+  Query$GetUMKMProposalAggregate$proposal_aggregate$nodes({
+    required this.investments_aggregate,
+    this.$__typename = 'proposal',
+  });
+
+  factory Query$GetUMKMProposalAggregate$proposal_aggregate$nodes.fromJson(
+      Map<String, dynamic> json) {
+    final l$investments_aggregate = json['investments_aggregate'];
+    final l$$__typename = json['__typename'];
+    return Query$GetUMKMProposalAggregate$proposal_aggregate$nodes(
+      investments_aggregate: Fragment$investmentsAggregate.fromJson(
+          (l$investments_aggregate as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Fragment$investmentsAggregate investments_aggregate;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$investments_aggregate = investments_aggregate;
+    _resultData['investments_aggregate'] = l$investments_aggregate.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$investments_aggregate = investments_aggregate;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$investments_aggregate,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetUMKMProposalAggregate$proposal_aggregate$nodes) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$investments_aggregate = investments_aggregate;
+    final lOther$investments_aggregate = other.investments_aggregate;
+    if (l$investments_aggregate != lOther$investments_aggregate) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetUMKMProposalAggregate$proposal_aggregate$nodes
+    on Query$GetUMKMProposalAggregate$proposal_aggregate$nodes {
+  CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$nodes<
+          Query$GetUMKMProposalAggregate$proposal_aggregate$nodes>
+      get copyWith =>
+          CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$nodes(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$nodes<
+    TRes> {
+  factory CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$nodes(
+    Query$GetUMKMProposalAggregate$proposal_aggregate$nodes instance,
+    TRes Function(Query$GetUMKMProposalAggregate$proposal_aggregate$nodes) then,
+  ) = _CopyWithImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$nodes;
+
+  factory CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$nodes.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$nodes;
+
+  TRes call({
+    Fragment$investmentsAggregate? investments_aggregate,
+    String? $__typename,
+  });
+  CopyWith$Fragment$investmentsAggregate<TRes> get investments_aggregate;
+}
+
+class _CopyWithImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$nodes<
+        TRes>
+    implements
+        CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$nodes<TRes> {
+  _CopyWithImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$nodes(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetUMKMProposalAggregate$proposal_aggregate$nodes _instance;
+
+  final TRes Function(Query$GetUMKMProposalAggregate$proposal_aggregate$nodes)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? investments_aggregate = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GetUMKMProposalAggregate$proposal_aggregate$nodes(
+        investments_aggregate:
+            investments_aggregate == _undefined || investments_aggregate == null
+                ? _instance.investments_aggregate
+                : (investments_aggregate as Fragment$investmentsAggregate),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Fragment$investmentsAggregate<TRes> get investments_aggregate {
+    final local$investments_aggregate = _instance.investments_aggregate;
+    return CopyWith$Fragment$investmentsAggregate(
+        local$investments_aggregate, (e) => call(investments_aggregate: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$nodes<
+        TRes>
+    implements
+        CopyWith$Query$GetUMKMProposalAggregate$proposal_aggregate$nodes<TRes> {
+  _CopyWithStubImpl$Query$GetUMKMProposalAggregate$proposal_aggregate$nodes(
+      this._res);
+
+  TRes _res;
+
+  call({
+    Fragment$investmentsAggregate? investments_aggregate,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Fragment$investmentsAggregate<TRes> get investments_aggregate =>
+      CopyWith$Fragment$investmentsAggregate.stub(_res);
+}
+
+class Variables$Query$GetUserProposalAggregate {
+  factory Variables$Query$GetUserProposalAggregate({
+    required UUID user_id,
+    int? limit,
+    List<Enum$proposal_select_column>? distinct_on,
+    int? offset,
+    List<Input$proposal_order_by>? order_by,
+  }) =>
+      Variables$Query$GetUserProposalAggregate._({
+        r'user_id': user_id,
+        if (limit != null) r'limit': limit,
+        if (distinct_on != null) r'distinct_on': distinct_on,
+        if (offset != null) r'offset': offset,
+        if (order_by != null) r'order_by': order_by,
+      });
+
+  Variables$Query$GetUserProposalAggregate._(this._$data);
+
+  factory Variables$Query$GetUserProposalAggregate.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$user_id = data['user_id'];
+    result$data['user_id'] = uuidFromJson(l$user_id);
+    if (data.containsKey('limit')) {
+      final l$limit = data['limit'];
+      result$data['limit'] = (l$limit as int?);
+    }
+    if (data.containsKey('distinct_on')) {
+      final l$distinct_on = data['distinct_on'];
+      result$data['distinct_on'] = (l$distinct_on as List<dynamic>?)
+          ?.map((e) => fromJson$Enum$proposal_select_column((e as String)))
+          .toList();
+    }
+    if (data.containsKey('offset')) {
+      final l$offset = data['offset'];
+      result$data['offset'] = (l$offset as int?);
+    }
+    if (data.containsKey('order_by')) {
+      final l$order_by = data['order_by'];
+      result$data['order_by'] = (l$order_by as List<dynamic>?)
+          ?.map((e) =>
+              Input$proposal_order_by.fromJson((e as Map<String, dynamic>)))
+          .toList();
+    }
+    return Variables$Query$GetUserProposalAggregate._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  UUID get user_id => (_$data['user_id'] as UUID);
+  int? get limit => (_$data['limit'] as int?);
+  List<Enum$proposal_select_column>? get distinct_on =>
+      (_$data['distinct_on'] as List<Enum$proposal_select_column>?);
+  int? get offset => (_$data['offset'] as int?);
+  List<Input$proposal_order_by>? get order_by =>
+      (_$data['order_by'] as List<Input$proposal_order_by>?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$user_id = user_id;
+    result$data['user_id'] = uuidToJson(l$user_id);
+    if (_$data.containsKey('limit')) {
+      final l$limit = limit;
+      result$data['limit'] = l$limit;
+    }
+    if (_$data.containsKey('distinct_on')) {
+      final l$distinct_on = distinct_on;
+      result$data['distinct_on'] = l$distinct_on
+          ?.map((e) => toJson$Enum$proposal_select_column(e))
+          .toList();
+    }
+    if (_$data.containsKey('offset')) {
+      final l$offset = offset;
+      result$data['offset'] = l$offset;
+    }
+    if (_$data.containsKey('order_by')) {
+      final l$order_by = order_by;
+      result$data['order_by'] = l$order_by?.map((e) => e.toJson()).toList();
+    }
+    return result$data;
+  }
+
+  CopyWith$Variables$Query$GetUserProposalAggregate<
+          Variables$Query$GetUserProposalAggregate>
+      get copyWith => CopyWith$Variables$Query$GetUserProposalAggregate(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Query$GetUserProposalAggregate) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (l$user_id != lOther$user_id) {
+      return false;
+    }
+    final l$limit = limit;
+    final lOther$limit = other.limit;
+    if (_$data.containsKey('limit') != other._$data.containsKey('limit')) {
+      return false;
+    }
+    if (l$limit != lOther$limit) {
+      return false;
+    }
+    final l$distinct_on = distinct_on;
+    final lOther$distinct_on = other.distinct_on;
+    if (_$data.containsKey('distinct_on') !=
+        other._$data.containsKey('distinct_on')) {
+      return false;
+    }
+    if (l$distinct_on != null && lOther$distinct_on != null) {
+      if (l$distinct_on.length != lOther$distinct_on.length) {
+        return false;
+      }
+      for (int i = 0; i < l$distinct_on.length; i++) {
+        final l$distinct_on$entry = l$distinct_on[i];
+        final lOther$distinct_on$entry = lOther$distinct_on[i];
+        if (l$distinct_on$entry != lOther$distinct_on$entry) {
+          return false;
+        }
+      }
+    } else if (l$distinct_on != lOther$distinct_on) {
+      return false;
+    }
+    final l$offset = offset;
+    final lOther$offset = other.offset;
+    if (_$data.containsKey('offset') != other._$data.containsKey('offset')) {
+      return false;
+    }
+    if (l$offset != lOther$offset) {
+      return false;
+    }
+    final l$order_by = order_by;
+    final lOther$order_by = other.order_by;
+    if (_$data.containsKey('order_by') !=
+        other._$data.containsKey('order_by')) {
+      return false;
+    }
+    if (l$order_by != null && lOther$order_by != null) {
+      if (l$order_by.length != lOther$order_by.length) {
+        return false;
+      }
+      for (int i = 0; i < l$order_by.length; i++) {
+        final l$order_by$entry = l$order_by[i];
+        final lOther$order_by$entry = lOther$order_by[i];
+        if (l$order_by$entry != lOther$order_by$entry) {
+          return false;
+        }
+      }
+    } else if (l$order_by != lOther$order_by) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$user_id = user_id;
+    final l$limit = limit;
+    final l$distinct_on = distinct_on;
+    final l$offset = offset;
+    final l$order_by = order_by;
+    return Object.hashAll([
+      l$user_id,
+      _$data.containsKey('limit') ? l$limit : const {},
+      _$data.containsKey('distinct_on')
+          ? l$distinct_on == null
+              ? null
+              : Object.hashAll(l$distinct_on.map((v) => v))
+          : const {},
+      _$data.containsKey('offset') ? l$offset : const {},
+      _$data.containsKey('order_by')
+          ? l$order_by == null
+              ? null
+              : Object.hashAll(l$order_by.map((v) => v))
+          : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Variables$Query$GetUserProposalAggregate<TRes> {
+  factory CopyWith$Variables$Query$GetUserProposalAggregate(
+    Variables$Query$GetUserProposalAggregate instance,
+    TRes Function(Variables$Query$GetUserProposalAggregate) then,
+  ) = _CopyWithImpl$Variables$Query$GetUserProposalAggregate;
+
+  factory CopyWith$Variables$Query$GetUserProposalAggregate.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$GetUserProposalAggregate;
+
+  TRes call({
+    UUID? user_id,
+    int? limit,
+    List<Enum$proposal_select_column>? distinct_on,
+    int? offset,
+    List<Input$proposal_order_by>? order_by,
+  });
+}
+
+class _CopyWithImpl$Variables$Query$GetUserProposalAggregate<TRes>
+    implements CopyWith$Variables$Query$GetUserProposalAggregate<TRes> {
+  _CopyWithImpl$Variables$Query$GetUserProposalAggregate(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Query$GetUserProposalAggregate _instance;
+
+  final TRes Function(Variables$Query$GetUserProposalAggregate) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? user_id = _undefined,
+    Object? limit = _undefined,
+    Object? distinct_on = _undefined,
+    Object? offset = _undefined,
+    Object? order_by = _undefined,
+  }) =>
+      _then(Variables$Query$GetUserProposalAggregate._({
+        ..._instance._$data,
+        if (user_id != _undefined && user_id != null)
+          'user_id': (user_id as UUID),
+        if (limit != _undefined) 'limit': (limit as int?),
+        if (distinct_on != _undefined)
+          'distinct_on': (distinct_on as List<Enum$proposal_select_column>?),
+        if (offset != _undefined) 'offset': (offset as int?),
+        if (order_by != _undefined)
+          'order_by': (order_by as List<Input$proposal_order_by>?),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Query$GetUserProposalAggregate<TRes>
+    implements CopyWith$Variables$Query$GetUserProposalAggregate<TRes> {
+  _CopyWithStubImpl$Variables$Query$GetUserProposalAggregate(this._res);
+
+  TRes _res;
+
+  call({
+    UUID? user_id,
+    int? limit,
+    List<Enum$proposal_select_column>? distinct_on,
+    int? offset,
+    List<Input$proposal_order_by>? order_by,
+  }) =>
+      _res;
+}
+
+class Query$GetUserProposalAggregate {
+  Query$GetUserProposalAggregate({
+    required this.proposal_aggregate,
+    required this.investment_aggregate,
+    this.$__typename = 'query_root',
+  });
+
+  factory Query$GetUserProposalAggregate.fromJson(Map<String, dynamic> json) {
+    final l$proposal_aggregate = json['proposal_aggregate'];
+    final l$investment_aggregate = json['investment_aggregate'];
+    final l$$__typename = json['__typename'];
+    return Query$GetUserProposalAggregate(
+      proposal_aggregate: Fragment$proposalAggregate.fromJson(
+          (l$proposal_aggregate as Map<String, dynamic>)),
+      investment_aggregate: Fragment$investmentsAggregate.fromJson(
+          (l$investment_aggregate as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Fragment$proposalAggregate proposal_aggregate;
+
+  final Fragment$investmentsAggregate investment_aggregate;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$proposal_aggregate = proposal_aggregate;
+    _resultData['proposal_aggregate'] = l$proposal_aggregate.toJson();
+    final l$investment_aggregate = investment_aggregate;
+    _resultData['investment_aggregate'] = l$investment_aggregate.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$proposal_aggregate = proposal_aggregate;
+    final l$investment_aggregate = investment_aggregate;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$proposal_aggregate,
+      l$investment_aggregate,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetUserProposalAggregate) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$proposal_aggregate = proposal_aggregate;
+    final lOther$proposal_aggregate = other.proposal_aggregate;
+    if (l$proposal_aggregate != lOther$proposal_aggregate) {
+      return false;
+    }
+    final l$investment_aggregate = investment_aggregate;
+    final lOther$investment_aggregate = other.investment_aggregate;
+    if (l$investment_aggregate != lOther$investment_aggregate) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetUserProposalAggregate
+    on Query$GetUserProposalAggregate {
+  CopyWith$Query$GetUserProposalAggregate<Query$GetUserProposalAggregate>
+      get copyWith => CopyWith$Query$GetUserProposalAggregate(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GetUserProposalAggregate<TRes> {
+  factory CopyWith$Query$GetUserProposalAggregate(
+    Query$GetUserProposalAggregate instance,
+    TRes Function(Query$GetUserProposalAggregate) then,
+  ) = _CopyWithImpl$Query$GetUserProposalAggregate;
+
+  factory CopyWith$Query$GetUserProposalAggregate.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetUserProposalAggregate;
+
+  TRes call({
+    Fragment$proposalAggregate? proposal_aggregate,
+    Fragment$investmentsAggregate? investment_aggregate,
+    String? $__typename,
+  });
+  CopyWith$Fragment$proposalAggregate<TRes> get proposal_aggregate;
+  CopyWith$Fragment$investmentsAggregate<TRes> get investment_aggregate;
+}
+
+class _CopyWithImpl$Query$GetUserProposalAggregate<TRes>
+    implements CopyWith$Query$GetUserProposalAggregate<TRes> {
+  _CopyWithImpl$Query$GetUserProposalAggregate(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetUserProposalAggregate _instance;
+
+  final TRes Function(Query$GetUserProposalAggregate) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? proposal_aggregate = _undefined,
+    Object? investment_aggregate = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GetUserProposalAggregate(
+        proposal_aggregate:
+            proposal_aggregate == _undefined || proposal_aggregate == null
+                ? _instance.proposal_aggregate
+                : (proposal_aggregate as Fragment$proposalAggregate),
+        investment_aggregate:
+            investment_aggregate == _undefined || investment_aggregate == null
+                ? _instance.investment_aggregate
+                : (investment_aggregate as Fragment$investmentsAggregate),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Fragment$proposalAggregate<TRes> get proposal_aggregate {
+    final local$proposal_aggregate = _instance.proposal_aggregate;
+    return CopyWith$Fragment$proposalAggregate(
+        local$proposal_aggregate, (e) => call(proposal_aggregate: e));
+  }
+
+  CopyWith$Fragment$investmentsAggregate<TRes> get investment_aggregate {
+    final local$investment_aggregate = _instance.investment_aggregate;
+    return CopyWith$Fragment$investmentsAggregate(
+        local$investment_aggregate, (e) => call(investment_aggregate: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$GetUserProposalAggregate<TRes>
+    implements CopyWith$Query$GetUserProposalAggregate<TRes> {
+  _CopyWithStubImpl$Query$GetUserProposalAggregate(this._res);
+
+  TRes _res;
+
+  call({
+    Fragment$proposalAggregate? proposal_aggregate,
+    Fragment$investmentsAggregate? investment_aggregate,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Fragment$proposalAggregate<TRes> get proposal_aggregate =>
+      CopyWith$Fragment$proposalAggregate.stub(_res);
+  CopyWith$Fragment$investmentsAggregate<TRes> get investment_aggregate =>
+      CopyWith$Fragment$investmentsAggregate.stub(_res);
+}
+
+const documentNodeQueryGetUserProposalAggregate = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'GetUserProposalAggregate'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'user_id')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'uuid'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'limit')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'distinct_on')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'proposal_select_column'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'offset')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'order_by')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'proposal_order_by'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'proposal_aggregate'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: ObjectValueNode(fields: [
+              ObjectFieldNode(
+                name: NameNode(value: 'umkm'),
+                value: ObjectValueNode(fields: [
+                  ObjectFieldNode(
+                    name: NameNode(value: 'user_id'),
+                    value: ObjectValueNode(fields: [
+                      ObjectFieldNode(
+                        name: NameNode(value: '_eq'),
+                        value: VariableNode(name: NameNode(value: 'user_id')),
+                      )
+                    ]),
+                  )
+                ]),
+              )
+            ]),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'limit'),
+            value: VariableNode(name: NameNode(value: 'limit')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'distinct_on'),
+            value: VariableNode(name: NameNode(value: 'distinct_on')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'offset'),
+            value: VariableNode(name: NameNode(value: 'offset')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'order_by'),
+            value: VariableNode(name: NameNode(value: 'order_by')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FragmentSpreadNode(
+            name: NameNode(value: 'proposalAggregate'),
+            directives: [],
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: 'investment_aggregate'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: ObjectValueNode(fields: [
+              ObjectFieldNode(
+                name: NameNode(value: 'proposal'),
+                value: ObjectValueNode(fields: [
+                  ObjectFieldNode(
+                    name: NameNode(value: 'umkm'),
+                    value: ObjectValueNode(fields: [
+                      ObjectFieldNode(
+                        name: NameNode(value: 'user_id'),
+                        value: ObjectValueNode(fields: [
+                          ObjectFieldNode(
+                            name: NameNode(value: '_eq'),
+                            value:
+                                VariableNode(name: NameNode(value: 'user_id')),
+                          )
+                        ]),
+                      )
+                    ]),
+                  )
+                ]),
+              )
+            ]),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FragmentSpreadNode(
+            name: NameNode(value: 'investmentsAggregate'),
+            directives: [],
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+  fragmentDefinitionproposalAggregate,
+  fragmentDefinitioninvestmentsAggregate,
+]);
+Query$GetUserProposalAggregate _parserFn$Query$GetUserProposalAggregate(
+        Map<String, dynamic> data) =>
+    Query$GetUserProposalAggregate.fromJson(data);
+typedef OnQueryComplete$Query$GetUserProposalAggregate = FutureOr<void>
+    Function(
+  Map<String, dynamic>?,
+  Query$GetUserProposalAggregate?,
+);
+
+class Options$Query$GetUserProposalAggregate
+    extends graphql.QueryOptions<Query$GetUserProposalAggregate> {
+  Options$Query$GetUserProposalAggregate({
+    String? operationName,
+    required Variables$Query$GetUserProposalAggregate variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$GetUserProposalAggregate? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$GetUserProposalAggregate? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$GetUserProposalAggregate(data),
+                  ),
+          onError: onError,
+          document: documentNodeQueryGetUserProposalAggregate,
+          parserFn: _parserFn$Query$GetUserProposalAggregate,
+        );
+
+  final OnQueryComplete$Query$GetUserProposalAggregate? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
+}
+
+class WatchOptions$Query$GetUserProposalAggregate
+    extends graphql.WatchQueryOptions<Query$GetUserProposalAggregate> {
+  WatchOptions$Query$GetUserProposalAggregate({
+    String? operationName,
+    required Variables$Query$GetUserProposalAggregate variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$GetUserProposalAggregate? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQueryGetUserProposalAggregate,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$GetUserProposalAggregate,
+        );
+}
+
+class FetchMoreOptions$Query$GetUserProposalAggregate
+    extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$GetUserProposalAggregate({
+    required graphql.UpdateQuery updateQuery,
+    required Variables$Query$GetUserProposalAggregate variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables.toJson(),
+          document: documentNodeQueryGetUserProposalAggregate,
+        );
+}
+
+extension ClientExtension$Query$GetUserProposalAggregate
+    on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$GetUserProposalAggregate>>
+      query$GetUserProposalAggregate(
+              Options$Query$GetUserProposalAggregate options) async =>
+          await this.query(options);
+  graphql.ObservableQuery<Query$GetUserProposalAggregate>
+      watchQuery$GetUserProposalAggregate(
+              WatchOptions$Query$GetUserProposalAggregate options) =>
+          this.watchQuery(options);
+  void writeQuery$GetUserProposalAggregate({
+    required Query$GetUserProposalAggregate data,
+    required Variables$Query$GetUserProposalAggregate variables,
+    bool broadcast = true,
+  }) =>
+      this.writeQuery(
+        graphql.Request(
+          operation: graphql.Operation(
+              document: documentNodeQueryGetUserProposalAggregate),
+          variables: variables.toJson(),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$GetUserProposalAggregate? readQuery$GetUserProposalAggregate({
+    required Variables$Query$GetUserProposalAggregate variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation: graphql.Operation(
+            document: documentNodeQueryGetUserProposalAggregate),
+        variables: variables.toJson(),
+      ),
+      optimistic: optimistic,
+    );
+    return result == null
+        ? null
+        : Query$GetUserProposalAggregate.fromJson(result);
+  }
+}
+
+graphql_flutter.QueryHookResult<Query$GetUserProposalAggregate>
+    useQuery$GetUserProposalAggregate(
+            Options$Query$GetUserProposalAggregate options) =>
+        graphql_flutter.useQuery(options);
+graphql.ObservableQuery<Query$GetUserProposalAggregate>
+    useWatchQuery$GetUserProposalAggregate(
+            WatchOptions$Query$GetUserProposalAggregate options) =>
+        graphql_flutter.useWatchQuery(options);
+
+class Query$GetUserProposalAggregate$Widget
+    extends graphql_flutter.Query<Query$GetUserProposalAggregate> {
+  Query$GetUserProposalAggregate$Widget({
+    widgets.Key? key,
+    required Options$Query$GetUserProposalAggregate options,
+    required graphql_flutter.QueryBuilder<Query$GetUserProposalAggregate>
+        builder,
+  }) : super(
+          key: key,
+          options: options,
+          builder: builder,
+        );
 }
 
 class Variables$Query$GetAllProposalQuery {

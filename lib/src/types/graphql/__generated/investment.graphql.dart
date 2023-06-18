@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
+import 'package:tubes_promvis_kelompok_8/src/types/graphql/scalar.dart';
 import 'schema.graphql.dart';
 
 class Fragment$investmentData {
@@ -307,6 +308,721 @@ extension ClientExtension$Fragment$investmentData on graphql.GraphQLClient {
     );
     return result == null ? null : Fragment$investmentData.fromJson(result);
   }
+}
+
+class Fragment$investmentsAggregate {
+  Fragment$investmentsAggregate({
+    this.aggregate,
+    this.$__typename = 'investment_aggregate',
+  });
+
+  factory Fragment$investmentsAggregate.fromJson(Map<String, dynamic> json) {
+    final l$aggregate = json['aggregate'];
+    final l$$__typename = json['__typename'];
+    return Fragment$investmentsAggregate(
+      aggregate: l$aggregate == null
+          ? null
+          : Fragment$investmentsAggregate$aggregate.fromJson(
+              (l$aggregate as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Fragment$investmentsAggregate$aggregate? aggregate;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$aggregate = aggregate;
+    _resultData['aggregate'] = l$aggregate?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$aggregate = aggregate;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$aggregate,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$investmentsAggregate) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$aggregate = aggregate;
+    final lOther$aggregate = other.aggregate;
+    if (l$aggregate != lOther$aggregate) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$investmentsAggregate
+    on Fragment$investmentsAggregate {
+  CopyWith$Fragment$investmentsAggregate<Fragment$investmentsAggregate>
+      get copyWith => CopyWith$Fragment$investmentsAggregate(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$investmentsAggregate<TRes> {
+  factory CopyWith$Fragment$investmentsAggregate(
+    Fragment$investmentsAggregate instance,
+    TRes Function(Fragment$investmentsAggregate) then,
+  ) = _CopyWithImpl$Fragment$investmentsAggregate;
+
+  factory CopyWith$Fragment$investmentsAggregate.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$investmentsAggregate;
+
+  TRes call({
+    Fragment$investmentsAggregate$aggregate? aggregate,
+    String? $__typename,
+  });
+  CopyWith$Fragment$investmentsAggregate$aggregate<TRes> get aggregate;
+}
+
+class _CopyWithImpl$Fragment$investmentsAggregate<TRes>
+    implements CopyWith$Fragment$investmentsAggregate<TRes> {
+  _CopyWithImpl$Fragment$investmentsAggregate(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$investmentsAggregate _instance;
+
+  final TRes Function(Fragment$investmentsAggregate) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? aggregate = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$investmentsAggregate(
+        aggregate: aggregate == _undefined
+            ? _instance.aggregate
+            : (aggregate as Fragment$investmentsAggregate$aggregate?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Fragment$investmentsAggregate$aggregate<TRes> get aggregate {
+    final local$aggregate = _instance.aggregate;
+    return local$aggregate == null
+        ? CopyWith$Fragment$investmentsAggregate$aggregate.stub(
+            _then(_instance))
+        : CopyWith$Fragment$investmentsAggregate$aggregate(
+            local$aggregate, (e) => call(aggregate: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$investmentsAggregate<TRes>
+    implements CopyWith$Fragment$investmentsAggregate<TRes> {
+  _CopyWithStubImpl$Fragment$investmentsAggregate(this._res);
+
+  TRes _res;
+
+  call({
+    Fragment$investmentsAggregate$aggregate? aggregate,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Fragment$investmentsAggregate$aggregate<TRes> get aggregate =>
+      CopyWith$Fragment$investmentsAggregate$aggregate.stub(_res);
+}
+
+const fragmentDefinitioninvestmentsAggregate = FragmentDefinitionNode(
+  name: NameNode(value: 'investmentsAggregate'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'investment_aggregate'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'aggregate'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FieldNode(
+          name: NameNode(value: 'count'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: 'sum'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: SelectionSetNode(selections: [
+            FieldNode(
+              name: NameNode(value: 'investment_amount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ]),
+        ),
+        FieldNode(
+          name: NameNode(value: 'avg'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: SelectionSetNode(selections: [
+            FieldNode(
+              name: NameNode(value: 'investment_amount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ]),
+        ),
+        FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+      ]),
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
+const documentNodeFragmentinvestmentsAggregate = DocumentNode(definitions: [
+  fragmentDefinitioninvestmentsAggregate,
+]);
+
+extension ClientExtension$Fragment$investmentsAggregate
+    on graphql.GraphQLClient {
+  void writeFragment$investmentsAggregate({
+    required Fragment$investmentsAggregate data,
+    required Map<String, dynamic> idFields,
+    bool broadcast = true,
+  }) =>
+      this.writeFragment(
+        graphql.FragmentRequest(
+          idFields: idFields,
+          fragment: const graphql.Fragment(
+            fragmentName: 'investmentsAggregate',
+            document: documentNodeFragmentinvestmentsAggregate,
+          ),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Fragment$investmentsAggregate? readFragment$investmentsAggregate({
+    required Map<String, dynamic> idFields,
+    bool optimistic = true,
+  }) {
+    final result = this.readFragment(
+      graphql.FragmentRequest(
+        idFields: idFields,
+        fragment: const graphql.Fragment(
+          fragmentName: 'investmentsAggregate',
+          document: documentNodeFragmentinvestmentsAggregate,
+        ),
+      ),
+      optimistic: optimistic,
+    );
+    return result == null
+        ? null
+        : Fragment$investmentsAggregate.fromJson(result);
+  }
+}
+
+class Fragment$investmentsAggregate$aggregate {
+  Fragment$investmentsAggregate$aggregate({
+    required this.count,
+    this.sum,
+    this.avg,
+    this.$__typename = 'investment_aggregate_fields',
+  });
+
+  factory Fragment$investmentsAggregate$aggregate.fromJson(
+      Map<String, dynamic> json) {
+    final l$count = json['count'];
+    final l$sum = json['sum'];
+    final l$avg = json['avg'];
+    final l$$__typename = json['__typename'];
+    return Fragment$investmentsAggregate$aggregate(
+      count: (l$count as int),
+      sum: l$sum == null
+          ? null
+          : Fragment$investmentsAggregate$aggregate$sum.fromJson(
+              (l$sum as Map<String, dynamic>)),
+      avg: l$avg == null
+          ? null
+          : Fragment$investmentsAggregate$aggregate$avg.fromJson(
+              (l$avg as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int count;
+
+  final Fragment$investmentsAggregate$aggregate$sum? sum;
+
+  final Fragment$investmentsAggregate$aggregate$avg? avg;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$count = count;
+    _resultData['count'] = l$count;
+    final l$sum = sum;
+    _resultData['sum'] = l$sum?.toJson();
+    final l$avg = avg;
+    _resultData['avg'] = l$avg?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$count = count;
+    final l$sum = sum;
+    final l$avg = avg;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$count,
+      l$sum,
+      l$avg,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$investmentsAggregate$aggregate) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$count = count;
+    final lOther$count = other.count;
+    if (l$count != lOther$count) {
+      return false;
+    }
+    final l$sum = sum;
+    final lOther$sum = other.sum;
+    if (l$sum != lOther$sum) {
+      return false;
+    }
+    final l$avg = avg;
+    final lOther$avg = other.avg;
+    if (l$avg != lOther$avg) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$investmentsAggregate$aggregate
+    on Fragment$investmentsAggregate$aggregate {
+  CopyWith$Fragment$investmentsAggregate$aggregate<
+          Fragment$investmentsAggregate$aggregate>
+      get copyWith => CopyWith$Fragment$investmentsAggregate$aggregate(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$investmentsAggregate$aggregate<TRes> {
+  factory CopyWith$Fragment$investmentsAggregate$aggregate(
+    Fragment$investmentsAggregate$aggregate instance,
+    TRes Function(Fragment$investmentsAggregate$aggregate) then,
+  ) = _CopyWithImpl$Fragment$investmentsAggregate$aggregate;
+
+  factory CopyWith$Fragment$investmentsAggregate$aggregate.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$investmentsAggregate$aggregate;
+
+  TRes call({
+    int? count,
+    Fragment$investmentsAggregate$aggregate$sum? sum,
+    Fragment$investmentsAggregate$aggregate$avg? avg,
+    String? $__typename,
+  });
+  CopyWith$Fragment$investmentsAggregate$aggregate$sum<TRes> get sum;
+  CopyWith$Fragment$investmentsAggregate$aggregate$avg<TRes> get avg;
+}
+
+class _CopyWithImpl$Fragment$investmentsAggregate$aggregate<TRes>
+    implements CopyWith$Fragment$investmentsAggregate$aggregate<TRes> {
+  _CopyWithImpl$Fragment$investmentsAggregate$aggregate(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$investmentsAggregate$aggregate _instance;
+
+  final TRes Function(Fragment$investmentsAggregate$aggregate) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? count = _undefined,
+    Object? sum = _undefined,
+    Object? avg = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$investmentsAggregate$aggregate(
+        count: count == _undefined || count == null
+            ? _instance.count
+            : (count as int),
+        sum: sum == _undefined
+            ? _instance.sum
+            : (sum as Fragment$investmentsAggregate$aggregate$sum?),
+        avg: avg == _undefined
+            ? _instance.avg
+            : (avg as Fragment$investmentsAggregate$aggregate$avg?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Fragment$investmentsAggregate$aggregate$sum<TRes> get sum {
+    final local$sum = _instance.sum;
+    return local$sum == null
+        ? CopyWith$Fragment$investmentsAggregate$aggregate$sum.stub(
+            _then(_instance))
+        : CopyWith$Fragment$investmentsAggregate$aggregate$sum(
+            local$sum, (e) => call(sum: e));
+  }
+
+  CopyWith$Fragment$investmentsAggregate$aggregate$avg<TRes> get avg {
+    final local$avg = _instance.avg;
+    return local$avg == null
+        ? CopyWith$Fragment$investmentsAggregate$aggregate$avg.stub(
+            _then(_instance))
+        : CopyWith$Fragment$investmentsAggregate$aggregate$avg(
+            local$avg, (e) => call(avg: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$investmentsAggregate$aggregate<TRes>
+    implements CopyWith$Fragment$investmentsAggregate$aggregate<TRes> {
+  _CopyWithStubImpl$Fragment$investmentsAggregate$aggregate(this._res);
+
+  TRes _res;
+
+  call({
+    int? count,
+    Fragment$investmentsAggregate$aggregate$sum? sum,
+    Fragment$investmentsAggregate$aggregate$avg? avg,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Fragment$investmentsAggregate$aggregate$sum<TRes> get sum =>
+      CopyWith$Fragment$investmentsAggregate$aggregate$sum.stub(_res);
+  CopyWith$Fragment$investmentsAggregate$aggregate$avg<TRes> get avg =>
+      CopyWith$Fragment$investmentsAggregate$aggregate$avg.stub(_res);
+}
+
+class Fragment$investmentsAggregate$aggregate$sum {
+  Fragment$investmentsAggregate$aggregate$sum({
+    this.investment_amount,
+    this.$__typename = 'investment_sum_fields',
+  });
+
+  factory Fragment$investmentsAggregate$aggregate$sum.fromJson(
+      Map<String, dynamic> json) {
+    final l$investment_amount = json['investment_amount'];
+    final l$$__typename = json['__typename'];
+    return Fragment$investmentsAggregate$aggregate$sum(
+      investment_amount: (l$investment_amount as int?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int? investment_amount;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$investment_amount = investment_amount;
+    _resultData['investment_amount'] = l$investment_amount;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$investment_amount = investment_amount;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$investment_amount,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$investmentsAggregate$aggregate$sum) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$investment_amount = investment_amount;
+    final lOther$investment_amount = other.investment_amount;
+    if (l$investment_amount != lOther$investment_amount) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$investmentsAggregate$aggregate$sum
+    on Fragment$investmentsAggregate$aggregate$sum {
+  CopyWith$Fragment$investmentsAggregate$aggregate$sum<
+          Fragment$investmentsAggregate$aggregate$sum>
+      get copyWith => CopyWith$Fragment$investmentsAggregate$aggregate$sum(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$investmentsAggregate$aggregate$sum<TRes> {
+  factory CopyWith$Fragment$investmentsAggregate$aggregate$sum(
+    Fragment$investmentsAggregate$aggregate$sum instance,
+    TRes Function(Fragment$investmentsAggregate$aggregate$sum) then,
+  ) = _CopyWithImpl$Fragment$investmentsAggregate$aggregate$sum;
+
+  factory CopyWith$Fragment$investmentsAggregate$aggregate$sum.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$investmentsAggregate$aggregate$sum;
+
+  TRes call({
+    int? investment_amount,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Fragment$investmentsAggregate$aggregate$sum<TRes>
+    implements CopyWith$Fragment$investmentsAggregate$aggregate$sum<TRes> {
+  _CopyWithImpl$Fragment$investmentsAggregate$aggregate$sum(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$investmentsAggregate$aggregate$sum _instance;
+
+  final TRes Function(Fragment$investmentsAggregate$aggregate$sum) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? investment_amount = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$investmentsAggregate$aggregate$sum(
+        investment_amount: investment_amount == _undefined
+            ? _instance.investment_amount
+            : (investment_amount as int?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Fragment$investmentsAggregate$aggregate$sum<TRes>
+    implements CopyWith$Fragment$investmentsAggregate$aggregate$sum<TRes> {
+  _CopyWithStubImpl$Fragment$investmentsAggregate$aggregate$sum(this._res);
+
+  TRes _res;
+
+  call({
+    int? investment_amount,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Fragment$investmentsAggregate$aggregate$avg {
+  Fragment$investmentsAggregate$aggregate$avg({
+    this.investment_amount,
+    this.$__typename = 'investment_avg_fields',
+  });
+
+  factory Fragment$investmentsAggregate$aggregate$avg.fromJson(
+      Map<String, dynamic> json) {
+    final l$investment_amount = json['investment_amount'];
+    final l$$__typename = json['__typename'];
+    return Fragment$investmentsAggregate$aggregate$avg(
+      investment_amount: (l$investment_amount as num?)?.toDouble(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final double? investment_amount;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$investment_amount = investment_amount;
+    _resultData['investment_amount'] = l$investment_amount;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$investment_amount = investment_amount;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$investment_amount,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$investmentsAggregate$aggregate$avg) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$investment_amount = investment_amount;
+    final lOther$investment_amount = other.investment_amount;
+    if (l$investment_amount != lOther$investment_amount) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$investmentsAggregate$aggregate$avg
+    on Fragment$investmentsAggregate$aggregate$avg {
+  CopyWith$Fragment$investmentsAggregate$aggregate$avg<
+          Fragment$investmentsAggregate$aggregate$avg>
+      get copyWith => CopyWith$Fragment$investmentsAggregate$aggregate$avg(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$investmentsAggregate$aggregate$avg<TRes> {
+  factory CopyWith$Fragment$investmentsAggregate$aggregate$avg(
+    Fragment$investmentsAggregate$aggregate$avg instance,
+    TRes Function(Fragment$investmentsAggregate$aggregate$avg) then,
+  ) = _CopyWithImpl$Fragment$investmentsAggregate$aggregate$avg;
+
+  factory CopyWith$Fragment$investmentsAggregate$aggregate$avg.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$investmentsAggregate$aggregate$avg;
+
+  TRes call({
+    double? investment_amount,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Fragment$investmentsAggregate$aggregate$avg<TRes>
+    implements CopyWith$Fragment$investmentsAggregate$aggregate$avg<TRes> {
+  _CopyWithImpl$Fragment$investmentsAggregate$aggregate$avg(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$investmentsAggregate$aggregate$avg _instance;
+
+  final TRes Function(Fragment$investmentsAggregate$aggregate$avg) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? investment_amount = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$investmentsAggregate$aggregate$avg(
+        investment_amount: investment_amount == _undefined
+            ? _instance.investment_amount
+            : (investment_amount as double?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Fragment$investmentsAggregate$aggregate$avg<TRes>
+    implements CopyWith$Fragment$investmentsAggregate$aggregate$avg<TRes> {
+  _CopyWithStubImpl$Fragment$investmentsAggregate$aggregate$avg(this._res);
+
+  TRes _res;
+
+  call({
+    double? investment_amount,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Variables$Mutation$InsertInvestmentMutation {
@@ -1569,6 +2285,708 @@ class _CopyWithStubImpl$Mutation$UpdateInvestmentMutation$update_investment<
   returning(_fn) => _res;
 }
 
+class Variables$Query$GetUserInvestorInvestmentQuery {
+  factory Variables$Query$GetUserInvestorInvestmentQuery({
+    required UUID user_id,
+    int? limit,
+    List<Enum$investment_select_column>? distinct_on,
+    int? offset,
+    List<Input$investment_order_by>? order_by,
+  }) =>
+      Variables$Query$GetUserInvestorInvestmentQuery._({
+        r'user_id': user_id,
+        if (limit != null) r'limit': limit,
+        if (distinct_on != null) r'distinct_on': distinct_on,
+        if (offset != null) r'offset': offset,
+        if (order_by != null) r'order_by': order_by,
+      });
+
+  Variables$Query$GetUserInvestorInvestmentQuery._(this._$data);
+
+  factory Variables$Query$GetUserInvestorInvestmentQuery.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$user_id = data['user_id'];
+    result$data['user_id'] = uuidFromJson(l$user_id);
+    if (data.containsKey('limit')) {
+      final l$limit = data['limit'];
+      result$data['limit'] = (l$limit as int?);
+    }
+    if (data.containsKey('distinct_on')) {
+      final l$distinct_on = data['distinct_on'];
+      result$data['distinct_on'] = (l$distinct_on as List<dynamic>?)
+          ?.map((e) => fromJson$Enum$investment_select_column((e as String)))
+          .toList();
+    }
+    if (data.containsKey('offset')) {
+      final l$offset = data['offset'];
+      result$data['offset'] = (l$offset as int?);
+    }
+    if (data.containsKey('order_by')) {
+      final l$order_by = data['order_by'];
+      result$data['order_by'] = (l$order_by as List<dynamic>?)
+          ?.map((e) =>
+              Input$investment_order_by.fromJson((e as Map<String, dynamic>)))
+          .toList();
+    }
+    return Variables$Query$GetUserInvestorInvestmentQuery._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  UUID get user_id => (_$data['user_id'] as UUID);
+  int? get limit => (_$data['limit'] as int?);
+  List<Enum$investment_select_column>? get distinct_on =>
+      (_$data['distinct_on'] as List<Enum$investment_select_column>?);
+  int? get offset => (_$data['offset'] as int?);
+  List<Input$investment_order_by>? get order_by =>
+      (_$data['order_by'] as List<Input$investment_order_by>?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$user_id = user_id;
+    result$data['user_id'] = uuidToJson(l$user_id);
+    if (_$data.containsKey('limit')) {
+      final l$limit = limit;
+      result$data['limit'] = l$limit;
+    }
+    if (_$data.containsKey('distinct_on')) {
+      final l$distinct_on = distinct_on;
+      result$data['distinct_on'] = l$distinct_on
+          ?.map((e) => toJson$Enum$investment_select_column(e))
+          .toList();
+    }
+    if (_$data.containsKey('offset')) {
+      final l$offset = offset;
+      result$data['offset'] = l$offset;
+    }
+    if (_$data.containsKey('order_by')) {
+      final l$order_by = order_by;
+      result$data['order_by'] = l$order_by?.map((e) => e.toJson()).toList();
+    }
+    return result$data;
+  }
+
+  CopyWith$Variables$Query$GetUserInvestorInvestmentQuery<
+          Variables$Query$GetUserInvestorInvestmentQuery>
+      get copyWith => CopyWith$Variables$Query$GetUserInvestorInvestmentQuery(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Query$GetUserInvestorInvestmentQuery) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (l$user_id != lOther$user_id) {
+      return false;
+    }
+    final l$limit = limit;
+    final lOther$limit = other.limit;
+    if (_$data.containsKey('limit') != other._$data.containsKey('limit')) {
+      return false;
+    }
+    if (l$limit != lOther$limit) {
+      return false;
+    }
+    final l$distinct_on = distinct_on;
+    final lOther$distinct_on = other.distinct_on;
+    if (_$data.containsKey('distinct_on') !=
+        other._$data.containsKey('distinct_on')) {
+      return false;
+    }
+    if (l$distinct_on != null && lOther$distinct_on != null) {
+      if (l$distinct_on.length != lOther$distinct_on.length) {
+        return false;
+      }
+      for (int i = 0; i < l$distinct_on.length; i++) {
+        final l$distinct_on$entry = l$distinct_on[i];
+        final lOther$distinct_on$entry = lOther$distinct_on[i];
+        if (l$distinct_on$entry != lOther$distinct_on$entry) {
+          return false;
+        }
+      }
+    } else if (l$distinct_on != lOther$distinct_on) {
+      return false;
+    }
+    final l$offset = offset;
+    final lOther$offset = other.offset;
+    if (_$data.containsKey('offset') != other._$data.containsKey('offset')) {
+      return false;
+    }
+    if (l$offset != lOther$offset) {
+      return false;
+    }
+    final l$order_by = order_by;
+    final lOther$order_by = other.order_by;
+    if (_$data.containsKey('order_by') !=
+        other._$data.containsKey('order_by')) {
+      return false;
+    }
+    if (l$order_by != null && lOther$order_by != null) {
+      if (l$order_by.length != lOther$order_by.length) {
+        return false;
+      }
+      for (int i = 0; i < l$order_by.length; i++) {
+        final l$order_by$entry = l$order_by[i];
+        final lOther$order_by$entry = lOther$order_by[i];
+        if (l$order_by$entry != lOther$order_by$entry) {
+          return false;
+        }
+      }
+    } else if (l$order_by != lOther$order_by) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$user_id = user_id;
+    final l$limit = limit;
+    final l$distinct_on = distinct_on;
+    final l$offset = offset;
+    final l$order_by = order_by;
+    return Object.hashAll([
+      l$user_id,
+      _$data.containsKey('limit') ? l$limit : const {},
+      _$data.containsKey('distinct_on')
+          ? l$distinct_on == null
+              ? null
+              : Object.hashAll(l$distinct_on.map((v) => v))
+          : const {},
+      _$data.containsKey('offset') ? l$offset : const {},
+      _$data.containsKey('order_by')
+          ? l$order_by == null
+              ? null
+              : Object.hashAll(l$order_by.map((v) => v))
+          : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Variables$Query$GetUserInvestorInvestmentQuery<TRes> {
+  factory CopyWith$Variables$Query$GetUserInvestorInvestmentQuery(
+    Variables$Query$GetUserInvestorInvestmentQuery instance,
+    TRes Function(Variables$Query$GetUserInvestorInvestmentQuery) then,
+  ) = _CopyWithImpl$Variables$Query$GetUserInvestorInvestmentQuery;
+
+  factory CopyWith$Variables$Query$GetUserInvestorInvestmentQuery.stub(
+          TRes res) =
+      _CopyWithStubImpl$Variables$Query$GetUserInvestorInvestmentQuery;
+
+  TRes call({
+    UUID? user_id,
+    int? limit,
+    List<Enum$investment_select_column>? distinct_on,
+    int? offset,
+    List<Input$investment_order_by>? order_by,
+  });
+}
+
+class _CopyWithImpl$Variables$Query$GetUserInvestorInvestmentQuery<TRes>
+    implements CopyWith$Variables$Query$GetUserInvestorInvestmentQuery<TRes> {
+  _CopyWithImpl$Variables$Query$GetUserInvestorInvestmentQuery(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Query$GetUserInvestorInvestmentQuery _instance;
+
+  final TRes Function(Variables$Query$GetUserInvestorInvestmentQuery) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? user_id = _undefined,
+    Object? limit = _undefined,
+    Object? distinct_on = _undefined,
+    Object? offset = _undefined,
+    Object? order_by = _undefined,
+  }) =>
+      _then(Variables$Query$GetUserInvestorInvestmentQuery._({
+        ..._instance._$data,
+        if (user_id != _undefined && user_id != null)
+          'user_id': (user_id as UUID),
+        if (limit != _undefined) 'limit': (limit as int?),
+        if (distinct_on != _undefined)
+          'distinct_on': (distinct_on as List<Enum$investment_select_column>?),
+        if (offset != _undefined) 'offset': (offset as int?),
+        if (order_by != _undefined)
+          'order_by': (order_by as List<Input$investment_order_by>?),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Query$GetUserInvestorInvestmentQuery<TRes>
+    implements CopyWith$Variables$Query$GetUserInvestorInvestmentQuery<TRes> {
+  _CopyWithStubImpl$Variables$Query$GetUserInvestorInvestmentQuery(this._res);
+
+  TRes _res;
+
+  call({
+    UUID? user_id,
+    int? limit,
+    List<Enum$investment_select_column>? distinct_on,
+    int? offset,
+    List<Input$investment_order_by>? order_by,
+  }) =>
+      _res;
+}
+
+class Query$GetUserInvestorInvestmentQuery {
+  Query$GetUserInvestorInvestmentQuery({
+    required this.investment,
+    this.$__typename = 'query_root',
+  });
+
+  factory Query$GetUserInvestorInvestmentQuery.fromJson(
+      Map<String, dynamic> json) {
+    final l$investment = json['investment'];
+    final l$$__typename = json['__typename'];
+    return Query$GetUserInvestorInvestmentQuery(
+      investment: (l$investment as List<dynamic>)
+          .map((e) =>
+              Fragment$investmentData.fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final List<Fragment$investmentData> investment;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$investment = investment;
+    _resultData['investment'] = l$investment.map((e) => e.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$investment = investment;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      Object.hashAll(l$investment.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetUserInvestorInvestmentQuery) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$investment = investment;
+    final lOther$investment = other.investment;
+    if (l$investment.length != lOther$investment.length) {
+      return false;
+    }
+    for (int i = 0; i < l$investment.length; i++) {
+      final l$investment$entry = l$investment[i];
+      final lOther$investment$entry = lOther$investment[i];
+      if (l$investment$entry != lOther$investment$entry) {
+        return false;
+      }
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetUserInvestorInvestmentQuery
+    on Query$GetUserInvestorInvestmentQuery {
+  CopyWith$Query$GetUserInvestorInvestmentQuery<
+          Query$GetUserInvestorInvestmentQuery>
+      get copyWith => CopyWith$Query$GetUserInvestorInvestmentQuery(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GetUserInvestorInvestmentQuery<TRes> {
+  factory CopyWith$Query$GetUserInvestorInvestmentQuery(
+    Query$GetUserInvestorInvestmentQuery instance,
+    TRes Function(Query$GetUserInvestorInvestmentQuery) then,
+  ) = _CopyWithImpl$Query$GetUserInvestorInvestmentQuery;
+
+  factory CopyWith$Query$GetUserInvestorInvestmentQuery.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetUserInvestorInvestmentQuery;
+
+  TRes call({
+    List<Fragment$investmentData>? investment,
+    String? $__typename,
+  });
+  TRes investment(
+      Iterable<Fragment$investmentData> Function(
+              Iterable<
+                  CopyWith$Fragment$investmentData<Fragment$investmentData>>)
+          _fn);
+}
+
+class _CopyWithImpl$Query$GetUserInvestorInvestmentQuery<TRes>
+    implements CopyWith$Query$GetUserInvestorInvestmentQuery<TRes> {
+  _CopyWithImpl$Query$GetUserInvestorInvestmentQuery(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetUserInvestorInvestmentQuery _instance;
+
+  final TRes Function(Query$GetUserInvestorInvestmentQuery) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? investment = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GetUserInvestorInvestmentQuery(
+        investment: investment == _undefined || investment == null
+            ? _instance.investment
+            : (investment as List<Fragment$investmentData>),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  TRes investment(
+          Iterable<Fragment$investmentData> Function(
+                  Iterable<
+                      CopyWith$Fragment$investmentData<
+                          Fragment$investmentData>>)
+              _fn) =>
+      call(
+          investment: _fn(
+              _instance.investment.map((e) => CopyWith$Fragment$investmentData(
+                    e,
+                    (i) => i,
+                  ))).toList());
+}
+
+class _CopyWithStubImpl$Query$GetUserInvestorInvestmentQuery<TRes>
+    implements CopyWith$Query$GetUserInvestorInvestmentQuery<TRes> {
+  _CopyWithStubImpl$Query$GetUserInvestorInvestmentQuery(this._res);
+
+  TRes _res;
+
+  call({
+    List<Fragment$investmentData>? investment,
+    String? $__typename,
+  }) =>
+      _res;
+  investment(_fn) => _res;
+}
+
+const documentNodeQueryGetUserInvestorInvestmentQuery =
+    DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'GetUserInvestorInvestmentQuery'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'user_id')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'uuid'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'limit')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'distinct_on')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'investment_select_column'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'offset')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'order_by')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'investment_order_by'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'investment'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: ObjectValueNode(fields: [
+              ObjectFieldNode(
+                name: NameNode(value: 'investor'),
+                value: ObjectValueNode(fields: [
+                  ObjectFieldNode(
+                    name: NameNode(value: 'user_id'),
+                    value: ObjectValueNode(fields: [
+                      ObjectFieldNode(
+                        name: NameNode(value: '_eq'),
+                        value: VariableNode(name: NameNode(value: 'user_id')),
+                      )
+                    ]),
+                  )
+                ]),
+              )
+            ]),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'limit'),
+            value: VariableNode(name: NameNode(value: 'limit')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'distinct_on'),
+            value: VariableNode(name: NameNode(value: 'distinct_on')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'offset'),
+            value: VariableNode(name: NameNode(value: 'offset')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'order_by'),
+            value: VariableNode(name: NameNode(value: 'order_by')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FragmentSpreadNode(
+            name: NameNode(value: 'investmentData'),
+            directives: [],
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+  fragmentDefinitioninvestmentData,
+]);
+Query$GetUserInvestorInvestmentQuery
+    _parserFn$Query$GetUserInvestorInvestmentQuery(Map<String, dynamic> data) =>
+        Query$GetUserInvestorInvestmentQuery.fromJson(data);
+typedef OnQueryComplete$Query$GetUserInvestorInvestmentQuery = FutureOr<void>
+    Function(
+  Map<String, dynamic>?,
+  Query$GetUserInvestorInvestmentQuery?,
+);
+
+class Options$Query$GetUserInvestorInvestmentQuery
+    extends graphql.QueryOptions<Query$GetUserInvestorInvestmentQuery> {
+  Options$Query$GetUserInvestorInvestmentQuery({
+    String? operationName,
+    required Variables$Query$GetUserInvestorInvestmentQuery variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$GetUserInvestorInvestmentQuery? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$GetUserInvestorInvestmentQuery? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$GetUserInvestorInvestmentQuery(data),
+                  ),
+          onError: onError,
+          document: documentNodeQueryGetUserInvestorInvestmentQuery,
+          parserFn: _parserFn$Query$GetUserInvestorInvestmentQuery,
+        );
+
+  final OnQueryComplete$Query$GetUserInvestorInvestmentQuery?
+      onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
+}
+
+class WatchOptions$Query$GetUserInvestorInvestmentQuery
+    extends graphql.WatchQueryOptions<Query$GetUserInvestorInvestmentQuery> {
+  WatchOptions$Query$GetUserInvestorInvestmentQuery({
+    String? operationName,
+    required Variables$Query$GetUserInvestorInvestmentQuery variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$GetUserInvestorInvestmentQuery? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQueryGetUserInvestorInvestmentQuery,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$GetUserInvestorInvestmentQuery,
+        );
+}
+
+class FetchMoreOptions$Query$GetUserInvestorInvestmentQuery
+    extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$GetUserInvestorInvestmentQuery({
+    required graphql.UpdateQuery updateQuery,
+    required Variables$Query$GetUserInvestorInvestmentQuery variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables.toJson(),
+          document: documentNodeQueryGetUserInvestorInvestmentQuery,
+        );
+}
+
+extension ClientExtension$Query$GetUserInvestorInvestmentQuery
+    on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$GetUserInvestorInvestmentQuery>>
+      query$GetUserInvestorInvestmentQuery(
+              Options$Query$GetUserInvestorInvestmentQuery options) async =>
+          await this.query(options);
+  graphql.ObservableQuery<Query$GetUserInvestorInvestmentQuery>
+      watchQuery$GetUserInvestorInvestmentQuery(
+              WatchOptions$Query$GetUserInvestorInvestmentQuery options) =>
+          this.watchQuery(options);
+  void writeQuery$GetUserInvestorInvestmentQuery({
+    required Query$GetUserInvestorInvestmentQuery data,
+    required Variables$Query$GetUserInvestorInvestmentQuery variables,
+    bool broadcast = true,
+  }) =>
+      this.writeQuery(
+        graphql.Request(
+          operation: graphql.Operation(
+              document: documentNodeQueryGetUserInvestorInvestmentQuery),
+          variables: variables.toJson(),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$GetUserInvestorInvestmentQuery?
+      readQuery$GetUserInvestorInvestmentQuery({
+    required Variables$Query$GetUserInvestorInvestmentQuery variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation: graphql.Operation(
+            document: documentNodeQueryGetUserInvestorInvestmentQuery),
+        variables: variables.toJson(),
+      ),
+      optimistic: optimistic,
+    );
+    return result == null
+        ? null
+        : Query$GetUserInvestorInvestmentQuery.fromJson(result);
+  }
+}
+
+graphql_flutter.QueryHookResult<Query$GetUserInvestorInvestmentQuery>
+    useQuery$GetUserInvestorInvestmentQuery(
+            Options$Query$GetUserInvestorInvestmentQuery options) =>
+        graphql_flutter.useQuery(options);
+graphql.ObservableQuery<Query$GetUserInvestorInvestmentQuery>
+    useWatchQuery$GetUserInvestorInvestmentQuery(
+            WatchOptions$Query$GetUserInvestorInvestmentQuery options) =>
+        graphql_flutter.useWatchQuery(options);
+
+class Query$GetUserInvestorInvestmentQuery$Widget
+    extends graphql_flutter.Query<Query$GetUserInvestorInvestmentQuery> {
+  Query$GetUserInvestorInvestmentQuery$Widget({
+    widgets.Key? key,
+    required Options$Query$GetUserInvestorInvestmentQuery options,
+    required graphql_flutter.QueryBuilder<Query$GetUserInvestorInvestmentQuery>
+        builder,
+  }) : super(
+          key: key,
+          options: options,
+          builder: builder,
+        );
+}
+
 class Variables$Query$GetByPkInvestmentQuery {
   factory Variables$Query$GetByPkInvestmentQuery(
           {required int investment_id}) =>
@@ -2290,15 +3708,15 @@ class _CopyWithStubImpl$Query$GetByPkInvestmentQuery$investment_by_pk<TRes>
       CopyWith$Fragment$investorData.stub(_res);
 }
 
-class Variables$Query$GetInvestorInvestmentAggregateQuery {
-  factory Variables$Query$GetInvestorInvestmentAggregateQuery({
+class Variables$Query$GetInvestorInvestmentAggregate {
+  factory Variables$Query$GetInvestorInvestmentAggregate({
     int? investor_id,
     int? limit,
     List<Enum$investment_select_column>? distinct_on,
     int? offset,
     List<Input$investment_order_by>? order_by,
   }) =>
-      Variables$Query$GetInvestorInvestmentAggregateQuery._({
+      Variables$Query$GetInvestorInvestmentAggregate._({
         if (investor_id != null) r'investor_id': investor_id,
         if (limit != null) r'limit': limit,
         if (distinct_on != null) r'distinct_on': distinct_on,
@@ -2306,9 +3724,9 @@ class Variables$Query$GetInvestorInvestmentAggregateQuery {
         if (order_by != null) r'order_by': order_by,
       });
 
-  Variables$Query$GetInvestorInvestmentAggregateQuery._(this._$data);
+  Variables$Query$GetInvestorInvestmentAggregate._(this._$data);
 
-  factory Variables$Query$GetInvestorInvestmentAggregateQuery.fromJson(
+  factory Variables$Query$GetInvestorInvestmentAggregate.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('investor_id')) {
@@ -2336,7 +3754,7 @@ class Variables$Query$GetInvestorInvestmentAggregateQuery {
               Input$investment_order_by.fromJson((e as Map<String, dynamic>)))
           .toList();
     }
-    return Variables$Query$GetInvestorInvestmentAggregateQuery._(result$data);
+    return Variables$Query$GetInvestorInvestmentAggregate._(result$data);
   }
 
   Map<String, dynamic> _$data;
@@ -2375,10 +3793,9 @@ class Variables$Query$GetInvestorInvestmentAggregateQuery {
     return result$data;
   }
 
-  CopyWith$Variables$Query$GetInvestorInvestmentAggregateQuery<
-          Variables$Query$GetInvestorInvestmentAggregateQuery>
-      get copyWith =>
-          CopyWith$Variables$Query$GetInvestorInvestmentAggregateQuery(
+  CopyWith$Variables$Query$GetInvestorInvestmentAggregate<
+          Variables$Query$GetInvestorInvestmentAggregate>
+      get copyWith => CopyWith$Variables$Query$GetInvestorInvestmentAggregate(
             this,
             (i) => i,
           );
@@ -2387,7 +3804,7 @@ class Variables$Query$GetInvestorInvestmentAggregateQuery {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$GetInvestorInvestmentAggregateQuery) ||
+    if (!(other is Variables$Query$GetInvestorInvestmentAggregate) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2484,16 +3901,15 @@ class Variables$Query$GetInvestorInvestmentAggregateQuery {
   }
 }
 
-abstract class CopyWith$Variables$Query$GetInvestorInvestmentAggregateQuery<
-    TRes> {
-  factory CopyWith$Variables$Query$GetInvestorInvestmentAggregateQuery(
-    Variables$Query$GetInvestorInvestmentAggregateQuery instance,
-    TRes Function(Variables$Query$GetInvestorInvestmentAggregateQuery) then,
-  ) = _CopyWithImpl$Variables$Query$GetInvestorInvestmentAggregateQuery;
+abstract class CopyWith$Variables$Query$GetInvestorInvestmentAggregate<TRes> {
+  factory CopyWith$Variables$Query$GetInvestorInvestmentAggregate(
+    Variables$Query$GetInvestorInvestmentAggregate instance,
+    TRes Function(Variables$Query$GetInvestorInvestmentAggregate) then,
+  ) = _CopyWithImpl$Variables$Query$GetInvestorInvestmentAggregate;
 
-  factory CopyWith$Variables$Query$GetInvestorInvestmentAggregateQuery.stub(
+  factory CopyWith$Variables$Query$GetInvestorInvestmentAggregate.stub(
           TRes res) =
-      _CopyWithStubImpl$Variables$Query$GetInvestorInvestmentAggregateQuery;
+      _CopyWithStubImpl$Variables$Query$GetInvestorInvestmentAggregate;
 
   TRes call({
     int? investor_id,
@@ -2504,18 +3920,16 @@ abstract class CopyWith$Variables$Query$GetInvestorInvestmentAggregateQuery<
   });
 }
 
-class _CopyWithImpl$Variables$Query$GetInvestorInvestmentAggregateQuery<TRes>
-    implements
-        CopyWith$Variables$Query$GetInvestorInvestmentAggregateQuery<TRes> {
-  _CopyWithImpl$Variables$Query$GetInvestorInvestmentAggregateQuery(
+class _CopyWithImpl$Variables$Query$GetInvestorInvestmentAggregate<TRes>
+    implements CopyWith$Variables$Query$GetInvestorInvestmentAggregate<TRes> {
+  _CopyWithImpl$Variables$Query$GetInvestorInvestmentAggregate(
     this._instance,
     this._then,
   );
 
-  final Variables$Query$GetInvestorInvestmentAggregateQuery _instance;
+  final Variables$Query$GetInvestorInvestmentAggregate _instance;
 
-  final TRes Function(Variables$Query$GetInvestorInvestmentAggregateQuery)
-      _then;
+  final TRes Function(Variables$Query$GetInvestorInvestmentAggregate) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -2526,7 +3940,7 @@ class _CopyWithImpl$Variables$Query$GetInvestorInvestmentAggregateQuery<TRes>
     Object? offset = _undefined,
     Object? order_by = _undefined,
   }) =>
-      _then(Variables$Query$GetInvestorInvestmentAggregateQuery._({
+      _then(Variables$Query$GetInvestorInvestmentAggregate._({
         ..._instance._$data,
         if (investor_id != _undefined) 'investor_id': (investor_id as int?),
         if (limit != _undefined) 'limit': (limit as int?),
@@ -2538,12 +3952,9 @@ class _CopyWithImpl$Variables$Query$GetInvestorInvestmentAggregateQuery<TRes>
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$GetInvestorInvestmentAggregateQuery<
-        TRes>
-    implements
-        CopyWith$Variables$Query$GetInvestorInvestmentAggregateQuery<TRes> {
-  _CopyWithStubImpl$Variables$Query$GetInvestorInvestmentAggregateQuery(
-      this._res);
+class _CopyWithStubImpl$Variables$Query$GetInvestorInvestmentAggregate<TRes>
+    implements CopyWith$Variables$Query$GetInvestorInvestmentAggregate<TRes> {
+  _CopyWithStubImpl$Variables$Query$GetInvestorInvestmentAggregate(this._res);
 
   TRes _res;
 
@@ -2557,26 +3968,24 @@ class _CopyWithStubImpl$Variables$Query$GetInvestorInvestmentAggregateQuery<
       _res;
 }
 
-class Query$GetInvestorInvestmentAggregateQuery {
-  Query$GetInvestorInvestmentAggregateQuery({
+class Query$GetInvestorInvestmentAggregate {
+  Query$GetInvestorInvestmentAggregate({
     required this.investment_aggregate,
     this.$__typename = 'query_root',
   });
 
-  factory Query$GetInvestorInvestmentAggregateQuery.fromJson(
+  factory Query$GetInvestorInvestmentAggregate.fromJson(
       Map<String, dynamic> json) {
     final l$investment_aggregate = json['investment_aggregate'];
     final l$$__typename = json['__typename'];
-    return Query$GetInvestorInvestmentAggregateQuery(
-      investment_aggregate:
-          Query$GetInvestorInvestmentAggregateQuery$investment_aggregate
-              .fromJson((l$investment_aggregate as Map<String, dynamic>)),
+    return Query$GetInvestorInvestmentAggregate(
+      investment_aggregate: Fragment$investmentsAggregate.fromJson(
+          (l$investment_aggregate as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Query$GetInvestorInvestmentAggregateQuery$investment_aggregate
-      investment_aggregate;
+  final Fragment$investmentsAggregate investment_aggregate;
 
   final String $__typename;
 
@@ -2604,7 +4013,7 @@ class Query$GetInvestorInvestmentAggregateQuery {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetInvestorInvestmentAggregateQuery) ||
+    if (!(other is Query$GetInvestorInvestmentAggregate) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2622,44 +4031,42 @@ class Query$GetInvestorInvestmentAggregateQuery {
   }
 }
 
-extension UtilityExtension$Query$GetInvestorInvestmentAggregateQuery
-    on Query$GetInvestorInvestmentAggregateQuery {
-  CopyWith$Query$GetInvestorInvestmentAggregateQuery<
-          Query$GetInvestorInvestmentAggregateQuery>
-      get copyWith => CopyWith$Query$GetInvestorInvestmentAggregateQuery(
+extension UtilityExtension$Query$GetInvestorInvestmentAggregate
+    on Query$GetInvestorInvestmentAggregate {
+  CopyWith$Query$GetInvestorInvestmentAggregate<
+          Query$GetInvestorInvestmentAggregate>
+      get copyWith => CopyWith$Query$GetInvestorInvestmentAggregate(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$GetInvestorInvestmentAggregateQuery<TRes> {
-  factory CopyWith$Query$GetInvestorInvestmentAggregateQuery(
-    Query$GetInvestorInvestmentAggregateQuery instance,
-    TRes Function(Query$GetInvestorInvestmentAggregateQuery) then,
-  ) = _CopyWithImpl$Query$GetInvestorInvestmentAggregateQuery;
+abstract class CopyWith$Query$GetInvestorInvestmentAggregate<TRes> {
+  factory CopyWith$Query$GetInvestorInvestmentAggregate(
+    Query$GetInvestorInvestmentAggregate instance,
+    TRes Function(Query$GetInvestorInvestmentAggregate) then,
+  ) = _CopyWithImpl$Query$GetInvestorInvestmentAggregate;
 
-  factory CopyWith$Query$GetInvestorInvestmentAggregateQuery.stub(TRes res) =
-      _CopyWithStubImpl$Query$GetInvestorInvestmentAggregateQuery;
+  factory CopyWith$Query$GetInvestorInvestmentAggregate.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetInvestorInvestmentAggregate;
 
   TRes call({
-    Query$GetInvestorInvestmentAggregateQuery$investment_aggregate?
-        investment_aggregate,
+    Fragment$investmentsAggregate? investment_aggregate,
     String? $__typename,
   });
-  CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate<TRes>
-      get investment_aggregate;
+  CopyWith$Fragment$investmentsAggregate<TRes> get investment_aggregate;
 }
 
-class _CopyWithImpl$Query$GetInvestorInvestmentAggregateQuery<TRes>
-    implements CopyWith$Query$GetInvestorInvestmentAggregateQuery<TRes> {
-  _CopyWithImpl$Query$GetInvestorInvestmentAggregateQuery(
+class _CopyWithImpl$Query$GetInvestorInvestmentAggregate<TRes>
+    implements CopyWith$Query$GetInvestorInvestmentAggregate<TRes> {
+  _CopyWithImpl$Query$GetInvestorInvestmentAggregate(
     this._instance,
     this._then,
   );
 
-  final Query$GetInvestorInvestmentAggregateQuery _instance;
+  final Query$GetInvestorInvestmentAggregate _instance;
 
-  final TRes Function(Query$GetInvestorInvestmentAggregateQuery) _then;
+  final TRes Function(Query$GetInvestorInvestmentAggregate) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -2667,47 +4074,42 @@ class _CopyWithImpl$Query$GetInvestorInvestmentAggregateQuery<TRes>
     Object? investment_aggregate = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$GetInvestorInvestmentAggregateQuery(
-        investment_aggregate: investment_aggregate == _undefined ||
-                investment_aggregate == null
-            ? _instance.investment_aggregate
-            : (investment_aggregate
-                as Query$GetInvestorInvestmentAggregateQuery$investment_aggregate),
+      _then(Query$GetInvestorInvestmentAggregate(
+        investment_aggregate:
+            investment_aggregate == _undefined || investment_aggregate == null
+                ? _instance.investment_aggregate
+                : (investment_aggregate as Fragment$investmentsAggregate),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate<TRes>
-      get investment_aggregate {
+  CopyWith$Fragment$investmentsAggregate<TRes> get investment_aggregate {
     final local$investment_aggregate = _instance.investment_aggregate;
-    return CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate(
+    return CopyWith$Fragment$investmentsAggregate(
         local$investment_aggregate, (e) => call(investment_aggregate: e));
   }
 }
 
-class _CopyWithStubImpl$Query$GetInvestorInvestmentAggregateQuery<TRes>
-    implements CopyWith$Query$GetInvestorInvestmentAggregateQuery<TRes> {
-  _CopyWithStubImpl$Query$GetInvestorInvestmentAggregateQuery(this._res);
+class _CopyWithStubImpl$Query$GetInvestorInvestmentAggregate<TRes>
+    implements CopyWith$Query$GetInvestorInvestmentAggregate<TRes> {
+  _CopyWithStubImpl$Query$GetInvestorInvestmentAggregate(this._res);
 
   TRes _res;
 
   call({
-    Query$GetInvestorInvestmentAggregateQuery$investment_aggregate?
-        investment_aggregate,
+    Fragment$investmentsAggregate? investment_aggregate,
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate<TRes>
-      get investment_aggregate =>
-          CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate
-              .stub(_res);
+  CopyWith$Fragment$investmentsAggregate<TRes> get investment_aggregate =>
+      CopyWith$Fragment$investmentsAggregate.stub(_res);
 }
 
-const documentNodeQueryGetInvestorInvestmentAggregateQuery =
+const documentNodeQueryGetInvestorInvestmentAggregate =
     DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.query,
-    name: NameNode(value: 'GetInvestorInvestmentAggregateQuery'),
+    name: NameNode(value: 'GetInvestorInvestmentAggregate'),
     variableDefinitions: [
       VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'investor_id')),
@@ -2800,71 +4202,9 @@ const documentNodeQueryGetInvestorInvestmentAggregateQuery =
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'aggregate'),
-            alias: null,
-            arguments: [],
+          FragmentSpreadNode(
+            name: NameNode(value: 'investmentsAggregate'),
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'count'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'sum'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'investment_amount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'avg'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'investment_amount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -2884,30 +4224,30 @@ const documentNodeQueryGetInvestorInvestmentAggregateQuery =
       ),
     ]),
   ),
+  fragmentDefinitioninvestmentsAggregate,
 ]);
-Query$GetInvestorInvestmentAggregateQuery
-    _parserFn$Query$GetInvestorInvestmentAggregateQuery(
-            Map<String, dynamic> data) =>
-        Query$GetInvestorInvestmentAggregateQuery.fromJson(data);
-typedef OnQueryComplete$Query$GetInvestorInvestmentAggregateQuery
-    = FutureOr<void> Function(
+Query$GetInvestorInvestmentAggregate
+    _parserFn$Query$GetInvestorInvestmentAggregate(Map<String, dynamic> data) =>
+        Query$GetInvestorInvestmentAggregate.fromJson(data);
+typedef OnQueryComplete$Query$GetInvestorInvestmentAggregate = FutureOr<void>
+    Function(
   Map<String, dynamic>?,
-  Query$GetInvestorInvestmentAggregateQuery?,
+  Query$GetInvestorInvestmentAggregate?,
 );
 
-class Options$Query$GetInvestorInvestmentAggregateQuery
-    extends graphql.QueryOptions<Query$GetInvestorInvestmentAggregateQuery> {
-  Options$Query$GetInvestorInvestmentAggregateQuery({
+class Options$Query$GetInvestorInvestmentAggregate
+    extends graphql.QueryOptions<Query$GetInvestorInvestmentAggregate> {
+  Options$Query$GetInvestorInvestmentAggregate({
     String? operationName,
-    Variables$Query$GetInvestorInvestmentAggregateQuery? variables,
+    Variables$Query$GetInvestorInvestmentAggregate? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$GetInvestorInvestmentAggregateQuery? typedOptimisticResult,
+    Query$GetInvestorInvestmentAggregate? typedOptimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
-    OnQueryComplete$Query$GetInvestorInvestmentAggregateQuery? onComplete,
+    OnQueryComplete$Query$GetInvestorInvestmentAggregate? onComplete,
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
@@ -2925,15 +4265,14 @@ class Options$Query$GetInvestorInvestmentAggregateQuery
                     data,
                     data == null
                         ? null
-                        : _parserFn$Query$GetInvestorInvestmentAggregateQuery(
-                            data),
+                        : _parserFn$Query$GetInvestorInvestmentAggregate(data),
                   ),
           onError: onError,
-          document: documentNodeQueryGetInvestorInvestmentAggregateQuery,
-          parserFn: _parserFn$Query$GetInvestorInvestmentAggregateQuery,
+          document: documentNodeQueryGetInvestorInvestmentAggregate,
+          parserFn: _parserFn$Query$GetInvestorInvestmentAggregate,
         );
 
-  final OnQueryComplete$Query$GetInvestorInvestmentAggregateQuery?
+  final OnQueryComplete$Query$GetInvestorInvestmentAggregate?
       onCompleteWithParsed;
 
   @override
@@ -2945,16 +4284,16 @@ class Options$Query$GetInvestorInvestmentAggregateQuery
       ];
 }
 
-class WatchOptions$Query$GetInvestorInvestmentAggregateQuery extends graphql
-    .WatchQueryOptions<Query$GetInvestorInvestmentAggregateQuery> {
-  WatchOptions$Query$GetInvestorInvestmentAggregateQuery({
+class WatchOptions$Query$GetInvestorInvestmentAggregate
+    extends graphql.WatchQueryOptions<Query$GetInvestorInvestmentAggregate> {
+  WatchOptions$Query$GetInvestorInvestmentAggregate({
     String? operationName,
-    Variables$Query$GetInvestorInvestmentAggregateQuery? variables,
+    Variables$Query$GetInvestorInvestmentAggregate? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$GetInvestorInvestmentAggregateQuery? typedOptimisticResult,
+    Query$GetInvestorInvestmentAggregate? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
@@ -2968,130 +4307,373 @@ class WatchOptions$Query$GetInvestorInvestmentAggregateQuery extends graphql
           cacheRereadPolicy: cacheRereadPolicy,
           optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
-          document: documentNodeQueryGetInvestorInvestmentAggregateQuery,
+          document: documentNodeQueryGetInvestorInvestmentAggregate,
           pollInterval: pollInterval,
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Query$GetInvestorInvestmentAggregateQuery,
+          parserFn: _parserFn$Query$GetInvestorInvestmentAggregate,
         );
 }
 
-class FetchMoreOptions$Query$GetInvestorInvestmentAggregateQuery
+class FetchMoreOptions$Query$GetInvestorInvestmentAggregate
     extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$GetInvestorInvestmentAggregateQuery({
+  FetchMoreOptions$Query$GetInvestorInvestmentAggregate({
     required graphql.UpdateQuery updateQuery,
-    Variables$Query$GetInvestorInvestmentAggregateQuery? variables,
+    Variables$Query$GetInvestorInvestmentAggregate? variables,
   }) : super(
           updateQuery: updateQuery,
           variables: variables?.toJson() ?? {},
-          document: documentNodeQueryGetInvestorInvestmentAggregateQuery,
+          document: documentNodeQueryGetInvestorInvestmentAggregate,
         );
 }
 
-extension ClientExtension$Query$GetInvestorInvestmentAggregateQuery
+extension ClientExtension$Query$GetInvestorInvestmentAggregate
     on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$GetInvestorInvestmentAggregateQuery>>
-      query$GetInvestorInvestmentAggregateQuery(
-              [Options$Query$GetInvestorInvestmentAggregateQuery?
-                  options]) async =>
-          await this.query(
-              options ?? Options$Query$GetInvestorInvestmentAggregateQuery());
-  graphql.ObservableQuery<Query$GetInvestorInvestmentAggregateQuery>
-      watchQuery$GetInvestorInvestmentAggregateQuery(
-              [WatchOptions$Query$GetInvestorInvestmentAggregateQuery?
-                  options]) =>
-          this.watchQuery(options ??
-              WatchOptions$Query$GetInvestorInvestmentAggregateQuery());
-  void writeQuery$GetInvestorInvestmentAggregateQuery({
-    required Query$GetInvestorInvestmentAggregateQuery data,
-    Variables$Query$GetInvestorInvestmentAggregateQuery? variables,
+  Future<graphql.QueryResult<Query$GetInvestorInvestmentAggregate>>
+      query$GetInvestorInvestmentAggregate(
+              [Options$Query$GetInvestorInvestmentAggregate? options]) async =>
+          await this
+              .query(options ?? Options$Query$GetInvestorInvestmentAggregate());
+  graphql.ObservableQuery<Query$GetInvestorInvestmentAggregate>
+      watchQuery$GetInvestorInvestmentAggregate(
+              [WatchOptions$Query$GetInvestorInvestmentAggregate? options]) =>
+          this.watchQuery(
+              options ?? WatchOptions$Query$GetInvestorInvestmentAggregate());
+  void writeQuery$GetInvestorInvestmentAggregate({
+    required Query$GetInvestorInvestmentAggregate data,
+    Variables$Query$GetInvestorInvestmentAggregate? variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
           operation: graphql.Operation(
-              document: documentNodeQueryGetInvestorInvestmentAggregateQuery),
+              document: documentNodeQueryGetInvestorInvestmentAggregate),
           variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
-  Query$GetInvestorInvestmentAggregateQuery?
-      readQuery$GetInvestorInvestmentAggregateQuery({
-    Variables$Query$GetInvestorInvestmentAggregateQuery? variables,
+  Query$GetInvestorInvestmentAggregate?
+      readQuery$GetInvestorInvestmentAggregate({
+    Variables$Query$GetInvestorInvestmentAggregate? variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
         operation: graphql.Operation(
-            document: documentNodeQueryGetInvestorInvestmentAggregateQuery),
+            document: documentNodeQueryGetInvestorInvestmentAggregate),
         variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
     );
     return result == null
         ? null
-        : Query$GetInvestorInvestmentAggregateQuery.fromJson(result);
+        : Query$GetInvestorInvestmentAggregate.fromJson(result);
   }
 }
 
-graphql_flutter.QueryHookResult<Query$GetInvestorInvestmentAggregateQuery>
-    useQuery$GetInvestorInvestmentAggregateQuery(
-            [Options$Query$GetInvestorInvestmentAggregateQuery? options]) =>
+graphql_flutter.QueryHookResult<Query$GetInvestorInvestmentAggregate>
+    useQuery$GetInvestorInvestmentAggregate(
+            [Options$Query$GetInvestorInvestmentAggregate? options]) =>
         graphql_flutter.useQuery(
-            options ?? Options$Query$GetInvestorInvestmentAggregateQuery());
-graphql.ObservableQuery<Query$GetInvestorInvestmentAggregateQuery>
-    useWatchQuery$GetInvestorInvestmentAggregateQuery(
-            [WatchOptions$Query$GetInvestorInvestmentAggregateQuery?
-                options]) =>
-        graphql_flutter.useWatchQuery(options ??
-            WatchOptions$Query$GetInvestorInvestmentAggregateQuery());
+            options ?? Options$Query$GetInvestorInvestmentAggregate());
+graphql.ObservableQuery<Query$GetInvestorInvestmentAggregate>
+    useWatchQuery$GetInvestorInvestmentAggregate(
+            [WatchOptions$Query$GetInvestorInvestmentAggregate? options]) =>
+        graphql_flutter.useWatchQuery(
+            options ?? WatchOptions$Query$GetInvestorInvestmentAggregate());
 
-class Query$GetInvestorInvestmentAggregateQuery$Widget
-    extends graphql_flutter.Query<Query$GetInvestorInvestmentAggregateQuery> {
-  Query$GetInvestorInvestmentAggregateQuery$Widget({
+class Query$GetInvestorInvestmentAggregate$Widget
+    extends graphql_flutter.Query<Query$GetInvestorInvestmentAggregate> {
+  Query$GetInvestorInvestmentAggregate$Widget({
     widgets.Key? key,
-    Options$Query$GetInvestorInvestmentAggregateQuery? options,
-    required graphql_flutter
-            .QueryBuilder<Query$GetInvestorInvestmentAggregateQuery>
+    Options$Query$GetInvestorInvestmentAggregate? options,
+    required graphql_flutter.QueryBuilder<Query$GetInvestorInvestmentAggregate>
         builder,
   }) : super(
           key: key,
-          options:
-              options ?? Options$Query$GetInvestorInvestmentAggregateQuery(),
+          options: options ?? Options$Query$GetInvestorInvestmentAggregate(),
           builder: builder,
         );
 }
 
-class Query$GetInvestorInvestmentAggregateQuery$investment_aggregate {
-  Query$GetInvestorInvestmentAggregateQuery$investment_aggregate({
-    this.aggregate,
-    this.$__typename = 'investment_aggregate',
+class Variables$Query$GetUserInvestmentAggregate {
+  factory Variables$Query$GetUserInvestmentAggregate({
+    required UUID user_id,
+    int? limit,
+    List<Enum$investment_select_column>? distinct_on,
+    int? offset,
+    List<Input$investment_order_by>? order_by,
+  }) =>
+      Variables$Query$GetUserInvestmentAggregate._({
+        r'user_id': user_id,
+        if (limit != null) r'limit': limit,
+        if (distinct_on != null) r'distinct_on': distinct_on,
+        if (offset != null) r'offset': offset,
+        if (order_by != null) r'order_by': order_by,
+      });
+
+  Variables$Query$GetUserInvestmentAggregate._(this._$data);
+
+  factory Variables$Query$GetUserInvestmentAggregate.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$user_id = data['user_id'];
+    result$data['user_id'] = uuidFromJson(l$user_id);
+    if (data.containsKey('limit')) {
+      final l$limit = data['limit'];
+      result$data['limit'] = (l$limit as int?);
+    }
+    if (data.containsKey('distinct_on')) {
+      final l$distinct_on = data['distinct_on'];
+      result$data['distinct_on'] = (l$distinct_on as List<dynamic>?)
+          ?.map((e) => fromJson$Enum$investment_select_column((e as String)))
+          .toList();
+    }
+    if (data.containsKey('offset')) {
+      final l$offset = data['offset'];
+      result$data['offset'] = (l$offset as int?);
+    }
+    if (data.containsKey('order_by')) {
+      final l$order_by = data['order_by'];
+      result$data['order_by'] = (l$order_by as List<dynamic>?)
+          ?.map((e) =>
+              Input$investment_order_by.fromJson((e as Map<String, dynamic>)))
+          .toList();
+    }
+    return Variables$Query$GetUserInvestmentAggregate._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  UUID get user_id => (_$data['user_id'] as UUID);
+  int? get limit => (_$data['limit'] as int?);
+  List<Enum$investment_select_column>? get distinct_on =>
+      (_$data['distinct_on'] as List<Enum$investment_select_column>?);
+  int? get offset => (_$data['offset'] as int?);
+  List<Input$investment_order_by>? get order_by =>
+      (_$data['order_by'] as List<Input$investment_order_by>?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$user_id = user_id;
+    result$data['user_id'] = uuidToJson(l$user_id);
+    if (_$data.containsKey('limit')) {
+      final l$limit = limit;
+      result$data['limit'] = l$limit;
+    }
+    if (_$data.containsKey('distinct_on')) {
+      final l$distinct_on = distinct_on;
+      result$data['distinct_on'] = l$distinct_on
+          ?.map((e) => toJson$Enum$investment_select_column(e))
+          .toList();
+    }
+    if (_$data.containsKey('offset')) {
+      final l$offset = offset;
+      result$data['offset'] = l$offset;
+    }
+    if (_$data.containsKey('order_by')) {
+      final l$order_by = order_by;
+      result$data['order_by'] = l$order_by?.map((e) => e.toJson()).toList();
+    }
+    return result$data;
+  }
+
+  CopyWith$Variables$Query$GetUserInvestmentAggregate<
+          Variables$Query$GetUserInvestmentAggregate>
+      get copyWith => CopyWith$Variables$Query$GetUserInvestmentAggregate(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Query$GetUserInvestmentAggregate) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (l$user_id != lOther$user_id) {
+      return false;
+    }
+    final l$limit = limit;
+    final lOther$limit = other.limit;
+    if (_$data.containsKey('limit') != other._$data.containsKey('limit')) {
+      return false;
+    }
+    if (l$limit != lOther$limit) {
+      return false;
+    }
+    final l$distinct_on = distinct_on;
+    final lOther$distinct_on = other.distinct_on;
+    if (_$data.containsKey('distinct_on') !=
+        other._$data.containsKey('distinct_on')) {
+      return false;
+    }
+    if (l$distinct_on != null && lOther$distinct_on != null) {
+      if (l$distinct_on.length != lOther$distinct_on.length) {
+        return false;
+      }
+      for (int i = 0; i < l$distinct_on.length; i++) {
+        final l$distinct_on$entry = l$distinct_on[i];
+        final lOther$distinct_on$entry = lOther$distinct_on[i];
+        if (l$distinct_on$entry != lOther$distinct_on$entry) {
+          return false;
+        }
+      }
+    } else if (l$distinct_on != lOther$distinct_on) {
+      return false;
+    }
+    final l$offset = offset;
+    final lOther$offset = other.offset;
+    if (_$data.containsKey('offset') != other._$data.containsKey('offset')) {
+      return false;
+    }
+    if (l$offset != lOther$offset) {
+      return false;
+    }
+    final l$order_by = order_by;
+    final lOther$order_by = other.order_by;
+    if (_$data.containsKey('order_by') !=
+        other._$data.containsKey('order_by')) {
+      return false;
+    }
+    if (l$order_by != null && lOther$order_by != null) {
+      if (l$order_by.length != lOther$order_by.length) {
+        return false;
+      }
+      for (int i = 0; i < l$order_by.length; i++) {
+        final l$order_by$entry = l$order_by[i];
+        final lOther$order_by$entry = lOther$order_by[i];
+        if (l$order_by$entry != lOther$order_by$entry) {
+          return false;
+        }
+      }
+    } else if (l$order_by != lOther$order_by) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$user_id = user_id;
+    final l$limit = limit;
+    final l$distinct_on = distinct_on;
+    final l$offset = offset;
+    final l$order_by = order_by;
+    return Object.hashAll([
+      l$user_id,
+      _$data.containsKey('limit') ? l$limit : const {},
+      _$data.containsKey('distinct_on')
+          ? l$distinct_on == null
+              ? null
+              : Object.hashAll(l$distinct_on.map((v) => v))
+          : const {},
+      _$data.containsKey('offset') ? l$offset : const {},
+      _$data.containsKey('order_by')
+          ? l$order_by == null
+              ? null
+              : Object.hashAll(l$order_by.map((v) => v))
+          : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Variables$Query$GetUserInvestmentAggregate<TRes> {
+  factory CopyWith$Variables$Query$GetUserInvestmentAggregate(
+    Variables$Query$GetUserInvestmentAggregate instance,
+    TRes Function(Variables$Query$GetUserInvestmentAggregate) then,
+  ) = _CopyWithImpl$Variables$Query$GetUserInvestmentAggregate;
+
+  factory CopyWith$Variables$Query$GetUserInvestmentAggregate.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$GetUserInvestmentAggregate;
+
+  TRes call({
+    UUID? user_id,
+    int? limit,
+    List<Enum$investment_select_column>? distinct_on,
+    int? offset,
+    List<Input$investment_order_by>? order_by,
+  });
+}
+
+class _CopyWithImpl$Variables$Query$GetUserInvestmentAggregate<TRes>
+    implements CopyWith$Variables$Query$GetUserInvestmentAggregate<TRes> {
+  _CopyWithImpl$Variables$Query$GetUserInvestmentAggregate(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Query$GetUserInvestmentAggregate _instance;
+
+  final TRes Function(Variables$Query$GetUserInvestmentAggregate) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? user_id = _undefined,
+    Object? limit = _undefined,
+    Object? distinct_on = _undefined,
+    Object? offset = _undefined,
+    Object? order_by = _undefined,
+  }) =>
+      _then(Variables$Query$GetUserInvestmentAggregate._({
+        ..._instance._$data,
+        if (user_id != _undefined && user_id != null)
+          'user_id': (user_id as UUID),
+        if (limit != _undefined) 'limit': (limit as int?),
+        if (distinct_on != _undefined)
+          'distinct_on': (distinct_on as List<Enum$investment_select_column>?),
+        if (offset != _undefined) 'offset': (offset as int?),
+        if (order_by != _undefined)
+          'order_by': (order_by as List<Input$investment_order_by>?),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Query$GetUserInvestmentAggregate<TRes>
+    implements CopyWith$Variables$Query$GetUserInvestmentAggregate<TRes> {
+  _CopyWithStubImpl$Variables$Query$GetUserInvestmentAggregate(this._res);
+
+  TRes _res;
+
+  call({
+    UUID? user_id,
+    int? limit,
+    List<Enum$investment_select_column>? distinct_on,
+    int? offset,
+    List<Input$investment_order_by>? order_by,
+  }) =>
+      _res;
+}
+
+class Query$GetUserInvestmentAggregate {
+  Query$GetUserInvestmentAggregate({
+    required this.investment_aggregate,
+    this.$__typename = 'query_root',
   });
 
-  factory Query$GetInvestorInvestmentAggregateQuery$investment_aggregate.fromJson(
-      Map<String, dynamic> json) {
-    final l$aggregate = json['aggregate'];
+  factory Query$GetUserInvestmentAggregate.fromJson(Map<String, dynamic> json) {
+    final l$investment_aggregate = json['investment_aggregate'];
     final l$$__typename = json['__typename'];
-    return Query$GetInvestorInvestmentAggregateQuery$investment_aggregate(
-      aggregate: l$aggregate == null
-          ? null
-          : Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate
-              .fromJson((l$aggregate as Map<String, dynamic>)),
+    return Query$GetUserInvestmentAggregate(
+      investment_aggregate: Fragment$investmentsAggregate.fromJson(
+          (l$investment_aggregate as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate?
-      aggregate;
+  final Fragment$investmentsAggregate investment_aggregate;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$aggregate = aggregate;
-    _resultData['aggregate'] = l$aggregate?.toJson();
+    final l$investment_aggregate = investment_aggregate;
+    _resultData['investment_aggregate'] = l$investment_aggregate.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -3099,10 +4681,10 @@ class Query$GetInvestorInvestmentAggregateQuery$investment_aggregate {
 
   @override
   int get hashCode {
-    final l$aggregate = aggregate;
+    final l$investment_aggregate = investment_aggregate;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$aggregate,
+      l$investment_aggregate,
       l$$__typename,
     ]);
   }
@@ -3112,14 +4694,13 @@ class Query$GetInvestorInvestmentAggregateQuery$investment_aggregate {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Query$GetInvestorInvestmentAggregateQuery$investment_aggregate) ||
+    if (!(other is Query$GetUserInvestmentAggregate) ||
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$aggregate = aggregate;
-    final lOther$aggregate = other.aggregate;
-    if (l$aggregate != lOther$aggregate) {
+    final l$investment_aggregate = investment_aggregate;
+    final lOther$investment_aggregate = other.investment_aggregate;
+    if (l$investment_aggregate != lOther$investment_aggregate) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -3131,624 +4712,368 @@ class Query$GetInvestorInvestmentAggregateQuery$investment_aggregate {
   }
 }
 
-extension UtilityExtension$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate
-    on Query$GetInvestorInvestmentAggregateQuery$investment_aggregate {
-  CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate<
-          Query$GetInvestorInvestmentAggregateQuery$investment_aggregate>
-      get copyWith =>
-          CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate(
+extension UtilityExtension$Query$GetUserInvestmentAggregate
+    on Query$GetUserInvestmentAggregate {
+  CopyWith$Query$GetUserInvestmentAggregate<Query$GetUserInvestmentAggregate>
+      get copyWith => CopyWith$Query$GetUserInvestmentAggregate(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate<
-    TRes> {
-  factory CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate(
-    Query$GetInvestorInvestmentAggregateQuery$investment_aggregate instance,
-    TRes Function(
-            Query$GetInvestorInvestmentAggregateQuery$investment_aggregate)
-        then,
-  ) = _CopyWithImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate;
+abstract class CopyWith$Query$GetUserInvestmentAggregate<TRes> {
+  factory CopyWith$Query$GetUserInvestmentAggregate(
+    Query$GetUserInvestmentAggregate instance,
+    TRes Function(Query$GetUserInvestmentAggregate) then,
+  ) = _CopyWithImpl$Query$GetUserInvestmentAggregate;
 
-  factory CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate;
+  factory CopyWith$Query$GetUserInvestmentAggregate.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetUserInvestmentAggregate;
 
   TRes call({
-    Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate?
-        aggregate,
+    Fragment$investmentsAggregate? investment_aggregate,
     String? $__typename,
   });
-  CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate<
-      TRes> get aggregate;
+  CopyWith$Fragment$investmentsAggregate<TRes> get investment_aggregate;
 }
 
-class _CopyWithImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate<
-        TRes>
-    implements
-        CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate<
-            TRes> {
-  _CopyWithImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate(
+class _CopyWithImpl$Query$GetUserInvestmentAggregate<TRes>
+    implements CopyWith$Query$GetUserInvestmentAggregate<TRes> {
+  _CopyWithImpl$Query$GetUserInvestmentAggregate(
     this._instance,
     this._then,
   );
 
-  final Query$GetInvestorInvestmentAggregateQuery$investment_aggregate
-      _instance;
+  final Query$GetUserInvestmentAggregate _instance;
 
-  final TRes Function(
-      Query$GetInvestorInvestmentAggregateQuery$investment_aggregate) _then;
+  final TRes Function(Query$GetUserInvestmentAggregate) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? aggregate = _undefined,
+    Object? investment_aggregate = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$GetInvestorInvestmentAggregateQuery$investment_aggregate(
-        aggregate: aggregate == _undefined
-            ? _instance.aggregate
-            : (aggregate
-                as Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate?),
+      _then(Query$GetUserInvestmentAggregate(
+        investment_aggregate:
+            investment_aggregate == _undefined || investment_aggregate == null
+                ? _instance.investment_aggregate
+                : (investment_aggregate as Fragment$investmentsAggregate),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate<
-      TRes> get aggregate {
-    final local$aggregate = _instance.aggregate;
-    return local$aggregate == null
-        ? CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate
-            .stub(_then(_instance))
-        : CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate(
-            local$aggregate, (e) => call(aggregate: e));
+  CopyWith$Fragment$investmentsAggregate<TRes> get investment_aggregate {
+    final local$investment_aggregate = _instance.investment_aggregate;
+    return CopyWith$Fragment$investmentsAggregate(
+        local$investment_aggregate, (e) => call(investment_aggregate: e));
   }
 }
 
-class _CopyWithStubImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate<
-        TRes>
-    implements
-        CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate<
-            TRes> {
-  _CopyWithStubImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate(
-      this._res);
+class _CopyWithStubImpl$Query$GetUserInvestmentAggregate<TRes>
+    implements CopyWith$Query$GetUserInvestmentAggregate<TRes> {
+  _CopyWithStubImpl$Query$GetUserInvestmentAggregate(this._res);
 
   TRes _res;
 
   call({
-    Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate?
-        aggregate,
+    Fragment$investmentsAggregate? investment_aggregate,
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate<
-          TRes>
-      get aggregate =>
-          CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate
-              .stub(_res);
+  CopyWith$Fragment$investmentsAggregate<TRes> get investment_aggregate =>
+      CopyWith$Fragment$investmentsAggregate.stub(_res);
 }
 
-class Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate {
-  Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate({
-    required this.count,
-    this.sum,
-    this.avg,
-    this.$__typename = 'investment_aggregate_fields',
-  });
+const documentNodeQueryGetUserInvestmentAggregate = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'GetUserInvestmentAggregate'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'user_id')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'uuid'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'limit')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'distinct_on')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'investment_select_column'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'offset')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'order_by')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'investment_order_by'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'investment_aggregate'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: ObjectValueNode(fields: [
+              ObjectFieldNode(
+                name: NameNode(value: 'investor'),
+                value: ObjectValueNode(fields: [
+                  ObjectFieldNode(
+                    name: NameNode(value: 'user_id'),
+                    value: ObjectValueNode(fields: [
+                      ObjectFieldNode(
+                        name: NameNode(value: '_eq'),
+                        value: VariableNode(name: NameNode(value: 'user_id')),
+                      )
+                    ]),
+                  )
+                ]),
+              )
+            ]),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'limit'),
+            value: VariableNode(name: NameNode(value: 'limit')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'distinct_on'),
+            value: VariableNode(name: NameNode(value: 'distinct_on')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'offset'),
+            value: VariableNode(name: NameNode(value: 'offset')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'order_by'),
+            value: VariableNode(name: NameNode(value: 'order_by')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FragmentSpreadNode(
+            name: NameNode(value: 'investmentsAggregate'),
+            directives: [],
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+  fragmentDefinitioninvestmentsAggregate,
+]);
+Query$GetUserInvestmentAggregate _parserFn$Query$GetUserInvestmentAggregate(
+        Map<String, dynamic> data) =>
+    Query$GetUserInvestmentAggregate.fromJson(data);
+typedef OnQueryComplete$Query$GetUserInvestmentAggregate = FutureOr<void>
+    Function(
+  Map<String, dynamic>?,
+  Query$GetUserInvestmentAggregate?,
+);
 
-  factory Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate.fromJson(
-      Map<String, dynamic> json) {
-    final l$count = json['count'];
-    final l$sum = json['sum'];
-    final l$avg = json['avg'];
-    final l$$__typename = json['__typename'];
-    return Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate(
-      count: (l$count as int),
-      sum: l$sum == null
-          ? null
-          : Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum
-              .fromJson((l$sum as Map<String, dynamic>)),
-      avg: l$avg == null
-          ? null
-          : Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg
-              .fromJson((l$avg as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
+class Options$Query$GetUserInvestmentAggregate
+    extends graphql.QueryOptions<Query$GetUserInvestmentAggregate> {
+  Options$Query$GetUserInvestmentAggregate({
+    String? operationName,
+    required Variables$Query$GetUserInvestmentAggregate variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$GetUserInvestmentAggregate? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$GetUserInvestmentAggregate? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$GetUserInvestmentAggregate(data),
+                  ),
+          onError: onError,
+          document: documentNodeQueryGetUserInvestmentAggregate,
+          parserFn: _parserFn$Query$GetUserInvestmentAggregate,
+        );
+
+  final OnQueryComplete$Query$GetUserInvestmentAggregate? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
+}
+
+class WatchOptions$Query$GetUserInvestmentAggregate
+    extends graphql.WatchQueryOptions<Query$GetUserInvestmentAggregate> {
+  WatchOptions$Query$GetUserInvestmentAggregate({
+    String? operationName,
+    required Variables$Query$GetUserInvestmentAggregate variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$GetUserInvestmentAggregate? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQueryGetUserInvestmentAggregate,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$GetUserInvestmentAggregate,
+        );
+}
+
+class FetchMoreOptions$Query$GetUserInvestmentAggregate
+    extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$GetUserInvestmentAggregate({
+    required graphql.UpdateQuery updateQuery,
+    required Variables$Query$GetUserInvestmentAggregate variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables.toJson(),
+          document: documentNodeQueryGetUserInvestmentAggregate,
+        );
+}
+
+extension ClientExtension$Query$GetUserInvestmentAggregate
+    on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$GetUserInvestmentAggregate>>
+      query$GetUserInvestmentAggregate(
+              Options$Query$GetUserInvestmentAggregate options) async =>
+          await this.query(options);
+  graphql.ObservableQuery<Query$GetUserInvestmentAggregate>
+      watchQuery$GetUserInvestmentAggregate(
+              WatchOptions$Query$GetUserInvestmentAggregate options) =>
+          this.watchQuery(options);
+  void writeQuery$GetUserInvestmentAggregate({
+    required Query$GetUserInvestmentAggregate data,
+    required Variables$Query$GetUserInvestmentAggregate variables,
+    bool broadcast = true,
+  }) =>
+      this.writeQuery(
+        graphql.Request(
+          operation: graphql.Operation(
+              document: documentNodeQueryGetUserInvestmentAggregate),
+          variables: variables.toJson(),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$GetUserInvestmentAggregate? readQuery$GetUserInvestmentAggregate({
+    required Variables$Query$GetUserInvestmentAggregate variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation: graphql.Operation(
+            document: documentNodeQueryGetUserInvestmentAggregate),
+        variables: variables.toJson(),
+      ),
+      optimistic: optimistic,
     );
-  }
-
-  final int count;
-
-  final Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum?
-      sum;
-
-  final Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg?
-      avg;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$count = count;
-    _resultData['count'] = l$count;
-    final l$sum = sum;
-    _resultData['sum'] = l$sum?.toJson();
-    final l$avg = avg;
-    _resultData['avg'] = l$avg?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$count = count;
-    final l$sum = sum;
-    final l$avg = avg;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$count,
-      l$sum,
-      l$avg,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other
-            is Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$count = count;
-    final lOther$count = other.count;
-    if (l$count != lOther$count) {
-      return false;
-    }
-    final l$sum = sum;
-    final lOther$sum = other.sum;
-    if (l$sum != lOther$sum) {
-      return false;
-    }
-    final l$avg = avg;
-    final lOther$avg = other.avg;
-    if (l$avg != lOther$avg) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
+    return result == null
+        ? null
+        : Query$GetUserInvestmentAggregate.fromJson(result);
   }
 }
 
-extension UtilityExtension$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate
-    on Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate {
-  CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate<
-          Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate>
-      get copyWith =>
-          CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate(
-            this,
-            (i) => i,
-          );
-}
+graphql_flutter.QueryHookResult<Query$GetUserInvestmentAggregate>
+    useQuery$GetUserInvestmentAggregate(
+            Options$Query$GetUserInvestmentAggregate options) =>
+        graphql_flutter.useQuery(options);
+graphql.ObservableQuery<Query$GetUserInvestmentAggregate>
+    useWatchQuery$GetUserInvestmentAggregate(
+            WatchOptions$Query$GetUserInvestmentAggregate options) =>
+        graphql_flutter.useWatchQuery(options);
 
-abstract class CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate<
-    TRes> {
-  factory CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate(
-    Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate
-        instance,
-    TRes Function(
-            Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate)
-        then,
-  ) = _CopyWithImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate;
-
-  factory CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate;
-
-  TRes call({
-    int? count,
-    Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum?
-        sum,
-    Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg?
-        avg,
-    String? $__typename,
-  });
-  CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum<
-      TRes> get sum;
-  CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg<
-      TRes> get avg;
-}
-
-class _CopyWithImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate<
-        TRes>
-    implements
-        CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate<
-            TRes> {
-  _CopyWithImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate(
-    this._instance,
-    this._then,
-  );
-
-  final Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate
-      _instance;
-
-  final TRes Function(
-          Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? count = _undefined,
-    Object? sum = _undefined,
-    Object? avg = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate(
-        count: count == _undefined || count == null
-            ? _instance.count
-            : (count as int),
-        sum: sum == _undefined
-            ? _instance.sum
-            : (sum
-                as Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum?),
-        avg: avg == _undefined
-            ? _instance.avg
-            : (avg
-                as Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-  CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum<
-      TRes> get sum {
-    final local$sum = _instance.sum;
-    return local$sum == null
-        ? CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum
-            .stub(_then(_instance))
-        : CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum(
-            local$sum, (e) => call(sum: e));
-  }
-
-  CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg<
-      TRes> get avg {
-    final local$avg = _instance.avg;
-    return local$avg == null
-        ? CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg
-            .stub(_then(_instance))
-        : CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg(
-            local$avg, (e) => call(avg: e));
-  }
-}
-
-class _CopyWithStubImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate<
-        TRes>
-    implements
-        CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate<
-            TRes> {
-  _CopyWithStubImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate(
-      this._res);
-
-  TRes _res;
-
-  call({
-    int? count,
-    Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum?
-        sum,
-    Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg?
-        avg,
-    String? $__typename,
-  }) =>
-      _res;
-  CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum<
-          TRes>
-      get sum =>
-          CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum
-              .stub(_res);
-  CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg<
-          TRes>
-      get avg =>
-          CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg
-              .stub(_res);
-}
-
-class Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum {
-  Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum({
-    this.investment_amount,
-    this.$__typename = 'investment_sum_fields',
-  });
-
-  factory Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum.fromJson(
-      Map<String, dynamic> json) {
-    final l$investment_amount = json['investment_amount'];
-    final l$$__typename = json['__typename'];
-    return Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum(
-      investment_amount: (l$investment_amount as int?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int? investment_amount;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$investment_amount = investment_amount;
-    _resultData['investment_amount'] = l$investment_amount;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$investment_amount = investment_amount;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$investment_amount,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other
-            is Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$investment_amount = investment_amount;
-    final lOther$investment_amount = other.investment_amount;
-    if (l$investment_amount != lOther$investment_amount) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum
-    on Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum {
-  CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum<
-          Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum>
-      get copyWith =>
-          CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum<
-    TRes> {
-  factory CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum(
-    Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum
-        instance,
-    TRes Function(
-            Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum)
-        then,
-  ) = _CopyWithImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum;
-
-  factory CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum;
-
-  TRes call({
-    int? investment_amount,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum<
-        TRes>
-    implements
-        CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum<
-            TRes> {
-  _CopyWithImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum(
-    this._instance,
-    this._then,
-  );
-
-  final Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum
-      _instance;
-
-  final TRes Function(
-          Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? investment_amount = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum(
-        investment_amount: investment_amount == _undefined
-            ? _instance.investment_amount
-            : (investment_amount as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum<
-        TRes>
-    implements
-        CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum<
-            TRes> {
-  _CopyWithStubImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$sum(
-      this._res);
-
-  TRes _res;
-
-  call({
-    int? investment_amount,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg {
-  Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg({
-    this.investment_amount,
-    this.$__typename = 'investment_avg_fields',
-  });
-
-  factory Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg.fromJson(
-      Map<String, dynamic> json) {
-    final l$investment_amount = json['investment_amount'];
-    final l$$__typename = json['__typename'];
-    return Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg(
-      investment_amount: (l$investment_amount as num?)?.toDouble(),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final double? investment_amount;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$investment_amount = investment_amount;
-    _resultData['investment_amount'] = l$investment_amount;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$investment_amount = investment_amount;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$investment_amount,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other
-            is Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$investment_amount = investment_amount;
-    final lOther$investment_amount = other.investment_amount;
-    if (l$investment_amount != lOther$investment_amount) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg
-    on Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg {
-  CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg<
-          Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg>
-      get copyWith =>
-          CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg<
-    TRes> {
-  factory CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg(
-    Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg
-        instance,
-    TRes Function(
-            Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg)
-        then,
-  ) = _CopyWithImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg;
-
-  factory CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg;
-
-  TRes call({
-    double? investment_amount,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg<
-        TRes>
-    implements
-        CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg<
-            TRes> {
-  _CopyWithImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg(
-    this._instance,
-    this._then,
-  );
-
-  final Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg
-      _instance;
-
-  final TRes Function(
-          Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? investment_amount = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg(
-        investment_amount: investment_amount == _undefined
-            ? _instance.investment_amount
-            : (investment_amount as double?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg<
-        TRes>
-    implements
-        CopyWith$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg<
-            TRes> {
-  _CopyWithStubImpl$Query$GetInvestorInvestmentAggregateQuery$investment_aggregate$aggregate$avg(
-      this._res);
-
-  TRes _res;
-
-  call({
-    double? investment_amount,
-    String? $__typename,
-  }) =>
-      _res;
+class Query$GetUserInvestmentAggregate$Widget
+    extends graphql_flutter.Query<Query$GetUserInvestmentAggregate> {
+  Query$GetUserInvestmentAggregate$Widget({
+    widgets.Key? key,
+    required Options$Query$GetUserInvestmentAggregate options,
+    required graphql_flutter.QueryBuilder<Query$GetUserInvestmentAggregate>
+        builder,
+  }) : super(
+          key: key,
+          options: options,
+          builder: builder,
+        );
 }
 
 class Variables$Query$GetAllInvestmentQuery {

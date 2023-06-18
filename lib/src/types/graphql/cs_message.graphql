@@ -5,6 +5,7 @@ fragment cs_messageData on cs_message {
     cs_message_date
     updated_at
     created_at
+    user_id
 }
 
 mutation InsertCsMessageMutation($data: cs_message_insert_input!) {
@@ -48,25 +49,28 @@ query GetAllCsMessageQuery(
         order_by: $order_by
     ) {
         ...cs_messageData
+        user {
+            ...userData
+        }
     }
 }
 
-query GetAllCsMessageAgentQuery(
-    $cs_agent_user_id: uuid!
+query GetAllCsMessageUserQuery(
+    $user_id: uuid!
     $limit: Int
     $distinct_on: [cs_message_select_column!]
     $offset: Int
     $order_by: [cs_message_order_by!]
 ) {
     cs_message(
-        where: { user_id: { _eq: $cs_agent_user_id } }
+        where: { user_id: { _eq: $user_id } }
         limit: $limit
         distinct_on: $distinct_on
         offset: $offset
         order_by: $order_by
     ) {
         ...cs_messageData
-        cs_agent {
+        user {
             ...userData
         }
     }

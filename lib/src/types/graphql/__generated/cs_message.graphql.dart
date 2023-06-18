@@ -12,11 +12,12 @@ import 'user.graphql.dart';
 class Fragment$cs_messageData {
   Fragment$cs_messageData({
     required this.cs_message_id,
-    required this.cs_agent_user_id,
+    this.cs_agent_user_id,
     required this.cs_message_content,
     required this.cs_message_date,
     this.updated_at,
     this.created_at,
+    required this.user_id,
     this.$__typename = 'cs_message',
   });
 
@@ -27,10 +28,12 @@ class Fragment$cs_messageData {
     final l$cs_message_date = json['cs_message_date'];
     final l$updated_at = json['updated_at'];
     final l$created_at = json['created_at'];
+    final l$user_id = json['user_id'];
     final l$$__typename = json['__typename'];
     return Fragment$cs_messageData(
       cs_message_id: (l$cs_message_id as int),
-      cs_agent_user_id: uuidFromJson(l$cs_agent_user_id),
+      cs_agent_user_id:
+          l$cs_agent_user_id == null ? null : uuidFromJson(l$cs_agent_user_id),
       cs_message_content: (l$cs_message_content as String),
       cs_message_date: DateTime.parse((l$cs_message_date as String)),
       updated_at: l$updated_at == null
@@ -39,13 +42,14 @@ class Fragment$cs_messageData {
       created_at: l$created_at == null
           ? null
           : DateTime.parse((l$created_at as String)),
+      user_id: uuidFromJson(l$user_id),
       $__typename: (l$$__typename as String),
     );
   }
 
   final int cs_message_id;
 
-  final UUID cs_agent_user_id;
+  final UUID? cs_agent_user_id;
 
   final String cs_message_content;
 
@@ -55,6 +59,8 @@ class Fragment$cs_messageData {
 
   final DateTime? created_at;
 
+  final UUID user_id;
+
   final String $__typename;
 
   Map<String, dynamic> toJson() {
@@ -62,7 +68,8 @@ class Fragment$cs_messageData {
     final l$cs_message_id = cs_message_id;
     _resultData['cs_message_id'] = l$cs_message_id;
     final l$cs_agent_user_id = cs_agent_user_id;
-    _resultData['cs_agent_user_id'] = uuidToJson(l$cs_agent_user_id);
+    _resultData['cs_agent_user_id'] =
+        l$cs_agent_user_id == null ? null : uuidToJson(l$cs_agent_user_id);
     final l$cs_message_content = cs_message_content;
     _resultData['cs_message_content'] = l$cs_message_content;
     final l$cs_message_date = cs_message_date;
@@ -71,6 +78,8 @@ class Fragment$cs_messageData {
     _resultData['updated_at'] = l$updated_at?.toIso8601String();
     final l$created_at = created_at;
     _resultData['created_at'] = l$created_at?.toIso8601String();
+    final l$user_id = user_id;
+    _resultData['user_id'] = uuidToJson(l$user_id);
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -84,6 +93,7 @@ class Fragment$cs_messageData {
     final l$cs_message_date = cs_message_date;
     final l$updated_at = updated_at;
     final l$created_at = created_at;
+    final l$user_id = user_id;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$cs_message_id,
@@ -92,6 +102,7 @@ class Fragment$cs_messageData {
       l$cs_message_date,
       l$updated_at,
       l$created_at,
+      l$user_id,
       l$$__typename,
     ]);
   }
@@ -135,6 +146,11 @@ class Fragment$cs_messageData {
     if (l$created_at != lOther$created_at) {
       return false;
     }
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (l$user_id != lOther$user_id) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) {
@@ -168,6 +184,7 @@ abstract class CopyWith$Fragment$cs_messageData<TRes> {
     DateTime? cs_message_date,
     DateTime? updated_at,
     DateTime? created_at,
+    UUID? user_id,
     String? $__typename,
   });
 }
@@ -192,16 +209,16 @@ class _CopyWithImpl$Fragment$cs_messageData<TRes>
     Object? cs_message_date = _undefined,
     Object? updated_at = _undefined,
     Object? created_at = _undefined,
+    Object? user_id = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Fragment$cs_messageData(
         cs_message_id: cs_message_id == _undefined || cs_message_id == null
             ? _instance.cs_message_id
             : (cs_message_id as int),
-        cs_agent_user_id:
-            cs_agent_user_id == _undefined || cs_agent_user_id == null
-                ? _instance.cs_agent_user_id
-                : (cs_agent_user_id as UUID),
+        cs_agent_user_id: cs_agent_user_id == _undefined
+            ? _instance.cs_agent_user_id
+            : (cs_agent_user_id as UUID?),
         cs_message_content:
             cs_message_content == _undefined || cs_message_content == null
                 ? _instance.cs_message_content
@@ -216,6 +233,9 @@ class _CopyWithImpl$Fragment$cs_messageData<TRes>
         created_at: created_at == _undefined
             ? _instance.created_at
             : (created_at as DateTime?),
+        user_id: user_id == _undefined || user_id == null
+            ? _instance.user_id
+            : (user_id as UUID),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -235,6 +255,7 @@ class _CopyWithStubImpl$Fragment$cs_messageData<TRes>
     DateTime? cs_message_date,
     DateTime? updated_at,
     DateTime? created_at,
+    UUID? user_id,
     String? $__typename,
   }) =>
       _res;
@@ -286,6 +307,13 @@ const fragmentDefinitioncs_messageData = FragmentDefinitionNode(
     ),
     FieldNode(
       name: NameNode(value: 'created_at'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'user_id'),
       alias: null,
       arguments: [],
       directives: [],
@@ -2315,14 +2343,14 @@ class Query$GetAllCsMessageQuery {
     final l$$__typename = json['__typename'];
     return Query$GetAllCsMessageQuery(
       cs_message: (l$cs_message as List<dynamic>)
-          .map((e) =>
-              Fragment$cs_messageData.fromJson((e as Map<String, dynamic>)))
+          .map((e) => Query$GetAllCsMessageQuery$cs_message.fromJson(
+              (e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final List<Fragment$cs_messageData> cs_message;
+  final List<Query$GetAllCsMessageQuery$cs_message> cs_message;
 
   final String $__typename;
 
@@ -2394,13 +2422,14 @@ abstract class CopyWith$Query$GetAllCsMessageQuery<TRes> {
       _CopyWithStubImpl$Query$GetAllCsMessageQuery;
 
   TRes call({
-    List<Fragment$cs_messageData>? cs_message,
+    List<Query$GetAllCsMessageQuery$cs_message>? cs_message,
     String? $__typename,
   });
   TRes cs_message(
-      Iterable<Fragment$cs_messageData> Function(
+      Iterable<Query$GetAllCsMessageQuery$cs_message> Function(
               Iterable<
-                  CopyWith$Fragment$cs_messageData<Fragment$cs_messageData>>)
+                  CopyWith$Query$GetAllCsMessageQuery$cs_message<
+                      Query$GetAllCsMessageQuery$cs_message>>)
           _fn);
 }
 
@@ -2424,20 +2453,20 @@ class _CopyWithImpl$Query$GetAllCsMessageQuery<TRes>
       _then(Query$GetAllCsMessageQuery(
         cs_message: cs_message == _undefined || cs_message == null
             ? _instance.cs_message
-            : (cs_message as List<Fragment$cs_messageData>),
+            : (cs_message as List<Query$GetAllCsMessageQuery$cs_message>),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
   TRes cs_message(
-          Iterable<Fragment$cs_messageData> Function(
+          Iterable<Query$GetAllCsMessageQuery$cs_message> Function(
                   Iterable<
-                      CopyWith$Fragment$cs_messageData<
-                          Fragment$cs_messageData>>)
+                      CopyWith$Query$GetAllCsMessageQuery$cs_message<
+                          Query$GetAllCsMessageQuery$cs_message>>)
               _fn) =>
       call(
-          cs_message: _fn(
-              _instance.cs_message.map((e) => CopyWith$Fragment$cs_messageData(
+          cs_message: _fn(_instance.cs_message
+              .map((e) => CopyWith$Query$GetAllCsMessageQuery$cs_message(
                     e,
                     (i) => i,
                   ))).toList());
@@ -2450,7 +2479,7 @@ class _CopyWithStubImpl$Query$GetAllCsMessageQuery<TRes>
   TRes _res;
 
   call({
-    List<Fragment$cs_messageData>? cs_message,
+    List<Query$GetAllCsMessageQuery$cs_message>? cs_message,
     String? $__typename,
   }) =>
       _res;
@@ -2548,6 +2577,25 @@ const documentNodeQueryGetAllCsMessageQuery = DocumentNode(definitions: [
             directives: [],
           ),
           FieldNode(
+            name: NameNode(value: 'user'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FragmentSpreadNode(
+                name: NameNode(value: 'userData'),
+                directives: [],
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
@@ -2566,6 +2614,7 @@ const documentNodeQueryGetAllCsMessageQuery = DocumentNode(definitions: [
     ]),
   ),
   fragmentDefinitioncs_messageData,
+  fragmentDefinitionuserData,
 ]);
 Query$GetAllCsMessageQuery _parserFn$Query$GetAllCsMessageQuery(
         Map<String, dynamic> data) =>
@@ -2729,29 +2778,311 @@ class Query$GetAllCsMessageQuery$Widget
         );
 }
 
-class Variables$Query$GetAllCsMessageAgentQuery {
-  factory Variables$Query$GetAllCsMessageAgentQuery({
-    required UUID cs_agent_user_id,
+class Query$GetAllCsMessageQuery$cs_message implements Fragment$cs_messageData {
+  Query$GetAllCsMessageQuery$cs_message({
+    required this.cs_message_id,
+    this.cs_agent_user_id,
+    required this.cs_message_content,
+    required this.cs_message_date,
+    this.updated_at,
+    this.created_at,
+    required this.user_id,
+    this.$__typename = 'cs_message',
+    required this.user,
+  });
+
+  factory Query$GetAllCsMessageQuery$cs_message.fromJson(
+      Map<String, dynamic> json) {
+    final l$cs_message_id = json['cs_message_id'];
+    final l$cs_agent_user_id = json['cs_agent_user_id'];
+    final l$cs_message_content = json['cs_message_content'];
+    final l$cs_message_date = json['cs_message_date'];
+    final l$updated_at = json['updated_at'];
+    final l$created_at = json['created_at'];
+    final l$user_id = json['user_id'];
+    final l$$__typename = json['__typename'];
+    final l$user = json['user'];
+    return Query$GetAllCsMessageQuery$cs_message(
+      cs_message_id: (l$cs_message_id as int),
+      cs_agent_user_id:
+          l$cs_agent_user_id == null ? null : uuidFromJson(l$cs_agent_user_id),
+      cs_message_content: (l$cs_message_content as String),
+      cs_message_date: DateTime.parse((l$cs_message_date as String)),
+      updated_at: l$updated_at == null
+          ? null
+          : DateTime.parse((l$updated_at as String)),
+      created_at: l$created_at == null
+          ? null
+          : DateTime.parse((l$created_at as String)),
+      user_id: uuidFromJson(l$user_id),
+      $__typename: (l$$__typename as String),
+      user: Fragment$userData.fromJson((l$user as Map<String, dynamic>)),
+    );
+  }
+
+  final int cs_message_id;
+
+  final UUID? cs_agent_user_id;
+
+  final String cs_message_content;
+
+  final DateTime cs_message_date;
+
+  final DateTime? updated_at;
+
+  final DateTime? created_at;
+
+  final UUID user_id;
+
+  final String $__typename;
+
+  final Fragment$userData user;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$cs_message_id = cs_message_id;
+    _resultData['cs_message_id'] = l$cs_message_id;
+    final l$cs_agent_user_id = cs_agent_user_id;
+    _resultData['cs_agent_user_id'] =
+        l$cs_agent_user_id == null ? null : uuidToJson(l$cs_agent_user_id);
+    final l$cs_message_content = cs_message_content;
+    _resultData['cs_message_content'] = l$cs_message_content;
+    final l$cs_message_date = cs_message_date;
+    _resultData['cs_message_date'] = l$cs_message_date.toIso8601String();
+    final l$updated_at = updated_at;
+    _resultData['updated_at'] = l$updated_at?.toIso8601String();
+    final l$created_at = created_at;
+    _resultData['created_at'] = l$created_at?.toIso8601String();
+    final l$user_id = user_id;
+    _resultData['user_id'] = uuidToJson(l$user_id);
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    final l$user = user;
+    _resultData['user'] = l$user.toJson();
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$cs_message_id = cs_message_id;
+    final l$cs_agent_user_id = cs_agent_user_id;
+    final l$cs_message_content = cs_message_content;
+    final l$cs_message_date = cs_message_date;
+    final l$updated_at = updated_at;
+    final l$created_at = created_at;
+    final l$user_id = user_id;
+    final l$$__typename = $__typename;
+    final l$user = user;
+    return Object.hashAll([
+      l$cs_message_id,
+      l$cs_agent_user_id,
+      l$cs_message_content,
+      l$cs_message_date,
+      l$updated_at,
+      l$created_at,
+      l$user_id,
+      l$$__typename,
+      l$user,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetAllCsMessageQuery$cs_message) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$cs_message_id = cs_message_id;
+    final lOther$cs_message_id = other.cs_message_id;
+    if (l$cs_message_id != lOther$cs_message_id) {
+      return false;
+    }
+    final l$cs_agent_user_id = cs_agent_user_id;
+    final lOther$cs_agent_user_id = other.cs_agent_user_id;
+    if (l$cs_agent_user_id != lOther$cs_agent_user_id) {
+      return false;
+    }
+    final l$cs_message_content = cs_message_content;
+    final lOther$cs_message_content = other.cs_message_content;
+    if (l$cs_message_content != lOther$cs_message_content) {
+      return false;
+    }
+    final l$cs_message_date = cs_message_date;
+    final lOther$cs_message_date = other.cs_message_date;
+    if (l$cs_message_date != lOther$cs_message_date) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (l$user_id != lOther$user_id) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    final l$user = user;
+    final lOther$user = other.user;
+    if (l$user != lOther$user) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetAllCsMessageQuery$cs_message
+    on Query$GetAllCsMessageQuery$cs_message {
+  CopyWith$Query$GetAllCsMessageQuery$cs_message<
+          Query$GetAllCsMessageQuery$cs_message>
+      get copyWith => CopyWith$Query$GetAllCsMessageQuery$cs_message(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GetAllCsMessageQuery$cs_message<TRes> {
+  factory CopyWith$Query$GetAllCsMessageQuery$cs_message(
+    Query$GetAllCsMessageQuery$cs_message instance,
+    TRes Function(Query$GetAllCsMessageQuery$cs_message) then,
+  ) = _CopyWithImpl$Query$GetAllCsMessageQuery$cs_message;
+
+  factory CopyWith$Query$GetAllCsMessageQuery$cs_message.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetAllCsMessageQuery$cs_message;
+
+  TRes call({
+    int? cs_message_id,
+    UUID? cs_agent_user_id,
+    String? cs_message_content,
+    DateTime? cs_message_date,
+    DateTime? updated_at,
+    DateTime? created_at,
+    UUID? user_id,
+    String? $__typename,
+    Fragment$userData? user,
+  });
+  CopyWith$Fragment$userData<TRes> get user;
+}
+
+class _CopyWithImpl$Query$GetAllCsMessageQuery$cs_message<TRes>
+    implements CopyWith$Query$GetAllCsMessageQuery$cs_message<TRes> {
+  _CopyWithImpl$Query$GetAllCsMessageQuery$cs_message(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetAllCsMessageQuery$cs_message _instance;
+
+  final TRes Function(Query$GetAllCsMessageQuery$cs_message) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? cs_message_id = _undefined,
+    Object? cs_agent_user_id = _undefined,
+    Object? cs_message_content = _undefined,
+    Object? cs_message_date = _undefined,
+    Object? updated_at = _undefined,
+    Object? created_at = _undefined,
+    Object? user_id = _undefined,
+    Object? $__typename = _undefined,
+    Object? user = _undefined,
+  }) =>
+      _then(Query$GetAllCsMessageQuery$cs_message(
+        cs_message_id: cs_message_id == _undefined || cs_message_id == null
+            ? _instance.cs_message_id
+            : (cs_message_id as int),
+        cs_agent_user_id: cs_agent_user_id == _undefined
+            ? _instance.cs_agent_user_id
+            : (cs_agent_user_id as UUID?),
+        cs_message_content:
+            cs_message_content == _undefined || cs_message_content == null
+                ? _instance.cs_message_content
+                : (cs_message_content as String),
+        cs_message_date:
+            cs_message_date == _undefined || cs_message_date == null
+                ? _instance.cs_message_date
+                : (cs_message_date as DateTime),
+        updated_at: updated_at == _undefined
+            ? _instance.updated_at
+            : (updated_at as DateTime?),
+        created_at: created_at == _undefined
+            ? _instance.created_at
+            : (created_at as DateTime?),
+        user_id: user_id == _undefined || user_id == null
+            ? _instance.user_id
+            : (user_id as UUID),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+        user: user == _undefined || user == null
+            ? _instance.user
+            : (user as Fragment$userData),
+      ));
+  CopyWith$Fragment$userData<TRes> get user {
+    final local$user = _instance.user;
+    return CopyWith$Fragment$userData(local$user, (e) => call(user: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$GetAllCsMessageQuery$cs_message<TRes>
+    implements CopyWith$Query$GetAllCsMessageQuery$cs_message<TRes> {
+  _CopyWithStubImpl$Query$GetAllCsMessageQuery$cs_message(this._res);
+
+  TRes _res;
+
+  call({
+    int? cs_message_id,
+    UUID? cs_agent_user_id,
+    String? cs_message_content,
+    DateTime? cs_message_date,
+    DateTime? updated_at,
+    DateTime? created_at,
+    UUID? user_id,
+    String? $__typename,
+    Fragment$userData? user,
+  }) =>
+      _res;
+  CopyWith$Fragment$userData<TRes> get user =>
+      CopyWith$Fragment$userData.stub(_res);
+}
+
+class Variables$Query$GetAllCsMessageUserQuery {
+  factory Variables$Query$GetAllCsMessageUserQuery({
+    required UUID user_id,
     int? limit,
     List<Enum$cs_message_select_column>? distinct_on,
     int? offset,
     List<Input$cs_message_order_by>? order_by,
   }) =>
-      Variables$Query$GetAllCsMessageAgentQuery._({
-        r'cs_agent_user_id': cs_agent_user_id,
+      Variables$Query$GetAllCsMessageUserQuery._({
+        r'user_id': user_id,
         if (limit != null) r'limit': limit,
         if (distinct_on != null) r'distinct_on': distinct_on,
         if (offset != null) r'offset': offset,
         if (order_by != null) r'order_by': order_by,
       });
 
-  Variables$Query$GetAllCsMessageAgentQuery._(this._$data);
+  Variables$Query$GetAllCsMessageUserQuery._(this._$data);
 
-  factory Variables$Query$GetAllCsMessageAgentQuery.fromJson(
+  factory Variables$Query$GetAllCsMessageUserQuery.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$cs_agent_user_id = data['cs_agent_user_id'];
-    result$data['cs_agent_user_id'] = uuidFromJson(l$cs_agent_user_id);
+    final l$user_id = data['user_id'];
+    result$data['user_id'] = uuidFromJson(l$user_id);
     if (data.containsKey('limit')) {
       final l$limit = data['limit'];
       result$data['limit'] = (l$limit as int?);
@@ -2773,12 +3104,12 @@ class Variables$Query$GetAllCsMessageAgentQuery {
               Input$cs_message_order_by.fromJson((e as Map<String, dynamic>)))
           .toList();
     }
-    return Variables$Query$GetAllCsMessageAgentQuery._(result$data);
+    return Variables$Query$GetAllCsMessageUserQuery._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  UUID get cs_agent_user_id => (_$data['cs_agent_user_id'] as UUID);
+  UUID get user_id => (_$data['user_id'] as UUID);
   int? get limit => (_$data['limit'] as int?);
   List<Enum$cs_message_select_column>? get distinct_on =>
       (_$data['distinct_on'] as List<Enum$cs_message_select_column>?);
@@ -2787,8 +3118,8 @@ class Variables$Query$GetAllCsMessageAgentQuery {
       (_$data['order_by'] as List<Input$cs_message_order_by>?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$cs_agent_user_id = cs_agent_user_id;
-    result$data['cs_agent_user_id'] = uuidToJson(l$cs_agent_user_id);
+    final l$user_id = user_id;
+    result$data['user_id'] = uuidToJson(l$user_id);
     if (_$data.containsKey('limit')) {
       final l$limit = limit;
       result$data['limit'] = l$limit;
@@ -2810,9 +3141,9 @@ class Variables$Query$GetAllCsMessageAgentQuery {
     return result$data;
   }
 
-  CopyWith$Variables$Query$GetAllCsMessageAgentQuery<
-          Variables$Query$GetAllCsMessageAgentQuery>
-      get copyWith => CopyWith$Variables$Query$GetAllCsMessageAgentQuery(
+  CopyWith$Variables$Query$GetAllCsMessageUserQuery<
+          Variables$Query$GetAllCsMessageUserQuery>
+      get copyWith => CopyWith$Variables$Query$GetAllCsMessageUserQuery(
             this,
             (i) => i,
           );
@@ -2821,13 +3152,13 @@ class Variables$Query$GetAllCsMessageAgentQuery {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$GetAllCsMessageAgentQuery) ||
+    if (!(other is Variables$Query$GetAllCsMessageUserQuery) ||
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$cs_agent_user_id = cs_agent_user_id;
-    final lOther$cs_agent_user_id = other.cs_agent_user_id;
-    if (l$cs_agent_user_id != lOther$cs_agent_user_id) {
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (l$user_id != lOther$user_id) {
       return false;
     }
     final l$limit = limit;
@@ -2891,13 +3222,13 @@ class Variables$Query$GetAllCsMessageAgentQuery {
 
   @override
   int get hashCode {
-    final l$cs_agent_user_id = cs_agent_user_id;
+    final l$user_id = user_id;
     final l$limit = limit;
     final l$distinct_on = distinct_on;
     final l$offset = offset;
     final l$order_by = order_by;
     return Object.hashAll([
-      l$cs_agent_user_id,
+      l$user_id,
       _$data.containsKey('limit') ? l$limit : const {},
       _$data.containsKey('distinct_on')
           ? l$distinct_on == null
@@ -2914,17 +3245,17 @@ class Variables$Query$GetAllCsMessageAgentQuery {
   }
 }
 
-abstract class CopyWith$Variables$Query$GetAllCsMessageAgentQuery<TRes> {
-  factory CopyWith$Variables$Query$GetAllCsMessageAgentQuery(
-    Variables$Query$GetAllCsMessageAgentQuery instance,
-    TRes Function(Variables$Query$GetAllCsMessageAgentQuery) then,
-  ) = _CopyWithImpl$Variables$Query$GetAllCsMessageAgentQuery;
+abstract class CopyWith$Variables$Query$GetAllCsMessageUserQuery<TRes> {
+  factory CopyWith$Variables$Query$GetAllCsMessageUserQuery(
+    Variables$Query$GetAllCsMessageUserQuery instance,
+    TRes Function(Variables$Query$GetAllCsMessageUserQuery) then,
+  ) = _CopyWithImpl$Variables$Query$GetAllCsMessageUserQuery;
 
-  factory CopyWith$Variables$Query$GetAllCsMessageAgentQuery.stub(TRes res) =
-      _CopyWithStubImpl$Variables$Query$GetAllCsMessageAgentQuery;
+  factory CopyWith$Variables$Query$GetAllCsMessageUserQuery.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$GetAllCsMessageUserQuery;
 
   TRes call({
-    UUID? cs_agent_user_id,
+    UUID? user_id,
     int? limit,
     List<Enum$cs_message_select_column>? distinct_on,
     int? offset,
@@ -2932,30 +3263,30 @@ abstract class CopyWith$Variables$Query$GetAllCsMessageAgentQuery<TRes> {
   });
 }
 
-class _CopyWithImpl$Variables$Query$GetAllCsMessageAgentQuery<TRes>
-    implements CopyWith$Variables$Query$GetAllCsMessageAgentQuery<TRes> {
-  _CopyWithImpl$Variables$Query$GetAllCsMessageAgentQuery(
+class _CopyWithImpl$Variables$Query$GetAllCsMessageUserQuery<TRes>
+    implements CopyWith$Variables$Query$GetAllCsMessageUserQuery<TRes> {
+  _CopyWithImpl$Variables$Query$GetAllCsMessageUserQuery(
     this._instance,
     this._then,
   );
 
-  final Variables$Query$GetAllCsMessageAgentQuery _instance;
+  final Variables$Query$GetAllCsMessageUserQuery _instance;
 
-  final TRes Function(Variables$Query$GetAllCsMessageAgentQuery) _then;
+  final TRes Function(Variables$Query$GetAllCsMessageUserQuery) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? cs_agent_user_id = _undefined,
+    Object? user_id = _undefined,
     Object? limit = _undefined,
     Object? distinct_on = _undefined,
     Object? offset = _undefined,
     Object? order_by = _undefined,
   }) =>
-      _then(Variables$Query$GetAllCsMessageAgentQuery._({
+      _then(Variables$Query$GetAllCsMessageUserQuery._({
         ..._instance._$data,
-        if (cs_agent_user_id != _undefined && cs_agent_user_id != null)
-          'cs_agent_user_id': (cs_agent_user_id as UUID),
+        if (user_id != _undefined && user_id != null)
+          'user_id': (user_id as UUID),
         if (limit != _undefined) 'limit': (limit as int?),
         if (distinct_on != _undefined)
           'distinct_on': (distinct_on as List<Enum$cs_message_select_column>?),
@@ -2965,14 +3296,14 @@ class _CopyWithImpl$Variables$Query$GetAllCsMessageAgentQuery<TRes>
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$GetAllCsMessageAgentQuery<TRes>
-    implements CopyWith$Variables$Query$GetAllCsMessageAgentQuery<TRes> {
-  _CopyWithStubImpl$Variables$Query$GetAllCsMessageAgentQuery(this._res);
+class _CopyWithStubImpl$Variables$Query$GetAllCsMessageUserQuery<TRes>
+    implements CopyWith$Variables$Query$GetAllCsMessageUserQuery<TRes> {
+  _CopyWithStubImpl$Variables$Query$GetAllCsMessageUserQuery(this._res);
 
   TRes _res;
 
   call({
-    UUID? cs_agent_user_id,
+    UUID? user_id,
     int? limit,
     List<Enum$cs_message_select_column>? distinct_on,
     int? offset,
@@ -2981,25 +3312,25 @@ class _CopyWithStubImpl$Variables$Query$GetAllCsMessageAgentQuery<TRes>
       _res;
 }
 
-class Query$GetAllCsMessageAgentQuery {
-  Query$GetAllCsMessageAgentQuery({
+class Query$GetAllCsMessageUserQuery {
+  Query$GetAllCsMessageUserQuery({
     required this.cs_message,
     this.$__typename = 'query_root',
   });
 
-  factory Query$GetAllCsMessageAgentQuery.fromJson(Map<String, dynamic> json) {
+  factory Query$GetAllCsMessageUserQuery.fromJson(Map<String, dynamic> json) {
     final l$cs_message = json['cs_message'];
     final l$$__typename = json['__typename'];
-    return Query$GetAllCsMessageAgentQuery(
+    return Query$GetAllCsMessageUserQuery(
       cs_message: (l$cs_message as List<dynamic>)
-          .map((e) => Query$GetAllCsMessageAgentQuery$cs_message.fromJson(
+          .map((e) => Query$GetAllCsMessageUserQuery$cs_message.fromJson(
               (e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final List<Query$GetAllCsMessageAgentQuery$cs_message> cs_message;
+  final List<Query$GetAllCsMessageUserQuery$cs_message> cs_message;
 
   final String $__typename;
 
@@ -3027,7 +3358,7 @@ class Query$GetAllCsMessageAgentQuery {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetAllCsMessageAgentQuery) ||
+    if (!(other is Query$GetAllCsMessageUserQuery) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3052,46 +3383,46 @@ class Query$GetAllCsMessageAgentQuery {
   }
 }
 
-extension UtilityExtension$Query$GetAllCsMessageAgentQuery
-    on Query$GetAllCsMessageAgentQuery {
-  CopyWith$Query$GetAllCsMessageAgentQuery<Query$GetAllCsMessageAgentQuery>
-      get copyWith => CopyWith$Query$GetAllCsMessageAgentQuery(
+extension UtilityExtension$Query$GetAllCsMessageUserQuery
+    on Query$GetAllCsMessageUserQuery {
+  CopyWith$Query$GetAllCsMessageUserQuery<Query$GetAllCsMessageUserQuery>
+      get copyWith => CopyWith$Query$GetAllCsMessageUserQuery(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$GetAllCsMessageAgentQuery<TRes> {
-  factory CopyWith$Query$GetAllCsMessageAgentQuery(
-    Query$GetAllCsMessageAgentQuery instance,
-    TRes Function(Query$GetAllCsMessageAgentQuery) then,
-  ) = _CopyWithImpl$Query$GetAllCsMessageAgentQuery;
+abstract class CopyWith$Query$GetAllCsMessageUserQuery<TRes> {
+  factory CopyWith$Query$GetAllCsMessageUserQuery(
+    Query$GetAllCsMessageUserQuery instance,
+    TRes Function(Query$GetAllCsMessageUserQuery) then,
+  ) = _CopyWithImpl$Query$GetAllCsMessageUserQuery;
 
-  factory CopyWith$Query$GetAllCsMessageAgentQuery.stub(TRes res) =
-      _CopyWithStubImpl$Query$GetAllCsMessageAgentQuery;
+  factory CopyWith$Query$GetAllCsMessageUserQuery.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetAllCsMessageUserQuery;
 
   TRes call({
-    List<Query$GetAllCsMessageAgentQuery$cs_message>? cs_message,
+    List<Query$GetAllCsMessageUserQuery$cs_message>? cs_message,
     String? $__typename,
   });
   TRes cs_message(
-      Iterable<Query$GetAllCsMessageAgentQuery$cs_message> Function(
+      Iterable<Query$GetAllCsMessageUserQuery$cs_message> Function(
               Iterable<
-                  CopyWith$Query$GetAllCsMessageAgentQuery$cs_message<
-                      Query$GetAllCsMessageAgentQuery$cs_message>>)
+                  CopyWith$Query$GetAllCsMessageUserQuery$cs_message<
+                      Query$GetAllCsMessageUserQuery$cs_message>>)
           _fn);
 }
 
-class _CopyWithImpl$Query$GetAllCsMessageAgentQuery<TRes>
-    implements CopyWith$Query$GetAllCsMessageAgentQuery<TRes> {
-  _CopyWithImpl$Query$GetAllCsMessageAgentQuery(
+class _CopyWithImpl$Query$GetAllCsMessageUserQuery<TRes>
+    implements CopyWith$Query$GetAllCsMessageUserQuery<TRes> {
+  _CopyWithImpl$Query$GetAllCsMessageUserQuery(
     this._instance,
     this._then,
   );
 
-  final Query$GetAllCsMessageAgentQuery _instance;
+  final Query$GetAllCsMessageUserQuery _instance;
 
-  final TRes Function(Query$GetAllCsMessageAgentQuery) _then;
+  final TRes Function(Query$GetAllCsMessageUserQuery) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -3099,49 +3430,49 @@ class _CopyWithImpl$Query$GetAllCsMessageAgentQuery<TRes>
     Object? cs_message = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$GetAllCsMessageAgentQuery(
+      _then(Query$GetAllCsMessageUserQuery(
         cs_message: cs_message == _undefined || cs_message == null
             ? _instance.cs_message
-            : (cs_message as List<Query$GetAllCsMessageAgentQuery$cs_message>),
+            : (cs_message as List<Query$GetAllCsMessageUserQuery$cs_message>),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
   TRes cs_message(
-          Iterable<Query$GetAllCsMessageAgentQuery$cs_message> Function(
+          Iterable<Query$GetAllCsMessageUserQuery$cs_message> Function(
                   Iterable<
-                      CopyWith$Query$GetAllCsMessageAgentQuery$cs_message<
-                          Query$GetAllCsMessageAgentQuery$cs_message>>)
+                      CopyWith$Query$GetAllCsMessageUserQuery$cs_message<
+                          Query$GetAllCsMessageUserQuery$cs_message>>)
               _fn) =>
       call(
           cs_message: _fn(_instance.cs_message
-              .map((e) => CopyWith$Query$GetAllCsMessageAgentQuery$cs_message(
+              .map((e) => CopyWith$Query$GetAllCsMessageUserQuery$cs_message(
                     e,
                     (i) => i,
                   ))).toList());
 }
 
-class _CopyWithStubImpl$Query$GetAllCsMessageAgentQuery<TRes>
-    implements CopyWith$Query$GetAllCsMessageAgentQuery<TRes> {
-  _CopyWithStubImpl$Query$GetAllCsMessageAgentQuery(this._res);
+class _CopyWithStubImpl$Query$GetAllCsMessageUserQuery<TRes>
+    implements CopyWith$Query$GetAllCsMessageUserQuery<TRes> {
+  _CopyWithStubImpl$Query$GetAllCsMessageUserQuery(this._res);
 
   TRes _res;
 
   call({
-    List<Query$GetAllCsMessageAgentQuery$cs_message>? cs_message,
+    List<Query$GetAllCsMessageUserQuery$cs_message>? cs_message,
     String? $__typename,
   }) =>
       _res;
   cs_message(_fn) => _res;
 }
 
-const documentNodeQueryGetAllCsMessageAgentQuery = DocumentNode(definitions: [
+const documentNodeQueryGetAllCsMessageUserQuery = DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.query,
-    name: NameNode(value: 'GetAllCsMessageAgentQuery'),
+    name: NameNode(value: 'GetAllCsMessageUserQuery'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'cs_agent_user_id')),
+        variable: VariableNode(name: NameNode(value: 'user_id')),
         type: NamedTypeNode(
           name: NameNode(value: 'uuid'),
           isNonNull: true,
@@ -3206,8 +3537,7 @@ const documentNodeQueryGetAllCsMessageAgentQuery = DocumentNode(definitions: [
                 value: ObjectValueNode(fields: [
                   ObjectFieldNode(
                     name: NameNode(value: '_eq'),
-                    value:
-                        VariableNode(name: NameNode(value: 'cs_agent_user_id')),
+                    value: VariableNode(name: NameNode(value: 'user_id')),
                   )
                 ]),
               )
@@ -3237,7 +3567,7 @@ const documentNodeQueryGetAllCsMessageAgentQuery = DocumentNode(definitions: [
             directives: [],
           ),
           FieldNode(
-            name: NameNode(value: 'cs_agent'),
+            name: NameNode(value: 'user'),
             alias: null,
             arguments: [],
             directives: [],
@@ -3276,28 +3606,28 @@ const documentNodeQueryGetAllCsMessageAgentQuery = DocumentNode(definitions: [
   fragmentDefinitioncs_messageData,
   fragmentDefinitionuserData,
 ]);
-Query$GetAllCsMessageAgentQuery _parserFn$Query$GetAllCsMessageAgentQuery(
+Query$GetAllCsMessageUserQuery _parserFn$Query$GetAllCsMessageUserQuery(
         Map<String, dynamic> data) =>
-    Query$GetAllCsMessageAgentQuery.fromJson(data);
-typedef OnQueryComplete$Query$GetAllCsMessageAgentQuery = FutureOr<void>
+    Query$GetAllCsMessageUserQuery.fromJson(data);
+typedef OnQueryComplete$Query$GetAllCsMessageUserQuery = FutureOr<void>
     Function(
   Map<String, dynamic>?,
-  Query$GetAllCsMessageAgentQuery?,
+  Query$GetAllCsMessageUserQuery?,
 );
 
-class Options$Query$GetAllCsMessageAgentQuery
-    extends graphql.QueryOptions<Query$GetAllCsMessageAgentQuery> {
-  Options$Query$GetAllCsMessageAgentQuery({
+class Options$Query$GetAllCsMessageUserQuery
+    extends graphql.QueryOptions<Query$GetAllCsMessageUserQuery> {
+  Options$Query$GetAllCsMessageUserQuery({
     String? operationName,
-    required Variables$Query$GetAllCsMessageAgentQuery variables,
+    required Variables$Query$GetAllCsMessageUserQuery variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$GetAllCsMessageAgentQuery? typedOptimisticResult,
+    Query$GetAllCsMessageUserQuery? typedOptimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
-    OnQueryComplete$Query$GetAllCsMessageAgentQuery? onComplete,
+    OnQueryComplete$Query$GetAllCsMessageUserQuery? onComplete,
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
@@ -3315,14 +3645,14 @@ class Options$Query$GetAllCsMessageAgentQuery
                     data,
                     data == null
                         ? null
-                        : _parserFn$Query$GetAllCsMessageAgentQuery(data),
+                        : _parserFn$Query$GetAllCsMessageUserQuery(data),
                   ),
           onError: onError,
-          document: documentNodeQueryGetAllCsMessageAgentQuery,
-          parserFn: _parserFn$Query$GetAllCsMessageAgentQuery,
+          document: documentNodeQueryGetAllCsMessageUserQuery,
+          parserFn: _parserFn$Query$GetAllCsMessageUserQuery,
         );
 
-  final OnQueryComplete$Query$GetAllCsMessageAgentQuery? onCompleteWithParsed;
+  final OnQueryComplete$Query$GetAllCsMessageUserQuery? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -3333,16 +3663,16 @@ class Options$Query$GetAllCsMessageAgentQuery
       ];
 }
 
-class WatchOptions$Query$GetAllCsMessageAgentQuery
-    extends graphql.WatchQueryOptions<Query$GetAllCsMessageAgentQuery> {
-  WatchOptions$Query$GetAllCsMessageAgentQuery({
+class WatchOptions$Query$GetAllCsMessageUserQuery
+    extends graphql.WatchQueryOptions<Query$GetAllCsMessageUserQuery> {
+  WatchOptions$Query$GetAllCsMessageUserQuery({
     String? operationName,
-    required Variables$Query$GetAllCsMessageAgentQuery variables,
+    required Variables$Query$GetAllCsMessageUserQuery variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$GetAllCsMessageAgentQuery? typedOptimisticResult,
+    Query$GetAllCsMessageUserQuery? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
@@ -3356,84 +3686,84 @@ class WatchOptions$Query$GetAllCsMessageAgentQuery
           cacheRereadPolicy: cacheRereadPolicy,
           optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
-          document: documentNodeQueryGetAllCsMessageAgentQuery,
+          document: documentNodeQueryGetAllCsMessageUserQuery,
           pollInterval: pollInterval,
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Query$GetAllCsMessageAgentQuery,
+          parserFn: _parserFn$Query$GetAllCsMessageUserQuery,
         );
 }
 
-class FetchMoreOptions$Query$GetAllCsMessageAgentQuery
+class FetchMoreOptions$Query$GetAllCsMessageUserQuery
     extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$GetAllCsMessageAgentQuery({
+  FetchMoreOptions$Query$GetAllCsMessageUserQuery({
     required graphql.UpdateQuery updateQuery,
-    required Variables$Query$GetAllCsMessageAgentQuery variables,
+    required Variables$Query$GetAllCsMessageUserQuery variables,
   }) : super(
           updateQuery: updateQuery,
           variables: variables.toJson(),
-          document: documentNodeQueryGetAllCsMessageAgentQuery,
+          document: documentNodeQueryGetAllCsMessageUserQuery,
         );
 }
 
-extension ClientExtension$Query$GetAllCsMessageAgentQuery
+extension ClientExtension$Query$GetAllCsMessageUserQuery
     on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$GetAllCsMessageAgentQuery>>
-      query$GetAllCsMessageAgentQuery(
-              Options$Query$GetAllCsMessageAgentQuery options) async =>
+  Future<graphql.QueryResult<Query$GetAllCsMessageUserQuery>>
+      query$GetAllCsMessageUserQuery(
+              Options$Query$GetAllCsMessageUserQuery options) async =>
           await this.query(options);
-  graphql.ObservableQuery<Query$GetAllCsMessageAgentQuery>
-      watchQuery$GetAllCsMessageAgentQuery(
-              WatchOptions$Query$GetAllCsMessageAgentQuery options) =>
+  graphql.ObservableQuery<Query$GetAllCsMessageUserQuery>
+      watchQuery$GetAllCsMessageUserQuery(
+              WatchOptions$Query$GetAllCsMessageUserQuery options) =>
           this.watchQuery(options);
-  void writeQuery$GetAllCsMessageAgentQuery({
-    required Query$GetAllCsMessageAgentQuery data,
-    required Variables$Query$GetAllCsMessageAgentQuery variables,
+  void writeQuery$GetAllCsMessageUserQuery({
+    required Query$GetAllCsMessageUserQuery data,
+    required Variables$Query$GetAllCsMessageUserQuery variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
           operation: graphql.Operation(
-              document: documentNodeQueryGetAllCsMessageAgentQuery),
+              document: documentNodeQueryGetAllCsMessageUserQuery),
           variables: variables.toJson(),
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
-  Query$GetAllCsMessageAgentQuery? readQuery$GetAllCsMessageAgentQuery({
-    required Variables$Query$GetAllCsMessageAgentQuery variables,
+  Query$GetAllCsMessageUserQuery? readQuery$GetAllCsMessageUserQuery({
+    required Variables$Query$GetAllCsMessageUserQuery variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
         operation: graphql.Operation(
-            document: documentNodeQueryGetAllCsMessageAgentQuery),
+            document: documentNodeQueryGetAllCsMessageUserQuery),
         variables: variables.toJson(),
       ),
       optimistic: optimistic,
     );
     return result == null
         ? null
-        : Query$GetAllCsMessageAgentQuery.fromJson(result);
+        : Query$GetAllCsMessageUserQuery.fromJson(result);
   }
 }
 
-graphql_flutter.QueryHookResult<Query$GetAllCsMessageAgentQuery>
-    useQuery$GetAllCsMessageAgentQuery(
-            Options$Query$GetAllCsMessageAgentQuery options) =>
+graphql_flutter.QueryHookResult<Query$GetAllCsMessageUserQuery>
+    useQuery$GetAllCsMessageUserQuery(
+            Options$Query$GetAllCsMessageUserQuery options) =>
         graphql_flutter.useQuery(options);
-graphql.ObservableQuery<Query$GetAllCsMessageAgentQuery>
-    useWatchQuery$GetAllCsMessageAgentQuery(
-            WatchOptions$Query$GetAllCsMessageAgentQuery options) =>
+graphql.ObservableQuery<Query$GetAllCsMessageUserQuery>
+    useWatchQuery$GetAllCsMessageUserQuery(
+            WatchOptions$Query$GetAllCsMessageUserQuery options) =>
         graphql_flutter.useWatchQuery(options);
 
-class Query$GetAllCsMessageAgentQuery$Widget
-    extends graphql_flutter.Query<Query$GetAllCsMessageAgentQuery> {
-  Query$GetAllCsMessageAgentQuery$Widget({
+class Query$GetAllCsMessageUserQuery$Widget
+    extends graphql_flutter.Query<Query$GetAllCsMessageUserQuery> {
+  Query$GetAllCsMessageUserQuery$Widget({
     widgets.Key? key,
-    required Options$Query$GetAllCsMessageAgentQuery options,
-    required graphql_flutter.QueryBuilder<Query$GetAllCsMessageAgentQuery>
+    required Options$Query$GetAllCsMessageUserQuery options,
+    required graphql_flutter.QueryBuilder<Query$GetAllCsMessageUserQuery>
         builder,
   }) : super(
           key: key,
@@ -3442,20 +3772,21 @@ class Query$GetAllCsMessageAgentQuery$Widget
         );
 }
 
-class Query$GetAllCsMessageAgentQuery$cs_message
+class Query$GetAllCsMessageUserQuery$cs_message
     implements Fragment$cs_messageData {
-  Query$GetAllCsMessageAgentQuery$cs_message({
+  Query$GetAllCsMessageUserQuery$cs_message({
     required this.cs_message_id,
-    required this.cs_agent_user_id,
+    this.cs_agent_user_id,
     required this.cs_message_content,
     required this.cs_message_date,
     this.updated_at,
     this.created_at,
+    required this.user_id,
     this.$__typename = 'cs_message',
-    required this.cs_agent,
+    required this.user,
   });
 
-  factory Query$GetAllCsMessageAgentQuery$cs_message.fromJson(
+  factory Query$GetAllCsMessageUserQuery$cs_message.fromJson(
       Map<String, dynamic> json) {
     final l$cs_message_id = json['cs_message_id'];
     final l$cs_agent_user_id = json['cs_agent_user_id'];
@@ -3463,11 +3794,13 @@ class Query$GetAllCsMessageAgentQuery$cs_message
     final l$cs_message_date = json['cs_message_date'];
     final l$updated_at = json['updated_at'];
     final l$created_at = json['created_at'];
+    final l$user_id = json['user_id'];
     final l$$__typename = json['__typename'];
-    final l$cs_agent = json['cs_agent'];
-    return Query$GetAllCsMessageAgentQuery$cs_message(
+    final l$user = json['user'];
+    return Query$GetAllCsMessageUserQuery$cs_message(
       cs_message_id: (l$cs_message_id as int),
-      cs_agent_user_id: uuidFromJson(l$cs_agent_user_id),
+      cs_agent_user_id:
+          l$cs_agent_user_id == null ? null : uuidFromJson(l$cs_agent_user_id),
       cs_message_content: (l$cs_message_content as String),
       cs_message_date: DateTime.parse((l$cs_message_date as String)),
       updated_at: l$updated_at == null
@@ -3476,15 +3809,15 @@ class Query$GetAllCsMessageAgentQuery$cs_message
       created_at: l$created_at == null
           ? null
           : DateTime.parse((l$created_at as String)),
+      user_id: uuidFromJson(l$user_id),
       $__typename: (l$$__typename as String),
-      cs_agent:
-          Fragment$userData.fromJson((l$cs_agent as Map<String, dynamic>)),
+      user: Fragment$userData.fromJson((l$user as Map<String, dynamic>)),
     );
   }
 
   final int cs_message_id;
 
-  final UUID cs_agent_user_id;
+  final UUID? cs_agent_user_id;
 
   final String cs_message_content;
 
@@ -3494,16 +3827,19 @@ class Query$GetAllCsMessageAgentQuery$cs_message
 
   final DateTime? created_at;
 
+  final UUID user_id;
+
   final String $__typename;
 
-  final Fragment$userData cs_agent;
+  final Fragment$userData user;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
     final l$cs_message_id = cs_message_id;
     _resultData['cs_message_id'] = l$cs_message_id;
     final l$cs_agent_user_id = cs_agent_user_id;
-    _resultData['cs_agent_user_id'] = uuidToJson(l$cs_agent_user_id);
+    _resultData['cs_agent_user_id'] =
+        l$cs_agent_user_id == null ? null : uuidToJson(l$cs_agent_user_id);
     final l$cs_message_content = cs_message_content;
     _resultData['cs_message_content'] = l$cs_message_content;
     final l$cs_message_date = cs_message_date;
@@ -3512,10 +3848,12 @@ class Query$GetAllCsMessageAgentQuery$cs_message
     _resultData['updated_at'] = l$updated_at?.toIso8601String();
     final l$created_at = created_at;
     _resultData['created_at'] = l$created_at?.toIso8601String();
+    final l$user_id = user_id;
+    _resultData['user_id'] = uuidToJson(l$user_id);
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
-    final l$cs_agent = cs_agent;
-    _resultData['cs_agent'] = l$cs_agent.toJson();
+    final l$user = user;
+    _resultData['user'] = l$user.toJson();
     return _resultData;
   }
 
@@ -3527,8 +3865,9 @@ class Query$GetAllCsMessageAgentQuery$cs_message
     final l$cs_message_date = cs_message_date;
     final l$updated_at = updated_at;
     final l$created_at = created_at;
+    final l$user_id = user_id;
     final l$$__typename = $__typename;
-    final l$cs_agent = cs_agent;
+    final l$user = user;
     return Object.hashAll([
       l$cs_message_id,
       l$cs_agent_user_id,
@@ -3536,8 +3875,9 @@ class Query$GetAllCsMessageAgentQuery$cs_message
       l$cs_message_date,
       l$updated_at,
       l$created_at,
+      l$user_id,
       l$$__typename,
-      l$cs_agent,
+      l$user,
     ]);
   }
 
@@ -3546,7 +3886,7 @@ class Query$GetAllCsMessageAgentQuery$cs_message
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetAllCsMessageAgentQuery$cs_message) ||
+    if (!(other is Query$GetAllCsMessageUserQuery$cs_message) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3580,38 +3920,43 @@ class Query$GetAllCsMessageAgentQuery$cs_message
     if (l$created_at != lOther$created_at) {
       return false;
     }
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (l$user_id != lOther$user_id) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) {
       return false;
     }
-    final l$cs_agent = cs_agent;
-    final lOther$cs_agent = other.cs_agent;
-    if (l$cs_agent != lOther$cs_agent) {
+    final l$user = user;
+    final lOther$user = other.user;
+    if (l$user != lOther$user) {
       return false;
     }
     return true;
   }
 }
 
-extension UtilityExtension$Query$GetAllCsMessageAgentQuery$cs_message
-    on Query$GetAllCsMessageAgentQuery$cs_message {
-  CopyWith$Query$GetAllCsMessageAgentQuery$cs_message<
-          Query$GetAllCsMessageAgentQuery$cs_message>
-      get copyWith => CopyWith$Query$GetAllCsMessageAgentQuery$cs_message(
+extension UtilityExtension$Query$GetAllCsMessageUserQuery$cs_message
+    on Query$GetAllCsMessageUserQuery$cs_message {
+  CopyWith$Query$GetAllCsMessageUserQuery$cs_message<
+          Query$GetAllCsMessageUserQuery$cs_message>
+      get copyWith => CopyWith$Query$GetAllCsMessageUserQuery$cs_message(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$GetAllCsMessageAgentQuery$cs_message<TRes> {
-  factory CopyWith$Query$GetAllCsMessageAgentQuery$cs_message(
-    Query$GetAllCsMessageAgentQuery$cs_message instance,
-    TRes Function(Query$GetAllCsMessageAgentQuery$cs_message) then,
-  ) = _CopyWithImpl$Query$GetAllCsMessageAgentQuery$cs_message;
+abstract class CopyWith$Query$GetAllCsMessageUserQuery$cs_message<TRes> {
+  factory CopyWith$Query$GetAllCsMessageUserQuery$cs_message(
+    Query$GetAllCsMessageUserQuery$cs_message instance,
+    TRes Function(Query$GetAllCsMessageUserQuery$cs_message) then,
+  ) = _CopyWithImpl$Query$GetAllCsMessageUserQuery$cs_message;
 
-  factory CopyWith$Query$GetAllCsMessageAgentQuery$cs_message.stub(TRes res) =
-      _CopyWithStubImpl$Query$GetAllCsMessageAgentQuery$cs_message;
+  factory CopyWith$Query$GetAllCsMessageUserQuery$cs_message.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetAllCsMessageUserQuery$cs_message;
 
   TRes call({
     int? cs_message_id,
@@ -3620,22 +3965,23 @@ abstract class CopyWith$Query$GetAllCsMessageAgentQuery$cs_message<TRes> {
     DateTime? cs_message_date,
     DateTime? updated_at,
     DateTime? created_at,
+    UUID? user_id,
     String? $__typename,
-    Fragment$userData? cs_agent,
+    Fragment$userData? user,
   });
-  CopyWith$Fragment$userData<TRes> get cs_agent;
+  CopyWith$Fragment$userData<TRes> get user;
 }
 
-class _CopyWithImpl$Query$GetAllCsMessageAgentQuery$cs_message<TRes>
-    implements CopyWith$Query$GetAllCsMessageAgentQuery$cs_message<TRes> {
-  _CopyWithImpl$Query$GetAllCsMessageAgentQuery$cs_message(
+class _CopyWithImpl$Query$GetAllCsMessageUserQuery$cs_message<TRes>
+    implements CopyWith$Query$GetAllCsMessageUserQuery$cs_message<TRes> {
+  _CopyWithImpl$Query$GetAllCsMessageUserQuery$cs_message(
     this._instance,
     this._then,
   );
 
-  final Query$GetAllCsMessageAgentQuery$cs_message _instance;
+  final Query$GetAllCsMessageUserQuery$cs_message _instance;
 
-  final TRes Function(Query$GetAllCsMessageAgentQuery$cs_message) _then;
+  final TRes Function(Query$GetAllCsMessageUserQuery$cs_message) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -3646,17 +3992,17 @@ class _CopyWithImpl$Query$GetAllCsMessageAgentQuery$cs_message<TRes>
     Object? cs_message_date = _undefined,
     Object? updated_at = _undefined,
     Object? created_at = _undefined,
+    Object? user_id = _undefined,
     Object? $__typename = _undefined,
-    Object? cs_agent = _undefined,
+    Object? user = _undefined,
   }) =>
-      _then(Query$GetAllCsMessageAgentQuery$cs_message(
+      _then(Query$GetAllCsMessageUserQuery$cs_message(
         cs_message_id: cs_message_id == _undefined || cs_message_id == null
             ? _instance.cs_message_id
             : (cs_message_id as int),
-        cs_agent_user_id:
-            cs_agent_user_id == _undefined || cs_agent_user_id == null
-                ? _instance.cs_agent_user_id
-                : (cs_agent_user_id as UUID),
+        cs_agent_user_id: cs_agent_user_id == _undefined
+            ? _instance.cs_agent_user_id
+            : (cs_agent_user_id as UUID?),
         cs_message_content:
             cs_message_content == _undefined || cs_message_content == null
                 ? _instance.cs_message_content
@@ -3671,22 +4017,25 @@ class _CopyWithImpl$Query$GetAllCsMessageAgentQuery$cs_message<TRes>
         created_at: created_at == _undefined
             ? _instance.created_at
             : (created_at as DateTime?),
+        user_id: user_id == _undefined || user_id == null
+            ? _instance.user_id
+            : (user_id as UUID),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
-        cs_agent: cs_agent == _undefined || cs_agent == null
-            ? _instance.cs_agent
-            : (cs_agent as Fragment$userData),
+        user: user == _undefined || user == null
+            ? _instance.user
+            : (user as Fragment$userData),
       ));
-  CopyWith$Fragment$userData<TRes> get cs_agent {
-    final local$cs_agent = _instance.cs_agent;
-    return CopyWith$Fragment$userData(local$cs_agent, (e) => call(cs_agent: e));
+  CopyWith$Fragment$userData<TRes> get user {
+    final local$user = _instance.user;
+    return CopyWith$Fragment$userData(local$user, (e) => call(user: e));
   }
 }
 
-class _CopyWithStubImpl$Query$GetAllCsMessageAgentQuery$cs_message<TRes>
-    implements CopyWith$Query$GetAllCsMessageAgentQuery$cs_message<TRes> {
-  _CopyWithStubImpl$Query$GetAllCsMessageAgentQuery$cs_message(this._res);
+class _CopyWithStubImpl$Query$GetAllCsMessageUserQuery$cs_message<TRes>
+    implements CopyWith$Query$GetAllCsMessageUserQuery$cs_message<TRes> {
+  _CopyWithStubImpl$Query$GetAllCsMessageUserQuery$cs_message(this._res);
 
   TRes _res;
 
@@ -3697,10 +4046,11 @@ class _CopyWithStubImpl$Query$GetAllCsMessageAgentQuery$cs_message<TRes>
     DateTime? cs_message_date,
     DateTime? updated_at,
     DateTime? created_at,
+    UUID? user_id,
     String? $__typename,
-    Fragment$userData? cs_agent,
+    Fragment$userData? user,
   }) =>
       _res;
-  CopyWith$Fragment$userData<TRes> get cs_agent =>
+  CopyWith$Fragment$userData<TRes> get user =>
       CopyWith$Fragment$userData.stub(_res);
 }

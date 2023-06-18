@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
+import 'package:tubes_promvis_kelompok_8/src/helpers/auth.dart';
+import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/blog_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/csmessage_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/customer_message_page.dart';
-import 'package:tubes_promvis_kelompok_8/src/pages/dashboard_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/home_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/login_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/logout_page.dart';
+import 'package:tubes_promvis_kelompok_8/src/pages/portofolio_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/profile_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/proposal_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/register_page.dart';
@@ -14,6 +17,7 @@ import 'package:tubes_promvis_kelompok_8/src/pages/sample_item_details_page.dart
 import 'package:tubes_promvis_kelompok_8/src/pages/sample_item_list_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/settings_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/view_proposal_page.dart';
+import 'package:tubes_promvis_kelompok_8/src/providers/auth/app_auth_state.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/customer_role_type.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/route_params_type.dart';
 import 'package:tubes_promvis_kelompok_8/src/widgets/layout/app_shell.dart';
@@ -23,86 +27,204 @@ class AppRouter {
   static final _shellNavigatorKey = GlobalKey<NavigatorState>();
   static final routes = [
     RouteParams(
-        path: '/',
-        builder: (context, state) => const HomePage(),
-        private: false),
+      name: 'home',
+      path: '/',
+      builder: (context, state) => const HomePage(),
+      allowedRoles: [],
+    ),
     RouteParams(
-        path: '/sample_item',
-        builder: (context, state) => const SampleItemListPage(),
-        private: false),
+      name: 'sample item list',
+      path: '/sample_item',
+      builder: (context, state) => const SampleItemListPage(),
+      allowedRoles: [],
+    ),
     RouteParams(
-        path: '/sample_item/:id',
-        builder: (context, state) => const SampleItemDetailsPage(),
-        private: false),
-     RouteParams(
-        path: '/customer_service',
-        builder: (context, state) => const CSPage(),
-        private: false),
+      name: 'sample item detail',
+      path: '/sample_item/:id',
+      builder: (context, state) => const SampleItemDetailsPage(),
+      allowedRoles: [],
+    ),
     RouteParams(
-        path: '/customer_message',
-        builder: (context, state) => CustomerMessagePage(),
-        private: false),
+      name: 'customer service',
+      path: '/customer_service',
+      builder: (context, state) => const CSPage(),
+      allowedRoles: ['me'],
+    ),
     RouteParams(
-        path: '/settings',
-        builder: (context, state) => const SettingsPage(),
-        private: false),
+      name: 'cs dashboard',
+      path: '/customer_message',
+      builder: (context, state) => const CustomerMessagePage(),
+      allowedRoles: ['cs', 'admin'],
+    ),
     RouteParams(
-        path: '/register',
-        builder: (context, state) =>
-            const RegisterPage(type: CustomerRoleType.Investor),
-        private: false),
+      name: 'settings',
+      path: '/settings',
+      builder: (context, state) => SettingsPage(),
+      allowedRoles: [],
+    ),
     RouteParams(
-        path: '/register/:type',
-        builder: (context, state) => RegisterPage(
-            type: CustomerRoleType.values
-                .byName(state.pathParameters['type'] ?? "Investor")),
-        private: false),
+      name: 'register default',
+      path: '/register',
+      redirect: '/register/${CustomerRoleType.Investor}',
+      builder: (context, state) =>
+          const RegisterPage(type: CustomerRoleType.Investor),
+      allowedRoles: [],
+    ),
     RouteParams(
-        path: '/login',
-        builder: (context, state) => const LoginPage(),
-        private: false),
+      name: 'register',
+      path: '/register/:type',
+      builder: (context, state) => RegisterPage(
+          type: CustomerRoleType.values
+              .byName(state.pathParameters['type'] ?? "Investor")),
+      allowedRoles: [],
+    ),
     RouteParams(
-        path: '/submit_proposal',
-        builder: (context, state) => const ProposalPage(),
-        private: false),
+      name: 'login',
+      path: '/login',
+      builder: (context, state) => const LoginPage(),
+      allowedRoles: [],
+    ),
     RouteParams(
-        path: '/view_proposal',
-        builder: (context, state) => const ViewProposalPage(),
-        private: false),
+      name: 'create proposal',
+      path: '/create_proposal',
+      builder: (context, state) => const ProposalPage(),
+      allowedRoles: ['umkm', 'admin', 'cs'],
+    ),
     RouteParams(
-        path: '/blog',
-        builder: (context, state) => const BlogPage(),
-        private: false),
+      name: 'view proposal',
+      path: '/view_proposal',
+      builder: (context, state) => const ViewProposalPage(),
+      allowedRoles: ['umkm', 'investor', 'admin', 'cs'],
+    ),
     RouteParams(
-        path: '/dashboard',
-        builder: (context, state) => const DashboardPage(),
-        private: true),
+      name: 'blog',
+      path: '/blog',
+      builder: (context, state) => const BlogPage(),
+      allowedRoles: [],
+    ),
     RouteParams(
-        path: '/logout',
-        builder: (context, state) => const LogoutPage(),
-        private: true),
+      name: 'logout',
+      path: '/logout',
+      builder: (context, state) => const LogoutPage(),
+      allowedRoles: [],
+    ),
     RouteParams(
-        path: '/profile',
-        builder: (context, state) => const ProfilePage(),
-        private: true),
+      name: 'profile',
+      path: '/profile',
+      builder: (context, state) => const ProfilePage(),
+      allowedRoles: ['me'],
+    ),
+    RouteParams(
+      name: 'portofolio',
+      path: '/portofolio',
+      builder: (context, state) => const PortofolioPage(),
+      allowedRoles: ['umkm', 'investor', 'cs', 'admin'],
+    ),
   ];
   static final routeSet = routes.toSet();
-  static final _router = GoRouter(
-    navigatorKey: _rootNavigatorKey,
-    initialLocation: '/',
-    routes: [
-      ShellRoute(
-        navigatorKey: _shellNavigatorKey,
-        builder: (context, state, child) {
-          return AppShell(
-            child: child,
-          );
-        },
-        routes: routes
-            .map((e) => GoRoute(path: e.path, builder: e.builder))
-            .toList(),
-      )
-    ],
-  );
-  static GoRouter get router => _router;
+
+  static List<GoRoute> getRoutes(List<RouteParams> routeParams) {
+    return routeParams.map((routeParam) {
+      return GoRoute(
+          name: routeParam.name,
+          path: routeParam.path,
+          builder: routeParam.builder,
+          routes: getRoutes(routeParam.children));
+    }).toList();
+  }
+
+  // deprecate
+  // static Iterable<RouteParams> whereRouteParams(
+  //     List<RouteParams> routeParams, bool Function(RouteParams) callback) {
+  //   final siblingResult = routeParams.where((element) => callback(element));
+  //   final childrenResult = routeParams
+  //       .map((e) => whereRouteParams(e.children, callback))
+  //       .reduce((value, element) => [...value, ...element]);
+  //   return [...siblingResult, ...childrenResult];
+  // }
+
+  static GoRouter getRouter(AppAuthState appAuthState) {
+    final router = GoRouter(
+      navigatorKey: _rootNavigatorKey,
+      initialLocation: '/',
+      routes: [
+        ShellRoute(
+          navigatorKey: _shellNavigatorKey,
+          builder: (context, state, child) {
+            return AppShell(
+              child: child,
+            );
+          },
+          routes: getRoutes(routes),
+        )
+      ],
+      redirect: (context, state) {
+        final loginLoc = state.namedLocation('login');
+        final homeLoc = state.namedLocation('home');
+        final fromLoc = state.queryParameters['from'];
+        final redirectError = state.error;
+        if (redirectError != null) {
+          Logger.talker.error(redirectError);
+        }
+        // ignore: unnecessary_nullable_for_final_variable_declarations
+        final RouteParams? routeParam;
+        {
+          final routeParams = state.fullPath != null
+              ? routes.where((routeParams) {
+                  return routeParams.path == state.fullPath;
+                })
+              : routes.where((routeParams) => homeLoc == routeParams.path);
+          if (routeParams.isEmpty) {
+            throw Exception('routeParams in AppRouter.getRouter() is empty');
+          }
+          routeParam = routeParams.first;
+        }
+
+        final auth = NhostAuthProvider.of(context);
+        if (auth == null) {
+          throw Exception(
+              'auth is null in route params builder of path ${routeParam.path}');
+        }
+
+        Logger.talker.info("###### in redirect ${routeParam.path} ######");
+        final authState = appAuthState.authState;
+        String? redirectTo;
+        Logger.talker.info("###### authState ${authState.toString()} ######");
+        switch (authState) {
+          case AuthenticationState.signedIn:
+            if (routeParam.name == 'login') {
+              redirectTo = fromLoc ?? homeLoc;
+            } else if (routeParam.allowedRoles.isNotEmpty &&
+                !isRoleAppAuthState(appAuthState, routeParam.allowedRoles)) {
+              Logger.talker.log(
+                  'route ${routeParam.path} is restricted, redirecting to home. allowed roles (${routeParam.allowedRoles.join(', ')})');
+              redirectTo = homeLoc;
+            } else {
+              Logger.talker.log('user passed authguard signed in');
+            }
+            break;
+          case AuthenticationState.signedOut:
+            if (routeParam.name == 'logout') {
+              redirectTo = fromLoc ?? homeLoc;
+            } else if (routeParam.allowedRoles.isNotEmpty) {
+              Logger.talker.log(
+                  'route ${routeParam.path} is private, redirecting to login. allowed roles (${routeParam.allowedRoles.join(', ')})');
+              redirectTo = loginLoc;
+            } else {
+              Logger.talker.log('user passed authguard signed out');
+            }
+            break;
+          default:
+            Logger.talker.error(auth);
+        }
+
+        Logger.talker.info("###### redirectTo $redirectTo ######");
+        Logger.talker.info("###### out redirect ${routeParam.path} ######");
+
+        return redirectTo;
+      },
+      redirectLimit: 6,
+    );
+    return router;
+  }
 }

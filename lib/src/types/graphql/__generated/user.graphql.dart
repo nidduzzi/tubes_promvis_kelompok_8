@@ -468,7 +468,7 @@ class _CopyWithStubImpl$Fragment$userData$roles<TRes>
 
 class Fragment$userProfile {
   Fragment$userProfile({
-    required this.profile,
+    this.profile,
     this.$__typename = 'users',
   });
 
@@ -476,22 +476,21 @@ class Fragment$userProfile {
     final l$profile = json['profile'];
     final l$$__typename = json['__typename'];
     return Fragment$userProfile(
-      profile: (l$profile as List<dynamic>)
-          .map(
-              (e) => Fragment$profileData.fromJson((e as Map<String, dynamic>)))
-          .toList(),
+      profile: l$profile == null
+          ? null
+          : Fragment$profileData.fromJson((l$profile as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final List<Fragment$profileData> profile;
+  final Fragment$profileData? profile;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
     final l$profile = profile;
-    _resultData['profile'] = l$profile.map((e) => e.toJson()).toList();
+    _resultData['profile'] = l$profile?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -502,7 +501,7 @@ class Fragment$userProfile {
     final l$profile = profile;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      Object.hashAll(l$profile.map((v) => v)),
+      l$profile,
       l$$__typename,
     ]);
   }
@@ -517,15 +516,8 @@ class Fragment$userProfile {
     }
     final l$profile = profile;
     final lOther$profile = other.profile;
-    if (l$profile.length != lOther$profile.length) {
+    if (l$profile != lOther$profile) {
       return false;
-    }
-    for (int i = 0; i < l$profile.length; i++) {
-      final l$profile$entry = l$profile[i];
-      final lOther$profile$entry = lOther$profile[i];
-      if (l$profile$entry != lOther$profile$entry) {
-        return false;
-      }
     }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
@@ -554,13 +546,10 @@ abstract class CopyWith$Fragment$userProfile<TRes> {
       _CopyWithStubImpl$Fragment$userProfile;
 
   TRes call({
-    List<Fragment$profileData>? profile,
+    Fragment$profileData? profile,
     String? $__typename,
   });
-  TRes profile(
-      Iterable<Fragment$profileData> Function(
-              Iterable<CopyWith$Fragment$profileData<Fragment$profileData>>)
-          _fn);
+  CopyWith$Fragment$profileData<TRes> get profile;
 }
 
 class _CopyWithImpl$Fragment$userProfile<TRes>
@@ -581,23 +570,19 @@ class _CopyWithImpl$Fragment$userProfile<TRes>
     Object? $__typename = _undefined,
   }) =>
       _then(Fragment$userProfile(
-        profile: profile == _undefined || profile == null
+        profile: profile == _undefined
             ? _instance.profile
-            : (profile as List<Fragment$profileData>),
+            : (profile as Fragment$profileData?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  TRes profile(
-          Iterable<Fragment$profileData> Function(
-                  Iterable<CopyWith$Fragment$profileData<Fragment$profileData>>)
-              _fn) =>
-      call(
-          profile:
-              _fn(_instance.profile.map((e) => CopyWith$Fragment$profileData(
-                    e,
-                    (i) => i,
-                  ))).toList());
+  CopyWith$Fragment$profileData<TRes> get profile {
+    final local$profile = _instance.profile;
+    return local$profile == null
+        ? CopyWith$Fragment$profileData.stub(_then(_instance))
+        : CopyWith$Fragment$profileData(local$profile, (e) => call(profile: e));
+  }
 }
 
 class _CopyWithStubImpl$Fragment$userProfile<TRes>
@@ -607,11 +592,12 @@ class _CopyWithStubImpl$Fragment$userProfile<TRes>
   TRes _res;
 
   call({
-    List<Fragment$profileData>? profile,
+    Fragment$profileData? profile,
     String? $__typename,
   }) =>
       _res;
-  profile(_fn) => _res;
+  CopyWith$Fragment$profileData<TRes> get profile =>
+      CopyWith$Fragment$profileData.stub(_res);
 }
 
 const fragmentDefinitionuserProfile = FragmentDefinitionNode(
@@ -1182,7 +1168,7 @@ class Query$GetUserByPkQuery$users
     required this.defaultRole,
     required this.roles,
     this.$__typename = 'users',
-    required this.profile,
+    this.profile,
   });
 
   factory Query$GetUserByPkQuery$users.fromJson(Map<String, dynamic> json) {
@@ -1203,10 +1189,9 @@ class Query$GetUserByPkQuery$users
               (e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
-      profile: (l$profile as List<dynamic>)
-          .map(
-              (e) => Fragment$profileData.fromJson((e as Map<String, dynamic>)))
-          .toList(),
+      profile: l$profile == null
+          ? null
+          : Fragment$profileData.fromJson((l$profile as Map<String, dynamic>)),
     );
   }
 
@@ -1222,7 +1207,7 @@ class Query$GetUserByPkQuery$users
 
   final String $__typename;
 
-  final List<Fragment$profileData> profile;
+  final Fragment$profileData? profile;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
@@ -1239,7 +1224,7 @@ class Query$GetUserByPkQuery$users
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     final l$profile = profile;
-    _resultData['profile'] = l$profile.map((e) => e.toJson()).toList();
+    _resultData['profile'] = l$profile?.toJson();
     return _resultData;
   }
 
@@ -1259,7 +1244,7 @@ class Query$GetUserByPkQuery$users
       l$defaultRole,
       Object.hashAll(l$roles.map((v) => v)),
       l$$__typename,
-      Object.hashAll(l$profile.map((v) => v)),
+      l$profile,
     ]);
   }
 
@@ -1311,15 +1296,8 @@ class Query$GetUserByPkQuery$users
     }
     final l$profile = profile;
     final lOther$profile = other.profile;
-    if (l$profile.length != lOther$profile.length) {
+    if (l$profile != lOther$profile) {
       return false;
-    }
-    for (int i = 0; i < l$profile.length; i++) {
-      final l$profile$entry = l$profile[i];
-      final lOther$profile$entry = lOther$profile[i];
-      if (l$profile$entry != lOther$profile$entry) {
-        return false;
-      }
     }
     return true;
   }
@@ -1350,7 +1328,7 @@ abstract class CopyWith$Query$GetUserByPkQuery$users<TRes> {
     String? defaultRole,
     List<Query$GetUserByPkQuery$users$roles>? roles,
     String? $__typename,
-    List<Fragment$profileData>? profile,
+    Fragment$profileData? profile,
   });
   TRes roles(
       Iterable<Query$GetUserByPkQuery$users$roles> Function(
@@ -1358,10 +1336,7 @@ abstract class CopyWith$Query$GetUserByPkQuery$users<TRes> {
                   CopyWith$Query$GetUserByPkQuery$users$roles<
                       Query$GetUserByPkQuery$users$roles>>)
           _fn);
-  TRes profile(
-      Iterable<Fragment$profileData> Function(
-              Iterable<CopyWith$Fragment$profileData<Fragment$profileData>>)
-          _fn);
+  CopyWith$Fragment$profileData<TRes> get profile;
 }
 
 class _CopyWithImpl$Query$GetUserByPkQuery$users<TRes>
@@ -1401,9 +1376,9 @@ class _CopyWithImpl$Query$GetUserByPkQuery$users<TRes>
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
-        profile: profile == _undefined || profile == null
+        profile: profile == _undefined
             ? _instance.profile
-            : (profile as List<Fragment$profileData>),
+            : (profile as Fragment$profileData?),
       ));
   TRes roles(
           Iterable<Query$GetUserByPkQuery$users$roles> Function(
@@ -1417,16 +1392,12 @@ class _CopyWithImpl$Query$GetUserByPkQuery$users<TRes>
                     e,
                     (i) => i,
                   ))).toList());
-  TRes profile(
-          Iterable<Fragment$profileData> Function(
-                  Iterable<CopyWith$Fragment$profileData<Fragment$profileData>>)
-              _fn) =>
-      call(
-          profile:
-              _fn(_instance.profile.map((e) => CopyWith$Fragment$profileData(
-                    e,
-                    (i) => i,
-                  ))).toList());
+  CopyWith$Fragment$profileData<TRes> get profile {
+    final local$profile = _instance.profile;
+    return local$profile == null
+        ? CopyWith$Fragment$profileData.stub(_then(_instance))
+        : CopyWith$Fragment$profileData(local$profile, (e) => call(profile: e));
+  }
 }
 
 class _CopyWithStubImpl$Query$GetUserByPkQuery$users<TRes>
@@ -1442,11 +1413,12 @@ class _CopyWithStubImpl$Query$GetUserByPkQuery$users<TRes>
     String? defaultRole,
     List<Query$GetUserByPkQuery$users$roles>? roles,
     String? $__typename,
-    List<Fragment$profileData>? profile,
+    Fragment$profileData? profile,
   }) =>
       _res;
   roles(_fn) => _res;
-  profile(_fn) => _res;
+  CopyWith$Fragment$profileData<TRes> get profile =>
+      CopyWith$Fragment$profileData.stub(_res);
 }
 
 class Query$GetUserByPkQuery$users$roles implements Fragment$userData$roles {

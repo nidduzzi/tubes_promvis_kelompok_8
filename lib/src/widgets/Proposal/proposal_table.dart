@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/proposal.graphql.dart';
 
 class ProposalTable extends StatelessWidget {
-  final List<dynamic>? listProposal;
+  final List<Fragment$proposalData>? listProposal;
 
   const ProposalTable({Key? key, this.listProposal}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final dateFormat = DateFormat.yMd(); // Date format for displaying dates
-
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey),
@@ -23,7 +21,8 @@ class ProposalTable extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: DataTable(
                   columns: [
-                    const DataColumn(label: Text('UMKM')), // Column for "Date Created"
+                    const DataColumn(
+                        label: Text('UMKM')), // Column for "Date Created"
                     DataColumn(
                       label: SizedBox(
                         width: MediaQuery.of(context).size.width * 0.8,
@@ -34,23 +33,25 @@ class ProposalTable extends StatelessWidget {
                       ),
                     ),
                   ],
-                  rows: listProposal?.map<DataRow>((Proposal) {
-                    return DataRow(
-                      cells: [
-                        DataCell(
-                          Center(
-                            child: Text(Proposal.umkm_id.toString()),
-                          ),
-                        ),
-                        DataCell(
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.6,
-                            child: Text(Proposal.proposal_content.toString()),
-                          ),
-                        ),
-                      ],
-                    );
-                  }).toList() ?? [],
+                  rows: listProposal?.map<DataRow>((proposal) {
+                        return DataRow(
+                          cells: [
+                            DataCell(
+                              Center(
+                                child: Text(proposal.umkm_id.toString()),
+                              ),
+                            ),
+                            DataCell(
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.6,
+                                child:
+                                    Text(proposal.proposal_content.toString()),
+                              ),
+                            ),
+                          ],
+                        );
+                      }).toList() ??
+                      [],
                 ),
               ),
             ),

@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:tubes_promvis_kelompok_8/src/helpers/navigation.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/customer_role_type.dart';
+import 'package:tubes_promvis_kelompok_8/src/widgets/layout/app_header.dart';
 import 'package:tubes_promvis_kelompok_8/src/widgets/profile/account_info_form.dart';
 import 'package:tubes_promvis_kelompok_8/src/widgets/profile/investor_form.dart';
 import 'package:tubes_promvis_kelompok_8/src/widgets/profile/profile_form.dart';
@@ -25,8 +26,7 @@ class RegisterPage extends HookWidget implements RegisterPageParams {
     goTo(context, '/register/${type.toShortString()}');
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Widget _pageBuild(BuildContext context) {
     final tabIndex = useState(0);
 
     final handleCancel = useCallback(() {
@@ -120,5 +120,10 @@ class RegisterPage extends HookWidget implements RegisterPageParams {
             )
           ],
         ));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AppHeader(title: "Register", child: _pageBuild(context));
   }
 }

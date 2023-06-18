@@ -33138,6 +33138,8 @@ class Input$cs_message_bool_exp {
     Input$date_comparison_exp? cs_message_date,
     Input$Int_comparison_exp? cs_message_id,
     Input$timestamptz_comparison_exp? updated_at,
+    Input$users_bool_exp? user,
+    Input$uuid_comparison_exp? user_id,
   }) =>
       Input$cs_message_bool_exp._({
         if ($_and != null) r'_and': $_and,
@@ -33151,6 +33153,8 @@ class Input$cs_message_bool_exp {
         if (cs_message_date != null) r'cs_message_date': cs_message_date,
         if (cs_message_id != null) r'cs_message_id': cs_message_id,
         if (updated_at != null) r'updated_at': updated_at,
+        if (user != null) r'user': user,
+        if (user_id != null) r'user_id': user_id,
       });
 
   Input$cs_message_bool_exp._(this._$data);
@@ -33226,6 +33230,19 @@ class Input$cs_message_bool_exp {
           : Input$timestamptz_comparison_exp.fromJson(
               (l$updated_at as Map<String, dynamic>));
     }
+    if (data.containsKey('user')) {
+      final l$user = data['user'];
+      result$data['user'] = l$user == null
+          ? null
+          : Input$users_bool_exp.fromJson((l$user as Map<String, dynamic>));
+    }
+    if (data.containsKey('user_id')) {
+      final l$user_id = data['user_id'];
+      result$data['user_id'] = l$user_id == null
+          ? null
+          : Input$uuid_comparison_exp.fromJson(
+              (l$user_id as Map<String, dynamic>));
+    }
     return Input$cs_message_bool_exp._(result$data);
   }
 
@@ -33251,6 +33268,9 @@ class Input$cs_message_bool_exp {
       (_$data['cs_message_id'] as Input$Int_comparison_exp?);
   Input$timestamptz_comparison_exp? get updated_at =>
       (_$data['updated_at'] as Input$timestamptz_comparison_exp?);
+  Input$users_bool_exp? get user => (_$data['user'] as Input$users_bool_exp?);
+  Input$uuid_comparison_exp? get user_id =>
+      (_$data['user_id'] as Input$uuid_comparison_exp?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('_and')) {
@@ -33292,6 +33312,14 @@ class Input$cs_message_bool_exp {
     if (_$data.containsKey('updated_at')) {
       final l$updated_at = updated_at;
       result$data['updated_at'] = l$updated_at?.toJson();
+    }
+    if (_$data.containsKey('user')) {
+      final l$user = user;
+      result$data['user'] = l$user?.toJson();
+    }
+    if (_$data.containsKey('user_id')) {
+      final l$user_id = user_id;
+      result$data['user_id'] = l$user_id?.toJson();
     }
     return result$data;
   }
@@ -33419,6 +33447,22 @@ class Input$cs_message_bool_exp {
     if (l$updated_at != lOther$updated_at) {
       return false;
     }
+    final l$user = user;
+    final lOther$user = other.user;
+    if (_$data.containsKey('user') != other._$data.containsKey('user')) {
+      return false;
+    }
+    if (l$user != lOther$user) {
+      return false;
+    }
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (_$data.containsKey('user_id') != other._$data.containsKey('user_id')) {
+      return false;
+    }
+    if (l$user_id != lOther$user_id) {
+      return false;
+    }
     return true;
   }
 
@@ -33434,6 +33478,8 @@ class Input$cs_message_bool_exp {
     final l$cs_message_date = cs_message_date;
     final l$cs_message_id = cs_message_id;
     final l$updated_at = updated_at;
+    final l$user = user;
+    final l$user_id = user_id;
     return Object.hashAll([
       _$data.containsKey('_and')
           ? l$$_and == null
@@ -33455,6 +33501,8 @@ class Input$cs_message_bool_exp {
       _$data.containsKey('cs_message_date') ? l$cs_message_date : const {},
       _$data.containsKey('cs_message_id') ? l$cs_message_id : const {},
       _$data.containsKey('updated_at') ? l$updated_at : const {},
+      _$data.containsKey('user') ? l$user : const {},
+      _$data.containsKey('user_id') ? l$user_id : const {},
     ]);
   }
 }
@@ -33479,6 +33527,8 @@ abstract class CopyWith$Input$cs_message_bool_exp<TRes> {
     Input$date_comparison_exp? cs_message_date,
     Input$Int_comparison_exp? cs_message_id,
     Input$timestamptz_comparison_exp? updated_at,
+    Input$users_bool_exp? user,
+    Input$uuid_comparison_exp? user_id,
   });
   TRes $_and(
       Iterable<Input$cs_message_bool_exp>? Function(
@@ -33500,6 +33550,8 @@ abstract class CopyWith$Input$cs_message_bool_exp<TRes> {
   CopyWith$Input$date_comparison_exp<TRes> get cs_message_date;
   CopyWith$Input$Int_comparison_exp<TRes> get cs_message_id;
   CopyWith$Input$timestamptz_comparison_exp<TRes> get updated_at;
+  CopyWith$Input$users_bool_exp<TRes> get user;
+  CopyWith$Input$uuid_comparison_exp<TRes> get user_id;
 }
 
 class _CopyWithImpl$Input$cs_message_bool_exp<TRes>
@@ -33526,6 +33578,8 @@ class _CopyWithImpl$Input$cs_message_bool_exp<TRes>
     Object? cs_message_date = _undefined,
     Object? cs_message_id = _undefined,
     Object? updated_at = _undefined,
+    Object? user = _undefined,
+    Object? user_id = _undefined,
   }) =>
       _then(Input$cs_message_bool_exp._({
         ..._instance._$data,
@@ -33549,6 +33603,9 @@ class _CopyWithImpl$Input$cs_message_bool_exp<TRes>
           'cs_message_id': (cs_message_id as Input$Int_comparison_exp?),
         if (updated_at != _undefined)
           'updated_at': (updated_at as Input$timestamptz_comparison_exp?),
+        if (user != _undefined) 'user': (user as Input$users_bool_exp?),
+        if (user_id != _undefined)
+          'user_id': (user_id as Input$uuid_comparison_exp?),
       }));
   TRes $_and(
           Iterable<Input$cs_message_bool_exp>? Function(
@@ -33637,6 +33694,21 @@ class _CopyWithImpl$Input$cs_message_bool_exp<TRes>
         : CopyWith$Input$timestamptz_comparison_exp(
             local$updated_at, (e) => call(updated_at: e));
   }
+
+  CopyWith$Input$users_bool_exp<TRes> get user {
+    final local$user = _instance.user;
+    return local$user == null
+        ? CopyWith$Input$users_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$users_bool_exp(local$user, (e) => call(user: e));
+  }
+
+  CopyWith$Input$uuid_comparison_exp<TRes> get user_id {
+    final local$user_id = _instance.user_id;
+    return local$user_id == null
+        ? CopyWith$Input$uuid_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$uuid_comparison_exp(
+            local$user_id, (e) => call(user_id: e));
+  }
 }
 
 class _CopyWithStubImpl$Input$cs_message_bool_exp<TRes>
@@ -33656,6 +33728,8 @@ class _CopyWithStubImpl$Input$cs_message_bool_exp<TRes>
     Input$date_comparison_exp? cs_message_date,
     Input$Int_comparison_exp? cs_message_id,
     Input$timestamptz_comparison_exp? updated_at,
+    Input$users_bool_exp? user,
+    Input$uuid_comparison_exp? user_id,
   }) =>
       _res;
   $_and(_fn) => _res;
@@ -33676,6 +33750,10 @@ class _CopyWithStubImpl$Input$cs_message_bool_exp<TRes>
       CopyWith$Input$Int_comparison_exp.stub(_res);
   CopyWith$Input$timestamptz_comparison_exp<TRes> get updated_at =>
       CopyWith$Input$timestamptz_comparison_exp.stub(_res);
+  CopyWith$Input$users_bool_exp<TRes> get user =>
+      CopyWith$Input$users_bool_exp.stub(_res);
+  CopyWith$Input$uuid_comparison_exp<TRes> get user_id =>
+      CopyWith$Input$uuid_comparison_exp.stub(_res);
 }
 
 class Input$cs_message_insert_input {
@@ -33686,6 +33764,8 @@ class Input$cs_message_insert_input {
     String? cs_message_content,
     DateTime? cs_message_date,
     DateTime? updated_at,
+    Input$users_obj_rel_insert_input? user,
+    UUID? user_id,
   }) =>
       Input$cs_message_insert_input._({
         if (created_at != null) r'created_at': created_at,
@@ -33695,6 +33775,8 @@ class Input$cs_message_insert_input {
           r'cs_message_content': cs_message_content,
         if (cs_message_date != null) r'cs_message_date': cs_message_date,
         if (updated_at != null) r'updated_at': updated_at,
+        if (user != null) r'user': user,
+        if (user_id != null) r'user_id': user_id,
       });
 
   Input$cs_message_insert_input._(this._$data);
@@ -33735,6 +33817,18 @@ class Input$cs_message_insert_input {
           ? null
           : DateTime.parse((l$updated_at as String));
     }
+    if (data.containsKey('user')) {
+      final l$user = data['user'];
+      result$data['user'] = l$user == null
+          ? null
+          : Input$users_obj_rel_insert_input.fromJson(
+              (l$user as Map<String, dynamic>));
+    }
+    if (data.containsKey('user_id')) {
+      final l$user_id = data['user_id'];
+      result$data['user_id'] =
+          l$user_id == null ? null : uuidFromJson(l$user_id);
+    }
     return Input$cs_message_insert_input._(result$data);
   }
 
@@ -33747,6 +33841,9 @@ class Input$cs_message_insert_input {
   String? get cs_message_content => (_$data['cs_message_content'] as String?);
   DateTime? get cs_message_date => (_$data['cs_message_date'] as DateTime?);
   DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
+  Input$users_obj_rel_insert_input? get user =>
+      (_$data['user'] as Input$users_obj_rel_insert_input?);
+  UUID? get user_id => (_$data['user_id'] as UUID?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('created_at')) {
@@ -33773,6 +33870,14 @@ class Input$cs_message_insert_input {
     if (_$data.containsKey('updated_at')) {
       final l$updated_at = updated_at;
       result$data['updated_at'] = l$updated_at?.toIso8601String();
+    }
+    if (_$data.containsKey('user')) {
+      final l$user = user;
+      result$data['user'] = l$user?.toJson();
+    }
+    if (_$data.containsKey('user_id')) {
+      final l$user_id = user_id;
+      result$data['user_id'] = l$user_id == null ? null : uuidToJson(l$user_id);
     }
     return result$data;
   }
@@ -33845,6 +33950,22 @@ class Input$cs_message_insert_input {
     if (l$updated_at != lOther$updated_at) {
       return false;
     }
+    final l$user = user;
+    final lOther$user = other.user;
+    if (_$data.containsKey('user') != other._$data.containsKey('user')) {
+      return false;
+    }
+    if (l$user != lOther$user) {
+      return false;
+    }
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (_$data.containsKey('user_id') != other._$data.containsKey('user_id')) {
+      return false;
+    }
+    if (l$user_id != lOther$user_id) {
+      return false;
+    }
     return true;
   }
 
@@ -33856,6 +33977,8 @@ class Input$cs_message_insert_input {
     final l$cs_message_content = cs_message_content;
     final l$cs_message_date = cs_message_date;
     final l$updated_at = updated_at;
+    final l$user = user;
+    final l$user_id = user_id;
     return Object.hashAll([
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('cs_agent') ? l$cs_agent : const {},
@@ -33865,6 +33988,8 @@ class Input$cs_message_insert_input {
           : const {},
       _$data.containsKey('cs_message_date') ? l$cs_message_date : const {},
       _$data.containsKey('updated_at') ? l$updated_at : const {},
+      _$data.containsKey('user') ? l$user : const {},
+      _$data.containsKey('user_id') ? l$user_id : const {},
     ]);
   }
 }
@@ -33885,8 +34010,11 @@ abstract class CopyWith$Input$cs_message_insert_input<TRes> {
     String? cs_message_content,
     DateTime? cs_message_date,
     DateTime? updated_at,
+    Input$users_obj_rel_insert_input? user,
+    UUID? user_id,
   });
   CopyWith$Input$users_obj_rel_insert_input<TRes> get cs_agent;
+  CopyWith$Input$users_obj_rel_insert_input<TRes> get user;
 }
 
 class _CopyWithImpl$Input$cs_message_insert_input<TRes>
@@ -33909,6 +34037,8 @@ class _CopyWithImpl$Input$cs_message_insert_input<TRes>
     Object? cs_message_content = _undefined,
     Object? cs_message_date = _undefined,
     Object? updated_at = _undefined,
+    Object? user = _undefined,
+    Object? user_id = _undefined,
   }) =>
       _then(Input$cs_message_insert_input._({
         ..._instance._$data,
@@ -33922,6 +34052,9 @@ class _CopyWithImpl$Input$cs_message_insert_input<TRes>
         if (cs_message_date != _undefined)
           'cs_message_date': (cs_message_date as DateTime?),
         if (updated_at != _undefined) 'updated_at': (updated_at as DateTime?),
+        if (user != _undefined)
+          'user': (user as Input$users_obj_rel_insert_input?),
+        if (user_id != _undefined) 'user_id': (user_id as UUID?),
       }));
   CopyWith$Input$users_obj_rel_insert_input<TRes> get cs_agent {
     final local$cs_agent = _instance.cs_agent;
@@ -33929,6 +34062,14 @@ class _CopyWithImpl$Input$cs_message_insert_input<TRes>
         ? CopyWith$Input$users_obj_rel_insert_input.stub(_then(_instance))
         : CopyWith$Input$users_obj_rel_insert_input(
             local$cs_agent, (e) => call(cs_agent: e));
+  }
+
+  CopyWith$Input$users_obj_rel_insert_input<TRes> get user {
+    final local$user = _instance.user;
+    return local$user == null
+        ? CopyWith$Input$users_obj_rel_insert_input.stub(_then(_instance))
+        : CopyWith$Input$users_obj_rel_insert_input(
+            local$user, (e) => call(user: e));
   }
 }
 
@@ -33945,9 +34086,13 @@ class _CopyWithStubImpl$Input$cs_message_insert_input<TRes>
     String? cs_message_content,
     DateTime? cs_message_date,
     DateTime? updated_at,
+    Input$users_obj_rel_insert_input? user,
+    UUID? user_id,
   }) =>
       _res;
   CopyWith$Input$users_obj_rel_insert_input<TRes> get cs_agent =>
+      CopyWith$Input$users_obj_rel_insert_input.stub(_res);
+  CopyWith$Input$users_obj_rel_insert_input<TRes> get user =>
       CopyWith$Input$users_obj_rel_insert_input.stub(_res);
 }
 
@@ -33959,6 +34104,7 @@ class Input$cs_message_max_order_by {
     Enum$order_by? cs_message_date,
     Enum$order_by? cs_message_id,
     Enum$order_by? updated_at,
+    Enum$order_by? user_id,
   }) =>
       Input$cs_message_max_order_by._({
         if (created_at != null) r'created_at': created_at,
@@ -33968,6 +34114,7 @@ class Input$cs_message_max_order_by {
         if (cs_message_date != null) r'cs_message_date': cs_message_date,
         if (cs_message_id != null) r'cs_message_id': cs_message_id,
         if (updated_at != null) r'updated_at': updated_at,
+        if (user_id != null) r'user_id': user_id,
       });
 
   Input$cs_message_max_order_by._(this._$data);
@@ -34010,6 +34157,12 @@ class Input$cs_message_max_order_by {
           ? null
           : fromJson$Enum$order_by((l$updated_at as String));
     }
+    if (data.containsKey('user_id')) {
+      final l$user_id = data['user_id'];
+      result$data['user_id'] = l$user_id == null
+          ? null
+          : fromJson$Enum$order_by((l$user_id as String));
+    }
     return Input$cs_message_max_order_by._(result$data);
   }
 
@@ -34025,6 +34178,7 @@ class Input$cs_message_max_order_by {
   Enum$order_by? get cs_message_id =>
       (_$data['cs_message_id'] as Enum$order_by?);
   Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
+  Enum$order_by? get user_id => (_$data['user_id'] as Enum$order_by?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('created_at')) {
@@ -34060,6 +34214,11 @@ class Input$cs_message_max_order_by {
       final l$updated_at = updated_at;
       result$data['updated_at'] =
           l$updated_at == null ? null : toJson$Enum$order_by(l$updated_at);
+    }
+    if (_$data.containsKey('user_id')) {
+      final l$user_id = user_id;
+      result$data['user_id'] =
+          l$user_id == null ? null : toJson$Enum$order_by(l$user_id);
     }
     return result$data;
   }
@@ -34132,6 +34291,14 @@ class Input$cs_message_max_order_by {
     if (l$updated_at != lOther$updated_at) {
       return false;
     }
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (_$data.containsKey('user_id') != other._$data.containsKey('user_id')) {
+      return false;
+    }
+    if (l$user_id != lOther$user_id) {
+      return false;
+    }
     return true;
   }
 
@@ -34143,6 +34310,7 @@ class Input$cs_message_max_order_by {
     final l$cs_message_date = cs_message_date;
     final l$cs_message_id = cs_message_id;
     final l$updated_at = updated_at;
+    final l$user_id = user_id;
     return Object.hashAll([
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('cs_agent_user_id') ? l$cs_agent_user_id : const {},
@@ -34152,6 +34320,7 @@ class Input$cs_message_max_order_by {
       _$data.containsKey('cs_message_date') ? l$cs_message_date : const {},
       _$data.containsKey('cs_message_id') ? l$cs_message_id : const {},
       _$data.containsKey('updated_at') ? l$updated_at : const {},
+      _$data.containsKey('user_id') ? l$user_id : const {},
     ]);
   }
 }
@@ -34172,6 +34341,7 @@ abstract class CopyWith$Input$cs_message_max_order_by<TRes> {
     Enum$order_by? cs_message_date,
     Enum$order_by? cs_message_id,
     Enum$order_by? updated_at,
+    Enum$order_by? user_id,
   });
 }
 
@@ -34195,6 +34365,7 @@ class _CopyWithImpl$Input$cs_message_max_order_by<TRes>
     Object? cs_message_date = _undefined,
     Object? cs_message_id = _undefined,
     Object? updated_at = _undefined,
+    Object? user_id = _undefined,
   }) =>
       _then(Input$cs_message_max_order_by._({
         ..._instance._$data,
@@ -34210,6 +34381,7 @@ class _CopyWithImpl$Input$cs_message_max_order_by<TRes>
           'cs_message_id': (cs_message_id as Enum$order_by?),
         if (updated_at != _undefined)
           'updated_at': (updated_at as Enum$order_by?),
+        if (user_id != _undefined) 'user_id': (user_id as Enum$order_by?),
       }));
 }
 
@@ -34226,6 +34398,7 @@ class _CopyWithStubImpl$Input$cs_message_max_order_by<TRes>
     Enum$order_by? cs_message_date,
     Enum$order_by? cs_message_id,
     Enum$order_by? updated_at,
+    Enum$order_by? user_id,
   }) =>
       _res;
 }
@@ -34238,6 +34411,7 @@ class Input$cs_message_min_order_by {
     Enum$order_by? cs_message_date,
     Enum$order_by? cs_message_id,
     Enum$order_by? updated_at,
+    Enum$order_by? user_id,
   }) =>
       Input$cs_message_min_order_by._({
         if (created_at != null) r'created_at': created_at,
@@ -34247,6 +34421,7 @@ class Input$cs_message_min_order_by {
         if (cs_message_date != null) r'cs_message_date': cs_message_date,
         if (cs_message_id != null) r'cs_message_id': cs_message_id,
         if (updated_at != null) r'updated_at': updated_at,
+        if (user_id != null) r'user_id': user_id,
       });
 
   Input$cs_message_min_order_by._(this._$data);
@@ -34289,6 +34464,12 @@ class Input$cs_message_min_order_by {
           ? null
           : fromJson$Enum$order_by((l$updated_at as String));
     }
+    if (data.containsKey('user_id')) {
+      final l$user_id = data['user_id'];
+      result$data['user_id'] = l$user_id == null
+          ? null
+          : fromJson$Enum$order_by((l$user_id as String));
+    }
     return Input$cs_message_min_order_by._(result$data);
   }
 
@@ -34304,6 +34485,7 @@ class Input$cs_message_min_order_by {
   Enum$order_by? get cs_message_id =>
       (_$data['cs_message_id'] as Enum$order_by?);
   Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
+  Enum$order_by? get user_id => (_$data['user_id'] as Enum$order_by?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('created_at')) {
@@ -34339,6 +34521,11 @@ class Input$cs_message_min_order_by {
       final l$updated_at = updated_at;
       result$data['updated_at'] =
           l$updated_at == null ? null : toJson$Enum$order_by(l$updated_at);
+    }
+    if (_$data.containsKey('user_id')) {
+      final l$user_id = user_id;
+      result$data['user_id'] =
+          l$user_id == null ? null : toJson$Enum$order_by(l$user_id);
     }
     return result$data;
   }
@@ -34411,6 +34598,14 @@ class Input$cs_message_min_order_by {
     if (l$updated_at != lOther$updated_at) {
       return false;
     }
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (_$data.containsKey('user_id') != other._$data.containsKey('user_id')) {
+      return false;
+    }
+    if (l$user_id != lOther$user_id) {
+      return false;
+    }
     return true;
   }
 
@@ -34422,6 +34617,7 @@ class Input$cs_message_min_order_by {
     final l$cs_message_date = cs_message_date;
     final l$cs_message_id = cs_message_id;
     final l$updated_at = updated_at;
+    final l$user_id = user_id;
     return Object.hashAll([
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('cs_agent_user_id') ? l$cs_agent_user_id : const {},
@@ -34431,6 +34627,7 @@ class Input$cs_message_min_order_by {
       _$data.containsKey('cs_message_date') ? l$cs_message_date : const {},
       _$data.containsKey('cs_message_id') ? l$cs_message_id : const {},
       _$data.containsKey('updated_at') ? l$updated_at : const {},
+      _$data.containsKey('user_id') ? l$user_id : const {},
     ]);
   }
 }
@@ -34451,6 +34648,7 @@ abstract class CopyWith$Input$cs_message_min_order_by<TRes> {
     Enum$order_by? cs_message_date,
     Enum$order_by? cs_message_id,
     Enum$order_by? updated_at,
+    Enum$order_by? user_id,
   });
 }
 
@@ -34474,6 +34672,7 @@ class _CopyWithImpl$Input$cs_message_min_order_by<TRes>
     Object? cs_message_date = _undefined,
     Object? cs_message_id = _undefined,
     Object? updated_at = _undefined,
+    Object? user_id = _undefined,
   }) =>
       _then(Input$cs_message_min_order_by._({
         ..._instance._$data,
@@ -34489,6 +34688,7 @@ class _CopyWithImpl$Input$cs_message_min_order_by<TRes>
           'cs_message_id': (cs_message_id as Enum$order_by?),
         if (updated_at != _undefined)
           'updated_at': (updated_at as Enum$order_by?),
+        if (user_id != _undefined) 'user_id': (user_id as Enum$order_by?),
       }));
 }
 
@@ -34505,6 +34705,7 @@ class _CopyWithStubImpl$Input$cs_message_min_order_by<TRes>
     Enum$order_by? cs_message_date,
     Enum$order_by? cs_message_id,
     Enum$order_by? updated_at,
+    Enum$order_by? user_id,
   }) =>
       _res;
 }
@@ -34698,6 +34899,8 @@ class Input$cs_message_order_by {
     Enum$order_by? cs_message_date,
     Enum$order_by? cs_message_id,
     Enum$order_by? updated_at,
+    Input$users_order_by? user,
+    Enum$order_by? user_id,
   }) =>
       Input$cs_message_order_by._({
         if (created_at != null) r'created_at': created_at,
@@ -34708,6 +34911,8 @@ class Input$cs_message_order_by {
         if (cs_message_date != null) r'cs_message_date': cs_message_date,
         if (cs_message_id != null) r'cs_message_id': cs_message_id,
         if (updated_at != null) r'updated_at': updated_at,
+        if (user != null) r'user': user,
+        if (user_id != null) r'user_id': user_id,
       });
 
   Input$cs_message_order_by._(this._$data);
@@ -34756,6 +34961,18 @@ class Input$cs_message_order_by {
           ? null
           : fromJson$Enum$order_by((l$updated_at as String));
     }
+    if (data.containsKey('user')) {
+      final l$user = data['user'];
+      result$data['user'] = l$user == null
+          ? null
+          : Input$users_order_by.fromJson((l$user as Map<String, dynamic>));
+    }
+    if (data.containsKey('user_id')) {
+      final l$user_id = data['user_id'];
+      result$data['user_id'] = l$user_id == null
+          ? null
+          : fromJson$Enum$order_by((l$user_id as String));
+    }
     return Input$cs_message_order_by._(result$data);
   }
 
@@ -34773,6 +34990,8 @@ class Input$cs_message_order_by {
   Enum$order_by? get cs_message_id =>
       (_$data['cs_message_id'] as Enum$order_by?);
   Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
+  Input$users_order_by? get user => (_$data['user'] as Input$users_order_by?);
+  Enum$order_by? get user_id => (_$data['user_id'] as Enum$order_by?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('created_at')) {
@@ -34812,6 +35031,15 @@ class Input$cs_message_order_by {
       final l$updated_at = updated_at;
       result$data['updated_at'] =
           l$updated_at == null ? null : toJson$Enum$order_by(l$updated_at);
+    }
+    if (_$data.containsKey('user')) {
+      final l$user = user;
+      result$data['user'] = l$user?.toJson();
+    }
+    if (_$data.containsKey('user_id')) {
+      final l$user_id = user_id;
+      result$data['user_id'] =
+          l$user_id == null ? null : toJson$Enum$order_by(l$user_id);
     }
     return result$data;
   }
@@ -34893,6 +35121,22 @@ class Input$cs_message_order_by {
     if (l$updated_at != lOther$updated_at) {
       return false;
     }
+    final l$user = user;
+    final lOther$user = other.user;
+    if (_$data.containsKey('user') != other._$data.containsKey('user')) {
+      return false;
+    }
+    if (l$user != lOther$user) {
+      return false;
+    }
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (_$data.containsKey('user_id') != other._$data.containsKey('user_id')) {
+      return false;
+    }
+    if (l$user_id != lOther$user_id) {
+      return false;
+    }
     return true;
   }
 
@@ -34905,6 +35149,8 @@ class Input$cs_message_order_by {
     final l$cs_message_date = cs_message_date;
     final l$cs_message_id = cs_message_id;
     final l$updated_at = updated_at;
+    final l$user = user;
+    final l$user_id = user_id;
     return Object.hashAll([
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('cs_agent') ? l$cs_agent : const {},
@@ -34915,6 +35161,8 @@ class Input$cs_message_order_by {
       _$data.containsKey('cs_message_date') ? l$cs_message_date : const {},
       _$data.containsKey('cs_message_id') ? l$cs_message_id : const {},
       _$data.containsKey('updated_at') ? l$updated_at : const {},
+      _$data.containsKey('user') ? l$user : const {},
+      _$data.containsKey('user_id') ? l$user_id : const {},
     ]);
   }
 }
@@ -34936,8 +35184,11 @@ abstract class CopyWith$Input$cs_message_order_by<TRes> {
     Enum$order_by? cs_message_date,
     Enum$order_by? cs_message_id,
     Enum$order_by? updated_at,
+    Input$users_order_by? user,
+    Enum$order_by? user_id,
   });
   CopyWith$Input$users_order_by<TRes> get cs_agent;
+  CopyWith$Input$users_order_by<TRes> get user;
 }
 
 class _CopyWithImpl$Input$cs_message_order_by<TRes>
@@ -34961,6 +35212,8 @@ class _CopyWithImpl$Input$cs_message_order_by<TRes>
     Object? cs_message_date = _undefined,
     Object? cs_message_id = _undefined,
     Object? updated_at = _undefined,
+    Object? user = _undefined,
+    Object? user_id = _undefined,
   }) =>
       _then(Input$cs_message_order_by._({
         ..._instance._$data,
@@ -34978,6 +35231,8 @@ class _CopyWithImpl$Input$cs_message_order_by<TRes>
           'cs_message_id': (cs_message_id as Enum$order_by?),
         if (updated_at != _undefined)
           'updated_at': (updated_at as Enum$order_by?),
+        if (user != _undefined) 'user': (user as Input$users_order_by?),
+        if (user_id != _undefined) 'user_id': (user_id as Enum$order_by?),
       }));
   CopyWith$Input$users_order_by<TRes> get cs_agent {
     final local$cs_agent = _instance.cs_agent;
@@ -34985,6 +35240,13 @@ class _CopyWithImpl$Input$cs_message_order_by<TRes>
         ? CopyWith$Input$users_order_by.stub(_then(_instance))
         : CopyWith$Input$users_order_by(
             local$cs_agent, (e) => call(cs_agent: e));
+  }
+
+  CopyWith$Input$users_order_by<TRes> get user {
+    final local$user = _instance.user;
+    return local$user == null
+        ? CopyWith$Input$users_order_by.stub(_then(_instance))
+        : CopyWith$Input$users_order_by(local$user, (e) => call(user: e));
   }
 }
 
@@ -35002,9 +35264,13 @@ class _CopyWithStubImpl$Input$cs_message_order_by<TRes>
     Enum$order_by? cs_message_date,
     Enum$order_by? cs_message_id,
     Enum$order_by? updated_at,
+    Input$users_order_by? user,
+    Enum$order_by? user_id,
   }) =>
       _res;
   CopyWith$Input$users_order_by<TRes> get cs_agent =>
+      CopyWith$Input$users_order_by.stub(_res);
+  CopyWith$Input$users_order_by<TRes> get user =>
       CopyWith$Input$users_order_by.stub(_res);
 }
 
@@ -35112,6 +35378,7 @@ class Input$cs_message_set_input {
     String? cs_message_content,
     DateTime? cs_message_date,
     DateTime? updated_at,
+    UUID? user_id,
   }) =>
       Input$cs_message_set_input._({
         if (created_at != null) r'created_at': created_at,
@@ -35120,6 +35387,7 @@ class Input$cs_message_set_input {
           r'cs_message_content': cs_message_content,
         if (cs_message_date != null) r'cs_message_date': cs_message_date,
         if (updated_at != null) r'updated_at': updated_at,
+        if (user_id != null) r'user_id': user_id,
       });
 
   Input$cs_message_set_input._(this._$data);
@@ -35153,6 +35421,11 @@ class Input$cs_message_set_input {
           ? null
           : DateTime.parse((l$updated_at as String));
     }
+    if (data.containsKey('user_id')) {
+      final l$user_id = data['user_id'];
+      result$data['user_id'] =
+          l$user_id == null ? null : uuidFromJson(l$user_id);
+    }
     return Input$cs_message_set_input._(result$data);
   }
 
@@ -35163,6 +35436,7 @@ class Input$cs_message_set_input {
   String? get cs_message_content => (_$data['cs_message_content'] as String?);
   DateTime? get cs_message_date => (_$data['cs_message_date'] as DateTime?);
   DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
+  UUID? get user_id => (_$data['user_id'] as UUID?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('created_at')) {
@@ -35185,6 +35459,10 @@ class Input$cs_message_set_input {
     if (_$data.containsKey('updated_at')) {
       final l$updated_at = updated_at;
       result$data['updated_at'] = l$updated_at?.toIso8601String();
+    }
+    if (_$data.containsKey('user_id')) {
+      final l$user_id = user_id;
+      result$data['user_id'] = l$user_id == null ? null : uuidToJson(l$user_id);
     }
     return result$data;
   }
@@ -35248,6 +35526,14 @@ class Input$cs_message_set_input {
     if (l$updated_at != lOther$updated_at) {
       return false;
     }
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (_$data.containsKey('user_id') != other._$data.containsKey('user_id')) {
+      return false;
+    }
+    if (l$user_id != lOther$user_id) {
+      return false;
+    }
     return true;
   }
 
@@ -35258,6 +35544,7 @@ class Input$cs_message_set_input {
     final l$cs_message_content = cs_message_content;
     final l$cs_message_date = cs_message_date;
     final l$updated_at = updated_at;
+    final l$user_id = user_id;
     return Object.hashAll([
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('cs_agent_user_id') ? l$cs_agent_user_id : const {},
@@ -35266,6 +35553,7 @@ class Input$cs_message_set_input {
           : const {},
       _$data.containsKey('cs_message_date') ? l$cs_message_date : const {},
       _$data.containsKey('updated_at') ? l$updated_at : const {},
+      _$data.containsKey('user_id') ? l$user_id : const {},
     ]);
   }
 }
@@ -35285,6 +35573,7 @@ abstract class CopyWith$Input$cs_message_set_input<TRes> {
     String? cs_message_content,
     DateTime? cs_message_date,
     DateTime? updated_at,
+    UUID? user_id,
   });
 }
 
@@ -35307,6 +35596,7 @@ class _CopyWithImpl$Input$cs_message_set_input<TRes>
     Object? cs_message_content = _undefined,
     Object? cs_message_date = _undefined,
     Object? updated_at = _undefined,
+    Object? user_id = _undefined,
   }) =>
       _then(Input$cs_message_set_input._({
         ..._instance._$data,
@@ -35318,6 +35608,7 @@ class _CopyWithImpl$Input$cs_message_set_input<TRes>
         if (cs_message_date != _undefined)
           'cs_message_date': (cs_message_date as DateTime?),
         if (updated_at != _undefined) 'updated_at': (updated_at as DateTime?),
+        if (user_id != _undefined) 'user_id': (user_id as UUID?),
       }));
 }
 
@@ -35333,6 +35624,7 @@ class _CopyWithStubImpl$Input$cs_message_set_input<TRes>
     String? cs_message_content,
     DateTime? cs_message_date,
     DateTime? updated_at,
+    UUID? user_id,
   }) =>
       _res;
 }
@@ -35833,6 +36125,7 @@ class Input$cs_message_stream_cursor_value_input {
     DateTime? cs_message_date,
     int? cs_message_id,
     DateTime? updated_at,
+    UUID? user_id,
   }) =>
       Input$cs_message_stream_cursor_value_input._({
         if (created_at != null) r'created_at': created_at,
@@ -35842,6 +36135,7 @@ class Input$cs_message_stream_cursor_value_input {
         if (cs_message_date != null) r'cs_message_date': cs_message_date,
         if (cs_message_id != null) r'cs_message_id': cs_message_id,
         if (updated_at != null) r'updated_at': updated_at,
+        if (user_id != null) r'user_id': user_id,
       });
 
   Input$cs_message_stream_cursor_value_input._(this._$data);
@@ -35880,6 +36174,11 @@ class Input$cs_message_stream_cursor_value_input {
           ? null
           : DateTime.parse((l$updated_at as String));
     }
+    if (data.containsKey('user_id')) {
+      final l$user_id = data['user_id'];
+      result$data['user_id'] =
+          l$user_id == null ? null : uuidFromJson(l$user_id);
+    }
     return Input$cs_message_stream_cursor_value_input._(result$data);
   }
 
@@ -35891,6 +36190,7 @@ class Input$cs_message_stream_cursor_value_input {
   DateTime? get cs_message_date => (_$data['cs_message_date'] as DateTime?);
   int? get cs_message_id => (_$data['cs_message_id'] as int?);
   DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
+  UUID? get user_id => (_$data['user_id'] as UUID?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('created_at')) {
@@ -35917,6 +36217,10 @@ class Input$cs_message_stream_cursor_value_input {
     if (_$data.containsKey('updated_at')) {
       final l$updated_at = updated_at;
       result$data['updated_at'] = l$updated_at?.toIso8601String();
+    }
+    if (_$data.containsKey('user_id')) {
+      final l$user_id = user_id;
+      result$data['user_id'] = l$user_id == null ? null : uuidToJson(l$user_id);
     }
     return result$data;
   }
@@ -35990,6 +36294,14 @@ class Input$cs_message_stream_cursor_value_input {
     if (l$updated_at != lOther$updated_at) {
       return false;
     }
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (_$data.containsKey('user_id') != other._$data.containsKey('user_id')) {
+      return false;
+    }
+    if (l$user_id != lOther$user_id) {
+      return false;
+    }
     return true;
   }
 
@@ -36001,6 +36313,7 @@ class Input$cs_message_stream_cursor_value_input {
     final l$cs_message_date = cs_message_date;
     final l$cs_message_id = cs_message_id;
     final l$updated_at = updated_at;
+    final l$user_id = user_id;
     return Object.hashAll([
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('cs_agent_user_id') ? l$cs_agent_user_id : const {},
@@ -36010,6 +36323,7 @@ class Input$cs_message_stream_cursor_value_input {
       _$data.containsKey('cs_message_date') ? l$cs_message_date : const {},
       _$data.containsKey('cs_message_id') ? l$cs_message_id : const {},
       _$data.containsKey('updated_at') ? l$updated_at : const {},
+      _$data.containsKey('user_id') ? l$user_id : const {},
     ]);
   }
 }
@@ -36030,6 +36344,7 @@ abstract class CopyWith$Input$cs_message_stream_cursor_value_input<TRes> {
     DateTime? cs_message_date,
     int? cs_message_id,
     DateTime? updated_at,
+    UUID? user_id,
   });
 }
 
@@ -36053,6 +36368,7 @@ class _CopyWithImpl$Input$cs_message_stream_cursor_value_input<TRes>
     Object? cs_message_date = _undefined,
     Object? cs_message_id = _undefined,
     Object? updated_at = _undefined,
+    Object? user_id = _undefined,
   }) =>
       _then(Input$cs_message_stream_cursor_value_input._({
         ..._instance._$data,
@@ -36066,6 +36382,7 @@ class _CopyWithImpl$Input$cs_message_stream_cursor_value_input<TRes>
         if (cs_message_id != _undefined)
           'cs_message_id': (cs_message_id as int?),
         if (updated_at != _undefined) 'updated_at': (updated_at as DateTime?),
+        if (user_id != _undefined) 'user_id': (user_id as UUID?),
       }));
 }
 
@@ -36082,6 +36399,7 @@ class _CopyWithStubImpl$Input$cs_message_stream_cursor_value_input<TRes>
     DateTime? cs_message_date,
     int? cs_message_id,
     DateTime? updated_at,
+    UUID? user_id,
   }) =>
       _res;
 }
@@ -48838,1217 +49156,6 @@ class _CopyWithStubImpl$Input$investment_variance_order_by<TRes>
       _res;
 }
 
-class Input$investor_aggregate_bool_exp {
-  factory Input$investor_aggregate_bool_exp(
-          {Input$investor_aggregate_bool_exp_count? count}) =>
-      Input$investor_aggregate_bool_exp._({
-        if (count != null) r'count': count,
-      });
-
-  Input$investor_aggregate_bool_exp._(this._$data);
-
-  factory Input$investor_aggregate_bool_exp.fromJson(
-      Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('count')) {
-      final l$count = data['count'];
-      result$data['count'] = l$count == null
-          ? null
-          : Input$investor_aggregate_bool_exp_count.fromJson(
-              (l$count as Map<String, dynamic>));
-    }
-    return Input$investor_aggregate_bool_exp._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Input$investor_aggregate_bool_exp_count? get count =>
-      (_$data['count'] as Input$investor_aggregate_bool_exp_count?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('count')) {
-      final l$count = count;
-      result$data['count'] = l$count?.toJson();
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$investor_aggregate_bool_exp<Input$investor_aggregate_bool_exp>
-      get copyWith => CopyWith$Input$investor_aggregate_bool_exp(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$investor_aggregate_bool_exp) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$count = count;
-    final lOther$count = other.count;
-    if (_$data.containsKey('count') != other._$data.containsKey('count')) {
-      return false;
-    }
-    if (l$count != lOther$count) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$count = count;
-    return Object.hashAll([_$data.containsKey('count') ? l$count : const {}]);
-  }
-}
-
-abstract class CopyWith$Input$investor_aggregate_bool_exp<TRes> {
-  factory CopyWith$Input$investor_aggregate_bool_exp(
-    Input$investor_aggregate_bool_exp instance,
-    TRes Function(Input$investor_aggregate_bool_exp) then,
-  ) = _CopyWithImpl$Input$investor_aggregate_bool_exp;
-
-  factory CopyWith$Input$investor_aggregate_bool_exp.stub(TRes res) =
-      _CopyWithStubImpl$Input$investor_aggregate_bool_exp;
-
-  TRes call({Input$investor_aggregate_bool_exp_count? count});
-  CopyWith$Input$investor_aggregate_bool_exp_count<TRes> get count;
-}
-
-class _CopyWithImpl$Input$investor_aggregate_bool_exp<TRes>
-    implements CopyWith$Input$investor_aggregate_bool_exp<TRes> {
-  _CopyWithImpl$Input$investor_aggregate_bool_exp(
-    this._instance,
-    this._then,
-  );
-
-  final Input$investor_aggregate_bool_exp _instance;
-
-  final TRes Function(Input$investor_aggregate_bool_exp) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? count = _undefined}) =>
-      _then(Input$investor_aggregate_bool_exp._({
-        ..._instance._$data,
-        if (count != _undefined)
-          'count': (count as Input$investor_aggregate_bool_exp_count?),
-      }));
-  CopyWith$Input$investor_aggregate_bool_exp_count<TRes> get count {
-    final local$count = _instance.count;
-    return local$count == null
-        ? CopyWith$Input$investor_aggregate_bool_exp_count.stub(
-            _then(_instance))
-        : CopyWith$Input$investor_aggregate_bool_exp_count(
-            local$count, (e) => call(count: e));
-  }
-}
-
-class _CopyWithStubImpl$Input$investor_aggregate_bool_exp<TRes>
-    implements CopyWith$Input$investor_aggregate_bool_exp<TRes> {
-  _CopyWithStubImpl$Input$investor_aggregate_bool_exp(this._res);
-
-  TRes _res;
-
-  call({Input$investor_aggregate_bool_exp_count? count}) => _res;
-  CopyWith$Input$investor_aggregate_bool_exp_count<TRes> get count =>
-      CopyWith$Input$investor_aggregate_bool_exp_count.stub(_res);
-}
-
-class Input$investor_aggregate_bool_exp_count {
-  factory Input$investor_aggregate_bool_exp_count({
-    List<Enum$investor_select_column>? arguments,
-    bool? distinct,
-    Input$investor_bool_exp? filter,
-    required Input$Int_comparison_exp predicate,
-  }) =>
-      Input$investor_aggregate_bool_exp_count._({
-        if (arguments != null) r'arguments': arguments,
-        if (distinct != null) r'distinct': distinct,
-        if (filter != null) r'filter': filter,
-        r'predicate': predicate,
-      });
-
-  Input$investor_aggregate_bool_exp_count._(this._$data);
-
-  factory Input$investor_aggregate_bool_exp_count.fromJson(
-      Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('arguments')) {
-      final l$arguments = data['arguments'];
-      result$data['arguments'] = (l$arguments as List<dynamic>?)
-          ?.map((e) => fromJson$Enum$investor_select_column((e as String)))
-          .toList();
-    }
-    if (data.containsKey('distinct')) {
-      final l$distinct = data['distinct'];
-      result$data['distinct'] = (l$distinct as bool?);
-    }
-    if (data.containsKey('filter')) {
-      final l$filter = data['filter'];
-      result$data['filter'] = l$filter == null
-          ? null
-          : Input$investor_bool_exp.fromJson(
-              (l$filter as Map<String, dynamic>));
-    }
-    final l$predicate = data['predicate'];
-    result$data['predicate'] = Input$Int_comparison_exp.fromJson(
-        (l$predicate as Map<String, dynamic>));
-    return Input$investor_aggregate_bool_exp_count._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  List<Enum$investor_select_column>? get arguments =>
-      (_$data['arguments'] as List<Enum$investor_select_column>?);
-  bool? get distinct => (_$data['distinct'] as bool?);
-  Input$investor_bool_exp? get filter =>
-      (_$data['filter'] as Input$investor_bool_exp?);
-  Input$Int_comparison_exp get predicate =>
-      (_$data['predicate'] as Input$Int_comparison_exp);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('arguments')) {
-      final l$arguments = arguments;
-      result$data['arguments'] = l$arguments
-          ?.map((e) => toJson$Enum$investor_select_column(e))
-          .toList();
-    }
-    if (_$data.containsKey('distinct')) {
-      final l$distinct = distinct;
-      result$data['distinct'] = l$distinct;
-    }
-    if (_$data.containsKey('filter')) {
-      final l$filter = filter;
-      result$data['filter'] = l$filter?.toJson();
-    }
-    final l$predicate = predicate;
-    result$data['predicate'] = l$predicate.toJson();
-    return result$data;
-  }
-
-  CopyWith$Input$investor_aggregate_bool_exp_count<
-          Input$investor_aggregate_bool_exp_count>
-      get copyWith => CopyWith$Input$investor_aggregate_bool_exp_count(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$investor_aggregate_bool_exp_count) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$arguments = arguments;
-    final lOther$arguments = other.arguments;
-    if (_$data.containsKey('arguments') !=
-        other._$data.containsKey('arguments')) {
-      return false;
-    }
-    if (l$arguments != null && lOther$arguments != null) {
-      if (l$arguments.length != lOther$arguments.length) {
-        return false;
-      }
-      for (int i = 0; i < l$arguments.length; i++) {
-        final l$arguments$entry = l$arguments[i];
-        final lOther$arguments$entry = lOther$arguments[i];
-        if (l$arguments$entry != lOther$arguments$entry) {
-          return false;
-        }
-      }
-    } else if (l$arguments != lOther$arguments) {
-      return false;
-    }
-    final l$distinct = distinct;
-    final lOther$distinct = other.distinct;
-    if (_$data.containsKey('distinct') !=
-        other._$data.containsKey('distinct')) {
-      return false;
-    }
-    if (l$distinct != lOther$distinct) {
-      return false;
-    }
-    final l$filter = filter;
-    final lOther$filter = other.filter;
-    if (_$data.containsKey('filter') != other._$data.containsKey('filter')) {
-      return false;
-    }
-    if (l$filter != lOther$filter) {
-      return false;
-    }
-    final l$predicate = predicate;
-    final lOther$predicate = other.predicate;
-    if (l$predicate != lOther$predicate) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$arguments = arguments;
-    final l$distinct = distinct;
-    final l$filter = filter;
-    final l$predicate = predicate;
-    return Object.hashAll([
-      _$data.containsKey('arguments')
-          ? l$arguments == null
-              ? null
-              : Object.hashAll(l$arguments.map((v) => v))
-          : const {},
-      _$data.containsKey('distinct') ? l$distinct : const {},
-      _$data.containsKey('filter') ? l$filter : const {},
-      l$predicate,
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$investor_aggregate_bool_exp_count<TRes> {
-  factory CopyWith$Input$investor_aggregate_bool_exp_count(
-    Input$investor_aggregate_bool_exp_count instance,
-    TRes Function(Input$investor_aggregate_bool_exp_count) then,
-  ) = _CopyWithImpl$Input$investor_aggregate_bool_exp_count;
-
-  factory CopyWith$Input$investor_aggregate_bool_exp_count.stub(TRes res) =
-      _CopyWithStubImpl$Input$investor_aggregate_bool_exp_count;
-
-  TRes call({
-    List<Enum$investor_select_column>? arguments,
-    bool? distinct,
-    Input$investor_bool_exp? filter,
-    Input$Int_comparison_exp? predicate,
-  });
-  CopyWith$Input$investor_bool_exp<TRes> get filter;
-  CopyWith$Input$Int_comparison_exp<TRes> get predicate;
-}
-
-class _CopyWithImpl$Input$investor_aggregate_bool_exp_count<TRes>
-    implements CopyWith$Input$investor_aggregate_bool_exp_count<TRes> {
-  _CopyWithImpl$Input$investor_aggregate_bool_exp_count(
-    this._instance,
-    this._then,
-  );
-
-  final Input$investor_aggregate_bool_exp_count _instance;
-
-  final TRes Function(Input$investor_aggregate_bool_exp_count) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? arguments = _undefined,
-    Object? distinct = _undefined,
-    Object? filter = _undefined,
-    Object? predicate = _undefined,
-  }) =>
-      _then(Input$investor_aggregate_bool_exp_count._({
-        ..._instance._$data,
-        if (arguments != _undefined)
-          'arguments': (arguments as List<Enum$investor_select_column>?),
-        if (distinct != _undefined) 'distinct': (distinct as bool?),
-        if (filter != _undefined)
-          'filter': (filter as Input$investor_bool_exp?),
-        if (predicate != _undefined && predicate != null)
-          'predicate': (predicate as Input$Int_comparison_exp),
-      }));
-  CopyWith$Input$investor_bool_exp<TRes> get filter {
-    final local$filter = _instance.filter;
-    return local$filter == null
-        ? CopyWith$Input$investor_bool_exp.stub(_then(_instance))
-        : CopyWith$Input$investor_bool_exp(
-            local$filter, (e) => call(filter: e));
-  }
-
-  CopyWith$Input$Int_comparison_exp<TRes> get predicate {
-    final local$predicate = _instance.predicate;
-    return CopyWith$Input$Int_comparison_exp(
-        local$predicate, (e) => call(predicate: e));
-  }
-}
-
-class _CopyWithStubImpl$Input$investor_aggregate_bool_exp_count<TRes>
-    implements CopyWith$Input$investor_aggregate_bool_exp_count<TRes> {
-  _CopyWithStubImpl$Input$investor_aggregate_bool_exp_count(this._res);
-
-  TRes _res;
-
-  call({
-    List<Enum$investor_select_column>? arguments,
-    bool? distinct,
-    Input$investor_bool_exp? filter,
-    Input$Int_comparison_exp? predicate,
-  }) =>
-      _res;
-  CopyWith$Input$investor_bool_exp<TRes> get filter =>
-      CopyWith$Input$investor_bool_exp.stub(_res);
-  CopyWith$Input$Int_comparison_exp<TRes> get predicate =>
-      CopyWith$Input$Int_comparison_exp.stub(_res);
-}
-
-class Input$investor_aggregate_order_by {
-  factory Input$investor_aggregate_order_by({
-    Input$investor_avg_order_by? avg,
-    Enum$order_by? count,
-    Input$investor_max_order_by? max,
-    Input$investor_min_order_by? min,
-    Input$investor_stddev_order_by? stddev,
-    Input$investor_stddev_pop_order_by? stddev_pop,
-    Input$investor_stddev_samp_order_by? stddev_samp,
-    Input$investor_sum_order_by? sum,
-    Input$investor_var_pop_order_by? var_pop,
-    Input$investor_var_samp_order_by? var_samp,
-    Input$investor_variance_order_by? variance,
-  }) =>
-      Input$investor_aggregate_order_by._({
-        if (avg != null) r'avg': avg,
-        if (count != null) r'count': count,
-        if (max != null) r'max': max,
-        if (min != null) r'min': min,
-        if (stddev != null) r'stddev': stddev,
-        if (stddev_pop != null) r'stddev_pop': stddev_pop,
-        if (stddev_samp != null) r'stddev_samp': stddev_samp,
-        if (sum != null) r'sum': sum,
-        if (var_pop != null) r'var_pop': var_pop,
-        if (var_samp != null) r'var_samp': var_samp,
-        if (variance != null) r'variance': variance,
-      });
-
-  Input$investor_aggregate_order_by._(this._$data);
-
-  factory Input$investor_aggregate_order_by.fromJson(
-      Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('avg')) {
-      final l$avg = data['avg'];
-      result$data['avg'] = l$avg == null
-          ? null
-          : Input$investor_avg_order_by.fromJson(
-              (l$avg as Map<String, dynamic>));
-    }
-    if (data.containsKey('count')) {
-      final l$count = data['count'];
-      result$data['count'] =
-          l$count == null ? null : fromJson$Enum$order_by((l$count as String));
-    }
-    if (data.containsKey('max')) {
-      final l$max = data['max'];
-      result$data['max'] = l$max == null
-          ? null
-          : Input$investor_max_order_by.fromJson(
-              (l$max as Map<String, dynamic>));
-    }
-    if (data.containsKey('min')) {
-      final l$min = data['min'];
-      result$data['min'] = l$min == null
-          ? null
-          : Input$investor_min_order_by.fromJson(
-              (l$min as Map<String, dynamic>));
-    }
-    if (data.containsKey('stddev')) {
-      final l$stddev = data['stddev'];
-      result$data['stddev'] = l$stddev == null
-          ? null
-          : Input$investor_stddev_order_by.fromJson(
-              (l$stddev as Map<String, dynamic>));
-    }
-    if (data.containsKey('stddev_pop')) {
-      final l$stddev_pop = data['stddev_pop'];
-      result$data['stddev_pop'] = l$stddev_pop == null
-          ? null
-          : Input$investor_stddev_pop_order_by.fromJson(
-              (l$stddev_pop as Map<String, dynamic>));
-    }
-    if (data.containsKey('stddev_samp')) {
-      final l$stddev_samp = data['stddev_samp'];
-      result$data['stddev_samp'] = l$stddev_samp == null
-          ? null
-          : Input$investor_stddev_samp_order_by.fromJson(
-              (l$stddev_samp as Map<String, dynamic>));
-    }
-    if (data.containsKey('sum')) {
-      final l$sum = data['sum'];
-      result$data['sum'] = l$sum == null
-          ? null
-          : Input$investor_sum_order_by.fromJson(
-              (l$sum as Map<String, dynamic>));
-    }
-    if (data.containsKey('var_pop')) {
-      final l$var_pop = data['var_pop'];
-      result$data['var_pop'] = l$var_pop == null
-          ? null
-          : Input$investor_var_pop_order_by.fromJson(
-              (l$var_pop as Map<String, dynamic>));
-    }
-    if (data.containsKey('var_samp')) {
-      final l$var_samp = data['var_samp'];
-      result$data['var_samp'] = l$var_samp == null
-          ? null
-          : Input$investor_var_samp_order_by.fromJson(
-              (l$var_samp as Map<String, dynamic>));
-    }
-    if (data.containsKey('variance')) {
-      final l$variance = data['variance'];
-      result$data['variance'] = l$variance == null
-          ? null
-          : Input$investor_variance_order_by.fromJson(
-              (l$variance as Map<String, dynamic>));
-    }
-    return Input$investor_aggregate_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Input$investor_avg_order_by? get avg =>
-      (_$data['avg'] as Input$investor_avg_order_by?);
-  Enum$order_by? get count => (_$data['count'] as Enum$order_by?);
-  Input$investor_max_order_by? get max =>
-      (_$data['max'] as Input$investor_max_order_by?);
-  Input$investor_min_order_by? get min =>
-      (_$data['min'] as Input$investor_min_order_by?);
-  Input$investor_stddev_order_by? get stddev =>
-      (_$data['stddev'] as Input$investor_stddev_order_by?);
-  Input$investor_stddev_pop_order_by? get stddev_pop =>
-      (_$data['stddev_pop'] as Input$investor_stddev_pop_order_by?);
-  Input$investor_stddev_samp_order_by? get stddev_samp =>
-      (_$data['stddev_samp'] as Input$investor_stddev_samp_order_by?);
-  Input$investor_sum_order_by? get sum =>
-      (_$data['sum'] as Input$investor_sum_order_by?);
-  Input$investor_var_pop_order_by? get var_pop =>
-      (_$data['var_pop'] as Input$investor_var_pop_order_by?);
-  Input$investor_var_samp_order_by? get var_samp =>
-      (_$data['var_samp'] as Input$investor_var_samp_order_by?);
-  Input$investor_variance_order_by? get variance =>
-      (_$data['variance'] as Input$investor_variance_order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('avg')) {
-      final l$avg = avg;
-      result$data['avg'] = l$avg?.toJson();
-    }
-    if (_$data.containsKey('count')) {
-      final l$count = count;
-      result$data['count'] =
-          l$count == null ? null : toJson$Enum$order_by(l$count);
-    }
-    if (_$data.containsKey('max')) {
-      final l$max = max;
-      result$data['max'] = l$max?.toJson();
-    }
-    if (_$data.containsKey('min')) {
-      final l$min = min;
-      result$data['min'] = l$min?.toJson();
-    }
-    if (_$data.containsKey('stddev')) {
-      final l$stddev = stddev;
-      result$data['stddev'] = l$stddev?.toJson();
-    }
-    if (_$data.containsKey('stddev_pop')) {
-      final l$stddev_pop = stddev_pop;
-      result$data['stddev_pop'] = l$stddev_pop?.toJson();
-    }
-    if (_$data.containsKey('stddev_samp')) {
-      final l$stddev_samp = stddev_samp;
-      result$data['stddev_samp'] = l$stddev_samp?.toJson();
-    }
-    if (_$data.containsKey('sum')) {
-      final l$sum = sum;
-      result$data['sum'] = l$sum?.toJson();
-    }
-    if (_$data.containsKey('var_pop')) {
-      final l$var_pop = var_pop;
-      result$data['var_pop'] = l$var_pop?.toJson();
-    }
-    if (_$data.containsKey('var_samp')) {
-      final l$var_samp = var_samp;
-      result$data['var_samp'] = l$var_samp?.toJson();
-    }
-    if (_$data.containsKey('variance')) {
-      final l$variance = variance;
-      result$data['variance'] = l$variance?.toJson();
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$investor_aggregate_order_by<Input$investor_aggregate_order_by>
-      get copyWith => CopyWith$Input$investor_aggregate_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$investor_aggregate_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$avg = avg;
-    final lOther$avg = other.avg;
-    if (_$data.containsKey('avg') != other._$data.containsKey('avg')) {
-      return false;
-    }
-    if (l$avg != lOther$avg) {
-      return false;
-    }
-    final l$count = count;
-    final lOther$count = other.count;
-    if (_$data.containsKey('count') != other._$data.containsKey('count')) {
-      return false;
-    }
-    if (l$count != lOther$count) {
-      return false;
-    }
-    final l$max = max;
-    final lOther$max = other.max;
-    if (_$data.containsKey('max') != other._$data.containsKey('max')) {
-      return false;
-    }
-    if (l$max != lOther$max) {
-      return false;
-    }
-    final l$min = min;
-    final lOther$min = other.min;
-    if (_$data.containsKey('min') != other._$data.containsKey('min')) {
-      return false;
-    }
-    if (l$min != lOther$min) {
-      return false;
-    }
-    final l$stddev = stddev;
-    final lOther$stddev = other.stddev;
-    if (_$data.containsKey('stddev') != other._$data.containsKey('stddev')) {
-      return false;
-    }
-    if (l$stddev != lOther$stddev) {
-      return false;
-    }
-    final l$stddev_pop = stddev_pop;
-    final lOther$stddev_pop = other.stddev_pop;
-    if (_$data.containsKey('stddev_pop') !=
-        other._$data.containsKey('stddev_pop')) {
-      return false;
-    }
-    if (l$stddev_pop != lOther$stddev_pop) {
-      return false;
-    }
-    final l$stddev_samp = stddev_samp;
-    final lOther$stddev_samp = other.stddev_samp;
-    if (_$data.containsKey('stddev_samp') !=
-        other._$data.containsKey('stddev_samp')) {
-      return false;
-    }
-    if (l$stddev_samp != lOther$stddev_samp) {
-      return false;
-    }
-    final l$sum = sum;
-    final lOther$sum = other.sum;
-    if (_$data.containsKey('sum') != other._$data.containsKey('sum')) {
-      return false;
-    }
-    if (l$sum != lOther$sum) {
-      return false;
-    }
-    final l$var_pop = var_pop;
-    final lOther$var_pop = other.var_pop;
-    if (_$data.containsKey('var_pop') != other._$data.containsKey('var_pop')) {
-      return false;
-    }
-    if (l$var_pop != lOther$var_pop) {
-      return false;
-    }
-    final l$var_samp = var_samp;
-    final lOther$var_samp = other.var_samp;
-    if (_$data.containsKey('var_samp') !=
-        other._$data.containsKey('var_samp')) {
-      return false;
-    }
-    if (l$var_samp != lOther$var_samp) {
-      return false;
-    }
-    final l$variance = variance;
-    final lOther$variance = other.variance;
-    if (_$data.containsKey('variance') !=
-        other._$data.containsKey('variance')) {
-      return false;
-    }
-    if (l$variance != lOther$variance) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$avg = avg;
-    final l$count = count;
-    final l$max = max;
-    final l$min = min;
-    final l$stddev = stddev;
-    final l$stddev_pop = stddev_pop;
-    final l$stddev_samp = stddev_samp;
-    final l$sum = sum;
-    final l$var_pop = var_pop;
-    final l$var_samp = var_samp;
-    final l$variance = variance;
-    return Object.hashAll([
-      _$data.containsKey('avg') ? l$avg : const {},
-      _$data.containsKey('count') ? l$count : const {},
-      _$data.containsKey('max') ? l$max : const {},
-      _$data.containsKey('min') ? l$min : const {},
-      _$data.containsKey('stddev') ? l$stddev : const {},
-      _$data.containsKey('stddev_pop') ? l$stddev_pop : const {},
-      _$data.containsKey('stddev_samp') ? l$stddev_samp : const {},
-      _$data.containsKey('sum') ? l$sum : const {},
-      _$data.containsKey('var_pop') ? l$var_pop : const {},
-      _$data.containsKey('var_samp') ? l$var_samp : const {},
-      _$data.containsKey('variance') ? l$variance : const {},
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$investor_aggregate_order_by<TRes> {
-  factory CopyWith$Input$investor_aggregate_order_by(
-    Input$investor_aggregate_order_by instance,
-    TRes Function(Input$investor_aggregate_order_by) then,
-  ) = _CopyWithImpl$Input$investor_aggregate_order_by;
-
-  factory CopyWith$Input$investor_aggregate_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$investor_aggregate_order_by;
-
-  TRes call({
-    Input$investor_avg_order_by? avg,
-    Enum$order_by? count,
-    Input$investor_max_order_by? max,
-    Input$investor_min_order_by? min,
-    Input$investor_stddev_order_by? stddev,
-    Input$investor_stddev_pop_order_by? stddev_pop,
-    Input$investor_stddev_samp_order_by? stddev_samp,
-    Input$investor_sum_order_by? sum,
-    Input$investor_var_pop_order_by? var_pop,
-    Input$investor_var_samp_order_by? var_samp,
-    Input$investor_variance_order_by? variance,
-  });
-  CopyWith$Input$investor_avg_order_by<TRes> get avg;
-  CopyWith$Input$investor_max_order_by<TRes> get max;
-  CopyWith$Input$investor_min_order_by<TRes> get min;
-  CopyWith$Input$investor_stddev_order_by<TRes> get stddev;
-  CopyWith$Input$investor_stddev_pop_order_by<TRes> get stddev_pop;
-  CopyWith$Input$investor_stddev_samp_order_by<TRes> get stddev_samp;
-  CopyWith$Input$investor_sum_order_by<TRes> get sum;
-  CopyWith$Input$investor_var_pop_order_by<TRes> get var_pop;
-  CopyWith$Input$investor_var_samp_order_by<TRes> get var_samp;
-  CopyWith$Input$investor_variance_order_by<TRes> get variance;
-}
-
-class _CopyWithImpl$Input$investor_aggregate_order_by<TRes>
-    implements CopyWith$Input$investor_aggregate_order_by<TRes> {
-  _CopyWithImpl$Input$investor_aggregate_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$investor_aggregate_order_by _instance;
-
-  final TRes Function(Input$investor_aggregate_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? avg = _undefined,
-    Object? count = _undefined,
-    Object? max = _undefined,
-    Object? min = _undefined,
-    Object? stddev = _undefined,
-    Object? stddev_pop = _undefined,
-    Object? stddev_samp = _undefined,
-    Object? sum = _undefined,
-    Object? var_pop = _undefined,
-    Object? var_samp = _undefined,
-    Object? variance = _undefined,
-  }) =>
-      _then(Input$investor_aggregate_order_by._({
-        ..._instance._$data,
-        if (avg != _undefined) 'avg': (avg as Input$investor_avg_order_by?),
-        if (count != _undefined) 'count': (count as Enum$order_by?),
-        if (max != _undefined) 'max': (max as Input$investor_max_order_by?),
-        if (min != _undefined) 'min': (min as Input$investor_min_order_by?),
-        if (stddev != _undefined)
-          'stddev': (stddev as Input$investor_stddev_order_by?),
-        if (stddev_pop != _undefined)
-          'stddev_pop': (stddev_pop as Input$investor_stddev_pop_order_by?),
-        if (stddev_samp != _undefined)
-          'stddev_samp': (stddev_samp as Input$investor_stddev_samp_order_by?),
-        if (sum != _undefined) 'sum': (sum as Input$investor_sum_order_by?),
-        if (var_pop != _undefined)
-          'var_pop': (var_pop as Input$investor_var_pop_order_by?),
-        if (var_samp != _undefined)
-          'var_samp': (var_samp as Input$investor_var_samp_order_by?),
-        if (variance != _undefined)
-          'variance': (variance as Input$investor_variance_order_by?),
-      }));
-  CopyWith$Input$investor_avg_order_by<TRes> get avg {
-    final local$avg = _instance.avg;
-    return local$avg == null
-        ? CopyWith$Input$investor_avg_order_by.stub(_then(_instance))
-        : CopyWith$Input$investor_avg_order_by(local$avg, (e) => call(avg: e));
-  }
-
-  CopyWith$Input$investor_max_order_by<TRes> get max {
-    final local$max = _instance.max;
-    return local$max == null
-        ? CopyWith$Input$investor_max_order_by.stub(_then(_instance))
-        : CopyWith$Input$investor_max_order_by(local$max, (e) => call(max: e));
-  }
-
-  CopyWith$Input$investor_min_order_by<TRes> get min {
-    final local$min = _instance.min;
-    return local$min == null
-        ? CopyWith$Input$investor_min_order_by.stub(_then(_instance))
-        : CopyWith$Input$investor_min_order_by(local$min, (e) => call(min: e));
-  }
-
-  CopyWith$Input$investor_stddev_order_by<TRes> get stddev {
-    final local$stddev = _instance.stddev;
-    return local$stddev == null
-        ? CopyWith$Input$investor_stddev_order_by.stub(_then(_instance))
-        : CopyWith$Input$investor_stddev_order_by(
-            local$stddev, (e) => call(stddev: e));
-  }
-
-  CopyWith$Input$investor_stddev_pop_order_by<TRes> get stddev_pop {
-    final local$stddev_pop = _instance.stddev_pop;
-    return local$stddev_pop == null
-        ? CopyWith$Input$investor_stddev_pop_order_by.stub(_then(_instance))
-        : CopyWith$Input$investor_stddev_pop_order_by(
-            local$stddev_pop, (e) => call(stddev_pop: e));
-  }
-
-  CopyWith$Input$investor_stddev_samp_order_by<TRes> get stddev_samp {
-    final local$stddev_samp = _instance.stddev_samp;
-    return local$stddev_samp == null
-        ? CopyWith$Input$investor_stddev_samp_order_by.stub(_then(_instance))
-        : CopyWith$Input$investor_stddev_samp_order_by(
-            local$stddev_samp, (e) => call(stddev_samp: e));
-  }
-
-  CopyWith$Input$investor_sum_order_by<TRes> get sum {
-    final local$sum = _instance.sum;
-    return local$sum == null
-        ? CopyWith$Input$investor_sum_order_by.stub(_then(_instance))
-        : CopyWith$Input$investor_sum_order_by(local$sum, (e) => call(sum: e));
-  }
-
-  CopyWith$Input$investor_var_pop_order_by<TRes> get var_pop {
-    final local$var_pop = _instance.var_pop;
-    return local$var_pop == null
-        ? CopyWith$Input$investor_var_pop_order_by.stub(_then(_instance))
-        : CopyWith$Input$investor_var_pop_order_by(
-            local$var_pop, (e) => call(var_pop: e));
-  }
-
-  CopyWith$Input$investor_var_samp_order_by<TRes> get var_samp {
-    final local$var_samp = _instance.var_samp;
-    return local$var_samp == null
-        ? CopyWith$Input$investor_var_samp_order_by.stub(_then(_instance))
-        : CopyWith$Input$investor_var_samp_order_by(
-            local$var_samp, (e) => call(var_samp: e));
-  }
-
-  CopyWith$Input$investor_variance_order_by<TRes> get variance {
-    final local$variance = _instance.variance;
-    return local$variance == null
-        ? CopyWith$Input$investor_variance_order_by.stub(_then(_instance))
-        : CopyWith$Input$investor_variance_order_by(
-            local$variance, (e) => call(variance: e));
-  }
-}
-
-class _CopyWithStubImpl$Input$investor_aggregate_order_by<TRes>
-    implements CopyWith$Input$investor_aggregate_order_by<TRes> {
-  _CopyWithStubImpl$Input$investor_aggregate_order_by(this._res);
-
-  TRes _res;
-
-  call({
-    Input$investor_avg_order_by? avg,
-    Enum$order_by? count,
-    Input$investor_max_order_by? max,
-    Input$investor_min_order_by? min,
-    Input$investor_stddev_order_by? stddev,
-    Input$investor_stddev_pop_order_by? stddev_pop,
-    Input$investor_stddev_samp_order_by? stddev_samp,
-    Input$investor_sum_order_by? sum,
-    Input$investor_var_pop_order_by? var_pop,
-    Input$investor_var_samp_order_by? var_samp,
-    Input$investor_variance_order_by? variance,
-  }) =>
-      _res;
-  CopyWith$Input$investor_avg_order_by<TRes> get avg =>
-      CopyWith$Input$investor_avg_order_by.stub(_res);
-  CopyWith$Input$investor_max_order_by<TRes> get max =>
-      CopyWith$Input$investor_max_order_by.stub(_res);
-  CopyWith$Input$investor_min_order_by<TRes> get min =>
-      CopyWith$Input$investor_min_order_by.stub(_res);
-  CopyWith$Input$investor_stddev_order_by<TRes> get stddev =>
-      CopyWith$Input$investor_stddev_order_by.stub(_res);
-  CopyWith$Input$investor_stddev_pop_order_by<TRes> get stddev_pop =>
-      CopyWith$Input$investor_stddev_pop_order_by.stub(_res);
-  CopyWith$Input$investor_stddev_samp_order_by<TRes> get stddev_samp =>
-      CopyWith$Input$investor_stddev_samp_order_by.stub(_res);
-  CopyWith$Input$investor_sum_order_by<TRes> get sum =>
-      CopyWith$Input$investor_sum_order_by.stub(_res);
-  CopyWith$Input$investor_var_pop_order_by<TRes> get var_pop =>
-      CopyWith$Input$investor_var_pop_order_by.stub(_res);
-  CopyWith$Input$investor_var_samp_order_by<TRes> get var_samp =>
-      CopyWith$Input$investor_var_samp_order_by.stub(_res);
-  CopyWith$Input$investor_variance_order_by<TRes> get variance =>
-      CopyWith$Input$investor_variance_order_by.stub(_res);
-}
-
-class Input$investor_arr_rel_insert_input {
-  factory Input$investor_arr_rel_insert_input({
-    required List<Input$investor_insert_input> data,
-    Input$investor_on_conflict? on_conflict,
-  }) =>
-      Input$investor_arr_rel_insert_input._({
-        r'data': data,
-        if (on_conflict != null) r'on_conflict': on_conflict,
-      });
-
-  Input$investor_arr_rel_insert_input._(this._$data);
-
-  factory Input$investor_arr_rel_insert_input.fromJson(
-      Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    final l$data = data['data'];
-    result$data['data'] = (l$data as List<dynamic>)
-        .map((e) =>
-            Input$investor_insert_input.fromJson((e as Map<String, dynamic>)))
-        .toList();
-    if (data.containsKey('on_conflict')) {
-      final l$on_conflict = data['on_conflict'];
-      result$data['on_conflict'] = l$on_conflict == null
-          ? null
-          : Input$investor_on_conflict.fromJson(
-              (l$on_conflict as Map<String, dynamic>));
-    }
-    return Input$investor_arr_rel_insert_input._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  List<Input$investor_insert_input> get data =>
-      (_$data['data'] as List<Input$investor_insert_input>);
-  Input$investor_on_conflict? get on_conflict =>
-      (_$data['on_conflict'] as Input$investor_on_conflict?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    final l$data = data;
-    result$data['data'] = l$data.map((e) => e.toJson()).toList();
-    if (_$data.containsKey('on_conflict')) {
-      final l$on_conflict = on_conflict;
-      result$data['on_conflict'] = l$on_conflict?.toJson();
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$investor_arr_rel_insert_input<
-          Input$investor_arr_rel_insert_input>
-      get copyWith => CopyWith$Input$investor_arr_rel_insert_input(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$investor_arr_rel_insert_input) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$data = data;
-    final lOther$data = other.data;
-    if (l$data.length != lOther$data.length) {
-      return false;
-    }
-    for (int i = 0; i < l$data.length; i++) {
-      final l$data$entry = l$data[i];
-      final lOther$data$entry = lOther$data[i];
-      if (l$data$entry != lOther$data$entry) {
-        return false;
-      }
-    }
-    final l$on_conflict = on_conflict;
-    final lOther$on_conflict = other.on_conflict;
-    if (_$data.containsKey('on_conflict') !=
-        other._$data.containsKey('on_conflict')) {
-      return false;
-    }
-    if (l$on_conflict != lOther$on_conflict) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$data = data;
-    final l$on_conflict = on_conflict;
-    return Object.hashAll([
-      Object.hashAll(l$data.map((v) => v)),
-      _$data.containsKey('on_conflict') ? l$on_conflict : const {},
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$investor_arr_rel_insert_input<TRes> {
-  factory CopyWith$Input$investor_arr_rel_insert_input(
-    Input$investor_arr_rel_insert_input instance,
-    TRes Function(Input$investor_arr_rel_insert_input) then,
-  ) = _CopyWithImpl$Input$investor_arr_rel_insert_input;
-
-  factory CopyWith$Input$investor_arr_rel_insert_input.stub(TRes res) =
-      _CopyWithStubImpl$Input$investor_arr_rel_insert_input;
-
-  TRes call({
-    List<Input$investor_insert_input>? data,
-    Input$investor_on_conflict? on_conflict,
-  });
-  TRes data(
-      Iterable<Input$investor_insert_input> Function(
-              Iterable<
-                  CopyWith$Input$investor_insert_input<
-                      Input$investor_insert_input>>)
-          _fn);
-  CopyWith$Input$investor_on_conflict<TRes> get on_conflict;
-}
-
-class _CopyWithImpl$Input$investor_arr_rel_insert_input<TRes>
-    implements CopyWith$Input$investor_arr_rel_insert_input<TRes> {
-  _CopyWithImpl$Input$investor_arr_rel_insert_input(
-    this._instance,
-    this._then,
-  );
-
-  final Input$investor_arr_rel_insert_input _instance;
-
-  final TRes Function(Input$investor_arr_rel_insert_input) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? data = _undefined,
-    Object? on_conflict = _undefined,
-  }) =>
-      _then(Input$investor_arr_rel_insert_input._({
-        ..._instance._$data,
-        if (data != _undefined && data != null)
-          'data': (data as List<Input$investor_insert_input>),
-        if (on_conflict != _undefined)
-          'on_conflict': (on_conflict as Input$investor_on_conflict?),
-      }));
-  TRes data(
-          Iterable<Input$investor_insert_input> Function(
-                  Iterable<
-                      CopyWith$Input$investor_insert_input<
-                          Input$investor_insert_input>>)
-              _fn) =>
-      call(
-          data: _fn(
-              _instance.data.map((e) => CopyWith$Input$investor_insert_input(
-                    e,
-                    (i) => i,
-                  ))).toList());
-  CopyWith$Input$investor_on_conflict<TRes> get on_conflict {
-    final local$on_conflict = _instance.on_conflict;
-    return local$on_conflict == null
-        ? CopyWith$Input$investor_on_conflict.stub(_then(_instance))
-        : CopyWith$Input$investor_on_conflict(
-            local$on_conflict, (e) => call(on_conflict: e));
-  }
-}
-
-class _CopyWithStubImpl$Input$investor_arr_rel_insert_input<TRes>
-    implements CopyWith$Input$investor_arr_rel_insert_input<TRes> {
-  _CopyWithStubImpl$Input$investor_arr_rel_insert_input(this._res);
-
-  TRes _res;
-
-  call({
-    List<Input$investor_insert_input>? data,
-    Input$investor_on_conflict? on_conflict,
-  }) =>
-      _res;
-  data(_fn) => _res;
-  CopyWith$Input$investor_on_conflict<TRes> get on_conflict =>
-      CopyWith$Input$investor_on_conflict.stub(_res);
-}
-
-class Input$investor_avg_order_by {
-  factory Input$investor_avg_order_by({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  }) =>
-      Input$investor_avg_order_by._({
-        if (investor_id != null) r'investor_id': investor_id,
-        if (investor_investment_amount != null)
-          r'investor_investment_amount': investor_investment_amount,
-      });
-
-  Input$investor_avg_order_by._(this._$data);
-
-  factory Input$investor_avg_order_by.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('investor_id')) {
-      final l$investor_id = data['investor_id'];
-      result$data['investor_id'] = l$investor_id == null
-          ? null
-          : fromJson$Enum$order_by((l$investor_id as String));
-    }
-    if (data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = data['investor_investment_amount'];
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : fromJson$Enum$order_by(
-                  (l$investor_investment_amount as String));
-    }
-    return Input$investor_avg_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Enum$order_by? get investor_id => (_$data['investor_id'] as Enum$order_by?);
-  Enum$order_by? get investor_investment_amount =>
-      (_$data['investor_investment_amount'] as Enum$order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('investor_id')) {
-      final l$investor_id = investor_id;
-      result$data['investor_id'] =
-          l$investor_id == null ? null : toJson$Enum$order_by(l$investor_id);
-    }
-    if (_$data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = investor_investment_amount;
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : toJson$Enum$order_by(l$investor_investment_amount);
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$investor_avg_order_by<Input$investor_avg_order_by>
-      get copyWith => CopyWith$Input$investor_avg_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$investor_avg_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$investor_id = investor_id;
-    final lOther$investor_id = other.investor_id;
-    if (_$data.containsKey('investor_id') !=
-        other._$data.containsKey('investor_id')) {
-      return false;
-    }
-    if (l$investor_id != lOther$investor_id) {
-      return false;
-    }
-    final l$investor_investment_amount = investor_investment_amount;
-    final lOther$investor_investment_amount = other.investor_investment_amount;
-    if (_$data.containsKey('investor_investment_amount') !=
-        other._$data.containsKey('investor_investment_amount')) {
-      return false;
-    }
-    if (l$investor_investment_amount != lOther$investor_investment_amount) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$investor_id = investor_id;
-    final l$investor_investment_amount = investor_investment_amount;
-    return Object.hashAll([
-      _$data.containsKey('investor_id') ? l$investor_id : const {},
-      _$data.containsKey('investor_investment_amount')
-          ? l$investor_investment_amount
-          : const {},
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$investor_avg_order_by<TRes> {
-  factory CopyWith$Input$investor_avg_order_by(
-    Input$investor_avg_order_by instance,
-    TRes Function(Input$investor_avg_order_by) then,
-  ) = _CopyWithImpl$Input$investor_avg_order_by;
-
-  factory CopyWith$Input$investor_avg_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$investor_avg_order_by;
-
-  TRes call({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  });
-}
-
-class _CopyWithImpl$Input$investor_avg_order_by<TRes>
-    implements CopyWith$Input$investor_avg_order_by<TRes> {
-  _CopyWithImpl$Input$investor_avg_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$investor_avg_order_by _instance;
-
-  final TRes Function(Input$investor_avg_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? investor_id = _undefined,
-    Object? investor_investment_amount = _undefined,
-  }) =>
-      _then(Input$investor_avg_order_by._({
-        ..._instance._$data,
-        if (investor_id != _undefined)
-          'investor_id': (investor_id as Enum$order_by?),
-        if (investor_investment_amount != _undefined)
-          'investor_investment_amount':
-              (investor_investment_amount as Enum$order_by?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$investor_avg_order_by<TRes>
-    implements CopyWith$Input$investor_avg_order_by<TRes> {
-  _CopyWithStubImpl$Input$investor_avg_order_by(this._res);
-
-  TRes _res;
-
-  call({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  }) =>
-      _res;
-}
-
 class Input$investor_bool_exp {
   factory Input$investor_bool_exp({
     List<Input$investor_bool_exp>? $_and,
@@ -51105,560 +50212,6 @@ class _CopyWithStubImpl$Input$investor_insert_input<TRes>
       CopyWith$Input$users_obj_rel_insert_input.stub(_res);
 }
 
-class Input$investor_max_order_by {
-  factory Input$investor_max_order_by({
-    Enum$order_by? created_at,
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-    Enum$order_by? investor_name,
-    Enum$order_by? updated_at,
-    Enum$order_by? user_id,
-  }) =>
-      Input$investor_max_order_by._({
-        if (created_at != null) r'created_at': created_at,
-        if (investor_id != null) r'investor_id': investor_id,
-        if (investor_investment_amount != null)
-          r'investor_investment_amount': investor_investment_amount,
-        if (investor_name != null) r'investor_name': investor_name,
-        if (updated_at != null) r'updated_at': updated_at,
-        if (user_id != null) r'user_id': user_id,
-      });
-
-  Input$investor_max_order_by._(this._$data);
-
-  factory Input$investor_max_order_by.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('created_at')) {
-      final l$created_at = data['created_at'];
-      result$data['created_at'] = l$created_at == null
-          ? null
-          : fromJson$Enum$order_by((l$created_at as String));
-    }
-    if (data.containsKey('investor_id')) {
-      final l$investor_id = data['investor_id'];
-      result$data['investor_id'] = l$investor_id == null
-          ? null
-          : fromJson$Enum$order_by((l$investor_id as String));
-    }
-    if (data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = data['investor_investment_amount'];
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : fromJson$Enum$order_by(
-                  (l$investor_investment_amount as String));
-    }
-    if (data.containsKey('investor_name')) {
-      final l$investor_name = data['investor_name'];
-      result$data['investor_name'] = l$investor_name == null
-          ? null
-          : fromJson$Enum$order_by((l$investor_name as String));
-    }
-    if (data.containsKey('updated_at')) {
-      final l$updated_at = data['updated_at'];
-      result$data['updated_at'] = l$updated_at == null
-          ? null
-          : fromJson$Enum$order_by((l$updated_at as String));
-    }
-    if (data.containsKey('user_id')) {
-      final l$user_id = data['user_id'];
-      result$data['user_id'] = l$user_id == null
-          ? null
-          : fromJson$Enum$order_by((l$user_id as String));
-    }
-    return Input$investor_max_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Enum$order_by? get created_at => (_$data['created_at'] as Enum$order_by?);
-  Enum$order_by? get investor_id => (_$data['investor_id'] as Enum$order_by?);
-  Enum$order_by? get investor_investment_amount =>
-      (_$data['investor_investment_amount'] as Enum$order_by?);
-  Enum$order_by? get investor_name =>
-      (_$data['investor_name'] as Enum$order_by?);
-  Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
-  Enum$order_by? get user_id => (_$data['user_id'] as Enum$order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('created_at')) {
-      final l$created_at = created_at;
-      result$data['created_at'] =
-          l$created_at == null ? null : toJson$Enum$order_by(l$created_at);
-    }
-    if (_$data.containsKey('investor_id')) {
-      final l$investor_id = investor_id;
-      result$data['investor_id'] =
-          l$investor_id == null ? null : toJson$Enum$order_by(l$investor_id);
-    }
-    if (_$data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = investor_investment_amount;
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : toJson$Enum$order_by(l$investor_investment_amount);
-    }
-    if (_$data.containsKey('investor_name')) {
-      final l$investor_name = investor_name;
-      result$data['investor_name'] = l$investor_name == null
-          ? null
-          : toJson$Enum$order_by(l$investor_name);
-    }
-    if (_$data.containsKey('updated_at')) {
-      final l$updated_at = updated_at;
-      result$data['updated_at'] =
-          l$updated_at == null ? null : toJson$Enum$order_by(l$updated_at);
-    }
-    if (_$data.containsKey('user_id')) {
-      final l$user_id = user_id;
-      result$data['user_id'] =
-          l$user_id == null ? null : toJson$Enum$order_by(l$user_id);
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$investor_max_order_by<Input$investor_max_order_by>
-      get copyWith => CopyWith$Input$investor_max_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$investor_max_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$created_at = created_at;
-    final lOther$created_at = other.created_at;
-    if (_$data.containsKey('created_at') !=
-        other._$data.containsKey('created_at')) {
-      return false;
-    }
-    if (l$created_at != lOther$created_at) {
-      return false;
-    }
-    final l$investor_id = investor_id;
-    final lOther$investor_id = other.investor_id;
-    if (_$data.containsKey('investor_id') !=
-        other._$data.containsKey('investor_id')) {
-      return false;
-    }
-    if (l$investor_id != lOther$investor_id) {
-      return false;
-    }
-    final l$investor_investment_amount = investor_investment_amount;
-    final lOther$investor_investment_amount = other.investor_investment_amount;
-    if (_$data.containsKey('investor_investment_amount') !=
-        other._$data.containsKey('investor_investment_amount')) {
-      return false;
-    }
-    if (l$investor_investment_amount != lOther$investor_investment_amount) {
-      return false;
-    }
-    final l$investor_name = investor_name;
-    final lOther$investor_name = other.investor_name;
-    if (_$data.containsKey('investor_name') !=
-        other._$data.containsKey('investor_name')) {
-      return false;
-    }
-    if (l$investor_name != lOther$investor_name) {
-      return false;
-    }
-    final l$updated_at = updated_at;
-    final lOther$updated_at = other.updated_at;
-    if (_$data.containsKey('updated_at') !=
-        other._$data.containsKey('updated_at')) {
-      return false;
-    }
-    if (l$updated_at != lOther$updated_at) {
-      return false;
-    }
-    final l$user_id = user_id;
-    final lOther$user_id = other.user_id;
-    if (_$data.containsKey('user_id') != other._$data.containsKey('user_id')) {
-      return false;
-    }
-    if (l$user_id != lOther$user_id) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$created_at = created_at;
-    final l$investor_id = investor_id;
-    final l$investor_investment_amount = investor_investment_amount;
-    final l$investor_name = investor_name;
-    final l$updated_at = updated_at;
-    final l$user_id = user_id;
-    return Object.hashAll([
-      _$data.containsKey('created_at') ? l$created_at : const {},
-      _$data.containsKey('investor_id') ? l$investor_id : const {},
-      _$data.containsKey('investor_investment_amount')
-          ? l$investor_investment_amount
-          : const {},
-      _$data.containsKey('investor_name') ? l$investor_name : const {},
-      _$data.containsKey('updated_at') ? l$updated_at : const {},
-      _$data.containsKey('user_id') ? l$user_id : const {},
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$investor_max_order_by<TRes> {
-  factory CopyWith$Input$investor_max_order_by(
-    Input$investor_max_order_by instance,
-    TRes Function(Input$investor_max_order_by) then,
-  ) = _CopyWithImpl$Input$investor_max_order_by;
-
-  factory CopyWith$Input$investor_max_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$investor_max_order_by;
-
-  TRes call({
-    Enum$order_by? created_at,
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-    Enum$order_by? investor_name,
-    Enum$order_by? updated_at,
-    Enum$order_by? user_id,
-  });
-}
-
-class _CopyWithImpl$Input$investor_max_order_by<TRes>
-    implements CopyWith$Input$investor_max_order_by<TRes> {
-  _CopyWithImpl$Input$investor_max_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$investor_max_order_by _instance;
-
-  final TRes Function(Input$investor_max_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? created_at = _undefined,
-    Object? investor_id = _undefined,
-    Object? investor_investment_amount = _undefined,
-    Object? investor_name = _undefined,
-    Object? updated_at = _undefined,
-    Object? user_id = _undefined,
-  }) =>
-      _then(Input$investor_max_order_by._({
-        ..._instance._$data,
-        if (created_at != _undefined)
-          'created_at': (created_at as Enum$order_by?),
-        if (investor_id != _undefined)
-          'investor_id': (investor_id as Enum$order_by?),
-        if (investor_investment_amount != _undefined)
-          'investor_investment_amount':
-              (investor_investment_amount as Enum$order_by?),
-        if (investor_name != _undefined)
-          'investor_name': (investor_name as Enum$order_by?),
-        if (updated_at != _undefined)
-          'updated_at': (updated_at as Enum$order_by?),
-        if (user_id != _undefined) 'user_id': (user_id as Enum$order_by?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$investor_max_order_by<TRes>
-    implements CopyWith$Input$investor_max_order_by<TRes> {
-  _CopyWithStubImpl$Input$investor_max_order_by(this._res);
-
-  TRes _res;
-
-  call({
-    Enum$order_by? created_at,
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-    Enum$order_by? investor_name,
-    Enum$order_by? updated_at,
-    Enum$order_by? user_id,
-  }) =>
-      _res;
-}
-
-class Input$investor_min_order_by {
-  factory Input$investor_min_order_by({
-    Enum$order_by? created_at,
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-    Enum$order_by? investor_name,
-    Enum$order_by? updated_at,
-    Enum$order_by? user_id,
-  }) =>
-      Input$investor_min_order_by._({
-        if (created_at != null) r'created_at': created_at,
-        if (investor_id != null) r'investor_id': investor_id,
-        if (investor_investment_amount != null)
-          r'investor_investment_amount': investor_investment_amount,
-        if (investor_name != null) r'investor_name': investor_name,
-        if (updated_at != null) r'updated_at': updated_at,
-        if (user_id != null) r'user_id': user_id,
-      });
-
-  Input$investor_min_order_by._(this._$data);
-
-  factory Input$investor_min_order_by.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('created_at')) {
-      final l$created_at = data['created_at'];
-      result$data['created_at'] = l$created_at == null
-          ? null
-          : fromJson$Enum$order_by((l$created_at as String));
-    }
-    if (data.containsKey('investor_id')) {
-      final l$investor_id = data['investor_id'];
-      result$data['investor_id'] = l$investor_id == null
-          ? null
-          : fromJson$Enum$order_by((l$investor_id as String));
-    }
-    if (data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = data['investor_investment_amount'];
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : fromJson$Enum$order_by(
-                  (l$investor_investment_amount as String));
-    }
-    if (data.containsKey('investor_name')) {
-      final l$investor_name = data['investor_name'];
-      result$data['investor_name'] = l$investor_name == null
-          ? null
-          : fromJson$Enum$order_by((l$investor_name as String));
-    }
-    if (data.containsKey('updated_at')) {
-      final l$updated_at = data['updated_at'];
-      result$data['updated_at'] = l$updated_at == null
-          ? null
-          : fromJson$Enum$order_by((l$updated_at as String));
-    }
-    if (data.containsKey('user_id')) {
-      final l$user_id = data['user_id'];
-      result$data['user_id'] = l$user_id == null
-          ? null
-          : fromJson$Enum$order_by((l$user_id as String));
-    }
-    return Input$investor_min_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Enum$order_by? get created_at => (_$data['created_at'] as Enum$order_by?);
-  Enum$order_by? get investor_id => (_$data['investor_id'] as Enum$order_by?);
-  Enum$order_by? get investor_investment_amount =>
-      (_$data['investor_investment_amount'] as Enum$order_by?);
-  Enum$order_by? get investor_name =>
-      (_$data['investor_name'] as Enum$order_by?);
-  Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
-  Enum$order_by? get user_id => (_$data['user_id'] as Enum$order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('created_at')) {
-      final l$created_at = created_at;
-      result$data['created_at'] =
-          l$created_at == null ? null : toJson$Enum$order_by(l$created_at);
-    }
-    if (_$data.containsKey('investor_id')) {
-      final l$investor_id = investor_id;
-      result$data['investor_id'] =
-          l$investor_id == null ? null : toJson$Enum$order_by(l$investor_id);
-    }
-    if (_$data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = investor_investment_amount;
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : toJson$Enum$order_by(l$investor_investment_amount);
-    }
-    if (_$data.containsKey('investor_name')) {
-      final l$investor_name = investor_name;
-      result$data['investor_name'] = l$investor_name == null
-          ? null
-          : toJson$Enum$order_by(l$investor_name);
-    }
-    if (_$data.containsKey('updated_at')) {
-      final l$updated_at = updated_at;
-      result$data['updated_at'] =
-          l$updated_at == null ? null : toJson$Enum$order_by(l$updated_at);
-    }
-    if (_$data.containsKey('user_id')) {
-      final l$user_id = user_id;
-      result$data['user_id'] =
-          l$user_id == null ? null : toJson$Enum$order_by(l$user_id);
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$investor_min_order_by<Input$investor_min_order_by>
-      get copyWith => CopyWith$Input$investor_min_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$investor_min_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$created_at = created_at;
-    final lOther$created_at = other.created_at;
-    if (_$data.containsKey('created_at') !=
-        other._$data.containsKey('created_at')) {
-      return false;
-    }
-    if (l$created_at != lOther$created_at) {
-      return false;
-    }
-    final l$investor_id = investor_id;
-    final lOther$investor_id = other.investor_id;
-    if (_$data.containsKey('investor_id') !=
-        other._$data.containsKey('investor_id')) {
-      return false;
-    }
-    if (l$investor_id != lOther$investor_id) {
-      return false;
-    }
-    final l$investor_investment_amount = investor_investment_amount;
-    final lOther$investor_investment_amount = other.investor_investment_amount;
-    if (_$data.containsKey('investor_investment_amount') !=
-        other._$data.containsKey('investor_investment_amount')) {
-      return false;
-    }
-    if (l$investor_investment_amount != lOther$investor_investment_amount) {
-      return false;
-    }
-    final l$investor_name = investor_name;
-    final lOther$investor_name = other.investor_name;
-    if (_$data.containsKey('investor_name') !=
-        other._$data.containsKey('investor_name')) {
-      return false;
-    }
-    if (l$investor_name != lOther$investor_name) {
-      return false;
-    }
-    final l$updated_at = updated_at;
-    final lOther$updated_at = other.updated_at;
-    if (_$data.containsKey('updated_at') !=
-        other._$data.containsKey('updated_at')) {
-      return false;
-    }
-    if (l$updated_at != lOther$updated_at) {
-      return false;
-    }
-    final l$user_id = user_id;
-    final lOther$user_id = other.user_id;
-    if (_$data.containsKey('user_id') != other._$data.containsKey('user_id')) {
-      return false;
-    }
-    if (l$user_id != lOther$user_id) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$created_at = created_at;
-    final l$investor_id = investor_id;
-    final l$investor_investment_amount = investor_investment_amount;
-    final l$investor_name = investor_name;
-    final l$updated_at = updated_at;
-    final l$user_id = user_id;
-    return Object.hashAll([
-      _$data.containsKey('created_at') ? l$created_at : const {},
-      _$data.containsKey('investor_id') ? l$investor_id : const {},
-      _$data.containsKey('investor_investment_amount')
-          ? l$investor_investment_amount
-          : const {},
-      _$data.containsKey('investor_name') ? l$investor_name : const {},
-      _$data.containsKey('updated_at') ? l$updated_at : const {},
-      _$data.containsKey('user_id') ? l$user_id : const {},
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$investor_min_order_by<TRes> {
-  factory CopyWith$Input$investor_min_order_by(
-    Input$investor_min_order_by instance,
-    TRes Function(Input$investor_min_order_by) then,
-  ) = _CopyWithImpl$Input$investor_min_order_by;
-
-  factory CopyWith$Input$investor_min_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$investor_min_order_by;
-
-  TRes call({
-    Enum$order_by? created_at,
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-    Enum$order_by? investor_name,
-    Enum$order_by? updated_at,
-    Enum$order_by? user_id,
-  });
-}
-
-class _CopyWithImpl$Input$investor_min_order_by<TRes>
-    implements CopyWith$Input$investor_min_order_by<TRes> {
-  _CopyWithImpl$Input$investor_min_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$investor_min_order_by _instance;
-
-  final TRes Function(Input$investor_min_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? created_at = _undefined,
-    Object? investor_id = _undefined,
-    Object? investor_investment_amount = _undefined,
-    Object? investor_name = _undefined,
-    Object? updated_at = _undefined,
-    Object? user_id = _undefined,
-  }) =>
-      _then(Input$investor_min_order_by._({
-        ..._instance._$data,
-        if (created_at != _undefined)
-          'created_at': (created_at as Enum$order_by?),
-        if (investor_id != _undefined)
-          'investor_id': (investor_id as Enum$order_by?),
-        if (investor_investment_amount != _undefined)
-          'investor_investment_amount':
-              (investor_investment_amount as Enum$order_by?),
-        if (investor_name != _undefined)
-          'investor_name': (investor_name as Enum$order_by?),
-        if (updated_at != _undefined)
-          'updated_at': (updated_at as Enum$order_by?),
-        if (user_id != _undefined) 'user_id': (user_id as Enum$order_by?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$investor_min_order_by<TRes>
-    implements CopyWith$Input$investor_min_order_by<TRes> {
-  _CopyWithStubImpl$Input$investor_min_order_by(this._res);
-
-  TRes _res;
-
-  call({
-    Enum$order_by? created_at,
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-    Enum$order_by? investor_name,
-    Enum$order_by? updated_at,
-    Enum$order_by? user_id,
-  }) =>
-      _res;
-}
-
 class Input$investor_obj_rel_insert_input {
   factory Input$investor_obj_rel_insert_input({
     required Input$investor_insert_input data,
@@ -52683,481 +51236,6 @@ class _CopyWithStubImpl$Input$investor_set_input<TRes>
       _res;
 }
 
-class Input$investor_stddev_order_by {
-  factory Input$investor_stddev_order_by({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  }) =>
-      Input$investor_stddev_order_by._({
-        if (investor_id != null) r'investor_id': investor_id,
-        if (investor_investment_amount != null)
-          r'investor_investment_amount': investor_investment_amount,
-      });
-
-  Input$investor_stddev_order_by._(this._$data);
-
-  factory Input$investor_stddev_order_by.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('investor_id')) {
-      final l$investor_id = data['investor_id'];
-      result$data['investor_id'] = l$investor_id == null
-          ? null
-          : fromJson$Enum$order_by((l$investor_id as String));
-    }
-    if (data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = data['investor_investment_amount'];
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : fromJson$Enum$order_by(
-                  (l$investor_investment_amount as String));
-    }
-    return Input$investor_stddev_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Enum$order_by? get investor_id => (_$data['investor_id'] as Enum$order_by?);
-  Enum$order_by? get investor_investment_amount =>
-      (_$data['investor_investment_amount'] as Enum$order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('investor_id')) {
-      final l$investor_id = investor_id;
-      result$data['investor_id'] =
-          l$investor_id == null ? null : toJson$Enum$order_by(l$investor_id);
-    }
-    if (_$data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = investor_investment_amount;
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : toJson$Enum$order_by(l$investor_investment_amount);
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$investor_stddev_order_by<Input$investor_stddev_order_by>
-      get copyWith => CopyWith$Input$investor_stddev_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$investor_stddev_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$investor_id = investor_id;
-    final lOther$investor_id = other.investor_id;
-    if (_$data.containsKey('investor_id') !=
-        other._$data.containsKey('investor_id')) {
-      return false;
-    }
-    if (l$investor_id != lOther$investor_id) {
-      return false;
-    }
-    final l$investor_investment_amount = investor_investment_amount;
-    final lOther$investor_investment_amount = other.investor_investment_amount;
-    if (_$data.containsKey('investor_investment_amount') !=
-        other._$data.containsKey('investor_investment_amount')) {
-      return false;
-    }
-    if (l$investor_investment_amount != lOther$investor_investment_amount) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$investor_id = investor_id;
-    final l$investor_investment_amount = investor_investment_amount;
-    return Object.hashAll([
-      _$data.containsKey('investor_id') ? l$investor_id : const {},
-      _$data.containsKey('investor_investment_amount')
-          ? l$investor_investment_amount
-          : const {},
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$investor_stddev_order_by<TRes> {
-  factory CopyWith$Input$investor_stddev_order_by(
-    Input$investor_stddev_order_by instance,
-    TRes Function(Input$investor_stddev_order_by) then,
-  ) = _CopyWithImpl$Input$investor_stddev_order_by;
-
-  factory CopyWith$Input$investor_stddev_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$investor_stddev_order_by;
-
-  TRes call({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  });
-}
-
-class _CopyWithImpl$Input$investor_stddev_order_by<TRes>
-    implements CopyWith$Input$investor_stddev_order_by<TRes> {
-  _CopyWithImpl$Input$investor_stddev_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$investor_stddev_order_by _instance;
-
-  final TRes Function(Input$investor_stddev_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? investor_id = _undefined,
-    Object? investor_investment_amount = _undefined,
-  }) =>
-      _then(Input$investor_stddev_order_by._({
-        ..._instance._$data,
-        if (investor_id != _undefined)
-          'investor_id': (investor_id as Enum$order_by?),
-        if (investor_investment_amount != _undefined)
-          'investor_investment_amount':
-              (investor_investment_amount as Enum$order_by?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$investor_stddev_order_by<TRes>
-    implements CopyWith$Input$investor_stddev_order_by<TRes> {
-  _CopyWithStubImpl$Input$investor_stddev_order_by(this._res);
-
-  TRes _res;
-
-  call({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  }) =>
-      _res;
-}
-
-class Input$investor_stddev_pop_order_by {
-  factory Input$investor_stddev_pop_order_by({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  }) =>
-      Input$investor_stddev_pop_order_by._({
-        if (investor_id != null) r'investor_id': investor_id,
-        if (investor_investment_amount != null)
-          r'investor_investment_amount': investor_investment_amount,
-      });
-
-  Input$investor_stddev_pop_order_by._(this._$data);
-
-  factory Input$investor_stddev_pop_order_by.fromJson(
-      Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('investor_id')) {
-      final l$investor_id = data['investor_id'];
-      result$data['investor_id'] = l$investor_id == null
-          ? null
-          : fromJson$Enum$order_by((l$investor_id as String));
-    }
-    if (data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = data['investor_investment_amount'];
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : fromJson$Enum$order_by(
-                  (l$investor_investment_amount as String));
-    }
-    return Input$investor_stddev_pop_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Enum$order_by? get investor_id => (_$data['investor_id'] as Enum$order_by?);
-  Enum$order_by? get investor_investment_amount =>
-      (_$data['investor_investment_amount'] as Enum$order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('investor_id')) {
-      final l$investor_id = investor_id;
-      result$data['investor_id'] =
-          l$investor_id == null ? null : toJson$Enum$order_by(l$investor_id);
-    }
-    if (_$data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = investor_investment_amount;
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : toJson$Enum$order_by(l$investor_investment_amount);
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$investor_stddev_pop_order_by<
-          Input$investor_stddev_pop_order_by>
-      get copyWith => CopyWith$Input$investor_stddev_pop_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$investor_stddev_pop_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$investor_id = investor_id;
-    final lOther$investor_id = other.investor_id;
-    if (_$data.containsKey('investor_id') !=
-        other._$data.containsKey('investor_id')) {
-      return false;
-    }
-    if (l$investor_id != lOther$investor_id) {
-      return false;
-    }
-    final l$investor_investment_amount = investor_investment_amount;
-    final lOther$investor_investment_amount = other.investor_investment_amount;
-    if (_$data.containsKey('investor_investment_amount') !=
-        other._$data.containsKey('investor_investment_amount')) {
-      return false;
-    }
-    if (l$investor_investment_amount != lOther$investor_investment_amount) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$investor_id = investor_id;
-    final l$investor_investment_amount = investor_investment_amount;
-    return Object.hashAll([
-      _$data.containsKey('investor_id') ? l$investor_id : const {},
-      _$data.containsKey('investor_investment_amount')
-          ? l$investor_investment_amount
-          : const {},
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$investor_stddev_pop_order_by<TRes> {
-  factory CopyWith$Input$investor_stddev_pop_order_by(
-    Input$investor_stddev_pop_order_by instance,
-    TRes Function(Input$investor_stddev_pop_order_by) then,
-  ) = _CopyWithImpl$Input$investor_stddev_pop_order_by;
-
-  factory CopyWith$Input$investor_stddev_pop_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$investor_stddev_pop_order_by;
-
-  TRes call({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  });
-}
-
-class _CopyWithImpl$Input$investor_stddev_pop_order_by<TRes>
-    implements CopyWith$Input$investor_stddev_pop_order_by<TRes> {
-  _CopyWithImpl$Input$investor_stddev_pop_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$investor_stddev_pop_order_by _instance;
-
-  final TRes Function(Input$investor_stddev_pop_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? investor_id = _undefined,
-    Object? investor_investment_amount = _undefined,
-  }) =>
-      _then(Input$investor_stddev_pop_order_by._({
-        ..._instance._$data,
-        if (investor_id != _undefined)
-          'investor_id': (investor_id as Enum$order_by?),
-        if (investor_investment_amount != _undefined)
-          'investor_investment_amount':
-              (investor_investment_amount as Enum$order_by?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$investor_stddev_pop_order_by<TRes>
-    implements CopyWith$Input$investor_stddev_pop_order_by<TRes> {
-  _CopyWithStubImpl$Input$investor_stddev_pop_order_by(this._res);
-
-  TRes _res;
-
-  call({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  }) =>
-      _res;
-}
-
-class Input$investor_stddev_samp_order_by {
-  factory Input$investor_stddev_samp_order_by({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  }) =>
-      Input$investor_stddev_samp_order_by._({
-        if (investor_id != null) r'investor_id': investor_id,
-        if (investor_investment_amount != null)
-          r'investor_investment_amount': investor_investment_amount,
-      });
-
-  Input$investor_stddev_samp_order_by._(this._$data);
-
-  factory Input$investor_stddev_samp_order_by.fromJson(
-      Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('investor_id')) {
-      final l$investor_id = data['investor_id'];
-      result$data['investor_id'] = l$investor_id == null
-          ? null
-          : fromJson$Enum$order_by((l$investor_id as String));
-    }
-    if (data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = data['investor_investment_amount'];
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : fromJson$Enum$order_by(
-                  (l$investor_investment_amount as String));
-    }
-    return Input$investor_stddev_samp_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Enum$order_by? get investor_id => (_$data['investor_id'] as Enum$order_by?);
-  Enum$order_by? get investor_investment_amount =>
-      (_$data['investor_investment_amount'] as Enum$order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('investor_id')) {
-      final l$investor_id = investor_id;
-      result$data['investor_id'] =
-          l$investor_id == null ? null : toJson$Enum$order_by(l$investor_id);
-    }
-    if (_$data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = investor_investment_amount;
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : toJson$Enum$order_by(l$investor_investment_amount);
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$investor_stddev_samp_order_by<
-          Input$investor_stddev_samp_order_by>
-      get copyWith => CopyWith$Input$investor_stddev_samp_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$investor_stddev_samp_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$investor_id = investor_id;
-    final lOther$investor_id = other.investor_id;
-    if (_$data.containsKey('investor_id') !=
-        other._$data.containsKey('investor_id')) {
-      return false;
-    }
-    if (l$investor_id != lOther$investor_id) {
-      return false;
-    }
-    final l$investor_investment_amount = investor_investment_amount;
-    final lOther$investor_investment_amount = other.investor_investment_amount;
-    if (_$data.containsKey('investor_investment_amount') !=
-        other._$data.containsKey('investor_investment_amount')) {
-      return false;
-    }
-    if (l$investor_investment_amount != lOther$investor_investment_amount) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$investor_id = investor_id;
-    final l$investor_investment_amount = investor_investment_amount;
-    return Object.hashAll([
-      _$data.containsKey('investor_id') ? l$investor_id : const {},
-      _$data.containsKey('investor_investment_amount')
-          ? l$investor_investment_amount
-          : const {},
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$investor_stddev_samp_order_by<TRes> {
-  factory CopyWith$Input$investor_stddev_samp_order_by(
-    Input$investor_stddev_samp_order_by instance,
-    TRes Function(Input$investor_stddev_samp_order_by) then,
-  ) = _CopyWithImpl$Input$investor_stddev_samp_order_by;
-
-  factory CopyWith$Input$investor_stddev_samp_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$investor_stddev_samp_order_by;
-
-  TRes call({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  });
-}
-
-class _CopyWithImpl$Input$investor_stddev_samp_order_by<TRes>
-    implements CopyWith$Input$investor_stddev_samp_order_by<TRes> {
-  _CopyWithImpl$Input$investor_stddev_samp_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$investor_stddev_samp_order_by _instance;
-
-  final TRes Function(Input$investor_stddev_samp_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? investor_id = _undefined,
-    Object? investor_investment_amount = _undefined,
-  }) =>
-      _then(Input$investor_stddev_samp_order_by._({
-        ..._instance._$data,
-        if (investor_id != _undefined)
-          'investor_id': (investor_id as Enum$order_by?),
-        if (investor_investment_amount != _undefined)
-          'investor_investment_amount':
-              (investor_investment_amount as Enum$order_by?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$investor_stddev_samp_order_by<TRes>
-    implements CopyWith$Input$investor_stddev_samp_order_by<TRes> {
-  _CopyWithStubImpl$Input$investor_stddev_samp_order_by(this._res);
-
-  TRes _res;
-
-  call({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  }) =>
-      _res;
-}
-
 class Input$investor_stream_cursor_input {
   factory Input$investor_stream_cursor_input({
     required Input$investor_stream_cursor_value_input initial_value,
@@ -53567,163 +51645,6 @@ class _CopyWithStubImpl$Input$investor_stream_cursor_value_input<TRes>
       _res;
 }
 
-class Input$investor_sum_order_by {
-  factory Input$investor_sum_order_by({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  }) =>
-      Input$investor_sum_order_by._({
-        if (investor_id != null) r'investor_id': investor_id,
-        if (investor_investment_amount != null)
-          r'investor_investment_amount': investor_investment_amount,
-      });
-
-  Input$investor_sum_order_by._(this._$data);
-
-  factory Input$investor_sum_order_by.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('investor_id')) {
-      final l$investor_id = data['investor_id'];
-      result$data['investor_id'] = l$investor_id == null
-          ? null
-          : fromJson$Enum$order_by((l$investor_id as String));
-    }
-    if (data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = data['investor_investment_amount'];
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : fromJson$Enum$order_by(
-                  (l$investor_investment_amount as String));
-    }
-    return Input$investor_sum_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Enum$order_by? get investor_id => (_$data['investor_id'] as Enum$order_by?);
-  Enum$order_by? get investor_investment_amount =>
-      (_$data['investor_investment_amount'] as Enum$order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('investor_id')) {
-      final l$investor_id = investor_id;
-      result$data['investor_id'] =
-          l$investor_id == null ? null : toJson$Enum$order_by(l$investor_id);
-    }
-    if (_$data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = investor_investment_amount;
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : toJson$Enum$order_by(l$investor_investment_amount);
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$investor_sum_order_by<Input$investor_sum_order_by>
-      get copyWith => CopyWith$Input$investor_sum_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$investor_sum_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$investor_id = investor_id;
-    final lOther$investor_id = other.investor_id;
-    if (_$data.containsKey('investor_id') !=
-        other._$data.containsKey('investor_id')) {
-      return false;
-    }
-    if (l$investor_id != lOther$investor_id) {
-      return false;
-    }
-    final l$investor_investment_amount = investor_investment_amount;
-    final lOther$investor_investment_amount = other.investor_investment_amount;
-    if (_$data.containsKey('investor_investment_amount') !=
-        other._$data.containsKey('investor_investment_amount')) {
-      return false;
-    }
-    if (l$investor_investment_amount != lOther$investor_investment_amount) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$investor_id = investor_id;
-    final l$investor_investment_amount = investor_investment_amount;
-    return Object.hashAll([
-      _$data.containsKey('investor_id') ? l$investor_id : const {},
-      _$data.containsKey('investor_investment_amount')
-          ? l$investor_investment_amount
-          : const {},
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$investor_sum_order_by<TRes> {
-  factory CopyWith$Input$investor_sum_order_by(
-    Input$investor_sum_order_by instance,
-    TRes Function(Input$investor_sum_order_by) then,
-  ) = _CopyWithImpl$Input$investor_sum_order_by;
-
-  factory CopyWith$Input$investor_sum_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$investor_sum_order_by;
-
-  TRes call({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  });
-}
-
-class _CopyWithImpl$Input$investor_sum_order_by<TRes>
-    implements CopyWith$Input$investor_sum_order_by<TRes> {
-  _CopyWithImpl$Input$investor_sum_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$investor_sum_order_by _instance;
-
-  final TRes Function(Input$investor_sum_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? investor_id = _undefined,
-    Object? investor_investment_amount = _undefined,
-  }) =>
-      _then(Input$investor_sum_order_by._({
-        ..._instance._$data,
-        if (investor_id != _undefined)
-          'investor_id': (investor_id as Enum$order_by?),
-        if (investor_investment_amount != _undefined)
-          'investor_investment_amount':
-              (investor_investment_amount as Enum$order_by?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$investor_sum_order_by<TRes>
-    implements CopyWith$Input$investor_sum_order_by<TRes> {
-  _CopyWithStubImpl$Input$investor_sum_order_by(this._res);
-
-  TRes _res;
-
-  call({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  }) =>
-      _res;
-}
-
 class Input$investor_updates {
   factory Input$investor_updates({
     Input$investor_inc_input? $_inc,
@@ -53916,477 +51837,6 @@ class _CopyWithStubImpl$Input$investor_updates<TRes>
       CopyWith$Input$investor_set_input.stub(_res);
   CopyWith$Input$investor_bool_exp<TRes> get where =>
       CopyWith$Input$investor_bool_exp.stub(_res);
-}
-
-class Input$investor_var_pop_order_by {
-  factory Input$investor_var_pop_order_by({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  }) =>
-      Input$investor_var_pop_order_by._({
-        if (investor_id != null) r'investor_id': investor_id,
-        if (investor_investment_amount != null)
-          r'investor_investment_amount': investor_investment_amount,
-      });
-
-  Input$investor_var_pop_order_by._(this._$data);
-
-  factory Input$investor_var_pop_order_by.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('investor_id')) {
-      final l$investor_id = data['investor_id'];
-      result$data['investor_id'] = l$investor_id == null
-          ? null
-          : fromJson$Enum$order_by((l$investor_id as String));
-    }
-    if (data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = data['investor_investment_amount'];
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : fromJson$Enum$order_by(
-                  (l$investor_investment_amount as String));
-    }
-    return Input$investor_var_pop_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Enum$order_by? get investor_id => (_$data['investor_id'] as Enum$order_by?);
-  Enum$order_by? get investor_investment_amount =>
-      (_$data['investor_investment_amount'] as Enum$order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('investor_id')) {
-      final l$investor_id = investor_id;
-      result$data['investor_id'] =
-          l$investor_id == null ? null : toJson$Enum$order_by(l$investor_id);
-    }
-    if (_$data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = investor_investment_amount;
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : toJson$Enum$order_by(l$investor_investment_amount);
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$investor_var_pop_order_by<Input$investor_var_pop_order_by>
-      get copyWith => CopyWith$Input$investor_var_pop_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$investor_var_pop_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$investor_id = investor_id;
-    final lOther$investor_id = other.investor_id;
-    if (_$data.containsKey('investor_id') !=
-        other._$data.containsKey('investor_id')) {
-      return false;
-    }
-    if (l$investor_id != lOther$investor_id) {
-      return false;
-    }
-    final l$investor_investment_amount = investor_investment_amount;
-    final lOther$investor_investment_amount = other.investor_investment_amount;
-    if (_$data.containsKey('investor_investment_amount') !=
-        other._$data.containsKey('investor_investment_amount')) {
-      return false;
-    }
-    if (l$investor_investment_amount != lOther$investor_investment_amount) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$investor_id = investor_id;
-    final l$investor_investment_amount = investor_investment_amount;
-    return Object.hashAll([
-      _$data.containsKey('investor_id') ? l$investor_id : const {},
-      _$data.containsKey('investor_investment_amount')
-          ? l$investor_investment_amount
-          : const {},
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$investor_var_pop_order_by<TRes> {
-  factory CopyWith$Input$investor_var_pop_order_by(
-    Input$investor_var_pop_order_by instance,
-    TRes Function(Input$investor_var_pop_order_by) then,
-  ) = _CopyWithImpl$Input$investor_var_pop_order_by;
-
-  factory CopyWith$Input$investor_var_pop_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$investor_var_pop_order_by;
-
-  TRes call({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  });
-}
-
-class _CopyWithImpl$Input$investor_var_pop_order_by<TRes>
-    implements CopyWith$Input$investor_var_pop_order_by<TRes> {
-  _CopyWithImpl$Input$investor_var_pop_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$investor_var_pop_order_by _instance;
-
-  final TRes Function(Input$investor_var_pop_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? investor_id = _undefined,
-    Object? investor_investment_amount = _undefined,
-  }) =>
-      _then(Input$investor_var_pop_order_by._({
-        ..._instance._$data,
-        if (investor_id != _undefined)
-          'investor_id': (investor_id as Enum$order_by?),
-        if (investor_investment_amount != _undefined)
-          'investor_investment_amount':
-              (investor_investment_amount as Enum$order_by?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$investor_var_pop_order_by<TRes>
-    implements CopyWith$Input$investor_var_pop_order_by<TRes> {
-  _CopyWithStubImpl$Input$investor_var_pop_order_by(this._res);
-
-  TRes _res;
-
-  call({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  }) =>
-      _res;
-}
-
-class Input$investor_var_samp_order_by {
-  factory Input$investor_var_samp_order_by({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  }) =>
-      Input$investor_var_samp_order_by._({
-        if (investor_id != null) r'investor_id': investor_id,
-        if (investor_investment_amount != null)
-          r'investor_investment_amount': investor_investment_amount,
-      });
-
-  Input$investor_var_samp_order_by._(this._$data);
-
-  factory Input$investor_var_samp_order_by.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('investor_id')) {
-      final l$investor_id = data['investor_id'];
-      result$data['investor_id'] = l$investor_id == null
-          ? null
-          : fromJson$Enum$order_by((l$investor_id as String));
-    }
-    if (data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = data['investor_investment_amount'];
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : fromJson$Enum$order_by(
-                  (l$investor_investment_amount as String));
-    }
-    return Input$investor_var_samp_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Enum$order_by? get investor_id => (_$data['investor_id'] as Enum$order_by?);
-  Enum$order_by? get investor_investment_amount =>
-      (_$data['investor_investment_amount'] as Enum$order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('investor_id')) {
-      final l$investor_id = investor_id;
-      result$data['investor_id'] =
-          l$investor_id == null ? null : toJson$Enum$order_by(l$investor_id);
-    }
-    if (_$data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = investor_investment_amount;
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : toJson$Enum$order_by(l$investor_investment_amount);
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$investor_var_samp_order_by<Input$investor_var_samp_order_by>
-      get copyWith => CopyWith$Input$investor_var_samp_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$investor_var_samp_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$investor_id = investor_id;
-    final lOther$investor_id = other.investor_id;
-    if (_$data.containsKey('investor_id') !=
-        other._$data.containsKey('investor_id')) {
-      return false;
-    }
-    if (l$investor_id != lOther$investor_id) {
-      return false;
-    }
-    final l$investor_investment_amount = investor_investment_amount;
-    final lOther$investor_investment_amount = other.investor_investment_amount;
-    if (_$data.containsKey('investor_investment_amount') !=
-        other._$data.containsKey('investor_investment_amount')) {
-      return false;
-    }
-    if (l$investor_investment_amount != lOther$investor_investment_amount) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$investor_id = investor_id;
-    final l$investor_investment_amount = investor_investment_amount;
-    return Object.hashAll([
-      _$data.containsKey('investor_id') ? l$investor_id : const {},
-      _$data.containsKey('investor_investment_amount')
-          ? l$investor_investment_amount
-          : const {},
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$investor_var_samp_order_by<TRes> {
-  factory CopyWith$Input$investor_var_samp_order_by(
-    Input$investor_var_samp_order_by instance,
-    TRes Function(Input$investor_var_samp_order_by) then,
-  ) = _CopyWithImpl$Input$investor_var_samp_order_by;
-
-  factory CopyWith$Input$investor_var_samp_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$investor_var_samp_order_by;
-
-  TRes call({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  });
-}
-
-class _CopyWithImpl$Input$investor_var_samp_order_by<TRes>
-    implements CopyWith$Input$investor_var_samp_order_by<TRes> {
-  _CopyWithImpl$Input$investor_var_samp_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$investor_var_samp_order_by _instance;
-
-  final TRes Function(Input$investor_var_samp_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? investor_id = _undefined,
-    Object? investor_investment_amount = _undefined,
-  }) =>
-      _then(Input$investor_var_samp_order_by._({
-        ..._instance._$data,
-        if (investor_id != _undefined)
-          'investor_id': (investor_id as Enum$order_by?),
-        if (investor_investment_amount != _undefined)
-          'investor_investment_amount':
-              (investor_investment_amount as Enum$order_by?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$investor_var_samp_order_by<TRes>
-    implements CopyWith$Input$investor_var_samp_order_by<TRes> {
-  _CopyWithStubImpl$Input$investor_var_samp_order_by(this._res);
-
-  TRes _res;
-
-  call({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  }) =>
-      _res;
-}
-
-class Input$investor_variance_order_by {
-  factory Input$investor_variance_order_by({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  }) =>
-      Input$investor_variance_order_by._({
-        if (investor_id != null) r'investor_id': investor_id,
-        if (investor_investment_amount != null)
-          r'investor_investment_amount': investor_investment_amount,
-      });
-
-  Input$investor_variance_order_by._(this._$data);
-
-  factory Input$investor_variance_order_by.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('investor_id')) {
-      final l$investor_id = data['investor_id'];
-      result$data['investor_id'] = l$investor_id == null
-          ? null
-          : fromJson$Enum$order_by((l$investor_id as String));
-    }
-    if (data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = data['investor_investment_amount'];
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : fromJson$Enum$order_by(
-                  (l$investor_investment_amount as String));
-    }
-    return Input$investor_variance_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Enum$order_by? get investor_id => (_$data['investor_id'] as Enum$order_by?);
-  Enum$order_by? get investor_investment_amount =>
-      (_$data['investor_investment_amount'] as Enum$order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('investor_id')) {
-      final l$investor_id = investor_id;
-      result$data['investor_id'] =
-          l$investor_id == null ? null : toJson$Enum$order_by(l$investor_id);
-    }
-    if (_$data.containsKey('investor_investment_amount')) {
-      final l$investor_investment_amount = investor_investment_amount;
-      result$data['investor_investment_amount'] =
-          l$investor_investment_amount == null
-              ? null
-              : toJson$Enum$order_by(l$investor_investment_amount);
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$investor_variance_order_by<Input$investor_variance_order_by>
-      get copyWith => CopyWith$Input$investor_variance_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$investor_variance_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$investor_id = investor_id;
-    final lOther$investor_id = other.investor_id;
-    if (_$data.containsKey('investor_id') !=
-        other._$data.containsKey('investor_id')) {
-      return false;
-    }
-    if (l$investor_id != lOther$investor_id) {
-      return false;
-    }
-    final l$investor_investment_amount = investor_investment_amount;
-    final lOther$investor_investment_amount = other.investor_investment_amount;
-    if (_$data.containsKey('investor_investment_amount') !=
-        other._$data.containsKey('investor_investment_amount')) {
-      return false;
-    }
-    if (l$investor_investment_amount != lOther$investor_investment_amount) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$investor_id = investor_id;
-    final l$investor_investment_amount = investor_investment_amount;
-    return Object.hashAll([
-      _$data.containsKey('investor_id') ? l$investor_id : const {},
-      _$data.containsKey('investor_investment_amount')
-          ? l$investor_investment_amount
-          : const {},
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$investor_variance_order_by<TRes> {
-  factory CopyWith$Input$investor_variance_order_by(
-    Input$investor_variance_order_by instance,
-    TRes Function(Input$investor_variance_order_by) then,
-  ) = _CopyWithImpl$Input$investor_variance_order_by;
-
-  factory CopyWith$Input$investor_variance_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$investor_variance_order_by;
-
-  TRes call({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  });
-}
-
-class _CopyWithImpl$Input$investor_variance_order_by<TRes>
-    implements CopyWith$Input$investor_variance_order_by<TRes> {
-  _CopyWithImpl$Input$investor_variance_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$investor_variance_order_by _instance;
-
-  final TRes Function(Input$investor_variance_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? investor_id = _undefined,
-    Object? investor_investment_amount = _undefined,
-  }) =>
-      _then(Input$investor_variance_order_by._({
-        ..._instance._$data,
-        if (investor_id != _undefined)
-          'investor_id': (investor_id as Enum$order_by?),
-        if (investor_investment_amount != _undefined)
-          'investor_investment_amount':
-              (investor_investment_amount as Enum$order_by?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$investor_variance_order_by<TRes>
-    implements CopyWith$Input$investor_variance_order_by<TRes> {
-  _CopyWithStubImpl$Input$investor_variance_order_by(this._res);
-
-  TRes _res;
-
-  call({
-    Enum$order_by? investor_id,
-    Enum$order_by? investor_investment_amount,
-  }) =>
-      _res;
 }
 
 class Input$jsonb_cast_exp {
@@ -55059,1162 +52509,6 @@ class _CopyWithStubImpl$Input$jsonb_comparison_exp<TRes>
       _res;
   CopyWith$Input$jsonb_cast_exp<TRes> get $_cast =>
       CopyWith$Input$jsonb_cast_exp.stub(_res);
-}
-
-class Input$profile_aggregate_bool_exp {
-  factory Input$profile_aggregate_bool_exp(
-          {Input$profile_aggregate_bool_exp_count? count}) =>
-      Input$profile_aggregate_bool_exp._({
-        if (count != null) r'count': count,
-      });
-
-  Input$profile_aggregate_bool_exp._(this._$data);
-
-  factory Input$profile_aggregate_bool_exp.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('count')) {
-      final l$count = data['count'];
-      result$data['count'] = l$count == null
-          ? null
-          : Input$profile_aggregate_bool_exp_count.fromJson(
-              (l$count as Map<String, dynamic>));
-    }
-    return Input$profile_aggregate_bool_exp._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Input$profile_aggregate_bool_exp_count? get count =>
-      (_$data['count'] as Input$profile_aggregate_bool_exp_count?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('count')) {
-      final l$count = count;
-      result$data['count'] = l$count?.toJson();
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$profile_aggregate_bool_exp<Input$profile_aggregate_bool_exp>
-      get copyWith => CopyWith$Input$profile_aggregate_bool_exp(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$profile_aggregate_bool_exp) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$count = count;
-    final lOther$count = other.count;
-    if (_$data.containsKey('count') != other._$data.containsKey('count')) {
-      return false;
-    }
-    if (l$count != lOther$count) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$count = count;
-    return Object.hashAll([_$data.containsKey('count') ? l$count : const {}]);
-  }
-}
-
-abstract class CopyWith$Input$profile_aggregate_bool_exp<TRes> {
-  factory CopyWith$Input$profile_aggregate_bool_exp(
-    Input$profile_aggregate_bool_exp instance,
-    TRes Function(Input$profile_aggregate_bool_exp) then,
-  ) = _CopyWithImpl$Input$profile_aggregate_bool_exp;
-
-  factory CopyWith$Input$profile_aggregate_bool_exp.stub(TRes res) =
-      _CopyWithStubImpl$Input$profile_aggregate_bool_exp;
-
-  TRes call({Input$profile_aggregate_bool_exp_count? count});
-  CopyWith$Input$profile_aggregate_bool_exp_count<TRes> get count;
-}
-
-class _CopyWithImpl$Input$profile_aggregate_bool_exp<TRes>
-    implements CopyWith$Input$profile_aggregate_bool_exp<TRes> {
-  _CopyWithImpl$Input$profile_aggregate_bool_exp(
-    this._instance,
-    this._then,
-  );
-
-  final Input$profile_aggregate_bool_exp _instance;
-
-  final TRes Function(Input$profile_aggregate_bool_exp) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? count = _undefined}) =>
-      _then(Input$profile_aggregate_bool_exp._({
-        ..._instance._$data,
-        if (count != _undefined)
-          'count': (count as Input$profile_aggregate_bool_exp_count?),
-      }));
-  CopyWith$Input$profile_aggregate_bool_exp_count<TRes> get count {
-    final local$count = _instance.count;
-    return local$count == null
-        ? CopyWith$Input$profile_aggregate_bool_exp_count.stub(_then(_instance))
-        : CopyWith$Input$profile_aggregate_bool_exp_count(
-            local$count, (e) => call(count: e));
-  }
-}
-
-class _CopyWithStubImpl$Input$profile_aggregate_bool_exp<TRes>
-    implements CopyWith$Input$profile_aggregate_bool_exp<TRes> {
-  _CopyWithStubImpl$Input$profile_aggregate_bool_exp(this._res);
-
-  TRes _res;
-
-  call({Input$profile_aggregate_bool_exp_count? count}) => _res;
-  CopyWith$Input$profile_aggregate_bool_exp_count<TRes> get count =>
-      CopyWith$Input$profile_aggregate_bool_exp_count.stub(_res);
-}
-
-class Input$profile_aggregate_bool_exp_count {
-  factory Input$profile_aggregate_bool_exp_count({
-    List<Enum$profile_select_column>? arguments,
-    bool? distinct,
-    Input$profile_bool_exp? filter,
-    required Input$Int_comparison_exp predicate,
-  }) =>
-      Input$profile_aggregate_bool_exp_count._({
-        if (arguments != null) r'arguments': arguments,
-        if (distinct != null) r'distinct': distinct,
-        if (filter != null) r'filter': filter,
-        r'predicate': predicate,
-      });
-
-  Input$profile_aggregate_bool_exp_count._(this._$data);
-
-  factory Input$profile_aggregate_bool_exp_count.fromJson(
-      Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('arguments')) {
-      final l$arguments = data['arguments'];
-      result$data['arguments'] = (l$arguments as List<dynamic>?)
-          ?.map((e) => fromJson$Enum$profile_select_column((e as String)))
-          .toList();
-    }
-    if (data.containsKey('distinct')) {
-      final l$distinct = data['distinct'];
-      result$data['distinct'] = (l$distinct as bool?);
-    }
-    if (data.containsKey('filter')) {
-      final l$filter = data['filter'];
-      result$data['filter'] = l$filter == null
-          ? null
-          : Input$profile_bool_exp.fromJson((l$filter as Map<String, dynamic>));
-    }
-    final l$predicate = data['predicate'];
-    result$data['predicate'] = Input$Int_comparison_exp.fromJson(
-        (l$predicate as Map<String, dynamic>));
-    return Input$profile_aggregate_bool_exp_count._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  List<Enum$profile_select_column>? get arguments =>
-      (_$data['arguments'] as List<Enum$profile_select_column>?);
-  bool? get distinct => (_$data['distinct'] as bool?);
-  Input$profile_bool_exp? get filter =>
-      (_$data['filter'] as Input$profile_bool_exp?);
-  Input$Int_comparison_exp get predicate =>
-      (_$data['predicate'] as Input$Int_comparison_exp);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('arguments')) {
-      final l$arguments = arguments;
-      result$data['arguments'] = l$arguments
-          ?.map((e) => toJson$Enum$profile_select_column(e))
-          .toList();
-    }
-    if (_$data.containsKey('distinct')) {
-      final l$distinct = distinct;
-      result$data['distinct'] = l$distinct;
-    }
-    if (_$data.containsKey('filter')) {
-      final l$filter = filter;
-      result$data['filter'] = l$filter?.toJson();
-    }
-    final l$predicate = predicate;
-    result$data['predicate'] = l$predicate.toJson();
-    return result$data;
-  }
-
-  CopyWith$Input$profile_aggregate_bool_exp_count<
-          Input$profile_aggregate_bool_exp_count>
-      get copyWith => CopyWith$Input$profile_aggregate_bool_exp_count(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$profile_aggregate_bool_exp_count) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$arguments = arguments;
-    final lOther$arguments = other.arguments;
-    if (_$data.containsKey('arguments') !=
-        other._$data.containsKey('arguments')) {
-      return false;
-    }
-    if (l$arguments != null && lOther$arguments != null) {
-      if (l$arguments.length != lOther$arguments.length) {
-        return false;
-      }
-      for (int i = 0; i < l$arguments.length; i++) {
-        final l$arguments$entry = l$arguments[i];
-        final lOther$arguments$entry = lOther$arguments[i];
-        if (l$arguments$entry != lOther$arguments$entry) {
-          return false;
-        }
-      }
-    } else if (l$arguments != lOther$arguments) {
-      return false;
-    }
-    final l$distinct = distinct;
-    final lOther$distinct = other.distinct;
-    if (_$data.containsKey('distinct') !=
-        other._$data.containsKey('distinct')) {
-      return false;
-    }
-    if (l$distinct != lOther$distinct) {
-      return false;
-    }
-    final l$filter = filter;
-    final lOther$filter = other.filter;
-    if (_$data.containsKey('filter') != other._$data.containsKey('filter')) {
-      return false;
-    }
-    if (l$filter != lOther$filter) {
-      return false;
-    }
-    final l$predicate = predicate;
-    final lOther$predicate = other.predicate;
-    if (l$predicate != lOther$predicate) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$arguments = arguments;
-    final l$distinct = distinct;
-    final l$filter = filter;
-    final l$predicate = predicate;
-    return Object.hashAll([
-      _$data.containsKey('arguments')
-          ? l$arguments == null
-              ? null
-              : Object.hashAll(l$arguments.map((v) => v))
-          : const {},
-      _$data.containsKey('distinct') ? l$distinct : const {},
-      _$data.containsKey('filter') ? l$filter : const {},
-      l$predicate,
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$profile_aggregate_bool_exp_count<TRes> {
-  factory CopyWith$Input$profile_aggregate_bool_exp_count(
-    Input$profile_aggregate_bool_exp_count instance,
-    TRes Function(Input$profile_aggregate_bool_exp_count) then,
-  ) = _CopyWithImpl$Input$profile_aggregate_bool_exp_count;
-
-  factory CopyWith$Input$profile_aggregate_bool_exp_count.stub(TRes res) =
-      _CopyWithStubImpl$Input$profile_aggregate_bool_exp_count;
-
-  TRes call({
-    List<Enum$profile_select_column>? arguments,
-    bool? distinct,
-    Input$profile_bool_exp? filter,
-    Input$Int_comparison_exp? predicate,
-  });
-  CopyWith$Input$profile_bool_exp<TRes> get filter;
-  CopyWith$Input$Int_comparison_exp<TRes> get predicate;
-}
-
-class _CopyWithImpl$Input$profile_aggregate_bool_exp_count<TRes>
-    implements CopyWith$Input$profile_aggregate_bool_exp_count<TRes> {
-  _CopyWithImpl$Input$profile_aggregate_bool_exp_count(
-    this._instance,
-    this._then,
-  );
-
-  final Input$profile_aggregate_bool_exp_count _instance;
-
-  final TRes Function(Input$profile_aggregate_bool_exp_count) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? arguments = _undefined,
-    Object? distinct = _undefined,
-    Object? filter = _undefined,
-    Object? predicate = _undefined,
-  }) =>
-      _then(Input$profile_aggregate_bool_exp_count._({
-        ..._instance._$data,
-        if (arguments != _undefined)
-          'arguments': (arguments as List<Enum$profile_select_column>?),
-        if (distinct != _undefined) 'distinct': (distinct as bool?),
-        if (filter != _undefined) 'filter': (filter as Input$profile_bool_exp?),
-        if (predicate != _undefined && predicate != null)
-          'predicate': (predicate as Input$Int_comparison_exp),
-      }));
-  CopyWith$Input$profile_bool_exp<TRes> get filter {
-    final local$filter = _instance.filter;
-    return local$filter == null
-        ? CopyWith$Input$profile_bool_exp.stub(_then(_instance))
-        : CopyWith$Input$profile_bool_exp(local$filter, (e) => call(filter: e));
-  }
-
-  CopyWith$Input$Int_comparison_exp<TRes> get predicate {
-    final local$predicate = _instance.predicate;
-    return CopyWith$Input$Int_comparison_exp(
-        local$predicate, (e) => call(predicate: e));
-  }
-}
-
-class _CopyWithStubImpl$Input$profile_aggregate_bool_exp_count<TRes>
-    implements CopyWith$Input$profile_aggregate_bool_exp_count<TRes> {
-  _CopyWithStubImpl$Input$profile_aggregate_bool_exp_count(this._res);
-
-  TRes _res;
-
-  call({
-    List<Enum$profile_select_column>? arguments,
-    bool? distinct,
-    Input$profile_bool_exp? filter,
-    Input$Int_comparison_exp? predicate,
-  }) =>
-      _res;
-  CopyWith$Input$profile_bool_exp<TRes> get filter =>
-      CopyWith$Input$profile_bool_exp.stub(_res);
-  CopyWith$Input$Int_comparison_exp<TRes> get predicate =>
-      CopyWith$Input$Int_comparison_exp.stub(_res);
-}
-
-class Input$profile_aggregate_order_by {
-  factory Input$profile_aggregate_order_by({
-    Input$profile_avg_order_by? avg,
-    Enum$order_by? count,
-    Input$profile_max_order_by? max,
-    Input$profile_min_order_by? min,
-    Input$profile_stddev_order_by? stddev,
-    Input$profile_stddev_pop_order_by? stddev_pop,
-    Input$profile_stddev_samp_order_by? stddev_samp,
-    Input$profile_sum_order_by? sum,
-    Input$profile_var_pop_order_by? var_pop,
-    Input$profile_var_samp_order_by? var_samp,
-    Input$profile_variance_order_by? variance,
-  }) =>
-      Input$profile_aggregate_order_by._({
-        if (avg != null) r'avg': avg,
-        if (count != null) r'count': count,
-        if (max != null) r'max': max,
-        if (min != null) r'min': min,
-        if (stddev != null) r'stddev': stddev,
-        if (stddev_pop != null) r'stddev_pop': stddev_pop,
-        if (stddev_samp != null) r'stddev_samp': stddev_samp,
-        if (sum != null) r'sum': sum,
-        if (var_pop != null) r'var_pop': var_pop,
-        if (var_samp != null) r'var_samp': var_samp,
-        if (variance != null) r'variance': variance,
-      });
-
-  Input$profile_aggregate_order_by._(this._$data);
-
-  factory Input$profile_aggregate_order_by.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('avg')) {
-      final l$avg = data['avg'];
-      result$data['avg'] = l$avg == null
-          ? null
-          : Input$profile_avg_order_by.fromJson(
-              (l$avg as Map<String, dynamic>));
-    }
-    if (data.containsKey('count')) {
-      final l$count = data['count'];
-      result$data['count'] =
-          l$count == null ? null : fromJson$Enum$order_by((l$count as String));
-    }
-    if (data.containsKey('max')) {
-      final l$max = data['max'];
-      result$data['max'] = l$max == null
-          ? null
-          : Input$profile_max_order_by.fromJson(
-              (l$max as Map<String, dynamic>));
-    }
-    if (data.containsKey('min')) {
-      final l$min = data['min'];
-      result$data['min'] = l$min == null
-          ? null
-          : Input$profile_min_order_by.fromJson(
-              (l$min as Map<String, dynamic>));
-    }
-    if (data.containsKey('stddev')) {
-      final l$stddev = data['stddev'];
-      result$data['stddev'] = l$stddev == null
-          ? null
-          : Input$profile_stddev_order_by.fromJson(
-              (l$stddev as Map<String, dynamic>));
-    }
-    if (data.containsKey('stddev_pop')) {
-      final l$stddev_pop = data['stddev_pop'];
-      result$data['stddev_pop'] = l$stddev_pop == null
-          ? null
-          : Input$profile_stddev_pop_order_by.fromJson(
-              (l$stddev_pop as Map<String, dynamic>));
-    }
-    if (data.containsKey('stddev_samp')) {
-      final l$stddev_samp = data['stddev_samp'];
-      result$data['stddev_samp'] = l$stddev_samp == null
-          ? null
-          : Input$profile_stddev_samp_order_by.fromJson(
-              (l$stddev_samp as Map<String, dynamic>));
-    }
-    if (data.containsKey('sum')) {
-      final l$sum = data['sum'];
-      result$data['sum'] = l$sum == null
-          ? null
-          : Input$profile_sum_order_by.fromJson(
-              (l$sum as Map<String, dynamic>));
-    }
-    if (data.containsKey('var_pop')) {
-      final l$var_pop = data['var_pop'];
-      result$data['var_pop'] = l$var_pop == null
-          ? null
-          : Input$profile_var_pop_order_by.fromJson(
-              (l$var_pop as Map<String, dynamic>));
-    }
-    if (data.containsKey('var_samp')) {
-      final l$var_samp = data['var_samp'];
-      result$data['var_samp'] = l$var_samp == null
-          ? null
-          : Input$profile_var_samp_order_by.fromJson(
-              (l$var_samp as Map<String, dynamic>));
-    }
-    if (data.containsKey('variance')) {
-      final l$variance = data['variance'];
-      result$data['variance'] = l$variance == null
-          ? null
-          : Input$profile_variance_order_by.fromJson(
-              (l$variance as Map<String, dynamic>));
-    }
-    return Input$profile_aggregate_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Input$profile_avg_order_by? get avg =>
-      (_$data['avg'] as Input$profile_avg_order_by?);
-  Enum$order_by? get count => (_$data['count'] as Enum$order_by?);
-  Input$profile_max_order_by? get max =>
-      (_$data['max'] as Input$profile_max_order_by?);
-  Input$profile_min_order_by? get min =>
-      (_$data['min'] as Input$profile_min_order_by?);
-  Input$profile_stddev_order_by? get stddev =>
-      (_$data['stddev'] as Input$profile_stddev_order_by?);
-  Input$profile_stddev_pop_order_by? get stddev_pop =>
-      (_$data['stddev_pop'] as Input$profile_stddev_pop_order_by?);
-  Input$profile_stddev_samp_order_by? get stddev_samp =>
-      (_$data['stddev_samp'] as Input$profile_stddev_samp_order_by?);
-  Input$profile_sum_order_by? get sum =>
-      (_$data['sum'] as Input$profile_sum_order_by?);
-  Input$profile_var_pop_order_by? get var_pop =>
-      (_$data['var_pop'] as Input$profile_var_pop_order_by?);
-  Input$profile_var_samp_order_by? get var_samp =>
-      (_$data['var_samp'] as Input$profile_var_samp_order_by?);
-  Input$profile_variance_order_by? get variance =>
-      (_$data['variance'] as Input$profile_variance_order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('avg')) {
-      final l$avg = avg;
-      result$data['avg'] = l$avg?.toJson();
-    }
-    if (_$data.containsKey('count')) {
-      final l$count = count;
-      result$data['count'] =
-          l$count == null ? null : toJson$Enum$order_by(l$count);
-    }
-    if (_$data.containsKey('max')) {
-      final l$max = max;
-      result$data['max'] = l$max?.toJson();
-    }
-    if (_$data.containsKey('min')) {
-      final l$min = min;
-      result$data['min'] = l$min?.toJson();
-    }
-    if (_$data.containsKey('stddev')) {
-      final l$stddev = stddev;
-      result$data['stddev'] = l$stddev?.toJson();
-    }
-    if (_$data.containsKey('stddev_pop')) {
-      final l$stddev_pop = stddev_pop;
-      result$data['stddev_pop'] = l$stddev_pop?.toJson();
-    }
-    if (_$data.containsKey('stddev_samp')) {
-      final l$stddev_samp = stddev_samp;
-      result$data['stddev_samp'] = l$stddev_samp?.toJson();
-    }
-    if (_$data.containsKey('sum')) {
-      final l$sum = sum;
-      result$data['sum'] = l$sum?.toJson();
-    }
-    if (_$data.containsKey('var_pop')) {
-      final l$var_pop = var_pop;
-      result$data['var_pop'] = l$var_pop?.toJson();
-    }
-    if (_$data.containsKey('var_samp')) {
-      final l$var_samp = var_samp;
-      result$data['var_samp'] = l$var_samp?.toJson();
-    }
-    if (_$data.containsKey('variance')) {
-      final l$variance = variance;
-      result$data['variance'] = l$variance?.toJson();
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$profile_aggregate_order_by<Input$profile_aggregate_order_by>
-      get copyWith => CopyWith$Input$profile_aggregate_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$profile_aggregate_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$avg = avg;
-    final lOther$avg = other.avg;
-    if (_$data.containsKey('avg') != other._$data.containsKey('avg')) {
-      return false;
-    }
-    if (l$avg != lOther$avg) {
-      return false;
-    }
-    final l$count = count;
-    final lOther$count = other.count;
-    if (_$data.containsKey('count') != other._$data.containsKey('count')) {
-      return false;
-    }
-    if (l$count != lOther$count) {
-      return false;
-    }
-    final l$max = max;
-    final lOther$max = other.max;
-    if (_$data.containsKey('max') != other._$data.containsKey('max')) {
-      return false;
-    }
-    if (l$max != lOther$max) {
-      return false;
-    }
-    final l$min = min;
-    final lOther$min = other.min;
-    if (_$data.containsKey('min') != other._$data.containsKey('min')) {
-      return false;
-    }
-    if (l$min != lOther$min) {
-      return false;
-    }
-    final l$stddev = stddev;
-    final lOther$stddev = other.stddev;
-    if (_$data.containsKey('stddev') != other._$data.containsKey('stddev')) {
-      return false;
-    }
-    if (l$stddev != lOther$stddev) {
-      return false;
-    }
-    final l$stddev_pop = stddev_pop;
-    final lOther$stddev_pop = other.stddev_pop;
-    if (_$data.containsKey('stddev_pop') !=
-        other._$data.containsKey('stddev_pop')) {
-      return false;
-    }
-    if (l$stddev_pop != lOther$stddev_pop) {
-      return false;
-    }
-    final l$stddev_samp = stddev_samp;
-    final lOther$stddev_samp = other.stddev_samp;
-    if (_$data.containsKey('stddev_samp') !=
-        other._$data.containsKey('stddev_samp')) {
-      return false;
-    }
-    if (l$stddev_samp != lOther$stddev_samp) {
-      return false;
-    }
-    final l$sum = sum;
-    final lOther$sum = other.sum;
-    if (_$data.containsKey('sum') != other._$data.containsKey('sum')) {
-      return false;
-    }
-    if (l$sum != lOther$sum) {
-      return false;
-    }
-    final l$var_pop = var_pop;
-    final lOther$var_pop = other.var_pop;
-    if (_$data.containsKey('var_pop') != other._$data.containsKey('var_pop')) {
-      return false;
-    }
-    if (l$var_pop != lOther$var_pop) {
-      return false;
-    }
-    final l$var_samp = var_samp;
-    final lOther$var_samp = other.var_samp;
-    if (_$data.containsKey('var_samp') !=
-        other._$data.containsKey('var_samp')) {
-      return false;
-    }
-    if (l$var_samp != lOther$var_samp) {
-      return false;
-    }
-    final l$variance = variance;
-    final lOther$variance = other.variance;
-    if (_$data.containsKey('variance') !=
-        other._$data.containsKey('variance')) {
-      return false;
-    }
-    if (l$variance != lOther$variance) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$avg = avg;
-    final l$count = count;
-    final l$max = max;
-    final l$min = min;
-    final l$stddev = stddev;
-    final l$stddev_pop = stddev_pop;
-    final l$stddev_samp = stddev_samp;
-    final l$sum = sum;
-    final l$var_pop = var_pop;
-    final l$var_samp = var_samp;
-    final l$variance = variance;
-    return Object.hashAll([
-      _$data.containsKey('avg') ? l$avg : const {},
-      _$data.containsKey('count') ? l$count : const {},
-      _$data.containsKey('max') ? l$max : const {},
-      _$data.containsKey('min') ? l$min : const {},
-      _$data.containsKey('stddev') ? l$stddev : const {},
-      _$data.containsKey('stddev_pop') ? l$stddev_pop : const {},
-      _$data.containsKey('stddev_samp') ? l$stddev_samp : const {},
-      _$data.containsKey('sum') ? l$sum : const {},
-      _$data.containsKey('var_pop') ? l$var_pop : const {},
-      _$data.containsKey('var_samp') ? l$var_samp : const {},
-      _$data.containsKey('variance') ? l$variance : const {},
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$profile_aggregate_order_by<TRes> {
-  factory CopyWith$Input$profile_aggregate_order_by(
-    Input$profile_aggregate_order_by instance,
-    TRes Function(Input$profile_aggregate_order_by) then,
-  ) = _CopyWithImpl$Input$profile_aggregate_order_by;
-
-  factory CopyWith$Input$profile_aggregate_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$profile_aggregate_order_by;
-
-  TRes call({
-    Input$profile_avg_order_by? avg,
-    Enum$order_by? count,
-    Input$profile_max_order_by? max,
-    Input$profile_min_order_by? min,
-    Input$profile_stddev_order_by? stddev,
-    Input$profile_stddev_pop_order_by? stddev_pop,
-    Input$profile_stddev_samp_order_by? stddev_samp,
-    Input$profile_sum_order_by? sum,
-    Input$profile_var_pop_order_by? var_pop,
-    Input$profile_var_samp_order_by? var_samp,
-    Input$profile_variance_order_by? variance,
-  });
-  CopyWith$Input$profile_avg_order_by<TRes> get avg;
-  CopyWith$Input$profile_max_order_by<TRes> get max;
-  CopyWith$Input$profile_min_order_by<TRes> get min;
-  CopyWith$Input$profile_stddev_order_by<TRes> get stddev;
-  CopyWith$Input$profile_stddev_pop_order_by<TRes> get stddev_pop;
-  CopyWith$Input$profile_stddev_samp_order_by<TRes> get stddev_samp;
-  CopyWith$Input$profile_sum_order_by<TRes> get sum;
-  CopyWith$Input$profile_var_pop_order_by<TRes> get var_pop;
-  CopyWith$Input$profile_var_samp_order_by<TRes> get var_samp;
-  CopyWith$Input$profile_variance_order_by<TRes> get variance;
-}
-
-class _CopyWithImpl$Input$profile_aggregate_order_by<TRes>
-    implements CopyWith$Input$profile_aggregate_order_by<TRes> {
-  _CopyWithImpl$Input$profile_aggregate_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$profile_aggregate_order_by _instance;
-
-  final TRes Function(Input$profile_aggregate_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? avg = _undefined,
-    Object? count = _undefined,
-    Object? max = _undefined,
-    Object? min = _undefined,
-    Object? stddev = _undefined,
-    Object? stddev_pop = _undefined,
-    Object? stddev_samp = _undefined,
-    Object? sum = _undefined,
-    Object? var_pop = _undefined,
-    Object? var_samp = _undefined,
-    Object? variance = _undefined,
-  }) =>
-      _then(Input$profile_aggregate_order_by._({
-        ..._instance._$data,
-        if (avg != _undefined) 'avg': (avg as Input$profile_avg_order_by?),
-        if (count != _undefined) 'count': (count as Enum$order_by?),
-        if (max != _undefined) 'max': (max as Input$profile_max_order_by?),
-        if (min != _undefined) 'min': (min as Input$profile_min_order_by?),
-        if (stddev != _undefined)
-          'stddev': (stddev as Input$profile_stddev_order_by?),
-        if (stddev_pop != _undefined)
-          'stddev_pop': (stddev_pop as Input$profile_stddev_pop_order_by?),
-        if (stddev_samp != _undefined)
-          'stddev_samp': (stddev_samp as Input$profile_stddev_samp_order_by?),
-        if (sum != _undefined) 'sum': (sum as Input$profile_sum_order_by?),
-        if (var_pop != _undefined)
-          'var_pop': (var_pop as Input$profile_var_pop_order_by?),
-        if (var_samp != _undefined)
-          'var_samp': (var_samp as Input$profile_var_samp_order_by?),
-        if (variance != _undefined)
-          'variance': (variance as Input$profile_variance_order_by?),
-      }));
-  CopyWith$Input$profile_avg_order_by<TRes> get avg {
-    final local$avg = _instance.avg;
-    return local$avg == null
-        ? CopyWith$Input$profile_avg_order_by.stub(_then(_instance))
-        : CopyWith$Input$profile_avg_order_by(local$avg, (e) => call(avg: e));
-  }
-
-  CopyWith$Input$profile_max_order_by<TRes> get max {
-    final local$max = _instance.max;
-    return local$max == null
-        ? CopyWith$Input$profile_max_order_by.stub(_then(_instance))
-        : CopyWith$Input$profile_max_order_by(local$max, (e) => call(max: e));
-  }
-
-  CopyWith$Input$profile_min_order_by<TRes> get min {
-    final local$min = _instance.min;
-    return local$min == null
-        ? CopyWith$Input$profile_min_order_by.stub(_then(_instance))
-        : CopyWith$Input$profile_min_order_by(local$min, (e) => call(min: e));
-  }
-
-  CopyWith$Input$profile_stddev_order_by<TRes> get stddev {
-    final local$stddev = _instance.stddev;
-    return local$stddev == null
-        ? CopyWith$Input$profile_stddev_order_by.stub(_then(_instance))
-        : CopyWith$Input$profile_stddev_order_by(
-            local$stddev, (e) => call(stddev: e));
-  }
-
-  CopyWith$Input$profile_stddev_pop_order_by<TRes> get stddev_pop {
-    final local$stddev_pop = _instance.stddev_pop;
-    return local$stddev_pop == null
-        ? CopyWith$Input$profile_stddev_pop_order_by.stub(_then(_instance))
-        : CopyWith$Input$profile_stddev_pop_order_by(
-            local$stddev_pop, (e) => call(stddev_pop: e));
-  }
-
-  CopyWith$Input$profile_stddev_samp_order_by<TRes> get stddev_samp {
-    final local$stddev_samp = _instance.stddev_samp;
-    return local$stddev_samp == null
-        ? CopyWith$Input$profile_stddev_samp_order_by.stub(_then(_instance))
-        : CopyWith$Input$profile_stddev_samp_order_by(
-            local$stddev_samp, (e) => call(stddev_samp: e));
-  }
-
-  CopyWith$Input$profile_sum_order_by<TRes> get sum {
-    final local$sum = _instance.sum;
-    return local$sum == null
-        ? CopyWith$Input$profile_sum_order_by.stub(_then(_instance))
-        : CopyWith$Input$profile_sum_order_by(local$sum, (e) => call(sum: e));
-  }
-
-  CopyWith$Input$profile_var_pop_order_by<TRes> get var_pop {
-    final local$var_pop = _instance.var_pop;
-    return local$var_pop == null
-        ? CopyWith$Input$profile_var_pop_order_by.stub(_then(_instance))
-        : CopyWith$Input$profile_var_pop_order_by(
-            local$var_pop, (e) => call(var_pop: e));
-  }
-
-  CopyWith$Input$profile_var_samp_order_by<TRes> get var_samp {
-    final local$var_samp = _instance.var_samp;
-    return local$var_samp == null
-        ? CopyWith$Input$profile_var_samp_order_by.stub(_then(_instance))
-        : CopyWith$Input$profile_var_samp_order_by(
-            local$var_samp, (e) => call(var_samp: e));
-  }
-
-  CopyWith$Input$profile_variance_order_by<TRes> get variance {
-    final local$variance = _instance.variance;
-    return local$variance == null
-        ? CopyWith$Input$profile_variance_order_by.stub(_then(_instance))
-        : CopyWith$Input$profile_variance_order_by(
-            local$variance, (e) => call(variance: e));
-  }
-}
-
-class _CopyWithStubImpl$Input$profile_aggregate_order_by<TRes>
-    implements CopyWith$Input$profile_aggregate_order_by<TRes> {
-  _CopyWithStubImpl$Input$profile_aggregate_order_by(this._res);
-
-  TRes _res;
-
-  call({
-    Input$profile_avg_order_by? avg,
-    Enum$order_by? count,
-    Input$profile_max_order_by? max,
-    Input$profile_min_order_by? min,
-    Input$profile_stddev_order_by? stddev,
-    Input$profile_stddev_pop_order_by? stddev_pop,
-    Input$profile_stddev_samp_order_by? stddev_samp,
-    Input$profile_sum_order_by? sum,
-    Input$profile_var_pop_order_by? var_pop,
-    Input$profile_var_samp_order_by? var_samp,
-    Input$profile_variance_order_by? variance,
-  }) =>
-      _res;
-  CopyWith$Input$profile_avg_order_by<TRes> get avg =>
-      CopyWith$Input$profile_avg_order_by.stub(_res);
-  CopyWith$Input$profile_max_order_by<TRes> get max =>
-      CopyWith$Input$profile_max_order_by.stub(_res);
-  CopyWith$Input$profile_min_order_by<TRes> get min =>
-      CopyWith$Input$profile_min_order_by.stub(_res);
-  CopyWith$Input$profile_stddev_order_by<TRes> get stddev =>
-      CopyWith$Input$profile_stddev_order_by.stub(_res);
-  CopyWith$Input$profile_stddev_pop_order_by<TRes> get stddev_pop =>
-      CopyWith$Input$profile_stddev_pop_order_by.stub(_res);
-  CopyWith$Input$profile_stddev_samp_order_by<TRes> get stddev_samp =>
-      CopyWith$Input$profile_stddev_samp_order_by.stub(_res);
-  CopyWith$Input$profile_sum_order_by<TRes> get sum =>
-      CopyWith$Input$profile_sum_order_by.stub(_res);
-  CopyWith$Input$profile_var_pop_order_by<TRes> get var_pop =>
-      CopyWith$Input$profile_var_pop_order_by.stub(_res);
-  CopyWith$Input$profile_var_samp_order_by<TRes> get var_samp =>
-      CopyWith$Input$profile_var_samp_order_by.stub(_res);
-  CopyWith$Input$profile_variance_order_by<TRes> get variance =>
-      CopyWith$Input$profile_variance_order_by.stub(_res);
-}
-
-class Input$profile_arr_rel_insert_input {
-  factory Input$profile_arr_rel_insert_input({
-    required List<Input$profile_insert_input> data,
-    Input$profile_on_conflict? on_conflict,
-  }) =>
-      Input$profile_arr_rel_insert_input._({
-        r'data': data,
-        if (on_conflict != null) r'on_conflict': on_conflict,
-      });
-
-  Input$profile_arr_rel_insert_input._(this._$data);
-
-  factory Input$profile_arr_rel_insert_input.fromJson(
-      Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    final l$data = data['data'];
-    result$data['data'] = (l$data as List<dynamic>)
-        .map((e) =>
-            Input$profile_insert_input.fromJson((e as Map<String, dynamic>)))
-        .toList();
-    if (data.containsKey('on_conflict')) {
-      final l$on_conflict = data['on_conflict'];
-      result$data['on_conflict'] = l$on_conflict == null
-          ? null
-          : Input$profile_on_conflict.fromJson(
-              (l$on_conflict as Map<String, dynamic>));
-    }
-    return Input$profile_arr_rel_insert_input._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  List<Input$profile_insert_input> get data =>
-      (_$data['data'] as List<Input$profile_insert_input>);
-  Input$profile_on_conflict? get on_conflict =>
-      (_$data['on_conflict'] as Input$profile_on_conflict?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    final l$data = data;
-    result$data['data'] = l$data.map((e) => e.toJson()).toList();
-    if (_$data.containsKey('on_conflict')) {
-      final l$on_conflict = on_conflict;
-      result$data['on_conflict'] = l$on_conflict?.toJson();
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$profile_arr_rel_insert_input<
-          Input$profile_arr_rel_insert_input>
-      get copyWith => CopyWith$Input$profile_arr_rel_insert_input(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$profile_arr_rel_insert_input) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$data = data;
-    final lOther$data = other.data;
-    if (l$data.length != lOther$data.length) {
-      return false;
-    }
-    for (int i = 0; i < l$data.length; i++) {
-      final l$data$entry = l$data[i];
-      final lOther$data$entry = lOther$data[i];
-      if (l$data$entry != lOther$data$entry) {
-        return false;
-      }
-    }
-    final l$on_conflict = on_conflict;
-    final lOther$on_conflict = other.on_conflict;
-    if (_$data.containsKey('on_conflict') !=
-        other._$data.containsKey('on_conflict')) {
-      return false;
-    }
-    if (l$on_conflict != lOther$on_conflict) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$data = data;
-    final l$on_conflict = on_conflict;
-    return Object.hashAll([
-      Object.hashAll(l$data.map((v) => v)),
-      _$data.containsKey('on_conflict') ? l$on_conflict : const {},
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$profile_arr_rel_insert_input<TRes> {
-  factory CopyWith$Input$profile_arr_rel_insert_input(
-    Input$profile_arr_rel_insert_input instance,
-    TRes Function(Input$profile_arr_rel_insert_input) then,
-  ) = _CopyWithImpl$Input$profile_arr_rel_insert_input;
-
-  factory CopyWith$Input$profile_arr_rel_insert_input.stub(TRes res) =
-      _CopyWithStubImpl$Input$profile_arr_rel_insert_input;
-
-  TRes call({
-    List<Input$profile_insert_input>? data,
-    Input$profile_on_conflict? on_conflict,
-  });
-  TRes data(
-      Iterable<Input$profile_insert_input> Function(
-              Iterable<
-                  CopyWith$Input$profile_insert_input<
-                      Input$profile_insert_input>>)
-          _fn);
-  CopyWith$Input$profile_on_conflict<TRes> get on_conflict;
-}
-
-class _CopyWithImpl$Input$profile_arr_rel_insert_input<TRes>
-    implements CopyWith$Input$profile_arr_rel_insert_input<TRes> {
-  _CopyWithImpl$Input$profile_arr_rel_insert_input(
-    this._instance,
-    this._then,
-  );
-
-  final Input$profile_arr_rel_insert_input _instance;
-
-  final TRes Function(Input$profile_arr_rel_insert_input) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? data = _undefined,
-    Object? on_conflict = _undefined,
-  }) =>
-      _then(Input$profile_arr_rel_insert_input._({
-        ..._instance._$data,
-        if (data != _undefined && data != null)
-          'data': (data as List<Input$profile_insert_input>),
-        if (on_conflict != _undefined)
-          'on_conflict': (on_conflict as Input$profile_on_conflict?),
-      }));
-  TRes data(
-          Iterable<Input$profile_insert_input> Function(
-                  Iterable<
-                      CopyWith$Input$profile_insert_input<
-                          Input$profile_insert_input>>)
-              _fn) =>
-      call(
-          data:
-              _fn(_instance.data.map((e) => CopyWith$Input$profile_insert_input(
-                    e,
-                    (i) => i,
-                  ))).toList());
-  CopyWith$Input$profile_on_conflict<TRes> get on_conflict {
-    final local$on_conflict = _instance.on_conflict;
-    return local$on_conflict == null
-        ? CopyWith$Input$profile_on_conflict.stub(_then(_instance))
-        : CopyWith$Input$profile_on_conflict(
-            local$on_conflict, (e) => call(on_conflict: e));
-  }
-}
-
-class _CopyWithStubImpl$Input$profile_arr_rel_insert_input<TRes>
-    implements CopyWith$Input$profile_arr_rel_insert_input<TRes> {
-  _CopyWithStubImpl$Input$profile_arr_rel_insert_input(this._res);
-
-  TRes _res;
-
-  call({
-    List<Input$profile_insert_input>? data,
-    Input$profile_on_conflict? on_conflict,
-  }) =>
-      _res;
-  data(_fn) => _res;
-  CopyWith$Input$profile_on_conflict<TRes> get on_conflict =>
-      CopyWith$Input$profile_on_conflict.stub(_res);
-}
-
-class Input$profile_avg_order_by {
-  factory Input$profile_avg_order_by({Enum$order_by? profile_id}) =>
-      Input$profile_avg_order_by._({
-        if (profile_id != null) r'profile_id': profile_id,
-      });
-
-  Input$profile_avg_order_by._(this._$data);
-
-  factory Input$profile_avg_order_by.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('profile_id')) {
-      final l$profile_id = data['profile_id'];
-      result$data['profile_id'] = l$profile_id == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_id as String));
-    }
-    return Input$profile_avg_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('profile_id')) {
-      final l$profile_id = profile_id;
-      result$data['profile_id'] =
-          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$profile_avg_order_by<Input$profile_avg_order_by>
-      get copyWith => CopyWith$Input$profile_avg_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$profile_avg_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$profile_id = profile_id;
-    final lOther$profile_id = other.profile_id;
-    if (_$data.containsKey('profile_id') !=
-        other._$data.containsKey('profile_id')) {
-      return false;
-    }
-    if (l$profile_id != lOther$profile_id) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$profile_id = profile_id;
-    return Object.hashAll(
-        [_$data.containsKey('profile_id') ? l$profile_id : const {}]);
-  }
-}
-
-abstract class CopyWith$Input$profile_avg_order_by<TRes> {
-  factory CopyWith$Input$profile_avg_order_by(
-    Input$profile_avg_order_by instance,
-    TRes Function(Input$profile_avg_order_by) then,
-  ) = _CopyWithImpl$Input$profile_avg_order_by;
-
-  factory CopyWith$Input$profile_avg_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$profile_avg_order_by;
-
-  TRes call({Enum$order_by? profile_id});
-}
-
-class _CopyWithImpl$Input$profile_avg_order_by<TRes>
-    implements CopyWith$Input$profile_avg_order_by<TRes> {
-  _CopyWithImpl$Input$profile_avg_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$profile_avg_order_by _instance;
-
-  final TRes Function(Input$profile_avg_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? profile_id = _undefined}) =>
-      _then(Input$profile_avg_order_by._({
-        ..._instance._$data,
-        if (profile_id != _undefined)
-          'profile_id': (profile_id as Enum$order_by?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$profile_avg_order_by<TRes>
-    implements CopyWith$Input$profile_avg_order_by<TRes> {
-  _CopyWithStubImpl$Input$profile_avg_order_by(this._res);
-
-  TRes _res;
-
-  call({Enum$order_by? profile_id}) => _res;
 }
 
 class Input$profile_bool_exp {
@@ -57300,181 +53594,54 @@ class _CopyWithStubImpl$Input$profile_insert_input<TRes>
       CopyWith$Input$users_obj_rel_insert_input.stub(_res);
 }
 
-class Input$profile_max_order_by {
-  factory Input$profile_max_order_by({
-    Enum$order_by? created_at,
-    Enum$order_by? profile_address,
-    Enum$order_by? profile_first_name,
-    Enum$order_by? profile_id,
-    Enum$order_by? profile_ktp_no,
-    Enum$order_by? profile_last_name,
-    Enum$order_by? profile_npwp_no,
-    Enum$order_by? profile_phone,
-    Enum$order_by? updated_at,
-    Enum$order_by? user_id,
+class Input$profile_obj_rel_insert_input {
+  factory Input$profile_obj_rel_insert_input({
+    required Input$profile_insert_input data,
+    Input$profile_on_conflict? on_conflict,
   }) =>
-      Input$profile_max_order_by._({
-        if (created_at != null) r'created_at': created_at,
-        if (profile_address != null) r'profile_address': profile_address,
-        if (profile_first_name != null)
-          r'profile_first_name': profile_first_name,
-        if (profile_id != null) r'profile_id': profile_id,
-        if (profile_ktp_no != null) r'profile_ktp_no': profile_ktp_no,
-        if (profile_last_name != null) r'profile_last_name': profile_last_name,
-        if (profile_npwp_no != null) r'profile_npwp_no': profile_npwp_no,
-        if (profile_phone != null) r'profile_phone': profile_phone,
-        if (updated_at != null) r'updated_at': updated_at,
-        if (user_id != null) r'user_id': user_id,
+      Input$profile_obj_rel_insert_input._({
+        r'data': data,
+        if (on_conflict != null) r'on_conflict': on_conflict,
       });
 
-  Input$profile_max_order_by._(this._$data);
+  Input$profile_obj_rel_insert_input._(this._$data);
 
-  factory Input$profile_max_order_by.fromJson(Map<String, dynamic> data) {
+  factory Input$profile_obj_rel_insert_input.fromJson(
+      Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    if (data.containsKey('created_at')) {
-      final l$created_at = data['created_at'];
-      result$data['created_at'] = l$created_at == null
+    final l$data = data['data'];
+    result$data['data'] =
+        Input$profile_insert_input.fromJson((l$data as Map<String, dynamic>));
+    if (data.containsKey('on_conflict')) {
+      final l$on_conflict = data['on_conflict'];
+      result$data['on_conflict'] = l$on_conflict == null
           ? null
-          : fromJson$Enum$order_by((l$created_at as String));
+          : Input$profile_on_conflict.fromJson(
+              (l$on_conflict as Map<String, dynamic>));
     }
-    if (data.containsKey('profile_address')) {
-      final l$profile_address = data['profile_address'];
-      result$data['profile_address'] = l$profile_address == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_address as String));
-    }
-    if (data.containsKey('profile_first_name')) {
-      final l$profile_first_name = data['profile_first_name'];
-      result$data['profile_first_name'] = l$profile_first_name == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_first_name as String));
-    }
-    if (data.containsKey('profile_id')) {
-      final l$profile_id = data['profile_id'];
-      result$data['profile_id'] = l$profile_id == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_id as String));
-    }
-    if (data.containsKey('profile_ktp_no')) {
-      final l$profile_ktp_no = data['profile_ktp_no'];
-      result$data['profile_ktp_no'] = l$profile_ktp_no == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_ktp_no as String));
-    }
-    if (data.containsKey('profile_last_name')) {
-      final l$profile_last_name = data['profile_last_name'];
-      result$data['profile_last_name'] = l$profile_last_name == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_last_name as String));
-    }
-    if (data.containsKey('profile_npwp_no')) {
-      final l$profile_npwp_no = data['profile_npwp_no'];
-      result$data['profile_npwp_no'] = l$profile_npwp_no == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_npwp_no as String));
-    }
-    if (data.containsKey('profile_phone')) {
-      final l$profile_phone = data['profile_phone'];
-      result$data['profile_phone'] = l$profile_phone == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_phone as String));
-    }
-    if (data.containsKey('updated_at')) {
-      final l$updated_at = data['updated_at'];
-      result$data['updated_at'] = l$updated_at == null
-          ? null
-          : fromJson$Enum$order_by((l$updated_at as String));
-    }
-    if (data.containsKey('user_id')) {
-      final l$user_id = data['user_id'];
-      result$data['user_id'] = l$user_id == null
-          ? null
-          : fromJson$Enum$order_by((l$user_id as String));
-    }
-    return Input$profile_max_order_by._(result$data);
+    return Input$profile_obj_rel_insert_input._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Enum$order_by? get created_at => (_$data['created_at'] as Enum$order_by?);
-  Enum$order_by? get profile_address =>
-      (_$data['profile_address'] as Enum$order_by?);
-  Enum$order_by? get profile_first_name =>
-      (_$data['profile_first_name'] as Enum$order_by?);
-  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
-  Enum$order_by? get profile_ktp_no =>
-      (_$data['profile_ktp_no'] as Enum$order_by?);
-  Enum$order_by? get profile_last_name =>
-      (_$data['profile_last_name'] as Enum$order_by?);
-  Enum$order_by? get profile_npwp_no =>
-      (_$data['profile_npwp_no'] as Enum$order_by?);
-  Enum$order_by? get profile_phone =>
-      (_$data['profile_phone'] as Enum$order_by?);
-  Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
-  Enum$order_by? get user_id => (_$data['user_id'] as Enum$order_by?);
+  Input$profile_insert_input get data =>
+      (_$data['data'] as Input$profile_insert_input);
+  Input$profile_on_conflict? get on_conflict =>
+      (_$data['on_conflict'] as Input$profile_on_conflict?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if (_$data.containsKey('created_at')) {
-      final l$created_at = created_at;
-      result$data['created_at'] =
-          l$created_at == null ? null : toJson$Enum$order_by(l$created_at);
-    }
-    if (_$data.containsKey('profile_address')) {
-      final l$profile_address = profile_address;
-      result$data['profile_address'] = l$profile_address == null
-          ? null
-          : toJson$Enum$order_by(l$profile_address);
-    }
-    if (_$data.containsKey('profile_first_name')) {
-      final l$profile_first_name = profile_first_name;
-      result$data['profile_first_name'] = l$profile_first_name == null
-          ? null
-          : toJson$Enum$order_by(l$profile_first_name);
-    }
-    if (_$data.containsKey('profile_id')) {
-      final l$profile_id = profile_id;
-      result$data['profile_id'] =
-          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
-    }
-    if (_$data.containsKey('profile_ktp_no')) {
-      final l$profile_ktp_no = profile_ktp_no;
-      result$data['profile_ktp_no'] = l$profile_ktp_no == null
-          ? null
-          : toJson$Enum$order_by(l$profile_ktp_no);
-    }
-    if (_$data.containsKey('profile_last_name')) {
-      final l$profile_last_name = profile_last_name;
-      result$data['profile_last_name'] = l$profile_last_name == null
-          ? null
-          : toJson$Enum$order_by(l$profile_last_name);
-    }
-    if (_$data.containsKey('profile_npwp_no')) {
-      final l$profile_npwp_no = profile_npwp_no;
-      result$data['profile_npwp_no'] = l$profile_npwp_no == null
-          ? null
-          : toJson$Enum$order_by(l$profile_npwp_no);
-    }
-    if (_$data.containsKey('profile_phone')) {
-      final l$profile_phone = profile_phone;
-      result$data['profile_phone'] = l$profile_phone == null
-          ? null
-          : toJson$Enum$order_by(l$profile_phone);
-    }
-    if (_$data.containsKey('updated_at')) {
-      final l$updated_at = updated_at;
-      result$data['updated_at'] =
-          l$updated_at == null ? null : toJson$Enum$order_by(l$updated_at);
-    }
-    if (_$data.containsKey('user_id')) {
-      final l$user_id = user_id;
-      result$data['user_id'] =
-          l$user_id == null ? null : toJson$Enum$order_by(l$user_id);
+    final l$data = data;
+    result$data['data'] = l$data.toJson();
+    if (_$data.containsKey('on_conflict')) {
+      final l$on_conflict = on_conflict;
+      result$data['on_conflict'] = l$on_conflict?.toJson();
     }
     return result$data;
   }
 
-  CopyWith$Input$profile_max_order_by<Input$profile_max_order_by>
-      get copyWith => CopyWith$Input$profile_max_order_by(
+  CopyWith$Input$profile_obj_rel_insert_input<
+          Input$profile_obj_rel_insert_input>
+      get copyWith => CopyWith$Input$profile_obj_rel_insert_input(
             this,
             (i) => i,
           );
@@ -57483,97 +53650,22 @@ class Input$profile_max_order_by {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input$profile_max_order_by) ||
+    if (!(other is Input$profile_obj_rel_insert_input) ||
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$created_at = created_at;
-    final lOther$created_at = other.created_at;
-    if (_$data.containsKey('created_at') !=
-        other._$data.containsKey('created_at')) {
+    final l$data = data;
+    final lOther$data = other.data;
+    if (l$data != lOther$data) {
       return false;
     }
-    if (l$created_at != lOther$created_at) {
+    final l$on_conflict = on_conflict;
+    final lOther$on_conflict = other.on_conflict;
+    if (_$data.containsKey('on_conflict') !=
+        other._$data.containsKey('on_conflict')) {
       return false;
     }
-    final l$profile_address = profile_address;
-    final lOther$profile_address = other.profile_address;
-    if (_$data.containsKey('profile_address') !=
-        other._$data.containsKey('profile_address')) {
-      return false;
-    }
-    if (l$profile_address != lOther$profile_address) {
-      return false;
-    }
-    final l$profile_first_name = profile_first_name;
-    final lOther$profile_first_name = other.profile_first_name;
-    if (_$data.containsKey('profile_first_name') !=
-        other._$data.containsKey('profile_first_name')) {
-      return false;
-    }
-    if (l$profile_first_name != lOther$profile_first_name) {
-      return false;
-    }
-    final l$profile_id = profile_id;
-    final lOther$profile_id = other.profile_id;
-    if (_$data.containsKey('profile_id') !=
-        other._$data.containsKey('profile_id')) {
-      return false;
-    }
-    if (l$profile_id != lOther$profile_id) {
-      return false;
-    }
-    final l$profile_ktp_no = profile_ktp_no;
-    final lOther$profile_ktp_no = other.profile_ktp_no;
-    if (_$data.containsKey('profile_ktp_no') !=
-        other._$data.containsKey('profile_ktp_no')) {
-      return false;
-    }
-    if (l$profile_ktp_no != lOther$profile_ktp_no) {
-      return false;
-    }
-    final l$profile_last_name = profile_last_name;
-    final lOther$profile_last_name = other.profile_last_name;
-    if (_$data.containsKey('profile_last_name') !=
-        other._$data.containsKey('profile_last_name')) {
-      return false;
-    }
-    if (l$profile_last_name != lOther$profile_last_name) {
-      return false;
-    }
-    final l$profile_npwp_no = profile_npwp_no;
-    final lOther$profile_npwp_no = other.profile_npwp_no;
-    if (_$data.containsKey('profile_npwp_no') !=
-        other._$data.containsKey('profile_npwp_no')) {
-      return false;
-    }
-    if (l$profile_npwp_no != lOther$profile_npwp_no) {
-      return false;
-    }
-    final l$profile_phone = profile_phone;
-    final lOther$profile_phone = other.profile_phone;
-    if (_$data.containsKey('profile_phone') !=
-        other._$data.containsKey('profile_phone')) {
-      return false;
-    }
-    if (l$profile_phone != lOther$profile_phone) {
-      return false;
-    }
-    final l$updated_at = updated_at;
-    final lOther$updated_at = other.updated_at;
-    if (_$data.containsKey('updated_at') !=
-        other._$data.containsKey('updated_at')) {
-      return false;
-    }
-    if (l$updated_at != lOther$updated_at) {
-      return false;
-    }
-    final l$user_id = user_id;
-    final lOther$user_id = other.user_id;
-    if (_$data.containsKey('user_id') != other._$data.containsKey('user_id')) {
-      return false;
-    }
-    if (l$user_id != lOther$user_id) {
+    if (l$on_conflict != lOther$on_conflict) {
       return false;
     }
     return true;
@@ -57581,525 +53673,86 @@ class Input$profile_max_order_by {
 
   @override
   int get hashCode {
-    final l$created_at = created_at;
-    final l$profile_address = profile_address;
-    final l$profile_first_name = profile_first_name;
-    final l$profile_id = profile_id;
-    final l$profile_ktp_no = profile_ktp_no;
-    final l$profile_last_name = profile_last_name;
-    final l$profile_npwp_no = profile_npwp_no;
-    final l$profile_phone = profile_phone;
-    final l$updated_at = updated_at;
-    final l$user_id = user_id;
+    final l$data = data;
+    final l$on_conflict = on_conflict;
     return Object.hashAll([
-      _$data.containsKey('created_at') ? l$created_at : const {},
-      _$data.containsKey('profile_address') ? l$profile_address : const {},
-      _$data.containsKey('profile_first_name')
-          ? l$profile_first_name
-          : const {},
-      _$data.containsKey('profile_id') ? l$profile_id : const {},
-      _$data.containsKey('profile_ktp_no') ? l$profile_ktp_no : const {},
-      _$data.containsKey('profile_last_name') ? l$profile_last_name : const {},
-      _$data.containsKey('profile_npwp_no') ? l$profile_npwp_no : const {},
-      _$data.containsKey('profile_phone') ? l$profile_phone : const {},
-      _$data.containsKey('updated_at') ? l$updated_at : const {},
-      _$data.containsKey('user_id') ? l$user_id : const {},
+      l$data,
+      _$data.containsKey('on_conflict') ? l$on_conflict : const {},
     ]);
   }
 }
 
-abstract class CopyWith$Input$profile_max_order_by<TRes> {
-  factory CopyWith$Input$profile_max_order_by(
-    Input$profile_max_order_by instance,
-    TRes Function(Input$profile_max_order_by) then,
-  ) = _CopyWithImpl$Input$profile_max_order_by;
+abstract class CopyWith$Input$profile_obj_rel_insert_input<TRes> {
+  factory CopyWith$Input$profile_obj_rel_insert_input(
+    Input$profile_obj_rel_insert_input instance,
+    TRes Function(Input$profile_obj_rel_insert_input) then,
+  ) = _CopyWithImpl$Input$profile_obj_rel_insert_input;
 
-  factory CopyWith$Input$profile_max_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$profile_max_order_by;
+  factory CopyWith$Input$profile_obj_rel_insert_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$profile_obj_rel_insert_input;
 
   TRes call({
-    Enum$order_by? created_at,
-    Enum$order_by? profile_address,
-    Enum$order_by? profile_first_name,
-    Enum$order_by? profile_id,
-    Enum$order_by? profile_ktp_no,
-    Enum$order_by? profile_last_name,
-    Enum$order_by? profile_npwp_no,
-    Enum$order_by? profile_phone,
-    Enum$order_by? updated_at,
-    Enum$order_by? user_id,
+    Input$profile_insert_input? data,
+    Input$profile_on_conflict? on_conflict,
   });
+  CopyWith$Input$profile_insert_input<TRes> get data;
+  CopyWith$Input$profile_on_conflict<TRes> get on_conflict;
 }
 
-class _CopyWithImpl$Input$profile_max_order_by<TRes>
-    implements CopyWith$Input$profile_max_order_by<TRes> {
-  _CopyWithImpl$Input$profile_max_order_by(
+class _CopyWithImpl$Input$profile_obj_rel_insert_input<TRes>
+    implements CopyWith$Input$profile_obj_rel_insert_input<TRes> {
+  _CopyWithImpl$Input$profile_obj_rel_insert_input(
     this._instance,
     this._then,
   );
 
-  final Input$profile_max_order_by _instance;
+  final Input$profile_obj_rel_insert_input _instance;
 
-  final TRes Function(Input$profile_max_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? created_at = _undefined,
-    Object? profile_address = _undefined,
-    Object? profile_first_name = _undefined,
-    Object? profile_id = _undefined,
-    Object? profile_ktp_no = _undefined,
-    Object? profile_last_name = _undefined,
-    Object? profile_npwp_no = _undefined,
-    Object? profile_phone = _undefined,
-    Object? updated_at = _undefined,
-    Object? user_id = _undefined,
-  }) =>
-      _then(Input$profile_max_order_by._({
-        ..._instance._$data,
-        if (created_at != _undefined)
-          'created_at': (created_at as Enum$order_by?),
-        if (profile_address != _undefined)
-          'profile_address': (profile_address as Enum$order_by?),
-        if (profile_first_name != _undefined)
-          'profile_first_name': (profile_first_name as Enum$order_by?),
-        if (profile_id != _undefined)
-          'profile_id': (profile_id as Enum$order_by?),
-        if (profile_ktp_no != _undefined)
-          'profile_ktp_no': (profile_ktp_no as Enum$order_by?),
-        if (profile_last_name != _undefined)
-          'profile_last_name': (profile_last_name as Enum$order_by?),
-        if (profile_npwp_no != _undefined)
-          'profile_npwp_no': (profile_npwp_no as Enum$order_by?),
-        if (profile_phone != _undefined)
-          'profile_phone': (profile_phone as Enum$order_by?),
-        if (updated_at != _undefined)
-          'updated_at': (updated_at as Enum$order_by?),
-        if (user_id != _undefined) 'user_id': (user_id as Enum$order_by?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$profile_max_order_by<TRes>
-    implements CopyWith$Input$profile_max_order_by<TRes> {
-  _CopyWithStubImpl$Input$profile_max_order_by(this._res);
-
-  TRes _res;
-
-  call({
-    Enum$order_by? created_at,
-    Enum$order_by? profile_address,
-    Enum$order_by? profile_first_name,
-    Enum$order_by? profile_id,
-    Enum$order_by? profile_ktp_no,
-    Enum$order_by? profile_last_name,
-    Enum$order_by? profile_npwp_no,
-    Enum$order_by? profile_phone,
-    Enum$order_by? updated_at,
-    Enum$order_by? user_id,
-  }) =>
-      _res;
-}
-
-class Input$profile_min_order_by {
-  factory Input$profile_min_order_by({
-    Enum$order_by? created_at,
-    Enum$order_by? profile_address,
-    Enum$order_by? profile_first_name,
-    Enum$order_by? profile_id,
-    Enum$order_by? profile_ktp_no,
-    Enum$order_by? profile_last_name,
-    Enum$order_by? profile_npwp_no,
-    Enum$order_by? profile_phone,
-    Enum$order_by? updated_at,
-    Enum$order_by? user_id,
-  }) =>
-      Input$profile_min_order_by._({
-        if (created_at != null) r'created_at': created_at,
-        if (profile_address != null) r'profile_address': profile_address,
-        if (profile_first_name != null)
-          r'profile_first_name': profile_first_name,
-        if (profile_id != null) r'profile_id': profile_id,
-        if (profile_ktp_no != null) r'profile_ktp_no': profile_ktp_no,
-        if (profile_last_name != null) r'profile_last_name': profile_last_name,
-        if (profile_npwp_no != null) r'profile_npwp_no': profile_npwp_no,
-        if (profile_phone != null) r'profile_phone': profile_phone,
-        if (updated_at != null) r'updated_at': updated_at,
-        if (user_id != null) r'user_id': user_id,
-      });
-
-  Input$profile_min_order_by._(this._$data);
-
-  factory Input$profile_min_order_by.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('created_at')) {
-      final l$created_at = data['created_at'];
-      result$data['created_at'] = l$created_at == null
-          ? null
-          : fromJson$Enum$order_by((l$created_at as String));
-    }
-    if (data.containsKey('profile_address')) {
-      final l$profile_address = data['profile_address'];
-      result$data['profile_address'] = l$profile_address == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_address as String));
-    }
-    if (data.containsKey('profile_first_name')) {
-      final l$profile_first_name = data['profile_first_name'];
-      result$data['profile_first_name'] = l$profile_first_name == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_first_name as String));
-    }
-    if (data.containsKey('profile_id')) {
-      final l$profile_id = data['profile_id'];
-      result$data['profile_id'] = l$profile_id == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_id as String));
-    }
-    if (data.containsKey('profile_ktp_no')) {
-      final l$profile_ktp_no = data['profile_ktp_no'];
-      result$data['profile_ktp_no'] = l$profile_ktp_no == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_ktp_no as String));
-    }
-    if (data.containsKey('profile_last_name')) {
-      final l$profile_last_name = data['profile_last_name'];
-      result$data['profile_last_name'] = l$profile_last_name == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_last_name as String));
-    }
-    if (data.containsKey('profile_npwp_no')) {
-      final l$profile_npwp_no = data['profile_npwp_no'];
-      result$data['profile_npwp_no'] = l$profile_npwp_no == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_npwp_no as String));
-    }
-    if (data.containsKey('profile_phone')) {
-      final l$profile_phone = data['profile_phone'];
-      result$data['profile_phone'] = l$profile_phone == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_phone as String));
-    }
-    if (data.containsKey('updated_at')) {
-      final l$updated_at = data['updated_at'];
-      result$data['updated_at'] = l$updated_at == null
-          ? null
-          : fromJson$Enum$order_by((l$updated_at as String));
-    }
-    if (data.containsKey('user_id')) {
-      final l$user_id = data['user_id'];
-      result$data['user_id'] = l$user_id == null
-          ? null
-          : fromJson$Enum$order_by((l$user_id as String));
-    }
-    return Input$profile_min_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Enum$order_by? get created_at => (_$data['created_at'] as Enum$order_by?);
-  Enum$order_by? get profile_address =>
-      (_$data['profile_address'] as Enum$order_by?);
-  Enum$order_by? get profile_first_name =>
-      (_$data['profile_first_name'] as Enum$order_by?);
-  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
-  Enum$order_by? get profile_ktp_no =>
-      (_$data['profile_ktp_no'] as Enum$order_by?);
-  Enum$order_by? get profile_last_name =>
-      (_$data['profile_last_name'] as Enum$order_by?);
-  Enum$order_by? get profile_npwp_no =>
-      (_$data['profile_npwp_no'] as Enum$order_by?);
-  Enum$order_by? get profile_phone =>
-      (_$data['profile_phone'] as Enum$order_by?);
-  Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
-  Enum$order_by? get user_id => (_$data['user_id'] as Enum$order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('created_at')) {
-      final l$created_at = created_at;
-      result$data['created_at'] =
-          l$created_at == null ? null : toJson$Enum$order_by(l$created_at);
-    }
-    if (_$data.containsKey('profile_address')) {
-      final l$profile_address = profile_address;
-      result$data['profile_address'] = l$profile_address == null
-          ? null
-          : toJson$Enum$order_by(l$profile_address);
-    }
-    if (_$data.containsKey('profile_first_name')) {
-      final l$profile_first_name = profile_first_name;
-      result$data['profile_first_name'] = l$profile_first_name == null
-          ? null
-          : toJson$Enum$order_by(l$profile_first_name);
-    }
-    if (_$data.containsKey('profile_id')) {
-      final l$profile_id = profile_id;
-      result$data['profile_id'] =
-          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
-    }
-    if (_$data.containsKey('profile_ktp_no')) {
-      final l$profile_ktp_no = profile_ktp_no;
-      result$data['profile_ktp_no'] = l$profile_ktp_no == null
-          ? null
-          : toJson$Enum$order_by(l$profile_ktp_no);
-    }
-    if (_$data.containsKey('profile_last_name')) {
-      final l$profile_last_name = profile_last_name;
-      result$data['profile_last_name'] = l$profile_last_name == null
-          ? null
-          : toJson$Enum$order_by(l$profile_last_name);
-    }
-    if (_$data.containsKey('profile_npwp_no')) {
-      final l$profile_npwp_no = profile_npwp_no;
-      result$data['profile_npwp_no'] = l$profile_npwp_no == null
-          ? null
-          : toJson$Enum$order_by(l$profile_npwp_no);
-    }
-    if (_$data.containsKey('profile_phone')) {
-      final l$profile_phone = profile_phone;
-      result$data['profile_phone'] = l$profile_phone == null
-          ? null
-          : toJson$Enum$order_by(l$profile_phone);
-    }
-    if (_$data.containsKey('updated_at')) {
-      final l$updated_at = updated_at;
-      result$data['updated_at'] =
-          l$updated_at == null ? null : toJson$Enum$order_by(l$updated_at);
-    }
-    if (_$data.containsKey('user_id')) {
-      final l$user_id = user_id;
-      result$data['user_id'] =
-          l$user_id == null ? null : toJson$Enum$order_by(l$user_id);
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$profile_min_order_by<Input$profile_min_order_by>
-      get copyWith => CopyWith$Input$profile_min_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$profile_min_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$created_at = created_at;
-    final lOther$created_at = other.created_at;
-    if (_$data.containsKey('created_at') !=
-        other._$data.containsKey('created_at')) {
-      return false;
-    }
-    if (l$created_at != lOther$created_at) {
-      return false;
-    }
-    final l$profile_address = profile_address;
-    final lOther$profile_address = other.profile_address;
-    if (_$data.containsKey('profile_address') !=
-        other._$data.containsKey('profile_address')) {
-      return false;
-    }
-    if (l$profile_address != lOther$profile_address) {
-      return false;
-    }
-    final l$profile_first_name = profile_first_name;
-    final lOther$profile_first_name = other.profile_first_name;
-    if (_$data.containsKey('profile_first_name') !=
-        other._$data.containsKey('profile_first_name')) {
-      return false;
-    }
-    if (l$profile_first_name != lOther$profile_first_name) {
-      return false;
-    }
-    final l$profile_id = profile_id;
-    final lOther$profile_id = other.profile_id;
-    if (_$data.containsKey('profile_id') !=
-        other._$data.containsKey('profile_id')) {
-      return false;
-    }
-    if (l$profile_id != lOther$profile_id) {
-      return false;
-    }
-    final l$profile_ktp_no = profile_ktp_no;
-    final lOther$profile_ktp_no = other.profile_ktp_no;
-    if (_$data.containsKey('profile_ktp_no') !=
-        other._$data.containsKey('profile_ktp_no')) {
-      return false;
-    }
-    if (l$profile_ktp_no != lOther$profile_ktp_no) {
-      return false;
-    }
-    final l$profile_last_name = profile_last_name;
-    final lOther$profile_last_name = other.profile_last_name;
-    if (_$data.containsKey('profile_last_name') !=
-        other._$data.containsKey('profile_last_name')) {
-      return false;
-    }
-    if (l$profile_last_name != lOther$profile_last_name) {
-      return false;
-    }
-    final l$profile_npwp_no = profile_npwp_no;
-    final lOther$profile_npwp_no = other.profile_npwp_no;
-    if (_$data.containsKey('profile_npwp_no') !=
-        other._$data.containsKey('profile_npwp_no')) {
-      return false;
-    }
-    if (l$profile_npwp_no != lOther$profile_npwp_no) {
-      return false;
-    }
-    final l$profile_phone = profile_phone;
-    final lOther$profile_phone = other.profile_phone;
-    if (_$data.containsKey('profile_phone') !=
-        other._$data.containsKey('profile_phone')) {
-      return false;
-    }
-    if (l$profile_phone != lOther$profile_phone) {
-      return false;
-    }
-    final l$updated_at = updated_at;
-    final lOther$updated_at = other.updated_at;
-    if (_$data.containsKey('updated_at') !=
-        other._$data.containsKey('updated_at')) {
-      return false;
-    }
-    if (l$updated_at != lOther$updated_at) {
-      return false;
-    }
-    final l$user_id = user_id;
-    final lOther$user_id = other.user_id;
-    if (_$data.containsKey('user_id') != other._$data.containsKey('user_id')) {
-      return false;
-    }
-    if (l$user_id != lOther$user_id) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$created_at = created_at;
-    final l$profile_address = profile_address;
-    final l$profile_first_name = profile_first_name;
-    final l$profile_id = profile_id;
-    final l$profile_ktp_no = profile_ktp_no;
-    final l$profile_last_name = profile_last_name;
-    final l$profile_npwp_no = profile_npwp_no;
-    final l$profile_phone = profile_phone;
-    final l$updated_at = updated_at;
-    final l$user_id = user_id;
-    return Object.hashAll([
-      _$data.containsKey('created_at') ? l$created_at : const {},
-      _$data.containsKey('profile_address') ? l$profile_address : const {},
-      _$data.containsKey('profile_first_name')
-          ? l$profile_first_name
-          : const {},
-      _$data.containsKey('profile_id') ? l$profile_id : const {},
-      _$data.containsKey('profile_ktp_no') ? l$profile_ktp_no : const {},
-      _$data.containsKey('profile_last_name') ? l$profile_last_name : const {},
-      _$data.containsKey('profile_npwp_no') ? l$profile_npwp_no : const {},
-      _$data.containsKey('profile_phone') ? l$profile_phone : const {},
-      _$data.containsKey('updated_at') ? l$updated_at : const {},
-      _$data.containsKey('user_id') ? l$user_id : const {},
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$profile_min_order_by<TRes> {
-  factory CopyWith$Input$profile_min_order_by(
-    Input$profile_min_order_by instance,
-    TRes Function(Input$profile_min_order_by) then,
-  ) = _CopyWithImpl$Input$profile_min_order_by;
-
-  factory CopyWith$Input$profile_min_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$profile_min_order_by;
-
-  TRes call({
-    Enum$order_by? created_at,
-    Enum$order_by? profile_address,
-    Enum$order_by? profile_first_name,
-    Enum$order_by? profile_id,
-    Enum$order_by? profile_ktp_no,
-    Enum$order_by? profile_last_name,
-    Enum$order_by? profile_npwp_no,
-    Enum$order_by? profile_phone,
-    Enum$order_by? updated_at,
-    Enum$order_by? user_id,
-  });
-}
-
-class _CopyWithImpl$Input$profile_min_order_by<TRes>
-    implements CopyWith$Input$profile_min_order_by<TRes> {
-  _CopyWithImpl$Input$profile_min_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$profile_min_order_by _instance;
-
-  final TRes Function(Input$profile_min_order_by) _then;
+  final TRes Function(Input$profile_obj_rel_insert_input) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? created_at = _undefined,
-    Object? profile_address = _undefined,
-    Object? profile_first_name = _undefined,
-    Object? profile_id = _undefined,
-    Object? profile_ktp_no = _undefined,
-    Object? profile_last_name = _undefined,
-    Object? profile_npwp_no = _undefined,
-    Object? profile_phone = _undefined,
-    Object? updated_at = _undefined,
-    Object? user_id = _undefined,
+    Object? data = _undefined,
+    Object? on_conflict = _undefined,
   }) =>
-      _then(Input$profile_min_order_by._({
+      _then(Input$profile_obj_rel_insert_input._({
         ..._instance._$data,
-        if (created_at != _undefined)
-          'created_at': (created_at as Enum$order_by?),
-        if (profile_address != _undefined)
-          'profile_address': (profile_address as Enum$order_by?),
-        if (profile_first_name != _undefined)
-          'profile_first_name': (profile_first_name as Enum$order_by?),
-        if (profile_id != _undefined)
-          'profile_id': (profile_id as Enum$order_by?),
-        if (profile_ktp_no != _undefined)
-          'profile_ktp_no': (profile_ktp_no as Enum$order_by?),
-        if (profile_last_name != _undefined)
-          'profile_last_name': (profile_last_name as Enum$order_by?),
-        if (profile_npwp_no != _undefined)
-          'profile_npwp_no': (profile_npwp_no as Enum$order_by?),
-        if (profile_phone != _undefined)
-          'profile_phone': (profile_phone as Enum$order_by?),
-        if (updated_at != _undefined)
-          'updated_at': (updated_at as Enum$order_by?),
-        if (user_id != _undefined) 'user_id': (user_id as Enum$order_by?),
+        if (data != _undefined && data != null)
+          'data': (data as Input$profile_insert_input),
+        if (on_conflict != _undefined)
+          'on_conflict': (on_conflict as Input$profile_on_conflict?),
       }));
+  CopyWith$Input$profile_insert_input<TRes> get data {
+    final local$data = _instance.data;
+    return CopyWith$Input$profile_insert_input(
+        local$data, (e) => call(data: e));
+  }
+
+  CopyWith$Input$profile_on_conflict<TRes> get on_conflict {
+    final local$on_conflict = _instance.on_conflict;
+    return local$on_conflict == null
+        ? CopyWith$Input$profile_on_conflict.stub(_then(_instance))
+        : CopyWith$Input$profile_on_conflict(
+            local$on_conflict, (e) => call(on_conflict: e));
+  }
 }
 
-class _CopyWithStubImpl$Input$profile_min_order_by<TRes>
-    implements CopyWith$Input$profile_min_order_by<TRes> {
-  _CopyWithStubImpl$Input$profile_min_order_by(this._res);
+class _CopyWithStubImpl$Input$profile_obj_rel_insert_input<TRes>
+    implements CopyWith$Input$profile_obj_rel_insert_input<TRes> {
+  _CopyWithStubImpl$Input$profile_obj_rel_insert_input(this._res);
 
   TRes _res;
 
   call({
-    Enum$order_by? created_at,
-    Enum$order_by? profile_address,
-    Enum$order_by? profile_first_name,
-    Enum$order_by? profile_id,
-    Enum$order_by? profile_ktp_no,
-    Enum$order_by? profile_last_name,
-    Enum$order_by? profile_npwp_no,
-    Enum$order_by? profile_phone,
-    Enum$order_by? updated_at,
-    Enum$order_by? user_id,
+    Input$profile_insert_input? data,
+    Input$profile_on_conflict? on_conflict,
   }) =>
       _res;
+  CopyWith$Input$profile_insert_input<TRes> get data =>
+      CopyWith$Input$profile_insert_input.stub(_res);
+  CopyWith$Input$profile_on_conflict<TRes> get on_conflict =>
+      CopyWith$Input$profile_on_conflict.stub(_res);
 }
 
 class Input$profile_on_conflict {
@@ -59148,333 +54801,6 @@ class _CopyWithStubImpl$Input$profile_set_input<TRes>
       _res;
 }
 
-class Input$profile_stddev_order_by {
-  factory Input$profile_stddev_order_by({Enum$order_by? profile_id}) =>
-      Input$profile_stddev_order_by._({
-        if (profile_id != null) r'profile_id': profile_id,
-      });
-
-  Input$profile_stddev_order_by._(this._$data);
-
-  factory Input$profile_stddev_order_by.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('profile_id')) {
-      final l$profile_id = data['profile_id'];
-      result$data['profile_id'] = l$profile_id == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_id as String));
-    }
-    return Input$profile_stddev_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('profile_id')) {
-      final l$profile_id = profile_id;
-      result$data['profile_id'] =
-          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$profile_stddev_order_by<Input$profile_stddev_order_by>
-      get copyWith => CopyWith$Input$profile_stddev_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$profile_stddev_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$profile_id = profile_id;
-    final lOther$profile_id = other.profile_id;
-    if (_$data.containsKey('profile_id') !=
-        other._$data.containsKey('profile_id')) {
-      return false;
-    }
-    if (l$profile_id != lOther$profile_id) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$profile_id = profile_id;
-    return Object.hashAll(
-        [_$data.containsKey('profile_id') ? l$profile_id : const {}]);
-  }
-}
-
-abstract class CopyWith$Input$profile_stddev_order_by<TRes> {
-  factory CopyWith$Input$profile_stddev_order_by(
-    Input$profile_stddev_order_by instance,
-    TRes Function(Input$profile_stddev_order_by) then,
-  ) = _CopyWithImpl$Input$profile_stddev_order_by;
-
-  factory CopyWith$Input$profile_stddev_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$profile_stddev_order_by;
-
-  TRes call({Enum$order_by? profile_id});
-}
-
-class _CopyWithImpl$Input$profile_stddev_order_by<TRes>
-    implements CopyWith$Input$profile_stddev_order_by<TRes> {
-  _CopyWithImpl$Input$profile_stddev_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$profile_stddev_order_by _instance;
-
-  final TRes Function(Input$profile_stddev_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? profile_id = _undefined}) =>
-      _then(Input$profile_stddev_order_by._({
-        ..._instance._$data,
-        if (profile_id != _undefined)
-          'profile_id': (profile_id as Enum$order_by?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$profile_stddev_order_by<TRes>
-    implements CopyWith$Input$profile_stddev_order_by<TRes> {
-  _CopyWithStubImpl$Input$profile_stddev_order_by(this._res);
-
-  TRes _res;
-
-  call({Enum$order_by? profile_id}) => _res;
-}
-
-class Input$profile_stddev_pop_order_by {
-  factory Input$profile_stddev_pop_order_by({Enum$order_by? profile_id}) =>
-      Input$profile_stddev_pop_order_by._({
-        if (profile_id != null) r'profile_id': profile_id,
-      });
-
-  Input$profile_stddev_pop_order_by._(this._$data);
-
-  factory Input$profile_stddev_pop_order_by.fromJson(
-      Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('profile_id')) {
-      final l$profile_id = data['profile_id'];
-      result$data['profile_id'] = l$profile_id == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_id as String));
-    }
-    return Input$profile_stddev_pop_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('profile_id')) {
-      final l$profile_id = profile_id;
-      result$data['profile_id'] =
-          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$profile_stddev_pop_order_by<Input$profile_stddev_pop_order_by>
-      get copyWith => CopyWith$Input$profile_stddev_pop_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$profile_stddev_pop_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$profile_id = profile_id;
-    final lOther$profile_id = other.profile_id;
-    if (_$data.containsKey('profile_id') !=
-        other._$data.containsKey('profile_id')) {
-      return false;
-    }
-    if (l$profile_id != lOther$profile_id) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$profile_id = profile_id;
-    return Object.hashAll(
-        [_$data.containsKey('profile_id') ? l$profile_id : const {}]);
-  }
-}
-
-abstract class CopyWith$Input$profile_stddev_pop_order_by<TRes> {
-  factory CopyWith$Input$profile_stddev_pop_order_by(
-    Input$profile_stddev_pop_order_by instance,
-    TRes Function(Input$profile_stddev_pop_order_by) then,
-  ) = _CopyWithImpl$Input$profile_stddev_pop_order_by;
-
-  factory CopyWith$Input$profile_stddev_pop_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$profile_stddev_pop_order_by;
-
-  TRes call({Enum$order_by? profile_id});
-}
-
-class _CopyWithImpl$Input$profile_stddev_pop_order_by<TRes>
-    implements CopyWith$Input$profile_stddev_pop_order_by<TRes> {
-  _CopyWithImpl$Input$profile_stddev_pop_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$profile_stddev_pop_order_by _instance;
-
-  final TRes Function(Input$profile_stddev_pop_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? profile_id = _undefined}) =>
-      _then(Input$profile_stddev_pop_order_by._({
-        ..._instance._$data,
-        if (profile_id != _undefined)
-          'profile_id': (profile_id as Enum$order_by?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$profile_stddev_pop_order_by<TRes>
-    implements CopyWith$Input$profile_stddev_pop_order_by<TRes> {
-  _CopyWithStubImpl$Input$profile_stddev_pop_order_by(this._res);
-
-  TRes _res;
-
-  call({Enum$order_by? profile_id}) => _res;
-}
-
-class Input$profile_stddev_samp_order_by {
-  factory Input$profile_stddev_samp_order_by({Enum$order_by? profile_id}) =>
-      Input$profile_stddev_samp_order_by._({
-        if (profile_id != null) r'profile_id': profile_id,
-      });
-
-  Input$profile_stddev_samp_order_by._(this._$data);
-
-  factory Input$profile_stddev_samp_order_by.fromJson(
-      Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('profile_id')) {
-      final l$profile_id = data['profile_id'];
-      result$data['profile_id'] = l$profile_id == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_id as String));
-    }
-    return Input$profile_stddev_samp_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('profile_id')) {
-      final l$profile_id = profile_id;
-      result$data['profile_id'] =
-          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$profile_stddev_samp_order_by<
-          Input$profile_stddev_samp_order_by>
-      get copyWith => CopyWith$Input$profile_stddev_samp_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$profile_stddev_samp_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$profile_id = profile_id;
-    final lOther$profile_id = other.profile_id;
-    if (_$data.containsKey('profile_id') !=
-        other._$data.containsKey('profile_id')) {
-      return false;
-    }
-    if (l$profile_id != lOther$profile_id) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$profile_id = profile_id;
-    return Object.hashAll(
-        [_$data.containsKey('profile_id') ? l$profile_id : const {}]);
-  }
-}
-
-abstract class CopyWith$Input$profile_stddev_samp_order_by<TRes> {
-  factory CopyWith$Input$profile_stddev_samp_order_by(
-    Input$profile_stddev_samp_order_by instance,
-    TRes Function(Input$profile_stddev_samp_order_by) then,
-  ) = _CopyWithImpl$Input$profile_stddev_samp_order_by;
-
-  factory CopyWith$Input$profile_stddev_samp_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$profile_stddev_samp_order_by;
-
-  TRes call({Enum$order_by? profile_id});
-}
-
-class _CopyWithImpl$Input$profile_stddev_samp_order_by<TRes>
-    implements CopyWith$Input$profile_stddev_samp_order_by<TRes> {
-  _CopyWithImpl$Input$profile_stddev_samp_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$profile_stddev_samp_order_by _instance;
-
-  final TRes Function(Input$profile_stddev_samp_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? profile_id = _undefined}) =>
-      _then(Input$profile_stddev_samp_order_by._({
-        ..._instance._$data,
-        if (profile_id != _undefined)
-          'profile_id': (profile_id as Enum$order_by?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$profile_stddev_samp_order_by<TRes>
-    implements CopyWith$Input$profile_stddev_samp_order_by<TRes> {
-  _CopyWithStubImpl$Input$profile_stddev_samp_order_by(this._res);
-
-  TRes _res;
-
-  call({Enum$order_by? profile_id}) => _res;
-}
-
 class Input$profile_stream_cursor_input {
   factory Input$profile_stream_cursor_input({
     required Input$profile_stream_cursor_value_input initial_value,
@@ -59989,114 +55315,6 @@ class _CopyWithStubImpl$Input$profile_stream_cursor_value_input<TRes>
       _res;
 }
 
-class Input$profile_sum_order_by {
-  factory Input$profile_sum_order_by({Enum$order_by? profile_id}) =>
-      Input$profile_sum_order_by._({
-        if (profile_id != null) r'profile_id': profile_id,
-      });
-
-  Input$profile_sum_order_by._(this._$data);
-
-  factory Input$profile_sum_order_by.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('profile_id')) {
-      final l$profile_id = data['profile_id'];
-      result$data['profile_id'] = l$profile_id == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_id as String));
-    }
-    return Input$profile_sum_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('profile_id')) {
-      final l$profile_id = profile_id;
-      result$data['profile_id'] =
-          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$profile_sum_order_by<Input$profile_sum_order_by>
-      get copyWith => CopyWith$Input$profile_sum_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$profile_sum_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$profile_id = profile_id;
-    final lOther$profile_id = other.profile_id;
-    if (_$data.containsKey('profile_id') !=
-        other._$data.containsKey('profile_id')) {
-      return false;
-    }
-    if (l$profile_id != lOther$profile_id) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$profile_id = profile_id;
-    return Object.hashAll(
-        [_$data.containsKey('profile_id') ? l$profile_id : const {}]);
-  }
-}
-
-abstract class CopyWith$Input$profile_sum_order_by<TRes> {
-  factory CopyWith$Input$profile_sum_order_by(
-    Input$profile_sum_order_by instance,
-    TRes Function(Input$profile_sum_order_by) then,
-  ) = _CopyWithImpl$Input$profile_sum_order_by;
-
-  factory CopyWith$Input$profile_sum_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$profile_sum_order_by;
-
-  TRes call({Enum$order_by? profile_id});
-}
-
-class _CopyWithImpl$Input$profile_sum_order_by<TRes>
-    implements CopyWith$Input$profile_sum_order_by<TRes> {
-  _CopyWithImpl$Input$profile_sum_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$profile_sum_order_by _instance;
-
-  final TRes Function(Input$profile_sum_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? profile_id = _undefined}) =>
-      _then(Input$profile_sum_order_by._({
-        ..._instance._$data,
-        if (profile_id != _undefined)
-          'profile_id': (profile_id as Enum$order_by?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$profile_sum_order_by<TRes>
-    implements CopyWith$Input$profile_sum_order_by<TRes> {
-  _CopyWithStubImpl$Input$profile_sum_order_by(this._res);
-
-  TRes _res;
-
-  call({Enum$order_by? profile_id}) => _res;
-}
-
 class Input$profile_updates {
   factory Input$profile_updates({
     Input$profile_set_input? $_set,
@@ -60250,334 +55468,15 @@ class _CopyWithStubImpl$Input$profile_updates<TRes>
       CopyWith$Input$profile_bool_exp.stub(_res);
 }
 
-class Input$profile_var_pop_order_by {
-  factory Input$profile_var_pop_order_by({Enum$order_by? profile_id}) =>
-      Input$profile_var_pop_order_by._({
-        if (profile_id != null) r'profile_id': profile_id,
-      });
-
-  Input$profile_var_pop_order_by._(this._$data);
-
-  factory Input$profile_var_pop_order_by.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('profile_id')) {
-      final l$profile_id = data['profile_id'];
-      result$data['profile_id'] = l$profile_id == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_id as String));
-    }
-    return Input$profile_var_pop_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('profile_id')) {
-      final l$profile_id = profile_id;
-      result$data['profile_id'] =
-          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$profile_var_pop_order_by<Input$profile_var_pop_order_by>
-      get copyWith => CopyWith$Input$profile_var_pop_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$profile_var_pop_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$profile_id = profile_id;
-    final lOther$profile_id = other.profile_id;
-    if (_$data.containsKey('profile_id') !=
-        other._$data.containsKey('profile_id')) {
-      return false;
-    }
-    if (l$profile_id != lOther$profile_id) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$profile_id = profile_id;
-    return Object.hashAll(
-        [_$data.containsKey('profile_id') ? l$profile_id : const {}]);
-  }
-}
-
-abstract class CopyWith$Input$profile_var_pop_order_by<TRes> {
-  factory CopyWith$Input$profile_var_pop_order_by(
-    Input$profile_var_pop_order_by instance,
-    TRes Function(Input$profile_var_pop_order_by) then,
-  ) = _CopyWithImpl$Input$profile_var_pop_order_by;
-
-  factory CopyWith$Input$profile_var_pop_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$profile_var_pop_order_by;
-
-  TRes call({Enum$order_by? profile_id});
-}
-
-class _CopyWithImpl$Input$profile_var_pop_order_by<TRes>
-    implements CopyWith$Input$profile_var_pop_order_by<TRes> {
-  _CopyWithImpl$Input$profile_var_pop_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$profile_var_pop_order_by _instance;
-
-  final TRes Function(Input$profile_var_pop_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? profile_id = _undefined}) =>
-      _then(Input$profile_var_pop_order_by._({
-        ..._instance._$data,
-        if (profile_id != _undefined)
-          'profile_id': (profile_id as Enum$order_by?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$profile_var_pop_order_by<TRes>
-    implements CopyWith$Input$profile_var_pop_order_by<TRes> {
-  _CopyWithStubImpl$Input$profile_var_pop_order_by(this._res);
-
-  TRes _res;
-
-  call({Enum$order_by? profile_id}) => _res;
-}
-
-class Input$profile_var_samp_order_by {
-  factory Input$profile_var_samp_order_by({Enum$order_by? profile_id}) =>
-      Input$profile_var_samp_order_by._({
-        if (profile_id != null) r'profile_id': profile_id,
-      });
-
-  Input$profile_var_samp_order_by._(this._$data);
-
-  factory Input$profile_var_samp_order_by.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('profile_id')) {
-      final l$profile_id = data['profile_id'];
-      result$data['profile_id'] = l$profile_id == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_id as String));
-    }
-    return Input$profile_var_samp_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('profile_id')) {
-      final l$profile_id = profile_id;
-      result$data['profile_id'] =
-          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$profile_var_samp_order_by<Input$profile_var_samp_order_by>
-      get copyWith => CopyWith$Input$profile_var_samp_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$profile_var_samp_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$profile_id = profile_id;
-    final lOther$profile_id = other.profile_id;
-    if (_$data.containsKey('profile_id') !=
-        other._$data.containsKey('profile_id')) {
-      return false;
-    }
-    if (l$profile_id != lOther$profile_id) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$profile_id = profile_id;
-    return Object.hashAll(
-        [_$data.containsKey('profile_id') ? l$profile_id : const {}]);
-  }
-}
-
-abstract class CopyWith$Input$profile_var_samp_order_by<TRes> {
-  factory CopyWith$Input$profile_var_samp_order_by(
-    Input$profile_var_samp_order_by instance,
-    TRes Function(Input$profile_var_samp_order_by) then,
-  ) = _CopyWithImpl$Input$profile_var_samp_order_by;
-
-  factory CopyWith$Input$profile_var_samp_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$profile_var_samp_order_by;
-
-  TRes call({Enum$order_by? profile_id});
-}
-
-class _CopyWithImpl$Input$profile_var_samp_order_by<TRes>
-    implements CopyWith$Input$profile_var_samp_order_by<TRes> {
-  _CopyWithImpl$Input$profile_var_samp_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$profile_var_samp_order_by _instance;
-
-  final TRes Function(Input$profile_var_samp_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? profile_id = _undefined}) =>
-      _then(Input$profile_var_samp_order_by._({
-        ..._instance._$data,
-        if (profile_id != _undefined)
-          'profile_id': (profile_id as Enum$order_by?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$profile_var_samp_order_by<TRes>
-    implements CopyWith$Input$profile_var_samp_order_by<TRes> {
-  _CopyWithStubImpl$Input$profile_var_samp_order_by(this._res);
-
-  TRes _res;
-
-  call({Enum$order_by? profile_id}) => _res;
-}
-
-class Input$profile_variance_order_by {
-  factory Input$profile_variance_order_by({Enum$order_by? profile_id}) =>
-      Input$profile_variance_order_by._({
-        if (profile_id != null) r'profile_id': profile_id,
-      });
-
-  Input$profile_variance_order_by._(this._$data);
-
-  factory Input$profile_variance_order_by.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('profile_id')) {
-      final l$profile_id = data['profile_id'];
-      result$data['profile_id'] = l$profile_id == null
-          ? null
-          : fromJson$Enum$order_by((l$profile_id as String));
-    }
-    return Input$profile_variance_order_by._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('profile_id')) {
-      final l$profile_id = profile_id;
-      result$data['profile_id'] =
-          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$profile_variance_order_by<Input$profile_variance_order_by>
-      get copyWith => CopyWith$Input$profile_variance_order_by(
-            this,
-            (i) => i,
-          );
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$profile_variance_order_by) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$profile_id = profile_id;
-    final lOther$profile_id = other.profile_id;
-    if (_$data.containsKey('profile_id') !=
-        other._$data.containsKey('profile_id')) {
-      return false;
-    }
-    if (l$profile_id != lOther$profile_id) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$profile_id = profile_id;
-    return Object.hashAll(
-        [_$data.containsKey('profile_id') ? l$profile_id : const {}]);
-  }
-}
-
-abstract class CopyWith$Input$profile_variance_order_by<TRes> {
-  factory CopyWith$Input$profile_variance_order_by(
-    Input$profile_variance_order_by instance,
-    TRes Function(Input$profile_variance_order_by) then,
-  ) = _CopyWithImpl$Input$profile_variance_order_by;
-
-  factory CopyWith$Input$profile_variance_order_by.stub(TRes res) =
-      _CopyWithStubImpl$Input$profile_variance_order_by;
-
-  TRes call({Enum$order_by? profile_id});
-}
-
-class _CopyWithImpl$Input$profile_variance_order_by<TRes>
-    implements CopyWith$Input$profile_variance_order_by<TRes> {
-  _CopyWithImpl$Input$profile_variance_order_by(
-    this._instance,
-    this._then,
-  );
-
-  final Input$profile_variance_order_by _instance;
-
-  final TRes Function(Input$profile_variance_order_by) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? profile_id = _undefined}) =>
-      _then(Input$profile_variance_order_by._({
-        ..._instance._$data,
-        if (profile_id != _undefined)
-          'profile_id': (profile_id as Enum$order_by?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$profile_variance_order_by<TRes>
-    implements CopyWith$Input$profile_variance_order_by<TRes> {
-  _CopyWithStubImpl$Input$profile_variance_order_by(this._res);
-
-  TRes _res;
-
-  call({Enum$order_by? profile_id}) => _res;
-}
-
 class Input$proposal_aggregate_bool_exp {
-  factory Input$proposal_aggregate_bool_exp(
-          {Input$proposal_aggregate_bool_exp_count? count}) =>
+  factory Input$proposal_aggregate_bool_exp({
+    Input$proposal_aggregate_bool_exp_bool_and? bool_and,
+    Input$proposal_aggregate_bool_exp_bool_or? bool_or,
+    Input$proposal_aggregate_bool_exp_count? count,
+  }) =>
       Input$proposal_aggregate_bool_exp._({
+        if (bool_and != null) r'bool_and': bool_and,
+        if (bool_or != null) r'bool_or': bool_or,
         if (count != null) r'count': count,
       });
 
@@ -60586,6 +55485,20 @@ class Input$proposal_aggregate_bool_exp {
   factory Input$proposal_aggregate_bool_exp.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('bool_and')) {
+      final l$bool_and = data['bool_and'];
+      result$data['bool_and'] = l$bool_and == null
+          ? null
+          : Input$proposal_aggregate_bool_exp_bool_and.fromJson(
+              (l$bool_and as Map<String, dynamic>));
+    }
+    if (data.containsKey('bool_or')) {
+      final l$bool_or = data['bool_or'];
+      result$data['bool_or'] = l$bool_or == null
+          ? null
+          : Input$proposal_aggregate_bool_exp_bool_or.fromJson(
+              (l$bool_or as Map<String, dynamic>));
+    }
     if (data.containsKey('count')) {
       final l$count = data['count'];
       result$data['count'] = l$count == null
@@ -60598,10 +55511,22 @@ class Input$proposal_aggregate_bool_exp {
 
   Map<String, dynamic> _$data;
 
+  Input$proposal_aggregate_bool_exp_bool_and? get bool_and =>
+      (_$data['bool_and'] as Input$proposal_aggregate_bool_exp_bool_and?);
+  Input$proposal_aggregate_bool_exp_bool_or? get bool_or =>
+      (_$data['bool_or'] as Input$proposal_aggregate_bool_exp_bool_or?);
   Input$proposal_aggregate_bool_exp_count? get count =>
       (_$data['count'] as Input$proposal_aggregate_bool_exp_count?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bool_and')) {
+      final l$bool_and = bool_and;
+      result$data['bool_and'] = l$bool_and?.toJson();
+    }
+    if (_$data.containsKey('bool_or')) {
+      final l$bool_or = bool_or;
+      result$data['bool_or'] = l$bool_or?.toJson();
+    }
     if (_$data.containsKey('count')) {
       final l$count = count;
       result$data['count'] = l$count?.toJson();
@@ -60623,6 +55548,23 @@ class Input$proposal_aggregate_bool_exp {
         runtimeType != other.runtimeType) {
       return false;
     }
+    final l$bool_and = bool_and;
+    final lOther$bool_and = other.bool_and;
+    if (_$data.containsKey('bool_and') !=
+        other._$data.containsKey('bool_and')) {
+      return false;
+    }
+    if (l$bool_and != lOther$bool_and) {
+      return false;
+    }
+    final l$bool_or = bool_or;
+    final lOther$bool_or = other.bool_or;
+    if (_$data.containsKey('bool_or') != other._$data.containsKey('bool_or')) {
+      return false;
+    }
+    if (l$bool_or != lOther$bool_or) {
+      return false;
+    }
     final l$count = count;
     final lOther$count = other.count;
     if (_$data.containsKey('count') != other._$data.containsKey('count')) {
@@ -60636,8 +55578,14 @@ class Input$proposal_aggregate_bool_exp {
 
   @override
   int get hashCode {
+    final l$bool_and = bool_and;
+    final l$bool_or = bool_or;
     final l$count = count;
-    return Object.hashAll([_$data.containsKey('count') ? l$count : const {}]);
+    return Object.hashAll([
+      _$data.containsKey('bool_and') ? l$bool_and : const {},
+      _$data.containsKey('bool_or') ? l$bool_or : const {},
+      _$data.containsKey('count') ? l$count : const {},
+    ]);
   }
 }
 
@@ -60650,7 +55598,13 @@ abstract class CopyWith$Input$proposal_aggregate_bool_exp<TRes> {
   factory CopyWith$Input$proposal_aggregate_bool_exp.stub(TRes res) =
       _CopyWithStubImpl$Input$proposal_aggregate_bool_exp;
 
-  TRes call({Input$proposal_aggregate_bool_exp_count? count});
+  TRes call({
+    Input$proposal_aggregate_bool_exp_bool_and? bool_and,
+    Input$proposal_aggregate_bool_exp_bool_or? bool_or,
+    Input$proposal_aggregate_bool_exp_count? count,
+  });
+  CopyWith$Input$proposal_aggregate_bool_exp_bool_and<TRes> get bool_and;
+  CopyWith$Input$proposal_aggregate_bool_exp_bool_or<TRes> get bool_or;
   CopyWith$Input$proposal_aggregate_bool_exp_count<TRes> get count;
 }
 
@@ -60667,12 +55621,38 @@ class _CopyWithImpl$Input$proposal_aggregate_bool_exp<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? count = _undefined}) =>
+  TRes call({
+    Object? bool_and = _undefined,
+    Object? bool_or = _undefined,
+    Object? count = _undefined,
+  }) =>
       _then(Input$proposal_aggregate_bool_exp._({
         ..._instance._$data,
+        if (bool_and != _undefined)
+          'bool_and': (bool_and as Input$proposal_aggregate_bool_exp_bool_and?),
+        if (bool_or != _undefined)
+          'bool_or': (bool_or as Input$proposal_aggregate_bool_exp_bool_or?),
         if (count != _undefined)
           'count': (count as Input$proposal_aggregate_bool_exp_count?),
       }));
+  CopyWith$Input$proposal_aggregate_bool_exp_bool_and<TRes> get bool_and {
+    final local$bool_and = _instance.bool_and;
+    return local$bool_and == null
+        ? CopyWith$Input$proposal_aggregate_bool_exp_bool_and.stub(
+            _then(_instance))
+        : CopyWith$Input$proposal_aggregate_bool_exp_bool_and(
+            local$bool_and, (e) => call(bool_and: e));
+  }
+
+  CopyWith$Input$proposal_aggregate_bool_exp_bool_or<TRes> get bool_or {
+    final local$bool_or = _instance.bool_or;
+    return local$bool_or == null
+        ? CopyWith$Input$proposal_aggregate_bool_exp_bool_or.stub(
+            _then(_instance))
+        : CopyWith$Input$proposal_aggregate_bool_exp_bool_or(
+            local$bool_or, (e) => call(bool_or: e));
+  }
+
   CopyWith$Input$proposal_aggregate_bool_exp_count<TRes> get count {
     final local$count = _instance.count;
     return local$count == null
@@ -60689,9 +55669,448 @@ class _CopyWithStubImpl$Input$proposal_aggregate_bool_exp<TRes>
 
   TRes _res;
 
-  call({Input$proposal_aggregate_bool_exp_count? count}) => _res;
+  call({
+    Input$proposal_aggregate_bool_exp_bool_and? bool_and,
+    Input$proposal_aggregate_bool_exp_bool_or? bool_or,
+    Input$proposal_aggregate_bool_exp_count? count,
+  }) =>
+      _res;
+  CopyWith$Input$proposal_aggregate_bool_exp_bool_and<TRes> get bool_and =>
+      CopyWith$Input$proposal_aggregate_bool_exp_bool_and.stub(_res);
+  CopyWith$Input$proposal_aggregate_bool_exp_bool_or<TRes> get bool_or =>
+      CopyWith$Input$proposal_aggregate_bool_exp_bool_or.stub(_res);
   CopyWith$Input$proposal_aggregate_bool_exp_count<TRes> get count =>
       CopyWith$Input$proposal_aggregate_bool_exp_count.stub(_res);
+}
+
+class Input$proposal_aggregate_bool_exp_bool_and {
+  factory Input$proposal_aggregate_bool_exp_bool_and({
+    required Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_and_arguments_columns
+        arguments,
+    bool? distinct,
+    Input$proposal_bool_exp? filter,
+    required Input$Boolean_comparison_exp predicate,
+  }) =>
+      Input$proposal_aggregate_bool_exp_bool_and._({
+        r'arguments': arguments,
+        if (distinct != null) r'distinct': distinct,
+        if (filter != null) r'filter': filter,
+        r'predicate': predicate,
+      });
+
+  Input$proposal_aggregate_bool_exp_bool_and._(this._$data);
+
+  factory Input$proposal_aggregate_bool_exp_bool_and.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$arguments = data['arguments'];
+    result$data['arguments'] =
+        fromJson$Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_and_arguments_columns(
+            (l$arguments as String));
+    if (data.containsKey('distinct')) {
+      final l$distinct = data['distinct'];
+      result$data['distinct'] = (l$distinct as bool?);
+    }
+    if (data.containsKey('filter')) {
+      final l$filter = data['filter'];
+      result$data['filter'] = l$filter == null
+          ? null
+          : Input$proposal_bool_exp.fromJson(
+              (l$filter as Map<String, dynamic>));
+    }
+    final l$predicate = data['predicate'];
+    result$data['predicate'] = Input$Boolean_comparison_exp.fromJson(
+        (l$predicate as Map<String, dynamic>));
+    return Input$proposal_aggregate_bool_exp_bool_and._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_and_arguments_columns
+      get arguments => (_$data['arguments']
+          as Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_and_arguments_columns);
+  bool? get distinct => (_$data['distinct'] as bool?);
+  Input$proposal_bool_exp? get filter =>
+      (_$data['filter'] as Input$proposal_bool_exp?);
+  Input$Boolean_comparison_exp get predicate =>
+      (_$data['predicate'] as Input$Boolean_comparison_exp);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$arguments = arguments;
+    result$data['arguments'] =
+        toJson$Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_and_arguments_columns(
+            l$arguments);
+    if (_$data.containsKey('distinct')) {
+      final l$distinct = distinct;
+      result$data['distinct'] = l$distinct;
+    }
+    if (_$data.containsKey('filter')) {
+      final l$filter = filter;
+      result$data['filter'] = l$filter?.toJson();
+    }
+    final l$predicate = predicate;
+    result$data['predicate'] = l$predicate.toJson();
+    return result$data;
+  }
+
+  CopyWith$Input$proposal_aggregate_bool_exp_bool_and<
+          Input$proposal_aggregate_bool_exp_bool_and>
+      get copyWith => CopyWith$Input$proposal_aggregate_bool_exp_bool_and(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$proposal_aggregate_bool_exp_bool_and) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$arguments = arguments;
+    final lOther$arguments = other.arguments;
+    if (l$arguments != lOther$arguments) {
+      return false;
+    }
+    final l$distinct = distinct;
+    final lOther$distinct = other.distinct;
+    if (_$data.containsKey('distinct') !=
+        other._$data.containsKey('distinct')) {
+      return false;
+    }
+    if (l$distinct != lOther$distinct) {
+      return false;
+    }
+    final l$filter = filter;
+    final lOther$filter = other.filter;
+    if (_$data.containsKey('filter') != other._$data.containsKey('filter')) {
+      return false;
+    }
+    if (l$filter != lOther$filter) {
+      return false;
+    }
+    final l$predicate = predicate;
+    final lOther$predicate = other.predicate;
+    if (l$predicate != lOther$predicate) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$arguments = arguments;
+    final l$distinct = distinct;
+    final l$filter = filter;
+    final l$predicate = predicate;
+    return Object.hashAll([
+      l$arguments,
+      _$data.containsKey('distinct') ? l$distinct : const {},
+      _$data.containsKey('filter') ? l$filter : const {},
+      l$predicate,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$proposal_aggregate_bool_exp_bool_and<TRes> {
+  factory CopyWith$Input$proposal_aggregate_bool_exp_bool_and(
+    Input$proposal_aggregate_bool_exp_bool_and instance,
+    TRes Function(Input$proposal_aggregate_bool_exp_bool_and) then,
+  ) = _CopyWithImpl$Input$proposal_aggregate_bool_exp_bool_and;
+
+  factory CopyWith$Input$proposal_aggregate_bool_exp_bool_and.stub(TRes res) =
+      _CopyWithStubImpl$Input$proposal_aggregate_bool_exp_bool_and;
+
+  TRes call({
+    Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_and_arguments_columns?
+        arguments,
+    bool? distinct,
+    Input$proposal_bool_exp? filter,
+    Input$Boolean_comparison_exp? predicate,
+  });
+  CopyWith$Input$proposal_bool_exp<TRes> get filter;
+  CopyWith$Input$Boolean_comparison_exp<TRes> get predicate;
+}
+
+class _CopyWithImpl$Input$proposal_aggregate_bool_exp_bool_and<TRes>
+    implements CopyWith$Input$proposal_aggregate_bool_exp_bool_and<TRes> {
+  _CopyWithImpl$Input$proposal_aggregate_bool_exp_bool_and(
+    this._instance,
+    this._then,
+  );
+
+  final Input$proposal_aggregate_bool_exp_bool_and _instance;
+
+  final TRes Function(Input$proposal_aggregate_bool_exp_bool_and) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? arguments = _undefined,
+    Object? distinct = _undefined,
+    Object? filter = _undefined,
+    Object? predicate = _undefined,
+  }) =>
+      _then(Input$proposal_aggregate_bool_exp_bool_and._({
+        ..._instance._$data,
+        if (arguments != _undefined && arguments != null)
+          'arguments': (arguments
+              as Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_and_arguments_columns),
+        if (distinct != _undefined) 'distinct': (distinct as bool?),
+        if (filter != _undefined)
+          'filter': (filter as Input$proposal_bool_exp?),
+        if (predicate != _undefined && predicate != null)
+          'predicate': (predicate as Input$Boolean_comparison_exp),
+      }));
+  CopyWith$Input$proposal_bool_exp<TRes> get filter {
+    final local$filter = _instance.filter;
+    return local$filter == null
+        ? CopyWith$Input$proposal_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$proposal_bool_exp(
+            local$filter, (e) => call(filter: e));
+  }
+
+  CopyWith$Input$Boolean_comparison_exp<TRes> get predicate {
+    final local$predicate = _instance.predicate;
+    return CopyWith$Input$Boolean_comparison_exp(
+        local$predicate, (e) => call(predicate: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$proposal_aggregate_bool_exp_bool_and<TRes>
+    implements CopyWith$Input$proposal_aggregate_bool_exp_bool_and<TRes> {
+  _CopyWithStubImpl$Input$proposal_aggregate_bool_exp_bool_and(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_and_arguments_columns?
+        arguments,
+    bool? distinct,
+    Input$proposal_bool_exp? filter,
+    Input$Boolean_comparison_exp? predicate,
+  }) =>
+      _res;
+  CopyWith$Input$proposal_bool_exp<TRes> get filter =>
+      CopyWith$Input$proposal_bool_exp.stub(_res);
+  CopyWith$Input$Boolean_comparison_exp<TRes> get predicate =>
+      CopyWith$Input$Boolean_comparison_exp.stub(_res);
+}
+
+class Input$proposal_aggregate_bool_exp_bool_or {
+  factory Input$proposal_aggregate_bool_exp_bool_or({
+    required Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_or_arguments_columns
+        arguments,
+    bool? distinct,
+    Input$proposal_bool_exp? filter,
+    required Input$Boolean_comparison_exp predicate,
+  }) =>
+      Input$proposal_aggregate_bool_exp_bool_or._({
+        r'arguments': arguments,
+        if (distinct != null) r'distinct': distinct,
+        if (filter != null) r'filter': filter,
+        r'predicate': predicate,
+      });
+
+  Input$proposal_aggregate_bool_exp_bool_or._(this._$data);
+
+  factory Input$proposal_aggregate_bool_exp_bool_or.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$arguments = data['arguments'];
+    result$data['arguments'] =
+        fromJson$Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_or_arguments_columns(
+            (l$arguments as String));
+    if (data.containsKey('distinct')) {
+      final l$distinct = data['distinct'];
+      result$data['distinct'] = (l$distinct as bool?);
+    }
+    if (data.containsKey('filter')) {
+      final l$filter = data['filter'];
+      result$data['filter'] = l$filter == null
+          ? null
+          : Input$proposal_bool_exp.fromJson(
+              (l$filter as Map<String, dynamic>));
+    }
+    final l$predicate = data['predicate'];
+    result$data['predicate'] = Input$Boolean_comparison_exp.fromJson(
+        (l$predicate as Map<String, dynamic>));
+    return Input$proposal_aggregate_bool_exp_bool_or._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_or_arguments_columns
+      get arguments => (_$data['arguments']
+          as Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_or_arguments_columns);
+  bool? get distinct => (_$data['distinct'] as bool?);
+  Input$proposal_bool_exp? get filter =>
+      (_$data['filter'] as Input$proposal_bool_exp?);
+  Input$Boolean_comparison_exp get predicate =>
+      (_$data['predicate'] as Input$Boolean_comparison_exp);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$arguments = arguments;
+    result$data['arguments'] =
+        toJson$Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_or_arguments_columns(
+            l$arguments);
+    if (_$data.containsKey('distinct')) {
+      final l$distinct = distinct;
+      result$data['distinct'] = l$distinct;
+    }
+    if (_$data.containsKey('filter')) {
+      final l$filter = filter;
+      result$data['filter'] = l$filter?.toJson();
+    }
+    final l$predicate = predicate;
+    result$data['predicate'] = l$predicate.toJson();
+    return result$data;
+  }
+
+  CopyWith$Input$proposal_aggregate_bool_exp_bool_or<
+          Input$proposal_aggregate_bool_exp_bool_or>
+      get copyWith => CopyWith$Input$proposal_aggregate_bool_exp_bool_or(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$proposal_aggregate_bool_exp_bool_or) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$arguments = arguments;
+    final lOther$arguments = other.arguments;
+    if (l$arguments != lOther$arguments) {
+      return false;
+    }
+    final l$distinct = distinct;
+    final lOther$distinct = other.distinct;
+    if (_$data.containsKey('distinct') !=
+        other._$data.containsKey('distinct')) {
+      return false;
+    }
+    if (l$distinct != lOther$distinct) {
+      return false;
+    }
+    final l$filter = filter;
+    final lOther$filter = other.filter;
+    if (_$data.containsKey('filter') != other._$data.containsKey('filter')) {
+      return false;
+    }
+    if (l$filter != lOther$filter) {
+      return false;
+    }
+    final l$predicate = predicate;
+    final lOther$predicate = other.predicate;
+    if (l$predicate != lOther$predicate) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$arguments = arguments;
+    final l$distinct = distinct;
+    final l$filter = filter;
+    final l$predicate = predicate;
+    return Object.hashAll([
+      l$arguments,
+      _$data.containsKey('distinct') ? l$distinct : const {},
+      _$data.containsKey('filter') ? l$filter : const {},
+      l$predicate,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$proposal_aggregate_bool_exp_bool_or<TRes> {
+  factory CopyWith$Input$proposal_aggregate_bool_exp_bool_or(
+    Input$proposal_aggregate_bool_exp_bool_or instance,
+    TRes Function(Input$proposal_aggregate_bool_exp_bool_or) then,
+  ) = _CopyWithImpl$Input$proposal_aggregate_bool_exp_bool_or;
+
+  factory CopyWith$Input$proposal_aggregate_bool_exp_bool_or.stub(TRes res) =
+      _CopyWithStubImpl$Input$proposal_aggregate_bool_exp_bool_or;
+
+  TRes call({
+    Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_or_arguments_columns?
+        arguments,
+    bool? distinct,
+    Input$proposal_bool_exp? filter,
+    Input$Boolean_comparison_exp? predicate,
+  });
+  CopyWith$Input$proposal_bool_exp<TRes> get filter;
+  CopyWith$Input$Boolean_comparison_exp<TRes> get predicate;
+}
+
+class _CopyWithImpl$Input$proposal_aggregate_bool_exp_bool_or<TRes>
+    implements CopyWith$Input$proposal_aggregate_bool_exp_bool_or<TRes> {
+  _CopyWithImpl$Input$proposal_aggregate_bool_exp_bool_or(
+    this._instance,
+    this._then,
+  );
+
+  final Input$proposal_aggregate_bool_exp_bool_or _instance;
+
+  final TRes Function(Input$proposal_aggregate_bool_exp_bool_or) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? arguments = _undefined,
+    Object? distinct = _undefined,
+    Object? filter = _undefined,
+    Object? predicate = _undefined,
+  }) =>
+      _then(Input$proposal_aggregate_bool_exp_bool_or._({
+        ..._instance._$data,
+        if (arguments != _undefined && arguments != null)
+          'arguments': (arguments
+              as Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_or_arguments_columns),
+        if (distinct != _undefined) 'distinct': (distinct as bool?),
+        if (filter != _undefined)
+          'filter': (filter as Input$proposal_bool_exp?),
+        if (predicate != _undefined && predicate != null)
+          'predicate': (predicate as Input$Boolean_comparison_exp),
+      }));
+  CopyWith$Input$proposal_bool_exp<TRes> get filter {
+    final local$filter = _instance.filter;
+    return local$filter == null
+        ? CopyWith$Input$proposal_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$proposal_bool_exp(
+            local$filter, (e) => call(filter: e));
+  }
+
+  CopyWith$Input$Boolean_comparison_exp<TRes> get predicate {
+    final local$predicate = _instance.predicate;
+    return CopyWith$Input$Boolean_comparison_exp(
+        local$predicate, (e) => call(predicate: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$proposal_aggregate_bool_exp_bool_or<TRes>
+    implements CopyWith$Input$proposal_aggregate_bool_exp_bool_or<TRes> {
+  _CopyWithStubImpl$Input$proposal_aggregate_bool_exp_bool_or(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_or_arguments_columns?
+        arguments,
+    bool? distinct,
+    Input$proposal_bool_exp? filter,
+    Input$Boolean_comparison_exp? predicate,
+  }) =>
+      _res;
+  CopyWith$Input$proposal_bool_exp<TRes> get filter =>
+      CopyWith$Input$proposal_bool_exp.stub(_res);
+  CopyWith$Input$Boolean_comparison_exp<TRes> get predicate =>
+      CopyWith$Input$Boolean_comparison_exp.stub(_res);
 }
 
 class Input$proposal_aggregate_bool_exp_count {
@@ -61815,6 +57234,7 @@ class Input$proposal_bool_exp {
     Input$investment_bool_exp? investments,
     Input$investment_aggregate_bool_exp? investments_aggregate,
     Input$Int_comparison_exp? proposal_amount,
+    Input$Boolean_comparison_exp? proposal_approved,
     Input$String_comparison_exp? proposal_content,
     Input$date_comparison_exp? proposal_date,
     Input$Int_comparison_exp? proposal_id,
@@ -61831,6 +57251,7 @@ class Input$proposal_bool_exp {
         if (investments_aggregate != null)
           r'investments_aggregate': investments_aggregate,
         if (proposal_amount != null) r'proposal_amount': proposal_amount,
+        if (proposal_approved != null) r'proposal_approved': proposal_approved,
         if (proposal_content != null) r'proposal_content': proposal_content,
         if (proposal_date != null) r'proposal_date': proposal_date,
         if (proposal_id != null) r'proposal_id': proposal_id,
@@ -61890,6 +57311,13 @@ class Input$proposal_bool_exp {
           ? null
           : Input$Int_comparison_exp.fromJson(
               (l$proposal_amount as Map<String, dynamic>));
+    }
+    if (data.containsKey('proposal_approved')) {
+      final l$proposal_approved = data['proposal_approved'];
+      result$data['proposal_approved'] = l$proposal_approved == null
+          ? null
+          : Input$Boolean_comparison_exp.fromJson(
+              (l$proposal_approved as Map<String, dynamic>));
     }
     if (data.containsKey('proposal_content')) {
       final l$proposal_content = data['proposal_content'];
@@ -61951,6 +57379,8 @@ class Input$proposal_bool_exp {
       (_$data['investments_aggregate'] as Input$investment_aggregate_bool_exp?);
   Input$Int_comparison_exp? get proposal_amount =>
       (_$data['proposal_amount'] as Input$Int_comparison_exp?);
+  Input$Boolean_comparison_exp? get proposal_approved =>
+      (_$data['proposal_approved'] as Input$Boolean_comparison_exp?);
   Input$String_comparison_exp? get proposal_content =>
       (_$data['proposal_content'] as Input$String_comparison_exp?);
   Input$date_comparison_exp? get proposal_date =>
@@ -61991,6 +57421,10 @@ class Input$proposal_bool_exp {
     if (_$data.containsKey('proposal_amount')) {
       final l$proposal_amount = proposal_amount;
       result$data['proposal_amount'] = l$proposal_amount?.toJson();
+    }
+    if (_$data.containsKey('proposal_approved')) {
+      final l$proposal_approved = proposal_approved;
+      result$data['proposal_approved'] = l$proposal_approved?.toJson();
     }
     if (_$data.containsKey('proposal_content')) {
       final l$proposal_content = proposal_content;
@@ -62115,6 +57549,15 @@ class Input$proposal_bool_exp {
     if (l$proposal_amount != lOther$proposal_amount) {
       return false;
     }
+    final l$proposal_approved = proposal_approved;
+    final lOther$proposal_approved = other.proposal_approved;
+    if (_$data.containsKey('proposal_approved') !=
+        other._$data.containsKey('proposal_approved')) {
+      return false;
+    }
+    if (l$proposal_approved != lOther$proposal_approved) {
+      return false;
+    }
     final l$proposal_content = proposal_content;
     final lOther$proposal_content = other.proposal_content;
     if (_$data.containsKey('proposal_content') !=
@@ -62179,6 +57622,7 @@ class Input$proposal_bool_exp {
     final l$investments = investments;
     final l$investments_aggregate = investments_aggregate;
     final l$proposal_amount = proposal_amount;
+    final l$proposal_approved = proposal_approved;
     final l$proposal_content = proposal_content;
     final l$proposal_date = proposal_date;
     final l$proposal_id = proposal_id;
@@ -62203,6 +57647,7 @@ class Input$proposal_bool_exp {
           ? l$investments_aggregate
           : const {},
       _$data.containsKey('proposal_amount') ? l$proposal_amount : const {},
+      _$data.containsKey('proposal_approved') ? l$proposal_approved : const {},
       _$data.containsKey('proposal_content') ? l$proposal_content : const {},
       _$data.containsKey('proposal_date') ? l$proposal_date : const {},
       _$data.containsKey('proposal_id') ? l$proposal_id : const {},
@@ -62230,6 +57675,7 @@ abstract class CopyWith$Input$proposal_bool_exp<TRes> {
     Input$investment_bool_exp? investments,
     Input$investment_aggregate_bool_exp? investments_aggregate,
     Input$Int_comparison_exp? proposal_amount,
+    Input$Boolean_comparison_exp? proposal_approved,
     Input$String_comparison_exp? proposal_content,
     Input$date_comparison_exp? proposal_date,
     Input$Int_comparison_exp? proposal_id,
@@ -62252,6 +57698,7 @@ abstract class CopyWith$Input$proposal_bool_exp<TRes> {
   CopyWith$Input$investment_bool_exp<TRes> get investments;
   CopyWith$Input$investment_aggregate_bool_exp<TRes> get investments_aggregate;
   CopyWith$Input$Int_comparison_exp<TRes> get proposal_amount;
+  CopyWith$Input$Boolean_comparison_exp<TRes> get proposal_approved;
   CopyWith$Input$String_comparison_exp<TRes> get proposal_content;
   CopyWith$Input$date_comparison_exp<TRes> get proposal_date;
   CopyWith$Input$Int_comparison_exp<TRes> get proposal_id;
@@ -62281,6 +57728,7 @@ class _CopyWithImpl$Input$proposal_bool_exp<TRes>
     Object? investments = _undefined,
     Object? investments_aggregate = _undefined,
     Object? proposal_amount = _undefined,
+    Object? proposal_approved = _undefined,
     Object? proposal_content = _undefined,
     Object? proposal_date = _undefined,
     Object? proposal_id = _undefined,
@@ -62303,6 +57751,9 @@ class _CopyWithImpl$Input$proposal_bool_exp<TRes>
               (investments_aggregate as Input$investment_aggregate_bool_exp?),
         if (proposal_amount != _undefined)
           'proposal_amount': (proposal_amount as Input$Int_comparison_exp?),
+        if (proposal_approved != _undefined)
+          'proposal_approved':
+              (proposal_approved as Input$Boolean_comparison_exp?),
         if (proposal_content != _undefined)
           'proposal_content':
               (proposal_content as Input$String_comparison_exp?),
@@ -62378,6 +57829,14 @@ class _CopyWithImpl$Input$proposal_bool_exp<TRes>
             local$proposal_amount, (e) => call(proposal_amount: e));
   }
 
+  CopyWith$Input$Boolean_comparison_exp<TRes> get proposal_approved {
+    final local$proposal_approved = _instance.proposal_approved;
+    return local$proposal_approved == null
+        ? CopyWith$Input$Boolean_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$Boolean_comparison_exp(
+            local$proposal_approved, (e) => call(proposal_approved: e));
+  }
+
   CopyWith$Input$String_comparison_exp<TRes> get proposal_content {
     final local$proposal_content = _instance.proposal_content;
     return local$proposal_content == null
@@ -62440,6 +57899,7 @@ class _CopyWithStubImpl$Input$proposal_bool_exp<TRes>
     Input$investment_bool_exp? investments,
     Input$investment_aggregate_bool_exp? investments_aggregate,
     Input$Int_comparison_exp? proposal_amount,
+    Input$Boolean_comparison_exp? proposal_approved,
     Input$String_comparison_exp? proposal_content,
     Input$date_comparison_exp? proposal_date,
     Input$Int_comparison_exp? proposal_id,
@@ -62461,6 +57921,8 @@ class _CopyWithStubImpl$Input$proposal_bool_exp<TRes>
           CopyWith$Input$investment_aggregate_bool_exp.stub(_res);
   CopyWith$Input$Int_comparison_exp<TRes> get proposal_amount =>
       CopyWith$Input$Int_comparison_exp.stub(_res);
+  CopyWith$Input$Boolean_comparison_exp<TRes> get proposal_approved =>
+      CopyWith$Input$Boolean_comparison_exp.stub(_res);
   CopyWith$Input$String_comparison_exp<TRes> get proposal_content =>
       CopyWith$Input$String_comparison_exp.stub(_res);
   CopyWith$Input$date_comparison_exp<TRes> get proposal_date =>
@@ -62620,6 +58082,7 @@ class Input$proposal_insert_input {
     DateTime? created_at,
     Input$investment_arr_rel_insert_input? investments,
     int? proposal_amount,
+    bool? proposal_approved,
     String? proposal_content,
     DateTime? proposal_date,
     Input$umkm_obj_rel_insert_input? umkm,
@@ -62630,6 +58093,7 @@ class Input$proposal_insert_input {
         if (created_at != null) r'created_at': created_at,
         if (investments != null) r'investments': investments,
         if (proposal_amount != null) r'proposal_amount': proposal_amount,
+        if (proposal_approved != null) r'proposal_approved': proposal_approved,
         if (proposal_content != null) r'proposal_content': proposal_content,
         if (proposal_date != null) r'proposal_date': proposal_date,
         if (umkm != null) r'umkm': umkm,
@@ -62657,6 +58121,10 @@ class Input$proposal_insert_input {
     if (data.containsKey('proposal_amount')) {
       final l$proposal_amount = data['proposal_amount'];
       result$data['proposal_amount'] = (l$proposal_amount as int?);
+    }
+    if (data.containsKey('proposal_approved')) {
+      final l$proposal_approved = data['proposal_approved'];
+      result$data['proposal_approved'] = (l$proposal_approved as bool?);
     }
     if (data.containsKey('proposal_content')) {
       final l$proposal_content = data['proposal_content'];
@@ -62694,6 +58162,7 @@ class Input$proposal_insert_input {
   Input$investment_arr_rel_insert_input? get investments =>
       (_$data['investments'] as Input$investment_arr_rel_insert_input?);
   int? get proposal_amount => (_$data['proposal_amount'] as int?);
+  bool? get proposal_approved => (_$data['proposal_approved'] as bool?);
   String? get proposal_content => (_$data['proposal_content'] as String?);
   DateTime? get proposal_date => (_$data['proposal_date'] as DateTime?);
   Input$umkm_obj_rel_insert_input? get umkm =>
@@ -62713,6 +58182,10 @@ class Input$proposal_insert_input {
     if (_$data.containsKey('proposal_amount')) {
       final l$proposal_amount = proposal_amount;
       result$data['proposal_amount'] = l$proposal_amount;
+    }
+    if (_$data.containsKey('proposal_approved')) {
+      final l$proposal_approved = proposal_approved;
+      result$data['proposal_approved'] = l$proposal_approved;
     }
     if (_$data.containsKey('proposal_content')) {
       final l$proposal_content = proposal_content;
@@ -62778,6 +58251,15 @@ class Input$proposal_insert_input {
     if (l$proposal_amount != lOther$proposal_amount) {
       return false;
     }
+    final l$proposal_approved = proposal_approved;
+    final lOther$proposal_approved = other.proposal_approved;
+    if (_$data.containsKey('proposal_approved') !=
+        other._$data.containsKey('proposal_approved')) {
+      return false;
+    }
+    if (l$proposal_approved != lOther$proposal_approved) {
+      return false;
+    }
     final l$proposal_content = proposal_content;
     final lOther$proposal_content = other.proposal_content;
     if (_$data.containsKey('proposal_content') !=
@@ -62829,6 +58311,7 @@ class Input$proposal_insert_input {
     final l$created_at = created_at;
     final l$investments = investments;
     final l$proposal_amount = proposal_amount;
+    final l$proposal_approved = proposal_approved;
     final l$proposal_content = proposal_content;
     final l$proposal_date = proposal_date;
     final l$umkm = umkm;
@@ -62838,6 +58321,7 @@ class Input$proposal_insert_input {
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('investments') ? l$investments : const {},
       _$data.containsKey('proposal_amount') ? l$proposal_amount : const {},
+      _$data.containsKey('proposal_approved') ? l$proposal_approved : const {},
       _$data.containsKey('proposal_content') ? l$proposal_content : const {},
       _$data.containsKey('proposal_date') ? l$proposal_date : const {},
       _$data.containsKey('umkm') ? l$umkm : const {},
@@ -62860,6 +58344,7 @@ abstract class CopyWith$Input$proposal_insert_input<TRes> {
     DateTime? created_at,
     Input$investment_arr_rel_insert_input? investments,
     int? proposal_amount,
+    bool? proposal_approved,
     String? proposal_content,
     DateTime? proposal_date,
     Input$umkm_obj_rel_insert_input? umkm,
@@ -62887,6 +58372,7 @@ class _CopyWithImpl$Input$proposal_insert_input<TRes>
     Object? created_at = _undefined,
     Object? investments = _undefined,
     Object? proposal_amount = _undefined,
+    Object? proposal_approved = _undefined,
     Object? proposal_content = _undefined,
     Object? proposal_date = _undefined,
     Object? umkm = _undefined,
@@ -62901,6 +58387,8 @@ class _CopyWithImpl$Input$proposal_insert_input<TRes>
               (investments as Input$investment_arr_rel_insert_input?),
         if (proposal_amount != _undefined)
           'proposal_amount': (proposal_amount as int?),
+        if (proposal_approved != _undefined)
+          'proposal_approved': (proposal_approved as bool?),
         if (proposal_content != _undefined)
           'proposal_content': (proposal_content as String?),
         if (proposal_date != _undefined)
@@ -62937,6 +58425,7 @@ class _CopyWithStubImpl$Input$proposal_insert_input<TRes>
     DateTime? created_at,
     Input$investment_arr_rel_insert_input? investments,
     int? proposal_amount,
+    bool? proposal_approved,
     String? proposal_content,
     DateTime? proposal_date,
     Input$umkm_obj_rel_insert_input? umkm,
@@ -63898,6 +59387,7 @@ class Input$proposal_order_by {
     Enum$order_by? created_at,
     Input$investment_aggregate_order_by? investments_aggregate,
     Enum$order_by? proposal_amount,
+    Enum$order_by? proposal_approved,
     Enum$order_by? proposal_content,
     Enum$order_by? proposal_date,
     Enum$order_by? proposal_id,
@@ -63910,6 +59400,7 @@ class Input$proposal_order_by {
         if (investments_aggregate != null)
           r'investments_aggregate': investments_aggregate,
         if (proposal_amount != null) r'proposal_amount': proposal_amount,
+        if (proposal_approved != null) r'proposal_approved': proposal_approved,
         if (proposal_content != null) r'proposal_content': proposal_content,
         if (proposal_date != null) r'proposal_date': proposal_date,
         if (proposal_id != null) r'proposal_id': proposal_id,
@@ -63940,6 +59431,12 @@ class Input$proposal_order_by {
       result$data['proposal_amount'] = l$proposal_amount == null
           ? null
           : fromJson$Enum$order_by((l$proposal_amount as String));
+    }
+    if (data.containsKey('proposal_approved')) {
+      final l$proposal_approved = data['proposal_approved'];
+      result$data['proposal_approved'] = l$proposal_approved == null
+          ? null
+          : fromJson$Enum$order_by((l$proposal_approved as String));
     }
     if (data.containsKey('proposal_content')) {
       final l$proposal_content = data['proposal_content'];
@@ -63987,6 +59484,8 @@ class Input$proposal_order_by {
       (_$data['investments_aggregate'] as Input$investment_aggregate_order_by?);
   Enum$order_by? get proposal_amount =>
       (_$data['proposal_amount'] as Enum$order_by?);
+  Enum$order_by? get proposal_approved =>
+      (_$data['proposal_approved'] as Enum$order_by?);
   Enum$order_by? get proposal_content =>
       (_$data['proposal_content'] as Enum$order_by?);
   Enum$order_by? get proposal_date =>
@@ -64011,6 +59510,12 @@ class Input$proposal_order_by {
       result$data['proposal_amount'] = l$proposal_amount == null
           ? null
           : toJson$Enum$order_by(l$proposal_amount);
+    }
+    if (_$data.containsKey('proposal_approved')) {
+      final l$proposal_approved = proposal_approved;
+      result$data['proposal_approved'] = l$proposal_approved == null
+          ? null
+          : toJson$Enum$order_by(l$proposal_approved);
     }
     if (_$data.containsKey('proposal_content')) {
       final l$proposal_content = proposal_content;
@@ -64087,6 +59592,15 @@ class Input$proposal_order_by {
     if (l$proposal_amount != lOther$proposal_amount) {
       return false;
     }
+    final l$proposal_approved = proposal_approved;
+    final lOther$proposal_approved = other.proposal_approved;
+    if (_$data.containsKey('proposal_approved') !=
+        other._$data.containsKey('proposal_approved')) {
+      return false;
+    }
+    if (l$proposal_approved != lOther$proposal_approved) {
+      return false;
+    }
     final l$proposal_content = proposal_content;
     final lOther$proposal_content = other.proposal_content;
     if (_$data.containsKey('proposal_content') !=
@@ -64147,6 +59661,7 @@ class Input$proposal_order_by {
     final l$created_at = created_at;
     final l$investments_aggregate = investments_aggregate;
     final l$proposal_amount = proposal_amount;
+    final l$proposal_approved = proposal_approved;
     final l$proposal_content = proposal_content;
     final l$proposal_date = proposal_date;
     final l$proposal_id = proposal_id;
@@ -64159,6 +59674,7 @@ class Input$proposal_order_by {
           ? l$investments_aggregate
           : const {},
       _$data.containsKey('proposal_amount') ? l$proposal_amount : const {},
+      _$data.containsKey('proposal_approved') ? l$proposal_approved : const {},
       _$data.containsKey('proposal_content') ? l$proposal_content : const {},
       _$data.containsKey('proposal_date') ? l$proposal_date : const {},
       _$data.containsKey('proposal_id') ? l$proposal_id : const {},
@@ -64182,6 +59698,7 @@ abstract class CopyWith$Input$proposal_order_by<TRes> {
     Enum$order_by? created_at,
     Input$investment_aggregate_order_by? investments_aggregate,
     Enum$order_by? proposal_amount,
+    Enum$order_by? proposal_approved,
     Enum$order_by? proposal_content,
     Enum$order_by? proposal_date,
     Enum$order_by? proposal_id,
@@ -64210,6 +59727,7 @@ class _CopyWithImpl$Input$proposal_order_by<TRes>
     Object? created_at = _undefined,
     Object? investments_aggregate = _undefined,
     Object? proposal_amount = _undefined,
+    Object? proposal_approved = _undefined,
     Object? proposal_content = _undefined,
     Object? proposal_date = _undefined,
     Object? proposal_id = _undefined,
@@ -64226,6 +59744,8 @@ class _CopyWithImpl$Input$proposal_order_by<TRes>
               (investments_aggregate as Input$investment_aggregate_order_by?),
         if (proposal_amount != _undefined)
           'proposal_amount': (proposal_amount as Enum$order_by?),
+        if (proposal_approved != _undefined)
+          'proposal_approved': (proposal_approved as Enum$order_by?),
         if (proposal_content != _undefined)
           'proposal_content': (proposal_content as Enum$order_by?),
         if (proposal_date != _undefined)
@@ -64263,6 +59783,7 @@ class _CopyWithStubImpl$Input$proposal_order_by<TRes>
     Enum$order_by? created_at,
     Input$investment_aggregate_order_by? investments_aggregate,
     Enum$order_by? proposal_amount,
+    Enum$order_by? proposal_approved,
     Enum$order_by? proposal_content,
     Enum$order_by? proposal_date,
     Enum$order_by? proposal_id,
@@ -64378,6 +59899,7 @@ class Input$proposal_set_input {
   factory Input$proposal_set_input({
     DateTime? created_at,
     int? proposal_amount,
+    bool? proposal_approved,
     String? proposal_content,
     DateTime? proposal_date,
     int? umkm_id,
@@ -64386,6 +59908,7 @@ class Input$proposal_set_input {
       Input$proposal_set_input._({
         if (created_at != null) r'created_at': created_at,
         if (proposal_amount != null) r'proposal_amount': proposal_amount,
+        if (proposal_approved != null) r'proposal_approved': proposal_approved,
         if (proposal_content != null) r'proposal_content': proposal_content,
         if (proposal_date != null) r'proposal_date': proposal_date,
         if (umkm_id != null) r'umkm_id': umkm_id,
@@ -64405,6 +59928,10 @@ class Input$proposal_set_input {
     if (data.containsKey('proposal_amount')) {
       final l$proposal_amount = data['proposal_amount'];
       result$data['proposal_amount'] = (l$proposal_amount as int?);
+    }
+    if (data.containsKey('proposal_approved')) {
+      final l$proposal_approved = data['proposal_approved'];
+      result$data['proposal_approved'] = (l$proposal_approved as bool?);
     }
     if (data.containsKey('proposal_content')) {
       final l$proposal_content = data['proposal_content'];
@@ -64433,6 +59960,7 @@ class Input$proposal_set_input {
 
   DateTime? get created_at => (_$data['created_at'] as DateTime?);
   int? get proposal_amount => (_$data['proposal_amount'] as int?);
+  bool? get proposal_approved => (_$data['proposal_approved'] as bool?);
   String? get proposal_content => (_$data['proposal_content'] as String?);
   DateTime? get proposal_date => (_$data['proposal_date'] as DateTime?);
   int? get umkm_id => (_$data['umkm_id'] as int?);
@@ -64446,6 +59974,10 @@ class Input$proposal_set_input {
     if (_$data.containsKey('proposal_amount')) {
       final l$proposal_amount = proposal_amount;
       result$data['proposal_amount'] = l$proposal_amount;
+    }
+    if (_$data.containsKey('proposal_approved')) {
+      final l$proposal_approved = proposal_approved;
+      result$data['proposal_approved'] = l$proposal_approved;
     }
     if (_$data.containsKey('proposal_content')) {
       final l$proposal_content = proposal_content;
@@ -64498,6 +60030,15 @@ class Input$proposal_set_input {
     if (l$proposal_amount != lOther$proposal_amount) {
       return false;
     }
+    final l$proposal_approved = proposal_approved;
+    final lOther$proposal_approved = other.proposal_approved;
+    if (_$data.containsKey('proposal_approved') !=
+        other._$data.containsKey('proposal_approved')) {
+      return false;
+    }
+    if (l$proposal_approved != lOther$proposal_approved) {
+      return false;
+    }
     final l$proposal_content = proposal_content;
     final lOther$proposal_content = other.proposal_content;
     if (_$data.containsKey('proposal_content') !=
@@ -64540,6 +60081,7 @@ class Input$proposal_set_input {
   int get hashCode {
     final l$created_at = created_at;
     final l$proposal_amount = proposal_amount;
+    final l$proposal_approved = proposal_approved;
     final l$proposal_content = proposal_content;
     final l$proposal_date = proposal_date;
     final l$umkm_id = umkm_id;
@@ -64547,6 +60089,7 @@ class Input$proposal_set_input {
     return Object.hashAll([
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('proposal_amount') ? l$proposal_amount : const {},
+      _$data.containsKey('proposal_approved') ? l$proposal_approved : const {},
       _$data.containsKey('proposal_content') ? l$proposal_content : const {},
       _$data.containsKey('proposal_date') ? l$proposal_date : const {},
       _$data.containsKey('umkm_id') ? l$umkm_id : const {},
@@ -64567,6 +60110,7 @@ abstract class CopyWith$Input$proposal_set_input<TRes> {
   TRes call({
     DateTime? created_at,
     int? proposal_amount,
+    bool? proposal_approved,
     String? proposal_content,
     DateTime? proposal_date,
     int? umkm_id,
@@ -64590,6 +60134,7 @@ class _CopyWithImpl$Input$proposal_set_input<TRes>
   TRes call({
     Object? created_at = _undefined,
     Object? proposal_amount = _undefined,
+    Object? proposal_approved = _undefined,
     Object? proposal_content = _undefined,
     Object? proposal_date = _undefined,
     Object? umkm_id = _undefined,
@@ -64600,6 +60145,8 @@ class _CopyWithImpl$Input$proposal_set_input<TRes>
         if (created_at != _undefined) 'created_at': (created_at as DateTime?),
         if (proposal_amount != _undefined)
           'proposal_amount': (proposal_amount as int?),
+        if (proposal_approved != _undefined)
+          'proposal_approved': (proposal_approved as bool?),
         if (proposal_content != _undefined)
           'proposal_content': (proposal_content as String?),
         if (proposal_date != _undefined)
@@ -64618,6 +60165,7 @@ class _CopyWithStubImpl$Input$proposal_set_input<TRes>
   call({
     DateTime? created_at,
     int? proposal_amount,
+    bool? proposal_approved,
     String? proposal_content,
     DateTime? proposal_date,
     int? umkm_id,
@@ -65320,6 +60868,7 @@ class Input$proposal_stream_cursor_value_input {
   factory Input$proposal_stream_cursor_value_input({
     DateTime? created_at,
     int? proposal_amount,
+    bool? proposal_approved,
     String? proposal_content,
     DateTime? proposal_date,
     int? proposal_id,
@@ -65329,6 +60878,7 @@ class Input$proposal_stream_cursor_value_input {
       Input$proposal_stream_cursor_value_input._({
         if (created_at != null) r'created_at': created_at,
         if (proposal_amount != null) r'proposal_amount': proposal_amount,
+        if (proposal_approved != null) r'proposal_approved': proposal_approved,
         if (proposal_content != null) r'proposal_content': proposal_content,
         if (proposal_date != null) r'proposal_date': proposal_date,
         if (proposal_id != null) r'proposal_id': proposal_id,
@@ -65350,6 +60900,10 @@ class Input$proposal_stream_cursor_value_input {
     if (data.containsKey('proposal_amount')) {
       final l$proposal_amount = data['proposal_amount'];
       result$data['proposal_amount'] = (l$proposal_amount as int?);
+    }
+    if (data.containsKey('proposal_approved')) {
+      final l$proposal_approved = data['proposal_approved'];
+      result$data['proposal_approved'] = (l$proposal_approved as bool?);
     }
     if (data.containsKey('proposal_content')) {
       final l$proposal_content = data['proposal_content'];
@@ -65382,6 +60936,7 @@ class Input$proposal_stream_cursor_value_input {
 
   DateTime? get created_at => (_$data['created_at'] as DateTime?);
   int? get proposal_amount => (_$data['proposal_amount'] as int?);
+  bool? get proposal_approved => (_$data['proposal_approved'] as bool?);
   String? get proposal_content => (_$data['proposal_content'] as String?);
   DateTime? get proposal_date => (_$data['proposal_date'] as DateTime?);
   int? get proposal_id => (_$data['proposal_id'] as int?);
@@ -65396,6 +60951,10 @@ class Input$proposal_stream_cursor_value_input {
     if (_$data.containsKey('proposal_amount')) {
       final l$proposal_amount = proposal_amount;
       result$data['proposal_amount'] = l$proposal_amount;
+    }
+    if (_$data.containsKey('proposal_approved')) {
+      final l$proposal_approved = proposal_approved;
+      result$data['proposal_approved'] = l$proposal_approved;
     }
     if (_$data.containsKey('proposal_content')) {
       final l$proposal_content = proposal_content;
@@ -65453,6 +61012,15 @@ class Input$proposal_stream_cursor_value_input {
     if (l$proposal_amount != lOther$proposal_amount) {
       return false;
     }
+    final l$proposal_approved = proposal_approved;
+    final lOther$proposal_approved = other.proposal_approved;
+    if (_$data.containsKey('proposal_approved') !=
+        other._$data.containsKey('proposal_approved')) {
+      return false;
+    }
+    if (l$proposal_approved != lOther$proposal_approved) {
+      return false;
+    }
     final l$proposal_content = proposal_content;
     final lOther$proposal_content = other.proposal_content;
     if (_$data.containsKey('proposal_content') !=
@@ -65504,6 +61072,7 @@ class Input$proposal_stream_cursor_value_input {
   int get hashCode {
     final l$created_at = created_at;
     final l$proposal_amount = proposal_amount;
+    final l$proposal_approved = proposal_approved;
     final l$proposal_content = proposal_content;
     final l$proposal_date = proposal_date;
     final l$proposal_id = proposal_id;
@@ -65512,6 +61081,7 @@ class Input$proposal_stream_cursor_value_input {
     return Object.hashAll([
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('proposal_amount') ? l$proposal_amount : const {},
+      _$data.containsKey('proposal_approved') ? l$proposal_approved : const {},
       _$data.containsKey('proposal_content') ? l$proposal_content : const {},
       _$data.containsKey('proposal_date') ? l$proposal_date : const {},
       _$data.containsKey('proposal_id') ? l$proposal_id : const {},
@@ -65533,6 +61103,7 @@ abstract class CopyWith$Input$proposal_stream_cursor_value_input<TRes> {
   TRes call({
     DateTime? created_at,
     int? proposal_amount,
+    bool? proposal_approved,
     String? proposal_content,
     DateTime? proposal_date,
     int? proposal_id,
@@ -65557,6 +61128,7 @@ class _CopyWithImpl$Input$proposal_stream_cursor_value_input<TRes>
   TRes call({
     Object? created_at = _undefined,
     Object? proposal_amount = _undefined,
+    Object? proposal_approved = _undefined,
     Object? proposal_content = _undefined,
     Object? proposal_date = _undefined,
     Object? proposal_id = _undefined,
@@ -65568,6 +61140,8 @@ class _CopyWithImpl$Input$proposal_stream_cursor_value_input<TRes>
         if (created_at != _undefined) 'created_at': (created_at as DateTime?),
         if (proposal_amount != _undefined)
           'proposal_amount': (proposal_amount as int?),
+        if (proposal_approved != _undefined)
+          'proposal_approved': (proposal_approved as bool?),
         if (proposal_content != _undefined)
           'proposal_content': (proposal_content as String?),
         if (proposal_date != _undefined)
@@ -65587,6 +61161,7 @@ class _CopyWithStubImpl$Input$proposal_stream_cursor_value_input<TRes>
   call({
     DateTime? created_at,
     int? proposal_amount,
+    bool? proposal_approved,
     String? proposal_content,
     DateTime? proposal_date,
     int? proposal_id,
@@ -71101,14 +66676,17 @@ class _CopyWithStubImpl$Input$users_arr_rel_insert_input<TRes>
 
 class Input$users_bool_exp {
   factory Input$users_bool_exp({
+    Input$umkm_bool_exp? UMKMById,
     List<Input$users_bool_exp>? $_and,
     Input$users_bool_exp? $_not,
     List<Input$users_bool_exp>? $_or,
     Input$String_comparison_exp? activeMfaType,
+    Input$cs_message_bool_exp? agent_cs_messages,
+    Input$cs_message_aggregate_bool_exp? agent_cs_messages_aggregate,
     Input$String_comparison_exp? avatarUrl,
     Input$timestamptz_comparison_exp? createdAt,
-    Input$cs_message_bool_exp? cs_message,
-    Input$cs_message_aggregate_bool_exp? cs_message_aggregate,
+    Input$cs_message_bool_exp? cs_messages,
+    Input$cs_message_aggregate_bool_exp? cs_messages_aggregate,
     Input$String_comparison_exp? currentChallenge,
     Input$String_comparison_exp? defaultRole,
     Input$authRoles_bool_exp? defaultRoleByRole,
@@ -71117,8 +66695,7 @@ class Input$users_bool_exp {
     Input$citext_comparison_exp? email,
     Input$Boolean_comparison_exp? emailVerified,
     Input$uuid_comparison_exp? id,
-    Input$investor_bool_exp? investor,
-    Input$investor_aggregate_bool_exp? investor_aggregate,
+    Input$investor_bool_exp? investorById,
     Input$Boolean_comparison_exp? isAnonymous,
     Input$timestamptz_comparison_exp? lastSeen,
     Input$String_comparison_exp? locale,
@@ -71131,7 +66708,6 @@ class Input$users_bool_exp {
     Input$String_comparison_exp? phoneNumber,
     Input$Boolean_comparison_exp? phoneNumberVerified,
     Input$profile_bool_exp? profile,
-    Input$profile_aggregate_bool_exp? profile_aggregate,
     Input$authRefreshTokens_bool_exp? refreshTokens,
     Input$authRefreshTokens_aggregate_bool_exp? refreshTokens_aggregate,
     Input$authUserRoles_bool_exp? roles,
@@ -71146,15 +66722,19 @@ class Input$users_bool_exp {
     Input$authUserProviders_aggregate_bool_exp? userProviders_aggregate,
   }) =>
       Input$users_bool_exp._({
+        if (UMKMById != null) r'UMKMById': UMKMById,
         if ($_and != null) r'_and': $_and,
         if ($_not != null) r'_not': $_not,
         if ($_or != null) r'_or': $_or,
         if (activeMfaType != null) r'activeMfaType': activeMfaType,
+        if (agent_cs_messages != null) r'agent_cs_messages': agent_cs_messages,
+        if (agent_cs_messages_aggregate != null)
+          r'agent_cs_messages_aggregate': agent_cs_messages_aggregate,
         if (avatarUrl != null) r'avatarUrl': avatarUrl,
         if (createdAt != null) r'createdAt': createdAt,
-        if (cs_message != null) r'cs_message': cs_message,
-        if (cs_message_aggregate != null)
-          r'cs_message_aggregate': cs_message_aggregate,
+        if (cs_messages != null) r'cs_messages': cs_messages,
+        if (cs_messages_aggregate != null)
+          r'cs_messages_aggregate': cs_messages_aggregate,
         if (currentChallenge != null) r'currentChallenge': currentChallenge,
         if (defaultRole != null) r'defaultRole': defaultRole,
         if (defaultRoleByRole != null) r'defaultRoleByRole': defaultRoleByRole,
@@ -71163,9 +66743,7 @@ class Input$users_bool_exp {
         if (email != null) r'email': email,
         if (emailVerified != null) r'emailVerified': emailVerified,
         if (id != null) r'id': id,
-        if (investor != null) r'investor': investor,
-        if (investor_aggregate != null)
-          r'investor_aggregate': investor_aggregate,
+        if (investorById != null) r'investorById': investorById,
         if (isAnonymous != null) r'isAnonymous': isAnonymous,
         if (lastSeen != null) r'lastSeen': lastSeen,
         if (locale != null) r'locale': locale,
@@ -71179,7 +66757,6 @@ class Input$users_bool_exp {
         if (phoneNumberVerified != null)
           r'phoneNumberVerified': phoneNumberVerified,
         if (profile != null) r'profile': profile,
-        if (profile_aggregate != null) r'profile_aggregate': profile_aggregate,
         if (refreshTokens != null) r'refreshTokens': refreshTokens,
         if (refreshTokens_aggregate != null)
           r'refreshTokens_aggregate': refreshTokens_aggregate,
@@ -71201,6 +66778,12 @@ class Input$users_bool_exp {
 
   factory Input$users_bool_exp.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('UMKMById')) {
+      final l$UMKMById = data['UMKMById'];
+      result$data['UMKMById'] = l$UMKMById == null
+          ? null
+          : Input$umkm_bool_exp.fromJson((l$UMKMById as Map<String, dynamic>));
+    }
     if (data.containsKey('_and')) {
       final l$$_and = data['_and'];
       result$data['_and'] = (l$$_and as List<dynamic>?)
@@ -71228,6 +66811,21 @@ class Input$users_bool_exp {
           : Input$String_comparison_exp.fromJson(
               (l$activeMfaType as Map<String, dynamic>));
     }
+    if (data.containsKey('agent_cs_messages')) {
+      final l$agent_cs_messages = data['agent_cs_messages'];
+      result$data['agent_cs_messages'] = l$agent_cs_messages == null
+          ? null
+          : Input$cs_message_bool_exp.fromJson(
+              (l$agent_cs_messages as Map<String, dynamic>));
+    }
+    if (data.containsKey('agent_cs_messages_aggregate')) {
+      final l$agent_cs_messages_aggregate = data['agent_cs_messages_aggregate'];
+      result$data['agent_cs_messages_aggregate'] =
+          l$agent_cs_messages_aggregate == null
+              ? null
+              : Input$cs_message_aggregate_bool_exp.fromJson(
+                  (l$agent_cs_messages_aggregate as Map<String, dynamic>));
+    }
     if (data.containsKey('avatarUrl')) {
       final l$avatarUrl = data['avatarUrl'];
       result$data['avatarUrl'] = l$avatarUrl == null
@@ -71242,19 +66840,19 @@ class Input$users_bool_exp {
           : Input$timestamptz_comparison_exp.fromJson(
               (l$createdAt as Map<String, dynamic>));
     }
-    if (data.containsKey('cs_message')) {
-      final l$cs_message = data['cs_message'];
-      result$data['cs_message'] = l$cs_message == null
+    if (data.containsKey('cs_messages')) {
+      final l$cs_messages = data['cs_messages'];
+      result$data['cs_messages'] = l$cs_messages == null
           ? null
           : Input$cs_message_bool_exp.fromJson(
-              (l$cs_message as Map<String, dynamic>));
+              (l$cs_messages as Map<String, dynamic>));
     }
-    if (data.containsKey('cs_message_aggregate')) {
-      final l$cs_message_aggregate = data['cs_message_aggregate'];
-      result$data['cs_message_aggregate'] = l$cs_message_aggregate == null
+    if (data.containsKey('cs_messages_aggregate')) {
+      final l$cs_messages_aggregate = data['cs_messages_aggregate'];
+      result$data['cs_messages_aggregate'] = l$cs_messages_aggregate == null
           ? null
           : Input$cs_message_aggregate_bool_exp.fromJson(
-              (l$cs_message_aggregate as Map<String, dynamic>));
+              (l$cs_messages_aggregate as Map<String, dynamic>));
     }
     if (data.containsKey('currentChallenge')) {
       final l$currentChallenge = data['currentChallenge'];
@@ -71311,19 +66909,12 @@ class Input$users_bool_exp {
           ? null
           : Input$uuid_comparison_exp.fromJson((l$id as Map<String, dynamic>));
     }
-    if (data.containsKey('investor')) {
-      final l$investor = data['investor'];
-      result$data['investor'] = l$investor == null
+    if (data.containsKey('investorById')) {
+      final l$investorById = data['investorById'];
+      result$data['investorById'] = l$investorById == null
           ? null
           : Input$investor_bool_exp.fromJson(
-              (l$investor as Map<String, dynamic>));
-    }
-    if (data.containsKey('investor_aggregate')) {
-      final l$investor_aggregate = data['investor_aggregate'];
-      result$data['investor_aggregate'] = l$investor_aggregate == null
-          ? null
-          : Input$investor_aggregate_bool_exp.fromJson(
-              (l$investor_aggregate as Map<String, dynamic>));
+              (l$investorById as Map<String, dynamic>));
     }
     if (data.containsKey('isAnonymous')) {
       final l$isAnonymous = data['isAnonymous'];
@@ -71408,13 +66999,6 @@ class Input$users_bool_exp {
           ? null
           : Input$profile_bool_exp.fromJson(
               (l$profile as Map<String, dynamic>));
-    }
-    if (data.containsKey('profile_aggregate')) {
-      final l$profile_aggregate = data['profile_aggregate'];
-      result$data['profile_aggregate'] = l$profile_aggregate == null
-          ? null
-          : Input$profile_aggregate_bool_exp.fromJson(
-              (l$profile_aggregate as Map<String, dynamic>));
     }
     if (data.containsKey('refreshTokens')) {
       final l$refreshTokens = data['refreshTokens'];
@@ -71505,6 +67089,8 @@ class Input$users_bool_exp {
 
   Map<String, dynamic> _$data;
 
+  Input$umkm_bool_exp? get UMKMById =>
+      (_$data['UMKMById'] as Input$umkm_bool_exp?);
   List<Input$users_bool_exp>? get $_and =>
       (_$data['_and'] as List<Input$users_bool_exp>?);
   Input$users_bool_exp? get $_not => (_$data['_not'] as Input$users_bool_exp?);
@@ -71512,14 +67098,19 @@ class Input$users_bool_exp {
       (_$data['_or'] as List<Input$users_bool_exp>?);
   Input$String_comparison_exp? get activeMfaType =>
       (_$data['activeMfaType'] as Input$String_comparison_exp?);
+  Input$cs_message_bool_exp? get agent_cs_messages =>
+      (_$data['agent_cs_messages'] as Input$cs_message_bool_exp?);
+  Input$cs_message_aggregate_bool_exp? get agent_cs_messages_aggregate =>
+      (_$data['agent_cs_messages_aggregate']
+          as Input$cs_message_aggregate_bool_exp?);
   Input$String_comparison_exp? get avatarUrl =>
       (_$data['avatarUrl'] as Input$String_comparison_exp?);
   Input$timestamptz_comparison_exp? get createdAt =>
       (_$data['createdAt'] as Input$timestamptz_comparison_exp?);
-  Input$cs_message_bool_exp? get cs_message =>
-      (_$data['cs_message'] as Input$cs_message_bool_exp?);
-  Input$cs_message_aggregate_bool_exp? get cs_message_aggregate =>
-      (_$data['cs_message_aggregate'] as Input$cs_message_aggregate_bool_exp?);
+  Input$cs_message_bool_exp? get cs_messages =>
+      (_$data['cs_messages'] as Input$cs_message_bool_exp?);
+  Input$cs_message_aggregate_bool_exp? get cs_messages_aggregate =>
+      (_$data['cs_messages_aggregate'] as Input$cs_message_aggregate_bool_exp?);
   Input$String_comparison_exp? get currentChallenge =>
       (_$data['currentChallenge'] as Input$String_comparison_exp?);
   Input$String_comparison_exp? get defaultRole =>
@@ -71536,10 +67127,8 @@ class Input$users_bool_exp {
       (_$data['emailVerified'] as Input$Boolean_comparison_exp?);
   Input$uuid_comparison_exp? get id =>
       (_$data['id'] as Input$uuid_comparison_exp?);
-  Input$investor_bool_exp? get investor =>
-      (_$data['investor'] as Input$investor_bool_exp?);
-  Input$investor_aggregate_bool_exp? get investor_aggregate =>
-      (_$data['investor_aggregate'] as Input$investor_aggregate_bool_exp?);
+  Input$investor_bool_exp? get investorById =>
+      (_$data['investorById'] as Input$investor_bool_exp?);
   Input$Boolean_comparison_exp? get isAnonymous =>
       (_$data['isAnonymous'] as Input$Boolean_comparison_exp?);
   Input$timestamptz_comparison_exp? get lastSeen =>
@@ -71564,8 +67153,6 @@ class Input$users_bool_exp {
       (_$data['phoneNumberVerified'] as Input$Boolean_comparison_exp?);
   Input$profile_bool_exp? get profile =>
       (_$data['profile'] as Input$profile_bool_exp?);
-  Input$profile_aggregate_bool_exp? get profile_aggregate =>
-      (_$data['profile_aggregate'] as Input$profile_aggregate_bool_exp?);
   Input$authRefreshTokens_bool_exp? get refreshTokens =>
       (_$data['refreshTokens'] as Input$authRefreshTokens_bool_exp?);
   Input$authRefreshTokens_aggregate_bool_exp? get refreshTokens_aggregate =>
@@ -71595,6 +67182,10 @@ class Input$users_bool_exp {
           as Input$authUserProviders_aggregate_bool_exp?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('UMKMById')) {
+      final l$UMKMById = UMKMById;
+      result$data['UMKMById'] = l$UMKMById?.toJson();
+    }
     if (_$data.containsKey('_and')) {
       final l$$_and = $_and;
       result$data['_and'] = l$$_and?.map((e) => e.toJson()).toList();
@@ -71611,6 +67202,15 @@ class Input$users_bool_exp {
       final l$activeMfaType = activeMfaType;
       result$data['activeMfaType'] = l$activeMfaType?.toJson();
     }
+    if (_$data.containsKey('agent_cs_messages')) {
+      final l$agent_cs_messages = agent_cs_messages;
+      result$data['agent_cs_messages'] = l$agent_cs_messages?.toJson();
+    }
+    if (_$data.containsKey('agent_cs_messages_aggregate')) {
+      final l$agent_cs_messages_aggregate = agent_cs_messages_aggregate;
+      result$data['agent_cs_messages_aggregate'] =
+          l$agent_cs_messages_aggregate?.toJson();
+    }
     if (_$data.containsKey('avatarUrl')) {
       final l$avatarUrl = avatarUrl;
       result$data['avatarUrl'] = l$avatarUrl?.toJson();
@@ -71619,13 +67219,13 @@ class Input$users_bool_exp {
       final l$createdAt = createdAt;
       result$data['createdAt'] = l$createdAt?.toJson();
     }
-    if (_$data.containsKey('cs_message')) {
-      final l$cs_message = cs_message;
-      result$data['cs_message'] = l$cs_message?.toJson();
+    if (_$data.containsKey('cs_messages')) {
+      final l$cs_messages = cs_messages;
+      result$data['cs_messages'] = l$cs_messages?.toJson();
     }
-    if (_$data.containsKey('cs_message_aggregate')) {
-      final l$cs_message_aggregate = cs_message_aggregate;
-      result$data['cs_message_aggregate'] = l$cs_message_aggregate?.toJson();
+    if (_$data.containsKey('cs_messages_aggregate')) {
+      final l$cs_messages_aggregate = cs_messages_aggregate;
+      result$data['cs_messages_aggregate'] = l$cs_messages_aggregate?.toJson();
     }
     if (_$data.containsKey('currentChallenge')) {
       final l$currentChallenge = currentChallenge;
@@ -71659,13 +67259,9 @@ class Input$users_bool_exp {
       final l$id = id;
       result$data['id'] = l$id?.toJson();
     }
-    if (_$data.containsKey('investor')) {
-      final l$investor = investor;
-      result$data['investor'] = l$investor?.toJson();
-    }
-    if (_$data.containsKey('investor_aggregate')) {
-      final l$investor_aggregate = investor_aggregate;
-      result$data['investor_aggregate'] = l$investor_aggregate?.toJson();
+    if (_$data.containsKey('investorById')) {
+      final l$investorById = investorById;
+      result$data['investorById'] = l$investorById?.toJson();
     }
     if (_$data.containsKey('isAnonymous')) {
       final l$isAnonymous = isAnonymous;
@@ -71714,10 +67310,6 @@ class Input$users_bool_exp {
     if (_$data.containsKey('profile')) {
       final l$profile = profile;
       result$data['profile'] = l$profile?.toJson();
-    }
-    if (_$data.containsKey('profile_aggregate')) {
-      final l$profile_aggregate = profile_aggregate;
-      result$data['profile_aggregate'] = l$profile_aggregate?.toJson();
     }
     if (_$data.containsKey('refreshTokens')) {
       final l$refreshTokens = refreshTokens;
@@ -71786,6 +67378,15 @@ class Input$users_bool_exp {
     if (!(other is Input$users_bool_exp) || runtimeType != other.runtimeType) {
       return false;
     }
+    final l$UMKMById = UMKMById;
+    final lOther$UMKMById = other.UMKMById;
+    if (_$data.containsKey('UMKMById') !=
+        other._$data.containsKey('UMKMById')) {
+      return false;
+    }
+    if (l$UMKMById != lOther$UMKMById) {
+      return false;
+    }
     final l$$_and = $_and;
     final lOther$$_and = other.$_and;
     if (_$data.containsKey('_and') != other._$data.containsKey('_and')) {
@@ -71841,6 +67442,25 @@ class Input$users_bool_exp {
     if (l$activeMfaType != lOther$activeMfaType) {
       return false;
     }
+    final l$agent_cs_messages = agent_cs_messages;
+    final lOther$agent_cs_messages = other.agent_cs_messages;
+    if (_$data.containsKey('agent_cs_messages') !=
+        other._$data.containsKey('agent_cs_messages')) {
+      return false;
+    }
+    if (l$agent_cs_messages != lOther$agent_cs_messages) {
+      return false;
+    }
+    final l$agent_cs_messages_aggregate = agent_cs_messages_aggregate;
+    final lOther$agent_cs_messages_aggregate =
+        other.agent_cs_messages_aggregate;
+    if (_$data.containsKey('agent_cs_messages_aggregate') !=
+        other._$data.containsKey('agent_cs_messages_aggregate')) {
+      return false;
+    }
+    if (l$agent_cs_messages_aggregate != lOther$agent_cs_messages_aggregate) {
+      return false;
+    }
     final l$avatarUrl = avatarUrl;
     final lOther$avatarUrl = other.avatarUrl;
     if (_$data.containsKey('avatarUrl') !=
@@ -71859,22 +67479,22 @@ class Input$users_bool_exp {
     if (l$createdAt != lOther$createdAt) {
       return false;
     }
-    final l$cs_message = cs_message;
-    final lOther$cs_message = other.cs_message;
-    if (_$data.containsKey('cs_message') !=
-        other._$data.containsKey('cs_message')) {
+    final l$cs_messages = cs_messages;
+    final lOther$cs_messages = other.cs_messages;
+    if (_$data.containsKey('cs_messages') !=
+        other._$data.containsKey('cs_messages')) {
       return false;
     }
-    if (l$cs_message != lOther$cs_message) {
+    if (l$cs_messages != lOther$cs_messages) {
       return false;
     }
-    final l$cs_message_aggregate = cs_message_aggregate;
-    final lOther$cs_message_aggregate = other.cs_message_aggregate;
-    if (_$data.containsKey('cs_message_aggregate') !=
-        other._$data.containsKey('cs_message_aggregate')) {
+    final l$cs_messages_aggregate = cs_messages_aggregate;
+    final lOther$cs_messages_aggregate = other.cs_messages_aggregate;
+    if (_$data.containsKey('cs_messages_aggregate') !=
+        other._$data.containsKey('cs_messages_aggregate')) {
       return false;
     }
-    if (l$cs_message_aggregate != lOther$cs_message_aggregate) {
+    if (l$cs_messages_aggregate != lOther$cs_messages_aggregate) {
       return false;
     }
     final l$currentChallenge = currentChallenge;
@@ -71947,22 +67567,13 @@ class Input$users_bool_exp {
     if (l$id != lOther$id) {
       return false;
     }
-    final l$investor = investor;
-    final lOther$investor = other.investor;
-    if (_$data.containsKey('investor') !=
-        other._$data.containsKey('investor')) {
+    final l$investorById = investorById;
+    final lOther$investorById = other.investorById;
+    if (_$data.containsKey('investorById') !=
+        other._$data.containsKey('investorById')) {
       return false;
     }
-    if (l$investor != lOther$investor) {
-      return false;
-    }
-    final l$investor_aggregate = investor_aggregate;
-    final lOther$investor_aggregate = other.investor_aggregate;
-    if (_$data.containsKey('investor_aggregate') !=
-        other._$data.containsKey('investor_aggregate')) {
-      return false;
-    }
-    if (l$investor_aggregate != lOther$investor_aggregate) {
+    if (l$investorById != lOther$investorById) {
       return false;
     }
     final l$isAnonymous = isAnonymous;
@@ -72068,15 +67679,6 @@ class Input$users_bool_exp {
       return false;
     }
     if (l$profile != lOther$profile) {
-      return false;
-    }
-    final l$profile_aggregate = profile_aggregate;
-    final lOther$profile_aggregate = other.profile_aggregate;
-    if (_$data.containsKey('profile_aggregate') !=
-        other._$data.containsKey('profile_aggregate')) {
-      return false;
-    }
-    if (l$profile_aggregate != lOther$profile_aggregate) {
       return false;
     }
     final l$refreshTokens = refreshTokens;
@@ -72190,14 +67792,17 @@ class Input$users_bool_exp {
 
   @override
   int get hashCode {
+    final l$UMKMById = UMKMById;
     final l$$_and = $_and;
     final l$$_not = $_not;
     final l$$_or = $_or;
     final l$activeMfaType = activeMfaType;
+    final l$agent_cs_messages = agent_cs_messages;
+    final l$agent_cs_messages_aggregate = agent_cs_messages_aggregate;
     final l$avatarUrl = avatarUrl;
     final l$createdAt = createdAt;
-    final l$cs_message = cs_message;
-    final l$cs_message_aggregate = cs_message_aggregate;
+    final l$cs_messages = cs_messages;
+    final l$cs_messages_aggregate = cs_messages_aggregate;
     final l$currentChallenge = currentChallenge;
     final l$defaultRole = defaultRole;
     final l$defaultRoleByRole = defaultRoleByRole;
@@ -72206,8 +67811,7 @@ class Input$users_bool_exp {
     final l$email = email;
     final l$emailVerified = emailVerified;
     final l$id = id;
-    final l$investor = investor;
-    final l$investor_aggregate = investor_aggregate;
+    final l$investorById = investorById;
     final l$isAnonymous = isAnonymous;
     final l$lastSeen = lastSeen;
     final l$locale = locale;
@@ -72220,7 +67824,6 @@ class Input$users_bool_exp {
     final l$phoneNumber = phoneNumber;
     final l$phoneNumberVerified = phoneNumberVerified;
     final l$profile = profile;
-    final l$profile_aggregate = profile_aggregate;
     final l$refreshTokens = refreshTokens;
     final l$refreshTokens_aggregate = refreshTokens_aggregate;
     final l$roles = roles;
@@ -72234,6 +67837,7 @@ class Input$users_bool_exp {
     final l$userProviders = userProviders;
     final l$userProviders_aggregate = userProviders_aggregate;
     return Object.hashAll([
+      _$data.containsKey('UMKMById') ? l$UMKMById : const {},
       _$data.containsKey('_and')
           ? l$$_and == null
               ? null
@@ -72246,11 +67850,15 @@ class Input$users_bool_exp {
               : Object.hashAll(l$$_or.map((v) => v))
           : const {},
       _$data.containsKey('activeMfaType') ? l$activeMfaType : const {},
+      _$data.containsKey('agent_cs_messages') ? l$agent_cs_messages : const {},
+      _$data.containsKey('agent_cs_messages_aggregate')
+          ? l$agent_cs_messages_aggregate
+          : const {},
       _$data.containsKey('avatarUrl') ? l$avatarUrl : const {},
       _$data.containsKey('createdAt') ? l$createdAt : const {},
-      _$data.containsKey('cs_message') ? l$cs_message : const {},
-      _$data.containsKey('cs_message_aggregate')
-          ? l$cs_message_aggregate
+      _$data.containsKey('cs_messages') ? l$cs_messages : const {},
+      _$data.containsKey('cs_messages_aggregate')
+          ? l$cs_messages_aggregate
           : const {},
       _$data.containsKey('currentChallenge') ? l$currentChallenge : const {},
       _$data.containsKey('defaultRole') ? l$defaultRole : const {},
@@ -72260,10 +67868,7 @@ class Input$users_bool_exp {
       _$data.containsKey('email') ? l$email : const {},
       _$data.containsKey('emailVerified') ? l$emailVerified : const {},
       _$data.containsKey('id') ? l$id : const {},
-      _$data.containsKey('investor') ? l$investor : const {},
-      _$data.containsKey('investor_aggregate')
-          ? l$investor_aggregate
-          : const {},
+      _$data.containsKey('investorById') ? l$investorById : const {},
       _$data.containsKey('isAnonymous') ? l$isAnonymous : const {},
       _$data.containsKey('lastSeen') ? l$lastSeen : const {},
       _$data.containsKey('locale') ? l$locale : const {},
@@ -72278,7 +67883,6 @@ class Input$users_bool_exp {
           ? l$phoneNumberVerified
           : const {},
       _$data.containsKey('profile') ? l$profile : const {},
-      _$data.containsKey('profile_aggregate') ? l$profile_aggregate : const {},
       _$data.containsKey('refreshTokens') ? l$refreshTokens : const {},
       _$data.containsKey('refreshTokens_aggregate')
           ? l$refreshTokens_aggregate
@@ -72311,14 +67915,17 @@ abstract class CopyWith$Input$users_bool_exp<TRes> {
       _CopyWithStubImpl$Input$users_bool_exp;
 
   TRes call({
+    Input$umkm_bool_exp? UMKMById,
     List<Input$users_bool_exp>? $_and,
     Input$users_bool_exp? $_not,
     List<Input$users_bool_exp>? $_or,
     Input$String_comparison_exp? activeMfaType,
+    Input$cs_message_bool_exp? agent_cs_messages,
+    Input$cs_message_aggregate_bool_exp? agent_cs_messages_aggregate,
     Input$String_comparison_exp? avatarUrl,
     Input$timestamptz_comparison_exp? createdAt,
-    Input$cs_message_bool_exp? cs_message,
-    Input$cs_message_aggregate_bool_exp? cs_message_aggregate,
+    Input$cs_message_bool_exp? cs_messages,
+    Input$cs_message_aggregate_bool_exp? cs_messages_aggregate,
     Input$String_comparison_exp? currentChallenge,
     Input$String_comparison_exp? defaultRole,
     Input$authRoles_bool_exp? defaultRoleByRole,
@@ -72327,8 +67934,7 @@ abstract class CopyWith$Input$users_bool_exp<TRes> {
     Input$citext_comparison_exp? email,
     Input$Boolean_comparison_exp? emailVerified,
     Input$uuid_comparison_exp? id,
-    Input$investor_bool_exp? investor,
-    Input$investor_aggregate_bool_exp? investor_aggregate,
+    Input$investor_bool_exp? investorById,
     Input$Boolean_comparison_exp? isAnonymous,
     Input$timestamptz_comparison_exp? lastSeen,
     Input$String_comparison_exp? locale,
@@ -72341,7 +67947,6 @@ abstract class CopyWith$Input$users_bool_exp<TRes> {
     Input$String_comparison_exp? phoneNumber,
     Input$Boolean_comparison_exp? phoneNumberVerified,
     Input$profile_bool_exp? profile,
-    Input$profile_aggregate_bool_exp? profile_aggregate,
     Input$authRefreshTokens_bool_exp? refreshTokens,
     Input$authRefreshTokens_aggregate_bool_exp? refreshTokens_aggregate,
     Input$authUserRoles_bool_exp? roles,
@@ -72355,6 +67960,7 @@ abstract class CopyWith$Input$users_bool_exp<TRes> {
     Input$authUserProviders_bool_exp? userProviders,
     Input$authUserProviders_aggregate_bool_exp? userProviders_aggregate,
   });
+  CopyWith$Input$umkm_bool_exp<TRes> get UMKMById;
   TRes $_and(
       Iterable<Input$users_bool_exp>? Function(
               Iterable<CopyWith$Input$users_bool_exp<Input$users_bool_exp>>?)
@@ -72365,10 +67971,13 @@ abstract class CopyWith$Input$users_bool_exp<TRes> {
               Iterable<CopyWith$Input$users_bool_exp<Input$users_bool_exp>>?)
           _fn);
   CopyWith$Input$String_comparison_exp<TRes> get activeMfaType;
+  CopyWith$Input$cs_message_bool_exp<TRes> get agent_cs_messages;
+  CopyWith$Input$cs_message_aggregate_bool_exp<TRes>
+      get agent_cs_messages_aggregate;
   CopyWith$Input$String_comparison_exp<TRes> get avatarUrl;
   CopyWith$Input$timestamptz_comparison_exp<TRes> get createdAt;
-  CopyWith$Input$cs_message_bool_exp<TRes> get cs_message;
-  CopyWith$Input$cs_message_aggregate_bool_exp<TRes> get cs_message_aggregate;
+  CopyWith$Input$cs_message_bool_exp<TRes> get cs_messages;
+  CopyWith$Input$cs_message_aggregate_bool_exp<TRes> get cs_messages_aggregate;
   CopyWith$Input$String_comparison_exp<TRes> get currentChallenge;
   CopyWith$Input$String_comparison_exp<TRes> get defaultRole;
   CopyWith$Input$authRoles_bool_exp<TRes> get defaultRoleByRole;
@@ -72377,8 +67986,7 @@ abstract class CopyWith$Input$users_bool_exp<TRes> {
   CopyWith$Input$citext_comparison_exp<TRes> get email;
   CopyWith$Input$Boolean_comparison_exp<TRes> get emailVerified;
   CopyWith$Input$uuid_comparison_exp<TRes> get id;
-  CopyWith$Input$investor_bool_exp<TRes> get investor;
-  CopyWith$Input$investor_aggregate_bool_exp<TRes> get investor_aggregate;
+  CopyWith$Input$investor_bool_exp<TRes> get investorById;
   CopyWith$Input$Boolean_comparison_exp<TRes> get isAnonymous;
   CopyWith$Input$timestamptz_comparison_exp<TRes> get lastSeen;
   CopyWith$Input$String_comparison_exp<TRes> get locale;
@@ -72391,7 +67999,6 @@ abstract class CopyWith$Input$users_bool_exp<TRes> {
   CopyWith$Input$String_comparison_exp<TRes> get phoneNumber;
   CopyWith$Input$Boolean_comparison_exp<TRes> get phoneNumberVerified;
   CopyWith$Input$profile_bool_exp<TRes> get profile;
-  CopyWith$Input$profile_aggregate_bool_exp<TRes> get profile_aggregate;
   CopyWith$Input$authRefreshTokens_bool_exp<TRes> get refreshTokens;
   CopyWith$Input$authRefreshTokens_aggregate_bool_exp<TRes>
       get refreshTokens_aggregate;
@@ -72423,14 +68030,17 @@ class _CopyWithImpl$Input$users_bool_exp<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? UMKMById = _undefined,
     Object? $_and = _undefined,
     Object? $_not = _undefined,
     Object? $_or = _undefined,
     Object? activeMfaType = _undefined,
+    Object? agent_cs_messages = _undefined,
+    Object? agent_cs_messages_aggregate = _undefined,
     Object? avatarUrl = _undefined,
     Object? createdAt = _undefined,
-    Object? cs_message = _undefined,
-    Object? cs_message_aggregate = _undefined,
+    Object? cs_messages = _undefined,
+    Object? cs_messages_aggregate = _undefined,
     Object? currentChallenge = _undefined,
     Object? defaultRole = _undefined,
     Object? defaultRoleByRole = _undefined,
@@ -72439,8 +68049,7 @@ class _CopyWithImpl$Input$users_bool_exp<TRes>
     Object? email = _undefined,
     Object? emailVerified = _undefined,
     Object? id = _undefined,
-    Object? investor = _undefined,
-    Object? investor_aggregate = _undefined,
+    Object? investorById = _undefined,
     Object? isAnonymous = _undefined,
     Object? lastSeen = _undefined,
     Object? locale = _undefined,
@@ -72453,7 +68062,6 @@ class _CopyWithImpl$Input$users_bool_exp<TRes>
     Object? phoneNumber = _undefined,
     Object? phoneNumberVerified = _undefined,
     Object? profile = _undefined,
-    Object? profile_aggregate = _undefined,
     Object? refreshTokens = _undefined,
     Object? refreshTokens_aggregate = _undefined,
     Object? roles = _undefined,
@@ -72469,20 +68077,28 @@ class _CopyWithImpl$Input$users_bool_exp<TRes>
   }) =>
       _then(Input$users_bool_exp._({
         ..._instance._$data,
+        if (UMKMById != _undefined)
+          'UMKMById': (UMKMById as Input$umkm_bool_exp?),
         if ($_and != _undefined) '_and': ($_and as List<Input$users_bool_exp>?),
         if ($_not != _undefined) '_not': ($_not as Input$users_bool_exp?),
         if ($_or != _undefined) '_or': ($_or as List<Input$users_bool_exp>?),
         if (activeMfaType != _undefined)
           'activeMfaType': (activeMfaType as Input$String_comparison_exp?),
+        if (agent_cs_messages != _undefined)
+          'agent_cs_messages':
+              (agent_cs_messages as Input$cs_message_bool_exp?),
+        if (agent_cs_messages_aggregate != _undefined)
+          'agent_cs_messages_aggregate': (agent_cs_messages_aggregate
+              as Input$cs_message_aggregate_bool_exp?),
         if (avatarUrl != _undefined)
           'avatarUrl': (avatarUrl as Input$String_comparison_exp?),
         if (createdAt != _undefined)
           'createdAt': (createdAt as Input$timestamptz_comparison_exp?),
-        if (cs_message != _undefined)
-          'cs_message': (cs_message as Input$cs_message_bool_exp?),
-        if (cs_message_aggregate != _undefined)
-          'cs_message_aggregate':
-              (cs_message_aggregate as Input$cs_message_aggregate_bool_exp?),
+        if (cs_messages != _undefined)
+          'cs_messages': (cs_messages as Input$cs_message_bool_exp?),
+        if (cs_messages_aggregate != _undefined)
+          'cs_messages_aggregate':
+              (cs_messages_aggregate as Input$cs_message_aggregate_bool_exp?),
         if (currentChallenge != _undefined)
           'currentChallenge':
               (currentChallenge as Input$String_comparison_exp?),
@@ -72499,11 +68115,8 @@ class _CopyWithImpl$Input$users_bool_exp<TRes>
         if (emailVerified != _undefined)
           'emailVerified': (emailVerified as Input$Boolean_comparison_exp?),
         if (id != _undefined) 'id': (id as Input$uuid_comparison_exp?),
-        if (investor != _undefined)
-          'investor': (investor as Input$investor_bool_exp?),
-        if (investor_aggregate != _undefined)
-          'investor_aggregate':
-              (investor_aggregate as Input$investor_aggregate_bool_exp?),
+        if (investorById != _undefined)
+          'investorById': (investorById as Input$investor_bool_exp?),
         if (isAnonymous != _undefined)
           'isAnonymous': (isAnonymous as Input$Boolean_comparison_exp?),
         if (lastSeen != _undefined)
@@ -72531,9 +68144,6 @@ class _CopyWithImpl$Input$users_bool_exp<TRes>
               (phoneNumberVerified as Input$Boolean_comparison_exp?),
         if (profile != _undefined)
           'profile': (profile as Input$profile_bool_exp?),
-        if (profile_aggregate != _undefined)
-          'profile_aggregate':
-              (profile_aggregate as Input$profile_aggregate_bool_exp?),
         if (refreshTokens != _undefined)
           'refreshTokens': (refreshTokens as Input$authRefreshTokens_bool_exp?),
         if (refreshTokens_aggregate != _undefined)
@@ -72565,6 +68175,14 @@ class _CopyWithImpl$Input$users_bool_exp<TRes>
           'userProviders_aggregate': (userProviders_aggregate
               as Input$authUserProviders_aggregate_bool_exp?),
       }));
+  CopyWith$Input$umkm_bool_exp<TRes> get UMKMById {
+    final local$UMKMById = _instance.UMKMById;
+    return local$UMKMById == null
+        ? CopyWith$Input$umkm_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$umkm_bool_exp(
+            local$UMKMById, (e) => call(UMKMById: e));
+  }
+
   TRes $_and(
           Iterable<Input$users_bool_exp>? Function(
                   Iterable<
@@ -72600,6 +68218,25 @@ class _CopyWithImpl$Input$users_bool_exp<TRes>
             local$activeMfaType, (e) => call(activeMfaType: e));
   }
 
+  CopyWith$Input$cs_message_bool_exp<TRes> get agent_cs_messages {
+    final local$agent_cs_messages = _instance.agent_cs_messages;
+    return local$agent_cs_messages == null
+        ? CopyWith$Input$cs_message_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$cs_message_bool_exp(
+            local$agent_cs_messages, (e) => call(agent_cs_messages: e));
+  }
+
+  CopyWith$Input$cs_message_aggregate_bool_exp<TRes>
+      get agent_cs_messages_aggregate {
+    final local$agent_cs_messages_aggregate =
+        _instance.agent_cs_messages_aggregate;
+    return local$agent_cs_messages_aggregate == null
+        ? CopyWith$Input$cs_message_aggregate_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$cs_message_aggregate_bool_exp(
+            local$agent_cs_messages_aggregate,
+            (e) => call(agent_cs_messages_aggregate: e));
+  }
+
   CopyWith$Input$String_comparison_exp<TRes> get avatarUrl {
     final local$avatarUrl = _instance.avatarUrl;
     return local$avatarUrl == null
@@ -72616,20 +68253,20 @@ class _CopyWithImpl$Input$users_bool_exp<TRes>
             local$createdAt, (e) => call(createdAt: e));
   }
 
-  CopyWith$Input$cs_message_bool_exp<TRes> get cs_message {
-    final local$cs_message = _instance.cs_message;
-    return local$cs_message == null
+  CopyWith$Input$cs_message_bool_exp<TRes> get cs_messages {
+    final local$cs_messages = _instance.cs_messages;
+    return local$cs_messages == null
         ? CopyWith$Input$cs_message_bool_exp.stub(_then(_instance))
         : CopyWith$Input$cs_message_bool_exp(
-            local$cs_message, (e) => call(cs_message: e));
+            local$cs_messages, (e) => call(cs_messages: e));
   }
 
-  CopyWith$Input$cs_message_aggregate_bool_exp<TRes> get cs_message_aggregate {
-    final local$cs_message_aggregate = _instance.cs_message_aggregate;
-    return local$cs_message_aggregate == null
+  CopyWith$Input$cs_message_aggregate_bool_exp<TRes> get cs_messages_aggregate {
+    final local$cs_messages_aggregate = _instance.cs_messages_aggregate;
+    return local$cs_messages_aggregate == null
         ? CopyWith$Input$cs_message_aggregate_bool_exp.stub(_then(_instance))
         : CopyWith$Input$cs_message_aggregate_bool_exp(
-            local$cs_message_aggregate, (e) => call(cs_message_aggregate: e));
+            local$cs_messages_aggregate, (e) => call(cs_messages_aggregate: e));
   }
 
   CopyWith$Input$String_comparison_exp<TRes> get currentChallenge {
@@ -72695,20 +68332,12 @@ class _CopyWithImpl$Input$users_bool_exp<TRes>
         : CopyWith$Input$uuid_comparison_exp(local$id, (e) => call(id: e));
   }
 
-  CopyWith$Input$investor_bool_exp<TRes> get investor {
-    final local$investor = _instance.investor;
-    return local$investor == null
+  CopyWith$Input$investor_bool_exp<TRes> get investorById {
+    final local$investorById = _instance.investorById;
+    return local$investorById == null
         ? CopyWith$Input$investor_bool_exp.stub(_then(_instance))
         : CopyWith$Input$investor_bool_exp(
-            local$investor, (e) => call(investor: e));
-  }
-
-  CopyWith$Input$investor_aggregate_bool_exp<TRes> get investor_aggregate {
-    final local$investor_aggregate = _instance.investor_aggregate;
-    return local$investor_aggregate == null
-        ? CopyWith$Input$investor_aggregate_bool_exp.stub(_then(_instance))
-        : CopyWith$Input$investor_aggregate_bool_exp(
-            local$investor_aggregate, (e) => call(investor_aggregate: e));
+            local$investorById, (e) => call(investorById: e));
   }
 
   CopyWith$Input$Boolean_comparison_exp<TRes> get isAnonymous {
@@ -72805,14 +68434,6 @@ class _CopyWithImpl$Input$users_bool_exp<TRes>
         ? CopyWith$Input$profile_bool_exp.stub(_then(_instance))
         : CopyWith$Input$profile_bool_exp(
             local$profile, (e) => call(profile: e));
-  }
-
-  CopyWith$Input$profile_aggregate_bool_exp<TRes> get profile_aggregate {
-    final local$profile_aggregate = _instance.profile_aggregate;
-    return local$profile_aggregate == null
-        ? CopyWith$Input$profile_aggregate_bool_exp.stub(_then(_instance))
-        : CopyWith$Input$profile_aggregate_bool_exp(
-            local$profile_aggregate, (e) => call(profile_aggregate: e));
   }
 
   CopyWith$Input$authRefreshTokens_bool_exp<TRes> get refreshTokens {
@@ -72928,14 +68549,17 @@ class _CopyWithStubImpl$Input$users_bool_exp<TRes>
   TRes _res;
 
   call({
+    Input$umkm_bool_exp? UMKMById,
     List<Input$users_bool_exp>? $_and,
     Input$users_bool_exp? $_not,
     List<Input$users_bool_exp>? $_or,
     Input$String_comparison_exp? activeMfaType,
+    Input$cs_message_bool_exp? agent_cs_messages,
+    Input$cs_message_aggregate_bool_exp? agent_cs_messages_aggregate,
     Input$String_comparison_exp? avatarUrl,
     Input$timestamptz_comparison_exp? createdAt,
-    Input$cs_message_bool_exp? cs_message,
-    Input$cs_message_aggregate_bool_exp? cs_message_aggregate,
+    Input$cs_message_bool_exp? cs_messages,
+    Input$cs_message_aggregate_bool_exp? cs_messages_aggregate,
     Input$String_comparison_exp? currentChallenge,
     Input$String_comparison_exp? defaultRole,
     Input$authRoles_bool_exp? defaultRoleByRole,
@@ -72944,8 +68568,7 @@ class _CopyWithStubImpl$Input$users_bool_exp<TRes>
     Input$citext_comparison_exp? email,
     Input$Boolean_comparison_exp? emailVerified,
     Input$uuid_comparison_exp? id,
-    Input$investor_bool_exp? investor,
-    Input$investor_aggregate_bool_exp? investor_aggregate,
+    Input$investor_bool_exp? investorById,
     Input$Boolean_comparison_exp? isAnonymous,
     Input$timestamptz_comparison_exp? lastSeen,
     Input$String_comparison_exp? locale,
@@ -72958,7 +68581,6 @@ class _CopyWithStubImpl$Input$users_bool_exp<TRes>
     Input$String_comparison_exp? phoneNumber,
     Input$Boolean_comparison_exp? phoneNumberVerified,
     Input$profile_bool_exp? profile,
-    Input$profile_aggregate_bool_exp? profile_aggregate,
     Input$authRefreshTokens_bool_exp? refreshTokens,
     Input$authRefreshTokens_aggregate_bool_exp? refreshTokens_aggregate,
     Input$authUserRoles_bool_exp? roles,
@@ -72973,20 +68595,28 @@ class _CopyWithStubImpl$Input$users_bool_exp<TRes>
     Input$authUserProviders_aggregate_bool_exp? userProviders_aggregate,
   }) =>
       _res;
+  CopyWith$Input$umkm_bool_exp<TRes> get UMKMById =>
+      CopyWith$Input$umkm_bool_exp.stub(_res);
   $_and(_fn) => _res;
   CopyWith$Input$users_bool_exp<TRes> get $_not =>
       CopyWith$Input$users_bool_exp.stub(_res);
   $_or(_fn) => _res;
   CopyWith$Input$String_comparison_exp<TRes> get activeMfaType =>
       CopyWith$Input$String_comparison_exp.stub(_res);
+  CopyWith$Input$cs_message_bool_exp<TRes> get agent_cs_messages =>
+      CopyWith$Input$cs_message_bool_exp.stub(_res);
+  CopyWith$Input$cs_message_aggregate_bool_exp<TRes>
+      get agent_cs_messages_aggregate =>
+          CopyWith$Input$cs_message_aggregate_bool_exp.stub(_res);
   CopyWith$Input$String_comparison_exp<TRes> get avatarUrl =>
       CopyWith$Input$String_comparison_exp.stub(_res);
   CopyWith$Input$timestamptz_comparison_exp<TRes> get createdAt =>
       CopyWith$Input$timestamptz_comparison_exp.stub(_res);
-  CopyWith$Input$cs_message_bool_exp<TRes> get cs_message =>
+  CopyWith$Input$cs_message_bool_exp<TRes> get cs_messages =>
       CopyWith$Input$cs_message_bool_exp.stub(_res);
-  CopyWith$Input$cs_message_aggregate_bool_exp<TRes> get cs_message_aggregate =>
-      CopyWith$Input$cs_message_aggregate_bool_exp.stub(_res);
+  CopyWith$Input$cs_message_aggregate_bool_exp<TRes>
+      get cs_messages_aggregate =>
+          CopyWith$Input$cs_message_aggregate_bool_exp.stub(_res);
   CopyWith$Input$String_comparison_exp<TRes> get currentChallenge =>
       CopyWith$Input$String_comparison_exp.stub(_res);
   CopyWith$Input$String_comparison_exp<TRes> get defaultRole =>
@@ -73003,10 +68633,8 @@ class _CopyWithStubImpl$Input$users_bool_exp<TRes>
       CopyWith$Input$Boolean_comparison_exp.stub(_res);
   CopyWith$Input$uuid_comparison_exp<TRes> get id =>
       CopyWith$Input$uuid_comparison_exp.stub(_res);
-  CopyWith$Input$investor_bool_exp<TRes> get investor =>
+  CopyWith$Input$investor_bool_exp<TRes> get investorById =>
       CopyWith$Input$investor_bool_exp.stub(_res);
-  CopyWith$Input$investor_aggregate_bool_exp<TRes> get investor_aggregate =>
-      CopyWith$Input$investor_aggregate_bool_exp.stub(_res);
   CopyWith$Input$Boolean_comparison_exp<TRes> get isAnonymous =>
       CopyWith$Input$Boolean_comparison_exp.stub(_res);
   CopyWith$Input$timestamptz_comparison_exp<TRes> get lastSeen =>
@@ -73031,8 +68659,6 @@ class _CopyWithStubImpl$Input$users_bool_exp<TRes>
       CopyWith$Input$Boolean_comparison_exp.stub(_res);
   CopyWith$Input$profile_bool_exp<TRes> get profile =>
       CopyWith$Input$profile_bool_exp.stub(_res);
-  CopyWith$Input$profile_aggregate_bool_exp<TRes> get profile_aggregate =>
-      CopyWith$Input$profile_aggregate_bool_exp.stub(_res);
   CopyWith$Input$authRefreshTokens_bool_exp<TRes> get refreshTokens =>
       CopyWith$Input$authRefreshTokens_bool_exp.stub(_res);
   CopyWith$Input$authRefreshTokens_aggregate_bool_exp<TRes>
@@ -73393,10 +69019,12 @@ class _CopyWithStubImpl$Input$users_delete_key_input<TRes>
 
 class Input$users_insert_input {
   factory Input$users_insert_input({
+    Input$umkm_obj_rel_insert_input? UMKMById,
     String? activeMfaType,
+    Input$cs_message_arr_rel_insert_input? agent_cs_messages,
     String? avatarUrl,
     DateTime? createdAt,
-    Input$cs_message_arr_rel_insert_input? cs_message,
+    Input$cs_message_arr_rel_insert_input? cs_messages,
     String? currentChallenge,
     String? defaultRole,
     Input$authRoles_obj_rel_insert_input? defaultRoleByRole,
@@ -73405,7 +69033,7 @@ class Input$users_insert_input {
     Citext? email,
     bool? emailVerified,
     UUID? id,
-    Input$investor_arr_rel_insert_input? investor,
+    Input$investor_obj_rel_insert_input? investorById,
     bool? isAnonymous,
     DateTime? lastSeen,
     String? locale,
@@ -73417,7 +69045,7 @@ class Input$users_insert_input {
     String? passwordHash,
     String? phoneNumber,
     bool? phoneNumberVerified,
-    Input$profile_arr_rel_insert_input? profile,
+    Input$profile_obj_rel_insert_input? profile,
     Input$authRefreshTokens_arr_rel_insert_input? refreshTokens,
     Input$authUserRoles_arr_rel_insert_input? roles,
     Input$authUserSecurityKeys_arr_rel_insert_input? securityKeys,
@@ -73428,10 +69056,12 @@ class Input$users_insert_input {
     Input$authUserProviders_arr_rel_insert_input? userProviders,
   }) =>
       Input$users_insert_input._({
+        if (UMKMById != null) r'UMKMById': UMKMById,
         if (activeMfaType != null) r'activeMfaType': activeMfaType,
+        if (agent_cs_messages != null) r'agent_cs_messages': agent_cs_messages,
         if (avatarUrl != null) r'avatarUrl': avatarUrl,
         if (createdAt != null) r'createdAt': createdAt,
-        if (cs_message != null) r'cs_message': cs_message,
+        if (cs_messages != null) r'cs_messages': cs_messages,
         if (currentChallenge != null) r'currentChallenge': currentChallenge,
         if (defaultRole != null) r'defaultRole': defaultRole,
         if (defaultRoleByRole != null) r'defaultRoleByRole': defaultRoleByRole,
@@ -73440,7 +69070,7 @@ class Input$users_insert_input {
         if (email != null) r'email': email,
         if (emailVerified != null) r'emailVerified': emailVerified,
         if (id != null) r'id': id,
-        if (investor != null) r'investor': investor,
+        if (investorById != null) r'investorById': investorById,
         if (isAnonymous != null) r'isAnonymous': isAnonymous,
         if (lastSeen != null) r'lastSeen': lastSeen,
         if (locale != null) r'locale': locale,
@@ -73468,9 +69098,23 @@ class Input$users_insert_input {
 
   factory Input$users_insert_input.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('UMKMById')) {
+      final l$UMKMById = data['UMKMById'];
+      result$data['UMKMById'] = l$UMKMById == null
+          ? null
+          : Input$umkm_obj_rel_insert_input.fromJson(
+              (l$UMKMById as Map<String, dynamic>));
+    }
     if (data.containsKey('activeMfaType')) {
       final l$activeMfaType = data['activeMfaType'];
       result$data['activeMfaType'] = (l$activeMfaType as String?);
+    }
+    if (data.containsKey('agent_cs_messages')) {
+      final l$agent_cs_messages = data['agent_cs_messages'];
+      result$data['agent_cs_messages'] = l$agent_cs_messages == null
+          ? null
+          : Input$cs_message_arr_rel_insert_input.fromJson(
+              (l$agent_cs_messages as Map<String, dynamic>));
     }
     if (data.containsKey('avatarUrl')) {
       final l$avatarUrl = data['avatarUrl'];
@@ -73481,12 +69125,12 @@ class Input$users_insert_input {
       result$data['createdAt'] =
           l$createdAt == null ? null : DateTime.parse((l$createdAt as String));
     }
-    if (data.containsKey('cs_message')) {
-      final l$cs_message = data['cs_message'];
-      result$data['cs_message'] = l$cs_message == null
+    if (data.containsKey('cs_messages')) {
+      final l$cs_messages = data['cs_messages'];
+      result$data['cs_messages'] = l$cs_messages == null
           ? null
           : Input$cs_message_arr_rel_insert_input.fromJson(
-              (l$cs_message as Map<String, dynamic>));
+              (l$cs_messages as Map<String, dynamic>));
     }
     if (data.containsKey('currentChallenge')) {
       final l$currentChallenge = data['currentChallenge'];
@@ -73523,12 +69167,12 @@ class Input$users_insert_input {
       final l$id = data['id'];
       result$data['id'] = l$id == null ? null : uuidFromJson(l$id);
     }
-    if (data.containsKey('investor')) {
-      final l$investor = data['investor'];
-      result$data['investor'] = l$investor == null
+    if (data.containsKey('investorById')) {
+      final l$investorById = data['investorById'];
+      result$data['investorById'] = l$investorById == null
           ? null
-          : Input$investor_arr_rel_insert_input.fromJson(
-              (l$investor as Map<String, dynamic>));
+          : Input$investor_obj_rel_insert_input.fromJson(
+              (l$investorById as Map<String, dynamic>));
     }
     if (data.containsKey('isAnonymous')) {
       final l$isAnonymous = data['isAnonymous'];
@@ -73583,7 +69227,7 @@ class Input$users_insert_input {
       final l$profile = data['profile'];
       result$data['profile'] = l$profile == null
           ? null
-          : Input$profile_arr_rel_insert_input.fromJson(
+          : Input$profile_obj_rel_insert_input.fromJson(
               (l$profile as Map<String, dynamic>));
     }
     if (data.containsKey('refreshTokens')) {
@@ -73638,11 +69282,15 @@ class Input$users_insert_input {
 
   Map<String, dynamic> _$data;
 
+  Input$umkm_obj_rel_insert_input? get UMKMById =>
+      (_$data['UMKMById'] as Input$umkm_obj_rel_insert_input?);
   String? get activeMfaType => (_$data['activeMfaType'] as String?);
+  Input$cs_message_arr_rel_insert_input? get agent_cs_messages =>
+      (_$data['agent_cs_messages'] as Input$cs_message_arr_rel_insert_input?);
   String? get avatarUrl => (_$data['avatarUrl'] as String?);
   DateTime? get createdAt => (_$data['createdAt'] as DateTime?);
-  Input$cs_message_arr_rel_insert_input? get cs_message =>
-      (_$data['cs_message'] as Input$cs_message_arr_rel_insert_input?);
+  Input$cs_message_arr_rel_insert_input? get cs_messages =>
+      (_$data['cs_messages'] as Input$cs_message_arr_rel_insert_input?);
   String? get currentChallenge => (_$data['currentChallenge'] as String?);
   String? get defaultRole => (_$data['defaultRole'] as String?);
   Input$authRoles_obj_rel_insert_input? get defaultRoleByRole =>
@@ -73652,8 +69300,8 @@ class Input$users_insert_input {
   Citext? get email => (_$data['email'] as Citext?);
   bool? get emailVerified => (_$data['emailVerified'] as bool?);
   UUID? get id => (_$data['id'] as UUID?);
-  Input$investor_arr_rel_insert_input? get investor =>
-      (_$data['investor'] as Input$investor_arr_rel_insert_input?);
+  Input$investor_obj_rel_insert_input? get investorById =>
+      (_$data['investorById'] as Input$investor_obj_rel_insert_input?);
   bool? get isAnonymous => (_$data['isAnonymous'] as bool?);
   DateTime? get lastSeen => (_$data['lastSeen'] as DateTime?);
   String? get locale => (_$data['locale'] as String?);
@@ -73665,8 +69313,8 @@ class Input$users_insert_input {
   String? get passwordHash => (_$data['passwordHash'] as String?);
   String? get phoneNumber => (_$data['phoneNumber'] as String?);
   bool? get phoneNumberVerified => (_$data['phoneNumberVerified'] as bool?);
-  Input$profile_arr_rel_insert_input? get profile =>
-      (_$data['profile'] as Input$profile_arr_rel_insert_input?);
+  Input$profile_obj_rel_insert_input? get profile =>
+      (_$data['profile'] as Input$profile_obj_rel_insert_input?);
   Input$authRefreshTokens_arr_rel_insert_input? get refreshTokens =>
       (_$data['refreshTokens']
           as Input$authRefreshTokens_arr_rel_insert_input?);
@@ -73684,9 +69332,17 @@ class Input$users_insert_input {
           as Input$authUserProviders_arr_rel_insert_input?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('UMKMById')) {
+      final l$UMKMById = UMKMById;
+      result$data['UMKMById'] = l$UMKMById?.toJson();
+    }
     if (_$data.containsKey('activeMfaType')) {
       final l$activeMfaType = activeMfaType;
       result$data['activeMfaType'] = l$activeMfaType;
+    }
+    if (_$data.containsKey('agent_cs_messages')) {
+      final l$agent_cs_messages = agent_cs_messages;
+      result$data['agent_cs_messages'] = l$agent_cs_messages?.toJson();
     }
     if (_$data.containsKey('avatarUrl')) {
       final l$avatarUrl = avatarUrl;
@@ -73696,9 +69352,9 @@ class Input$users_insert_input {
       final l$createdAt = createdAt;
       result$data['createdAt'] = l$createdAt?.toIso8601String();
     }
-    if (_$data.containsKey('cs_message')) {
-      final l$cs_message = cs_message;
-      result$data['cs_message'] = l$cs_message?.toJson();
+    if (_$data.containsKey('cs_messages')) {
+      final l$cs_messages = cs_messages;
+      result$data['cs_messages'] = l$cs_messages?.toJson();
     }
     if (_$data.containsKey('currentChallenge')) {
       final l$currentChallenge = currentChallenge;
@@ -73732,9 +69388,9 @@ class Input$users_insert_input {
       final l$id = id;
       result$data['id'] = l$id == null ? null : uuidToJson(l$id);
     }
-    if (_$data.containsKey('investor')) {
-      final l$investor = investor;
-      result$data['investor'] = l$investor?.toJson();
+    if (_$data.containsKey('investorById')) {
+      final l$investorById = investorById;
+      result$data['investorById'] = l$investorById?.toJson();
     }
     if (_$data.containsKey('isAnonymous')) {
       final l$isAnonymous = isAnonymous;
@@ -73835,6 +69491,15 @@ class Input$users_insert_input {
         runtimeType != other.runtimeType) {
       return false;
     }
+    final l$UMKMById = UMKMById;
+    final lOther$UMKMById = other.UMKMById;
+    if (_$data.containsKey('UMKMById') !=
+        other._$data.containsKey('UMKMById')) {
+      return false;
+    }
+    if (l$UMKMById != lOther$UMKMById) {
+      return false;
+    }
     final l$activeMfaType = activeMfaType;
     final lOther$activeMfaType = other.activeMfaType;
     if (_$data.containsKey('activeMfaType') !=
@@ -73842,6 +69507,15 @@ class Input$users_insert_input {
       return false;
     }
     if (l$activeMfaType != lOther$activeMfaType) {
+      return false;
+    }
+    final l$agent_cs_messages = agent_cs_messages;
+    final lOther$agent_cs_messages = other.agent_cs_messages;
+    if (_$data.containsKey('agent_cs_messages') !=
+        other._$data.containsKey('agent_cs_messages')) {
+      return false;
+    }
+    if (l$agent_cs_messages != lOther$agent_cs_messages) {
       return false;
     }
     final l$avatarUrl = avatarUrl;
@@ -73862,13 +69536,13 @@ class Input$users_insert_input {
     if (l$createdAt != lOther$createdAt) {
       return false;
     }
-    final l$cs_message = cs_message;
-    final lOther$cs_message = other.cs_message;
-    if (_$data.containsKey('cs_message') !=
-        other._$data.containsKey('cs_message')) {
+    final l$cs_messages = cs_messages;
+    final lOther$cs_messages = other.cs_messages;
+    if (_$data.containsKey('cs_messages') !=
+        other._$data.containsKey('cs_messages')) {
       return false;
     }
-    if (l$cs_message != lOther$cs_message) {
+    if (l$cs_messages != lOther$cs_messages) {
       return false;
     }
     final l$currentChallenge = currentChallenge;
@@ -73941,13 +69615,13 @@ class Input$users_insert_input {
     if (l$id != lOther$id) {
       return false;
     }
-    final l$investor = investor;
-    final lOther$investor = other.investor;
-    if (_$data.containsKey('investor') !=
-        other._$data.containsKey('investor')) {
+    final l$investorById = investorById;
+    final lOther$investorById = other.investorById;
+    if (_$data.containsKey('investorById') !=
+        other._$data.containsKey('investorById')) {
       return false;
     }
-    if (l$investor != lOther$investor) {
+    if (l$investorById != lOther$investorById) {
       return false;
     }
     final l$isAnonymous = isAnonymous;
@@ -74130,10 +69804,12 @@ class Input$users_insert_input {
 
   @override
   int get hashCode {
+    final l$UMKMById = UMKMById;
     final l$activeMfaType = activeMfaType;
+    final l$agent_cs_messages = agent_cs_messages;
     final l$avatarUrl = avatarUrl;
     final l$createdAt = createdAt;
-    final l$cs_message = cs_message;
+    final l$cs_messages = cs_messages;
     final l$currentChallenge = currentChallenge;
     final l$defaultRole = defaultRole;
     final l$defaultRoleByRole = defaultRoleByRole;
@@ -74142,7 +69818,7 @@ class Input$users_insert_input {
     final l$email = email;
     final l$emailVerified = emailVerified;
     final l$id = id;
-    final l$investor = investor;
+    final l$investorById = investorById;
     final l$isAnonymous = isAnonymous;
     final l$lastSeen = lastSeen;
     final l$locale = locale;
@@ -74164,10 +69840,12 @@ class Input$users_insert_input {
     final l$updatedAt = updatedAt;
     final l$userProviders = userProviders;
     return Object.hashAll([
+      _$data.containsKey('UMKMById') ? l$UMKMById : const {},
       _$data.containsKey('activeMfaType') ? l$activeMfaType : const {},
+      _$data.containsKey('agent_cs_messages') ? l$agent_cs_messages : const {},
       _$data.containsKey('avatarUrl') ? l$avatarUrl : const {},
       _$data.containsKey('createdAt') ? l$createdAt : const {},
-      _$data.containsKey('cs_message') ? l$cs_message : const {},
+      _$data.containsKey('cs_messages') ? l$cs_messages : const {},
       _$data.containsKey('currentChallenge') ? l$currentChallenge : const {},
       _$data.containsKey('defaultRole') ? l$defaultRole : const {},
       _$data.containsKey('defaultRoleByRole') ? l$defaultRoleByRole : const {},
@@ -74176,7 +69854,7 @@ class Input$users_insert_input {
       _$data.containsKey('email') ? l$email : const {},
       _$data.containsKey('emailVerified') ? l$emailVerified : const {},
       _$data.containsKey('id') ? l$id : const {},
-      _$data.containsKey('investor') ? l$investor : const {},
+      _$data.containsKey('investorById') ? l$investorById : const {},
       _$data.containsKey('isAnonymous') ? l$isAnonymous : const {},
       _$data.containsKey('lastSeen') ? l$lastSeen : const {},
       _$data.containsKey('locale') ? l$locale : const {},
@@ -74213,10 +69891,12 @@ abstract class CopyWith$Input$users_insert_input<TRes> {
       _CopyWithStubImpl$Input$users_insert_input;
 
   TRes call({
+    Input$umkm_obj_rel_insert_input? UMKMById,
     String? activeMfaType,
+    Input$cs_message_arr_rel_insert_input? agent_cs_messages,
     String? avatarUrl,
     DateTime? createdAt,
-    Input$cs_message_arr_rel_insert_input? cs_message,
+    Input$cs_message_arr_rel_insert_input? cs_messages,
     String? currentChallenge,
     String? defaultRole,
     Input$authRoles_obj_rel_insert_input? defaultRoleByRole,
@@ -74225,7 +69905,7 @@ abstract class CopyWith$Input$users_insert_input<TRes> {
     Citext? email,
     bool? emailVerified,
     UUID? id,
-    Input$investor_arr_rel_insert_input? investor,
+    Input$investor_obj_rel_insert_input? investorById,
     bool? isAnonymous,
     DateTime? lastSeen,
     String? locale,
@@ -74237,7 +69917,7 @@ abstract class CopyWith$Input$users_insert_input<TRes> {
     String? passwordHash,
     String? phoneNumber,
     bool? phoneNumberVerified,
-    Input$profile_arr_rel_insert_input? profile,
+    Input$profile_obj_rel_insert_input? profile,
     Input$authRefreshTokens_arr_rel_insert_input? refreshTokens,
     Input$authUserRoles_arr_rel_insert_input? roles,
     Input$authUserSecurityKeys_arr_rel_insert_input? securityKeys,
@@ -74247,10 +69927,12 @@ abstract class CopyWith$Input$users_insert_input<TRes> {
     DateTime? updatedAt,
     Input$authUserProviders_arr_rel_insert_input? userProviders,
   });
-  CopyWith$Input$cs_message_arr_rel_insert_input<TRes> get cs_message;
+  CopyWith$Input$umkm_obj_rel_insert_input<TRes> get UMKMById;
+  CopyWith$Input$cs_message_arr_rel_insert_input<TRes> get agent_cs_messages;
+  CopyWith$Input$cs_message_arr_rel_insert_input<TRes> get cs_messages;
   CopyWith$Input$authRoles_obj_rel_insert_input<TRes> get defaultRoleByRole;
-  CopyWith$Input$investor_arr_rel_insert_input<TRes> get investor;
-  CopyWith$Input$profile_arr_rel_insert_input<TRes> get profile;
+  CopyWith$Input$investor_obj_rel_insert_input<TRes> get investorById;
+  CopyWith$Input$profile_obj_rel_insert_input<TRes> get profile;
   CopyWith$Input$authRefreshTokens_arr_rel_insert_input<TRes> get refreshTokens;
   CopyWith$Input$authUserRoles_arr_rel_insert_input<TRes> get roles;
   CopyWith$Input$authUserSecurityKeys_arr_rel_insert_input<TRes>
@@ -74272,10 +69954,12 @@ class _CopyWithImpl$Input$users_insert_input<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? UMKMById = _undefined,
     Object? activeMfaType = _undefined,
+    Object? agent_cs_messages = _undefined,
     Object? avatarUrl = _undefined,
     Object? createdAt = _undefined,
-    Object? cs_message = _undefined,
+    Object? cs_messages = _undefined,
     Object? currentChallenge = _undefined,
     Object? defaultRole = _undefined,
     Object? defaultRoleByRole = _undefined,
@@ -74284,7 +69968,7 @@ class _CopyWithImpl$Input$users_insert_input<TRes>
     Object? email = _undefined,
     Object? emailVerified = _undefined,
     Object? id = _undefined,
-    Object? investor = _undefined,
+    Object? investorById = _undefined,
     Object? isAnonymous = _undefined,
     Object? lastSeen = _undefined,
     Object? locale = _undefined,
@@ -74308,12 +69992,18 @@ class _CopyWithImpl$Input$users_insert_input<TRes>
   }) =>
       _then(Input$users_insert_input._({
         ..._instance._$data,
+        if (UMKMById != _undefined)
+          'UMKMById': (UMKMById as Input$umkm_obj_rel_insert_input?),
         if (activeMfaType != _undefined)
           'activeMfaType': (activeMfaType as String?),
+        if (agent_cs_messages != _undefined)
+          'agent_cs_messages':
+              (agent_cs_messages as Input$cs_message_arr_rel_insert_input?),
         if (avatarUrl != _undefined) 'avatarUrl': (avatarUrl as String?),
         if (createdAt != _undefined) 'createdAt': (createdAt as DateTime?),
-        if (cs_message != _undefined)
-          'cs_message': (cs_message as Input$cs_message_arr_rel_insert_input?),
+        if (cs_messages != _undefined)
+          'cs_messages':
+              (cs_messages as Input$cs_message_arr_rel_insert_input?),
         if (currentChallenge != _undefined)
           'currentChallenge': (currentChallenge as String?),
         if (defaultRole != _undefined) 'defaultRole': (defaultRole as String?),
@@ -74326,8 +70016,9 @@ class _CopyWithImpl$Input$users_insert_input<TRes>
         if (emailVerified != _undefined)
           'emailVerified': (emailVerified as bool?),
         if (id != _undefined) 'id': (id as UUID?),
-        if (investor != _undefined)
-          'investor': (investor as Input$investor_arr_rel_insert_input?),
+        if (investorById != _undefined)
+          'investorById':
+              (investorById as Input$investor_obj_rel_insert_input?),
         if (isAnonymous != _undefined) 'isAnonymous': (isAnonymous as bool?),
         if (lastSeen != _undefined) 'lastSeen': (lastSeen as DateTime?),
         if (locale != _undefined) 'locale': (locale as String?),
@@ -74344,7 +70035,7 @@ class _CopyWithImpl$Input$users_insert_input<TRes>
         if (phoneNumberVerified != _undefined)
           'phoneNumberVerified': (phoneNumberVerified as bool?),
         if (profile != _undefined)
-          'profile': (profile as Input$profile_arr_rel_insert_input?),
+          'profile': (profile as Input$profile_obj_rel_insert_input?),
         if (refreshTokens != _undefined)
           'refreshTokens':
               (refreshTokens as Input$authRefreshTokens_arr_rel_insert_input?),
@@ -74362,12 +70053,28 @@ class _CopyWithImpl$Input$users_insert_input<TRes>
           'userProviders':
               (userProviders as Input$authUserProviders_arr_rel_insert_input?),
       }));
-  CopyWith$Input$cs_message_arr_rel_insert_input<TRes> get cs_message {
-    final local$cs_message = _instance.cs_message;
-    return local$cs_message == null
+  CopyWith$Input$umkm_obj_rel_insert_input<TRes> get UMKMById {
+    final local$UMKMById = _instance.UMKMById;
+    return local$UMKMById == null
+        ? CopyWith$Input$umkm_obj_rel_insert_input.stub(_then(_instance))
+        : CopyWith$Input$umkm_obj_rel_insert_input(
+            local$UMKMById, (e) => call(UMKMById: e));
+  }
+
+  CopyWith$Input$cs_message_arr_rel_insert_input<TRes> get agent_cs_messages {
+    final local$agent_cs_messages = _instance.agent_cs_messages;
+    return local$agent_cs_messages == null
         ? CopyWith$Input$cs_message_arr_rel_insert_input.stub(_then(_instance))
         : CopyWith$Input$cs_message_arr_rel_insert_input(
-            local$cs_message, (e) => call(cs_message: e));
+            local$agent_cs_messages, (e) => call(agent_cs_messages: e));
+  }
+
+  CopyWith$Input$cs_message_arr_rel_insert_input<TRes> get cs_messages {
+    final local$cs_messages = _instance.cs_messages;
+    return local$cs_messages == null
+        ? CopyWith$Input$cs_message_arr_rel_insert_input.stub(_then(_instance))
+        : CopyWith$Input$cs_message_arr_rel_insert_input(
+            local$cs_messages, (e) => call(cs_messages: e));
   }
 
   CopyWith$Input$authRoles_obj_rel_insert_input<TRes> get defaultRoleByRole {
@@ -74378,19 +70085,19 @@ class _CopyWithImpl$Input$users_insert_input<TRes>
             local$defaultRoleByRole, (e) => call(defaultRoleByRole: e));
   }
 
-  CopyWith$Input$investor_arr_rel_insert_input<TRes> get investor {
-    final local$investor = _instance.investor;
-    return local$investor == null
-        ? CopyWith$Input$investor_arr_rel_insert_input.stub(_then(_instance))
-        : CopyWith$Input$investor_arr_rel_insert_input(
-            local$investor, (e) => call(investor: e));
+  CopyWith$Input$investor_obj_rel_insert_input<TRes> get investorById {
+    final local$investorById = _instance.investorById;
+    return local$investorById == null
+        ? CopyWith$Input$investor_obj_rel_insert_input.stub(_then(_instance))
+        : CopyWith$Input$investor_obj_rel_insert_input(
+            local$investorById, (e) => call(investorById: e));
   }
 
-  CopyWith$Input$profile_arr_rel_insert_input<TRes> get profile {
+  CopyWith$Input$profile_obj_rel_insert_input<TRes> get profile {
     final local$profile = _instance.profile;
     return local$profile == null
-        ? CopyWith$Input$profile_arr_rel_insert_input.stub(_then(_instance))
-        : CopyWith$Input$profile_arr_rel_insert_input(
+        ? CopyWith$Input$profile_obj_rel_insert_input.stub(_then(_instance))
+        : CopyWith$Input$profile_obj_rel_insert_input(
             local$profile, (e) => call(profile: e));
   }
 
@@ -74441,10 +70148,12 @@ class _CopyWithStubImpl$Input$users_insert_input<TRes>
   TRes _res;
 
   call({
+    Input$umkm_obj_rel_insert_input? UMKMById,
     String? activeMfaType,
+    Input$cs_message_arr_rel_insert_input? agent_cs_messages,
     String? avatarUrl,
     DateTime? createdAt,
-    Input$cs_message_arr_rel_insert_input? cs_message,
+    Input$cs_message_arr_rel_insert_input? cs_messages,
     String? currentChallenge,
     String? defaultRole,
     Input$authRoles_obj_rel_insert_input? defaultRoleByRole,
@@ -74453,7 +70162,7 @@ class _CopyWithStubImpl$Input$users_insert_input<TRes>
     Citext? email,
     bool? emailVerified,
     UUID? id,
-    Input$investor_arr_rel_insert_input? investor,
+    Input$investor_obj_rel_insert_input? investorById,
     bool? isAnonymous,
     DateTime? lastSeen,
     String? locale,
@@ -74465,7 +70174,7 @@ class _CopyWithStubImpl$Input$users_insert_input<TRes>
     String? passwordHash,
     String? phoneNumber,
     bool? phoneNumberVerified,
-    Input$profile_arr_rel_insert_input? profile,
+    Input$profile_obj_rel_insert_input? profile,
     Input$authRefreshTokens_arr_rel_insert_input? refreshTokens,
     Input$authUserRoles_arr_rel_insert_input? roles,
     Input$authUserSecurityKeys_arr_rel_insert_input? securityKeys,
@@ -74476,14 +70185,18 @@ class _CopyWithStubImpl$Input$users_insert_input<TRes>
     Input$authUserProviders_arr_rel_insert_input? userProviders,
   }) =>
       _res;
-  CopyWith$Input$cs_message_arr_rel_insert_input<TRes> get cs_message =>
+  CopyWith$Input$umkm_obj_rel_insert_input<TRes> get UMKMById =>
+      CopyWith$Input$umkm_obj_rel_insert_input.stub(_res);
+  CopyWith$Input$cs_message_arr_rel_insert_input<TRes> get agent_cs_messages =>
+      CopyWith$Input$cs_message_arr_rel_insert_input.stub(_res);
+  CopyWith$Input$cs_message_arr_rel_insert_input<TRes> get cs_messages =>
       CopyWith$Input$cs_message_arr_rel_insert_input.stub(_res);
   CopyWith$Input$authRoles_obj_rel_insert_input<TRes> get defaultRoleByRole =>
       CopyWith$Input$authRoles_obj_rel_insert_input.stub(_res);
-  CopyWith$Input$investor_arr_rel_insert_input<TRes> get investor =>
-      CopyWith$Input$investor_arr_rel_insert_input.stub(_res);
-  CopyWith$Input$profile_arr_rel_insert_input<TRes> get profile =>
-      CopyWith$Input$profile_arr_rel_insert_input.stub(_res);
+  CopyWith$Input$investor_obj_rel_insert_input<TRes> get investorById =>
+      CopyWith$Input$investor_obj_rel_insert_input.stub(_res);
+  CopyWith$Input$profile_obj_rel_insert_input<TRes> get profile =>
+      CopyWith$Input$profile_obj_rel_insert_input.stub(_res);
   CopyWith$Input$authRefreshTokens_arr_rel_insert_input<TRes>
       get refreshTokens =>
           CopyWith$Input$authRefreshTokens_arr_rel_insert_input.stub(_res);
@@ -76193,10 +71906,12 @@ class _CopyWithStubImpl$Input$users_on_conflict<TRes>
 
 class Input$users_order_by {
   factory Input$users_order_by({
+    Input$umkm_order_by? UMKMById,
     Enum$order_by? activeMfaType,
+    Input$cs_message_aggregate_order_by? agent_cs_messages_aggregate,
     Enum$order_by? avatarUrl,
     Enum$order_by? createdAt,
-    Input$cs_message_aggregate_order_by? cs_message_aggregate,
+    Input$cs_message_aggregate_order_by? cs_messages_aggregate,
     Enum$order_by? currentChallenge,
     Enum$order_by? defaultRole,
     Input$authRoles_order_by? defaultRoleByRole,
@@ -76205,7 +71920,7 @@ class Input$users_order_by {
     Enum$order_by? email,
     Enum$order_by? emailVerified,
     Enum$order_by? id,
-    Input$investor_aggregate_order_by? investor_aggregate,
+    Input$investor_order_by? investorById,
     Enum$order_by? isAnonymous,
     Enum$order_by? lastSeen,
     Enum$order_by? locale,
@@ -76217,7 +71932,7 @@ class Input$users_order_by {
     Enum$order_by? passwordHash,
     Enum$order_by? phoneNumber,
     Enum$order_by? phoneNumberVerified,
-    Input$profile_aggregate_order_by? profile_aggregate,
+    Input$profile_order_by? profile,
     Input$authRefreshTokens_aggregate_order_by? refreshTokens_aggregate,
     Input$authUserRoles_aggregate_order_by? roles_aggregate,
     Input$authUserSecurityKeys_aggregate_order_by? securityKeys_aggregate,
@@ -76228,11 +71943,14 @@ class Input$users_order_by {
     Input$authUserProviders_aggregate_order_by? userProviders_aggregate,
   }) =>
       Input$users_order_by._({
+        if (UMKMById != null) r'UMKMById': UMKMById,
         if (activeMfaType != null) r'activeMfaType': activeMfaType,
+        if (agent_cs_messages_aggregate != null)
+          r'agent_cs_messages_aggregate': agent_cs_messages_aggregate,
         if (avatarUrl != null) r'avatarUrl': avatarUrl,
         if (createdAt != null) r'createdAt': createdAt,
-        if (cs_message_aggregate != null)
-          r'cs_message_aggregate': cs_message_aggregate,
+        if (cs_messages_aggregate != null)
+          r'cs_messages_aggregate': cs_messages_aggregate,
         if (currentChallenge != null) r'currentChallenge': currentChallenge,
         if (defaultRole != null) r'defaultRole': defaultRole,
         if (defaultRoleByRole != null) r'defaultRoleByRole': defaultRoleByRole,
@@ -76241,8 +71959,7 @@ class Input$users_order_by {
         if (email != null) r'email': email,
         if (emailVerified != null) r'emailVerified': emailVerified,
         if (id != null) r'id': id,
-        if (investor_aggregate != null)
-          r'investor_aggregate': investor_aggregate,
+        if (investorById != null) r'investorById': investorById,
         if (isAnonymous != null) r'isAnonymous': isAnonymous,
         if (lastSeen != null) r'lastSeen': lastSeen,
         if (locale != null) r'locale': locale,
@@ -76255,7 +71972,7 @@ class Input$users_order_by {
         if (phoneNumber != null) r'phoneNumber': phoneNumber,
         if (phoneNumberVerified != null)
           r'phoneNumberVerified': phoneNumberVerified,
-        if (profile_aggregate != null) r'profile_aggregate': profile_aggregate,
+        if (profile != null) r'profile': profile,
         if (refreshTokens_aggregate != null)
           r'refreshTokens_aggregate': refreshTokens_aggregate,
         if (roles_aggregate != null) r'roles_aggregate': roles_aggregate,
@@ -76273,11 +71990,25 @@ class Input$users_order_by {
 
   factory Input$users_order_by.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('UMKMById')) {
+      final l$UMKMById = data['UMKMById'];
+      result$data['UMKMById'] = l$UMKMById == null
+          ? null
+          : Input$umkm_order_by.fromJson((l$UMKMById as Map<String, dynamic>));
+    }
     if (data.containsKey('activeMfaType')) {
       final l$activeMfaType = data['activeMfaType'];
       result$data['activeMfaType'] = l$activeMfaType == null
           ? null
           : fromJson$Enum$order_by((l$activeMfaType as String));
+    }
+    if (data.containsKey('agent_cs_messages_aggregate')) {
+      final l$agent_cs_messages_aggregate = data['agent_cs_messages_aggregate'];
+      result$data['agent_cs_messages_aggregate'] =
+          l$agent_cs_messages_aggregate == null
+              ? null
+              : Input$cs_message_aggregate_order_by.fromJson(
+                  (l$agent_cs_messages_aggregate as Map<String, dynamic>));
     }
     if (data.containsKey('avatarUrl')) {
       final l$avatarUrl = data['avatarUrl'];
@@ -76291,12 +72022,12 @@ class Input$users_order_by {
           ? null
           : fromJson$Enum$order_by((l$createdAt as String));
     }
-    if (data.containsKey('cs_message_aggregate')) {
-      final l$cs_message_aggregate = data['cs_message_aggregate'];
-      result$data['cs_message_aggregate'] = l$cs_message_aggregate == null
+    if (data.containsKey('cs_messages_aggregate')) {
+      final l$cs_messages_aggregate = data['cs_messages_aggregate'];
+      result$data['cs_messages_aggregate'] = l$cs_messages_aggregate == null
           ? null
           : Input$cs_message_aggregate_order_by.fromJson(
-              (l$cs_message_aggregate as Map<String, dynamic>));
+              (l$cs_messages_aggregate as Map<String, dynamic>));
     }
     if (data.containsKey('currentChallenge')) {
       final l$currentChallenge = data['currentChallenge'];
@@ -76345,12 +72076,12 @@ class Input$users_order_by {
       result$data['id'] =
           l$id == null ? null : fromJson$Enum$order_by((l$id as String));
     }
-    if (data.containsKey('investor_aggregate')) {
-      final l$investor_aggregate = data['investor_aggregate'];
-      result$data['investor_aggregate'] = l$investor_aggregate == null
+    if (data.containsKey('investorById')) {
+      final l$investorById = data['investorById'];
+      result$data['investorById'] = l$investorById == null
           ? null
-          : Input$investor_aggregate_order_by.fromJson(
-              (l$investor_aggregate as Map<String, dynamic>));
+          : Input$investor_order_by.fromJson(
+              (l$investorById as Map<String, dynamic>));
     }
     if (data.containsKey('isAnonymous')) {
       final l$isAnonymous = data['isAnonymous'];
@@ -76418,12 +72149,12 @@ class Input$users_order_by {
           ? null
           : fromJson$Enum$order_by((l$phoneNumberVerified as String));
     }
-    if (data.containsKey('profile_aggregate')) {
-      final l$profile_aggregate = data['profile_aggregate'];
-      result$data['profile_aggregate'] = l$profile_aggregate == null
+    if (data.containsKey('profile')) {
+      final l$profile = data['profile'];
+      result$data['profile'] = l$profile == null
           ? null
-          : Input$profile_aggregate_order_by.fromJson(
-              (l$profile_aggregate as Map<String, dynamic>));
+          : Input$profile_order_by.fromJson(
+              (l$profile as Map<String, dynamic>));
     }
     if (data.containsKey('refreshTokens_aggregate')) {
       final l$refreshTokens_aggregate = data['refreshTokens_aggregate'];
@@ -76482,12 +72213,17 @@ class Input$users_order_by {
 
   Map<String, dynamic> _$data;
 
+  Input$umkm_order_by? get UMKMById =>
+      (_$data['UMKMById'] as Input$umkm_order_by?);
   Enum$order_by? get activeMfaType =>
       (_$data['activeMfaType'] as Enum$order_by?);
+  Input$cs_message_aggregate_order_by? get agent_cs_messages_aggregate =>
+      (_$data['agent_cs_messages_aggregate']
+          as Input$cs_message_aggregate_order_by?);
   Enum$order_by? get avatarUrl => (_$data['avatarUrl'] as Enum$order_by?);
   Enum$order_by? get createdAt => (_$data['createdAt'] as Enum$order_by?);
-  Input$cs_message_aggregate_order_by? get cs_message_aggregate =>
-      (_$data['cs_message_aggregate'] as Input$cs_message_aggregate_order_by?);
+  Input$cs_message_aggregate_order_by? get cs_messages_aggregate =>
+      (_$data['cs_messages_aggregate'] as Input$cs_message_aggregate_order_by?);
   Enum$order_by? get currentChallenge =>
       (_$data['currentChallenge'] as Enum$order_by?);
   Enum$order_by? get defaultRole => (_$data['defaultRole'] as Enum$order_by?);
@@ -76499,8 +72235,8 @@ class Input$users_order_by {
   Enum$order_by? get emailVerified =>
       (_$data['emailVerified'] as Enum$order_by?);
   Enum$order_by? get id => (_$data['id'] as Enum$order_by?);
-  Input$investor_aggregate_order_by? get investor_aggregate =>
-      (_$data['investor_aggregate'] as Input$investor_aggregate_order_by?);
+  Input$investor_order_by? get investorById =>
+      (_$data['investorById'] as Input$investor_order_by?);
   Enum$order_by? get isAnonymous => (_$data['isAnonymous'] as Enum$order_by?);
   Enum$order_by? get lastSeen => (_$data['lastSeen'] as Enum$order_by?);
   Enum$order_by? get locale => (_$data['locale'] as Enum$order_by?);
@@ -76515,8 +72251,8 @@ class Input$users_order_by {
   Enum$order_by? get phoneNumber => (_$data['phoneNumber'] as Enum$order_by?);
   Enum$order_by? get phoneNumberVerified =>
       (_$data['phoneNumberVerified'] as Enum$order_by?);
-  Input$profile_aggregate_order_by? get profile_aggregate =>
-      (_$data['profile_aggregate'] as Input$profile_aggregate_order_by?);
+  Input$profile_order_by? get profile =>
+      (_$data['profile'] as Input$profile_order_by?);
   Input$authRefreshTokens_aggregate_order_by? get refreshTokens_aggregate =>
       (_$data['refreshTokens_aggregate']
           as Input$authRefreshTokens_aggregate_order_by?);
@@ -76535,11 +72271,20 @@ class Input$users_order_by {
           as Input$authUserProviders_aggregate_order_by?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('UMKMById')) {
+      final l$UMKMById = UMKMById;
+      result$data['UMKMById'] = l$UMKMById?.toJson();
+    }
     if (_$data.containsKey('activeMfaType')) {
       final l$activeMfaType = activeMfaType;
       result$data['activeMfaType'] = l$activeMfaType == null
           ? null
           : toJson$Enum$order_by(l$activeMfaType);
+    }
+    if (_$data.containsKey('agent_cs_messages_aggregate')) {
+      final l$agent_cs_messages_aggregate = agent_cs_messages_aggregate;
+      result$data['agent_cs_messages_aggregate'] =
+          l$agent_cs_messages_aggregate?.toJson();
     }
     if (_$data.containsKey('avatarUrl')) {
       final l$avatarUrl = avatarUrl;
@@ -76551,9 +72296,9 @@ class Input$users_order_by {
       result$data['createdAt'] =
           l$createdAt == null ? null : toJson$Enum$order_by(l$createdAt);
     }
-    if (_$data.containsKey('cs_message_aggregate')) {
-      final l$cs_message_aggregate = cs_message_aggregate;
-      result$data['cs_message_aggregate'] = l$cs_message_aggregate?.toJson();
+    if (_$data.containsKey('cs_messages_aggregate')) {
+      final l$cs_messages_aggregate = cs_messages_aggregate;
+      result$data['cs_messages_aggregate'] = l$cs_messages_aggregate?.toJson();
     }
     if (_$data.containsKey('currentChallenge')) {
       final l$currentChallenge = currentChallenge;
@@ -76595,9 +72340,9 @@ class Input$users_order_by {
       final l$id = id;
       result$data['id'] = l$id == null ? null : toJson$Enum$order_by(l$id);
     }
-    if (_$data.containsKey('investor_aggregate')) {
-      final l$investor_aggregate = investor_aggregate;
-      result$data['investor_aggregate'] = l$investor_aggregate?.toJson();
+    if (_$data.containsKey('investorById')) {
+      final l$investorById = investorById;
+      result$data['investorById'] = l$investorById?.toJson();
     }
     if (_$data.containsKey('isAnonymous')) {
       final l$isAnonymous = isAnonymous;
@@ -76657,9 +72402,9 @@ class Input$users_order_by {
           ? null
           : toJson$Enum$order_by(l$phoneNumberVerified);
     }
-    if (_$data.containsKey('profile_aggregate')) {
-      final l$profile_aggregate = profile_aggregate;
-      result$data['profile_aggregate'] = l$profile_aggregate?.toJson();
+    if (_$data.containsKey('profile')) {
+      final l$profile = profile;
+      result$data['profile'] = l$profile?.toJson();
     }
     if (_$data.containsKey('refreshTokens_aggregate')) {
       final l$refreshTokens_aggregate = refreshTokens_aggregate;
@@ -76717,6 +72462,15 @@ class Input$users_order_by {
     if (!(other is Input$users_order_by) || runtimeType != other.runtimeType) {
       return false;
     }
+    final l$UMKMById = UMKMById;
+    final lOther$UMKMById = other.UMKMById;
+    if (_$data.containsKey('UMKMById') !=
+        other._$data.containsKey('UMKMById')) {
+      return false;
+    }
+    if (l$UMKMById != lOther$UMKMById) {
+      return false;
+    }
     final l$activeMfaType = activeMfaType;
     final lOther$activeMfaType = other.activeMfaType;
     if (_$data.containsKey('activeMfaType') !=
@@ -76724,6 +72478,16 @@ class Input$users_order_by {
       return false;
     }
     if (l$activeMfaType != lOther$activeMfaType) {
+      return false;
+    }
+    final l$agent_cs_messages_aggregate = agent_cs_messages_aggregate;
+    final lOther$agent_cs_messages_aggregate =
+        other.agent_cs_messages_aggregate;
+    if (_$data.containsKey('agent_cs_messages_aggregate') !=
+        other._$data.containsKey('agent_cs_messages_aggregate')) {
+      return false;
+    }
+    if (l$agent_cs_messages_aggregate != lOther$agent_cs_messages_aggregate) {
       return false;
     }
     final l$avatarUrl = avatarUrl;
@@ -76744,13 +72508,13 @@ class Input$users_order_by {
     if (l$createdAt != lOther$createdAt) {
       return false;
     }
-    final l$cs_message_aggregate = cs_message_aggregate;
-    final lOther$cs_message_aggregate = other.cs_message_aggregate;
-    if (_$data.containsKey('cs_message_aggregate') !=
-        other._$data.containsKey('cs_message_aggregate')) {
+    final l$cs_messages_aggregate = cs_messages_aggregate;
+    final lOther$cs_messages_aggregate = other.cs_messages_aggregate;
+    if (_$data.containsKey('cs_messages_aggregate') !=
+        other._$data.containsKey('cs_messages_aggregate')) {
       return false;
     }
-    if (l$cs_message_aggregate != lOther$cs_message_aggregate) {
+    if (l$cs_messages_aggregate != lOther$cs_messages_aggregate) {
       return false;
     }
     final l$currentChallenge = currentChallenge;
@@ -76823,13 +72587,13 @@ class Input$users_order_by {
     if (l$id != lOther$id) {
       return false;
     }
-    final l$investor_aggregate = investor_aggregate;
-    final lOther$investor_aggregate = other.investor_aggregate;
-    if (_$data.containsKey('investor_aggregate') !=
-        other._$data.containsKey('investor_aggregate')) {
+    final l$investorById = investorById;
+    final lOther$investorById = other.investorById;
+    if (_$data.containsKey('investorById') !=
+        other._$data.containsKey('investorById')) {
       return false;
     }
-    if (l$investor_aggregate != lOther$investor_aggregate) {
+    if (l$investorById != lOther$investorById) {
       return false;
     }
     final l$isAnonymous = isAnonymous;
@@ -76929,13 +72693,12 @@ class Input$users_order_by {
     if (l$phoneNumberVerified != lOther$phoneNumberVerified) {
       return false;
     }
-    final l$profile_aggregate = profile_aggregate;
-    final lOther$profile_aggregate = other.profile_aggregate;
-    if (_$data.containsKey('profile_aggregate') !=
-        other._$data.containsKey('profile_aggregate')) {
+    final l$profile = profile;
+    final lOther$profile = other.profile;
+    if (_$data.containsKey('profile') != other._$data.containsKey('profile')) {
       return false;
     }
-    if (l$profile_aggregate != lOther$profile_aggregate) {
+    if (l$profile != lOther$profile) {
       return false;
     }
     final l$refreshTokens_aggregate = refreshTokens_aggregate;
@@ -77014,10 +72777,12 @@ class Input$users_order_by {
 
   @override
   int get hashCode {
+    final l$UMKMById = UMKMById;
     final l$activeMfaType = activeMfaType;
+    final l$agent_cs_messages_aggregate = agent_cs_messages_aggregate;
     final l$avatarUrl = avatarUrl;
     final l$createdAt = createdAt;
-    final l$cs_message_aggregate = cs_message_aggregate;
+    final l$cs_messages_aggregate = cs_messages_aggregate;
     final l$currentChallenge = currentChallenge;
     final l$defaultRole = defaultRole;
     final l$defaultRoleByRole = defaultRoleByRole;
@@ -77026,7 +72791,7 @@ class Input$users_order_by {
     final l$email = email;
     final l$emailVerified = emailVerified;
     final l$id = id;
-    final l$investor_aggregate = investor_aggregate;
+    final l$investorById = investorById;
     final l$isAnonymous = isAnonymous;
     final l$lastSeen = lastSeen;
     final l$locale = locale;
@@ -77038,7 +72803,7 @@ class Input$users_order_by {
     final l$passwordHash = passwordHash;
     final l$phoneNumber = phoneNumber;
     final l$phoneNumberVerified = phoneNumberVerified;
-    final l$profile_aggregate = profile_aggregate;
+    final l$profile = profile;
     final l$refreshTokens_aggregate = refreshTokens_aggregate;
     final l$roles_aggregate = roles_aggregate;
     final l$securityKeys_aggregate = securityKeys_aggregate;
@@ -77048,11 +72813,15 @@ class Input$users_order_by {
     final l$updatedAt = updatedAt;
     final l$userProviders_aggregate = userProviders_aggregate;
     return Object.hashAll([
+      _$data.containsKey('UMKMById') ? l$UMKMById : const {},
       _$data.containsKey('activeMfaType') ? l$activeMfaType : const {},
+      _$data.containsKey('agent_cs_messages_aggregate')
+          ? l$agent_cs_messages_aggregate
+          : const {},
       _$data.containsKey('avatarUrl') ? l$avatarUrl : const {},
       _$data.containsKey('createdAt') ? l$createdAt : const {},
-      _$data.containsKey('cs_message_aggregate')
-          ? l$cs_message_aggregate
+      _$data.containsKey('cs_messages_aggregate')
+          ? l$cs_messages_aggregate
           : const {},
       _$data.containsKey('currentChallenge') ? l$currentChallenge : const {},
       _$data.containsKey('defaultRole') ? l$defaultRole : const {},
@@ -77062,9 +72831,7 @@ class Input$users_order_by {
       _$data.containsKey('email') ? l$email : const {},
       _$data.containsKey('emailVerified') ? l$emailVerified : const {},
       _$data.containsKey('id') ? l$id : const {},
-      _$data.containsKey('investor_aggregate')
-          ? l$investor_aggregate
-          : const {},
+      _$data.containsKey('investorById') ? l$investorById : const {},
       _$data.containsKey('isAnonymous') ? l$isAnonymous : const {},
       _$data.containsKey('lastSeen') ? l$lastSeen : const {},
       _$data.containsKey('locale') ? l$locale : const {},
@@ -77078,7 +72845,7 @@ class Input$users_order_by {
       _$data.containsKey('phoneNumberVerified')
           ? l$phoneNumberVerified
           : const {},
-      _$data.containsKey('profile_aggregate') ? l$profile_aggregate : const {},
+      _$data.containsKey('profile') ? l$profile : const {},
       _$data.containsKey('refreshTokens_aggregate')
           ? l$refreshTokens_aggregate
           : const {},
@@ -77107,10 +72874,12 @@ abstract class CopyWith$Input$users_order_by<TRes> {
       _CopyWithStubImpl$Input$users_order_by;
 
   TRes call({
+    Input$umkm_order_by? UMKMById,
     Enum$order_by? activeMfaType,
+    Input$cs_message_aggregate_order_by? agent_cs_messages_aggregate,
     Enum$order_by? avatarUrl,
     Enum$order_by? createdAt,
-    Input$cs_message_aggregate_order_by? cs_message_aggregate,
+    Input$cs_message_aggregate_order_by? cs_messages_aggregate,
     Enum$order_by? currentChallenge,
     Enum$order_by? defaultRole,
     Input$authRoles_order_by? defaultRoleByRole,
@@ -77119,7 +72888,7 @@ abstract class CopyWith$Input$users_order_by<TRes> {
     Enum$order_by? email,
     Enum$order_by? emailVerified,
     Enum$order_by? id,
-    Input$investor_aggregate_order_by? investor_aggregate,
+    Input$investor_order_by? investorById,
     Enum$order_by? isAnonymous,
     Enum$order_by? lastSeen,
     Enum$order_by? locale,
@@ -77131,7 +72900,7 @@ abstract class CopyWith$Input$users_order_by<TRes> {
     Enum$order_by? passwordHash,
     Enum$order_by? phoneNumber,
     Enum$order_by? phoneNumberVerified,
-    Input$profile_aggregate_order_by? profile_aggregate,
+    Input$profile_order_by? profile,
     Input$authRefreshTokens_aggregate_order_by? refreshTokens_aggregate,
     Input$authUserRoles_aggregate_order_by? roles_aggregate,
     Input$authUserSecurityKeys_aggregate_order_by? securityKeys_aggregate,
@@ -77141,10 +72910,13 @@ abstract class CopyWith$Input$users_order_by<TRes> {
     Enum$order_by? updatedAt,
     Input$authUserProviders_aggregate_order_by? userProviders_aggregate,
   });
-  CopyWith$Input$cs_message_aggregate_order_by<TRes> get cs_message_aggregate;
+  CopyWith$Input$umkm_order_by<TRes> get UMKMById;
+  CopyWith$Input$cs_message_aggregate_order_by<TRes>
+      get agent_cs_messages_aggregate;
+  CopyWith$Input$cs_message_aggregate_order_by<TRes> get cs_messages_aggregate;
   CopyWith$Input$authRoles_order_by<TRes> get defaultRoleByRole;
-  CopyWith$Input$investor_aggregate_order_by<TRes> get investor_aggregate;
-  CopyWith$Input$profile_aggregate_order_by<TRes> get profile_aggregate;
+  CopyWith$Input$investor_order_by<TRes> get investorById;
+  CopyWith$Input$profile_order_by<TRes> get profile;
   CopyWith$Input$authRefreshTokens_aggregate_order_by<TRes>
       get refreshTokens_aggregate;
   CopyWith$Input$authUserRoles_aggregate_order_by<TRes> get roles_aggregate;
@@ -77168,10 +72940,12 @@ class _CopyWithImpl$Input$users_order_by<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? UMKMById = _undefined,
     Object? activeMfaType = _undefined,
+    Object? agent_cs_messages_aggregate = _undefined,
     Object? avatarUrl = _undefined,
     Object? createdAt = _undefined,
-    Object? cs_message_aggregate = _undefined,
+    Object? cs_messages_aggregate = _undefined,
     Object? currentChallenge = _undefined,
     Object? defaultRole = _undefined,
     Object? defaultRoleByRole = _undefined,
@@ -77180,7 +72954,7 @@ class _CopyWithImpl$Input$users_order_by<TRes>
     Object? email = _undefined,
     Object? emailVerified = _undefined,
     Object? id = _undefined,
-    Object? investor_aggregate = _undefined,
+    Object? investorById = _undefined,
     Object? isAnonymous = _undefined,
     Object? lastSeen = _undefined,
     Object? locale = _undefined,
@@ -77192,7 +72966,7 @@ class _CopyWithImpl$Input$users_order_by<TRes>
     Object? passwordHash = _undefined,
     Object? phoneNumber = _undefined,
     Object? phoneNumberVerified = _undefined,
-    Object? profile_aggregate = _undefined,
+    Object? profile = _undefined,
     Object? refreshTokens_aggregate = _undefined,
     Object? roles_aggregate = _undefined,
     Object? securityKeys_aggregate = _undefined,
@@ -77204,13 +72978,18 @@ class _CopyWithImpl$Input$users_order_by<TRes>
   }) =>
       _then(Input$users_order_by._({
         ..._instance._$data,
+        if (UMKMById != _undefined)
+          'UMKMById': (UMKMById as Input$umkm_order_by?),
         if (activeMfaType != _undefined)
           'activeMfaType': (activeMfaType as Enum$order_by?),
+        if (agent_cs_messages_aggregate != _undefined)
+          'agent_cs_messages_aggregate': (agent_cs_messages_aggregate
+              as Input$cs_message_aggregate_order_by?),
         if (avatarUrl != _undefined) 'avatarUrl': (avatarUrl as Enum$order_by?),
         if (createdAt != _undefined) 'createdAt': (createdAt as Enum$order_by?),
-        if (cs_message_aggregate != _undefined)
-          'cs_message_aggregate':
-              (cs_message_aggregate as Input$cs_message_aggregate_order_by?),
+        if (cs_messages_aggregate != _undefined)
+          'cs_messages_aggregate':
+              (cs_messages_aggregate as Input$cs_message_aggregate_order_by?),
         if (currentChallenge != _undefined)
           'currentChallenge': (currentChallenge as Enum$order_by?),
         if (defaultRole != _undefined)
@@ -77224,9 +73003,8 @@ class _CopyWithImpl$Input$users_order_by<TRes>
         if (emailVerified != _undefined)
           'emailVerified': (emailVerified as Enum$order_by?),
         if (id != _undefined) 'id': (id as Enum$order_by?),
-        if (investor_aggregate != _undefined)
-          'investor_aggregate':
-              (investor_aggregate as Input$investor_aggregate_order_by?),
+        if (investorById != _undefined)
+          'investorById': (investorById as Input$investor_order_by?),
         if (isAnonymous != _undefined)
           'isAnonymous': (isAnonymous as Enum$order_by?),
         if (lastSeen != _undefined) 'lastSeen': (lastSeen as Enum$order_by?),
@@ -77244,9 +73022,8 @@ class _CopyWithImpl$Input$users_order_by<TRes>
           'phoneNumber': (phoneNumber as Enum$order_by?),
         if (phoneNumberVerified != _undefined)
           'phoneNumberVerified': (phoneNumberVerified as Enum$order_by?),
-        if (profile_aggregate != _undefined)
-          'profile_aggregate':
-              (profile_aggregate as Input$profile_aggregate_order_by?),
+        if (profile != _undefined)
+          'profile': (profile as Input$profile_order_by?),
         if (refreshTokens_aggregate != _undefined)
           'refreshTokens_aggregate': (refreshTokens_aggregate
               as Input$authRefreshTokens_aggregate_order_by?),
@@ -77266,12 +73043,31 @@ class _CopyWithImpl$Input$users_order_by<TRes>
           'userProviders_aggregate': (userProviders_aggregate
               as Input$authUserProviders_aggregate_order_by?),
       }));
-  CopyWith$Input$cs_message_aggregate_order_by<TRes> get cs_message_aggregate {
-    final local$cs_message_aggregate = _instance.cs_message_aggregate;
-    return local$cs_message_aggregate == null
+  CopyWith$Input$umkm_order_by<TRes> get UMKMById {
+    final local$UMKMById = _instance.UMKMById;
+    return local$UMKMById == null
+        ? CopyWith$Input$umkm_order_by.stub(_then(_instance))
+        : CopyWith$Input$umkm_order_by(
+            local$UMKMById, (e) => call(UMKMById: e));
+  }
+
+  CopyWith$Input$cs_message_aggregate_order_by<TRes>
+      get agent_cs_messages_aggregate {
+    final local$agent_cs_messages_aggregate =
+        _instance.agent_cs_messages_aggregate;
+    return local$agent_cs_messages_aggregate == null
         ? CopyWith$Input$cs_message_aggregate_order_by.stub(_then(_instance))
         : CopyWith$Input$cs_message_aggregate_order_by(
-            local$cs_message_aggregate, (e) => call(cs_message_aggregate: e));
+            local$agent_cs_messages_aggregate,
+            (e) => call(agent_cs_messages_aggregate: e));
+  }
+
+  CopyWith$Input$cs_message_aggregate_order_by<TRes> get cs_messages_aggregate {
+    final local$cs_messages_aggregate = _instance.cs_messages_aggregate;
+    return local$cs_messages_aggregate == null
+        ? CopyWith$Input$cs_message_aggregate_order_by.stub(_then(_instance))
+        : CopyWith$Input$cs_message_aggregate_order_by(
+            local$cs_messages_aggregate, (e) => call(cs_messages_aggregate: e));
   }
 
   CopyWith$Input$authRoles_order_by<TRes> get defaultRoleByRole {
@@ -77282,20 +73078,20 @@ class _CopyWithImpl$Input$users_order_by<TRes>
             local$defaultRoleByRole, (e) => call(defaultRoleByRole: e));
   }
 
-  CopyWith$Input$investor_aggregate_order_by<TRes> get investor_aggregate {
-    final local$investor_aggregate = _instance.investor_aggregate;
-    return local$investor_aggregate == null
-        ? CopyWith$Input$investor_aggregate_order_by.stub(_then(_instance))
-        : CopyWith$Input$investor_aggregate_order_by(
-            local$investor_aggregate, (e) => call(investor_aggregate: e));
+  CopyWith$Input$investor_order_by<TRes> get investorById {
+    final local$investorById = _instance.investorById;
+    return local$investorById == null
+        ? CopyWith$Input$investor_order_by.stub(_then(_instance))
+        : CopyWith$Input$investor_order_by(
+            local$investorById, (e) => call(investorById: e));
   }
 
-  CopyWith$Input$profile_aggregate_order_by<TRes> get profile_aggregate {
-    final local$profile_aggregate = _instance.profile_aggregate;
-    return local$profile_aggregate == null
-        ? CopyWith$Input$profile_aggregate_order_by.stub(_then(_instance))
-        : CopyWith$Input$profile_aggregate_order_by(
-            local$profile_aggregate, (e) => call(profile_aggregate: e));
+  CopyWith$Input$profile_order_by<TRes> get profile {
+    final local$profile = _instance.profile;
+    return local$profile == null
+        ? CopyWith$Input$profile_order_by.stub(_then(_instance))
+        : CopyWith$Input$profile_order_by(
+            local$profile, (e) => call(profile: e));
   }
 
   CopyWith$Input$authRefreshTokens_aggregate_order_by<TRes>
@@ -77347,10 +73143,12 @@ class _CopyWithStubImpl$Input$users_order_by<TRes>
   TRes _res;
 
   call({
+    Input$umkm_order_by? UMKMById,
     Enum$order_by? activeMfaType,
+    Input$cs_message_aggregate_order_by? agent_cs_messages_aggregate,
     Enum$order_by? avatarUrl,
     Enum$order_by? createdAt,
-    Input$cs_message_aggregate_order_by? cs_message_aggregate,
+    Input$cs_message_aggregate_order_by? cs_messages_aggregate,
     Enum$order_by? currentChallenge,
     Enum$order_by? defaultRole,
     Input$authRoles_order_by? defaultRoleByRole,
@@ -77359,7 +73157,7 @@ class _CopyWithStubImpl$Input$users_order_by<TRes>
     Enum$order_by? email,
     Enum$order_by? emailVerified,
     Enum$order_by? id,
-    Input$investor_aggregate_order_by? investor_aggregate,
+    Input$investor_order_by? investorById,
     Enum$order_by? isAnonymous,
     Enum$order_by? lastSeen,
     Enum$order_by? locale,
@@ -77371,7 +73169,7 @@ class _CopyWithStubImpl$Input$users_order_by<TRes>
     Enum$order_by? passwordHash,
     Enum$order_by? phoneNumber,
     Enum$order_by? phoneNumberVerified,
-    Input$profile_aggregate_order_by? profile_aggregate,
+    Input$profile_order_by? profile,
     Input$authRefreshTokens_aggregate_order_by? refreshTokens_aggregate,
     Input$authUserRoles_aggregate_order_by? roles_aggregate,
     Input$authUserSecurityKeys_aggregate_order_by? securityKeys_aggregate,
@@ -77382,14 +73180,20 @@ class _CopyWithStubImpl$Input$users_order_by<TRes>
     Input$authUserProviders_aggregate_order_by? userProviders_aggregate,
   }) =>
       _res;
-  CopyWith$Input$cs_message_aggregate_order_by<TRes> get cs_message_aggregate =>
-      CopyWith$Input$cs_message_aggregate_order_by.stub(_res);
+  CopyWith$Input$umkm_order_by<TRes> get UMKMById =>
+      CopyWith$Input$umkm_order_by.stub(_res);
+  CopyWith$Input$cs_message_aggregate_order_by<TRes>
+      get agent_cs_messages_aggregate =>
+          CopyWith$Input$cs_message_aggregate_order_by.stub(_res);
+  CopyWith$Input$cs_message_aggregate_order_by<TRes>
+      get cs_messages_aggregate =>
+          CopyWith$Input$cs_message_aggregate_order_by.stub(_res);
   CopyWith$Input$authRoles_order_by<TRes> get defaultRoleByRole =>
       CopyWith$Input$authRoles_order_by.stub(_res);
-  CopyWith$Input$investor_aggregate_order_by<TRes> get investor_aggregate =>
-      CopyWith$Input$investor_aggregate_order_by.stub(_res);
-  CopyWith$Input$profile_aggregate_order_by<TRes> get profile_aggregate =>
-      CopyWith$Input$profile_aggregate_order_by.stub(_res);
+  CopyWith$Input$investor_order_by<TRes> get investorById =>
+      CopyWith$Input$investor_order_by.stub(_res);
+  CopyWith$Input$profile_order_by<TRes> get profile =>
+      CopyWith$Input$profile_order_by.stub(_res);
   CopyWith$Input$authRefreshTokens_aggregate_order_by<TRes>
       get refreshTokens_aggregate =>
           CopyWith$Input$authRefreshTokens_aggregate_order_by.stub(_res);
@@ -81080,6 +76884,7 @@ enum Enum$cs_message_select_column {
   cs_message_date,
   cs_message_id,
   updated_at,
+  user_id,
   $unknown
 }
 
@@ -81097,6 +76902,8 @@ String toJson$Enum$cs_message_select_column(Enum$cs_message_select_column e) {
       return r'cs_message_id';
     case Enum$cs_message_select_column.updated_at:
       return r'updated_at';
+    case Enum$cs_message_select_column.user_id:
+      return r'user_id';
     case Enum$cs_message_select_column.$unknown:
       return r'$unknown';
   }
@@ -81117,6 +76924,8 @@ Enum$cs_message_select_column fromJson$Enum$cs_message_select_column(
       return Enum$cs_message_select_column.cs_message_id;
     case r'updated_at':
       return Enum$cs_message_select_column.updated_at;
+    case r'user_id':
+      return Enum$cs_message_select_column.user_id;
     default:
       return Enum$cs_message_select_column.$unknown;
   }
@@ -81128,6 +76937,7 @@ enum Enum$cs_message_update_column {
   cs_message_content,
   cs_message_date,
   updated_at,
+  user_id,
   $unknown
 }
 
@@ -81143,6 +76953,8 @@ String toJson$Enum$cs_message_update_column(Enum$cs_message_update_column e) {
       return r'cs_message_date';
     case Enum$cs_message_update_column.updated_at:
       return r'updated_at';
+    case Enum$cs_message_update_column.user_id:
+      return r'user_id';
     case Enum$cs_message_update_column.$unknown:
       return r'$unknown';
   }
@@ -81161,6 +76973,8 @@ Enum$cs_message_update_column fromJson$Enum$cs_message_update_column(
       return Enum$cs_message_update_column.cs_message_date;
     case r'updated_at':
       return Enum$cs_message_update_column.updated_at;
+    case r'user_id':
+      return Enum$cs_message_update_column.user_id;
     default:
       return Enum$cs_message_update_column.$unknown;
   }
@@ -81521,12 +77335,14 @@ Enum$investment_update_column fromJson$Enum$investment_update_column(
   }
 }
 
-enum Enum$investor_constraint { investor_pkey, $unknown }
+enum Enum$investor_constraint { investor_pkey, investor_user_id_key, $unknown }
 
 String toJson$Enum$investor_constraint(Enum$investor_constraint e) {
   switch (e) {
     case Enum$investor_constraint.investor_pkey:
       return r'investor_pkey';
+    case Enum$investor_constraint.investor_user_id_key:
+      return r'investor_user_id_key';
     case Enum$investor_constraint.$unknown:
       return r'$unknown';
   }
@@ -81536,6 +77352,8 @@ Enum$investor_constraint fromJson$Enum$investor_constraint(String value) {
   switch (value) {
     case r'investor_pkey':
       return Enum$investor_constraint.investor_pkey;
+    case r'investor_user_id_key':
+      return Enum$investor_constraint.investor_user_id_key;
     default:
       return Enum$investor_constraint.$unknown;
   }
@@ -81680,12 +77498,14 @@ Enum$order_by fromJson$Enum$order_by(String value) {
   }
 }
 
-enum Enum$profile_constraint { profile_pkey, $unknown }
+enum Enum$profile_constraint { profile_pkey, profile_user_id_key, $unknown }
 
 String toJson$Enum$profile_constraint(Enum$profile_constraint e) {
   switch (e) {
     case Enum$profile_constraint.profile_pkey:
       return r'profile_pkey';
+    case Enum$profile_constraint.profile_user_id_key:
+      return r'profile_user_id_key';
     case Enum$profile_constraint.$unknown:
       return r'$unknown';
   }
@@ -81695,6 +77515,8 @@ Enum$profile_constraint fromJson$Enum$profile_constraint(String value) {
   switch (value) {
     case r'profile_pkey':
       return Enum$profile_constraint.profile_pkey;
+    case r'profile_user_id_key':
+      return Enum$profile_constraint.profile_user_id_key;
     default:
       return Enum$profile_constraint.$unknown;
   }
@@ -81854,6 +77676,7 @@ Enum$proposal_constraint fromJson$Enum$proposal_constraint(String value) {
 enum Enum$proposal_select_column {
   created_at,
   proposal_amount,
+  proposal_approved,
   proposal_content,
   proposal_date,
   proposal_id,
@@ -81868,6 +77691,8 @@ String toJson$Enum$proposal_select_column(Enum$proposal_select_column e) {
       return r'created_at';
     case Enum$proposal_select_column.proposal_amount:
       return r'proposal_amount';
+    case Enum$proposal_select_column.proposal_approved:
+      return r'proposal_approved';
     case Enum$proposal_select_column.proposal_content:
       return r'proposal_content';
     case Enum$proposal_select_column.proposal_date:
@@ -81889,6 +77714,8 @@ Enum$proposal_select_column fromJson$Enum$proposal_select_column(String value) {
       return Enum$proposal_select_column.created_at;
     case r'proposal_amount':
       return Enum$proposal_select_column.proposal_amount;
+    case r'proposal_approved':
+      return Enum$proposal_select_column.proposal_approved;
     case r'proposal_content':
       return Enum$proposal_select_column.proposal_content;
     case r'proposal_date':
@@ -81904,9 +77731,72 @@ Enum$proposal_select_column fromJson$Enum$proposal_select_column(String value) {
   }
 }
 
+enum Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_and_arguments_columns {
+  proposal_approved,
+  $unknown
+}
+
+String toJson$Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_and_arguments_columns(
+    Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_and_arguments_columns
+        e) {
+  switch (e) {
+    case Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_and_arguments_columns
+          .proposal_approved:
+      return r'proposal_approved';
+    case Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_and_arguments_columns
+          .$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_and_arguments_columns
+    fromJson$Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_and_arguments_columns(
+        String value) {
+  switch (value) {
+    case r'proposal_approved':
+      return Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_and_arguments_columns
+          .proposal_approved;
+    default:
+      return Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_and_arguments_columns
+          .$unknown;
+  }
+}
+
+enum Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_or_arguments_columns {
+  proposal_approved,
+  $unknown
+}
+
+String toJson$Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_or_arguments_columns(
+    Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_or_arguments_columns
+        e) {
+  switch (e) {
+    case Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_or_arguments_columns
+          .proposal_approved:
+      return r'proposal_approved';
+    case Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_or_arguments_columns
+          .$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_or_arguments_columns
+    fromJson$Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_or_arguments_columns(
+        String value) {
+  switch (value) {
+    case r'proposal_approved':
+      return Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_or_arguments_columns
+          .proposal_approved;
+    default:
+      return Enum$proposal_select_column_proposal_aggregate_bool_exp_bool_or_arguments_columns
+          .$unknown;
+  }
+}
+
 enum Enum$proposal_update_column {
   created_at,
   proposal_amount,
+  proposal_approved,
   proposal_content,
   proposal_date,
   umkm_id,
@@ -81920,6 +77810,8 @@ String toJson$Enum$proposal_update_column(Enum$proposal_update_column e) {
       return r'created_at';
     case Enum$proposal_update_column.proposal_amount:
       return r'proposal_amount';
+    case Enum$proposal_update_column.proposal_approved:
+      return r'proposal_approved';
     case Enum$proposal_update_column.proposal_content:
       return r'proposal_content';
     case Enum$proposal_update_column.proposal_date:
@@ -81939,6 +77831,8 @@ Enum$proposal_update_column fromJson$Enum$proposal_update_column(String value) {
       return Enum$proposal_update_column.created_at;
     case r'proposal_amount':
       return Enum$proposal_update_column.proposal_amount;
+    case r'proposal_approved':
+      return Enum$proposal_update_column.proposal_approved;
     case r'proposal_content':
       return Enum$proposal_update_column.proposal_content;
     case r'proposal_date':
@@ -81952,12 +77846,14 @@ Enum$proposal_update_column fromJson$Enum$proposal_update_column(String value) {
   }
 }
 
-enum Enum$umkm_constraint { umkm_pkey, $unknown }
+enum Enum$umkm_constraint { umkm_pkey, umkm_user_id_key, $unknown }
 
 String toJson$Enum$umkm_constraint(Enum$umkm_constraint e) {
   switch (e) {
     case Enum$umkm_constraint.umkm_pkey:
       return r'umkm_pkey';
+    case Enum$umkm_constraint.umkm_user_id_key:
+      return r'umkm_user_id_key';
     case Enum$umkm_constraint.$unknown:
       return r'$unknown';
   }
@@ -81967,6 +77863,8 @@ Enum$umkm_constraint fromJson$Enum$umkm_constraint(String value) {
   switch (value) {
     case r'umkm_pkey':
       return Enum$umkm_constraint.umkm_pkey;
+    case r'umkm_user_id_key':
+      return Enum$umkm_constraint.umkm_user_id_key;
     default:
       return Enum$umkm_constraint.$unknown;
   }

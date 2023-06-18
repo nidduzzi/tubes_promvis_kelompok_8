@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:tubes_promvis_kelompok_8/src/widgets/Proposal/proposal_form.dart';
+import 'package:tubes_promvis_kelompok_8/src/logger.dart';
+import 'package:tubes_promvis_kelompok_8/src/widgets/proposal/proposal_form.dart';
 
 class ProposalPage extends StatefulWidget {
   const ProposalPage({Key? key}) : super(key: key);
 
   @override
-  _ProposalPageState createState() => _ProposalPageState();
+  ProposalPageState createState() => ProposalPageState();
 }
 
-class _ProposalPageState extends State<ProposalPage> {
+class ProposalPageState extends State<ProposalPage> {
   int formKey = 0;
 
-  final TextEditingController proposalContentController = TextEditingController();
+  final TextEditingController proposalContentController =
+      TextEditingController();
 
   void handleCancel() {
     setState(() {
@@ -20,13 +22,12 @@ class _ProposalPageState extends State<ProposalPage> {
     });
   }
 
-
   void handleContinue() {
     // Implement the continue functionality
   }
 
   void handleGoTo(int index) {
-    print('handleGoTo called');
+    Logger.talker.log('handleGoTo called');
     // Implement the go to functionality
   }
 

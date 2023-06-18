@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/proposal.graphql.dart';
-import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/umkm.graphql.dart';
-import 'package:tubes_promvis_kelompok_8/src/widgets/Proposal/proposal_table.dart';
-import 'package:tubes_promvis_kelompok_8/src/widgets/customer_service/csmessage_table.dart';
-import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/cs_message.graphql.dart';
-import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
+import 'package:tubes_promvis_kelompok_8/src/widgets/proposal/proposal_table.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class ViewProposalQueryWidget extends HookWidget {
+  const ViewProposalQueryWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +28,8 @@ class ViewProposalQueryWidget extends HookWidget {
             ),
           ),
         ),
-        ProposalTable(listProposal: listProposal), // Display the CSMessageTable widget
+        ProposalTable(
+            listProposal: listProposal), // Display the CSMessageTable widget
       ],
     );
   }
@@ -42,11 +40,11 @@ class ViewProposalPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    return Scaffold(
+    return const Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(left: 55, right: 55, top: 100, bottom: 100),
-        child: ViewProposalQueryWidget(), // Pass the userId to the ViewProposalQueryWidget
+        padding: EdgeInsets.only(left: 55, right: 55, top: 100, bottom: 100),
+        child:
+            ViewProposalQueryWidget(), // Pass the userId to the ViewProposalQueryWidget
       ),
     );
   }

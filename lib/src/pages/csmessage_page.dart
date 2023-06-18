@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 import 'package:tubes_promvis_kelompok_8/src/widgets/customer_service/csmessage_form.dart';
 
 class CSPage extends StatefulWidget {
   const CSPage({Key? key}) : super(key: key);
 
   @override
-  _CSPageState createState() => _CSPageState();
+  CSPageState createState() => CSPageState();
 }
 
-class _CSPageState extends State<CSPage> {
+class CSPageState extends State<CSPage> {
   int formKey = 0;
 
   final TextEditingController messageController = TextEditingController();
@@ -20,13 +21,12 @@ class _CSPageState extends State<CSPage> {
     });
   }
 
-
   void handleContinue() {
     // Implement the continue functionality
   }
 
   void handleGoTo(int index) {
-    print('handleGoTo called');
+    Logger.talker.log('handleGoTo called');
     // Implement the go to functionality
   }
 

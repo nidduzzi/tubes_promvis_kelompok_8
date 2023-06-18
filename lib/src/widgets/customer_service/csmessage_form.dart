@@ -2,7 +2,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
@@ -39,12 +38,10 @@ class CSForm extends HookWidget {
     }
 
     final sendMessage = useMutation$InsertCsMessageMutation();
-    final getMessage = useQuery$GetAllCsMessageQuery(
-      Options$Query$GetAllCsMessageQuery(
-        variables: Variables$Query$GetAllCsMessageQuery(
-          where: Input$cs_message_bool_exp(
-            cs_agent_user_id: Input$uuid_comparison_exp($_eq: userId),
-          ),
+    final getMessage = useQuery$GetAllCsMessageUserQuery(
+      Options$Query$GetAllCsMessageUserQuery(
+        variables: Variables$Query$GetAllCsMessageUserQuery(
+          user_id: userId,
         ),
       ),
     );
@@ -62,17 +59,17 @@ class CSForm extends HookWidget {
 
         isLoading.value = true;
 
-        final res = await sendMessage.runMutation(
-          Variables$Mutation$InsertCsMessageMutation(
-            data: Input$cs_message_insert_input(
-              cs_message_content: messageController.text,
-              cs_agent_user_id: userId,
-              cs_message_date: DateTime.now(),
-              created_at: DateTime.now(),
-              updated_at: DateTime.now(),
-            ),
-          ),
-        ).networkResult;
+        final res = await sendMessage
+            .runMutation(
+              Variables$Mutation$InsertCsMessageMutation(
+                data: Input$cs_message_insert_input(
+                  cs_message_content: messageController.text,
+                  user_id: userId,
+                  cs_message_date: DateTime.now(),
+                ),
+              ),
+            )
+            .networkResult;
 
         if (res?.hasException == true) {
           Logger.talker.error("send message failed", res?.exception);
@@ -81,12 +78,13 @@ class CSForm extends HookWidget {
 
         messageController.clear();
 
-        getMessage.refetch();
+        await getMessage.refetch();
 
         return true;
       } on ApiException catch (err, st) {
         final decodedBody = const JsonDecoder().convert(err.response.body);
-        final reasonPhrase = decodedBody["message"] != null ? ": ${decodedBody["message"]}" : "";
+        final reasonPhrase =
+            decodedBody["message"] != null ? ": ${decodedBody["message"]}" : "";
         Logger.talker.error("Failed to send message", err, st);
 
         ScaffoldMessenger.of(context).showSnackBar(
@@ -114,77 +112,76 @@ class CSForm extends HookWidget {
     final listMessage = getMessage.result.parsedData?.cs_message;
 
     return Scaffold(
-      body: SafeArea(
-        child: ListView(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 40, left: 65, right: 65),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(top: 8, bottom: 16),
-                    child: Text(
-                      'Contact Customer Service',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+      body: ListView(
+        physics: const ClampingScrollPhysics(),
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 40, left: 65, right: 65),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(top: 8, bottom: 16),
+                  child: Text(
+                    'Contact Customer Service',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Form(
-                    key: formKey,
-                    child: TextFormField(
-                      controller: messageController,
-                      decoration: const InputDecoration(
-                        labelText: 'Message',
-                      ),
-                      validator: FormBuilderValidators.compose([
-                        FormBuilderValidators.required(),
-                        FormBuilderValidators.minLength(1),
-                      ]),
-                      onFieldSubmitted: (_) => trySendMessage(),
+                ),
+                Form(
+                  key: formKey,
+                  child: TextFormField(
+                    controller: messageController,
+                    decoration: const InputDecoration(
+                      labelText: 'Message',
                     ),
+                    validator: FormBuilderValidators.compose([
+                      FormBuilderValidators.required(),
+                      FormBuilderValidators.minLength(1),
+                    ]),
+                    onFieldSubmitted: (_) => trySendMessage(),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Row(
-                        children: [
-                          ElevatedButton(
-                            onPressed: handleCancel,
-                            style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(vertical: 12),
-                            ),
-                            child: const Text('Cancel'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Row(
+                      children: [
+                        ElevatedButton(
+                          onPressed: handleCancel,
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(vertical: 12),
                           ),
-                          const SizedBox(width: 16),
-                          ElevatedButton(
-                            onPressed: () {
-                              isFormSubmitted.value = true;
-                              if (formKey.currentState?.validate() ?? false) {
-                                trySendMessage();
-                              }
-                            },
-                            style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(vertical: 12),
-                            ),
-                            child: isLoading.value
-                                ? const Spinner()
-                                : const Text('Send'),
+                          child: const Text('Cancel'),
+                        ),
+                        const SizedBox(width: 16),
+                        ElevatedButton(
+                          onPressed: () {
+                            isFormSubmitted.value = true;
+                            if (formKey.currentState?.validate() ?? false) {
+                              trySendMessage();
+                            }
+                          },
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(vertical: 12),
                           ),
-                        ],
-                      ),
+                          child: isLoading.value
+                              ? const Spinner()
+                              : const Text('Send'),
+                        ),
+                      ],
                     ),
                   ),
-                  const SizedBox(height: 80),
-                  CSMessageTable(listMessage: listMessage),
-                ],
-              ),
+                ),
+                const SizedBox(height: 80),
+                CSMessageTable(listMessage: listMessage),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -31,11 +31,30 @@ class RouteNavbarParams {
 }
 
 class RouteParams {
+  String name;
   String path;
+  String? redirect;
   Widget Function(BuildContext context, GoRouterState state)
       builder; // path page
-  bool private;
-  RouteParams({required this.path, required this.builder, this.private = true});
+
+  List<String> allowedRoles;
+  bool publicOnly; // flag if route can't be accessed when logged in
+  List<RouteParams> children;
+
+  RouteParams({
+    required this.name,
+    required this.path,
+    this.redirect,
+    required this.builder,
+    this.allowedRoles = const [],
+    this.publicOnly = false,
+    this.children = const [],
+  }) {
+    if (allowedRoles.isNotEmpty && publicOnly == true) {
+      throw Exception(
+          "Route params cannot be both private (allowedRoles not empty) and publicOnly=true");
+    }
+  }
 
   @override
   bool operator ==(Object other) =>
