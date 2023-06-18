@@ -32,7 +32,7 @@ class AppShell extends HookWidget {
     } else if (isAuthLoadingAppAuthState(appAuthState)) {
       child = const Spinner();
     } else {
-      Logger.talker.error("Bad authentication state", appAuthState);
+      Logger.talker.error("Bad authentication state ${appAuthState.authState}");
       child = const Text("Authentication error in app shell");
     }
     return Scaffold(

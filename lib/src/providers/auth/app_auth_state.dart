@@ -37,12 +37,11 @@ class AppAuthState with ChangeNotifier {
   late NhostClient _nhostClient;
   late SharedPreferencesAuthStore _authStore;
   late AuthenticationState _authState;
-  SharedPreferencesAuthStore get authStore => _authStore;
-  AuthenticationState get authState {
-    return _authState;
-  }
 
+  SharedPreferencesAuthStore get authStore => _authStore;
+  AuthenticationState get authState => _authState;
   NhostClient get nhostClient => _nhostClient;
+  NhostAuthClient get auth => _nhostClient.auth;
 
   Future<void> loginFromStoredCredentials() async {
     if ((await authStore.getString('nhostRefreshToken')) != null) {

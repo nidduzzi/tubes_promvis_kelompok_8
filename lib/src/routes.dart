@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 import 'package:tubes_promvis_kelompok_8/src/helpers/auth.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/blog_page.dart';
@@ -119,6 +120,12 @@ class AppRouter {
       path: '/portofolio',
       builder: (context, state) => const PortofolioPage(),
       allowedRoles: ['umkm', 'investor', 'cs', 'admin'],
+    ),
+    RouteParams(
+      name: 'talker',
+      path: '/talker',
+      builder: (context, state) => TalkerScreen(talker: Logger.talker),
+      allowedRoles: [],
     ),
   ];
   static final routeSet = routes.toSet();

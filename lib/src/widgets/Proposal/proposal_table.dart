@@ -14,10 +14,12 @@ class ProposalTable extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: SingleChildScrollView(
+        physics: const ClampingScrollPhysics(),
         child: Column(
           children: [
             Center(
               child: SingleChildScrollView(
+                physics: const ClampingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 child: DataTable(
                   columns: [
@@ -43,9 +45,10 @@ class ProposalTable extends StatelessWidget {
                             ),
                             DataCell(
                               SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.6,
-                                child:
-                                    Text(proposal.proposal_content.toString()),
+                                child: Text(
+                                  proposal.proposal_content.toString(),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
                             ),
                           ],
