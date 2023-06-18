@@ -67,13 +67,6 @@ class AppShell extends HookWidget {
         publicOnly: false),
     RouteNavbarParams(
         icon: Icons.settings,
-        label: 'Settings',
-        path: '/settings',
-        title: 'Settings',
-        allowedRoles: [],
-        publicOnly: false),
-    RouteNavbarParams(
-        icon: Icons.settings,
         label: 'Profile',
         path: '/profile',
         title: 'Profile',

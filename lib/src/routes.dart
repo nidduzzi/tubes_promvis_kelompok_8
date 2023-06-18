@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/blog_page.dart';
+import 'package:tubes_promvis_kelompok_8/src/pages/csmessage_page.dart';
+import 'package:tubes_promvis_kelompok_8/src/pages/customer_message_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/dashboard_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/home_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/login_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/logout_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/profile_page.dart';
+import 'package:tubes_promvis_kelompok_8/src/pages/proposal_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/register_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/sample_item_details_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/sample_item_list_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/settings_page.dart';
+import 'package:tubes_promvis_kelompok_8/src/pages/view_proposal_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/customer_role_type.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/route_params_type.dart';
 import 'package:tubes_promvis_kelompok_8/src/widgets/layout/app_shell.dart';
@@ -30,6 +34,14 @@ class AppRouter {
         path: '/sample_item/:id',
         builder: (context, state) => const SampleItemDetailsPage(),
         private: false),
+     RouteParams(
+        path: '/customer_service',
+        builder: (context, state) => const CSPage(),
+        private: false),
+    RouteParams(
+        path: '/customer_message',
+        builder: (context, state) => CustomerMessagePage(),
+        private: false),
     RouteParams(
         path: '/settings',
         builder: (context, state) => const SettingsPage(),
@@ -48,6 +60,14 @@ class AppRouter {
     RouteParams(
         path: '/login',
         builder: (context, state) => const LoginPage(),
+        private: false),
+    RouteParams(
+        path: '/submit_proposal',
+        builder: (context, state) => const ProposalPage(),
+        private: false),
+    RouteParams(
+        path: '/view_proposal',
+        builder: (context, state) => const ViewProposalPage(),
         private: false),
     RouteParams(
         path: '/blog',
