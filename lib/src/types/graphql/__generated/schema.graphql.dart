@@ -44609,6 +44609,7 @@ class Input$investment_bool_exp {
     Input$Int_comparison_exp? investment_id,
     Input$investor_bool_exp? investor,
     Input$Int_comparison_exp? investor_id,
+    Input$payment_investment_bool_exp? payment_investment,
     Input$proposal_bool_exp? proposal,
     Input$Int_comparison_exp? proposal_id,
     Input$timestamptz_comparison_exp? updated_at,
@@ -44622,6 +44623,8 @@ class Input$investment_bool_exp {
         if (investment_id != null) r'investment_id': investment_id,
         if (investor != null) r'investor': investor,
         if (investor_id != null) r'investor_id': investor_id,
+        if (payment_investment != null)
+          r'payment_investment': payment_investment,
         if (proposal != null) r'proposal': proposal,
         if (proposal_id != null) r'proposal_id': proposal_id,
         if (updated_at != null) r'updated_at': updated_at,
@@ -44687,6 +44690,13 @@ class Input$investment_bool_exp {
           : Input$Int_comparison_exp.fromJson(
               (l$investor_id as Map<String, dynamic>));
     }
+    if (data.containsKey('payment_investment')) {
+      final l$payment_investment = data['payment_investment'];
+      result$data['payment_investment'] = l$payment_investment == null
+          ? null
+          : Input$payment_investment_bool_exp.fromJson(
+              (l$payment_investment as Map<String, dynamic>));
+    }
     if (data.containsKey('proposal')) {
       final l$proposal = data['proposal'];
       result$data['proposal'] = l$proposal == null
@@ -44729,6 +44739,8 @@ class Input$investment_bool_exp {
       (_$data['investor'] as Input$investor_bool_exp?);
   Input$Int_comparison_exp? get investor_id =>
       (_$data['investor_id'] as Input$Int_comparison_exp?);
+  Input$payment_investment_bool_exp? get payment_investment =>
+      (_$data['payment_investment'] as Input$payment_investment_bool_exp?);
   Input$proposal_bool_exp? get proposal =>
       (_$data['proposal'] as Input$proposal_bool_exp?);
   Input$Int_comparison_exp? get proposal_id =>
@@ -44768,6 +44780,10 @@ class Input$investment_bool_exp {
     if (_$data.containsKey('investor_id')) {
       final l$investor_id = investor_id;
       result$data['investor_id'] = l$investor_id?.toJson();
+    }
+    if (_$data.containsKey('payment_investment')) {
+      final l$payment_investment = payment_investment;
+      result$data['payment_investment'] = l$payment_investment?.toJson();
     }
     if (_$data.containsKey('proposal')) {
       final l$proposal = proposal;
@@ -44889,6 +44905,15 @@ class Input$investment_bool_exp {
     if (l$investor_id != lOther$investor_id) {
       return false;
     }
+    final l$payment_investment = payment_investment;
+    final lOther$payment_investment = other.payment_investment;
+    if (_$data.containsKey('payment_investment') !=
+        other._$data.containsKey('payment_investment')) {
+      return false;
+    }
+    if (l$payment_investment != lOther$payment_investment) {
+      return false;
+    }
     final l$proposal = proposal;
     final lOther$proposal = other.proposal;
     if (_$data.containsKey('proposal') !=
@@ -44929,6 +44954,7 @@ class Input$investment_bool_exp {
     final l$investment_id = investment_id;
     final l$investor = investor;
     final l$investor_id = investor_id;
+    final l$payment_investment = payment_investment;
     final l$proposal = proposal;
     final l$proposal_id = proposal_id;
     final l$updated_at = updated_at;
@@ -44949,6 +44975,9 @@ class Input$investment_bool_exp {
       _$data.containsKey('investment_id') ? l$investment_id : const {},
       _$data.containsKey('investor') ? l$investor : const {},
       _$data.containsKey('investor_id') ? l$investor_id : const {},
+      _$data.containsKey('payment_investment')
+          ? l$payment_investment
+          : const {},
       _$data.containsKey('proposal') ? l$proposal : const {},
       _$data.containsKey('proposal_id') ? l$proposal_id : const {},
       _$data.containsKey('updated_at') ? l$updated_at : const {},
@@ -44974,6 +45003,7 @@ abstract class CopyWith$Input$investment_bool_exp<TRes> {
     Input$Int_comparison_exp? investment_id,
     Input$investor_bool_exp? investor,
     Input$Int_comparison_exp? investor_id,
+    Input$payment_investment_bool_exp? payment_investment,
     Input$proposal_bool_exp? proposal,
     Input$Int_comparison_exp? proposal_id,
     Input$timestamptz_comparison_exp? updated_at,
@@ -44996,6 +45026,7 @@ abstract class CopyWith$Input$investment_bool_exp<TRes> {
   CopyWith$Input$Int_comparison_exp<TRes> get investment_id;
   CopyWith$Input$investor_bool_exp<TRes> get investor;
   CopyWith$Input$Int_comparison_exp<TRes> get investor_id;
+  CopyWith$Input$payment_investment_bool_exp<TRes> get payment_investment;
   CopyWith$Input$proposal_bool_exp<TRes> get proposal;
   CopyWith$Input$Int_comparison_exp<TRes> get proposal_id;
   CopyWith$Input$timestamptz_comparison_exp<TRes> get updated_at;
@@ -45023,6 +45054,7 @@ class _CopyWithImpl$Input$investment_bool_exp<TRes>
     Object? investment_id = _undefined,
     Object? investor = _undefined,
     Object? investor_id = _undefined,
+    Object? payment_investment = _undefined,
     Object? proposal = _undefined,
     Object? proposal_id = _undefined,
     Object? updated_at = _undefined,
@@ -45044,6 +45076,9 @@ class _CopyWithImpl$Input$investment_bool_exp<TRes>
           'investor': (investor as Input$investor_bool_exp?),
         if (investor_id != _undefined)
           'investor_id': (investor_id as Input$Int_comparison_exp?),
+        if (payment_investment != _undefined)
+          'payment_investment':
+              (payment_investment as Input$payment_investment_bool_exp?),
         if (proposal != _undefined)
           'proposal': (proposal as Input$proposal_bool_exp?),
         if (proposal_id != _undefined)
@@ -45123,6 +45158,14 @@ class _CopyWithImpl$Input$investment_bool_exp<TRes>
             local$investor_id, (e) => call(investor_id: e));
   }
 
+  CopyWith$Input$payment_investment_bool_exp<TRes> get payment_investment {
+    final local$payment_investment = _instance.payment_investment;
+    return local$payment_investment == null
+        ? CopyWith$Input$payment_investment_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$payment_investment_bool_exp(
+            local$payment_investment, (e) => call(payment_investment: e));
+  }
+
   CopyWith$Input$proposal_bool_exp<TRes> get proposal {
     final local$proposal = _instance.proposal;
     return local$proposal == null
@@ -45163,6 +45206,7 @@ class _CopyWithStubImpl$Input$investment_bool_exp<TRes>
     Input$Int_comparison_exp? investment_id,
     Input$investor_bool_exp? investor,
     Input$Int_comparison_exp? investor_id,
+    Input$payment_investment_bool_exp? payment_investment,
     Input$proposal_bool_exp? proposal,
     Input$Int_comparison_exp? proposal_id,
     Input$timestamptz_comparison_exp? updated_at,
@@ -45182,6 +45226,8 @@ class _CopyWithStubImpl$Input$investment_bool_exp<TRes>
       CopyWith$Input$investor_bool_exp.stub(_res);
   CopyWith$Input$Int_comparison_exp<TRes> get investor_id =>
       CopyWith$Input$Int_comparison_exp.stub(_res);
+  CopyWith$Input$payment_investment_bool_exp<TRes> get payment_investment =>
+      CopyWith$Input$payment_investment_bool_exp.stub(_res);
   CopyWith$Input$proposal_bool_exp<TRes> get proposal =>
       CopyWith$Input$proposal_bool_exp.stub(_res);
   CopyWith$Input$Int_comparison_exp<TRes> get proposal_id =>
@@ -45363,6 +45409,7 @@ class Input$investment_insert_input {
     int? investment_amount,
     Input$investor_obj_rel_insert_input? investor,
     int? investor_id,
+    Input$payment_investment_obj_rel_insert_input? payment_investment,
     Input$proposal_obj_rel_insert_input? proposal,
     int? proposal_id,
     DateTime? updated_at,
@@ -45372,6 +45419,8 @@ class Input$investment_insert_input {
         if (investment_amount != null) r'investment_amount': investment_amount,
         if (investor != null) r'investor': investor,
         if (investor_id != null) r'investor_id': investor_id,
+        if (payment_investment != null)
+          r'payment_investment': payment_investment,
         if (proposal != null) r'proposal': proposal,
         if (proposal_id != null) r'proposal_id': proposal_id,
         if (updated_at != null) r'updated_at': updated_at,
@@ -45402,6 +45451,13 @@ class Input$investment_insert_input {
       final l$investor_id = data['investor_id'];
       result$data['investor_id'] = (l$investor_id as int?);
     }
+    if (data.containsKey('payment_investment')) {
+      final l$payment_investment = data['payment_investment'];
+      result$data['payment_investment'] = l$payment_investment == null
+          ? null
+          : Input$payment_investment_obj_rel_insert_input.fromJson(
+              (l$payment_investment as Map<String, dynamic>));
+    }
     if (data.containsKey('proposal')) {
       final l$proposal = data['proposal'];
       result$data['proposal'] = l$proposal == null
@@ -45429,6 +45485,9 @@ class Input$investment_insert_input {
   Input$investor_obj_rel_insert_input? get investor =>
       (_$data['investor'] as Input$investor_obj_rel_insert_input?);
   int? get investor_id => (_$data['investor_id'] as int?);
+  Input$payment_investment_obj_rel_insert_input? get payment_investment =>
+      (_$data['payment_investment']
+          as Input$payment_investment_obj_rel_insert_input?);
   Input$proposal_obj_rel_insert_input? get proposal =>
       (_$data['proposal'] as Input$proposal_obj_rel_insert_input?);
   int? get proposal_id => (_$data['proposal_id'] as int?);
@@ -45450,6 +45509,10 @@ class Input$investment_insert_input {
     if (_$data.containsKey('investor_id')) {
       final l$investor_id = investor_id;
       result$data['investor_id'] = l$investor_id;
+    }
+    if (_$data.containsKey('payment_investment')) {
+      final l$payment_investment = payment_investment;
+      result$data['payment_investment'] = l$payment_investment?.toJson();
     }
     if (_$data.containsKey('proposal')) {
       final l$proposal = proposal;
@@ -45516,6 +45579,15 @@ class Input$investment_insert_input {
     if (l$investor_id != lOther$investor_id) {
       return false;
     }
+    final l$payment_investment = payment_investment;
+    final lOther$payment_investment = other.payment_investment;
+    if (_$data.containsKey('payment_investment') !=
+        other._$data.containsKey('payment_investment')) {
+      return false;
+    }
+    if (l$payment_investment != lOther$payment_investment) {
+      return false;
+    }
     final l$proposal = proposal;
     final lOther$proposal = other.proposal;
     if (_$data.containsKey('proposal') !=
@@ -45552,6 +45624,7 @@ class Input$investment_insert_input {
     final l$investment_amount = investment_amount;
     final l$investor = investor;
     final l$investor_id = investor_id;
+    final l$payment_investment = payment_investment;
     final l$proposal = proposal;
     final l$proposal_id = proposal_id;
     final l$updated_at = updated_at;
@@ -45560,6 +45633,9 @@ class Input$investment_insert_input {
       _$data.containsKey('investment_amount') ? l$investment_amount : const {},
       _$data.containsKey('investor') ? l$investor : const {},
       _$data.containsKey('investor_id') ? l$investor_id : const {},
+      _$data.containsKey('payment_investment')
+          ? l$payment_investment
+          : const {},
       _$data.containsKey('proposal') ? l$proposal : const {},
       _$data.containsKey('proposal_id') ? l$proposal_id : const {},
       _$data.containsKey('updated_at') ? l$updated_at : const {},
@@ -45581,11 +45657,14 @@ abstract class CopyWith$Input$investment_insert_input<TRes> {
     int? investment_amount,
     Input$investor_obj_rel_insert_input? investor,
     int? investor_id,
+    Input$payment_investment_obj_rel_insert_input? payment_investment,
     Input$proposal_obj_rel_insert_input? proposal,
     int? proposal_id,
     DateTime? updated_at,
   });
   CopyWith$Input$investor_obj_rel_insert_input<TRes> get investor;
+  CopyWith$Input$payment_investment_obj_rel_insert_input<TRes>
+      get payment_investment;
   CopyWith$Input$proposal_obj_rel_insert_input<TRes> get proposal;
 }
 
@@ -45607,6 +45686,7 @@ class _CopyWithImpl$Input$investment_insert_input<TRes>
     Object? investment_amount = _undefined,
     Object? investor = _undefined,
     Object? investor_id = _undefined,
+    Object? payment_investment = _undefined,
     Object? proposal = _undefined,
     Object? proposal_id = _undefined,
     Object? updated_at = _undefined,
@@ -45619,6 +45699,9 @@ class _CopyWithImpl$Input$investment_insert_input<TRes>
         if (investor != _undefined)
           'investor': (investor as Input$investor_obj_rel_insert_input?),
         if (investor_id != _undefined) 'investor_id': (investor_id as int?),
+        if (payment_investment != _undefined)
+          'payment_investment': (payment_investment
+              as Input$payment_investment_obj_rel_insert_input?),
         if (proposal != _undefined)
           'proposal': (proposal as Input$proposal_obj_rel_insert_input?),
         if (proposal_id != _undefined) 'proposal_id': (proposal_id as int?),
@@ -45630,6 +45713,16 @@ class _CopyWithImpl$Input$investment_insert_input<TRes>
         ? CopyWith$Input$investor_obj_rel_insert_input.stub(_then(_instance))
         : CopyWith$Input$investor_obj_rel_insert_input(
             local$investor, (e) => call(investor: e));
+  }
+
+  CopyWith$Input$payment_investment_obj_rel_insert_input<TRes>
+      get payment_investment {
+    final local$payment_investment = _instance.payment_investment;
+    return local$payment_investment == null
+        ? CopyWith$Input$payment_investment_obj_rel_insert_input.stub(
+            _then(_instance))
+        : CopyWith$Input$payment_investment_obj_rel_insert_input(
+            local$payment_investment, (e) => call(payment_investment: e));
   }
 
   CopyWith$Input$proposal_obj_rel_insert_input<TRes> get proposal {
@@ -45652,6 +45745,7 @@ class _CopyWithStubImpl$Input$investment_insert_input<TRes>
     int? investment_amount,
     Input$investor_obj_rel_insert_input? investor,
     int? investor_id,
+    Input$payment_investment_obj_rel_insert_input? payment_investment,
     Input$proposal_obj_rel_insert_input? proposal,
     int? proposal_id,
     DateTime? updated_at,
@@ -45659,6 +45753,9 @@ class _CopyWithStubImpl$Input$investment_insert_input<TRes>
       _res;
   CopyWith$Input$investor_obj_rel_insert_input<TRes> get investor =>
       CopyWith$Input$investor_obj_rel_insert_input.stub(_res);
+  CopyWith$Input$payment_investment_obj_rel_insert_input<TRes>
+      get payment_investment =>
+          CopyWith$Input$payment_investment_obj_rel_insert_input.stub(_res);
   CopyWith$Input$proposal_obj_rel_insert_input<TRes> get proposal =>
       CopyWith$Input$proposal_obj_rel_insert_input.stub(_res);
 }
@@ -46207,6 +46304,167 @@ class _CopyWithStubImpl$Input$investment_min_order_by<TRes>
       _res;
 }
 
+class Input$investment_obj_rel_insert_input {
+  factory Input$investment_obj_rel_insert_input({
+    required Input$investment_insert_input data,
+    Input$investment_on_conflict? on_conflict,
+  }) =>
+      Input$investment_obj_rel_insert_input._({
+        r'data': data,
+        if (on_conflict != null) r'on_conflict': on_conflict,
+      });
+
+  Input$investment_obj_rel_insert_input._(this._$data);
+
+  factory Input$investment_obj_rel_insert_input.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$data = data['data'];
+    result$data['data'] = Input$investment_insert_input.fromJson(
+        (l$data as Map<String, dynamic>));
+    if (data.containsKey('on_conflict')) {
+      final l$on_conflict = data['on_conflict'];
+      result$data['on_conflict'] = l$on_conflict == null
+          ? null
+          : Input$investment_on_conflict.fromJson(
+              (l$on_conflict as Map<String, dynamic>));
+    }
+    return Input$investment_obj_rel_insert_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$investment_insert_input get data =>
+      (_$data['data'] as Input$investment_insert_input);
+  Input$investment_on_conflict? get on_conflict =>
+      (_$data['on_conflict'] as Input$investment_on_conflict?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$data = data;
+    result$data['data'] = l$data.toJson();
+    if (_$data.containsKey('on_conflict')) {
+      final l$on_conflict = on_conflict;
+      result$data['on_conflict'] = l$on_conflict?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$investment_obj_rel_insert_input<
+          Input$investment_obj_rel_insert_input>
+      get copyWith => CopyWith$Input$investment_obj_rel_insert_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$investment_obj_rel_insert_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$data = data;
+    final lOther$data = other.data;
+    if (l$data != lOther$data) {
+      return false;
+    }
+    final l$on_conflict = on_conflict;
+    final lOther$on_conflict = other.on_conflict;
+    if (_$data.containsKey('on_conflict') !=
+        other._$data.containsKey('on_conflict')) {
+      return false;
+    }
+    if (l$on_conflict != lOther$on_conflict) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$data = data;
+    final l$on_conflict = on_conflict;
+    return Object.hashAll([
+      l$data,
+      _$data.containsKey('on_conflict') ? l$on_conflict : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$investment_obj_rel_insert_input<TRes> {
+  factory CopyWith$Input$investment_obj_rel_insert_input(
+    Input$investment_obj_rel_insert_input instance,
+    TRes Function(Input$investment_obj_rel_insert_input) then,
+  ) = _CopyWithImpl$Input$investment_obj_rel_insert_input;
+
+  factory CopyWith$Input$investment_obj_rel_insert_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$investment_obj_rel_insert_input;
+
+  TRes call({
+    Input$investment_insert_input? data,
+    Input$investment_on_conflict? on_conflict,
+  });
+  CopyWith$Input$investment_insert_input<TRes> get data;
+  CopyWith$Input$investment_on_conflict<TRes> get on_conflict;
+}
+
+class _CopyWithImpl$Input$investment_obj_rel_insert_input<TRes>
+    implements CopyWith$Input$investment_obj_rel_insert_input<TRes> {
+  _CopyWithImpl$Input$investment_obj_rel_insert_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$investment_obj_rel_insert_input _instance;
+
+  final TRes Function(Input$investment_obj_rel_insert_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? data = _undefined,
+    Object? on_conflict = _undefined,
+  }) =>
+      _then(Input$investment_obj_rel_insert_input._({
+        ..._instance._$data,
+        if (data != _undefined && data != null)
+          'data': (data as Input$investment_insert_input),
+        if (on_conflict != _undefined)
+          'on_conflict': (on_conflict as Input$investment_on_conflict?),
+      }));
+  CopyWith$Input$investment_insert_input<TRes> get data {
+    final local$data = _instance.data;
+    return CopyWith$Input$investment_insert_input(
+        local$data, (e) => call(data: e));
+  }
+
+  CopyWith$Input$investment_on_conflict<TRes> get on_conflict {
+    final local$on_conflict = _instance.on_conflict;
+    return local$on_conflict == null
+        ? CopyWith$Input$investment_on_conflict.stub(_then(_instance))
+        : CopyWith$Input$investment_on_conflict(
+            local$on_conflict, (e) => call(on_conflict: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$investment_obj_rel_insert_input<TRes>
+    implements CopyWith$Input$investment_obj_rel_insert_input<TRes> {
+  _CopyWithStubImpl$Input$investment_obj_rel_insert_input(this._res);
+
+  TRes _res;
+
+  call({
+    Input$investment_insert_input? data,
+    Input$investment_on_conflict? on_conflict,
+  }) =>
+      _res;
+  CopyWith$Input$investment_insert_input<TRes> get data =>
+      CopyWith$Input$investment_insert_input.stub(_res);
+  CopyWith$Input$investment_on_conflict<TRes> get on_conflict =>
+      CopyWith$Input$investment_on_conflict.stub(_res);
+}
+
 class Input$investment_on_conflict {
   factory Input$investment_on_conflict({
     required Enum$investment_constraint constraint,
@@ -46394,6 +46652,7 @@ class Input$investment_order_by {
     Enum$order_by? investment_id,
     Input$investor_order_by? investor,
     Enum$order_by? investor_id,
+    Input$payment_investment_order_by? payment_investment,
     Input$proposal_order_by? proposal,
     Enum$order_by? proposal_id,
     Enum$order_by? updated_at,
@@ -46404,6 +46663,8 @@ class Input$investment_order_by {
         if (investment_id != null) r'investment_id': investment_id,
         if (investor != null) r'investor': investor,
         if (investor_id != null) r'investor_id': investor_id,
+        if (payment_investment != null)
+          r'payment_investment': payment_investment,
         if (proposal != null) r'proposal': proposal,
         if (proposal_id != null) r'proposal_id': proposal_id,
         if (updated_at != null) r'updated_at': updated_at,
@@ -46444,6 +46705,13 @@ class Input$investment_order_by {
           ? null
           : fromJson$Enum$order_by((l$investor_id as String));
     }
+    if (data.containsKey('payment_investment')) {
+      final l$payment_investment = data['payment_investment'];
+      result$data['payment_investment'] = l$payment_investment == null
+          ? null
+          : Input$payment_investment_order_by.fromJson(
+              (l$payment_investment as Map<String, dynamic>));
+    }
     if (data.containsKey('proposal')) {
       final l$proposal = data['proposal'];
       result$data['proposal'] = l$proposal == null
@@ -46476,6 +46744,8 @@ class Input$investment_order_by {
   Input$investor_order_by? get investor =>
       (_$data['investor'] as Input$investor_order_by?);
   Enum$order_by? get investor_id => (_$data['investor_id'] as Enum$order_by?);
+  Input$payment_investment_order_by? get payment_investment =>
+      (_$data['payment_investment'] as Input$payment_investment_order_by?);
   Input$proposal_order_by? get proposal =>
       (_$data['proposal'] as Input$proposal_order_by?);
   Enum$order_by? get proposal_id => (_$data['proposal_id'] as Enum$order_by?);
@@ -46507,6 +46777,10 @@ class Input$investment_order_by {
       final l$investor_id = investor_id;
       result$data['investor_id'] =
           l$investor_id == null ? null : toJson$Enum$order_by(l$investor_id);
+    }
+    if (_$data.containsKey('payment_investment')) {
+      final l$payment_investment = payment_investment;
+      result$data['payment_investment'] = l$payment_investment?.toJson();
     }
     if (_$data.containsKey('proposal')) {
       final l$proposal = proposal;
@@ -46584,6 +46858,15 @@ class Input$investment_order_by {
     if (l$investor_id != lOther$investor_id) {
       return false;
     }
+    final l$payment_investment = payment_investment;
+    final lOther$payment_investment = other.payment_investment;
+    if (_$data.containsKey('payment_investment') !=
+        other._$data.containsKey('payment_investment')) {
+      return false;
+    }
+    if (l$payment_investment != lOther$payment_investment) {
+      return false;
+    }
     final l$proposal = proposal;
     final lOther$proposal = other.proposal;
     if (_$data.containsKey('proposal') !=
@@ -46621,6 +46904,7 @@ class Input$investment_order_by {
     final l$investment_id = investment_id;
     final l$investor = investor;
     final l$investor_id = investor_id;
+    final l$payment_investment = payment_investment;
     final l$proposal = proposal;
     final l$proposal_id = proposal_id;
     final l$updated_at = updated_at;
@@ -46630,6 +46914,9 @@ class Input$investment_order_by {
       _$data.containsKey('investment_id') ? l$investment_id : const {},
       _$data.containsKey('investor') ? l$investor : const {},
       _$data.containsKey('investor_id') ? l$investor_id : const {},
+      _$data.containsKey('payment_investment')
+          ? l$payment_investment
+          : const {},
       _$data.containsKey('proposal') ? l$proposal : const {},
       _$data.containsKey('proposal_id') ? l$proposal_id : const {},
       _$data.containsKey('updated_at') ? l$updated_at : const {},
@@ -46652,11 +46939,13 @@ abstract class CopyWith$Input$investment_order_by<TRes> {
     Enum$order_by? investment_id,
     Input$investor_order_by? investor,
     Enum$order_by? investor_id,
+    Input$payment_investment_order_by? payment_investment,
     Input$proposal_order_by? proposal,
     Enum$order_by? proposal_id,
     Enum$order_by? updated_at,
   });
   CopyWith$Input$investor_order_by<TRes> get investor;
+  CopyWith$Input$payment_investment_order_by<TRes> get payment_investment;
   CopyWith$Input$proposal_order_by<TRes> get proposal;
 }
 
@@ -46679,6 +46968,7 @@ class _CopyWithImpl$Input$investment_order_by<TRes>
     Object? investment_id = _undefined,
     Object? investor = _undefined,
     Object? investor_id = _undefined,
+    Object? payment_investment = _undefined,
     Object? proposal = _undefined,
     Object? proposal_id = _undefined,
     Object? updated_at = _undefined,
@@ -46695,6 +46985,9 @@ class _CopyWithImpl$Input$investment_order_by<TRes>
           'investor': (investor as Input$investor_order_by?),
         if (investor_id != _undefined)
           'investor_id': (investor_id as Enum$order_by?),
+        if (payment_investment != _undefined)
+          'payment_investment':
+              (payment_investment as Input$payment_investment_order_by?),
         if (proposal != _undefined)
           'proposal': (proposal as Input$proposal_order_by?),
         if (proposal_id != _undefined)
@@ -46708,6 +47001,14 @@ class _CopyWithImpl$Input$investment_order_by<TRes>
         ? CopyWith$Input$investor_order_by.stub(_then(_instance))
         : CopyWith$Input$investor_order_by(
             local$investor, (e) => call(investor: e));
+  }
+
+  CopyWith$Input$payment_investment_order_by<TRes> get payment_investment {
+    final local$payment_investment = _instance.payment_investment;
+    return local$payment_investment == null
+        ? CopyWith$Input$payment_investment_order_by.stub(_then(_instance))
+        : CopyWith$Input$payment_investment_order_by(
+            local$payment_investment, (e) => call(payment_investment: e));
   }
 
   CopyWith$Input$proposal_order_by<TRes> get proposal {
@@ -46731,6 +47032,7 @@ class _CopyWithStubImpl$Input$investment_order_by<TRes>
     Enum$order_by? investment_id,
     Input$investor_order_by? investor,
     Enum$order_by? investor_id,
+    Input$payment_investment_order_by? payment_investment,
     Input$proposal_order_by? proposal,
     Enum$order_by? proposal_id,
     Enum$order_by? updated_at,
@@ -46738,6 +47040,8 @@ class _CopyWithStubImpl$Input$investment_order_by<TRes>
       _res;
   CopyWith$Input$investor_order_by<TRes> get investor =>
       CopyWith$Input$investor_order_by.stub(_res);
+  CopyWith$Input$payment_investment_order_by<TRes> get payment_investment =>
+      CopyWith$Input$payment_investment_order_by.stub(_res);
   CopyWith$Input$proposal_order_by<TRes> get proposal =>
       CopyWith$Input$proposal_order_by.stub(_res);
 }
@@ -52511,6 +52815,8377 @@ class _CopyWithStubImpl$Input$jsonb_comparison_exp<TRes>
       CopyWith$Input$jsonb_cast_exp.stub(_res);
 }
 
+class Input$payment_due_aggregate_bool_exp {
+  factory Input$payment_due_aggregate_bool_exp({
+    Input$payment_due_aggregate_bool_exp_bool_and? bool_and,
+    Input$payment_due_aggregate_bool_exp_bool_or? bool_or,
+    Input$payment_due_aggregate_bool_exp_count? count,
+  }) =>
+      Input$payment_due_aggregate_bool_exp._({
+        if (bool_and != null) r'bool_and': bool_and,
+        if (bool_or != null) r'bool_or': bool_or,
+        if (count != null) r'count': count,
+      });
+
+  Input$payment_due_aggregate_bool_exp._(this._$data);
+
+  factory Input$payment_due_aggregate_bool_exp.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('bool_and')) {
+      final l$bool_and = data['bool_and'];
+      result$data['bool_and'] = l$bool_and == null
+          ? null
+          : Input$payment_due_aggregate_bool_exp_bool_and.fromJson(
+              (l$bool_and as Map<String, dynamic>));
+    }
+    if (data.containsKey('bool_or')) {
+      final l$bool_or = data['bool_or'];
+      result$data['bool_or'] = l$bool_or == null
+          ? null
+          : Input$payment_due_aggregate_bool_exp_bool_or.fromJson(
+              (l$bool_or as Map<String, dynamic>));
+    }
+    if (data.containsKey('count')) {
+      final l$count = data['count'];
+      result$data['count'] = l$count == null
+          ? null
+          : Input$payment_due_aggregate_bool_exp_count.fromJson(
+              (l$count as Map<String, dynamic>));
+    }
+    return Input$payment_due_aggregate_bool_exp._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$payment_due_aggregate_bool_exp_bool_and? get bool_and =>
+      (_$data['bool_and'] as Input$payment_due_aggregate_bool_exp_bool_and?);
+  Input$payment_due_aggregate_bool_exp_bool_or? get bool_or =>
+      (_$data['bool_or'] as Input$payment_due_aggregate_bool_exp_bool_or?);
+  Input$payment_due_aggregate_bool_exp_count? get count =>
+      (_$data['count'] as Input$payment_due_aggregate_bool_exp_count?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bool_and')) {
+      final l$bool_and = bool_and;
+      result$data['bool_and'] = l$bool_and?.toJson();
+    }
+    if (_$data.containsKey('bool_or')) {
+      final l$bool_or = bool_or;
+      result$data['bool_or'] = l$bool_or?.toJson();
+    }
+    if (_$data.containsKey('count')) {
+      final l$count = count;
+      result$data['count'] = l$count?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_aggregate_bool_exp<
+          Input$payment_due_aggregate_bool_exp>
+      get copyWith => CopyWith$Input$payment_due_aggregate_bool_exp(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_aggregate_bool_exp) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bool_and = bool_and;
+    final lOther$bool_and = other.bool_and;
+    if (_$data.containsKey('bool_and') !=
+        other._$data.containsKey('bool_and')) {
+      return false;
+    }
+    if (l$bool_and != lOther$bool_and) {
+      return false;
+    }
+    final l$bool_or = bool_or;
+    final lOther$bool_or = other.bool_or;
+    if (_$data.containsKey('bool_or') != other._$data.containsKey('bool_or')) {
+      return false;
+    }
+    if (l$bool_or != lOther$bool_or) {
+      return false;
+    }
+    final l$count = count;
+    final lOther$count = other.count;
+    if (_$data.containsKey('count') != other._$data.containsKey('count')) {
+      return false;
+    }
+    if (l$count != lOther$count) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$bool_and = bool_and;
+    final l$bool_or = bool_or;
+    final l$count = count;
+    return Object.hashAll([
+      _$data.containsKey('bool_and') ? l$bool_and : const {},
+      _$data.containsKey('bool_or') ? l$bool_or : const {},
+      _$data.containsKey('count') ? l$count : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_aggregate_bool_exp<TRes> {
+  factory CopyWith$Input$payment_due_aggregate_bool_exp(
+    Input$payment_due_aggregate_bool_exp instance,
+    TRes Function(Input$payment_due_aggregate_bool_exp) then,
+  ) = _CopyWithImpl$Input$payment_due_aggregate_bool_exp;
+
+  factory CopyWith$Input$payment_due_aggregate_bool_exp.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_aggregate_bool_exp;
+
+  TRes call({
+    Input$payment_due_aggregate_bool_exp_bool_and? bool_and,
+    Input$payment_due_aggregate_bool_exp_bool_or? bool_or,
+    Input$payment_due_aggregate_bool_exp_count? count,
+  });
+  CopyWith$Input$payment_due_aggregate_bool_exp_bool_and<TRes> get bool_and;
+  CopyWith$Input$payment_due_aggregate_bool_exp_bool_or<TRes> get bool_or;
+  CopyWith$Input$payment_due_aggregate_bool_exp_count<TRes> get count;
+}
+
+class _CopyWithImpl$Input$payment_due_aggregate_bool_exp<TRes>
+    implements CopyWith$Input$payment_due_aggregate_bool_exp<TRes> {
+  _CopyWithImpl$Input$payment_due_aggregate_bool_exp(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_aggregate_bool_exp _instance;
+
+  final TRes Function(Input$payment_due_aggregate_bool_exp) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? bool_and = _undefined,
+    Object? bool_or = _undefined,
+    Object? count = _undefined,
+  }) =>
+      _then(Input$payment_due_aggregate_bool_exp._({
+        ..._instance._$data,
+        if (bool_and != _undefined)
+          'bool_and':
+              (bool_and as Input$payment_due_aggregate_bool_exp_bool_and?),
+        if (bool_or != _undefined)
+          'bool_or': (bool_or as Input$payment_due_aggregate_bool_exp_bool_or?),
+        if (count != _undefined)
+          'count': (count as Input$payment_due_aggregate_bool_exp_count?),
+      }));
+  CopyWith$Input$payment_due_aggregate_bool_exp_bool_and<TRes> get bool_and {
+    final local$bool_and = _instance.bool_and;
+    return local$bool_and == null
+        ? CopyWith$Input$payment_due_aggregate_bool_exp_bool_and.stub(
+            _then(_instance))
+        : CopyWith$Input$payment_due_aggregate_bool_exp_bool_and(
+            local$bool_and, (e) => call(bool_and: e));
+  }
+
+  CopyWith$Input$payment_due_aggregate_bool_exp_bool_or<TRes> get bool_or {
+    final local$bool_or = _instance.bool_or;
+    return local$bool_or == null
+        ? CopyWith$Input$payment_due_aggregate_bool_exp_bool_or.stub(
+            _then(_instance))
+        : CopyWith$Input$payment_due_aggregate_bool_exp_bool_or(
+            local$bool_or, (e) => call(bool_or: e));
+  }
+
+  CopyWith$Input$payment_due_aggregate_bool_exp_count<TRes> get count {
+    final local$count = _instance.count;
+    return local$count == null
+        ? CopyWith$Input$payment_due_aggregate_bool_exp_count.stub(
+            _then(_instance))
+        : CopyWith$Input$payment_due_aggregate_bool_exp_count(
+            local$count, (e) => call(count: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_due_aggregate_bool_exp<TRes>
+    implements CopyWith$Input$payment_due_aggregate_bool_exp<TRes> {
+  _CopyWithStubImpl$Input$payment_due_aggregate_bool_exp(this._res);
+
+  TRes _res;
+
+  call({
+    Input$payment_due_aggregate_bool_exp_bool_and? bool_and,
+    Input$payment_due_aggregate_bool_exp_bool_or? bool_or,
+    Input$payment_due_aggregate_bool_exp_count? count,
+  }) =>
+      _res;
+  CopyWith$Input$payment_due_aggregate_bool_exp_bool_and<TRes> get bool_and =>
+      CopyWith$Input$payment_due_aggregate_bool_exp_bool_and.stub(_res);
+  CopyWith$Input$payment_due_aggregate_bool_exp_bool_or<TRes> get bool_or =>
+      CopyWith$Input$payment_due_aggregate_bool_exp_bool_or.stub(_res);
+  CopyWith$Input$payment_due_aggregate_bool_exp_count<TRes> get count =>
+      CopyWith$Input$payment_due_aggregate_bool_exp_count.stub(_res);
+}
+
+class Input$payment_due_aggregate_bool_exp_bool_and {
+  factory Input$payment_due_aggregate_bool_exp_bool_and({
+    required Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_and_arguments_columns
+        arguments,
+    bool? distinct,
+    Input$payment_due_bool_exp? filter,
+    required Input$Boolean_comparison_exp predicate,
+  }) =>
+      Input$payment_due_aggregate_bool_exp_bool_and._({
+        r'arguments': arguments,
+        if (distinct != null) r'distinct': distinct,
+        if (filter != null) r'filter': filter,
+        r'predicate': predicate,
+      });
+
+  Input$payment_due_aggregate_bool_exp_bool_and._(this._$data);
+
+  factory Input$payment_due_aggregate_bool_exp_bool_and.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$arguments = data['arguments'];
+    result$data['arguments'] =
+        fromJson$Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_and_arguments_columns(
+            (l$arguments as String));
+    if (data.containsKey('distinct')) {
+      final l$distinct = data['distinct'];
+      result$data['distinct'] = (l$distinct as bool?);
+    }
+    if (data.containsKey('filter')) {
+      final l$filter = data['filter'];
+      result$data['filter'] = l$filter == null
+          ? null
+          : Input$payment_due_bool_exp.fromJson(
+              (l$filter as Map<String, dynamic>));
+    }
+    final l$predicate = data['predicate'];
+    result$data['predicate'] = Input$Boolean_comparison_exp.fromJson(
+        (l$predicate as Map<String, dynamic>));
+    return Input$payment_due_aggregate_bool_exp_bool_and._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_and_arguments_columns
+      get arguments => (_$data['arguments']
+          as Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_and_arguments_columns);
+  bool? get distinct => (_$data['distinct'] as bool?);
+  Input$payment_due_bool_exp? get filter =>
+      (_$data['filter'] as Input$payment_due_bool_exp?);
+  Input$Boolean_comparison_exp get predicate =>
+      (_$data['predicate'] as Input$Boolean_comparison_exp);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$arguments = arguments;
+    result$data['arguments'] =
+        toJson$Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_and_arguments_columns(
+            l$arguments);
+    if (_$data.containsKey('distinct')) {
+      final l$distinct = distinct;
+      result$data['distinct'] = l$distinct;
+    }
+    if (_$data.containsKey('filter')) {
+      final l$filter = filter;
+      result$data['filter'] = l$filter?.toJson();
+    }
+    final l$predicate = predicate;
+    result$data['predicate'] = l$predicate.toJson();
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_aggregate_bool_exp_bool_and<
+          Input$payment_due_aggregate_bool_exp_bool_and>
+      get copyWith => CopyWith$Input$payment_due_aggregate_bool_exp_bool_and(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_aggregate_bool_exp_bool_and) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$arguments = arguments;
+    final lOther$arguments = other.arguments;
+    if (l$arguments != lOther$arguments) {
+      return false;
+    }
+    final l$distinct = distinct;
+    final lOther$distinct = other.distinct;
+    if (_$data.containsKey('distinct') !=
+        other._$data.containsKey('distinct')) {
+      return false;
+    }
+    if (l$distinct != lOther$distinct) {
+      return false;
+    }
+    final l$filter = filter;
+    final lOther$filter = other.filter;
+    if (_$data.containsKey('filter') != other._$data.containsKey('filter')) {
+      return false;
+    }
+    if (l$filter != lOther$filter) {
+      return false;
+    }
+    final l$predicate = predicate;
+    final lOther$predicate = other.predicate;
+    if (l$predicate != lOther$predicate) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$arguments = arguments;
+    final l$distinct = distinct;
+    final l$filter = filter;
+    final l$predicate = predicate;
+    return Object.hashAll([
+      l$arguments,
+      _$data.containsKey('distinct') ? l$distinct : const {},
+      _$data.containsKey('filter') ? l$filter : const {},
+      l$predicate,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_aggregate_bool_exp_bool_and<TRes> {
+  factory CopyWith$Input$payment_due_aggregate_bool_exp_bool_and(
+    Input$payment_due_aggregate_bool_exp_bool_and instance,
+    TRes Function(Input$payment_due_aggregate_bool_exp_bool_and) then,
+  ) = _CopyWithImpl$Input$payment_due_aggregate_bool_exp_bool_and;
+
+  factory CopyWith$Input$payment_due_aggregate_bool_exp_bool_and.stub(
+          TRes res) =
+      _CopyWithStubImpl$Input$payment_due_aggregate_bool_exp_bool_and;
+
+  TRes call({
+    Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_and_arguments_columns?
+        arguments,
+    bool? distinct,
+    Input$payment_due_bool_exp? filter,
+    Input$Boolean_comparison_exp? predicate,
+  });
+  CopyWith$Input$payment_due_bool_exp<TRes> get filter;
+  CopyWith$Input$Boolean_comparison_exp<TRes> get predicate;
+}
+
+class _CopyWithImpl$Input$payment_due_aggregate_bool_exp_bool_and<TRes>
+    implements CopyWith$Input$payment_due_aggregate_bool_exp_bool_and<TRes> {
+  _CopyWithImpl$Input$payment_due_aggregate_bool_exp_bool_and(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_aggregate_bool_exp_bool_and _instance;
+
+  final TRes Function(Input$payment_due_aggregate_bool_exp_bool_and) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? arguments = _undefined,
+    Object? distinct = _undefined,
+    Object? filter = _undefined,
+    Object? predicate = _undefined,
+  }) =>
+      _then(Input$payment_due_aggregate_bool_exp_bool_and._({
+        ..._instance._$data,
+        if (arguments != _undefined && arguments != null)
+          'arguments': (arguments
+              as Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_and_arguments_columns),
+        if (distinct != _undefined) 'distinct': (distinct as bool?),
+        if (filter != _undefined)
+          'filter': (filter as Input$payment_due_bool_exp?),
+        if (predicate != _undefined && predicate != null)
+          'predicate': (predicate as Input$Boolean_comparison_exp),
+      }));
+  CopyWith$Input$payment_due_bool_exp<TRes> get filter {
+    final local$filter = _instance.filter;
+    return local$filter == null
+        ? CopyWith$Input$payment_due_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$payment_due_bool_exp(
+            local$filter, (e) => call(filter: e));
+  }
+
+  CopyWith$Input$Boolean_comparison_exp<TRes> get predicate {
+    final local$predicate = _instance.predicate;
+    return CopyWith$Input$Boolean_comparison_exp(
+        local$predicate, (e) => call(predicate: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_due_aggregate_bool_exp_bool_and<TRes>
+    implements CopyWith$Input$payment_due_aggregate_bool_exp_bool_and<TRes> {
+  _CopyWithStubImpl$Input$payment_due_aggregate_bool_exp_bool_and(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_and_arguments_columns?
+        arguments,
+    bool? distinct,
+    Input$payment_due_bool_exp? filter,
+    Input$Boolean_comparison_exp? predicate,
+  }) =>
+      _res;
+  CopyWith$Input$payment_due_bool_exp<TRes> get filter =>
+      CopyWith$Input$payment_due_bool_exp.stub(_res);
+  CopyWith$Input$Boolean_comparison_exp<TRes> get predicate =>
+      CopyWith$Input$Boolean_comparison_exp.stub(_res);
+}
+
+class Input$payment_due_aggregate_bool_exp_bool_or {
+  factory Input$payment_due_aggregate_bool_exp_bool_or({
+    required Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_columns
+        arguments,
+    bool? distinct,
+    Input$payment_due_bool_exp? filter,
+    required Input$Boolean_comparison_exp predicate,
+  }) =>
+      Input$payment_due_aggregate_bool_exp_bool_or._({
+        r'arguments': arguments,
+        if (distinct != null) r'distinct': distinct,
+        if (filter != null) r'filter': filter,
+        r'predicate': predicate,
+      });
+
+  Input$payment_due_aggregate_bool_exp_bool_or._(this._$data);
+
+  factory Input$payment_due_aggregate_bool_exp_bool_or.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$arguments = data['arguments'];
+    result$data['arguments'] =
+        fromJson$Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_columns(
+            (l$arguments as String));
+    if (data.containsKey('distinct')) {
+      final l$distinct = data['distinct'];
+      result$data['distinct'] = (l$distinct as bool?);
+    }
+    if (data.containsKey('filter')) {
+      final l$filter = data['filter'];
+      result$data['filter'] = l$filter == null
+          ? null
+          : Input$payment_due_bool_exp.fromJson(
+              (l$filter as Map<String, dynamic>));
+    }
+    final l$predicate = data['predicate'];
+    result$data['predicate'] = Input$Boolean_comparison_exp.fromJson(
+        (l$predicate as Map<String, dynamic>));
+    return Input$payment_due_aggregate_bool_exp_bool_or._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_columns
+      get arguments => (_$data['arguments']
+          as Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_columns);
+  bool? get distinct => (_$data['distinct'] as bool?);
+  Input$payment_due_bool_exp? get filter =>
+      (_$data['filter'] as Input$payment_due_bool_exp?);
+  Input$Boolean_comparison_exp get predicate =>
+      (_$data['predicate'] as Input$Boolean_comparison_exp);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$arguments = arguments;
+    result$data['arguments'] =
+        toJson$Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_columns(
+            l$arguments);
+    if (_$data.containsKey('distinct')) {
+      final l$distinct = distinct;
+      result$data['distinct'] = l$distinct;
+    }
+    if (_$data.containsKey('filter')) {
+      final l$filter = filter;
+      result$data['filter'] = l$filter?.toJson();
+    }
+    final l$predicate = predicate;
+    result$data['predicate'] = l$predicate.toJson();
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_aggregate_bool_exp_bool_or<
+          Input$payment_due_aggregate_bool_exp_bool_or>
+      get copyWith => CopyWith$Input$payment_due_aggregate_bool_exp_bool_or(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_aggregate_bool_exp_bool_or) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$arguments = arguments;
+    final lOther$arguments = other.arguments;
+    if (l$arguments != lOther$arguments) {
+      return false;
+    }
+    final l$distinct = distinct;
+    final lOther$distinct = other.distinct;
+    if (_$data.containsKey('distinct') !=
+        other._$data.containsKey('distinct')) {
+      return false;
+    }
+    if (l$distinct != lOther$distinct) {
+      return false;
+    }
+    final l$filter = filter;
+    final lOther$filter = other.filter;
+    if (_$data.containsKey('filter') != other._$data.containsKey('filter')) {
+      return false;
+    }
+    if (l$filter != lOther$filter) {
+      return false;
+    }
+    final l$predicate = predicate;
+    final lOther$predicate = other.predicate;
+    if (l$predicate != lOther$predicate) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$arguments = arguments;
+    final l$distinct = distinct;
+    final l$filter = filter;
+    final l$predicate = predicate;
+    return Object.hashAll([
+      l$arguments,
+      _$data.containsKey('distinct') ? l$distinct : const {},
+      _$data.containsKey('filter') ? l$filter : const {},
+      l$predicate,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_aggregate_bool_exp_bool_or<TRes> {
+  factory CopyWith$Input$payment_due_aggregate_bool_exp_bool_or(
+    Input$payment_due_aggregate_bool_exp_bool_or instance,
+    TRes Function(Input$payment_due_aggregate_bool_exp_bool_or) then,
+  ) = _CopyWithImpl$Input$payment_due_aggregate_bool_exp_bool_or;
+
+  factory CopyWith$Input$payment_due_aggregate_bool_exp_bool_or.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_aggregate_bool_exp_bool_or;
+
+  TRes call({
+    Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_columns?
+        arguments,
+    bool? distinct,
+    Input$payment_due_bool_exp? filter,
+    Input$Boolean_comparison_exp? predicate,
+  });
+  CopyWith$Input$payment_due_bool_exp<TRes> get filter;
+  CopyWith$Input$Boolean_comparison_exp<TRes> get predicate;
+}
+
+class _CopyWithImpl$Input$payment_due_aggregate_bool_exp_bool_or<TRes>
+    implements CopyWith$Input$payment_due_aggregate_bool_exp_bool_or<TRes> {
+  _CopyWithImpl$Input$payment_due_aggregate_bool_exp_bool_or(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_aggregate_bool_exp_bool_or _instance;
+
+  final TRes Function(Input$payment_due_aggregate_bool_exp_bool_or) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? arguments = _undefined,
+    Object? distinct = _undefined,
+    Object? filter = _undefined,
+    Object? predicate = _undefined,
+  }) =>
+      _then(Input$payment_due_aggregate_bool_exp_bool_or._({
+        ..._instance._$data,
+        if (arguments != _undefined && arguments != null)
+          'arguments': (arguments
+              as Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_columns),
+        if (distinct != _undefined) 'distinct': (distinct as bool?),
+        if (filter != _undefined)
+          'filter': (filter as Input$payment_due_bool_exp?),
+        if (predicate != _undefined && predicate != null)
+          'predicate': (predicate as Input$Boolean_comparison_exp),
+      }));
+  CopyWith$Input$payment_due_bool_exp<TRes> get filter {
+    final local$filter = _instance.filter;
+    return local$filter == null
+        ? CopyWith$Input$payment_due_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$payment_due_bool_exp(
+            local$filter, (e) => call(filter: e));
+  }
+
+  CopyWith$Input$Boolean_comparison_exp<TRes> get predicate {
+    final local$predicate = _instance.predicate;
+    return CopyWith$Input$Boolean_comparison_exp(
+        local$predicate, (e) => call(predicate: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_due_aggregate_bool_exp_bool_or<TRes>
+    implements CopyWith$Input$payment_due_aggregate_bool_exp_bool_or<TRes> {
+  _CopyWithStubImpl$Input$payment_due_aggregate_bool_exp_bool_or(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_columns?
+        arguments,
+    bool? distinct,
+    Input$payment_due_bool_exp? filter,
+    Input$Boolean_comparison_exp? predicate,
+  }) =>
+      _res;
+  CopyWith$Input$payment_due_bool_exp<TRes> get filter =>
+      CopyWith$Input$payment_due_bool_exp.stub(_res);
+  CopyWith$Input$Boolean_comparison_exp<TRes> get predicate =>
+      CopyWith$Input$Boolean_comparison_exp.stub(_res);
+}
+
+class Input$payment_due_aggregate_bool_exp_count {
+  factory Input$payment_due_aggregate_bool_exp_count({
+    List<Enum$payment_due_select_column>? arguments,
+    bool? distinct,
+    Input$payment_due_bool_exp? filter,
+    required Input$Int_comparison_exp predicate,
+  }) =>
+      Input$payment_due_aggregate_bool_exp_count._({
+        if (arguments != null) r'arguments': arguments,
+        if (distinct != null) r'distinct': distinct,
+        if (filter != null) r'filter': filter,
+        r'predicate': predicate,
+      });
+
+  Input$payment_due_aggregate_bool_exp_count._(this._$data);
+
+  factory Input$payment_due_aggregate_bool_exp_count.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('arguments')) {
+      final l$arguments = data['arguments'];
+      result$data['arguments'] = (l$arguments as List<dynamic>?)
+          ?.map((e) => fromJson$Enum$payment_due_select_column((e as String)))
+          .toList();
+    }
+    if (data.containsKey('distinct')) {
+      final l$distinct = data['distinct'];
+      result$data['distinct'] = (l$distinct as bool?);
+    }
+    if (data.containsKey('filter')) {
+      final l$filter = data['filter'];
+      result$data['filter'] = l$filter == null
+          ? null
+          : Input$payment_due_bool_exp.fromJson(
+              (l$filter as Map<String, dynamic>));
+    }
+    final l$predicate = data['predicate'];
+    result$data['predicate'] = Input$Int_comparison_exp.fromJson(
+        (l$predicate as Map<String, dynamic>));
+    return Input$payment_due_aggregate_bool_exp_count._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  List<Enum$payment_due_select_column>? get arguments =>
+      (_$data['arguments'] as List<Enum$payment_due_select_column>?);
+  bool? get distinct => (_$data['distinct'] as bool?);
+  Input$payment_due_bool_exp? get filter =>
+      (_$data['filter'] as Input$payment_due_bool_exp?);
+  Input$Int_comparison_exp get predicate =>
+      (_$data['predicate'] as Input$Int_comparison_exp);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('arguments')) {
+      final l$arguments = arguments;
+      result$data['arguments'] = l$arguments
+          ?.map((e) => toJson$Enum$payment_due_select_column(e))
+          .toList();
+    }
+    if (_$data.containsKey('distinct')) {
+      final l$distinct = distinct;
+      result$data['distinct'] = l$distinct;
+    }
+    if (_$data.containsKey('filter')) {
+      final l$filter = filter;
+      result$data['filter'] = l$filter?.toJson();
+    }
+    final l$predicate = predicate;
+    result$data['predicate'] = l$predicate.toJson();
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_aggregate_bool_exp_count<
+          Input$payment_due_aggregate_bool_exp_count>
+      get copyWith => CopyWith$Input$payment_due_aggregate_bool_exp_count(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_aggregate_bool_exp_count) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$arguments = arguments;
+    final lOther$arguments = other.arguments;
+    if (_$data.containsKey('arguments') !=
+        other._$data.containsKey('arguments')) {
+      return false;
+    }
+    if (l$arguments != null && lOther$arguments != null) {
+      if (l$arguments.length != lOther$arguments.length) {
+        return false;
+      }
+      for (int i = 0; i < l$arguments.length; i++) {
+        final l$arguments$entry = l$arguments[i];
+        final lOther$arguments$entry = lOther$arguments[i];
+        if (l$arguments$entry != lOther$arguments$entry) {
+          return false;
+        }
+      }
+    } else if (l$arguments != lOther$arguments) {
+      return false;
+    }
+    final l$distinct = distinct;
+    final lOther$distinct = other.distinct;
+    if (_$data.containsKey('distinct') !=
+        other._$data.containsKey('distinct')) {
+      return false;
+    }
+    if (l$distinct != lOther$distinct) {
+      return false;
+    }
+    final l$filter = filter;
+    final lOther$filter = other.filter;
+    if (_$data.containsKey('filter') != other._$data.containsKey('filter')) {
+      return false;
+    }
+    if (l$filter != lOther$filter) {
+      return false;
+    }
+    final l$predicate = predicate;
+    final lOther$predicate = other.predicate;
+    if (l$predicate != lOther$predicate) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$arguments = arguments;
+    final l$distinct = distinct;
+    final l$filter = filter;
+    final l$predicate = predicate;
+    return Object.hashAll([
+      _$data.containsKey('arguments')
+          ? l$arguments == null
+              ? null
+              : Object.hashAll(l$arguments.map((v) => v))
+          : const {},
+      _$data.containsKey('distinct') ? l$distinct : const {},
+      _$data.containsKey('filter') ? l$filter : const {},
+      l$predicate,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_aggregate_bool_exp_count<TRes> {
+  factory CopyWith$Input$payment_due_aggregate_bool_exp_count(
+    Input$payment_due_aggregate_bool_exp_count instance,
+    TRes Function(Input$payment_due_aggregate_bool_exp_count) then,
+  ) = _CopyWithImpl$Input$payment_due_aggregate_bool_exp_count;
+
+  factory CopyWith$Input$payment_due_aggregate_bool_exp_count.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_aggregate_bool_exp_count;
+
+  TRes call({
+    List<Enum$payment_due_select_column>? arguments,
+    bool? distinct,
+    Input$payment_due_bool_exp? filter,
+    Input$Int_comparison_exp? predicate,
+  });
+  CopyWith$Input$payment_due_bool_exp<TRes> get filter;
+  CopyWith$Input$Int_comparison_exp<TRes> get predicate;
+}
+
+class _CopyWithImpl$Input$payment_due_aggregate_bool_exp_count<TRes>
+    implements CopyWith$Input$payment_due_aggregate_bool_exp_count<TRes> {
+  _CopyWithImpl$Input$payment_due_aggregate_bool_exp_count(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_aggregate_bool_exp_count _instance;
+
+  final TRes Function(Input$payment_due_aggregate_bool_exp_count) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? arguments = _undefined,
+    Object? distinct = _undefined,
+    Object? filter = _undefined,
+    Object? predicate = _undefined,
+  }) =>
+      _then(Input$payment_due_aggregate_bool_exp_count._({
+        ..._instance._$data,
+        if (arguments != _undefined)
+          'arguments': (arguments as List<Enum$payment_due_select_column>?),
+        if (distinct != _undefined) 'distinct': (distinct as bool?),
+        if (filter != _undefined)
+          'filter': (filter as Input$payment_due_bool_exp?),
+        if (predicate != _undefined && predicate != null)
+          'predicate': (predicate as Input$Int_comparison_exp),
+      }));
+  CopyWith$Input$payment_due_bool_exp<TRes> get filter {
+    final local$filter = _instance.filter;
+    return local$filter == null
+        ? CopyWith$Input$payment_due_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$payment_due_bool_exp(
+            local$filter, (e) => call(filter: e));
+  }
+
+  CopyWith$Input$Int_comparison_exp<TRes> get predicate {
+    final local$predicate = _instance.predicate;
+    return CopyWith$Input$Int_comparison_exp(
+        local$predicate, (e) => call(predicate: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_due_aggregate_bool_exp_count<TRes>
+    implements CopyWith$Input$payment_due_aggregate_bool_exp_count<TRes> {
+  _CopyWithStubImpl$Input$payment_due_aggregate_bool_exp_count(this._res);
+
+  TRes _res;
+
+  call({
+    List<Enum$payment_due_select_column>? arguments,
+    bool? distinct,
+    Input$payment_due_bool_exp? filter,
+    Input$Int_comparison_exp? predicate,
+  }) =>
+      _res;
+  CopyWith$Input$payment_due_bool_exp<TRes> get filter =>
+      CopyWith$Input$payment_due_bool_exp.stub(_res);
+  CopyWith$Input$Int_comparison_exp<TRes> get predicate =>
+      CopyWith$Input$Int_comparison_exp.stub(_res);
+}
+
+class Input$payment_due_aggregate_order_by {
+  factory Input$payment_due_aggregate_order_by({
+    Input$payment_due_avg_order_by? avg,
+    Enum$order_by? count,
+    Input$payment_due_max_order_by? max,
+    Input$payment_due_min_order_by? min,
+    Input$payment_due_stddev_order_by? stddev,
+    Input$payment_due_stddev_pop_order_by? stddev_pop,
+    Input$payment_due_stddev_samp_order_by? stddev_samp,
+    Input$payment_due_sum_order_by? sum,
+    Input$payment_due_var_pop_order_by? var_pop,
+    Input$payment_due_var_samp_order_by? var_samp,
+    Input$payment_due_variance_order_by? variance,
+  }) =>
+      Input$payment_due_aggregate_order_by._({
+        if (avg != null) r'avg': avg,
+        if (count != null) r'count': count,
+        if (max != null) r'max': max,
+        if (min != null) r'min': min,
+        if (stddev != null) r'stddev': stddev,
+        if (stddev_pop != null) r'stddev_pop': stddev_pop,
+        if (stddev_samp != null) r'stddev_samp': stddev_samp,
+        if (sum != null) r'sum': sum,
+        if (var_pop != null) r'var_pop': var_pop,
+        if (var_samp != null) r'var_samp': var_samp,
+        if (variance != null) r'variance': variance,
+      });
+
+  Input$payment_due_aggregate_order_by._(this._$data);
+
+  factory Input$payment_due_aggregate_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('avg')) {
+      final l$avg = data['avg'];
+      result$data['avg'] = l$avg == null
+          ? null
+          : Input$payment_due_avg_order_by.fromJson(
+              (l$avg as Map<String, dynamic>));
+    }
+    if (data.containsKey('count')) {
+      final l$count = data['count'];
+      result$data['count'] =
+          l$count == null ? null : fromJson$Enum$order_by((l$count as String));
+    }
+    if (data.containsKey('max')) {
+      final l$max = data['max'];
+      result$data['max'] = l$max == null
+          ? null
+          : Input$payment_due_max_order_by.fromJson(
+              (l$max as Map<String, dynamic>));
+    }
+    if (data.containsKey('min')) {
+      final l$min = data['min'];
+      result$data['min'] = l$min == null
+          ? null
+          : Input$payment_due_min_order_by.fromJson(
+              (l$min as Map<String, dynamic>));
+    }
+    if (data.containsKey('stddev')) {
+      final l$stddev = data['stddev'];
+      result$data['stddev'] = l$stddev == null
+          ? null
+          : Input$payment_due_stddev_order_by.fromJson(
+              (l$stddev as Map<String, dynamic>));
+    }
+    if (data.containsKey('stddev_pop')) {
+      final l$stddev_pop = data['stddev_pop'];
+      result$data['stddev_pop'] = l$stddev_pop == null
+          ? null
+          : Input$payment_due_stddev_pop_order_by.fromJson(
+              (l$stddev_pop as Map<String, dynamic>));
+    }
+    if (data.containsKey('stddev_samp')) {
+      final l$stddev_samp = data['stddev_samp'];
+      result$data['stddev_samp'] = l$stddev_samp == null
+          ? null
+          : Input$payment_due_stddev_samp_order_by.fromJson(
+              (l$stddev_samp as Map<String, dynamic>));
+    }
+    if (data.containsKey('sum')) {
+      final l$sum = data['sum'];
+      result$data['sum'] = l$sum == null
+          ? null
+          : Input$payment_due_sum_order_by.fromJson(
+              (l$sum as Map<String, dynamic>));
+    }
+    if (data.containsKey('var_pop')) {
+      final l$var_pop = data['var_pop'];
+      result$data['var_pop'] = l$var_pop == null
+          ? null
+          : Input$payment_due_var_pop_order_by.fromJson(
+              (l$var_pop as Map<String, dynamic>));
+    }
+    if (data.containsKey('var_samp')) {
+      final l$var_samp = data['var_samp'];
+      result$data['var_samp'] = l$var_samp == null
+          ? null
+          : Input$payment_due_var_samp_order_by.fromJson(
+              (l$var_samp as Map<String, dynamic>));
+    }
+    if (data.containsKey('variance')) {
+      final l$variance = data['variance'];
+      result$data['variance'] = l$variance == null
+          ? null
+          : Input$payment_due_variance_order_by.fromJson(
+              (l$variance as Map<String, dynamic>));
+    }
+    return Input$payment_due_aggregate_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$payment_due_avg_order_by? get avg =>
+      (_$data['avg'] as Input$payment_due_avg_order_by?);
+  Enum$order_by? get count => (_$data['count'] as Enum$order_by?);
+  Input$payment_due_max_order_by? get max =>
+      (_$data['max'] as Input$payment_due_max_order_by?);
+  Input$payment_due_min_order_by? get min =>
+      (_$data['min'] as Input$payment_due_min_order_by?);
+  Input$payment_due_stddev_order_by? get stddev =>
+      (_$data['stddev'] as Input$payment_due_stddev_order_by?);
+  Input$payment_due_stddev_pop_order_by? get stddev_pop =>
+      (_$data['stddev_pop'] as Input$payment_due_stddev_pop_order_by?);
+  Input$payment_due_stddev_samp_order_by? get stddev_samp =>
+      (_$data['stddev_samp'] as Input$payment_due_stddev_samp_order_by?);
+  Input$payment_due_sum_order_by? get sum =>
+      (_$data['sum'] as Input$payment_due_sum_order_by?);
+  Input$payment_due_var_pop_order_by? get var_pop =>
+      (_$data['var_pop'] as Input$payment_due_var_pop_order_by?);
+  Input$payment_due_var_samp_order_by? get var_samp =>
+      (_$data['var_samp'] as Input$payment_due_var_samp_order_by?);
+  Input$payment_due_variance_order_by? get variance =>
+      (_$data['variance'] as Input$payment_due_variance_order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('avg')) {
+      final l$avg = avg;
+      result$data['avg'] = l$avg?.toJson();
+    }
+    if (_$data.containsKey('count')) {
+      final l$count = count;
+      result$data['count'] =
+          l$count == null ? null : toJson$Enum$order_by(l$count);
+    }
+    if (_$data.containsKey('max')) {
+      final l$max = max;
+      result$data['max'] = l$max?.toJson();
+    }
+    if (_$data.containsKey('min')) {
+      final l$min = min;
+      result$data['min'] = l$min?.toJson();
+    }
+    if (_$data.containsKey('stddev')) {
+      final l$stddev = stddev;
+      result$data['stddev'] = l$stddev?.toJson();
+    }
+    if (_$data.containsKey('stddev_pop')) {
+      final l$stddev_pop = stddev_pop;
+      result$data['stddev_pop'] = l$stddev_pop?.toJson();
+    }
+    if (_$data.containsKey('stddev_samp')) {
+      final l$stddev_samp = stddev_samp;
+      result$data['stddev_samp'] = l$stddev_samp?.toJson();
+    }
+    if (_$data.containsKey('sum')) {
+      final l$sum = sum;
+      result$data['sum'] = l$sum?.toJson();
+    }
+    if (_$data.containsKey('var_pop')) {
+      final l$var_pop = var_pop;
+      result$data['var_pop'] = l$var_pop?.toJson();
+    }
+    if (_$data.containsKey('var_samp')) {
+      final l$var_samp = var_samp;
+      result$data['var_samp'] = l$var_samp?.toJson();
+    }
+    if (_$data.containsKey('variance')) {
+      final l$variance = variance;
+      result$data['variance'] = l$variance?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_aggregate_order_by<
+          Input$payment_due_aggregate_order_by>
+      get copyWith => CopyWith$Input$payment_due_aggregate_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_aggregate_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$avg = avg;
+    final lOther$avg = other.avg;
+    if (_$data.containsKey('avg') != other._$data.containsKey('avg')) {
+      return false;
+    }
+    if (l$avg != lOther$avg) {
+      return false;
+    }
+    final l$count = count;
+    final lOther$count = other.count;
+    if (_$data.containsKey('count') != other._$data.containsKey('count')) {
+      return false;
+    }
+    if (l$count != lOther$count) {
+      return false;
+    }
+    final l$max = max;
+    final lOther$max = other.max;
+    if (_$data.containsKey('max') != other._$data.containsKey('max')) {
+      return false;
+    }
+    if (l$max != lOther$max) {
+      return false;
+    }
+    final l$min = min;
+    final lOther$min = other.min;
+    if (_$data.containsKey('min') != other._$data.containsKey('min')) {
+      return false;
+    }
+    if (l$min != lOther$min) {
+      return false;
+    }
+    final l$stddev = stddev;
+    final lOther$stddev = other.stddev;
+    if (_$data.containsKey('stddev') != other._$data.containsKey('stddev')) {
+      return false;
+    }
+    if (l$stddev != lOther$stddev) {
+      return false;
+    }
+    final l$stddev_pop = stddev_pop;
+    final lOther$stddev_pop = other.stddev_pop;
+    if (_$data.containsKey('stddev_pop') !=
+        other._$data.containsKey('stddev_pop')) {
+      return false;
+    }
+    if (l$stddev_pop != lOther$stddev_pop) {
+      return false;
+    }
+    final l$stddev_samp = stddev_samp;
+    final lOther$stddev_samp = other.stddev_samp;
+    if (_$data.containsKey('stddev_samp') !=
+        other._$data.containsKey('stddev_samp')) {
+      return false;
+    }
+    if (l$stddev_samp != lOther$stddev_samp) {
+      return false;
+    }
+    final l$sum = sum;
+    final lOther$sum = other.sum;
+    if (_$data.containsKey('sum') != other._$data.containsKey('sum')) {
+      return false;
+    }
+    if (l$sum != lOther$sum) {
+      return false;
+    }
+    final l$var_pop = var_pop;
+    final lOther$var_pop = other.var_pop;
+    if (_$data.containsKey('var_pop') != other._$data.containsKey('var_pop')) {
+      return false;
+    }
+    if (l$var_pop != lOther$var_pop) {
+      return false;
+    }
+    final l$var_samp = var_samp;
+    final lOther$var_samp = other.var_samp;
+    if (_$data.containsKey('var_samp') !=
+        other._$data.containsKey('var_samp')) {
+      return false;
+    }
+    if (l$var_samp != lOther$var_samp) {
+      return false;
+    }
+    final l$variance = variance;
+    final lOther$variance = other.variance;
+    if (_$data.containsKey('variance') !=
+        other._$data.containsKey('variance')) {
+      return false;
+    }
+    if (l$variance != lOther$variance) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$avg = avg;
+    final l$count = count;
+    final l$max = max;
+    final l$min = min;
+    final l$stddev = stddev;
+    final l$stddev_pop = stddev_pop;
+    final l$stddev_samp = stddev_samp;
+    final l$sum = sum;
+    final l$var_pop = var_pop;
+    final l$var_samp = var_samp;
+    final l$variance = variance;
+    return Object.hashAll([
+      _$data.containsKey('avg') ? l$avg : const {},
+      _$data.containsKey('count') ? l$count : const {},
+      _$data.containsKey('max') ? l$max : const {},
+      _$data.containsKey('min') ? l$min : const {},
+      _$data.containsKey('stddev') ? l$stddev : const {},
+      _$data.containsKey('stddev_pop') ? l$stddev_pop : const {},
+      _$data.containsKey('stddev_samp') ? l$stddev_samp : const {},
+      _$data.containsKey('sum') ? l$sum : const {},
+      _$data.containsKey('var_pop') ? l$var_pop : const {},
+      _$data.containsKey('var_samp') ? l$var_samp : const {},
+      _$data.containsKey('variance') ? l$variance : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_aggregate_order_by<TRes> {
+  factory CopyWith$Input$payment_due_aggregate_order_by(
+    Input$payment_due_aggregate_order_by instance,
+    TRes Function(Input$payment_due_aggregate_order_by) then,
+  ) = _CopyWithImpl$Input$payment_due_aggregate_order_by;
+
+  factory CopyWith$Input$payment_due_aggregate_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_aggregate_order_by;
+
+  TRes call({
+    Input$payment_due_avg_order_by? avg,
+    Enum$order_by? count,
+    Input$payment_due_max_order_by? max,
+    Input$payment_due_min_order_by? min,
+    Input$payment_due_stddev_order_by? stddev,
+    Input$payment_due_stddev_pop_order_by? stddev_pop,
+    Input$payment_due_stddev_samp_order_by? stddev_samp,
+    Input$payment_due_sum_order_by? sum,
+    Input$payment_due_var_pop_order_by? var_pop,
+    Input$payment_due_var_samp_order_by? var_samp,
+    Input$payment_due_variance_order_by? variance,
+  });
+  CopyWith$Input$payment_due_avg_order_by<TRes> get avg;
+  CopyWith$Input$payment_due_max_order_by<TRes> get max;
+  CopyWith$Input$payment_due_min_order_by<TRes> get min;
+  CopyWith$Input$payment_due_stddev_order_by<TRes> get stddev;
+  CopyWith$Input$payment_due_stddev_pop_order_by<TRes> get stddev_pop;
+  CopyWith$Input$payment_due_stddev_samp_order_by<TRes> get stddev_samp;
+  CopyWith$Input$payment_due_sum_order_by<TRes> get sum;
+  CopyWith$Input$payment_due_var_pop_order_by<TRes> get var_pop;
+  CopyWith$Input$payment_due_var_samp_order_by<TRes> get var_samp;
+  CopyWith$Input$payment_due_variance_order_by<TRes> get variance;
+}
+
+class _CopyWithImpl$Input$payment_due_aggregate_order_by<TRes>
+    implements CopyWith$Input$payment_due_aggregate_order_by<TRes> {
+  _CopyWithImpl$Input$payment_due_aggregate_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_aggregate_order_by _instance;
+
+  final TRes Function(Input$payment_due_aggregate_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? avg = _undefined,
+    Object? count = _undefined,
+    Object? max = _undefined,
+    Object? min = _undefined,
+    Object? stddev = _undefined,
+    Object? stddev_pop = _undefined,
+    Object? stddev_samp = _undefined,
+    Object? sum = _undefined,
+    Object? var_pop = _undefined,
+    Object? var_samp = _undefined,
+    Object? variance = _undefined,
+  }) =>
+      _then(Input$payment_due_aggregate_order_by._({
+        ..._instance._$data,
+        if (avg != _undefined) 'avg': (avg as Input$payment_due_avg_order_by?),
+        if (count != _undefined) 'count': (count as Enum$order_by?),
+        if (max != _undefined) 'max': (max as Input$payment_due_max_order_by?),
+        if (min != _undefined) 'min': (min as Input$payment_due_min_order_by?),
+        if (stddev != _undefined)
+          'stddev': (stddev as Input$payment_due_stddev_order_by?),
+        if (stddev_pop != _undefined)
+          'stddev_pop': (stddev_pop as Input$payment_due_stddev_pop_order_by?),
+        if (stddev_samp != _undefined)
+          'stddev_samp':
+              (stddev_samp as Input$payment_due_stddev_samp_order_by?),
+        if (sum != _undefined) 'sum': (sum as Input$payment_due_sum_order_by?),
+        if (var_pop != _undefined)
+          'var_pop': (var_pop as Input$payment_due_var_pop_order_by?),
+        if (var_samp != _undefined)
+          'var_samp': (var_samp as Input$payment_due_var_samp_order_by?),
+        if (variance != _undefined)
+          'variance': (variance as Input$payment_due_variance_order_by?),
+      }));
+  CopyWith$Input$payment_due_avg_order_by<TRes> get avg {
+    final local$avg = _instance.avg;
+    return local$avg == null
+        ? CopyWith$Input$payment_due_avg_order_by.stub(_then(_instance))
+        : CopyWith$Input$payment_due_avg_order_by(
+            local$avg, (e) => call(avg: e));
+  }
+
+  CopyWith$Input$payment_due_max_order_by<TRes> get max {
+    final local$max = _instance.max;
+    return local$max == null
+        ? CopyWith$Input$payment_due_max_order_by.stub(_then(_instance))
+        : CopyWith$Input$payment_due_max_order_by(
+            local$max, (e) => call(max: e));
+  }
+
+  CopyWith$Input$payment_due_min_order_by<TRes> get min {
+    final local$min = _instance.min;
+    return local$min == null
+        ? CopyWith$Input$payment_due_min_order_by.stub(_then(_instance))
+        : CopyWith$Input$payment_due_min_order_by(
+            local$min, (e) => call(min: e));
+  }
+
+  CopyWith$Input$payment_due_stddev_order_by<TRes> get stddev {
+    final local$stddev = _instance.stddev;
+    return local$stddev == null
+        ? CopyWith$Input$payment_due_stddev_order_by.stub(_then(_instance))
+        : CopyWith$Input$payment_due_stddev_order_by(
+            local$stddev, (e) => call(stddev: e));
+  }
+
+  CopyWith$Input$payment_due_stddev_pop_order_by<TRes> get stddev_pop {
+    final local$stddev_pop = _instance.stddev_pop;
+    return local$stddev_pop == null
+        ? CopyWith$Input$payment_due_stddev_pop_order_by.stub(_then(_instance))
+        : CopyWith$Input$payment_due_stddev_pop_order_by(
+            local$stddev_pop, (e) => call(stddev_pop: e));
+  }
+
+  CopyWith$Input$payment_due_stddev_samp_order_by<TRes> get stddev_samp {
+    final local$stddev_samp = _instance.stddev_samp;
+    return local$stddev_samp == null
+        ? CopyWith$Input$payment_due_stddev_samp_order_by.stub(_then(_instance))
+        : CopyWith$Input$payment_due_stddev_samp_order_by(
+            local$stddev_samp, (e) => call(stddev_samp: e));
+  }
+
+  CopyWith$Input$payment_due_sum_order_by<TRes> get sum {
+    final local$sum = _instance.sum;
+    return local$sum == null
+        ? CopyWith$Input$payment_due_sum_order_by.stub(_then(_instance))
+        : CopyWith$Input$payment_due_sum_order_by(
+            local$sum, (e) => call(sum: e));
+  }
+
+  CopyWith$Input$payment_due_var_pop_order_by<TRes> get var_pop {
+    final local$var_pop = _instance.var_pop;
+    return local$var_pop == null
+        ? CopyWith$Input$payment_due_var_pop_order_by.stub(_then(_instance))
+        : CopyWith$Input$payment_due_var_pop_order_by(
+            local$var_pop, (e) => call(var_pop: e));
+  }
+
+  CopyWith$Input$payment_due_var_samp_order_by<TRes> get var_samp {
+    final local$var_samp = _instance.var_samp;
+    return local$var_samp == null
+        ? CopyWith$Input$payment_due_var_samp_order_by.stub(_then(_instance))
+        : CopyWith$Input$payment_due_var_samp_order_by(
+            local$var_samp, (e) => call(var_samp: e));
+  }
+
+  CopyWith$Input$payment_due_variance_order_by<TRes> get variance {
+    final local$variance = _instance.variance;
+    return local$variance == null
+        ? CopyWith$Input$payment_due_variance_order_by.stub(_then(_instance))
+        : CopyWith$Input$payment_due_variance_order_by(
+            local$variance, (e) => call(variance: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_due_aggregate_order_by<TRes>
+    implements CopyWith$Input$payment_due_aggregate_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_due_aggregate_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Input$payment_due_avg_order_by? avg,
+    Enum$order_by? count,
+    Input$payment_due_max_order_by? max,
+    Input$payment_due_min_order_by? min,
+    Input$payment_due_stddev_order_by? stddev,
+    Input$payment_due_stddev_pop_order_by? stddev_pop,
+    Input$payment_due_stddev_samp_order_by? stddev_samp,
+    Input$payment_due_sum_order_by? sum,
+    Input$payment_due_var_pop_order_by? var_pop,
+    Input$payment_due_var_samp_order_by? var_samp,
+    Input$payment_due_variance_order_by? variance,
+  }) =>
+      _res;
+  CopyWith$Input$payment_due_avg_order_by<TRes> get avg =>
+      CopyWith$Input$payment_due_avg_order_by.stub(_res);
+  CopyWith$Input$payment_due_max_order_by<TRes> get max =>
+      CopyWith$Input$payment_due_max_order_by.stub(_res);
+  CopyWith$Input$payment_due_min_order_by<TRes> get min =>
+      CopyWith$Input$payment_due_min_order_by.stub(_res);
+  CopyWith$Input$payment_due_stddev_order_by<TRes> get stddev =>
+      CopyWith$Input$payment_due_stddev_order_by.stub(_res);
+  CopyWith$Input$payment_due_stddev_pop_order_by<TRes> get stddev_pop =>
+      CopyWith$Input$payment_due_stddev_pop_order_by.stub(_res);
+  CopyWith$Input$payment_due_stddev_samp_order_by<TRes> get stddev_samp =>
+      CopyWith$Input$payment_due_stddev_samp_order_by.stub(_res);
+  CopyWith$Input$payment_due_sum_order_by<TRes> get sum =>
+      CopyWith$Input$payment_due_sum_order_by.stub(_res);
+  CopyWith$Input$payment_due_var_pop_order_by<TRes> get var_pop =>
+      CopyWith$Input$payment_due_var_pop_order_by.stub(_res);
+  CopyWith$Input$payment_due_var_samp_order_by<TRes> get var_samp =>
+      CopyWith$Input$payment_due_var_samp_order_by.stub(_res);
+  CopyWith$Input$payment_due_variance_order_by<TRes> get variance =>
+      CopyWith$Input$payment_due_variance_order_by.stub(_res);
+}
+
+class Input$payment_due_arr_rel_insert_input {
+  factory Input$payment_due_arr_rel_insert_input({
+    required List<Input$payment_due_insert_input> data,
+    Input$payment_due_on_conflict? on_conflict,
+  }) =>
+      Input$payment_due_arr_rel_insert_input._({
+        r'data': data,
+        if (on_conflict != null) r'on_conflict': on_conflict,
+      });
+
+  Input$payment_due_arr_rel_insert_input._(this._$data);
+
+  factory Input$payment_due_arr_rel_insert_input.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$data = data['data'];
+    result$data['data'] = (l$data as List<dynamic>)
+        .map((e) => Input$payment_due_insert_input.fromJson(
+            (e as Map<String, dynamic>)))
+        .toList();
+    if (data.containsKey('on_conflict')) {
+      final l$on_conflict = data['on_conflict'];
+      result$data['on_conflict'] = l$on_conflict == null
+          ? null
+          : Input$payment_due_on_conflict.fromJson(
+              (l$on_conflict as Map<String, dynamic>));
+    }
+    return Input$payment_due_arr_rel_insert_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  List<Input$payment_due_insert_input> get data =>
+      (_$data['data'] as List<Input$payment_due_insert_input>);
+  Input$payment_due_on_conflict? get on_conflict =>
+      (_$data['on_conflict'] as Input$payment_due_on_conflict?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$data = data;
+    result$data['data'] = l$data.map((e) => e.toJson()).toList();
+    if (_$data.containsKey('on_conflict')) {
+      final l$on_conflict = on_conflict;
+      result$data['on_conflict'] = l$on_conflict?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_arr_rel_insert_input<
+          Input$payment_due_arr_rel_insert_input>
+      get copyWith => CopyWith$Input$payment_due_arr_rel_insert_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_arr_rel_insert_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$data = data;
+    final lOther$data = other.data;
+    if (l$data.length != lOther$data.length) {
+      return false;
+    }
+    for (int i = 0; i < l$data.length; i++) {
+      final l$data$entry = l$data[i];
+      final lOther$data$entry = lOther$data[i];
+      if (l$data$entry != lOther$data$entry) {
+        return false;
+      }
+    }
+    final l$on_conflict = on_conflict;
+    final lOther$on_conflict = other.on_conflict;
+    if (_$data.containsKey('on_conflict') !=
+        other._$data.containsKey('on_conflict')) {
+      return false;
+    }
+    if (l$on_conflict != lOther$on_conflict) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$data = data;
+    final l$on_conflict = on_conflict;
+    return Object.hashAll([
+      Object.hashAll(l$data.map((v) => v)),
+      _$data.containsKey('on_conflict') ? l$on_conflict : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_arr_rel_insert_input<TRes> {
+  factory CopyWith$Input$payment_due_arr_rel_insert_input(
+    Input$payment_due_arr_rel_insert_input instance,
+    TRes Function(Input$payment_due_arr_rel_insert_input) then,
+  ) = _CopyWithImpl$Input$payment_due_arr_rel_insert_input;
+
+  factory CopyWith$Input$payment_due_arr_rel_insert_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_arr_rel_insert_input;
+
+  TRes call({
+    List<Input$payment_due_insert_input>? data,
+    Input$payment_due_on_conflict? on_conflict,
+  });
+  TRes data(
+      Iterable<Input$payment_due_insert_input> Function(
+              Iterable<
+                  CopyWith$Input$payment_due_insert_input<
+                      Input$payment_due_insert_input>>)
+          _fn);
+  CopyWith$Input$payment_due_on_conflict<TRes> get on_conflict;
+}
+
+class _CopyWithImpl$Input$payment_due_arr_rel_insert_input<TRes>
+    implements CopyWith$Input$payment_due_arr_rel_insert_input<TRes> {
+  _CopyWithImpl$Input$payment_due_arr_rel_insert_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_arr_rel_insert_input _instance;
+
+  final TRes Function(Input$payment_due_arr_rel_insert_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? data = _undefined,
+    Object? on_conflict = _undefined,
+  }) =>
+      _then(Input$payment_due_arr_rel_insert_input._({
+        ..._instance._$data,
+        if (data != _undefined && data != null)
+          'data': (data as List<Input$payment_due_insert_input>),
+        if (on_conflict != _undefined)
+          'on_conflict': (on_conflict as Input$payment_due_on_conflict?),
+      }));
+  TRes data(
+          Iterable<Input$payment_due_insert_input> Function(
+                  Iterable<
+                      CopyWith$Input$payment_due_insert_input<
+                          Input$payment_due_insert_input>>)
+              _fn) =>
+      call(
+          data: _fn(
+              _instance.data.map((e) => CopyWith$Input$payment_due_insert_input(
+                    e,
+                    (i) => i,
+                  ))).toList());
+  CopyWith$Input$payment_due_on_conflict<TRes> get on_conflict {
+    final local$on_conflict = _instance.on_conflict;
+    return local$on_conflict == null
+        ? CopyWith$Input$payment_due_on_conflict.stub(_then(_instance))
+        : CopyWith$Input$payment_due_on_conflict(
+            local$on_conflict, (e) => call(on_conflict: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_due_arr_rel_insert_input<TRes>
+    implements CopyWith$Input$payment_due_arr_rel_insert_input<TRes> {
+  _CopyWithStubImpl$Input$payment_due_arr_rel_insert_input(this._res);
+
+  TRes _res;
+
+  call({
+    List<Input$payment_due_insert_input>? data,
+    Input$payment_due_on_conflict? on_conflict,
+  }) =>
+      _res;
+  data(_fn) => _res;
+  CopyWith$Input$payment_due_on_conflict<TRes> get on_conflict =>
+      CopyWith$Input$payment_due_on_conflict.stub(_res);
+}
+
+class Input$payment_due_avg_order_by {
+  factory Input$payment_due_avg_order_by({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  }) =>
+      Input$payment_due_avg_order_by._({
+        if (payment_due != null) r'payment_due': payment_due,
+        if (umkm_id != null) r'umkm_id': umkm_id,
+      });
+
+  Input$payment_due_avg_order_by._(this._$data);
+
+  factory Input$payment_due_avg_order_by.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('payment_due')) {
+      final l$payment_due = data['payment_due'];
+      result$data['payment_due'] = l$payment_due == null
+          ? null
+          : fromJson$Enum$order_by((l$payment_due as String));
+    }
+    if (data.containsKey('umkm_id')) {
+      final l$umkm_id = data['umkm_id'];
+      result$data['umkm_id'] = l$umkm_id == null
+          ? null
+          : fromJson$Enum$order_by((l$umkm_id as String));
+    }
+    return Input$payment_due_avg_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get payment_due => (_$data['payment_due'] as Enum$order_by?);
+  Enum$order_by? get umkm_id => (_$data['umkm_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('payment_due')) {
+      final l$payment_due = payment_due;
+      result$data['payment_due'] =
+          l$payment_due == null ? null : toJson$Enum$order_by(l$payment_due);
+    }
+    if (_$data.containsKey('umkm_id')) {
+      final l$umkm_id = umkm_id;
+      result$data['umkm_id'] =
+          l$umkm_id == null ? null : toJson$Enum$order_by(l$umkm_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_avg_order_by<Input$payment_due_avg_order_by>
+      get copyWith => CopyWith$Input$payment_due_avg_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_avg_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$payment_due = payment_due;
+    final lOther$payment_due = other.payment_due;
+    if (_$data.containsKey('payment_due') !=
+        other._$data.containsKey('payment_due')) {
+      return false;
+    }
+    if (l$payment_due != lOther$payment_due) {
+      return false;
+    }
+    final l$umkm_id = umkm_id;
+    final lOther$umkm_id = other.umkm_id;
+    if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
+      return false;
+    }
+    if (l$umkm_id != lOther$umkm_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$payment_due = payment_due;
+    final l$umkm_id = umkm_id;
+    return Object.hashAll([
+      _$data.containsKey('payment_due') ? l$payment_due : const {},
+      _$data.containsKey('umkm_id') ? l$umkm_id : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_avg_order_by<TRes> {
+  factory CopyWith$Input$payment_due_avg_order_by(
+    Input$payment_due_avg_order_by instance,
+    TRes Function(Input$payment_due_avg_order_by) then,
+  ) = _CopyWithImpl$Input$payment_due_avg_order_by;
+
+  factory CopyWith$Input$payment_due_avg_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_avg_order_by;
+
+  TRes call({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  });
+}
+
+class _CopyWithImpl$Input$payment_due_avg_order_by<TRes>
+    implements CopyWith$Input$payment_due_avg_order_by<TRes> {
+  _CopyWithImpl$Input$payment_due_avg_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_avg_order_by _instance;
+
+  final TRes Function(Input$payment_due_avg_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? payment_due = _undefined,
+    Object? umkm_id = _undefined,
+  }) =>
+      _then(Input$payment_due_avg_order_by._({
+        ..._instance._$data,
+        if (payment_due != _undefined)
+          'payment_due': (payment_due as Enum$order_by?),
+        if (umkm_id != _undefined) 'umkm_id': (umkm_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_due_avg_order_by<TRes>
+    implements CopyWith$Input$payment_due_avg_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_due_avg_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  }) =>
+      _res;
+}
+
+class Input$payment_due_bool_exp {
+  factory Input$payment_due_bool_exp({
+    List<Input$payment_due_bool_exp>? $_and,
+    Input$payment_due_bool_exp? $_not,
+    List<Input$payment_due_bool_exp>? $_or,
+    Input$timestamptz_comparison_exp? created_at,
+    Input$timestamptz_comparison_exp? deadline,
+    Input$Boolean_comparison_exp? fulfilled,
+    Input$Int_comparison_exp? payment_due,
+    Input$uuid_comparison_exp? payment_due_id,
+    Input$umkm_bool_exp? umkm,
+    Input$Int_comparison_exp? umkm_id,
+    Input$timestamptz_comparison_exp? updated_at,
+  }) =>
+      Input$payment_due_bool_exp._({
+        if ($_and != null) r'_and': $_and,
+        if ($_not != null) r'_not': $_not,
+        if ($_or != null) r'_or': $_or,
+        if (created_at != null) r'created_at': created_at,
+        if (deadline != null) r'deadline': deadline,
+        if (fulfilled != null) r'fulfilled': fulfilled,
+        if (payment_due != null) r'payment_due': payment_due,
+        if (payment_due_id != null) r'payment_due_id': payment_due_id,
+        if (umkm != null) r'umkm': umkm,
+        if (umkm_id != null) r'umkm_id': umkm_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$payment_due_bool_exp._(this._$data);
+
+  factory Input$payment_due_bool_exp.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('_and')) {
+      final l$$_and = data['_and'];
+      result$data['_and'] = (l$$_and as List<dynamic>?)
+          ?.map((e) =>
+              Input$payment_due_bool_exp.fromJson((e as Map<String, dynamic>)))
+          .toList();
+    }
+    if (data.containsKey('_not')) {
+      final l$$_not = data['_not'];
+      result$data['_not'] = l$$_not == null
+          ? null
+          : Input$payment_due_bool_exp.fromJson(
+              (l$$_not as Map<String, dynamic>));
+    }
+    if (data.containsKey('_or')) {
+      final l$$_or = data['_or'];
+      result$data['_or'] = (l$$_or as List<dynamic>?)
+          ?.map((e) =>
+              Input$payment_due_bool_exp.fromJson((e as Map<String, dynamic>)))
+          .toList();
+    }
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : Input$timestamptz_comparison_exp.fromJson(
+              (l$created_at as Map<String, dynamic>));
+    }
+    if (data.containsKey('deadline')) {
+      final l$deadline = data['deadline'];
+      result$data['deadline'] = l$deadline == null
+          ? null
+          : Input$timestamptz_comparison_exp.fromJson(
+              (l$deadline as Map<String, dynamic>));
+    }
+    if (data.containsKey('fulfilled')) {
+      final l$fulfilled = data['fulfilled'];
+      result$data['fulfilled'] = l$fulfilled == null
+          ? null
+          : Input$Boolean_comparison_exp.fromJson(
+              (l$fulfilled as Map<String, dynamic>));
+    }
+    if (data.containsKey('payment_due')) {
+      final l$payment_due = data['payment_due'];
+      result$data['payment_due'] = l$payment_due == null
+          ? null
+          : Input$Int_comparison_exp.fromJson(
+              (l$payment_due as Map<String, dynamic>));
+    }
+    if (data.containsKey('payment_due_id')) {
+      final l$payment_due_id = data['payment_due_id'];
+      result$data['payment_due_id'] = l$payment_due_id == null
+          ? null
+          : Input$uuid_comparison_exp.fromJson(
+              (l$payment_due_id as Map<String, dynamic>));
+    }
+    if (data.containsKey('umkm')) {
+      final l$umkm = data['umkm'];
+      result$data['umkm'] = l$umkm == null
+          ? null
+          : Input$umkm_bool_exp.fromJson((l$umkm as Map<String, dynamic>));
+    }
+    if (data.containsKey('umkm_id')) {
+      final l$umkm_id = data['umkm_id'];
+      result$data['umkm_id'] = l$umkm_id == null
+          ? null
+          : Input$Int_comparison_exp.fromJson(
+              (l$umkm_id as Map<String, dynamic>));
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : Input$timestamptz_comparison_exp.fromJson(
+              (l$updated_at as Map<String, dynamic>));
+    }
+    return Input$payment_due_bool_exp._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  List<Input$payment_due_bool_exp>? get $_and =>
+      (_$data['_and'] as List<Input$payment_due_bool_exp>?);
+  Input$payment_due_bool_exp? get $_not =>
+      (_$data['_not'] as Input$payment_due_bool_exp?);
+  List<Input$payment_due_bool_exp>? get $_or =>
+      (_$data['_or'] as List<Input$payment_due_bool_exp>?);
+  Input$timestamptz_comparison_exp? get created_at =>
+      (_$data['created_at'] as Input$timestamptz_comparison_exp?);
+  Input$timestamptz_comparison_exp? get deadline =>
+      (_$data['deadline'] as Input$timestamptz_comparison_exp?);
+  Input$Boolean_comparison_exp? get fulfilled =>
+      (_$data['fulfilled'] as Input$Boolean_comparison_exp?);
+  Input$Int_comparison_exp? get payment_due =>
+      (_$data['payment_due'] as Input$Int_comparison_exp?);
+  Input$uuid_comparison_exp? get payment_due_id =>
+      (_$data['payment_due_id'] as Input$uuid_comparison_exp?);
+  Input$umkm_bool_exp? get umkm => (_$data['umkm'] as Input$umkm_bool_exp?);
+  Input$Int_comparison_exp? get umkm_id =>
+      (_$data['umkm_id'] as Input$Int_comparison_exp?);
+  Input$timestamptz_comparison_exp? get updated_at =>
+      (_$data['updated_at'] as Input$timestamptz_comparison_exp?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('_and')) {
+      final l$$_and = $_and;
+      result$data['_and'] = l$$_and?.map((e) => e.toJson()).toList();
+    }
+    if (_$data.containsKey('_not')) {
+      final l$$_not = $_not;
+      result$data['_not'] = l$$_not?.toJson();
+    }
+    if (_$data.containsKey('_or')) {
+      final l$$_or = $_or;
+      result$data['_or'] = l$$_or?.map((e) => e.toJson()).toList();
+    }
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] = l$created_at?.toJson();
+    }
+    if (_$data.containsKey('deadline')) {
+      final l$deadline = deadline;
+      result$data['deadline'] = l$deadline?.toJson();
+    }
+    if (_$data.containsKey('fulfilled')) {
+      final l$fulfilled = fulfilled;
+      result$data['fulfilled'] = l$fulfilled?.toJson();
+    }
+    if (_$data.containsKey('payment_due')) {
+      final l$payment_due = payment_due;
+      result$data['payment_due'] = l$payment_due?.toJson();
+    }
+    if (_$data.containsKey('payment_due_id')) {
+      final l$payment_due_id = payment_due_id;
+      result$data['payment_due_id'] = l$payment_due_id?.toJson();
+    }
+    if (_$data.containsKey('umkm')) {
+      final l$umkm = umkm;
+      result$data['umkm'] = l$umkm?.toJson();
+    }
+    if (_$data.containsKey('umkm_id')) {
+      final l$umkm_id = umkm_id;
+      result$data['umkm_id'] = l$umkm_id?.toJson();
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] = l$updated_at?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_bool_exp<Input$payment_due_bool_exp>
+      get copyWith => CopyWith$Input$payment_due_bool_exp(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_bool_exp) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$_and = $_and;
+    final lOther$$_and = other.$_and;
+    if (_$data.containsKey('_and') != other._$data.containsKey('_and')) {
+      return false;
+    }
+    if (l$$_and != null && lOther$$_and != null) {
+      if (l$$_and.length != lOther$$_and.length) {
+        return false;
+      }
+      for (int i = 0; i < l$$_and.length; i++) {
+        final l$$_and$entry = l$$_and[i];
+        final lOther$$_and$entry = lOther$$_and[i];
+        if (l$$_and$entry != lOther$$_and$entry) {
+          return false;
+        }
+      }
+    } else if (l$$_and != lOther$$_and) {
+      return false;
+    }
+    final l$$_not = $_not;
+    final lOther$$_not = other.$_not;
+    if (_$data.containsKey('_not') != other._$data.containsKey('_not')) {
+      return false;
+    }
+    if (l$$_not != lOther$$_not) {
+      return false;
+    }
+    final l$$_or = $_or;
+    final lOther$$_or = other.$_or;
+    if (_$data.containsKey('_or') != other._$data.containsKey('_or')) {
+      return false;
+    }
+    if (l$$_or != null && lOther$$_or != null) {
+      if (l$$_or.length != lOther$$_or.length) {
+        return false;
+      }
+      for (int i = 0; i < l$$_or.length; i++) {
+        final l$$_or$entry = l$$_or[i];
+        final lOther$$_or$entry = lOther$$_or[i];
+        if (l$$_or$entry != lOther$$_or$entry) {
+          return false;
+        }
+      }
+    } else if (l$$_or != lOther$$_or) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$deadline = deadline;
+    final lOther$deadline = other.deadline;
+    if (_$data.containsKey('deadline') !=
+        other._$data.containsKey('deadline')) {
+      return false;
+    }
+    if (l$deadline != lOther$deadline) {
+      return false;
+    }
+    final l$fulfilled = fulfilled;
+    final lOther$fulfilled = other.fulfilled;
+    if (_$data.containsKey('fulfilled') !=
+        other._$data.containsKey('fulfilled')) {
+      return false;
+    }
+    if (l$fulfilled != lOther$fulfilled) {
+      return false;
+    }
+    final l$payment_due = payment_due;
+    final lOther$payment_due = other.payment_due;
+    if (_$data.containsKey('payment_due') !=
+        other._$data.containsKey('payment_due')) {
+      return false;
+    }
+    if (l$payment_due != lOther$payment_due) {
+      return false;
+    }
+    final l$payment_due_id = payment_due_id;
+    final lOther$payment_due_id = other.payment_due_id;
+    if (_$data.containsKey('payment_due_id') !=
+        other._$data.containsKey('payment_due_id')) {
+      return false;
+    }
+    if (l$payment_due_id != lOther$payment_due_id) {
+      return false;
+    }
+    final l$umkm = umkm;
+    final lOther$umkm = other.umkm;
+    if (_$data.containsKey('umkm') != other._$data.containsKey('umkm')) {
+      return false;
+    }
+    if (l$umkm != lOther$umkm) {
+      return false;
+    }
+    final l$umkm_id = umkm_id;
+    final lOther$umkm_id = other.umkm_id;
+    if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
+      return false;
+    }
+    if (l$umkm_id != lOther$umkm_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$$_and = $_and;
+    final l$$_not = $_not;
+    final l$$_or = $_or;
+    final l$created_at = created_at;
+    final l$deadline = deadline;
+    final l$fulfilled = fulfilled;
+    final l$payment_due = payment_due;
+    final l$payment_due_id = payment_due_id;
+    final l$umkm = umkm;
+    final l$umkm_id = umkm_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('_and')
+          ? l$$_and == null
+              ? null
+              : Object.hashAll(l$$_and.map((v) => v))
+          : const {},
+      _$data.containsKey('_not') ? l$$_not : const {},
+      _$data.containsKey('_or')
+          ? l$$_or == null
+              ? null
+              : Object.hashAll(l$$_or.map((v) => v))
+          : const {},
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('deadline') ? l$deadline : const {},
+      _$data.containsKey('fulfilled') ? l$fulfilled : const {},
+      _$data.containsKey('payment_due') ? l$payment_due : const {},
+      _$data.containsKey('payment_due_id') ? l$payment_due_id : const {},
+      _$data.containsKey('umkm') ? l$umkm : const {},
+      _$data.containsKey('umkm_id') ? l$umkm_id : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_bool_exp<TRes> {
+  factory CopyWith$Input$payment_due_bool_exp(
+    Input$payment_due_bool_exp instance,
+    TRes Function(Input$payment_due_bool_exp) then,
+  ) = _CopyWithImpl$Input$payment_due_bool_exp;
+
+  factory CopyWith$Input$payment_due_bool_exp.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_bool_exp;
+
+  TRes call({
+    List<Input$payment_due_bool_exp>? $_and,
+    Input$payment_due_bool_exp? $_not,
+    List<Input$payment_due_bool_exp>? $_or,
+    Input$timestamptz_comparison_exp? created_at,
+    Input$timestamptz_comparison_exp? deadline,
+    Input$Boolean_comparison_exp? fulfilled,
+    Input$Int_comparison_exp? payment_due,
+    Input$uuid_comparison_exp? payment_due_id,
+    Input$umkm_bool_exp? umkm,
+    Input$Int_comparison_exp? umkm_id,
+    Input$timestamptz_comparison_exp? updated_at,
+  });
+  TRes $_and(
+      Iterable<Input$payment_due_bool_exp>? Function(
+              Iterable<
+                  CopyWith$Input$payment_due_bool_exp<
+                      Input$payment_due_bool_exp>>?)
+          _fn);
+  CopyWith$Input$payment_due_bool_exp<TRes> get $_not;
+  TRes $_or(
+      Iterable<Input$payment_due_bool_exp>? Function(
+              Iterable<
+                  CopyWith$Input$payment_due_bool_exp<
+                      Input$payment_due_bool_exp>>?)
+          _fn);
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at;
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get deadline;
+  CopyWith$Input$Boolean_comparison_exp<TRes> get fulfilled;
+  CopyWith$Input$Int_comparison_exp<TRes> get payment_due;
+  CopyWith$Input$uuid_comparison_exp<TRes> get payment_due_id;
+  CopyWith$Input$umkm_bool_exp<TRes> get umkm;
+  CopyWith$Input$Int_comparison_exp<TRes> get umkm_id;
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get updated_at;
+}
+
+class _CopyWithImpl$Input$payment_due_bool_exp<TRes>
+    implements CopyWith$Input$payment_due_bool_exp<TRes> {
+  _CopyWithImpl$Input$payment_due_bool_exp(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_bool_exp _instance;
+
+  final TRes Function(Input$payment_due_bool_exp) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? $_and = _undefined,
+    Object? $_not = _undefined,
+    Object? $_or = _undefined,
+    Object? created_at = _undefined,
+    Object? deadline = _undefined,
+    Object? fulfilled = _undefined,
+    Object? payment_due = _undefined,
+    Object? payment_due_id = _undefined,
+    Object? umkm = _undefined,
+    Object? umkm_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$payment_due_bool_exp._({
+        ..._instance._$data,
+        if ($_and != _undefined)
+          '_and': ($_and as List<Input$payment_due_bool_exp>?),
+        if ($_not != _undefined) '_not': ($_not as Input$payment_due_bool_exp?),
+        if ($_or != _undefined)
+          '_or': ($_or as List<Input$payment_due_bool_exp>?),
+        if (created_at != _undefined)
+          'created_at': (created_at as Input$timestamptz_comparison_exp?),
+        if (deadline != _undefined)
+          'deadline': (deadline as Input$timestamptz_comparison_exp?),
+        if (fulfilled != _undefined)
+          'fulfilled': (fulfilled as Input$Boolean_comparison_exp?),
+        if (payment_due != _undefined)
+          'payment_due': (payment_due as Input$Int_comparison_exp?),
+        if (payment_due_id != _undefined)
+          'payment_due_id': (payment_due_id as Input$uuid_comparison_exp?),
+        if (umkm != _undefined) 'umkm': (umkm as Input$umkm_bool_exp?),
+        if (umkm_id != _undefined)
+          'umkm_id': (umkm_id as Input$Int_comparison_exp?),
+        if (updated_at != _undefined)
+          'updated_at': (updated_at as Input$timestamptz_comparison_exp?),
+      }));
+  TRes $_and(
+          Iterable<Input$payment_due_bool_exp>? Function(
+                  Iterable<
+                      CopyWith$Input$payment_due_bool_exp<
+                          Input$payment_due_bool_exp>>?)
+              _fn) =>
+      call(
+          $_and: _fn(
+              _instance.$_and?.map((e) => CopyWith$Input$payment_due_bool_exp(
+                    e,
+                    (i) => i,
+                  )))?.toList());
+  CopyWith$Input$payment_due_bool_exp<TRes> get $_not {
+    final local$$_not = _instance.$_not;
+    return local$$_not == null
+        ? CopyWith$Input$payment_due_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$payment_due_bool_exp(
+            local$$_not, (e) => call($_not: e));
+  }
+
+  TRes $_or(
+          Iterable<Input$payment_due_bool_exp>? Function(
+                  Iterable<
+                      CopyWith$Input$payment_due_bool_exp<
+                          Input$payment_due_bool_exp>>?)
+              _fn) =>
+      call(
+          $_or: _fn(
+              _instance.$_or?.map((e) => CopyWith$Input$payment_due_bool_exp(
+                    e,
+                    (i) => i,
+                  )))?.toList());
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at {
+    final local$created_at = _instance.created_at;
+    return local$created_at == null
+        ? CopyWith$Input$timestamptz_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$timestamptz_comparison_exp(
+            local$created_at, (e) => call(created_at: e));
+  }
+
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get deadline {
+    final local$deadline = _instance.deadline;
+    return local$deadline == null
+        ? CopyWith$Input$timestamptz_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$timestamptz_comparison_exp(
+            local$deadline, (e) => call(deadline: e));
+  }
+
+  CopyWith$Input$Boolean_comparison_exp<TRes> get fulfilled {
+    final local$fulfilled = _instance.fulfilled;
+    return local$fulfilled == null
+        ? CopyWith$Input$Boolean_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$Boolean_comparison_exp(
+            local$fulfilled, (e) => call(fulfilled: e));
+  }
+
+  CopyWith$Input$Int_comparison_exp<TRes> get payment_due {
+    final local$payment_due = _instance.payment_due;
+    return local$payment_due == null
+        ? CopyWith$Input$Int_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$Int_comparison_exp(
+            local$payment_due, (e) => call(payment_due: e));
+  }
+
+  CopyWith$Input$uuid_comparison_exp<TRes> get payment_due_id {
+    final local$payment_due_id = _instance.payment_due_id;
+    return local$payment_due_id == null
+        ? CopyWith$Input$uuid_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$uuid_comparison_exp(
+            local$payment_due_id, (e) => call(payment_due_id: e));
+  }
+
+  CopyWith$Input$umkm_bool_exp<TRes> get umkm {
+    final local$umkm = _instance.umkm;
+    return local$umkm == null
+        ? CopyWith$Input$umkm_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$umkm_bool_exp(local$umkm, (e) => call(umkm: e));
+  }
+
+  CopyWith$Input$Int_comparison_exp<TRes> get umkm_id {
+    final local$umkm_id = _instance.umkm_id;
+    return local$umkm_id == null
+        ? CopyWith$Input$Int_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$Int_comparison_exp(
+            local$umkm_id, (e) => call(umkm_id: e));
+  }
+
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get updated_at {
+    final local$updated_at = _instance.updated_at;
+    return local$updated_at == null
+        ? CopyWith$Input$timestamptz_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$timestamptz_comparison_exp(
+            local$updated_at, (e) => call(updated_at: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_due_bool_exp<TRes>
+    implements CopyWith$Input$payment_due_bool_exp<TRes> {
+  _CopyWithStubImpl$Input$payment_due_bool_exp(this._res);
+
+  TRes _res;
+
+  call({
+    List<Input$payment_due_bool_exp>? $_and,
+    Input$payment_due_bool_exp? $_not,
+    List<Input$payment_due_bool_exp>? $_or,
+    Input$timestamptz_comparison_exp? created_at,
+    Input$timestamptz_comparison_exp? deadline,
+    Input$Boolean_comparison_exp? fulfilled,
+    Input$Int_comparison_exp? payment_due,
+    Input$uuid_comparison_exp? payment_due_id,
+    Input$umkm_bool_exp? umkm,
+    Input$Int_comparison_exp? umkm_id,
+    Input$timestamptz_comparison_exp? updated_at,
+  }) =>
+      _res;
+  $_and(_fn) => _res;
+  CopyWith$Input$payment_due_bool_exp<TRes> get $_not =>
+      CopyWith$Input$payment_due_bool_exp.stub(_res);
+  $_or(_fn) => _res;
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at =>
+      CopyWith$Input$timestamptz_comparison_exp.stub(_res);
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get deadline =>
+      CopyWith$Input$timestamptz_comparison_exp.stub(_res);
+  CopyWith$Input$Boolean_comparison_exp<TRes> get fulfilled =>
+      CopyWith$Input$Boolean_comparison_exp.stub(_res);
+  CopyWith$Input$Int_comparison_exp<TRes> get payment_due =>
+      CopyWith$Input$Int_comparison_exp.stub(_res);
+  CopyWith$Input$uuid_comparison_exp<TRes> get payment_due_id =>
+      CopyWith$Input$uuid_comparison_exp.stub(_res);
+  CopyWith$Input$umkm_bool_exp<TRes> get umkm =>
+      CopyWith$Input$umkm_bool_exp.stub(_res);
+  CopyWith$Input$Int_comparison_exp<TRes> get umkm_id =>
+      CopyWith$Input$Int_comparison_exp.stub(_res);
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get updated_at =>
+      CopyWith$Input$timestamptz_comparison_exp.stub(_res);
+}
+
+class Input$payment_due_inc_input {
+  factory Input$payment_due_inc_input({
+    int? payment_due,
+    int? umkm_id,
+  }) =>
+      Input$payment_due_inc_input._({
+        if (payment_due != null) r'payment_due': payment_due,
+        if (umkm_id != null) r'umkm_id': umkm_id,
+      });
+
+  Input$payment_due_inc_input._(this._$data);
+
+  factory Input$payment_due_inc_input.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('payment_due')) {
+      final l$payment_due = data['payment_due'];
+      result$data['payment_due'] = (l$payment_due as int?);
+    }
+    if (data.containsKey('umkm_id')) {
+      final l$umkm_id = data['umkm_id'];
+      result$data['umkm_id'] = (l$umkm_id as int?);
+    }
+    return Input$payment_due_inc_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int? get payment_due => (_$data['payment_due'] as int?);
+  int? get umkm_id => (_$data['umkm_id'] as int?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('payment_due')) {
+      final l$payment_due = payment_due;
+      result$data['payment_due'] = l$payment_due;
+    }
+    if (_$data.containsKey('umkm_id')) {
+      final l$umkm_id = umkm_id;
+      result$data['umkm_id'] = l$umkm_id;
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_inc_input<Input$payment_due_inc_input>
+      get copyWith => CopyWith$Input$payment_due_inc_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_inc_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$payment_due = payment_due;
+    final lOther$payment_due = other.payment_due;
+    if (_$data.containsKey('payment_due') !=
+        other._$data.containsKey('payment_due')) {
+      return false;
+    }
+    if (l$payment_due != lOther$payment_due) {
+      return false;
+    }
+    final l$umkm_id = umkm_id;
+    final lOther$umkm_id = other.umkm_id;
+    if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
+      return false;
+    }
+    if (l$umkm_id != lOther$umkm_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$payment_due = payment_due;
+    final l$umkm_id = umkm_id;
+    return Object.hashAll([
+      _$data.containsKey('payment_due') ? l$payment_due : const {},
+      _$data.containsKey('umkm_id') ? l$umkm_id : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_inc_input<TRes> {
+  factory CopyWith$Input$payment_due_inc_input(
+    Input$payment_due_inc_input instance,
+    TRes Function(Input$payment_due_inc_input) then,
+  ) = _CopyWithImpl$Input$payment_due_inc_input;
+
+  factory CopyWith$Input$payment_due_inc_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_inc_input;
+
+  TRes call({
+    int? payment_due,
+    int? umkm_id,
+  });
+}
+
+class _CopyWithImpl$Input$payment_due_inc_input<TRes>
+    implements CopyWith$Input$payment_due_inc_input<TRes> {
+  _CopyWithImpl$Input$payment_due_inc_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_inc_input _instance;
+
+  final TRes Function(Input$payment_due_inc_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? payment_due = _undefined,
+    Object? umkm_id = _undefined,
+  }) =>
+      _then(Input$payment_due_inc_input._({
+        ..._instance._$data,
+        if (payment_due != _undefined) 'payment_due': (payment_due as int?),
+        if (umkm_id != _undefined) 'umkm_id': (umkm_id as int?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_due_inc_input<TRes>
+    implements CopyWith$Input$payment_due_inc_input<TRes> {
+  _CopyWithStubImpl$Input$payment_due_inc_input(this._res);
+
+  TRes _res;
+
+  call({
+    int? payment_due,
+    int? umkm_id,
+  }) =>
+      _res;
+}
+
+class Input$payment_due_insert_input {
+  factory Input$payment_due_insert_input({
+    DateTime? created_at,
+    DateTime? deadline,
+    bool? fulfilled,
+    int? payment_due,
+    UUID? payment_due_id,
+    Input$umkm_obj_rel_insert_input? umkm,
+    int? umkm_id,
+    DateTime? updated_at,
+  }) =>
+      Input$payment_due_insert_input._({
+        if (created_at != null) r'created_at': created_at,
+        if (deadline != null) r'deadline': deadline,
+        if (fulfilled != null) r'fulfilled': fulfilled,
+        if (payment_due != null) r'payment_due': payment_due,
+        if (payment_due_id != null) r'payment_due_id': payment_due_id,
+        if (umkm != null) r'umkm': umkm,
+        if (umkm_id != null) r'umkm_id': umkm_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$payment_due_insert_input._(this._$data);
+
+  factory Input$payment_due_insert_input.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : DateTime.parse((l$created_at as String));
+    }
+    if (data.containsKey('deadline')) {
+      final l$deadline = data['deadline'];
+      result$data['deadline'] =
+          l$deadline == null ? null : DateTime.parse((l$deadline as String));
+    }
+    if (data.containsKey('fulfilled')) {
+      final l$fulfilled = data['fulfilled'];
+      result$data['fulfilled'] = (l$fulfilled as bool?);
+    }
+    if (data.containsKey('payment_due')) {
+      final l$payment_due = data['payment_due'];
+      result$data['payment_due'] = (l$payment_due as int?);
+    }
+    if (data.containsKey('payment_due_id')) {
+      final l$payment_due_id = data['payment_due_id'];
+      result$data['payment_due_id'] =
+          l$payment_due_id == null ? null : uuidFromJson(l$payment_due_id);
+    }
+    if (data.containsKey('umkm')) {
+      final l$umkm = data['umkm'];
+      result$data['umkm'] = l$umkm == null
+          ? null
+          : Input$umkm_obj_rel_insert_input.fromJson(
+              (l$umkm as Map<String, dynamic>));
+    }
+    if (data.containsKey('umkm_id')) {
+      final l$umkm_id = data['umkm_id'];
+      result$data['umkm_id'] = (l$umkm_id as int?);
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : DateTime.parse((l$updated_at as String));
+    }
+    return Input$payment_due_insert_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  DateTime? get created_at => (_$data['created_at'] as DateTime?);
+  DateTime? get deadline => (_$data['deadline'] as DateTime?);
+  bool? get fulfilled => (_$data['fulfilled'] as bool?);
+  int? get payment_due => (_$data['payment_due'] as int?);
+  UUID? get payment_due_id => (_$data['payment_due_id'] as UUID?);
+  Input$umkm_obj_rel_insert_input? get umkm =>
+      (_$data['umkm'] as Input$umkm_obj_rel_insert_input?);
+  int? get umkm_id => (_$data['umkm_id'] as int?);
+  DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] = l$created_at?.toIso8601String();
+    }
+    if (_$data.containsKey('deadline')) {
+      final l$deadline = deadline;
+      result$data['deadline'] = l$deadline?.toIso8601String();
+    }
+    if (_$data.containsKey('fulfilled')) {
+      final l$fulfilled = fulfilled;
+      result$data['fulfilled'] = l$fulfilled;
+    }
+    if (_$data.containsKey('payment_due')) {
+      final l$payment_due = payment_due;
+      result$data['payment_due'] = l$payment_due;
+    }
+    if (_$data.containsKey('payment_due_id')) {
+      final l$payment_due_id = payment_due_id;
+      result$data['payment_due_id'] =
+          l$payment_due_id == null ? null : uuidToJson(l$payment_due_id);
+    }
+    if (_$data.containsKey('umkm')) {
+      final l$umkm = umkm;
+      result$data['umkm'] = l$umkm?.toJson();
+    }
+    if (_$data.containsKey('umkm_id')) {
+      final l$umkm_id = umkm_id;
+      result$data['umkm_id'] = l$umkm_id;
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] = l$updated_at?.toIso8601String();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_insert_input<Input$payment_due_insert_input>
+      get copyWith => CopyWith$Input$payment_due_insert_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_insert_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$deadline = deadline;
+    final lOther$deadline = other.deadline;
+    if (_$data.containsKey('deadline') !=
+        other._$data.containsKey('deadline')) {
+      return false;
+    }
+    if (l$deadline != lOther$deadline) {
+      return false;
+    }
+    final l$fulfilled = fulfilled;
+    final lOther$fulfilled = other.fulfilled;
+    if (_$data.containsKey('fulfilled') !=
+        other._$data.containsKey('fulfilled')) {
+      return false;
+    }
+    if (l$fulfilled != lOther$fulfilled) {
+      return false;
+    }
+    final l$payment_due = payment_due;
+    final lOther$payment_due = other.payment_due;
+    if (_$data.containsKey('payment_due') !=
+        other._$data.containsKey('payment_due')) {
+      return false;
+    }
+    if (l$payment_due != lOther$payment_due) {
+      return false;
+    }
+    final l$payment_due_id = payment_due_id;
+    final lOther$payment_due_id = other.payment_due_id;
+    if (_$data.containsKey('payment_due_id') !=
+        other._$data.containsKey('payment_due_id')) {
+      return false;
+    }
+    if (l$payment_due_id != lOther$payment_due_id) {
+      return false;
+    }
+    final l$umkm = umkm;
+    final lOther$umkm = other.umkm;
+    if (_$data.containsKey('umkm') != other._$data.containsKey('umkm')) {
+      return false;
+    }
+    if (l$umkm != lOther$umkm) {
+      return false;
+    }
+    final l$umkm_id = umkm_id;
+    final lOther$umkm_id = other.umkm_id;
+    if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
+      return false;
+    }
+    if (l$umkm_id != lOther$umkm_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$created_at = created_at;
+    final l$deadline = deadline;
+    final l$fulfilled = fulfilled;
+    final l$payment_due = payment_due;
+    final l$payment_due_id = payment_due_id;
+    final l$umkm = umkm;
+    final l$umkm_id = umkm_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('deadline') ? l$deadline : const {},
+      _$data.containsKey('fulfilled') ? l$fulfilled : const {},
+      _$data.containsKey('payment_due') ? l$payment_due : const {},
+      _$data.containsKey('payment_due_id') ? l$payment_due_id : const {},
+      _$data.containsKey('umkm') ? l$umkm : const {},
+      _$data.containsKey('umkm_id') ? l$umkm_id : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_insert_input<TRes> {
+  factory CopyWith$Input$payment_due_insert_input(
+    Input$payment_due_insert_input instance,
+    TRes Function(Input$payment_due_insert_input) then,
+  ) = _CopyWithImpl$Input$payment_due_insert_input;
+
+  factory CopyWith$Input$payment_due_insert_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_insert_input;
+
+  TRes call({
+    DateTime? created_at,
+    DateTime? deadline,
+    bool? fulfilled,
+    int? payment_due,
+    UUID? payment_due_id,
+    Input$umkm_obj_rel_insert_input? umkm,
+    int? umkm_id,
+    DateTime? updated_at,
+  });
+  CopyWith$Input$umkm_obj_rel_insert_input<TRes> get umkm;
+}
+
+class _CopyWithImpl$Input$payment_due_insert_input<TRes>
+    implements CopyWith$Input$payment_due_insert_input<TRes> {
+  _CopyWithImpl$Input$payment_due_insert_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_insert_input _instance;
+
+  final TRes Function(Input$payment_due_insert_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? created_at = _undefined,
+    Object? deadline = _undefined,
+    Object? fulfilled = _undefined,
+    Object? payment_due = _undefined,
+    Object? payment_due_id = _undefined,
+    Object? umkm = _undefined,
+    Object? umkm_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$payment_due_insert_input._({
+        ..._instance._$data,
+        if (created_at != _undefined) 'created_at': (created_at as DateTime?),
+        if (deadline != _undefined) 'deadline': (deadline as DateTime?),
+        if (fulfilled != _undefined) 'fulfilled': (fulfilled as bool?),
+        if (payment_due != _undefined) 'payment_due': (payment_due as int?),
+        if (payment_due_id != _undefined)
+          'payment_due_id': (payment_due_id as UUID?),
+        if (umkm != _undefined)
+          'umkm': (umkm as Input$umkm_obj_rel_insert_input?),
+        if (umkm_id != _undefined) 'umkm_id': (umkm_id as int?),
+        if (updated_at != _undefined) 'updated_at': (updated_at as DateTime?),
+      }));
+  CopyWith$Input$umkm_obj_rel_insert_input<TRes> get umkm {
+    final local$umkm = _instance.umkm;
+    return local$umkm == null
+        ? CopyWith$Input$umkm_obj_rel_insert_input.stub(_then(_instance))
+        : CopyWith$Input$umkm_obj_rel_insert_input(
+            local$umkm, (e) => call(umkm: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_due_insert_input<TRes>
+    implements CopyWith$Input$payment_due_insert_input<TRes> {
+  _CopyWithStubImpl$Input$payment_due_insert_input(this._res);
+
+  TRes _res;
+
+  call({
+    DateTime? created_at,
+    DateTime? deadline,
+    bool? fulfilled,
+    int? payment_due,
+    UUID? payment_due_id,
+    Input$umkm_obj_rel_insert_input? umkm,
+    int? umkm_id,
+    DateTime? updated_at,
+  }) =>
+      _res;
+  CopyWith$Input$umkm_obj_rel_insert_input<TRes> get umkm =>
+      CopyWith$Input$umkm_obj_rel_insert_input.stub(_res);
+}
+
+class Input$payment_due_max_order_by {
+  factory Input$payment_due_max_order_by({
+    Enum$order_by? created_at,
+    Enum$order_by? deadline,
+    Enum$order_by? payment_due,
+    Enum$order_by? payment_due_id,
+    Enum$order_by? umkm_id,
+    Enum$order_by? updated_at,
+  }) =>
+      Input$payment_due_max_order_by._({
+        if (created_at != null) r'created_at': created_at,
+        if (deadline != null) r'deadline': deadline,
+        if (payment_due != null) r'payment_due': payment_due,
+        if (payment_due_id != null) r'payment_due_id': payment_due_id,
+        if (umkm_id != null) r'umkm_id': umkm_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$payment_due_max_order_by._(this._$data);
+
+  factory Input$payment_due_max_order_by.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : fromJson$Enum$order_by((l$created_at as String));
+    }
+    if (data.containsKey('deadline')) {
+      final l$deadline = data['deadline'];
+      result$data['deadline'] = l$deadline == null
+          ? null
+          : fromJson$Enum$order_by((l$deadline as String));
+    }
+    if (data.containsKey('payment_due')) {
+      final l$payment_due = data['payment_due'];
+      result$data['payment_due'] = l$payment_due == null
+          ? null
+          : fromJson$Enum$order_by((l$payment_due as String));
+    }
+    if (data.containsKey('payment_due_id')) {
+      final l$payment_due_id = data['payment_due_id'];
+      result$data['payment_due_id'] = l$payment_due_id == null
+          ? null
+          : fromJson$Enum$order_by((l$payment_due_id as String));
+    }
+    if (data.containsKey('umkm_id')) {
+      final l$umkm_id = data['umkm_id'];
+      result$data['umkm_id'] = l$umkm_id == null
+          ? null
+          : fromJson$Enum$order_by((l$umkm_id as String));
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : fromJson$Enum$order_by((l$updated_at as String));
+    }
+    return Input$payment_due_max_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get created_at => (_$data['created_at'] as Enum$order_by?);
+  Enum$order_by? get deadline => (_$data['deadline'] as Enum$order_by?);
+  Enum$order_by? get payment_due => (_$data['payment_due'] as Enum$order_by?);
+  Enum$order_by? get payment_due_id =>
+      (_$data['payment_due_id'] as Enum$order_by?);
+  Enum$order_by? get umkm_id => (_$data['umkm_id'] as Enum$order_by?);
+  Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] =
+          l$created_at == null ? null : toJson$Enum$order_by(l$created_at);
+    }
+    if (_$data.containsKey('deadline')) {
+      final l$deadline = deadline;
+      result$data['deadline'] =
+          l$deadline == null ? null : toJson$Enum$order_by(l$deadline);
+    }
+    if (_$data.containsKey('payment_due')) {
+      final l$payment_due = payment_due;
+      result$data['payment_due'] =
+          l$payment_due == null ? null : toJson$Enum$order_by(l$payment_due);
+    }
+    if (_$data.containsKey('payment_due_id')) {
+      final l$payment_due_id = payment_due_id;
+      result$data['payment_due_id'] = l$payment_due_id == null
+          ? null
+          : toJson$Enum$order_by(l$payment_due_id);
+    }
+    if (_$data.containsKey('umkm_id')) {
+      final l$umkm_id = umkm_id;
+      result$data['umkm_id'] =
+          l$umkm_id == null ? null : toJson$Enum$order_by(l$umkm_id);
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] =
+          l$updated_at == null ? null : toJson$Enum$order_by(l$updated_at);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_max_order_by<Input$payment_due_max_order_by>
+      get copyWith => CopyWith$Input$payment_due_max_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_max_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$deadline = deadline;
+    final lOther$deadline = other.deadline;
+    if (_$data.containsKey('deadline') !=
+        other._$data.containsKey('deadline')) {
+      return false;
+    }
+    if (l$deadline != lOther$deadline) {
+      return false;
+    }
+    final l$payment_due = payment_due;
+    final lOther$payment_due = other.payment_due;
+    if (_$data.containsKey('payment_due') !=
+        other._$data.containsKey('payment_due')) {
+      return false;
+    }
+    if (l$payment_due != lOther$payment_due) {
+      return false;
+    }
+    final l$payment_due_id = payment_due_id;
+    final lOther$payment_due_id = other.payment_due_id;
+    if (_$data.containsKey('payment_due_id') !=
+        other._$data.containsKey('payment_due_id')) {
+      return false;
+    }
+    if (l$payment_due_id != lOther$payment_due_id) {
+      return false;
+    }
+    final l$umkm_id = umkm_id;
+    final lOther$umkm_id = other.umkm_id;
+    if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
+      return false;
+    }
+    if (l$umkm_id != lOther$umkm_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$created_at = created_at;
+    final l$deadline = deadline;
+    final l$payment_due = payment_due;
+    final l$payment_due_id = payment_due_id;
+    final l$umkm_id = umkm_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('deadline') ? l$deadline : const {},
+      _$data.containsKey('payment_due') ? l$payment_due : const {},
+      _$data.containsKey('payment_due_id') ? l$payment_due_id : const {},
+      _$data.containsKey('umkm_id') ? l$umkm_id : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_max_order_by<TRes> {
+  factory CopyWith$Input$payment_due_max_order_by(
+    Input$payment_due_max_order_by instance,
+    TRes Function(Input$payment_due_max_order_by) then,
+  ) = _CopyWithImpl$Input$payment_due_max_order_by;
+
+  factory CopyWith$Input$payment_due_max_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_max_order_by;
+
+  TRes call({
+    Enum$order_by? created_at,
+    Enum$order_by? deadline,
+    Enum$order_by? payment_due,
+    Enum$order_by? payment_due_id,
+    Enum$order_by? umkm_id,
+    Enum$order_by? updated_at,
+  });
+}
+
+class _CopyWithImpl$Input$payment_due_max_order_by<TRes>
+    implements CopyWith$Input$payment_due_max_order_by<TRes> {
+  _CopyWithImpl$Input$payment_due_max_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_max_order_by _instance;
+
+  final TRes Function(Input$payment_due_max_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? created_at = _undefined,
+    Object? deadline = _undefined,
+    Object? payment_due = _undefined,
+    Object? payment_due_id = _undefined,
+    Object? umkm_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$payment_due_max_order_by._({
+        ..._instance._$data,
+        if (created_at != _undefined)
+          'created_at': (created_at as Enum$order_by?),
+        if (deadline != _undefined) 'deadline': (deadline as Enum$order_by?),
+        if (payment_due != _undefined)
+          'payment_due': (payment_due as Enum$order_by?),
+        if (payment_due_id != _undefined)
+          'payment_due_id': (payment_due_id as Enum$order_by?),
+        if (umkm_id != _undefined) 'umkm_id': (umkm_id as Enum$order_by?),
+        if (updated_at != _undefined)
+          'updated_at': (updated_at as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_due_max_order_by<TRes>
+    implements CopyWith$Input$payment_due_max_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_due_max_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$order_by? created_at,
+    Enum$order_by? deadline,
+    Enum$order_by? payment_due,
+    Enum$order_by? payment_due_id,
+    Enum$order_by? umkm_id,
+    Enum$order_by? updated_at,
+  }) =>
+      _res;
+}
+
+class Input$payment_due_min_order_by {
+  factory Input$payment_due_min_order_by({
+    Enum$order_by? created_at,
+    Enum$order_by? deadline,
+    Enum$order_by? payment_due,
+    Enum$order_by? payment_due_id,
+    Enum$order_by? umkm_id,
+    Enum$order_by? updated_at,
+  }) =>
+      Input$payment_due_min_order_by._({
+        if (created_at != null) r'created_at': created_at,
+        if (deadline != null) r'deadline': deadline,
+        if (payment_due != null) r'payment_due': payment_due,
+        if (payment_due_id != null) r'payment_due_id': payment_due_id,
+        if (umkm_id != null) r'umkm_id': umkm_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$payment_due_min_order_by._(this._$data);
+
+  factory Input$payment_due_min_order_by.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : fromJson$Enum$order_by((l$created_at as String));
+    }
+    if (data.containsKey('deadline')) {
+      final l$deadline = data['deadline'];
+      result$data['deadline'] = l$deadline == null
+          ? null
+          : fromJson$Enum$order_by((l$deadline as String));
+    }
+    if (data.containsKey('payment_due')) {
+      final l$payment_due = data['payment_due'];
+      result$data['payment_due'] = l$payment_due == null
+          ? null
+          : fromJson$Enum$order_by((l$payment_due as String));
+    }
+    if (data.containsKey('payment_due_id')) {
+      final l$payment_due_id = data['payment_due_id'];
+      result$data['payment_due_id'] = l$payment_due_id == null
+          ? null
+          : fromJson$Enum$order_by((l$payment_due_id as String));
+    }
+    if (data.containsKey('umkm_id')) {
+      final l$umkm_id = data['umkm_id'];
+      result$data['umkm_id'] = l$umkm_id == null
+          ? null
+          : fromJson$Enum$order_by((l$umkm_id as String));
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : fromJson$Enum$order_by((l$updated_at as String));
+    }
+    return Input$payment_due_min_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get created_at => (_$data['created_at'] as Enum$order_by?);
+  Enum$order_by? get deadline => (_$data['deadline'] as Enum$order_by?);
+  Enum$order_by? get payment_due => (_$data['payment_due'] as Enum$order_by?);
+  Enum$order_by? get payment_due_id =>
+      (_$data['payment_due_id'] as Enum$order_by?);
+  Enum$order_by? get umkm_id => (_$data['umkm_id'] as Enum$order_by?);
+  Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] =
+          l$created_at == null ? null : toJson$Enum$order_by(l$created_at);
+    }
+    if (_$data.containsKey('deadline')) {
+      final l$deadline = deadline;
+      result$data['deadline'] =
+          l$deadline == null ? null : toJson$Enum$order_by(l$deadline);
+    }
+    if (_$data.containsKey('payment_due')) {
+      final l$payment_due = payment_due;
+      result$data['payment_due'] =
+          l$payment_due == null ? null : toJson$Enum$order_by(l$payment_due);
+    }
+    if (_$data.containsKey('payment_due_id')) {
+      final l$payment_due_id = payment_due_id;
+      result$data['payment_due_id'] = l$payment_due_id == null
+          ? null
+          : toJson$Enum$order_by(l$payment_due_id);
+    }
+    if (_$data.containsKey('umkm_id')) {
+      final l$umkm_id = umkm_id;
+      result$data['umkm_id'] =
+          l$umkm_id == null ? null : toJson$Enum$order_by(l$umkm_id);
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] =
+          l$updated_at == null ? null : toJson$Enum$order_by(l$updated_at);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_min_order_by<Input$payment_due_min_order_by>
+      get copyWith => CopyWith$Input$payment_due_min_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_min_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$deadline = deadline;
+    final lOther$deadline = other.deadline;
+    if (_$data.containsKey('deadline') !=
+        other._$data.containsKey('deadline')) {
+      return false;
+    }
+    if (l$deadline != lOther$deadline) {
+      return false;
+    }
+    final l$payment_due = payment_due;
+    final lOther$payment_due = other.payment_due;
+    if (_$data.containsKey('payment_due') !=
+        other._$data.containsKey('payment_due')) {
+      return false;
+    }
+    if (l$payment_due != lOther$payment_due) {
+      return false;
+    }
+    final l$payment_due_id = payment_due_id;
+    final lOther$payment_due_id = other.payment_due_id;
+    if (_$data.containsKey('payment_due_id') !=
+        other._$data.containsKey('payment_due_id')) {
+      return false;
+    }
+    if (l$payment_due_id != lOther$payment_due_id) {
+      return false;
+    }
+    final l$umkm_id = umkm_id;
+    final lOther$umkm_id = other.umkm_id;
+    if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
+      return false;
+    }
+    if (l$umkm_id != lOther$umkm_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$created_at = created_at;
+    final l$deadline = deadline;
+    final l$payment_due = payment_due;
+    final l$payment_due_id = payment_due_id;
+    final l$umkm_id = umkm_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('deadline') ? l$deadline : const {},
+      _$data.containsKey('payment_due') ? l$payment_due : const {},
+      _$data.containsKey('payment_due_id') ? l$payment_due_id : const {},
+      _$data.containsKey('umkm_id') ? l$umkm_id : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_min_order_by<TRes> {
+  factory CopyWith$Input$payment_due_min_order_by(
+    Input$payment_due_min_order_by instance,
+    TRes Function(Input$payment_due_min_order_by) then,
+  ) = _CopyWithImpl$Input$payment_due_min_order_by;
+
+  factory CopyWith$Input$payment_due_min_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_min_order_by;
+
+  TRes call({
+    Enum$order_by? created_at,
+    Enum$order_by? deadline,
+    Enum$order_by? payment_due,
+    Enum$order_by? payment_due_id,
+    Enum$order_by? umkm_id,
+    Enum$order_by? updated_at,
+  });
+}
+
+class _CopyWithImpl$Input$payment_due_min_order_by<TRes>
+    implements CopyWith$Input$payment_due_min_order_by<TRes> {
+  _CopyWithImpl$Input$payment_due_min_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_min_order_by _instance;
+
+  final TRes Function(Input$payment_due_min_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? created_at = _undefined,
+    Object? deadline = _undefined,
+    Object? payment_due = _undefined,
+    Object? payment_due_id = _undefined,
+    Object? umkm_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$payment_due_min_order_by._({
+        ..._instance._$data,
+        if (created_at != _undefined)
+          'created_at': (created_at as Enum$order_by?),
+        if (deadline != _undefined) 'deadline': (deadline as Enum$order_by?),
+        if (payment_due != _undefined)
+          'payment_due': (payment_due as Enum$order_by?),
+        if (payment_due_id != _undefined)
+          'payment_due_id': (payment_due_id as Enum$order_by?),
+        if (umkm_id != _undefined) 'umkm_id': (umkm_id as Enum$order_by?),
+        if (updated_at != _undefined)
+          'updated_at': (updated_at as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_due_min_order_by<TRes>
+    implements CopyWith$Input$payment_due_min_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_due_min_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$order_by? created_at,
+    Enum$order_by? deadline,
+    Enum$order_by? payment_due,
+    Enum$order_by? payment_due_id,
+    Enum$order_by? umkm_id,
+    Enum$order_by? updated_at,
+  }) =>
+      _res;
+}
+
+class Input$payment_due_on_conflict {
+  factory Input$payment_due_on_conflict({
+    required Enum$payment_due_constraint constraint,
+    required List<Enum$payment_due_update_column> update_columns,
+    Input$payment_due_bool_exp? where,
+  }) =>
+      Input$payment_due_on_conflict._({
+        r'constraint': constraint,
+        r'update_columns': update_columns,
+        if (where != null) r'where': where,
+      });
+
+  Input$payment_due_on_conflict._(this._$data);
+
+  factory Input$payment_due_on_conflict.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$constraint = data['constraint'];
+    result$data['constraint'] =
+        fromJson$Enum$payment_due_constraint((l$constraint as String));
+    final l$update_columns = data['update_columns'];
+    result$data['update_columns'] = (l$update_columns as List<dynamic>)
+        .map((e) => fromJson$Enum$payment_due_update_column((e as String)))
+        .toList();
+    if (data.containsKey('where')) {
+      final l$where = data['where'];
+      result$data['where'] = l$where == null
+          ? null
+          : Input$payment_due_bool_exp.fromJson(
+              (l$where as Map<String, dynamic>));
+    }
+    return Input$payment_due_on_conflict._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$payment_due_constraint get constraint =>
+      (_$data['constraint'] as Enum$payment_due_constraint);
+  List<Enum$payment_due_update_column> get update_columns =>
+      (_$data['update_columns'] as List<Enum$payment_due_update_column>);
+  Input$payment_due_bool_exp? get where =>
+      (_$data['where'] as Input$payment_due_bool_exp?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$constraint = constraint;
+    result$data['constraint'] =
+        toJson$Enum$payment_due_constraint(l$constraint);
+    final l$update_columns = update_columns;
+    result$data['update_columns'] = l$update_columns
+        .map((e) => toJson$Enum$payment_due_update_column(e))
+        .toList();
+    if (_$data.containsKey('where')) {
+      final l$where = where;
+      result$data['where'] = l$where?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_on_conflict<Input$payment_due_on_conflict>
+      get copyWith => CopyWith$Input$payment_due_on_conflict(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_on_conflict) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$constraint = constraint;
+    final lOther$constraint = other.constraint;
+    if (l$constraint != lOther$constraint) {
+      return false;
+    }
+    final l$update_columns = update_columns;
+    final lOther$update_columns = other.update_columns;
+    if (l$update_columns.length != lOther$update_columns.length) {
+      return false;
+    }
+    for (int i = 0; i < l$update_columns.length; i++) {
+      final l$update_columns$entry = l$update_columns[i];
+      final lOther$update_columns$entry = lOther$update_columns[i];
+      if (l$update_columns$entry != lOther$update_columns$entry) {
+        return false;
+      }
+    }
+    final l$where = where;
+    final lOther$where = other.where;
+    if (_$data.containsKey('where') != other._$data.containsKey('where')) {
+      return false;
+    }
+    if (l$where != lOther$where) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$constraint = constraint;
+    final l$update_columns = update_columns;
+    final l$where = where;
+    return Object.hashAll([
+      l$constraint,
+      Object.hashAll(l$update_columns.map((v) => v)),
+      _$data.containsKey('where') ? l$where : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_on_conflict<TRes> {
+  factory CopyWith$Input$payment_due_on_conflict(
+    Input$payment_due_on_conflict instance,
+    TRes Function(Input$payment_due_on_conflict) then,
+  ) = _CopyWithImpl$Input$payment_due_on_conflict;
+
+  factory CopyWith$Input$payment_due_on_conflict.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_on_conflict;
+
+  TRes call({
+    Enum$payment_due_constraint? constraint,
+    List<Enum$payment_due_update_column>? update_columns,
+    Input$payment_due_bool_exp? where,
+  });
+  CopyWith$Input$payment_due_bool_exp<TRes> get where;
+}
+
+class _CopyWithImpl$Input$payment_due_on_conflict<TRes>
+    implements CopyWith$Input$payment_due_on_conflict<TRes> {
+  _CopyWithImpl$Input$payment_due_on_conflict(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_on_conflict _instance;
+
+  final TRes Function(Input$payment_due_on_conflict) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? constraint = _undefined,
+    Object? update_columns = _undefined,
+    Object? where = _undefined,
+  }) =>
+      _then(Input$payment_due_on_conflict._({
+        ..._instance._$data,
+        if (constraint != _undefined && constraint != null)
+          'constraint': (constraint as Enum$payment_due_constraint),
+        if (update_columns != _undefined && update_columns != null)
+          'update_columns':
+              (update_columns as List<Enum$payment_due_update_column>),
+        if (where != _undefined)
+          'where': (where as Input$payment_due_bool_exp?),
+      }));
+  CopyWith$Input$payment_due_bool_exp<TRes> get where {
+    final local$where = _instance.where;
+    return local$where == null
+        ? CopyWith$Input$payment_due_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$payment_due_bool_exp(
+            local$where, (e) => call(where: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_due_on_conflict<TRes>
+    implements CopyWith$Input$payment_due_on_conflict<TRes> {
+  _CopyWithStubImpl$Input$payment_due_on_conflict(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$payment_due_constraint? constraint,
+    List<Enum$payment_due_update_column>? update_columns,
+    Input$payment_due_bool_exp? where,
+  }) =>
+      _res;
+  CopyWith$Input$payment_due_bool_exp<TRes> get where =>
+      CopyWith$Input$payment_due_bool_exp.stub(_res);
+}
+
+class Input$payment_due_order_by {
+  factory Input$payment_due_order_by({
+    Enum$order_by? created_at,
+    Enum$order_by? deadline,
+    Enum$order_by? fulfilled,
+    Enum$order_by? payment_due,
+    Enum$order_by? payment_due_id,
+    Input$umkm_order_by? umkm,
+    Enum$order_by? umkm_id,
+    Enum$order_by? updated_at,
+  }) =>
+      Input$payment_due_order_by._({
+        if (created_at != null) r'created_at': created_at,
+        if (deadline != null) r'deadline': deadline,
+        if (fulfilled != null) r'fulfilled': fulfilled,
+        if (payment_due != null) r'payment_due': payment_due,
+        if (payment_due_id != null) r'payment_due_id': payment_due_id,
+        if (umkm != null) r'umkm': umkm,
+        if (umkm_id != null) r'umkm_id': umkm_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$payment_due_order_by._(this._$data);
+
+  factory Input$payment_due_order_by.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : fromJson$Enum$order_by((l$created_at as String));
+    }
+    if (data.containsKey('deadline')) {
+      final l$deadline = data['deadline'];
+      result$data['deadline'] = l$deadline == null
+          ? null
+          : fromJson$Enum$order_by((l$deadline as String));
+    }
+    if (data.containsKey('fulfilled')) {
+      final l$fulfilled = data['fulfilled'];
+      result$data['fulfilled'] = l$fulfilled == null
+          ? null
+          : fromJson$Enum$order_by((l$fulfilled as String));
+    }
+    if (data.containsKey('payment_due')) {
+      final l$payment_due = data['payment_due'];
+      result$data['payment_due'] = l$payment_due == null
+          ? null
+          : fromJson$Enum$order_by((l$payment_due as String));
+    }
+    if (data.containsKey('payment_due_id')) {
+      final l$payment_due_id = data['payment_due_id'];
+      result$data['payment_due_id'] = l$payment_due_id == null
+          ? null
+          : fromJson$Enum$order_by((l$payment_due_id as String));
+    }
+    if (data.containsKey('umkm')) {
+      final l$umkm = data['umkm'];
+      result$data['umkm'] = l$umkm == null
+          ? null
+          : Input$umkm_order_by.fromJson((l$umkm as Map<String, dynamic>));
+    }
+    if (data.containsKey('umkm_id')) {
+      final l$umkm_id = data['umkm_id'];
+      result$data['umkm_id'] = l$umkm_id == null
+          ? null
+          : fromJson$Enum$order_by((l$umkm_id as String));
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : fromJson$Enum$order_by((l$updated_at as String));
+    }
+    return Input$payment_due_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get created_at => (_$data['created_at'] as Enum$order_by?);
+  Enum$order_by? get deadline => (_$data['deadline'] as Enum$order_by?);
+  Enum$order_by? get fulfilled => (_$data['fulfilled'] as Enum$order_by?);
+  Enum$order_by? get payment_due => (_$data['payment_due'] as Enum$order_by?);
+  Enum$order_by? get payment_due_id =>
+      (_$data['payment_due_id'] as Enum$order_by?);
+  Input$umkm_order_by? get umkm => (_$data['umkm'] as Input$umkm_order_by?);
+  Enum$order_by? get umkm_id => (_$data['umkm_id'] as Enum$order_by?);
+  Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] =
+          l$created_at == null ? null : toJson$Enum$order_by(l$created_at);
+    }
+    if (_$data.containsKey('deadline')) {
+      final l$deadline = deadline;
+      result$data['deadline'] =
+          l$deadline == null ? null : toJson$Enum$order_by(l$deadline);
+    }
+    if (_$data.containsKey('fulfilled')) {
+      final l$fulfilled = fulfilled;
+      result$data['fulfilled'] =
+          l$fulfilled == null ? null : toJson$Enum$order_by(l$fulfilled);
+    }
+    if (_$data.containsKey('payment_due')) {
+      final l$payment_due = payment_due;
+      result$data['payment_due'] =
+          l$payment_due == null ? null : toJson$Enum$order_by(l$payment_due);
+    }
+    if (_$data.containsKey('payment_due_id')) {
+      final l$payment_due_id = payment_due_id;
+      result$data['payment_due_id'] = l$payment_due_id == null
+          ? null
+          : toJson$Enum$order_by(l$payment_due_id);
+    }
+    if (_$data.containsKey('umkm')) {
+      final l$umkm = umkm;
+      result$data['umkm'] = l$umkm?.toJson();
+    }
+    if (_$data.containsKey('umkm_id')) {
+      final l$umkm_id = umkm_id;
+      result$data['umkm_id'] =
+          l$umkm_id == null ? null : toJson$Enum$order_by(l$umkm_id);
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] =
+          l$updated_at == null ? null : toJson$Enum$order_by(l$updated_at);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_order_by<Input$payment_due_order_by>
+      get copyWith => CopyWith$Input$payment_due_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$deadline = deadline;
+    final lOther$deadline = other.deadline;
+    if (_$data.containsKey('deadline') !=
+        other._$data.containsKey('deadline')) {
+      return false;
+    }
+    if (l$deadline != lOther$deadline) {
+      return false;
+    }
+    final l$fulfilled = fulfilled;
+    final lOther$fulfilled = other.fulfilled;
+    if (_$data.containsKey('fulfilled') !=
+        other._$data.containsKey('fulfilled')) {
+      return false;
+    }
+    if (l$fulfilled != lOther$fulfilled) {
+      return false;
+    }
+    final l$payment_due = payment_due;
+    final lOther$payment_due = other.payment_due;
+    if (_$data.containsKey('payment_due') !=
+        other._$data.containsKey('payment_due')) {
+      return false;
+    }
+    if (l$payment_due != lOther$payment_due) {
+      return false;
+    }
+    final l$payment_due_id = payment_due_id;
+    final lOther$payment_due_id = other.payment_due_id;
+    if (_$data.containsKey('payment_due_id') !=
+        other._$data.containsKey('payment_due_id')) {
+      return false;
+    }
+    if (l$payment_due_id != lOther$payment_due_id) {
+      return false;
+    }
+    final l$umkm = umkm;
+    final lOther$umkm = other.umkm;
+    if (_$data.containsKey('umkm') != other._$data.containsKey('umkm')) {
+      return false;
+    }
+    if (l$umkm != lOther$umkm) {
+      return false;
+    }
+    final l$umkm_id = umkm_id;
+    final lOther$umkm_id = other.umkm_id;
+    if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
+      return false;
+    }
+    if (l$umkm_id != lOther$umkm_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$created_at = created_at;
+    final l$deadline = deadline;
+    final l$fulfilled = fulfilled;
+    final l$payment_due = payment_due;
+    final l$payment_due_id = payment_due_id;
+    final l$umkm = umkm;
+    final l$umkm_id = umkm_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('deadline') ? l$deadline : const {},
+      _$data.containsKey('fulfilled') ? l$fulfilled : const {},
+      _$data.containsKey('payment_due') ? l$payment_due : const {},
+      _$data.containsKey('payment_due_id') ? l$payment_due_id : const {},
+      _$data.containsKey('umkm') ? l$umkm : const {},
+      _$data.containsKey('umkm_id') ? l$umkm_id : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_order_by<TRes> {
+  factory CopyWith$Input$payment_due_order_by(
+    Input$payment_due_order_by instance,
+    TRes Function(Input$payment_due_order_by) then,
+  ) = _CopyWithImpl$Input$payment_due_order_by;
+
+  factory CopyWith$Input$payment_due_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_order_by;
+
+  TRes call({
+    Enum$order_by? created_at,
+    Enum$order_by? deadline,
+    Enum$order_by? fulfilled,
+    Enum$order_by? payment_due,
+    Enum$order_by? payment_due_id,
+    Input$umkm_order_by? umkm,
+    Enum$order_by? umkm_id,
+    Enum$order_by? updated_at,
+  });
+  CopyWith$Input$umkm_order_by<TRes> get umkm;
+}
+
+class _CopyWithImpl$Input$payment_due_order_by<TRes>
+    implements CopyWith$Input$payment_due_order_by<TRes> {
+  _CopyWithImpl$Input$payment_due_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_order_by _instance;
+
+  final TRes Function(Input$payment_due_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? created_at = _undefined,
+    Object? deadline = _undefined,
+    Object? fulfilled = _undefined,
+    Object? payment_due = _undefined,
+    Object? payment_due_id = _undefined,
+    Object? umkm = _undefined,
+    Object? umkm_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$payment_due_order_by._({
+        ..._instance._$data,
+        if (created_at != _undefined)
+          'created_at': (created_at as Enum$order_by?),
+        if (deadline != _undefined) 'deadline': (deadline as Enum$order_by?),
+        if (fulfilled != _undefined) 'fulfilled': (fulfilled as Enum$order_by?),
+        if (payment_due != _undefined)
+          'payment_due': (payment_due as Enum$order_by?),
+        if (payment_due_id != _undefined)
+          'payment_due_id': (payment_due_id as Enum$order_by?),
+        if (umkm != _undefined) 'umkm': (umkm as Input$umkm_order_by?),
+        if (umkm_id != _undefined) 'umkm_id': (umkm_id as Enum$order_by?),
+        if (updated_at != _undefined)
+          'updated_at': (updated_at as Enum$order_by?),
+      }));
+  CopyWith$Input$umkm_order_by<TRes> get umkm {
+    final local$umkm = _instance.umkm;
+    return local$umkm == null
+        ? CopyWith$Input$umkm_order_by.stub(_then(_instance))
+        : CopyWith$Input$umkm_order_by(local$umkm, (e) => call(umkm: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_due_order_by<TRes>
+    implements CopyWith$Input$payment_due_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_due_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$order_by? created_at,
+    Enum$order_by? deadline,
+    Enum$order_by? fulfilled,
+    Enum$order_by? payment_due,
+    Enum$order_by? payment_due_id,
+    Input$umkm_order_by? umkm,
+    Enum$order_by? umkm_id,
+    Enum$order_by? updated_at,
+  }) =>
+      _res;
+  CopyWith$Input$umkm_order_by<TRes> get umkm =>
+      CopyWith$Input$umkm_order_by.stub(_res);
+}
+
+class Input$payment_due_pk_columns_input {
+  factory Input$payment_due_pk_columns_input({required UUID payment_due_id}) =>
+      Input$payment_due_pk_columns_input._({
+        r'payment_due_id': payment_due_id,
+      });
+
+  Input$payment_due_pk_columns_input._(this._$data);
+
+  factory Input$payment_due_pk_columns_input.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$payment_due_id = data['payment_due_id'];
+    result$data['payment_due_id'] = uuidFromJson(l$payment_due_id);
+    return Input$payment_due_pk_columns_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  UUID get payment_due_id => (_$data['payment_due_id'] as UUID);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$payment_due_id = payment_due_id;
+    result$data['payment_due_id'] = uuidToJson(l$payment_due_id);
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_pk_columns_input<
+          Input$payment_due_pk_columns_input>
+      get copyWith => CopyWith$Input$payment_due_pk_columns_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_pk_columns_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$payment_due_id = payment_due_id;
+    final lOther$payment_due_id = other.payment_due_id;
+    if (l$payment_due_id != lOther$payment_due_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$payment_due_id = payment_due_id;
+    return Object.hashAll([l$payment_due_id]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_pk_columns_input<TRes> {
+  factory CopyWith$Input$payment_due_pk_columns_input(
+    Input$payment_due_pk_columns_input instance,
+    TRes Function(Input$payment_due_pk_columns_input) then,
+  ) = _CopyWithImpl$Input$payment_due_pk_columns_input;
+
+  factory CopyWith$Input$payment_due_pk_columns_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_pk_columns_input;
+
+  TRes call({UUID? payment_due_id});
+}
+
+class _CopyWithImpl$Input$payment_due_pk_columns_input<TRes>
+    implements CopyWith$Input$payment_due_pk_columns_input<TRes> {
+  _CopyWithImpl$Input$payment_due_pk_columns_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_pk_columns_input _instance;
+
+  final TRes Function(Input$payment_due_pk_columns_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? payment_due_id = _undefined}) =>
+      _then(Input$payment_due_pk_columns_input._({
+        ..._instance._$data,
+        if (payment_due_id != _undefined && payment_due_id != null)
+          'payment_due_id': (payment_due_id as UUID),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_due_pk_columns_input<TRes>
+    implements CopyWith$Input$payment_due_pk_columns_input<TRes> {
+  _CopyWithStubImpl$Input$payment_due_pk_columns_input(this._res);
+
+  TRes _res;
+
+  call({UUID? payment_due_id}) => _res;
+}
+
+class Input$payment_due_set_input {
+  factory Input$payment_due_set_input({
+    DateTime? created_at,
+    DateTime? deadline,
+    bool? fulfilled,
+    int? payment_due,
+    UUID? payment_due_id,
+    int? umkm_id,
+    DateTime? updated_at,
+  }) =>
+      Input$payment_due_set_input._({
+        if (created_at != null) r'created_at': created_at,
+        if (deadline != null) r'deadline': deadline,
+        if (fulfilled != null) r'fulfilled': fulfilled,
+        if (payment_due != null) r'payment_due': payment_due,
+        if (payment_due_id != null) r'payment_due_id': payment_due_id,
+        if (umkm_id != null) r'umkm_id': umkm_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$payment_due_set_input._(this._$data);
+
+  factory Input$payment_due_set_input.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : DateTime.parse((l$created_at as String));
+    }
+    if (data.containsKey('deadline')) {
+      final l$deadline = data['deadline'];
+      result$data['deadline'] =
+          l$deadline == null ? null : DateTime.parse((l$deadline as String));
+    }
+    if (data.containsKey('fulfilled')) {
+      final l$fulfilled = data['fulfilled'];
+      result$data['fulfilled'] = (l$fulfilled as bool?);
+    }
+    if (data.containsKey('payment_due')) {
+      final l$payment_due = data['payment_due'];
+      result$data['payment_due'] = (l$payment_due as int?);
+    }
+    if (data.containsKey('payment_due_id')) {
+      final l$payment_due_id = data['payment_due_id'];
+      result$data['payment_due_id'] =
+          l$payment_due_id == null ? null : uuidFromJson(l$payment_due_id);
+    }
+    if (data.containsKey('umkm_id')) {
+      final l$umkm_id = data['umkm_id'];
+      result$data['umkm_id'] = (l$umkm_id as int?);
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : DateTime.parse((l$updated_at as String));
+    }
+    return Input$payment_due_set_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  DateTime? get created_at => (_$data['created_at'] as DateTime?);
+  DateTime? get deadline => (_$data['deadline'] as DateTime?);
+  bool? get fulfilled => (_$data['fulfilled'] as bool?);
+  int? get payment_due => (_$data['payment_due'] as int?);
+  UUID? get payment_due_id => (_$data['payment_due_id'] as UUID?);
+  int? get umkm_id => (_$data['umkm_id'] as int?);
+  DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] = l$created_at?.toIso8601String();
+    }
+    if (_$data.containsKey('deadline')) {
+      final l$deadline = deadline;
+      result$data['deadline'] = l$deadline?.toIso8601String();
+    }
+    if (_$data.containsKey('fulfilled')) {
+      final l$fulfilled = fulfilled;
+      result$data['fulfilled'] = l$fulfilled;
+    }
+    if (_$data.containsKey('payment_due')) {
+      final l$payment_due = payment_due;
+      result$data['payment_due'] = l$payment_due;
+    }
+    if (_$data.containsKey('payment_due_id')) {
+      final l$payment_due_id = payment_due_id;
+      result$data['payment_due_id'] =
+          l$payment_due_id == null ? null : uuidToJson(l$payment_due_id);
+    }
+    if (_$data.containsKey('umkm_id')) {
+      final l$umkm_id = umkm_id;
+      result$data['umkm_id'] = l$umkm_id;
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] = l$updated_at?.toIso8601String();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_set_input<Input$payment_due_set_input>
+      get copyWith => CopyWith$Input$payment_due_set_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_set_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$deadline = deadline;
+    final lOther$deadline = other.deadline;
+    if (_$data.containsKey('deadline') !=
+        other._$data.containsKey('deadline')) {
+      return false;
+    }
+    if (l$deadline != lOther$deadline) {
+      return false;
+    }
+    final l$fulfilled = fulfilled;
+    final lOther$fulfilled = other.fulfilled;
+    if (_$data.containsKey('fulfilled') !=
+        other._$data.containsKey('fulfilled')) {
+      return false;
+    }
+    if (l$fulfilled != lOther$fulfilled) {
+      return false;
+    }
+    final l$payment_due = payment_due;
+    final lOther$payment_due = other.payment_due;
+    if (_$data.containsKey('payment_due') !=
+        other._$data.containsKey('payment_due')) {
+      return false;
+    }
+    if (l$payment_due != lOther$payment_due) {
+      return false;
+    }
+    final l$payment_due_id = payment_due_id;
+    final lOther$payment_due_id = other.payment_due_id;
+    if (_$data.containsKey('payment_due_id') !=
+        other._$data.containsKey('payment_due_id')) {
+      return false;
+    }
+    if (l$payment_due_id != lOther$payment_due_id) {
+      return false;
+    }
+    final l$umkm_id = umkm_id;
+    final lOther$umkm_id = other.umkm_id;
+    if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
+      return false;
+    }
+    if (l$umkm_id != lOther$umkm_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$created_at = created_at;
+    final l$deadline = deadline;
+    final l$fulfilled = fulfilled;
+    final l$payment_due = payment_due;
+    final l$payment_due_id = payment_due_id;
+    final l$umkm_id = umkm_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('deadline') ? l$deadline : const {},
+      _$data.containsKey('fulfilled') ? l$fulfilled : const {},
+      _$data.containsKey('payment_due') ? l$payment_due : const {},
+      _$data.containsKey('payment_due_id') ? l$payment_due_id : const {},
+      _$data.containsKey('umkm_id') ? l$umkm_id : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_set_input<TRes> {
+  factory CopyWith$Input$payment_due_set_input(
+    Input$payment_due_set_input instance,
+    TRes Function(Input$payment_due_set_input) then,
+  ) = _CopyWithImpl$Input$payment_due_set_input;
+
+  factory CopyWith$Input$payment_due_set_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_set_input;
+
+  TRes call({
+    DateTime? created_at,
+    DateTime? deadline,
+    bool? fulfilled,
+    int? payment_due,
+    UUID? payment_due_id,
+    int? umkm_id,
+    DateTime? updated_at,
+  });
+}
+
+class _CopyWithImpl$Input$payment_due_set_input<TRes>
+    implements CopyWith$Input$payment_due_set_input<TRes> {
+  _CopyWithImpl$Input$payment_due_set_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_set_input _instance;
+
+  final TRes Function(Input$payment_due_set_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? created_at = _undefined,
+    Object? deadline = _undefined,
+    Object? fulfilled = _undefined,
+    Object? payment_due = _undefined,
+    Object? payment_due_id = _undefined,
+    Object? umkm_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$payment_due_set_input._({
+        ..._instance._$data,
+        if (created_at != _undefined) 'created_at': (created_at as DateTime?),
+        if (deadline != _undefined) 'deadline': (deadline as DateTime?),
+        if (fulfilled != _undefined) 'fulfilled': (fulfilled as bool?),
+        if (payment_due != _undefined) 'payment_due': (payment_due as int?),
+        if (payment_due_id != _undefined)
+          'payment_due_id': (payment_due_id as UUID?),
+        if (umkm_id != _undefined) 'umkm_id': (umkm_id as int?),
+        if (updated_at != _undefined) 'updated_at': (updated_at as DateTime?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_due_set_input<TRes>
+    implements CopyWith$Input$payment_due_set_input<TRes> {
+  _CopyWithStubImpl$Input$payment_due_set_input(this._res);
+
+  TRes _res;
+
+  call({
+    DateTime? created_at,
+    DateTime? deadline,
+    bool? fulfilled,
+    int? payment_due,
+    UUID? payment_due_id,
+    int? umkm_id,
+    DateTime? updated_at,
+  }) =>
+      _res;
+}
+
+class Input$payment_due_stddev_order_by {
+  factory Input$payment_due_stddev_order_by({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  }) =>
+      Input$payment_due_stddev_order_by._({
+        if (payment_due != null) r'payment_due': payment_due,
+        if (umkm_id != null) r'umkm_id': umkm_id,
+      });
+
+  Input$payment_due_stddev_order_by._(this._$data);
+
+  factory Input$payment_due_stddev_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('payment_due')) {
+      final l$payment_due = data['payment_due'];
+      result$data['payment_due'] = l$payment_due == null
+          ? null
+          : fromJson$Enum$order_by((l$payment_due as String));
+    }
+    if (data.containsKey('umkm_id')) {
+      final l$umkm_id = data['umkm_id'];
+      result$data['umkm_id'] = l$umkm_id == null
+          ? null
+          : fromJson$Enum$order_by((l$umkm_id as String));
+    }
+    return Input$payment_due_stddev_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get payment_due => (_$data['payment_due'] as Enum$order_by?);
+  Enum$order_by? get umkm_id => (_$data['umkm_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('payment_due')) {
+      final l$payment_due = payment_due;
+      result$data['payment_due'] =
+          l$payment_due == null ? null : toJson$Enum$order_by(l$payment_due);
+    }
+    if (_$data.containsKey('umkm_id')) {
+      final l$umkm_id = umkm_id;
+      result$data['umkm_id'] =
+          l$umkm_id == null ? null : toJson$Enum$order_by(l$umkm_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_stddev_order_by<Input$payment_due_stddev_order_by>
+      get copyWith => CopyWith$Input$payment_due_stddev_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_stddev_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$payment_due = payment_due;
+    final lOther$payment_due = other.payment_due;
+    if (_$data.containsKey('payment_due') !=
+        other._$data.containsKey('payment_due')) {
+      return false;
+    }
+    if (l$payment_due != lOther$payment_due) {
+      return false;
+    }
+    final l$umkm_id = umkm_id;
+    final lOther$umkm_id = other.umkm_id;
+    if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
+      return false;
+    }
+    if (l$umkm_id != lOther$umkm_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$payment_due = payment_due;
+    final l$umkm_id = umkm_id;
+    return Object.hashAll([
+      _$data.containsKey('payment_due') ? l$payment_due : const {},
+      _$data.containsKey('umkm_id') ? l$umkm_id : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_stddev_order_by<TRes> {
+  factory CopyWith$Input$payment_due_stddev_order_by(
+    Input$payment_due_stddev_order_by instance,
+    TRes Function(Input$payment_due_stddev_order_by) then,
+  ) = _CopyWithImpl$Input$payment_due_stddev_order_by;
+
+  factory CopyWith$Input$payment_due_stddev_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_stddev_order_by;
+
+  TRes call({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  });
+}
+
+class _CopyWithImpl$Input$payment_due_stddev_order_by<TRes>
+    implements CopyWith$Input$payment_due_stddev_order_by<TRes> {
+  _CopyWithImpl$Input$payment_due_stddev_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_stddev_order_by _instance;
+
+  final TRes Function(Input$payment_due_stddev_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? payment_due = _undefined,
+    Object? umkm_id = _undefined,
+  }) =>
+      _then(Input$payment_due_stddev_order_by._({
+        ..._instance._$data,
+        if (payment_due != _undefined)
+          'payment_due': (payment_due as Enum$order_by?),
+        if (umkm_id != _undefined) 'umkm_id': (umkm_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_due_stddev_order_by<TRes>
+    implements CopyWith$Input$payment_due_stddev_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_due_stddev_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  }) =>
+      _res;
+}
+
+class Input$payment_due_stddev_pop_order_by {
+  factory Input$payment_due_stddev_pop_order_by({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  }) =>
+      Input$payment_due_stddev_pop_order_by._({
+        if (payment_due != null) r'payment_due': payment_due,
+        if (umkm_id != null) r'umkm_id': umkm_id,
+      });
+
+  Input$payment_due_stddev_pop_order_by._(this._$data);
+
+  factory Input$payment_due_stddev_pop_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('payment_due')) {
+      final l$payment_due = data['payment_due'];
+      result$data['payment_due'] = l$payment_due == null
+          ? null
+          : fromJson$Enum$order_by((l$payment_due as String));
+    }
+    if (data.containsKey('umkm_id')) {
+      final l$umkm_id = data['umkm_id'];
+      result$data['umkm_id'] = l$umkm_id == null
+          ? null
+          : fromJson$Enum$order_by((l$umkm_id as String));
+    }
+    return Input$payment_due_stddev_pop_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get payment_due => (_$data['payment_due'] as Enum$order_by?);
+  Enum$order_by? get umkm_id => (_$data['umkm_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('payment_due')) {
+      final l$payment_due = payment_due;
+      result$data['payment_due'] =
+          l$payment_due == null ? null : toJson$Enum$order_by(l$payment_due);
+    }
+    if (_$data.containsKey('umkm_id')) {
+      final l$umkm_id = umkm_id;
+      result$data['umkm_id'] =
+          l$umkm_id == null ? null : toJson$Enum$order_by(l$umkm_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_stddev_pop_order_by<
+          Input$payment_due_stddev_pop_order_by>
+      get copyWith => CopyWith$Input$payment_due_stddev_pop_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_stddev_pop_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$payment_due = payment_due;
+    final lOther$payment_due = other.payment_due;
+    if (_$data.containsKey('payment_due') !=
+        other._$data.containsKey('payment_due')) {
+      return false;
+    }
+    if (l$payment_due != lOther$payment_due) {
+      return false;
+    }
+    final l$umkm_id = umkm_id;
+    final lOther$umkm_id = other.umkm_id;
+    if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
+      return false;
+    }
+    if (l$umkm_id != lOther$umkm_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$payment_due = payment_due;
+    final l$umkm_id = umkm_id;
+    return Object.hashAll([
+      _$data.containsKey('payment_due') ? l$payment_due : const {},
+      _$data.containsKey('umkm_id') ? l$umkm_id : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_stddev_pop_order_by<TRes> {
+  factory CopyWith$Input$payment_due_stddev_pop_order_by(
+    Input$payment_due_stddev_pop_order_by instance,
+    TRes Function(Input$payment_due_stddev_pop_order_by) then,
+  ) = _CopyWithImpl$Input$payment_due_stddev_pop_order_by;
+
+  factory CopyWith$Input$payment_due_stddev_pop_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_stddev_pop_order_by;
+
+  TRes call({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  });
+}
+
+class _CopyWithImpl$Input$payment_due_stddev_pop_order_by<TRes>
+    implements CopyWith$Input$payment_due_stddev_pop_order_by<TRes> {
+  _CopyWithImpl$Input$payment_due_stddev_pop_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_stddev_pop_order_by _instance;
+
+  final TRes Function(Input$payment_due_stddev_pop_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? payment_due = _undefined,
+    Object? umkm_id = _undefined,
+  }) =>
+      _then(Input$payment_due_stddev_pop_order_by._({
+        ..._instance._$data,
+        if (payment_due != _undefined)
+          'payment_due': (payment_due as Enum$order_by?),
+        if (umkm_id != _undefined) 'umkm_id': (umkm_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_due_stddev_pop_order_by<TRes>
+    implements CopyWith$Input$payment_due_stddev_pop_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_due_stddev_pop_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  }) =>
+      _res;
+}
+
+class Input$payment_due_stddev_samp_order_by {
+  factory Input$payment_due_stddev_samp_order_by({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  }) =>
+      Input$payment_due_stddev_samp_order_by._({
+        if (payment_due != null) r'payment_due': payment_due,
+        if (umkm_id != null) r'umkm_id': umkm_id,
+      });
+
+  Input$payment_due_stddev_samp_order_by._(this._$data);
+
+  factory Input$payment_due_stddev_samp_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('payment_due')) {
+      final l$payment_due = data['payment_due'];
+      result$data['payment_due'] = l$payment_due == null
+          ? null
+          : fromJson$Enum$order_by((l$payment_due as String));
+    }
+    if (data.containsKey('umkm_id')) {
+      final l$umkm_id = data['umkm_id'];
+      result$data['umkm_id'] = l$umkm_id == null
+          ? null
+          : fromJson$Enum$order_by((l$umkm_id as String));
+    }
+    return Input$payment_due_stddev_samp_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get payment_due => (_$data['payment_due'] as Enum$order_by?);
+  Enum$order_by? get umkm_id => (_$data['umkm_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('payment_due')) {
+      final l$payment_due = payment_due;
+      result$data['payment_due'] =
+          l$payment_due == null ? null : toJson$Enum$order_by(l$payment_due);
+    }
+    if (_$data.containsKey('umkm_id')) {
+      final l$umkm_id = umkm_id;
+      result$data['umkm_id'] =
+          l$umkm_id == null ? null : toJson$Enum$order_by(l$umkm_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_stddev_samp_order_by<
+          Input$payment_due_stddev_samp_order_by>
+      get copyWith => CopyWith$Input$payment_due_stddev_samp_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_stddev_samp_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$payment_due = payment_due;
+    final lOther$payment_due = other.payment_due;
+    if (_$data.containsKey('payment_due') !=
+        other._$data.containsKey('payment_due')) {
+      return false;
+    }
+    if (l$payment_due != lOther$payment_due) {
+      return false;
+    }
+    final l$umkm_id = umkm_id;
+    final lOther$umkm_id = other.umkm_id;
+    if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
+      return false;
+    }
+    if (l$umkm_id != lOther$umkm_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$payment_due = payment_due;
+    final l$umkm_id = umkm_id;
+    return Object.hashAll([
+      _$data.containsKey('payment_due') ? l$payment_due : const {},
+      _$data.containsKey('umkm_id') ? l$umkm_id : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_stddev_samp_order_by<TRes> {
+  factory CopyWith$Input$payment_due_stddev_samp_order_by(
+    Input$payment_due_stddev_samp_order_by instance,
+    TRes Function(Input$payment_due_stddev_samp_order_by) then,
+  ) = _CopyWithImpl$Input$payment_due_stddev_samp_order_by;
+
+  factory CopyWith$Input$payment_due_stddev_samp_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_stddev_samp_order_by;
+
+  TRes call({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  });
+}
+
+class _CopyWithImpl$Input$payment_due_stddev_samp_order_by<TRes>
+    implements CopyWith$Input$payment_due_stddev_samp_order_by<TRes> {
+  _CopyWithImpl$Input$payment_due_stddev_samp_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_stddev_samp_order_by _instance;
+
+  final TRes Function(Input$payment_due_stddev_samp_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? payment_due = _undefined,
+    Object? umkm_id = _undefined,
+  }) =>
+      _then(Input$payment_due_stddev_samp_order_by._({
+        ..._instance._$data,
+        if (payment_due != _undefined)
+          'payment_due': (payment_due as Enum$order_by?),
+        if (umkm_id != _undefined) 'umkm_id': (umkm_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_due_stddev_samp_order_by<TRes>
+    implements CopyWith$Input$payment_due_stddev_samp_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_due_stddev_samp_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  }) =>
+      _res;
+}
+
+class Input$payment_due_stream_cursor_input {
+  factory Input$payment_due_stream_cursor_input({
+    required Input$payment_due_stream_cursor_value_input initial_value,
+    Enum$cursor_ordering? ordering,
+  }) =>
+      Input$payment_due_stream_cursor_input._({
+        r'initial_value': initial_value,
+        if (ordering != null) r'ordering': ordering,
+      });
+
+  Input$payment_due_stream_cursor_input._(this._$data);
+
+  factory Input$payment_due_stream_cursor_input.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$initial_value = data['initial_value'];
+    result$data['initial_value'] =
+        Input$payment_due_stream_cursor_value_input.fromJson(
+            (l$initial_value as Map<String, dynamic>));
+    if (data.containsKey('ordering')) {
+      final l$ordering = data['ordering'];
+      result$data['ordering'] = l$ordering == null
+          ? null
+          : fromJson$Enum$cursor_ordering((l$ordering as String));
+    }
+    return Input$payment_due_stream_cursor_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$payment_due_stream_cursor_value_input get initial_value =>
+      (_$data['initial_value'] as Input$payment_due_stream_cursor_value_input);
+  Enum$cursor_ordering? get ordering =>
+      (_$data['ordering'] as Enum$cursor_ordering?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$initial_value = initial_value;
+    result$data['initial_value'] = l$initial_value.toJson();
+    if (_$data.containsKey('ordering')) {
+      final l$ordering = ordering;
+      result$data['ordering'] =
+          l$ordering == null ? null : toJson$Enum$cursor_ordering(l$ordering);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_stream_cursor_input<
+          Input$payment_due_stream_cursor_input>
+      get copyWith => CopyWith$Input$payment_due_stream_cursor_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_stream_cursor_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$initial_value = initial_value;
+    final lOther$initial_value = other.initial_value;
+    if (l$initial_value != lOther$initial_value) {
+      return false;
+    }
+    final l$ordering = ordering;
+    final lOther$ordering = other.ordering;
+    if (_$data.containsKey('ordering') !=
+        other._$data.containsKey('ordering')) {
+      return false;
+    }
+    if (l$ordering != lOther$ordering) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$initial_value = initial_value;
+    final l$ordering = ordering;
+    return Object.hashAll([
+      l$initial_value,
+      _$data.containsKey('ordering') ? l$ordering : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_stream_cursor_input<TRes> {
+  factory CopyWith$Input$payment_due_stream_cursor_input(
+    Input$payment_due_stream_cursor_input instance,
+    TRes Function(Input$payment_due_stream_cursor_input) then,
+  ) = _CopyWithImpl$Input$payment_due_stream_cursor_input;
+
+  factory CopyWith$Input$payment_due_stream_cursor_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_stream_cursor_input;
+
+  TRes call({
+    Input$payment_due_stream_cursor_value_input? initial_value,
+    Enum$cursor_ordering? ordering,
+  });
+  CopyWith$Input$payment_due_stream_cursor_value_input<TRes> get initial_value;
+}
+
+class _CopyWithImpl$Input$payment_due_stream_cursor_input<TRes>
+    implements CopyWith$Input$payment_due_stream_cursor_input<TRes> {
+  _CopyWithImpl$Input$payment_due_stream_cursor_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_stream_cursor_input _instance;
+
+  final TRes Function(Input$payment_due_stream_cursor_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? initial_value = _undefined,
+    Object? ordering = _undefined,
+  }) =>
+      _then(Input$payment_due_stream_cursor_input._({
+        ..._instance._$data,
+        if (initial_value != _undefined && initial_value != null)
+          'initial_value':
+              (initial_value as Input$payment_due_stream_cursor_value_input),
+        if (ordering != _undefined)
+          'ordering': (ordering as Enum$cursor_ordering?),
+      }));
+  CopyWith$Input$payment_due_stream_cursor_value_input<TRes> get initial_value {
+    final local$initial_value = _instance.initial_value;
+    return CopyWith$Input$payment_due_stream_cursor_value_input(
+        local$initial_value, (e) => call(initial_value: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_due_stream_cursor_input<TRes>
+    implements CopyWith$Input$payment_due_stream_cursor_input<TRes> {
+  _CopyWithStubImpl$Input$payment_due_stream_cursor_input(this._res);
+
+  TRes _res;
+
+  call({
+    Input$payment_due_stream_cursor_value_input? initial_value,
+    Enum$cursor_ordering? ordering,
+  }) =>
+      _res;
+  CopyWith$Input$payment_due_stream_cursor_value_input<TRes>
+      get initial_value =>
+          CopyWith$Input$payment_due_stream_cursor_value_input.stub(_res);
+}
+
+class Input$payment_due_stream_cursor_value_input {
+  factory Input$payment_due_stream_cursor_value_input({
+    DateTime? created_at,
+    DateTime? deadline,
+    bool? fulfilled,
+    int? payment_due,
+    UUID? payment_due_id,
+    int? umkm_id,
+    DateTime? updated_at,
+  }) =>
+      Input$payment_due_stream_cursor_value_input._({
+        if (created_at != null) r'created_at': created_at,
+        if (deadline != null) r'deadline': deadline,
+        if (fulfilled != null) r'fulfilled': fulfilled,
+        if (payment_due != null) r'payment_due': payment_due,
+        if (payment_due_id != null) r'payment_due_id': payment_due_id,
+        if (umkm_id != null) r'umkm_id': umkm_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$payment_due_stream_cursor_value_input._(this._$data);
+
+  factory Input$payment_due_stream_cursor_value_input.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : DateTime.parse((l$created_at as String));
+    }
+    if (data.containsKey('deadline')) {
+      final l$deadline = data['deadline'];
+      result$data['deadline'] =
+          l$deadline == null ? null : DateTime.parse((l$deadline as String));
+    }
+    if (data.containsKey('fulfilled')) {
+      final l$fulfilled = data['fulfilled'];
+      result$data['fulfilled'] = (l$fulfilled as bool?);
+    }
+    if (data.containsKey('payment_due')) {
+      final l$payment_due = data['payment_due'];
+      result$data['payment_due'] = (l$payment_due as int?);
+    }
+    if (data.containsKey('payment_due_id')) {
+      final l$payment_due_id = data['payment_due_id'];
+      result$data['payment_due_id'] =
+          l$payment_due_id == null ? null : uuidFromJson(l$payment_due_id);
+    }
+    if (data.containsKey('umkm_id')) {
+      final l$umkm_id = data['umkm_id'];
+      result$data['umkm_id'] = (l$umkm_id as int?);
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : DateTime.parse((l$updated_at as String));
+    }
+    return Input$payment_due_stream_cursor_value_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  DateTime? get created_at => (_$data['created_at'] as DateTime?);
+  DateTime? get deadline => (_$data['deadline'] as DateTime?);
+  bool? get fulfilled => (_$data['fulfilled'] as bool?);
+  int? get payment_due => (_$data['payment_due'] as int?);
+  UUID? get payment_due_id => (_$data['payment_due_id'] as UUID?);
+  int? get umkm_id => (_$data['umkm_id'] as int?);
+  DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] = l$created_at?.toIso8601String();
+    }
+    if (_$data.containsKey('deadline')) {
+      final l$deadline = deadline;
+      result$data['deadline'] = l$deadline?.toIso8601String();
+    }
+    if (_$data.containsKey('fulfilled')) {
+      final l$fulfilled = fulfilled;
+      result$data['fulfilled'] = l$fulfilled;
+    }
+    if (_$data.containsKey('payment_due')) {
+      final l$payment_due = payment_due;
+      result$data['payment_due'] = l$payment_due;
+    }
+    if (_$data.containsKey('payment_due_id')) {
+      final l$payment_due_id = payment_due_id;
+      result$data['payment_due_id'] =
+          l$payment_due_id == null ? null : uuidToJson(l$payment_due_id);
+    }
+    if (_$data.containsKey('umkm_id')) {
+      final l$umkm_id = umkm_id;
+      result$data['umkm_id'] = l$umkm_id;
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] = l$updated_at?.toIso8601String();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_stream_cursor_value_input<
+          Input$payment_due_stream_cursor_value_input>
+      get copyWith => CopyWith$Input$payment_due_stream_cursor_value_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_stream_cursor_value_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$deadline = deadline;
+    final lOther$deadline = other.deadline;
+    if (_$data.containsKey('deadline') !=
+        other._$data.containsKey('deadline')) {
+      return false;
+    }
+    if (l$deadline != lOther$deadline) {
+      return false;
+    }
+    final l$fulfilled = fulfilled;
+    final lOther$fulfilled = other.fulfilled;
+    if (_$data.containsKey('fulfilled') !=
+        other._$data.containsKey('fulfilled')) {
+      return false;
+    }
+    if (l$fulfilled != lOther$fulfilled) {
+      return false;
+    }
+    final l$payment_due = payment_due;
+    final lOther$payment_due = other.payment_due;
+    if (_$data.containsKey('payment_due') !=
+        other._$data.containsKey('payment_due')) {
+      return false;
+    }
+    if (l$payment_due != lOther$payment_due) {
+      return false;
+    }
+    final l$payment_due_id = payment_due_id;
+    final lOther$payment_due_id = other.payment_due_id;
+    if (_$data.containsKey('payment_due_id') !=
+        other._$data.containsKey('payment_due_id')) {
+      return false;
+    }
+    if (l$payment_due_id != lOther$payment_due_id) {
+      return false;
+    }
+    final l$umkm_id = umkm_id;
+    final lOther$umkm_id = other.umkm_id;
+    if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
+      return false;
+    }
+    if (l$umkm_id != lOther$umkm_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$created_at = created_at;
+    final l$deadline = deadline;
+    final l$fulfilled = fulfilled;
+    final l$payment_due = payment_due;
+    final l$payment_due_id = payment_due_id;
+    final l$umkm_id = umkm_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('deadline') ? l$deadline : const {},
+      _$data.containsKey('fulfilled') ? l$fulfilled : const {},
+      _$data.containsKey('payment_due') ? l$payment_due : const {},
+      _$data.containsKey('payment_due_id') ? l$payment_due_id : const {},
+      _$data.containsKey('umkm_id') ? l$umkm_id : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_stream_cursor_value_input<TRes> {
+  factory CopyWith$Input$payment_due_stream_cursor_value_input(
+    Input$payment_due_stream_cursor_value_input instance,
+    TRes Function(Input$payment_due_stream_cursor_value_input) then,
+  ) = _CopyWithImpl$Input$payment_due_stream_cursor_value_input;
+
+  factory CopyWith$Input$payment_due_stream_cursor_value_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_stream_cursor_value_input;
+
+  TRes call({
+    DateTime? created_at,
+    DateTime? deadline,
+    bool? fulfilled,
+    int? payment_due,
+    UUID? payment_due_id,
+    int? umkm_id,
+    DateTime? updated_at,
+  });
+}
+
+class _CopyWithImpl$Input$payment_due_stream_cursor_value_input<TRes>
+    implements CopyWith$Input$payment_due_stream_cursor_value_input<TRes> {
+  _CopyWithImpl$Input$payment_due_stream_cursor_value_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_stream_cursor_value_input _instance;
+
+  final TRes Function(Input$payment_due_stream_cursor_value_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? created_at = _undefined,
+    Object? deadline = _undefined,
+    Object? fulfilled = _undefined,
+    Object? payment_due = _undefined,
+    Object? payment_due_id = _undefined,
+    Object? umkm_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$payment_due_stream_cursor_value_input._({
+        ..._instance._$data,
+        if (created_at != _undefined) 'created_at': (created_at as DateTime?),
+        if (deadline != _undefined) 'deadline': (deadline as DateTime?),
+        if (fulfilled != _undefined) 'fulfilled': (fulfilled as bool?),
+        if (payment_due != _undefined) 'payment_due': (payment_due as int?),
+        if (payment_due_id != _undefined)
+          'payment_due_id': (payment_due_id as UUID?),
+        if (umkm_id != _undefined) 'umkm_id': (umkm_id as int?),
+        if (updated_at != _undefined) 'updated_at': (updated_at as DateTime?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_due_stream_cursor_value_input<TRes>
+    implements CopyWith$Input$payment_due_stream_cursor_value_input<TRes> {
+  _CopyWithStubImpl$Input$payment_due_stream_cursor_value_input(this._res);
+
+  TRes _res;
+
+  call({
+    DateTime? created_at,
+    DateTime? deadline,
+    bool? fulfilled,
+    int? payment_due,
+    UUID? payment_due_id,
+    int? umkm_id,
+    DateTime? updated_at,
+  }) =>
+      _res;
+}
+
+class Input$payment_due_sum_order_by {
+  factory Input$payment_due_sum_order_by({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  }) =>
+      Input$payment_due_sum_order_by._({
+        if (payment_due != null) r'payment_due': payment_due,
+        if (umkm_id != null) r'umkm_id': umkm_id,
+      });
+
+  Input$payment_due_sum_order_by._(this._$data);
+
+  factory Input$payment_due_sum_order_by.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('payment_due')) {
+      final l$payment_due = data['payment_due'];
+      result$data['payment_due'] = l$payment_due == null
+          ? null
+          : fromJson$Enum$order_by((l$payment_due as String));
+    }
+    if (data.containsKey('umkm_id')) {
+      final l$umkm_id = data['umkm_id'];
+      result$data['umkm_id'] = l$umkm_id == null
+          ? null
+          : fromJson$Enum$order_by((l$umkm_id as String));
+    }
+    return Input$payment_due_sum_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get payment_due => (_$data['payment_due'] as Enum$order_by?);
+  Enum$order_by? get umkm_id => (_$data['umkm_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('payment_due')) {
+      final l$payment_due = payment_due;
+      result$data['payment_due'] =
+          l$payment_due == null ? null : toJson$Enum$order_by(l$payment_due);
+    }
+    if (_$data.containsKey('umkm_id')) {
+      final l$umkm_id = umkm_id;
+      result$data['umkm_id'] =
+          l$umkm_id == null ? null : toJson$Enum$order_by(l$umkm_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_sum_order_by<Input$payment_due_sum_order_by>
+      get copyWith => CopyWith$Input$payment_due_sum_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_sum_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$payment_due = payment_due;
+    final lOther$payment_due = other.payment_due;
+    if (_$data.containsKey('payment_due') !=
+        other._$data.containsKey('payment_due')) {
+      return false;
+    }
+    if (l$payment_due != lOther$payment_due) {
+      return false;
+    }
+    final l$umkm_id = umkm_id;
+    final lOther$umkm_id = other.umkm_id;
+    if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
+      return false;
+    }
+    if (l$umkm_id != lOther$umkm_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$payment_due = payment_due;
+    final l$umkm_id = umkm_id;
+    return Object.hashAll([
+      _$data.containsKey('payment_due') ? l$payment_due : const {},
+      _$data.containsKey('umkm_id') ? l$umkm_id : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_sum_order_by<TRes> {
+  factory CopyWith$Input$payment_due_sum_order_by(
+    Input$payment_due_sum_order_by instance,
+    TRes Function(Input$payment_due_sum_order_by) then,
+  ) = _CopyWithImpl$Input$payment_due_sum_order_by;
+
+  factory CopyWith$Input$payment_due_sum_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_sum_order_by;
+
+  TRes call({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  });
+}
+
+class _CopyWithImpl$Input$payment_due_sum_order_by<TRes>
+    implements CopyWith$Input$payment_due_sum_order_by<TRes> {
+  _CopyWithImpl$Input$payment_due_sum_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_sum_order_by _instance;
+
+  final TRes Function(Input$payment_due_sum_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? payment_due = _undefined,
+    Object? umkm_id = _undefined,
+  }) =>
+      _then(Input$payment_due_sum_order_by._({
+        ..._instance._$data,
+        if (payment_due != _undefined)
+          'payment_due': (payment_due as Enum$order_by?),
+        if (umkm_id != _undefined) 'umkm_id': (umkm_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_due_sum_order_by<TRes>
+    implements CopyWith$Input$payment_due_sum_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_due_sum_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  }) =>
+      _res;
+}
+
+class Input$payment_due_updates {
+  factory Input$payment_due_updates({
+    Input$payment_due_inc_input? $_inc,
+    Input$payment_due_set_input? $_set,
+    required Input$payment_due_bool_exp where,
+  }) =>
+      Input$payment_due_updates._({
+        if ($_inc != null) r'_inc': $_inc,
+        if ($_set != null) r'_set': $_set,
+        r'where': where,
+      });
+
+  Input$payment_due_updates._(this._$data);
+
+  factory Input$payment_due_updates.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('_inc')) {
+      final l$$_inc = data['_inc'];
+      result$data['_inc'] = l$$_inc == null
+          ? null
+          : Input$payment_due_inc_input.fromJson(
+              (l$$_inc as Map<String, dynamic>));
+    }
+    if (data.containsKey('_set')) {
+      final l$$_set = data['_set'];
+      result$data['_set'] = l$$_set == null
+          ? null
+          : Input$payment_due_set_input.fromJson(
+              (l$$_set as Map<String, dynamic>));
+    }
+    final l$where = data['where'];
+    result$data['where'] =
+        Input$payment_due_bool_exp.fromJson((l$where as Map<String, dynamic>));
+    return Input$payment_due_updates._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$payment_due_inc_input? get $_inc =>
+      (_$data['_inc'] as Input$payment_due_inc_input?);
+  Input$payment_due_set_input? get $_set =>
+      (_$data['_set'] as Input$payment_due_set_input?);
+  Input$payment_due_bool_exp get where =>
+      (_$data['where'] as Input$payment_due_bool_exp);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('_inc')) {
+      final l$$_inc = $_inc;
+      result$data['_inc'] = l$$_inc?.toJson();
+    }
+    if (_$data.containsKey('_set')) {
+      final l$$_set = $_set;
+      result$data['_set'] = l$$_set?.toJson();
+    }
+    final l$where = where;
+    result$data['where'] = l$where.toJson();
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_updates<Input$payment_due_updates> get copyWith =>
+      CopyWith$Input$payment_due_updates(
+        this,
+        (i) => i,
+      );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_updates) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$_inc = $_inc;
+    final lOther$$_inc = other.$_inc;
+    if (_$data.containsKey('_inc') != other._$data.containsKey('_inc')) {
+      return false;
+    }
+    if (l$$_inc != lOther$$_inc) {
+      return false;
+    }
+    final l$$_set = $_set;
+    final lOther$$_set = other.$_set;
+    if (_$data.containsKey('_set') != other._$data.containsKey('_set')) {
+      return false;
+    }
+    if (l$$_set != lOther$$_set) {
+      return false;
+    }
+    final l$where = where;
+    final lOther$where = other.where;
+    if (l$where != lOther$where) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$$_inc = $_inc;
+    final l$$_set = $_set;
+    final l$where = where;
+    return Object.hashAll([
+      _$data.containsKey('_inc') ? l$$_inc : const {},
+      _$data.containsKey('_set') ? l$$_set : const {},
+      l$where,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_updates<TRes> {
+  factory CopyWith$Input$payment_due_updates(
+    Input$payment_due_updates instance,
+    TRes Function(Input$payment_due_updates) then,
+  ) = _CopyWithImpl$Input$payment_due_updates;
+
+  factory CopyWith$Input$payment_due_updates.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_updates;
+
+  TRes call({
+    Input$payment_due_inc_input? $_inc,
+    Input$payment_due_set_input? $_set,
+    Input$payment_due_bool_exp? where,
+  });
+  CopyWith$Input$payment_due_inc_input<TRes> get $_inc;
+  CopyWith$Input$payment_due_set_input<TRes> get $_set;
+  CopyWith$Input$payment_due_bool_exp<TRes> get where;
+}
+
+class _CopyWithImpl$Input$payment_due_updates<TRes>
+    implements CopyWith$Input$payment_due_updates<TRes> {
+  _CopyWithImpl$Input$payment_due_updates(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_updates _instance;
+
+  final TRes Function(Input$payment_due_updates) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? $_inc = _undefined,
+    Object? $_set = _undefined,
+    Object? where = _undefined,
+  }) =>
+      _then(Input$payment_due_updates._({
+        ..._instance._$data,
+        if ($_inc != _undefined)
+          '_inc': ($_inc as Input$payment_due_inc_input?),
+        if ($_set != _undefined)
+          '_set': ($_set as Input$payment_due_set_input?),
+        if (where != _undefined && where != null)
+          'where': (where as Input$payment_due_bool_exp),
+      }));
+  CopyWith$Input$payment_due_inc_input<TRes> get $_inc {
+    final local$$_inc = _instance.$_inc;
+    return local$$_inc == null
+        ? CopyWith$Input$payment_due_inc_input.stub(_then(_instance))
+        : CopyWith$Input$payment_due_inc_input(
+            local$$_inc, (e) => call($_inc: e));
+  }
+
+  CopyWith$Input$payment_due_set_input<TRes> get $_set {
+    final local$$_set = _instance.$_set;
+    return local$$_set == null
+        ? CopyWith$Input$payment_due_set_input.stub(_then(_instance))
+        : CopyWith$Input$payment_due_set_input(
+            local$$_set, (e) => call($_set: e));
+  }
+
+  CopyWith$Input$payment_due_bool_exp<TRes> get where {
+    final local$where = _instance.where;
+    return CopyWith$Input$payment_due_bool_exp(
+        local$where, (e) => call(where: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_due_updates<TRes>
+    implements CopyWith$Input$payment_due_updates<TRes> {
+  _CopyWithStubImpl$Input$payment_due_updates(this._res);
+
+  TRes _res;
+
+  call({
+    Input$payment_due_inc_input? $_inc,
+    Input$payment_due_set_input? $_set,
+    Input$payment_due_bool_exp? where,
+  }) =>
+      _res;
+  CopyWith$Input$payment_due_inc_input<TRes> get $_inc =>
+      CopyWith$Input$payment_due_inc_input.stub(_res);
+  CopyWith$Input$payment_due_set_input<TRes> get $_set =>
+      CopyWith$Input$payment_due_set_input.stub(_res);
+  CopyWith$Input$payment_due_bool_exp<TRes> get where =>
+      CopyWith$Input$payment_due_bool_exp.stub(_res);
+}
+
+class Input$payment_due_var_pop_order_by {
+  factory Input$payment_due_var_pop_order_by({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  }) =>
+      Input$payment_due_var_pop_order_by._({
+        if (payment_due != null) r'payment_due': payment_due,
+        if (umkm_id != null) r'umkm_id': umkm_id,
+      });
+
+  Input$payment_due_var_pop_order_by._(this._$data);
+
+  factory Input$payment_due_var_pop_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('payment_due')) {
+      final l$payment_due = data['payment_due'];
+      result$data['payment_due'] = l$payment_due == null
+          ? null
+          : fromJson$Enum$order_by((l$payment_due as String));
+    }
+    if (data.containsKey('umkm_id')) {
+      final l$umkm_id = data['umkm_id'];
+      result$data['umkm_id'] = l$umkm_id == null
+          ? null
+          : fromJson$Enum$order_by((l$umkm_id as String));
+    }
+    return Input$payment_due_var_pop_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get payment_due => (_$data['payment_due'] as Enum$order_by?);
+  Enum$order_by? get umkm_id => (_$data['umkm_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('payment_due')) {
+      final l$payment_due = payment_due;
+      result$data['payment_due'] =
+          l$payment_due == null ? null : toJson$Enum$order_by(l$payment_due);
+    }
+    if (_$data.containsKey('umkm_id')) {
+      final l$umkm_id = umkm_id;
+      result$data['umkm_id'] =
+          l$umkm_id == null ? null : toJson$Enum$order_by(l$umkm_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_var_pop_order_by<
+          Input$payment_due_var_pop_order_by>
+      get copyWith => CopyWith$Input$payment_due_var_pop_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_var_pop_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$payment_due = payment_due;
+    final lOther$payment_due = other.payment_due;
+    if (_$data.containsKey('payment_due') !=
+        other._$data.containsKey('payment_due')) {
+      return false;
+    }
+    if (l$payment_due != lOther$payment_due) {
+      return false;
+    }
+    final l$umkm_id = umkm_id;
+    final lOther$umkm_id = other.umkm_id;
+    if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
+      return false;
+    }
+    if (l$umkm_id != lOther$umkm_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$payment_due = payment_due;
+    final l$umkm_id = umkm_id;
+    return Object.hashAll([
+      _$data.containsKey('payment_due') ? l$payment_due : const {},
+      _$data.containsKey('umkm_id') ? l$umkm_id : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_var_pop_order_by<TRes> {
+  factory CopyWith$Input$payment_due_var_pop_order_by(
+    Input$payment_due_var_pop_order_by instance,
+    TRes Function(Input$payment_due_var_pop_order_by) then,
+  ) = _CopyWithImpl$Input$payment_due_var_pop_order_by;
+
+  factory CopyWith$Input$payment_due_var_pop_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_var_pop_order_by;
+
+  TRes call({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  });
+}
+
+class _CopyWithImpl$Input$payment_due_var_pop_order_by<TRes>
+    implements CopyWith$Input$payment_due_var_pop_order_by<TRes> {
+  _CopyWithImpl$Input$payment_due_var_pop_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_var_pop_order_by _instance;
+
+  final TRes Function(Input$payment_due_var_pop_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? payment_due = _undefined,
+    Object? umkm_id = _undefined,
+  }) =>
+      _then(Input$payment_due_var_pop_order_by._({
+        ..._instance._$data,
+        if (payment_due != _undefined)
+          'payment_due': (payment_due as Enum$order_by?),
+        if (umkm_id != _undefined) 'umkm_id': (umkm_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_due_var_pop_order_by<TRes>
+    implements CopyWith$Input$payment_due_var_pop_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_due_var_pop_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  }) =>
+      _res;
+}
+
+class Input$payment_due_var_samp_order_by {
+  factory Input$payment_due_var_samp_order_by({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  }) =>
+      Input$payment_due_var_samp_order_by._({
+        if (payment_due != null) r'payment_due': payment_due,
+        if (umkm_id != null) r'umkm_id': umkm_id,
+      });
+
+  Input$payment_due_var_samp_order_by._(this._$data);
+
+  factory Input$payment_due_var_samp_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('payment_due')) {
+      final l$payment_due = data['payment_due'];
+      result$data['payment_due'] = l$payment_due == null
+          ? null
+          : fromJson$Enum$order_by((l$payment_due as String));
+    }
+    if (data.containsKey('umkm_id')) {
+      final l$umkm_id = data['umkm_id'];
+      result$data['umkm_id'] = l$umkm_id == null
+          ? null
+          : fromJson$Enum$order_by((l$umkm_id as String));
+    }
+    return Input$payment_due_var_samp_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get payment_due => (_$data['payment_due'] as Enum$order_by?);
+  Enum$order_by? get umkm_id => (_$data['umkm_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('payment_due')) {
+      final l$payment_due = payment_due;
+      result$data['payment_due'] =
+          l$payment_due == null ? null : toJson$Enum$order_by(l$payment_due);
+    }
+    if (_$data.containsKey('umkm_id')) {
+      final l$umkm_id = umkm_id;
+      result$data['umkm_id'] =
+          l$umkm_id == null ? null : toJson$Enum$order_by(l$umkm_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_var_samp_order_by<
+          Input$payment_due_var_samp_order_by>
+      get copyWith => CopyWith$Input$payment_due_var_samp_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_var_samp_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$payment_due = payment_due;
+    final lOther$payment_due = other.payment_due;
+    if (_$data.containsKey('payment_due') !=
+        other._$data.containsKey('payment_due')) {
+      return false;
+    }
+    if (l$payment_due != lOther$payment_due) {
+      return false;
+    }
+    final l$umkm_id = umkm_id;
+    final lOther$umkm_id = other.umkm_id;
+    if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
+      return false;
+    }
+    if (l$umkm_id != lOther$umkm_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$payment_due = payment_due;
+    final l$umkm_id = umkm_id;
+    return Object.hashAll([
+      _$data.containsKey('payment_due') ? l$payment_due : const {},
+      _$data.containsKey('umkm_id') ? l$umkm_id : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_var_samp_order_by<TRes> {
+  factory CopyWith$Input$payment_due_var_samp_order_by(
+    Input$payment_due_var_samp_order_by instance,
+    TRes Function(Input$payment_due_var_samp_order_by) then,
+  ) = _CopyWithImpl$Input$payment_due_var_samp_order_by;
+
+  factory CopyWith$Input$payment_due_var_samp_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_var_samp_order_by;
+
+  TRes call({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  });
+}
+
+class _CopyWithImpl$Input$payment_due_var_samp_order_by<TRes>
+    implements CopyWith$Input$payment_due_var_samp_order_by<TRes> {
+  _CopyWithImpl$Input$payment_due_var_samp_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_var_samp_order_by _instance;
+
+  final TRes Function(Input$payment_due_var_samp_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? payment_due = _undefined,
+    Object? umkm_id = _undefined,
+  }) =>
+      _then(Input$payment_due_var_samp_order_by._({
+        ..._instance._$data,
+        if (payment_due != _undefined)
+          'payment_due': (payment_due as Enum$order_by?),
+        if (umkm_id != _undefined) 'umkm_id': (umkm_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_due_var_samp_order_by<TRes>
+    implements CopyWith$Input$payment_due_var_samp_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_due_var_samp_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  }) =>
+      _res;
+}
+
+class Input$payment_due_variance_order_by {
+  factory Input$payment_due_variance_order_by({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  }) =>
+      Input$payment_due_variance_order_by._({
+        if (payment_due != null) r'payment_due': payment_due,
+        if (umkm_id != null) r'umkm_id': umkm_id,
+      });
+
+  Input$payment_due_variance_order_by._(this._$data);
+
+  factory Input$payment_due_variance_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('payment_due')) {
+      final l$payment_due = data['payment_due'];
+      result$data['payment_due'] = l$payment_due == null
+          ? null
+          : fromJson$Enum$order_by((l$payment_due as String));
+    }
+    if (data.containsKey('umkm_id')) {
+      final l$umkm_id = data['umkm_id'];
+      result$data['umkm_id'] = l$umkm_id == null
+          ? null
+          : fromJson$Enum$order_by((l$umkm_id as String));
+    }
+    return Input$payment_due_variance_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get payment_due => (_$data['payment_due'] as Enum$order_by?);
+  Enum$order_by? get umkm_id => (_$data['umkm_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('payment_due')) {
+      final l$payment_due = payment_due;
+      result$data['payment_due'] =
+          l$payment_due == null ? null : toJson$Enum$order_by(l$payment_due);
+    }
+    if (_$data.containsKey('umkm_id')) {
+      final l$umkm_id = umkm_id;
+      result$data['umkm_id'] =
+          l$umkm_id == null ? null : toJson$Enum$order_by(l$umkm_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_due_variance_order_by<
+          Input$payment_due_variance_order_by>
+      get copyWith => CopyWith$Input$payment_due_variance_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_due_variance_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$payment_due = payment_due;
+    final lOther$payment_due = other.payment_due;
+    if (_$data.containsKey('payment_due') !=
+        other._$data.containsKey('payment_due')) {
+      return false;
+    }
+    if (l$payment_due != lOther$payment_due) {
+      return false;
+    }
+    final l$umkm_id = umkm_id;
+    final lOther$umkm_id = other.umkm_id;
+    if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
+      return false;
+    }
+    if (l$umkm_id != lOther$umkm_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$payment_due = payment_due;
+    final l$umkm_id = umkm_id;
+    return Object.hashAll([
+      _$data.containsKey('payment_due') ? l$payment_due : const {},
+      _$data.containsKey('umkm_id') ? l$umkm_id : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_due_variance_order_by<TRes> {
+  factory CopyWith$Input$payment_due_variance_order_by(
+    Input$payment_due_variance_order_by instance,
+    TRes Function(Input$payment_due_variance_order_by) then,
+  ) = _CopyWithImpl$Input$payment_due_variance_order_by;
+
+  factory CopyWith$Input$payment_due_variance_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_due_variance_order_by;
+
+  TRes call({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  });
+}
+
+class _CopyWithImpl$Input$payment_due_variance_order_by<TRes>
+    implements CopyWith$Input$payment_due_variance_order_by<TRes> {
+  _CopyWithImpl$Input$payment_due_variance_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_due_variance_order_by _instance;
+
+  final TRes Function(Input$payment_due_variance_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? payment_due = _undefined,
+    Object? umkm_id = _undefined,
+  }) =>
+      _then(Input$payment_due_variance_order_by._({
+        ..._instance._$data,
+        if (payment_due != _undefined)
+          'payment_due': (payment_due as Enum$order_by?),
+        if (umkm_id != _undefined) 'umkm_id': (umkm_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_due_variance_order_by<TRes>
+    implements CopyWith$Input$payment_due_variance_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_due_variance_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$order_by? payment_due,
+    Enum$order_by? umkm_id,
+  }) =>
+      _res;
+}
+
+class Input$payment_investment_bool_exp {
+  factory Input$payment_investment_bool_exp({
+    List<Input$payment_investment_bool_exp>? $_and,
+    Input$payment_investment_bool_exp? $_not,
+    List<Input$payment_investment_bool_exp>? $_or,
+    Input$timestamptz_comparison_exp? created_at,
+    Input$investment_bool_exp? investment,
+    Input$Int_comparison_exp? investment_id,
+    Input$Boolean_comparison_exp? payment_investment_fulfilled,
+    Input$uuid_comparison_exp? payment_investment_id,
+    Input$timestamptz_comparison_exp? updated_at,
+  }) =>
+      Input$payment_investment_bool_exp._({
+        if ($_and != null) r'_and': $_and,
+        if ($_not != null) r'_not': $_not,
+        if ($_or != null) r'_or': $_or,
+        if (created_at != null) r'created_at': created_at,
+        if (investment != null) r'investment': investment,
+        if (investment_id != null) r'investment_id': investment_id,
+        if (payment_investment_fulfilled != null)
+          r'payment_investment_fulfilled': payment_investment_fulfilled,
+        if (payment_investment_id != null)
+          r'payment_investment_id': payment_investment_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$payment_investment_bool_exp._(this._$data);
+
+  factory Input$payment_investment_bool_exp.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('_and')) {
+      final l$$_and = data['_and'];
+      result$data['_and'] = (l$$_and as List<dynamic>?)
+          ?.map((e) => Input$payment_investment_bool_exp.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList();
+    }
+    if (data.containsKey('_not')) {
+      final l$$_not = data['_not'];
+      result$data['_not'] = l$$_not == null
+          ? null
+          : Input$payment_investment_bool_exp.fromJson(
+              (l$$_not as Map<String, dynamic>));
+    }
+    if (data.containsKey('_or')) {
+      final l$$_or = data['_or'];
+      result$data['_or'] = (l$$_or as List<dynamic>?)
+          ?.map((e) => Input$payment_investment_bool_exp.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList();
+    }
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : Input$timestamptz_comparison_exp.fromJson(
+              (l$created_at as Map<String, dynamic>));
+    }
+    if (data.containsKey('investment')) {
+      final l$investment = data['investment'];
+      result$data['investment'] = l$investment == null
+          ? null
+          : Input$investment_bool_exp.fromJson(
+              (l$investment as Map<String, dynamic>));
+    }
+    if (data.containsKey('investment_id')) {
+      final l$investment_id = data['investment_id'];
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : Input$Int_comparison_exp.fromJson(
+              (l$investment_id as Map<String, dynamic>));
+    }
+    if (data.containsKey('payment_investment_fulfilled')) {
+      final l$payment_investment_fulfilled =
+          data['payment_investment_fulfilled'];
+      result$data['payment_investment_fulfilled'] =
+          l$payment_investment_fulfilled == null
+              ? null
+              : Input$Boolean_comparison_exp.fromJson(
+                  (l$payment_investment_fulfilled as Map<String, dynamic>));
+    }
+    if (data.containsKey('payment_investment_id')) {
+      final l$payment_investment_id = data['payment_investment_id'];
+      result$data['payment_investment_id'] = l$payment_investment_id == null
+          ? null
+          : Input$uuid_comparison_exp.fromJson(
+              (l$payment_investment_id as Map<String, dynamic>));
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : Input$timestamptz_comparison_exp.fromJson(
+              (l$updated_at as Map<String, dynamic>));
+    }
+    return Input$payment_investment_bool_exp._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  List<Input$payment_investment_bool_exp>? get $_and =>
+      (_$data['_and'] as List<Input$payment_investment_bool_exp>?);
+  Input$payment_investment_bool_exp? get $_not =>
+      (_$data['_not'] as Input$payment_investment_bool_exp?);
+  List<Input$payment_investment_bool_exp>? get $_or =>
+      (_$data['_or'] as List<Input$payment_investment_bool_exp>?);
+  Input$timestamptz_comparison_exp? get created_at =>
+      (_$data['created_at'] as Input$timestamptz_comparison_exp?);
+  Input$investment_bool_exp? get investment =>
+      (_$data['investment'] as Input$investment_bool_exp?);
+  Input$Int_comparison_exp? get investment_id =>
+      (_$data['investment_id'] as Input$Int_comparison_exp?);
+  Input$Boolean_comparison_exp? get payment_investment_fulfilled =>
+      (_$data['payment_investment_fulfilled'] as Input$Boolean_comparison_exp?);
+  Input$uuid_comparison_exp? get payment_investment_id =>
+      (_$data['payment_investment_id'] as Input$uuid_comparison_exp?);
+  Input$timestamptz_comparison_exp? get updated_at =>
+      (_$data['updated_at'] as Input$timestamptz_comparison_exp?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('_and')) {
+      final l$$_and = $_and;
+      result$data['_and'] = l$$_and?.map((e) => e.toJson()).toList();
+    }
+    if (_$data.containsKey('_not')) {
+      final l$$_not = $_not;
+      result$data['_not'] = l$$_not?.toJson();
+    }
+    if (_$data.containsKey('_or')) {
+      final l$$_or = $_or;
+      result$data['_or'] = l$$_or?.map((e) => e.toJson()).toList();
+    }
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] = l$created_at?.toJson();
+    }
+    if (_$data.containsKey('investment')) {
+      final l$investment = investment;
+      result$data['investment'] = l$investment?.toJson();
+    }
+    if (_$data.containsKey('investment_id')) {
+      final l$investment_id = investment_id;
+      result$data['investment_id'] = l$investment_id?.toJson();
+    }
+    if (_$data.containsKey('payment_investment_fulfilled')) {
+      final l$payment_investment_fulfilled = payment_investment_fulfilled;
+      result$data['payment_investment_fulfilled'] =
+          l$payment_investment_fulfilled?.toJson();
+    }
+    if (_$data.containsKey('payment_investment_id')) {
+      final l$payment_investment_id = payment_investment_id;
+      result$data['payment_investment_id'] = l$payment_investment_id?.toJson();
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] = l$updated_at?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_bool_exp<Input$payment_investment_bool_exp>
+      get copyWith => CopyWith$Input$payment_investment_bool_exp(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_bool_exp) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$_and = $_and;
+    final lOther$$_and = other.$_and;
+    if (_$data.containsKey('_and') != other._$data.containsKey('_and')) {
+      return false;
+    }
+    if (l$$_and != null && lOther$$_and != null) {
+      if (l$$_and.length != lOther$$_and.length) {
+        return false;
+      }
+      for (int i = 0; i < l$$_and.length; i++) {
+        final l$$_and$entry = l$$_and[i];
+        final lOther$$_and$entry = lOther$$_and[i];
+        if (l$$_and$entry != lOther$$_and$entry) {
+          return false;
+        }
+      }
+    } else if (l$$_and != lOther$$_and) {
+      return false;
+    }
+    final l$$_not = $_not;
+    final lOther$$_not = other.$_not;
+    if (_$data.containsKey('_not') != other._$data.containsKey('_not')) {
+      return false;
+    }
+    if (l$$_not != lOther$$_not) {
+      return false;
+    }
+    final l$$_or = $_or;
+    final lOther$$_or = other.$_or;
+    if (_$data.containsKey('_or') != other._$data.containsKey('_or')) {
+      return false;
+    }
+    if (l$$_or != null && lOther$$_or != null) {
+      if (l$$_or.length != lOther$$_or.length) {
+        return false;
+      }
+      for (int i = 0; i < l$$_or.length; i++) {
+        final l$$_or$entry = l$$_or[i];
+        final lOther$$_or$entry = lOther$$_or[i];
+        if (l$$_or$entry != lOther$$_or$entry) {
+          return false;
+        }
+      }
+    } else if (l$$_or != lOther$$_or) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$investment = investment;
+    final lOther$investment = other.investment;
+    if (_$data.containsKey('investment') !=
+        other._$data.containsKey('investment')) {
+      return false;
+    }
+    if (l$investment != lOther$investment) {
+      return false;
+    }
+    final l$investment_id = investment_id;
+    final lOther$investment_id = other.investment_id;
+    if (_$data.containsKey('investment_id') !=
+        other._$data.containsKey('investment_id')) {
+      return false;
+    }
+    if (l$investment_id != lOther$investment_id) {
+      return false;
+    }
+    final l$payment_investment_fulfilled = payment_investment_fulfilled;
+    final lOther$payment_investment_fulfilled =
+        other.payment_investment_fulfilled;
+    if (_$data.containsKey('payment_investment_fulfilled') !=
+        other._$data.containsKey('payment_investment_fulfilled')) {
+      return false;
+    }
+    if (l$payment_investment_fulfilled != lOther$payment_investment_fulfilled) {
+      return false;
+    }
+    final l$payment_investment_id = payment_investment_id;
+    final lOther$payment_investment_id = other.payment_investment_id;
+    if (_$data.containsKey('payment_investment_id') !=
+        other._$data.containsKey('payment_investment_id')) {
+      return false;
+    }
+    if (l$payment_investment_id != lOther$payment_investment_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$$_and = $_and;
+    final l$$_not = $_not;
+    final l$$_or = $_or;
+    final l$created_at = created_at;
+    final l$investment = investment;
+    final l$investment_id = investment_id;
+    final l$payment_investment_fulfilled = payment_investment_fulfilled;
+    final l$payment_investment_id = payment_investment_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('_and')
+          ? l$$_and == null
+              ? null
+              : Object.hashAll(l$$_and.map((v) => v))
+          : const {},
+      _$data.containsKey('_not') ? l$$_not : const {},
+      _$data.containsKey('_or')
+          ? l$$_or == null
+              ? null
+              : Object.hashAll(l$$_or.map((v) => v))
+          : const {},
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('investment') ? l$investment : const {},
+      _$data.containsKey('investment_id') ? l$investment_id : const {},
+      _$data.containsKey('payment_investment_fulfilled')
+          ? l$payment_investment_fulfilled
+          : const {},
+      _$data.containsKey('payment_investment_id')
+          ? l$payment_investment_id
+          : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_bool_exp<TRes> {
+  factory CopyWith$Input$payment_investment_bool_exp(
+    Input$payment_investment_bool_exp instance,
+    TRes Function(Input$payment_investment_bool_exp) then,
+  ) = _CopyWithImpl$Input$payment_investment_bool_exp;
+
+  factory CopyWith$Input$payment_investment_bool_exp.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_bool_exp;
+
+  TRes call({
+    List<Input$payment_investment_bool_exp>? $_and,
+    Input$payment_investment_bool_exp? $_not,
+    List<Input$payment_investment_bool_exp>? $_or,
+    Input$timestamptz_comparison_exp? created_at,
+    Input$investment_bool_exp? investment,
+    Input$Int_comparison_exp? investment_id,
+    Input$Boolean_comparison_exp? payment_investment_fulfilled,
+    Input$uuid_comparison_exp? payment_investment_id,
+    Input$timestamptz_comparison_exp? updated_at,
+  });
+  TRes $_and(
+      Iterable<Input$payment_investment_bool_exp>? Function(
+              Iterable<
+                  CopyWith$Input$payment_investment_bool_exp<
+                      Input$payment_investment_bool_exp>>?)
+          _fn);
+  CopyWith$Input$payment_investment_bool_exp<TRes> get $_not;
+  TRes $_or(
+      Iterable<Input$payment_investment_bool_exp>? Function(
+              Iterable<
+                  CopyWith$Input$payment_investment_bool_exp<
+                      Input$payment_investment_bool_exp>>?)
+          _fn);
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at;
+  CopyWith$Input$investment_bool_exp<TRes> get investment;
+  CopyWith$Input$Int_comparison_exp<TRes> get investment_id;
+  CopyWith$Input$Boolean_comparison_exp<TRes> get payment_investment_fulfilled;
+  CopyWith$Input$uuid_comparison_exp<TRes> get payment_investment_id;
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get updated_at;
+}
+
+class _CopyWithImpl$Input$payment_investment_bool_exp<TRes>
+    implements CopyWith$Input$payment_investment_bool_exp<TRes> {
+  _CopyWithImpl$Input$payment_investment_bool_exp(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_bool_exp _instance;
+
+  final TRes Function(Input$payment_investment_bool_exp) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? $_and = _undefined,
+    Object? $_not = _undefined,
+    Object? $_or = _undefined,
+    Object? created_at = _undefined,
+    Object? investment = _undefined,
+    Object? investment_id = _undefined,
+    Object? payment_investment_fulfilled = _undefined,
+    Object? payment_investment_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$payment_investment_bool_exp._({
+        ..._instance._$data,
+        if ($_and != _undefined)
+          '_and': ($_and as List<Input$payment_investment_bool_exp>?),
+        if ($_not != _undefined)
+          '_not': ($_not as Input$payment_investment_bool_exp?),
+        if ($_or != _undefined)
+          '_or': ($_or as List<Input$payment_investment_bool_exp>?),
+        if (created_at != _undefined)
+          'created_at': (created_at as Input$timestamptz_comparison_exp?),
+        if (investment != _undefined)
+          'investment': (investment as Input$investment_bool_exp?),
+        if (investment_id != _undefined)
+          'investment_id': (investment_id as Input$Int_comparison_exp?),
+        if (payment_investment_fulfilled != _undefined)
+          'payment_investment_fulfilled':
+              (payment_investment_fulfilled as Input$Boolean_comparison_exp?),
+        if (payment_investment_id != _undefined)
+          'payment_investment_id':
+              (payment_investment_id as Input$uuid_comparison_exp?),
+        if (updated_at != _undefined)
+          'updated_at': (updated_at as Input$timestamptz_comparison_exp?),
+      }));
+  TRes $_and(
+          Iterable<Input$payment_investment_bool_exp>? Function(
+                  Iterable<
+                      CopyWith$Input$payment_investment_bool_exp<
+                          Input$payment_investment_bool_exp>>?)
+              _fn) =>
+      call(
+          $_and: _fn(_instance.$_and
+              ?.map((e) => CopyWith$Input$payment_investment_bool_exp(
+                    e,
+                    (i) => i,
+                  )))?.toList());
+  CopyWith$Input$payment_investment_bool_exp<TRes> get $_not {
+    final local$$_not = _instance.$_not;
+    return local$$_not == null
+        ? CopyWith$Input$payment_investment_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$payment_investment_bool_exp(
+            local$$_not, (e) => call($_not: e));
+  }
+
+  TRes $_or(
+          Iterable<Input$payment_investment_bool_exp>? Function(
+                  Iterable<
+                      CopyWith$Input$payment_investment_bool_exp<
+                          Input$payment_investment_bool_exp>>?)
+              _fn) =>
+      call(
+          $_or: _fn(_instance.$_or
+              ?.map((e) => CopyWith$Input$payment_investment_bool_exp(
+                    e,
+                    (i) => i,
+                  )))?.toList());
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at {
+    final local$created_at = _instance.created_at;
+    return local$created_at == null
+        ? CopyWith$Input$timestamptz_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$timestamptz_comparison_exp(
+            local$created_at, (e) => call(created_at: e));
+  }
+
+  CopyWith$Input$investment_bool_exp<TRes> get investment {
+    final local$investment = _instance.investment;
+    return local$investment == null
+        ? CopyWith$Input$investment_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$investment_bool_exp(
+            local$investment, (e) => call(investment: e));
+  }
+
+  CopyWith$Input$Int_comparison_exp<TRes> get investment_id {
+    final local$investment_id = _instance.investment_id;
+    return local$investment_id == null
+        ? CopyWith$Input$Int_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$Int_comparison_exp(
+            local$investment_id, (e) => call(investment_id: e));
+  }
+
+  CopyWith$Input$Boolean_comparison_exp<TRes> get payment_investment_fulfilled {
+    final local$payment_investment_fulfilled =
+        _instance.payment_investment_fulfilled;
+    return local$payment_investment_fulfilled == null
+        ? CopyWith$Input$Boolean_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$Boolean_comparison_exp(
+            local$payment_investment_fulfilled,
+            (e) => call(payment_investment_fulfilled: e));
+  }
+
+  CopyWith$Input$uuid_comparison_exp<TRes> get payment_investment_id {
+    final local$payment_investment_id = _instance.payment_investment_id;
+    return local$payment_investment_id == null
+        ? CopyWith$Input$uuid_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$uuid_comparison_exp(
+            local$payment_investment_id, (e) => call(payment_investment_id: e));
+  }
+
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get updated_at {
+    final local$updated_at = _instance.updated_at;
+    return local$updated_at == null
+        ? CopyWith$Input$timestamptz_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$timestamptz_comparison_exp(
+            local$updated_at, (e) => call(updated_at: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_investment_bool_exp<TRes>
+    implements CopyWith$Input$payment_investment_bool_exp<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_bool_exp(this._res);
+
+  TRes _res;
+
+  call({
+    List<Input$payment_investment_bool_exp>? $_and,
+    Input$payment_investment_bool_exp? $_not,
+    List<Input$payment_investment_bool_exp>? $_or,
+    Input$timestamptz_comparison_exp? created_at,
+    Input$investment_bool_exp? investment,
+    Input$Int_comparison_exp? investment_id,
+    Input$Boolean_comparison_exp? payment_investment_fulfilled,
+    Input$uuid_comparison_exp? payment_investment_id,
+    Input$timestamptz_comparison_exp? updated_at,
+  }) =>
+      _res;
+  $_and(_fn) => _res;
+  CopyWith$Input$payment_investment_bool_exp<TRes> get $_not =>
+      CopyWith$Input$payment_investment_bool_exp.stub(_res);
+  $_or(_fn) => _res;
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at =>
+      CopyWith$Input$timestamptz_comparison_exp.stub(_res);
+  CopyWith$Input$investment_bool_exp<TRes> get investment =>
+      CopyWith$Input$investment_bool_exp.stub(_res);
+  CopyWith$Input$Int_comparison_exp<TRes> get investment_id =>
+      CopyWith$Input$Int_comparison_exp.stub(_res);
+  CopyWith$Input$Boolean_comparison_exp<TRes>
+      get payment_investment_fulfilled =>
+          CopyWith$Input$Boolean_comparison_exp.stub(_res);
+  CopyWith$Input$uuid_comparison_exp<TRes> get payment_investment_id =>
+      CopyWith$Input$uuid_comparison_exp.stub(_res);
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get updated_at =>
+      CopyWith$Input$timestamptz_comparison_exp.stub(_res);
+}
+
+class Input$payment_investment_inc_input {
+  factory Input$payment_investment_inc_input({int? investment_id}) =>
+      Input$payment_investment_inc_input._({
+        if (investment_id != null) r'investment_id': investment_id,
+      });
+
+  Input$payment_investment_inc_input._(this._$data);
+
+  factory Input$payment_investment_inc_input.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('investment_id')) {
+      final l$investment_id = data['investment_id'];
+      result$data['investment_id'] = (l$investment_id as int?);
+    }
+    return Input$payment_investment_inc_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int? get investment_id => (_$data['investment_id'] as int?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('investment_id')) {
+      final l$investment_id = investment_id;
+      result$data['investment_id'] = l$investment_id;
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_inc_input<
+          Input$payment_investment_inc_input>
+      get copyWith => CopyWith$Input$payment_investment_inc_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_inc_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$investment_id = investment_id;
+    final lOther$investment_id = other.investment_id;
+    if (_$data.containsKey('investment_id') !=
+        other._$data.containsKey('investment_id')) {
+      return false;
+    }
+    if (l$investment_id != lOther$investment_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$investment_id = investment_id;
+    return Object.hashAll(
+        [_$data.containsKey('investment_id') ? l$investment_id : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_inc_input<TRes> {
+  factory CopyWith$Input$payment_investment_inc_input(
+    Input$payment_investment_inc_input instance,
+    TRes Function(Input$payment_investment_inc_input) then,
+  ) = _CopyWithImpl$Input$payment_investment_inc_input;
+
+  factory CopyWith$Input$payment_investment_inc_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_inc_input;
+
+  TRes call({int? investment_id});
+}
+
+class _CopyWithImpl$Input$payment_investment_inc_input<TRes>
+    implements CopyWith$Input$payment_investment_inc_input<TRes> {
+  _CopyWithImpl$Input$payment_investment_inc_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_inc_input _instance;
+
+  final TRes Function(Input$payment_investment_inc_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? investment_id = _undefined}) =>
+      _then(Input$payment_investment_inc_input._({
+        ..._instance._$data,
+        if (investment_id != _undefined)
+          'investment_id': (investment_id as int?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_investment_inc_input<TRes>
+    implements CopyWith$Input$payment_investment_inc_input<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_inc_input(this._res);
+
+  TRes _res;
+
+  call({int? investment_id}) => _res;
+}
+
+class Input$payment_investment_insert_input {
+  factory Input$payment_investment_insert_input({
+    DateTime? created_at,
+    Input$investment_obj_rel_insert_input? investment,
+    int? investment_id,
+    bool? payment_investment_fulfilled,
+    UUID? payment_investment_id,
+    DateTime? updated_at,
+  }) =>
+      Input$payment_investment_insert_input._({
+        if (created_at != null) r'created_at': created_at,
+        if (investment != null) r'investment': investment,
+        if (investment_id != null) r'investment_id': investment_id,
+        if (payment_investment_fulfilled != null)
+          r'payment_investment_fulfilled': payment_investment_fulfilled,
+        if (payment_investment_id != null)
+          r'payment_investment_id': payment_investment_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$payment_investment_insert_input._(this._$data);
+
+  factory Input$payment_investment_insert_input.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : DateTime.parse((l$created_at as String));
+    }
+    if (data.containsKey('investment')) {
+      final l$investment = data['investment'];
+      result$data['investment'] = l$investment == null
+          ? null
+          : Input$investment_obj_rel_insert_input.fromJson(
+              (l$investment as Map<String, dynamic>));
+    }
+    if (data.containsKey('investment_id')) {
+      final l$investment_id = data['investment_id'];
+      result$data['investment_id'] = (l$investment_id as int?);
+    }
+    if (data.containsKey('payment_investment_fulfilled')) {
+      final l$payment_investment_fulfilled =
+          data['payment_investment_fulfilled'];
+      result$data['payment_investment_fulfilled'] =
+          (l$payment_investment_fulfilled as bool?);
+    }
+    if (data.containsKey('payment_investment_id')) {
+      final l$payment_investment_id = data['payment_investment_id'];
+      result$data['payment_investment_id'] = l$payment_investment_id == null
+          ? null
+          : uuidFromJson(l$payment_investment_id);
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : DateTime.parse((l$updated_at as String));
+    }
+    return Input$payment_investment_insert_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  DateTime? get created_at => (_$data['created_at'] as DateTime?);
+  Input$investment_obj_rel_insert_input? get investment =>
+      (_$data['investment'] as Input$investment_obj_rel_insert_input?);
+  int? get investment_id => (_$data['investment_id'] as int?);
+  bool? get payment_investment_fulfilled =>
+      (_$data['payment_investment_fulfilled'] as bool?);
+  UUID? get payment_investment_id => (_$data['payment_investment_id'] as UUID?);
+  DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] = l$created_at?.toIso8601String();
+    }
+    if (_$data.containsKey('investment')) {
+      final l$investment = investment;
+      result$data['investment'] = l$investment?.toJson();
+    }
+    if (_$data.containsKey('investment_id')) {
+      final l$investment_id = investment_id;
+      result$data['investment_id'] = l$investment_id;
+    }
+    if (_$data.containsKey('payment_investment_fulfilled')) {
+      final l$payment_investment_fulfilled = payment_investment_fulfilled;
+      result$data['payment_investment_fulfilled'] =
+          l$payment_investment_fulfilled;
+    }
+    if (_$data.containsKey('payment_investment_id')) {
+      final l$payment_investment_id = payment_investment_id;
+      result$data['payment_investment_id'] = l$payment_investment_id == null
+          ? null
+          : uuidToJson(l$payment_investment_id);
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] = l$updated_at?.toIso8601String();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_insert_input<
+          Input$payment_investment_insert_input>
+      get copyWith => CopyWith$Input$payment_investment_insert_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_insert_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$investment = investment;
+    final lOther$investment = other.investment;
+    if (_$data.containsKey('investment') !=
+        other._$data.containsKey('investment')) {
+      return false;
+    }
+    if (l$investment != lOther$investment) {
+      return false;
+    }
+    final l$investment_id = investment_id;
+    final lOther$investment_id = other.investment_id;
+    if (_$data.containsKey('investment_id') !=
+        other._$data.containsKey('investment_id')) {
+      return false;
+    }
+    if (l$investment_id != lOther$investment_id) {
+      return false;
+    }
+    final l$payment_investment_fulfilled = payment_investment_fulfilled;
+    final lOther$payment_investment_fulfilled =
+        other.payment_investment_fulfilled;
+    if (_$data.containsKey('payment_investment_fulfilled') !=
+        other._$data.containsKey('payment_investment_fulfilled')) {
+      return false;
+    }
+    if (l$payment_investment_fulfilled != lOther$payment_investment_fulfilled) {
+      return false;
+    }
+    final l$payment_investment_id = payment_investment_id;
+    final lOther$payment_investment_id = other.payment_investment_id;
+    if (_$data.containsKey('payment_investment_id') !=
+        other._$data.containsKey('payment_investment_id')) {
+      return false;
+    }
+    if (l$payment_investment_id != lOther$payment_investment_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$created_at = created_at;
+    final l$investment = investment;
+    final l$investment_id = investment_id;
+    final l$payment_investment_fulfilled = payment_investment_fulfilled;
+    final l$payment_investment_id = payment_investment_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('investment') ? l$investment : const {},
+      _$data.containsKey('investment_id') ? l$investment_id : const {},
+      _$data.containsKey('payment_investment_fulfilled')
+          ? l$payment_investment_fulfilled
+          : const {},
+      _$data.containsKey('payment_investment_id')
+          ? l$payment_investment_id
+          : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_insert_input<TRes> {
+  factory CopyWith$Input$payment_investment_insert_input(
+    Input$payment_investment_insert_input instance,
+    TRes Function(Input$payment_investment_insert_input) then,
+  ) = _CopyWithImpl$Input$payment_investment_insert_input;
+
+  factory CopyWith$Input$payment_investment_insert_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_insert_input;
+
+  TRes call({
+    DateTime? created_at,
+    Input$investment_obj_rel_insert_input? investment,
+    int? investment_id,
+    bool? payment_investment_fulfilled,
+    UUID? payment_investment_id,
+    DateTime? updated_at,
+  });
+  CopyWith$Input$investment_obj_rel_insert_input<TRes> get investment;
+}
+
+class _CopyWithImpl$Input$payment_investment_insert_input<TRes>
+    implements CopyWith$Input$payment_investment_insert_input<TRes> {
+  _CopyWithImpl$Input$payment_investment_insert_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_insert_input _instance;
+
+  final TRes Function(Input$payment_investment_insert_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? created_at = _undefined,
+    Object? investment = _undefined,
+    Object? investment_id = _undefined,
+    Object? payment_investment_fulfilled = _undefined,
+    Object? payment_investment_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$payment_investment_insert_input._({
+        ..._instance._$data,
+        if (created_at != _undefined) 'created_at': (created_at as DateTime?),
+        if (investment != _undefined)
+          'investment': (investment as Input$investment_obj_rel_insert_input?),
+        if (investment_id != _undefined)
+          'investment_id': (investment_id as int?),
+        if (payment_investment_fulfilled != _undefined)
+          'payment_investment_fulfilled':
+              (payment_investment_fulfilled as bool?),
+        if (payment_investment_id != _undefined)
+          'payment_investment_id': (payment_investment_id as UUID?),
+        if (updated_at != _undefined) 'updated_at': (updated_at as DateTime?),
+      }));
+  CopyWith$Input$investment_obj_rel_insert_input<TRes> get investment {
+    final local$investment = _instance.investment;
+    return local$investment == null
+        ? CopyWith$Input$investment_obj_rel_insert_input.stub(_then(_instance))
+        : CopyWith$Input$investment_obj_rel_insert_input(
+            local$investment, (e) => call(investment: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_investment_insert_input<TRes>
+    implements CopyWith$Input$payment_investment_insert_input<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_insert_input(this._res);
+
+  TRes _res;
+
+  call({
+    DateTime? created_at,
+    Input$investment_obj_rel_insert_input? investment,
+    int? investment_id,
+    bool? payment_investment_fulfilled,
+    UUID? payment_investment_id,
+    DateTime? updated_at,
+  }) =>
+      _res;
+  CopyWith$Input$investment_obj_rel_insert_input<TRes> get investment =>
+      CopyWith$Input$investment_obj_rel_insert_input.stub(_res);
+}
+
+class Input$payment_investment_obj_rel_insert_input {
+  factory Input$payment_investment_obj_rel_insert_input({
+    required Input$payment_investment_insert_input data,
+    Input$payment_investment_on_conflict? on_conflict,
+  }) =>
+      Input$payment_investment_obj_rel_insert_input._({
+        r'data': data,
+        if (on_conflict != null) r'on_conflict': on_conflict,
+      });
+
+  Input$payment_investment_obj_rel_insert_input._(this._$data);
+
+  factory Input$payment_investment_obj_rel_insert_input.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$data = data['data'];
+    result$data['data'] = Input$payment_investment_insert_input.fromJson(
+        (l$data as Map<String, dynamic>));
+    if (data.containsKey('on_conflict')) {
+      final l$on_conflict = data['on_conflict'];
+      result$data['on_conflict'] = l$on_conflict == null
+          ? null
+          : Input$payment_investment_on_conflict.fromJson(
+              (l$on_conflict as Map<String, dynamic>));
+    }
+    return Input$payment_investment_obj_rel_insert_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$payment_investment_insert_input get data =>
+      (_$data['data'] as Input$payment_investment_insert_input);
+  Input$payment_investment_on_conflict? get on_conflict =>
+      (_$data['on_conflict'] as Input$payment_investment_on_conflict?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$data = data;
+    result$data['data'] = l$data.toJson();
+    if (_$data.containsKey('on_conflict')) {
+      final l$on_conflict = on_conflict;
+      result$data['on_conflict'] = l$on_conflict?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_obj_rel_insert_input<
+          Input$payment_investment_obj_rel_insert_input>
+      get copyWith => CopyWith$Input$payment_investment_obj_rel_insert_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_obj_rel_insert_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$data = data;
+    final lOther$data = other.data;
+    if (l$data != lOther$data) {
+      return false;
+    }
+    final l$on_conflict = on_conflict;
+    final lOther$on_conflict = other.on_conflict;
+    if (_$data.containsKey('on_conflict') !=
+        other._$data.containsKey('on_conflict')) {
+      return false;
+    }
+    if (l$on_conflict != lOther$on_conflict) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$data = data;
+    final l$on_conflict = on_conflict;
+    return Object.hashAll([
+      l$data,
+      _$data.containsKey('on_conflict') ? l$on_conflict : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_obj_rel_insert_input<TRes> {
+  factory CopyWith$Input$payment_investment_obj_rel_insert_input(
+    Input$payment_investment_obj_rel_insert_input instance,
+    TRes Function(Input$payment_investment_obj_rel_insert_input) then,
+  ) = _CopyWithImpl$Input$payment_investment_obj_rel_insert_input;
+
+  factory CopyWith$Input$payment_investment_obj_rel_insert_input.stub(
+          TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_obj_rel_insert_input;
+
+  TRes call({
+    Input$payment_investment_insert_input? data,
+    Input$payment_investment_on_conflict? on_conflict,
+  });
+  CopyWith$Input$payment_investment_insert_input<TRes> get data;
+  CopyWith$Input$payment_investment_on_conflict<TRes> get on_conflict;
+}
+
+class _CopyWithImpl$Input$payment_investment_obj_rel_insert_input<TRes>
+    implements CopyWith$Input$payment_investment_obj_rel_insert_input<TRes> {
+  _CopyWithImpl$Input$payment_investment_obj_rel_insert_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_obj_rel_insert_input _instance;
+
+  final TRes Function(Input$payment_investment_obj_rel_insert_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? data = _undefined,
+    Object? on_conflict = _undefined,
+  }) =>
+      _then(Input$payment_investment_obj_rel_insert_input._({
+        ..._instance._$data,
+        if (data != _undefined && data != null)
+          'data': (data as Input$payment_investment_insert_input),
+        if (on_conflict != _undefined)
+          'on_conflict': (on_conflict as Input$payment_investment_on_conflict?),
+      }));
+  CopyWith$Input$payment_investment_insert_input<TRes> get data {
+    final local$data = _instance.data;
+    return CopyWith$Input$payment_investment_insert_input(
+        local$data, (e) => call(data: e));
+  }
+
+  CopyWith$Input$payment_investment_on_conflict<TRes> get on_conflict {
+    final local$on_conflict = _instance.on_conflict;
+    return local$on_conflict == null
+        ? CopyWith$Input$payment_investment_on_conflict.stub(_then(_instance))
+        : CopyWith$Input$payment_investment_on_conflict(
+            local$on_conflict, (e) => call(on_conflict: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_investment_obj_rel_insert_input<TRes>
+    implements CopyWith$Input$payment_investment_obj_rel_insert_input<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_obj_rel_insert_input(this._res);
+
+  TRes _res;
+
+  call({
+    Input$payment_investment_insert_input? data,
+    Input$payment_investment_on_conflict? on_conflict,
+  }) =>
+      _res;
+  CopyWith$Input$payment_investment_insert_input<TRes> get data =>
+      CopyWith$Input$payment_investment_insert_input.stub(_res);
+  CopyWith$Input$payment_investment_on_conflict<TRes> get on_conflict =>
+      CopyWith$Input$payment_investment_on_conflict.stub(_res);
+}
+
+class Input$payment_investment_on_conflict {
+  factory Input$payment_investment_on_conflict({
+    required Enum$payment_investment_constraint constraint,
+    required List<Enum$payment_investment_update_column> update_columns,
+    Input$payment_investment_bool_exp? where,
+  }) =>
+      Input$payment_investment_on_conflict._({
+        r'constraint': constraint,
+        r'update_columns': update_columns,
+        if (where != null) r'where': where,
+      });
+
+  Input$payment_investment_on_conflict._(this._$data);
+
+  factory Input$payment_investment_on_conflict.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$constraint = data['constraint'];
+    result$data['constraint'] =
+        fromJson$Enum$payment_investment_constraint((l$constraint as String));
+    final l$update_columns = data['update_columns'];
+    result$data['update_columns'] = (l$update_columns as List<dynamic>)
+        .map((e) =>
+            fromJson$Enum$payment_investment_update_column((e as String)))
+        .toList();
+    if (data.containsKey('where')) {
+      final l$where = data['where'];
+      result$data['where'] = l$where == null
+          ? null
+          : Input$payment_investment_bool_exp.fromJson(
+              (l$where as Map<String, dynamic>));
+    }
+    return Input$payment_investment_on_conflict._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$payment_investment_constraint get constraint =>
+      (_$data['constraint'] as Enum$payment_investment_constraint);
+  List<Enum$payment_investment_update_column> get update_columns =>
+      (_$data['update_columns'] as List<Enum$payment_investment_update_column>);
+  Input$payment_investment_bool_exp? get where =>
+      (_$data['where'] as Input$payment_investment_bool_exp?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$constraint = constraint;
+    result$data['constraint'] =
+        toJson$Enum$payment_investment_constraint(l$constraint);
+    final l$update_columns = update_columns;
+    result$data['update_columns'] = l$update_columns
+        .map((e) => toJson$Enum$payment_investment_update_column(e))
+        .toList();
+    if (_$data.containsKey('where')) {
+      final l$where = where;
+      result$data['where'] = l$where?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_on_conflict<
+          Input$payment_investment_on_conflict>
+      get copyWith => CopyWith$Input$payment_investment_on_conflict(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_on_conflict) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$constraint = constraint;
+    final lOther$constraint = other.constraint;
+    if (l$constraint != lOther$constraint) {
+      return false;
+    }
+    final l$update_columns = update_columns;
+    final lOther$update_columns = other.update_columns;
+    if (l$update_columns.length != lOther$update_columns.length) {
+      return false;
+    }
+    for (int i = 0; i < l$update_columns.length; i++) {
+      final l$update_columns$entry = l$update_columns[i];
+      final lOther$update_columns$entry = lOther$update_columns[i];
+      if (l$update_columns$entry != lOther$update_columns$entry) {
+        return false;
+      }
+    }
+    final l$where = where;
+    final lOther$where = other.where;
+    if (_$data.containsKey('where') != other._$data.containsKey('where')) {
+      return false;
+    }
+    if (l$where != lOther$where) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$constraint = constraint;
+    final l$update_columns = update_columns;
+    final l$where = where;
+    return Object.hashAll([
+      l$constraint,
+      Object.hashAll(l$update_columns.map((v) => v)),
+      _$data.containsKey('where') ? l$where : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_on_conflict<TRes> {
+  factory CopyWith$Input$payment_investment_on_conflict(
+    Input$payment_investment_on_conflict instance,
+    TRes Function(Input$payment_investment_on_conflict) then,
+  ) = _CopyWithImpl$Input$payment_investment_on_conflict;
+
+  factory CopyWith$Input$payment_investment_on_conflict.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_on_conflict;
+
+  TRes call({
+    Enum$payment_investment_constraint? constraint,
+    List<Enum$payment_investment_update_column>? update_columns,
+    Input$payment_investment_bool_exp? where,
+  });
+  CopyWith$Input$payment_investment_bool_exp<TRes> get where;
+}
+
+class _CopyWithImpl$Input$payment_investment_on_conflict<TRes>
+    implements CopyWith$Input$payment_investment_on_conflict<TRes> {
+  _CopyWithImpl$Input$payment_investment_on_conflict(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_on_conflict _instance;
+
+  final TRes Function(Input$payment_investment_on_conflict) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? constraint = _undefined,
+    Object? update_columns = _undefined,
+    Object? where = _undefined,
+  }) =>
+      _then(Input$payment_investment_on_conflict._({
+        ..._instance._$data,
+        if (constraint != _undefined && constraint != null)
+          'constraint': (constraint as Enum$payment_investment_constraint),
+        if (update_columns != _undefined && update_columns != null)
+          'update_columns':
+              (update_columns as List<Enum$payment_investment_update_column>),
+        if (where != _undefined)
+          'where': (where as Input$payment_investment_bool_exp?),
+      }));
+  CopyWith$Input$payment_investment_bool_exp<TRes> get where {
+    final local$where = _instance.where;
+    return local$where == null
+        ? CopyWith$Input$payment_investment_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$payment_investment_bool_exp(
+            local$where, (e) => call(where: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_investment_on_conflict<TRes>
+    implements CopyWith$Input$payment_investment_on_conflict<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_on_conflict(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$payment_investment_constraint? constraint,
+    List<Enum$payment_investment_update_column>? update_columns,
+    Input$payment_investment_bool_exp? where,
+  }) =>
+      _res;
+  CopyWith$Input$payment_investment_bool_exp<TRes> get where =>
+      CopyWith$Input$payment_investment_bool_exp.stub(_res);
+}
+
+class Input$payment_investment_order_by {
+  factory Input$payment_investment_order_by({
+    Enum$order_by? created_at,
+    Input$investment_order_by? investment,
+    Enum$order_by? investment_id,
+    Enum$order_by? payment_investment_fulfilled,
+    Enum$order_by? payment_investment_id,
+    Enum$order_by? updated_at,
+  }) =>
+      Input$payment_investment_order_by._({
+        if (created_at != null) r'created_at': created_at,
+        if (investment != null) r'investment': investment,
+        if (investment_id != null) r'investment_id': investment_id,
+        if (payment_investment_fulfilled != null)
+          r'payment_investment_fulfilled': payment_investment_fulfilled,
+        if (payment_investment_id != null)
+          r'payment_investment_id': payment_investment_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$payment_investment_order_by._(this._$data);
+
+  factory Input$payment_investment_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : fromJson$Enum$order_by((l$created_at as String));
+    }
+    if (data.containsKey('investment')) {
+      final l$investment = data['investment'];
+      result$data['investment'] = l$investment == null
+          ? null
+          : Input$investment_order_by.fromJson(
+              (l$investment as Map<String, dynamic>));
+    }
+    if (data.containsKey('investment_id')) {
+      final l$investment_id = data['investment_id'];
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : fromJson$Enum$order_by((l$investment_id as String));
+    }
+    if (data.containsKey('payment_investment_fulfilled')) {
+      final l$payment_investment_fulfilled =
+          data['payment_investment_fulfilled'];
+      result$data['payment_investment_fulfilled'] =
+          l$payment_investment_fulfilled == null
+              ? null
+              : fromJson$Enum$order_by(
+                  (l$payment_investment_fulfilled as String));
+    }
+    if (data.containsKey('payment_investment_id')) {
+      final l$payment_investment_id = data['payment_investment_id'];
+      result$data['payment_investment_id'] = l$payment_investment_id == null
+          ? null
+          : fromJson$Enum$order_by((l$payment_investment_id as String));
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : fromJson$Enum$order_by((l$updated_at as String));
+    }
+    return Input$payment_investment_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get created_at => (_$data['created_at'] as Enum$order_by?);
+  Input$investment_order_by? get investment =>
+      (_$data['investment'] as Input$investment_order_by?);
+  Enum$order_by? get investment_id =>
+      (_$data['investment_id'] as Enum$order_by?);
+  Enum$order_by? get payment_investment_fulfilled =>
+      (_$data['payment_investment_fulfilled'] as Enum$order_by?);
+  Enum$order_by? get payment_investment_id =>
+      (_$data['payment_investment_id'] as Enum$order_by?);
+  Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] =
+          l$created_at == null ? null : toJson$Enum$order_by(l$created_at);
+    }
+    if (_$data.containsKey('investment')) {
+      final l$investment = investment;
+      result$data['investment'] = l$investment?.toJson();
+    }
+    if (_$data.containsKey('investment_id')) {
+      final l$investment_id = investment_id;
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : toJson$Enum$order_by(l$investment_id);
+    }
+    if (_$data.containsKey('payment_investment_fulfilled')) {
+      final l$payment_investment_fulfilled = payment_investment_fulfilled;
+      result$data['payment_investment_fulfilled'] =
+          l$payment_investment_fulfilled == null
+              ? null
+              : toJson$Enum$order_by(l$payment_investment_fulfilled);
+    }
+    if (_$data.containsKey('payment_investment_id')) {
+      final l$payment_investment_id = payment_investment_id;
+      result$data['payment_investment_id'] = l$payment_investment_id == null
+          ? null
+          : toJson$Enum$order_by(l$payment_investment_id);
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] =
+          l$updated_at == null ? null : toJson$Enum$order_by(l$updated_at);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_order_by<Input$payment_investment_order_by>
+      get copyWith => CopyWith$Input$payment_investment_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$investment = investment;
+    final lOther$investment = other.investment;
+    if (_$data.containsKey('investment') !=
+        other._$data.containsKey('investment')) {
+      return false;
+    }
+    if (l$investment != lOther$investment) {
+      return false;
+    }
+    final l$investment_id = investment_id;
+    final lOther$investment_id = other.investment_id;
+    if (_$data.containsKey('investment_id') !=
+        other._$data.containsKey('investment_id')) {
+      return false;
+    }
+    if (l$investment_id != lOther$investment_id) {
+      return false;
+    }
+    final l$payment_investment_fulfilled = payment_investment_fulfilled;
+    final lOther$payment_investment_fulfilled =
+        other.payment_investment_fulfilled;
+    if (_$data.containsKey('payment_investment_fulfilled') !=
+        other._$data.containsKey('payment_investment_fulfilled')) {
+      return false;
+    }
+    if (l$payment_investment_fulfilled != lOther$payment_investment_fulfilled) {
+      return false;
+    }
+    final l$payment_investment_id = payment_investment_id;
+    final lOther$payment_investment_id = other.payment_investment_id;
+    if (_$data.containsKey('payment_investment_id') !=
+        other._$data.containsKey('payment_investment_id')) {
+      return false;
+    }
+    if (l$payment_investment_id != lOther$payment_investment_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$created_at = created_at;
+    final l$investment = investment;
+    final l$investment_id = investment_id;
+    final l$payment_investment_fulfilled = payment_investment_fulfilled;
+    final l$payment_investment_id = payment_investment_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('investment') ? l$investment : const {},
+      _$data.containsKey('investment_id') ? l$investment_id : const {},
+      _$data.containsKey('payment_investment_fulfilled')
+          ? l$payment_investment_fulfilled
+          : const {},
+      _$data.containsKey('payment_investment_id')
+          ? l$payment_investment_id
+          : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_order_by<TRes> {
+  factory CopyWith$Input$payment_investment_order_by(
+    Input$payment_investment_order_by instance,
+    TRes Function(Input$payment_investment_order_by) then,
+  ) = _CopyWithImpl$Input$payment_investment_order_by;
+
+  factory CopyWith$Input$payment_investment_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_order_by;
+
+  TRes call({
+    Enum$order_by? created_at,
+    Input$investment_order_by? investment,
+    Enum$order_by? investment_id,
+    Enum$order_by? payment_investment_fulfilled,
+    Enum$order_by? payment_investment_id,
+    Enum$order_by? updated_at,
+  });
+  CopyWith$Input$investment_order_by<TRes> get investment;
+}
+
+class _CopyWithImpl$Input$payment_investment_order_by<TRes>
+    implements CopyWith$Input$payment_investment_order_by<TRes> {
+  _CopyWithImpl$Input$payment_investment_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_order_by _instance;
+
+  final TRes Function(Input$payment_investment_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? created_at = _undefined,
+    Object? investment = _undefined,
+    Object? investment_id = _undefined,
+    Object? payment_investment_fulfilled = _undefined,
+    Object? payment_investment_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$payment_investment_order_by._({
+        ..._instance._$data,
+        if (created_at != _undefined)
+          'created_at': (created_at as Enum$order_by?),
+        if (investment != _undefined)
+          'investment': (investment as Input$investment_order_by?),
+        if (investment_id != _undefined)
+          'investment_id': (investment_id as Enum$order_by?),
+        if (payment_investment_fulfilled != _undefined)
+          'payment_investment_fulfilled':
+              (payment_investment_fulfilled as Enum$order_by?),
+        if (payment_investment_id != _undefined)
+          'payment_investment_id': (payment_investment_id as Enum$order_by?),
+        if (updated_at != _undefined)
+          'updated_at': (updated_at as Enum$order_by?),
+      }));
+  CopyWith$Input$investment_order_by<TRes> get investment {
+    final local$investment = _instance.investment;
+    return local$investment == null
+        ? CopyWith$Input$investment_order_by.stub(_then(_instance))
+        : CopyWith$Input$investment_order_by(
+            local$investment, (e) => call(investment: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_investment_order_by<TRes>
+    implements CopyWith$Input$payment_investment_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$order_by? created_at,
+    Input$investment_order_by? investment,
+    Enum$order_by? investment_id,
+    Enum$order_by? payment_investment_fulfilled,
+    Enum$order_by? payment_investment_id,
+    Enum$order_by? updated_at,
+  }) =>
+      _res;
+  CopyWith$Input$investment_order_by<TRes> get investment =>
+      CopyWith$Input$investment_order_by.stub(_res);
+}
+
+class Input$payment_investment_pk_columns_input {
+  factory Input$payment_investment_pk_columns_input(
+          {required UUID payment_investment_id}) =>
+      Input$payment_investment_pk_columns_input._({
+        r'payment_investment_id': payment_investment_id,
+      });
+
+  Input$payment_investment_pk_columns_input._(this._$data);
+
+  factory Input$payment_investment_pk_columns_input.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$payment_investment_id = data['payment_investment_id'];
+    result$data['payment_investment_id'] =
+        uuidFromJson(l$payment_investment_id);
+    return Input$payment_investment_pk_columns_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  UUID get payment_investment_id => (_$data['payment_investment_id'] as UUID);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$payment_investment_id = payment_investment_id;
+    result$data['payment_investment_id'] = uuidToJson(l$payment_investment_id);
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_pk_columns_input<
+          Input$payment_investment_pk_columns_input>
+      get copyWith => CopyWith$Input$payment_investment_pk_columns_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_pk_columns_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$payment_investment_id = payment_investment_id;
+    final lOther$payment_investment_id = other.payment_investment_id;
+    if (l$payment_investment_id != lOther$payment_investment_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$payment_investment_id = payment_investment_id;
+    return Object.hashAll([l$payment_investment_id]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_pk_columns_input<TRes> {
+  factory CopyWith$Input$payment_investment_pk_columns_input(
+    Input$payment_investment_pk_columns_input instance,
+    TRes Function(Input$payment_investment_pk_columns_input) then,
+  ) = _CopyWithImpl$Input$payment_investment_pk_columns_input;
+
+  factory CopyWith$Input$payment_investment_pk_columns_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_pk_columns_input;
+
+  TRes call({UUID? payment_investment_id});
+}
+
+class _CopyWithImpl$Input$payment_investment_pk_columns_input<TRes>
+    implements CopyWith$Input$payment_investment_pk_columns_input<TRes> {
+  _CopyWithImpl$Input$payment_investment_pk_columns_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_pk_columns_input _instance;
+
+  final TRes Function(Input$payment_investment_pk_columns_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? payment_investment_id = _undefined}) =>
+      _then(Input$payment_investment_pk_columns_input._({
+        ..._instance._$data,
+        if (payment_investment_id != _undefined &&
+            payment_investment_id != null)
+          'payment_investment_id': (payment_investment_id as UUID),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_investment_pk_columns_input<TRes>
+    implements CopyWith$Input$payment_investment_pk_columns_input<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_pk_columns_input(this._res);
+
+  TRes _res;
+
+  call({UUID? payment_investment_id}) => _res;
+}
+
+class Input$payment_investment_set_input {
+  factory Input$payment_investment_set_input({
+    DateTime? created_at,
+    int? investment_id,
+    bool? payment_investment_fulfilled,
+    UUID? payment_investment_id,
+    DateTime? updated_at,
+  }) =>
+      Input$payment_investment_set_input._({
+        if (created_at != null) r'created_at': created_at,
+        if (investment_id != null) r'investment_id': investment_id,
+        if (payment_investment_fulfilled != null)
+          r'payment_investment_fulfilled': payment_investment_fulfilled,
+        if (payment_investment_id != null)
+          r'payment_investment_id': payment_investment_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$payment_investment_set_input._(this._$data);
+
+  factory Input$payment_investment_set_input.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : DateTime.parse((l$created_at as String));
+    }
+    if (data.containsKey('investment_id')) {
+      final l$investment_id = data['investment_id'];
+      result$data['investment_id'] = (l$investment_id as int?);
+    }
+    if (data.containsKey('payment_investment_fulfilled')) {
+      final l$payment_investment_fulfilled =
+          data['payment_investment_fulfilled'];
+      result$data['payment_investment_fulfilled'] =
+          (l$payment_investment_fulfilled as bool?);
+    }
+    if (data.containsKey('payment_investment_id')) {
+      final l$payment_investment_id = data['payment_investment_id'];
+      result$data['payment_investment_id'] = l$payment_investment_id == null
+          ? null
+          : uuidFromJson(l$payment_investment_id);
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : DateTime.parse((l$updated_at as String));
+    }
+    return Input$payment_investment_set_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  DateTime? get created_at => (_$data['created_at'] as DateTime?);
+  int? get investment_id => (_$data['investment_id'] as int?);
+  bool? get payment_investment_fulfilled =>
+      (_$data['payment_investment_fulfilled'] as bool?);
+  UUID? get payment_investment_id => (_$data['payment_investment_id'] as UUID?);
+  DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] = l$created_at?.toIso8601String();
+    }
+    if (_$data.containsKey('investment_id')) {
+      final l$investment_id = investment_id;
+      result$data['investment_id'] = l$investment_id;
+    }
+    if (_$data.containsKey('payment_investment_fulfilled')) {
+      final l$payment_investment_fulfilled = payment_investment_fulfilled;
+      result$data['payment_investment_fulfilled'] =
+          l$payment_investment_fulfilled;
+    }
+    if (_$data.containsKey('payment_investment_id')) {
+      final l$payment_investment_id = payment_investment_id;
+      result$data['payment_investment_id'] = l$payment_investment_id == null
+          ? null
+          : uuidToJson(l$payment_investment_id);
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] = l$updated_at?.toIso8601String();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_set_input<
+          Input$payment_investment_set_input>
+      get copyWith => CopyWith$Input$payment_investment_set_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_set_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$investment_id = investment_id;
+    final lOther$investment_id = other.investment_id;
+    if (_$data.containsKey('investment_id') !=
+        other._$data.containsKey('investment_id')) {
+      return false;
+    }
+    if (l$investment_id != lOther$investment_id) {
+      return false;
+    }
+    final l$payment_investment_fulfilled = payment_investment_fulfilled;
+    final lOther$payment_investment_fulfilled =
+        other.payment_investment_fulfilled;
+    if (_$data.containsKey('payment_investment_fulfilled') !=
+        other._$data.containsKey('payment_investment_fulfilled')) {
+      return false;
+    }
+    if (l$payment_investment_fulfilled != lOther$payment_investment_fulfilled) {
+      return false;
+    }
+    final l$payment_investment_id = payment_investment_id;
+    final lOther$payment_investment_id = other.payment_investment_id;
+    if (_$data.containsKey('payment_investment_id') !=
+        other._$data.containsKey('payment_investment_id')) {
+      return false;
+    }
+    if (l$payment_investment_id != lOther$payment_investment_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$created_at = created_at;
+    final l$investment_id = investment_id;
+    final l$payment_investment_fulfilled = payment_investment_fulfilled;
+    final l$payment_investment_id = payment_investment_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('investment_id') ? l$investment_id : const {},
+      _$data.containsKey('payment_investment_fulfilled')
+          ? l$payment_investment_fulfilled
+          : const {},
+      _$data.containsKey('payment_investment_id')
+          ? l$payment_investment_id
+          : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_set_input<TRes> {
+  factory CopyWith$Input$payment_investment_set_input(
+    Input$payment_investment_set_input instance,
+    TRes Function(Input$payment_investment_set_input) then,
+  ) = _CopyWithImpl$Input$payment_investment_set_input;
+
+  factory CopyWith$Input$payment_investment_set_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_set_input;
+
+  TRes call({
+    DateTime? created_at,
+    int? investment_id,
+    bool? payment_investment_fulfilled,
+    UUID? payment_investment_id,
+    DateTime? updated_at,
+  });
+}
+
+class _CopyWithImpl$Input$payment_investment_set_input<TRes>
+    implements CopyWith$Input$payment_investment_set_input<TRes> {
+  _CopyWithImpl$Input$payment_investment_set_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_set_input _instance;
+
+  final TRes Function(Input$payment_investment_set_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? created_at = _undefined,
+    Object? investment_id = _undefined,
+    Object? payment_investment_fulfilled = _undefined,
+    Object? payment_investment_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$payment_investment_set_input._({
+        ..._instance._$data,
+        if (created_at != _undefined) 'created_at': (created_at as DateTime?),
+        if (investment_id != _undefined)
+          'investment_id': (investment_id as int?),
+        if (payment_investment_fulfilled != _undefined)
+          'payment_investment_fulfilled':
+              (payment_investment_fulfilled as bool?),
+        if (payment_investment_id != _undefined)
+          'payment_investment_id': (payment_investment_id as UUID?),
+        if (updated_at != _undefined) 'updated_at': (updated_at as DateTime?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_investment_set_input<TRes>
+    implements CopyWith$Input$payment_investment_set_input<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_set_input(this._res);
+
+  TRes _res;
+
+  call({
+    DateTime? created_at,
+    int? investment_id,
+    bool? payment_investment_fulfilled,
+    UUID? payment_investment_id,
+    DateTime? updated_at,
+  }) =>
+      _res;
+}
+
+class Input$payment_investment_stream_cursor_input {
+  factory Input$payment_investment_stream_cursor_input({
+    required Input$payment_investment_stream_cursor_value_input initial_value,
+    Enum$cursor_ordering? ordering,
+  }) =>
+      Input$payment_investment_stream_cursor_input._({
+        r'initial_value': initial_value,
+        if (ordering != null) r'ordering': ordering,
+      });
+
+  Input$payment_investment_stream_cursor_input._(this._$data);
+
+  factory Input$payment_investment_stream_cursor_input.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$initial_value = data['initial_value'];
+    result$data['initial_value'] =
+        Input$payment_investment_stream_cursor_value_input.fromJson(
+            (l$initial_value as Map<String, dynamic>));
+    if (data.containsKey('ordering')) {
+      final l$ordering = data['ordering'];
+      result$data['ordering'] = l$ordering == null
+          ? null
+          : fromJson$Enum$cursor_ordering((l$ordering as String));
+    }
+    return Input$payment_investment_stream_cursor_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$payment_investment_stream_cursor_value_input get initial_value =>
+      (_$data['initial_value']
+          as Input$payment_investment_stream_cursor_value_input);
+  Enum$cursor_ordering? get ordering =>
+      (_$data['ordering'] as Enum$cursor_ordering?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$initial_value = initial_value;
+    result$data['initial_value'] = l$initial_value.toJson();
+    if (_$data.containsKey('ordering')) {
+      final l$ordering = ordering;
+      result$data['ordering'] =
+          l$ordering == null ? null : toJson$Enum$cursor_ordering(l$ordering);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_stream_cursor_input<
+          Input$payment_investment_stream_cursor_input>
+      get copyWith => CopyWith$Input$payment_investment_stream_cursor_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_stream_cursor_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$initial_value = initial_value;
+    final lOther$initial_value = other.initial_value;
+    if (l$initial_value != lOther$initial_value) {
+      return false;
+    }
+    final l$ordering = ordering;
+    final lOther$ordering = other.ordering;
+    if (_$data.containsKey('ordering') !=
+        other._$data.containsKey('ordering')) {
+      return false;
+    }
+    if (l$ordering != lOther$ordering) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$initial_value = initial_value;
+    final l$ordering = ordering;
+    return Object.hashAll([
+      l$initial_value,
+      _$data.containsKey('ordering') ? l$ordering : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_stream_cursor_input<TRes> {
+  factory CopyWith$Input$payment_investment_stream_cursor_input(
+    Input$payment_investment_stream_cursor_input instance,
+    TRes Function(Input$payment_investment_stream_cursor_input) then,
+  ) = _CopyWithImpl$Input$payment_investment_stream_cursor_input;
+
+  factory CopyWith$Input$payment_investment_stream_cursor_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_stream_cursor_input;
+
+  TRes call({
+    Input$payment_investment_stream_cursor_value_input? initial_value,
+    Enum$cursor_ordering? ordering,
+  });
+  CopyWith$Input$payment_investment_stream_cursor_value_input<TRes>
+      get initial_value;
+}
+
+class _CopyWithImpl$Input$payment_investment_stream_cursor_input<TRes>
+    implements CopyWith$Input$payment_investment_stream_cursor_input<TRes> {
+  _CopyWithImpl$Input$payment_investment_stream_cursor_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_stream_cursor_input _instance;
+
+  final TRes Function(Input$payment_investment_stream_cursor_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? initial_value = _undefined,
+    Object? ordering = _undefined,
+  }) =>
+      _then(Input$payment_investment_stream_cursor_input._({
+        ..._instance._$data,
+        if (initial_value != _undefined && initial_value != null)
+          'initial_value': (initial_value
+              as Input$payment_investment_stream_cursor_value_input),
+        if (ordering != _undefined)
+          'ordering': (ordering as Enum$cursor_ordering?),
+      }));
+  CopyWith$Input$payment_investment_stream_cursor_value_input<TRes>
+      get initial_value {
+    final local$initial_value = _instance.initial_value;
+    return CopyWith$Input$payment_investment_stream_cursor_value_input(
+        local$initial_value, (e) => call(initial_value: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_investment_stream_cursor_input<TRes>
+    implements CopyWith$Input$payment_investment_stream_cursor_input<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_stream_cursor_input(this._res);
+
+  TRes _res;
+
+  call({
+    Input$payment_investment_stream_cursor_value_input? initial_value,
+    Enum$cursor_ordering? ordering,
+  }) =>
+      _res;
+  CopyWith$Input$payment_investment_stream_cursor_value_input<TRes>
+      get initial_value =>
+          CopyWith$Input$payment_investment_stream_cursor_value_input.stub(
+              _res);
+}
+
+class Input$payment_investment_stream_cursor_value_input {
+  factory Input$payment_investment_stream_cursor_value_input({
+    DateTime? created_at,
+    int? investment_id,
+    bool? payment_investment_fulfilled,
+    UUID? payment_investment_id,
+    DateTime? updated_at,
+  }) =>
+      Input$payment_investment_stream_cursor_value_input._({
+        if (created_at != null) r'created_at': created_at,
+        if (investment_id != null) r'investment_id': investment_id,
+        if (payment_investment_fulfilled != null)
+          r'payment_investment_fulfilled': payment_investment_fulfilled,
+        if (payment_investment_id != null)
+          r'payment_investment_id': payment_investment_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$payment_investment_stream_cursor_value_input._(this._$data);
+
+  factory Input$payment_investment_stream_cursor_value_input.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : DateTime.parse((l$created_at as String));
+    }
+    if (data.containsKey('investment_id')) {
+      final l$investment_id = data['investment_id'];
+      result$data['investment_id'] = (l$investment_id as int?);
+    }
+    if (data.containsKey('payment_investment_fulfilled')) {
+      final l$payment_investment_fulfilled =
+          data['payment_investment_fulfilled'];
+      result$data['payment_investment_fulfilled'] =
+          (l$payment_investment_fulfilled as bool?);
+    }
+    if (data.containsKey('payment_investment_id')) {
+      final l$payment_investment_id = data['payment_investment_id'];
+      result$data['payment_investment_id'] = l$payment_investment_id == null
+          ? null
+          : uuidFromJson(l$payment_investment_id);
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : DateTime.parse((l$updated_at as String));
+    }
+    return Input$payment_investment_stream_cursor_value_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  DateTime? get created_at => (_$data['created_at'] as DateTime?);
+  int? get investment_id => (_$data['investment_id'] as int?);
+  bool? get payment_investment_fulfilled =>
+      (_$data['payment_investment_fulfilled'] as bool?);
+  UUID? get payment_investment_id => (_$data['payment_investment_id'] as UUID?);
+  DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] = l$created_at?.toIso8601String();
+    }
+    if (_$data.containsKey('investment_id')) {
+      final l$investment_id = investment_id;
+      result$data['investment_id'] = l$investment_id;
+    }
+    if (_$data.containsKey('payment_investment_fulfilled')) {
+      final l$payment_investment_fulfilled = payment_investment_fulfilled;
+      result$data['payment_investment_fulfilled'] =
+          l$payment_investment_fulfilled;
+    }
+    if (_$data.containsKey('payment_investment_id')) {
+      final l$payment_investment_id = payment_investment_id;
+      result$data['payment_investment_id'] = l$payment_investment_id == null
+          ? null
+          : uuidToJson(l$payment_investment_id);
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] = l$updated_at?.toIso8601String();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_stream_cursor_value_input<
+          Input$payment_investment_stream_cursor_value_input>
+      get copyWith =>
+          CopyWith$Input$payment_investment_stream_cursor_value_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_stream_cursor_value_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$investment_id = investment_id;
+    final lOther$investment_id = other.investment_id;
+    if (_$data.containsKey('investment_id') !=
+        other._$data.containsKey('investment_id')) {
+      return false;
+    }
+    if (l$investment_id != lOther$investment_id) {
+      return false;
+    }
+    final l$payment_investment_fulfilled = payment_investment_fulfilled;
+    final lOther$payment_investment_fulfilled =
+        other.payment_investment_fulfilled;
+    if (_$data.containsKey('payment_investment_fulfilled') !=
+        other._$data.containsKey('payment_investment_fulfilled')) {
+      return false;
+    }
+    if (l$payment_investment_fulfilled != lOther$payment_investment_fulfilled) {
+      return false;
+    }
+    final l$payment_investment_id = payment_investment_id;
+    final lOther$payment_investment_id = other.payment_investment_id;
+    if (_$data.containsKey('payment_investment_id') !=
+        other._$data.containsKey('payment_investment_id')) {
+      return false;
+    }
+    if (l$payment_investment_id != lOther$payment_investment_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$created_at = created_at;
+    final l$investment_id = investment_id;
+    final l$payment_investment_fulfilled = payment_investment_fulfilled;
+    final l$payment_investment_id = payment_investment_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('investment_id') ? l$investment_id : const {},
+      _$data.containsKey('payment_investment_fulfilled')
+          ? l$payment_investment_fulfilled
+          : const {},
+      _$data.containsKey('payment_investment_id')
+          ? l$payment_investment_id
+          : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_stream_cursor_value_input<
+    TRes> {
+  factory CopyWith$Input$payment_investment_stream_cursor_value_input(
+    Input$payment_investment_stream_cursor_value_input instance,
+    TRes Function(Input$payment_investment_stream_cursor_value_input) then,
+  ) = _CopyWithImpl$Input$payment_investment_stream_cursor_value_input;
+
+  factory CopyWith$Input$payment_investment_stream_cursor_value_input.stub(
+          TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_stream_cursor_value_input;
+
+  TRes call({
+    DateTime? created_at,
+    int? investment_id,
+    bool? payment_investment_fulfilled,
+    UUID? payment_investment_id,
+    DateTime? updated_at,
+  });
+}
+
+class _CopyWithImpl$Input$payment_investment_stream_cursor_value_input<TRes>
+    implements
+        CopyWith$Input$payment_investment_stream_cursor_value_input<TRes> {
+  _CopyWithImpl$Input$payment_investment_stream_cursor_value_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_stream_cursor_value_input _instance;
+
+  final TRes Function(Input$payment_investment_stream_cursor_value_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? created_at = _undefined,
+    Object? investment_id = _undefined,
+    Object? payment_investment_fulfilled = _undefined,
+    Object? payment_investment_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$payment_investment_stream_cursor_value_input._({
+        ..._instance._$data,
+        if (created_at != _undefined) 'created_at': (created_at as DateTime?),
+        if (investment_id != _undefined)
+          'investment_id': (investment_id as int?),
+        if (payment_investment_fulfilled != _undefined)
+          'payment_investment_fulfilled':
+              (payment_investment_fulfilled as bool?),
+        if (payment_investment_id != _undefined)
+          'payment_investment_id': (payment_investment_id as UUID?),
+        if (updated_at != _undefined) 'updated_at': (updated_at as DateTime?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_investment_stream_cursor_value_input<TRes>
+    implements
+        CopyWith$Input$payment_investment_stream_cursor_value_input<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_stream_cursor_value_input(
+      this._res);
+
+  TRes _res;
+
+  call({
+    DateTime? created_at,
+    int? investment_id,
+    bool? payment_investment_fulfilled,
+    UUID? payment_investment_id,
+    DateTime? updated_at,
+  }) =>
+      _res;
+}
+
+class Input$payment_investment_updates {
+  factory Input$payment_investment_updates({
+    Input$payment_investment_inc_input? $_inc,
+    Input$payment_investment_set_input? $_set,
+    required Input$payment_investment_bool_exp where,
+  }) =>
+      Input$payment_investment_updates._({
+        if ($_inc != null) r'_inc': $_inc,
+        if ($_set != null) r'_set': $_set,
+        r'where': where,
+      });
+
+  Input$payment_investment_updates._(this._$data);
+
+  factory Input$payment_investment_updates.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('_inc')) {
+      final l$$_inc = data['_inc'];
+      result$data['_inc'] = l$$_inc == null
+          ? null
+          : Input$payment_investment_inc_input.fromJson(
+              (l$$_inc as Map<String, dynamic>));
+    }
+    if (data.containsKey('_set')) {
+      final l$$_set = data['_set'];
+      result$data['_set'] = l$$_set == null
+          ? null
+          : Input$payment_investment_set_input.fromJson(
+              (l$$_set as Map<String, dynamic>));
+    }
+    final l$where = data['where'];
+    result$data['where'] = Input$payment_investment_bool_exp.fromJson(
+        (l$where as Map<String, dynamic>));
+    return Input$payment_investment_updates._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$payment_investment_inc_input? get $_inc =>
+      (_$data['_inc'] as Input$payment_investment_inc_input?);
+  Input$payment_investment_set_input? get $_set =>
+      (_$data['_set'] as Input$payment_investment_set_input?);
+  Input$payment_investment_bool_exp get where =>
+      (_$data['where'] as Input$payment_investment_bool_exp);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('_inc')) {
+      final l$$_inc = $_inc;
+      result$data['_inc'] = l$$_inc?.toJson();
+    }
+    if (_$data.containsKey('_set')) {
+      final l$$_set = $_set;
+      result$data['_set'] = l$$_set?.toJson();
+    }
+    final l$where = where;
+    result$data['where'] = l$where.toJson();
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_updates<Input$payment_investment_updates>
+      get copyWith => CopyWith$Input$payment_investment_updates(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_updates) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$_inc = $_inc;
+    final lOther$$_inc = other.$_inc;
+    if (_$data.containsKey('_inc') != other._$data.containsKey('_inc')) {
+      return false;
+    }
+    if (l$$_inc != lOther$$_inc) {
+      return false;
+    }
+    final l$$_set = $_set;
+    final lOther$$_set = other.$_set;
+    if (_$data.containsKey('_set') != other._$data.containsKey('_set')) {
+      return false;
+    }
+    if (l$$_set != lOther$$_set) {
+      return false;
+    }
+    final l$where = where;
+    final lOther$where = other.where;
+    if (l$where != lOther$where) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$$_inc = $_inc;
+    final l$$_set = $_set;
+    final l$where = where;
+    return Object.hashAll([
+      _$data.containsKey('_inc') ? l$$_inc : const {},
+      _$data.containsKey('_set') ? l$$_set : const {},
+      l$where,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_updates<TRes> {
+  factory CopyWith$Input$payment_investment_updates(
+    Input$payment_investment_updates instance,
+    TRes Function(Input$payment_investment_updates) then,
+  ) = _CopyWithImpl$Input$payment_investment_updates;
+
+  factory CopyWith$Input$payment_investment_updates.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_updates;
+
+  TRes call({
+    Input$payment_investment_inc_input? $_inc,
+    Input$payment_investment_set_input? $_set,
+    Input$payment_investment_bool_exp? where,
+  });
+  CopyWith$Input$payment_investment_inc_input<TRes> get $_inc;
+  CopyWith$Input$payment_investment_set_input<TRes> get $_set;
+  CopyWith$Input$payment_investment_bool_exp<TRes> get where;
+}
+
+class _CopyWithImpl$Input$payment_investment_updates<TRes>
+    implements CopyWith$Input$payment_investment_updates<TRes> {
+  _CopyWithImpl$Input$payment_investment_updates(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_updates _instance;
+
+  final TRes Function(Input$payment_investment_updates) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? $_inc = _undefined,
+    Object? $_set = _undefined,
+    Object? where = _undefined,
+  }) =>
+      _then(Input$payment_investment_updates._({
+        ..._instance._$data,
+        if ($_inc != _undefined)
+          '_inc': ($_inc as Input$payment_investment_inc_input?),
+        if ($_set != _undefined)
+          '_set': ($_set as Input$payment_investment_set_input?),
+        if (where != _undefined && where != null)
+          'where': (where as Input$payment_investment_bool_exp),
+      }));
+  CopyWith$Input$payment_investment_inc_input<TRes> get $_inc {
+    final local$$_inc = _instance.$_inc;
+    return local$$_inc == null
+        ? CopyWith$Input$payment_investment_inc_input.stub(_then(_instance))
+        : CopyWith$Input$payment_investment_inc_input(
+            local$$_inc, (e) => call($_inc: e));
+  }
+
+  CopyWith$Input$payment_investment_set_input<TRes> get $_set {
+    final local$$_set = _instance.$_set;
+    return local$$_set == null
+        ? CopyWith$Input$payment_investment_set_input.stub(_then(_instance))
+        : CopyWith$Input$payment_investment_set_input(
+            local$$_set, (e) => call($_set: e));
+  }
+
+  CopyWith$Input$payment_investment_bool_exp<TRes> get where {
+    final local$where = _instance.where;
+    return CopyWith$Input$payment_investment_bool_exp(
+        local$where, (e) => call(where: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_investment_updates<TRes>
+    implements CopyWith$Input$payment_investment_updates<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_updates(this._res);
+
+  TRes _res;
+
+  call({
+    Input$payment_investment_inc_input? $_inc,
+    Input$payment_investment_set_input? $_set,
+    Input$payment_investment_bool_exp? where,
+  }) =>
+      _res;
+  CopyWith$Input$payment_investment_inc_input<TRes> get $_inc =>
+      CopyWith$Input$payment_investment_inc_input.stub(_res);
+  CopyWith$Input$payment_investment_set_input<TRes> get $_set =>
+      CopyWith$Input$payment_investment_set_input.stub(_res);
+  CopyWith$Input$payment_investment_bool_exp<TRes> get where =>
+      CopyWith$Input$payment_investment_bool_exp.stub(_res);
+}
+
 class Input$profile_bool_exp {
   factory Input$profile_bool_exp({
     List<Input$profile_bool_exp>? $_and,
@@ -57238,6 +65913,7 @@ class Input$proposal_bool_exp {
     Input$String_comparison_exp? proposal_content,
     Input$date_comparison_exp? proposal_date,
     Input$Int_comparison_exp? proposal_id,
+    Input$String_comparison_exp? proposal_title,
     Input$umkm_bool_exp? umkm,
     Input$Int_comparison_exp? umkm_id,
     Input$timestamptz_comparison_exp? updated_at,
@@ -57255,6 +65931,7 @@ class Input$proposal_bool_exp {
         if (proposal_content != null) r'proposal_content': proposal_content,
         if (proposal_date != null) r'proposal_date': proposal_date,
         if (proposal_id != null) r'proposal_id': proposal_id,
+        if (proposal_title != null) r'proposal_title': proposal_title,
         if (umkm != null) r'umkm': umkm,
         if (umkm_id != null) r'umkm_id': umkm_id,
         if (updated_at != null) r'updated_at': updated_at,
@@ -57340,6 +66017,13 @@ class Input$proposal_bool_exp {
           : Input$Int_comparison_exp.fromJson(
               (l$proposal_id as Map<String, dynamic>));
     }
+    if (data.containsKey('proposal_title')) {
+      final l$proposal_title = data['proposal_title'];
+      result$data['proposal_title'] = l$proposal_title == null
+          ? null
+          : Input$String_comparison_exp.fromJson(
+              (l$proposal_title as Map<String, dynamic>));
+    }
     if (data.containsKey('umkm')) {
       final l$umkm = data['umkm'];
       result$data['umkm'] = l$umkm == null
@@ -57387,6 +66071,8 @@ class Input$proposal_bool_exp {
       (_$data['proposal_date'] as Input$date_comparison_exp?);
   Input$Int_comparison_exp? get proposal_id =>
       (_$data['proposal_id'] as Input$Int_comparison_exp?);
+  Input$String_comparison_exp? get proposal_title =>
+      (_$data['proposal_title'] as Input$String_comparison_exp?);
   Input$umkm_bool_exp? get umkm => (_$data['umkm'] as Input$umkm_bool_exp?);
   Input$Int_comparison_exp? get umkm_id =>
       (_$data['umkm_id'] as Input$Int_comparison_exp?);
@@ -57437,6 +66123,10 @@ class Input$proposal_bool_exp {
     if (_$data.containsKey('proposal_id')) {
       final l$proposal_id = proposal_id;
       result$data['proposal_id'] = l$proposal_id?.toJson();
+    }
+    if (_$data.containsKey('proposal_title')) {
+      final l$proposal_title = proposal_title;
+      result$data['proposal_title'] = l$proposal_title?.toJson();
     }
     if (_$data.containsKey('umkm')) {
       final l$umkm = umkm;
@@ -57585,6 +66275,15 @@ class Input$proposal_bool_exp {
     if (l$proposal_id != lOther$proposal_id) {
       return false;
     }
+    final l$proposal_title = proposal_title;
+    final lOther$proposal_title = other.proposal_title;
+    if (_$data.containsKey('proposal_title') !=
+        other._$data.containsKey('proposal_title')) {
+      return false;
+    }
+    if (l$proposal_title != lOther$proposal_title) {
+      return false;
+    }
     final l$umkm = umkm;
     final lOther$umkm = other.umkm;
     if (_$data.containsKey('umkm') != other._$data.containsKey('umkm')) {
@@ -57626,6 +66325,7 @@ class Input$proposal_bool_exp {
     final l$proposal_content = proposal_content;
     final l$proposal_date = proposal_date;
     final l$proposal_id = proposal_id;
+    final l$proposal_title = proposal_title;
     final l$umkm = umkm;
     final l$umkm_id = umkm_id;
     final l$updated_at = updated_at;
@@ -57651,6 +66351,7 @@ class Input$proposal_bool_exp {
       _$data.containsKey('proposal_content') ? l$proposal_content : const {},
       _$data.containsKey('proposal_date') ? l$proposal_date : const {},
       _$data.containsKey('proposal_id') ? l$proposal_id : const {},
+      _$data.containsKey('proposal_title') ? l$proposal_title : const {},
       _$data.containsKey('umkm') ? l$umkm : const {},
       _$data.containsKey('umkm_id') ? l$umkm_id : const {},
       _$data.containsKey('updated_at') ? l$updated_at : const {},
@@ -57679,6 +66380,7 @@ abstract class CopyWith$Input$proposal_bool_exp<TRes> {
     Input$String_comparison_exp? proposal_content,
     Input$date_comparison_exp? proposal_date,
     Input$Int_comparison_exp? proposal_id,
+    Input$String_comparison_exp? proposal_title,
     Input$umkm_bool_exp? umkm,
     Input$Int_comparison_exp? umkm_id,
     Input$timestamptz_comparison_exp? updated_at,
@@ -57702,6 +66404,7 @@ abstract class CopyWith$Input$proposal_bool_exp<TRes> {
   CopyWith$Input$String_comparison_exp<TRes> get proposal_content;
   CopyWith$Input$date_comparison_exp<TRes> get proposal_date;
   CopyWith$Input$Int_comparison_exp<TRes> get proposal_id;
+  CopyWith$Input$String_comparison_exp<TRes> get proposal_title;
   CopyWith$Input$umkm_bool_exp<TRes> get umkm;
   CopyWith$Input$Int_comparison_exp<TRes> get umkm_id;
   CopyWith$Input$timestamptz_comparison_exp<TRes> get updated_at;
@@ -57732,6 +66435,7 @@ class _CopyWithImpl$Input$proposal_bool_exp<TRes>
     Object? proposal_content = _undefined,
     Object? proposal_date = _undefined,
     Object? proposal_id = _undefined,
+    Object? proposal_title = _undefined,
     Object? umkm = _undefined,
     Object? umkm_id = _undefined,
     Object? updated_at = _undefined,
@@ -57761,6 +66465,8 @@ class _CopyWithImpl$Input$proposal_bool_exp<TRes>
           'proposal_date': (proposal_date as Input$date_comparison_exp?),
         if (proposal_id != _undefined)
           'proposal_id': (proposal_id as Input$Int_comparison_exp?),
+        if (proposal_title != _undefined)
+          'proposal_title': (proposal_title as Input$String_comparison_exp?),
         if (umkm != _undefined) 'umkm': (umkm as Input$umkm_bool_exp?),
         if (umkm_id != _undefined)
           'umkm_id': (umkm_id as Input$Int_comparison_exp?),
@@ -57861,6 +66567,14 @@ class _CopyWithImpl$Input$proposal_bool_exp<TRes>
             local$proposal_id, (e) => call(proposal_id: e));
   }
 
+  CopyWith$Input$String_comparison_exp<TRes> get proposal_title {
+    final local$proposal_title = _instance.proposal_title;
+    return local$proposal_title == null
+        ? CopyWith$Input$String_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$String_comparison_exp(
+            local$proposal_title, (e) => call(proposal_title: e));
+  }
+
   CopyWith$Input$umkm_bool_exp<TRes> get umkm {
     final local$umkm = _instance.umkm;
     return local$umkm == null
@@ -57903,6 +66617,7 @@ class _CopyWithStubImpl$Input$proposal_bool_exp<TRes>
     Input$String_comparison_exp? proposal_content,
     Input$date_comparison_exp? proposal_date,
     Input$Int_comparison_exp? proposal_id,
+    Input$String_comparison_exp? proposal_title,
     Input$umkm_bool_exp? umkm,
     Input$Int_comparison_exp? umkm_id,
     Input$timestamptz_comparison_exp? updated_at,
@@ -57929,6 +66644,8 @@ class _CopyWithStubImpl$Input$proposal_bool_exp<TRes>
       CopyWith$Input$date_comparison_exp.stub(_res);
   CopyWith$Input$Int_comparison_exp<TRes> get proposal_id =>
       CopyWith$Input$Int_comparison_exp.stub(_res);
+  CopyWith$Input$String_comparison_exp<TRes> get proposal_title =>
+      CopyWith$Input$String_comparison_exp.stub(_res);
   CopyWith$Input$umkm_bool_exp<TRes> get umkm =>
       CopyWith$Input$umkm_bool_exp.stub(_res);
   CopyWith$Input$Int_comparison_exp<TRes> get umkm_id =>
@@ -58085,6 +66802,7 @@ class Input$proposal_insert_input {
     bool? proposal_approved,
     String? proposal_content,
     DateTime? proposal_date,
+    String? proposal_title,
     Input$umkm_obj_rel_insert_input? umkm,
     int? umkm_id,
     DateTime? updated_at,
@@ -58096,6 +66814,7 @@ class Input$proposal_insert_input {
         if (proposal_approved != null) r'proposal_approved': proposal_approved,
         if (proposal_content != null) r'proposal_content': proposal_content,
         if (proposal_date != null) r'proposal_date': proposal_date,
+        if (proposal_title != null) r'proposal_title': proposal_title,
         if (umkm != null) r'umkm': umkm,
         if (umkm_id != null) r'umkm_id': umkm_id,
         if (updated_at != null) r'updated_at': updated_at,
@@ -58136,6 +66855,10 @@ class Input$proposal_insert_input {
           ? null
           : DateTime.parse((l$proposal_date as String));
     }
+    if (data.containsKey('proposal_title')) {
+      final l$proposal_title = data['proposal_title'];
+      result$data['proposal_title'] = (l$proposal_title as String?);
+    }
     if (data.containsKey('umkm')) {
       final l$umkm = data['umkm'];
       result$data['umkm'] = l$umkm == null
@@ -58165,6 +66888,7 @@ class Input$proposal_insert_input {
   bool? get proposal_approved => (_$data['proposal_approved'] as bool?);
   String? get proposal_content => (_$data['proposal_content'] as String?);
   DateTime? get proposal_date => (_$data['proposal_date'] as DateTime?);
+  String? get proposal_title => (_$data['proposal_title'] as String?);
   Input$umkm_obj_rel_insert_input? get umkm =>
       (_$data['umkm'] as Input$umkm_obj_rel_insert_input?);
   int? get umkm_id => (_$data['umkm_id'] as int?);
@@ -58194,6 +66918,10 @@ class Input$proposal_insert_input {
     if (_$data.containsKey('proposal_date')) {
       final l$proposal_date = proposal_date;
       result$data['proposal_date'] = l$proposal_date?.toIso8601String();
+    }
+    if (_$data.containsKey('proposal_title')) {
+      final l$proposal_title = proposal_title;
+      result$data['proposal_title'] = l$proposal_title;
     }
     if (_$data.containsKey('umkm')) {
       final l$umkm = umkm;
@@ -58278,6 +67006,15 @@ class Input$proposal_insert_input {
     if (l$proposal_date != lOther$proposal_date) {
       return false;
     }
+    final l$proposal_title = proposal_title;
+    final lOther$proposal_title = other.proposal_title;
+    if (_$data.containsKey('proposal_title') !=
+        other._$data.containsKey('proposal_title')) {
+      return false;
+    }
+    if (l$proposal_title != lOther$proposal_title) {
+      return false;
+    }
     final l$umkm = umkm;
     final lOther$umkm = other.umkm;
     if (_$data.containsKey('umkm') != other._$data.containsKey('umkm')) {
@@ -58314,6 +67051,7 @@ class Input$proposal_insert_input {
     final l$proposal_approved = proposal_approved;
     final l$proposal_content = proposal_content;
     final l$proposal_date = proposal_date;
+    final l$proposal_title = proposal_title;
     final l$umkm = umkm;
     final l$umkm_id = umkm_id;
     final l$updated_at = updated_at;
@@ -58324,6 +67062,7 @@ class Input$proposal_insert_input {
       _$data.containsKey('proposal_approved') ? l$proposal_approved : const {},
       _$data.containsKey('proposal_content') ? l$proposal_content : const {},
       _$data.containsKey('proposal_date') ? l$proposal_date : const {},
+      _$data.containsKey('proposal_title') ? l$proposal_title : const {},
       _$data.containsKey('umkm') ? l$umkm : const {},
       _$data.containsKey('umkm_id') ? l$umkm_id : const {},
       _$data.containsKey('updated_at') ? l$updated_at : const {},
@@ -58347,6 +67086,7 @@ abstract class CopyWith$Input$proposal_insert_input<TRes> {
     bool? proposal_approved,
     String? proposal_content,
     DateTime? proposal_date,
+    String? proposal_title,
     Input$umkm_obj_rel_insert_input? umkm,
     int? umkm_id,
     DateTime? updated_at,
@@ -58375,6 +67115,7 @@ class _CopyWithImpl$Input$proposal_insert_input<TRes>
     Object? proposal_approved = _undefined,
     Object? proposal_content = _undefined,
     Object? proposal_date = _undefined,
+    Object? proposal_title = _undefined,
     Object? umkm = _undefined,
     Object? umkm_id = _undefined,
     Object? updated_at = _undefined,
@@ -58393,6 +67134,8 @@ class _CopyWithImpl$Input$proposal_insert_input<TRes>
           'proposal_content': (proposal_content as String?),
         if (proposal_date != _undefined)
           'proposal_date': (proposal_date as DateTime?),
+        if (proposal_title != _undefined)
+          'proposal_title': (proposal_title as String?),
         if (umkm != _undefined)
           'umkm': (umkm as Input$umkm_obj_rel_insert_input?),
         if (umkm_id != _undefined) 'umkm_id': (umkm_id as int?),
@@ -58428,6 +67171,7 @@ class _CopyWithStubImpl$Input$proposal_insert_input<TRes>
     bool? proposal_approved,
     String? proposal_content,
     DateTime? proposal_date,
+    String? proposal_title,
     Input$umkm_obj_rel_insert_input? umkm,
     int? umkm_id,
     DateTime? updated_at,
@@ -58446,6 +67190,7 @@ class Input$proposal_max_order_by {
     Enum$order_by? proposal_content,
     Enum$order_by? proposal_date,
     Enum$order_by? proposal_id,
+    Enum$order_by? proposal_title,
     Enum$order_by? umkm_id,
     Enum$order_by? updated_at,
   }) =>
@@ -58455,6 +67200,7 @@ class Input$proposal_max_order_by {
         if (proposal_content != null) r'proposal_content': proposal_content,
         if (proposal_date != null) r'proposal_date': proposal_date,
         if (proposal_id != null) r'proposal_id': proposal_id,
+        if (proposal_title != null) r'proposal_title': proposal_title,
         if (umkm_id != null) r'umkm_id': umkm_id,
         if (updated_at != null) r'updated_at': updated_at,
       });
@@ -58493,6 +67239,12 @@ class Input$proposal_max_order_by {
           ? null
           : fromJson$Enum$order_by((l$proposal_id as String));
     }
+    if (data.containsKey('proposal_title')) {
+      final l$proposal_title = data['proposal_title'];
+      result$data['proposal_title'] = l$proposal_title == null
+          ? null
+          : fromJson$Enum$order_by((l$proposal_title as String));
+    }
     if (data.containsKey('umkm_id')) {
       final l$umkm_id = data['umkm_id'];
       result$data['umkm_id'] = l$umkm_id == null
@@ -58518,6 +67270,8 @@ class Input$proposal_max_order_by {
   Enum$order_by? get proposal_date =>
       (_$data['proposal_date'] as Enum$order_by?);
   Enum$order_by? get proposal_id => (_$data['proposal_id'] as Enum$order_by?);
+  Enum$order_by? get proposal_title =>
+      (_$data['proposal_title'] as Enum$order_by?);
   Enum$order_by? get umkm_id => (_$data['umkm_id'] as Enum$order_by?);
   Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
   Map<String, dynamic> toJson() {
@@ -58549,6 +67303,12 @@ class Input$proposal_max_order_by {
       final l$proposal_id = proposal_id;
       result$data['proposal_id'] =
           l$proposal_id == null ? null : toJson$Enum$order_by(l$proposal_id);
+    }
+    if (_$data.containsKey('proposal_title')) {
+      final l$proposal_title = proposal_title;
+      result$data['proposal_title'] = l$proposal_title == null
+          ? null
+          : toJson$Enum$order_by(l$proposal_title);
     }
     if (_$data.containsKey('umkm_id')) {
       final l$umkm_id = umkm_id;
@@ -58622,6 +67382,15 @@ class Input$proposal_max_order_by {
     if (l$proposal_id != lOther$proposal_id) {
       return false;
     }
+    final l$proposal_title = proposal_title;
+    final lOther$proposal_title = other.proposal_title;
+    if (_$data.containsKey('proposal_title') !=
+        other._$data.containsKey('proposal_title')) {
+      return false;
+    }
+    if (l$proposal_title != lOther$proposal_title) {
+      return false;
+    }
     final l$umkm_id = umkm_id;
     final lOther$umkm_id = other.umkm_id;
     if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
@@ -58649,6 +67418,7 @@ class Input$proposal_max_order_by {
     final l$proposal_content = proposal_content;
     final l$proposal_date = proposal_date;
     final l$proposal_id = proposal_id;
+    final l$proposal_title = proposal_title;
     final l$umkm_id = umkm_id;
     final l$updated_at = updated_at;
     return Object.hashAll([
@@ -58657,6 +67427,7 @@ class Input$proposal_max_order_by {
       _$data.containsKey('proposal_content') ? l$proposal_content : const {},
       _$data.containsKey('proposal_date') ? l$proposal_date : const {},
       _$data.containsKey('proposal_id') ? l$proposal_id : const {},
+      _$data.containsKey('proposal_title') ? l$proposal_title : const {},
       _$data.containsKey('umkm_id') ? l$umkm_id : const {},
       _$data.containsKey('updated_at') ? l$updated_at : const {},
     ]);
@@ -58678,6 +67449,7 @@ abstract class CopyWith$Input$proposal_max_order_by<TRes> {
     Enum$order_by? proposal_content,
     Enum$order_by? proposal_date,
     Enum$order_by? proposal_id,
+    Enum$order_by? proposal_title,
     Enum$order_by? umkm_id,
     Enum$order_by? updated_at,
   });
@@ -58702,6 +67474,7 @@ class _CopyWithImpl$Input$proposal_max_order_by<TRes>
     Object? proposal_content = _undefined,
     Object? proposal_date = _undefined,
     Object? proposal_id = _undefined,
+    Object? proposal_title = _undefined,
     Object? umkm_id = _undefined,
     Object? updated_at = _undefined,
   }) =>
@@ -58717,6 +67490,8 @@ class _CopyWithImpl$Input$proposal_max_order_by<TRes>
           'proposal_date': (proposal_date as Enum$order_by?),
         if (proposal_id != _undefined)
           'proposal_id': (proposal_id as Enum$order_by?),
+        if (proposal_title != _undefined)
+          'proposal_title': (proposal_title as Enum$order_by?),
         if (umkm_id != _undefined) 'umkm_id': (umkm_id as Enum$order_by?),
         if (updated_at != _undefined)
           'updated_at': (updated_at as Enum$order_by?),
@@ -58735,6 +67510,7 @@ class _CopyWithStubImpl$Input$proposal_max_order_by<TRes>
     Enum$order_by? proposal_content,
     Enum$order_by? proposal_date,
     Enum$order_by? proposal_id,
+    Enum$order_by? proposal_title,
     Enum$order_by? umkm_id,
     Enum$order_by? updated_at,
   }) =>
@@ -58748,6 +67524,7 @@ class Input$proposal_min_order_by {
     Enum$order_by? proposal_content,
     Enum$order_by? proposal_date,
     Enum$order_by? proposal_id,
+    Enum$order_by? proposal_title,
     Enum$order_by? umkm_id,
     Enum$order_by? updated_at,
   }) =>
@@ -58757,6 +67534,7 @@ class Input$proposal_min_order_by {
         if (proposal_content != null) r'proposal_content': proposal_content,
         if (proposal_date != null) r'proposal_date': proposal_date,
         if (proposal_id != null) r'proposal_id': proposal_id,
+        if (proposal_title != null) r'proposal_title': proposal_title,
         if (umkm_id != null) r'umkm_id': umkm_id,
         if (updated_at != null) r'updated_at': updated_at,
       });
@@ -58795,6 +67573,12 @@ class Input$proposal_min_order_by {
           ? null
           : fromJson$Enum$order_by((l$proposal_id as String));
     }
+    if (data.containsKey('proposal_title')) {
+      final l$proposal_title = data['proposal_title'];
+      result$data['proposal_title'] = l$proposal_title == null
+          ? null
+          : fromJson$Enum$order_by((l$proposal_title as String));
+    }
     if (data.containsKey('umkm_id')) {
       final l$umkm_id = data['umkm_id'];
       result$data['umkm_id'] = l$umkm_id == null
@@ -58820,6 +67604,8 @@ class Input$proposal_min_order_by {
   Enum$order_by? get proposal_date =>
       (_$data['proposal_date'] as Enum$order_by?);
   Enum$order_by? get proposal_id => (_$data['proposal_id'] as Enum$order_by?);
+  Enum$order_by? get proposal_title =>
+      (_$data['proposal_title'] as Enum$order_by?);
   Enum$order_by? get umkm_id => (_$data['umkm_id'] as Enum$order_by?);
   Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
   Map<String, dynamic> toJson() {
@@ -58851,6 +67637,12 @@ class Input$proposal_min_order_by {
       final l$proposal_id = proposal_id;
       result$data['proposal_id'] =
           l$proposal_id == null ? null : toJson$Enum$order_by(l$proposal_id);
+    }
+    if (_$data.containsKey('proposal_title')) {
+      final l$proposal_title = proposal_title;
+      result$data['proposal_title'] = l$proposal_title == null
+          ? null
+          : toJson$Enum$order_by(l$proposal_title);
     }
     if (_$data.containsKey('umkm_id')) {
       final l$umkm_id = umkm_id;
@@ -58924,6 +67716,15 @@ class Input$proposal_min_order_by {
     if (l$proposal_id != lOther$proposal_id) {
       return false;
     }
+    final l$proposal_title = proposal_title;
+    final lOther$proposal_title = other.proposal_title;
+    if (_$data.containsKey('proposal_title') !=
+        other._$data.containsKey('proposal_title')) {
+      return false;
+    }
+    if (l$proposal_title != lOther$proposal_title) {
+      return false;
+    }
     final l$umkm_id = umkm_id;
     final lOther$umkm_id = other.umkm_id;
     if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
@@ -58951,6 +67752,7 @@ class Input$proposal_min_order_by {
     final l$proposal_content = proposal_content;
     final l$proposal_date = proposal_date;
     final l$proposal_id = proposal_id;
+    final l$proposal_title = proposal_title;
     final l$umkm_id = umkm_id;
     final l$updated_at = updated_at;
     return Object.hashAll([
@@ -58959,6 +67761,7 @@ class Input$proposal_min_order_by {
       _$data.containsKey('proposal_content') ? l$proposal_content : const {},
       _$data.containsKey('proposal_date') ? l$proposal_date : const {},
       _$data.containsKey('proposal_id') ? l$proposal_id : const {},
+      _$data.containsKey('proposal_title') ? l$proposal_title : const {},
       _$data.containsKey('umkm_id') ? l$umkm_id : const {},
       _$data.containsKey('updated_at') ? l$updated_at : const {},
     ]);
@@ -58980,6 +67783,7 @@ abstract class CopyWith$Input$proposal_min_order_by<TRes> {
     Enum$order_by? proposal_content,
     Enum$order_by? proposal_date,
     Enum$order_by? proposal_id,
+    Enum$order_by? proposal_title,
     Enum$order_by? umkm_id,
     Enum$order_by? updated_at,
   });
@@ -59004,6 +67808,7 @@ class _CopyWithImpl$Input$proposal_min_order_by<TRes>
     Object? proposal_content = _undefined,
     Object? proposal_date = _undefined,
     Object? proposal_id = _undefined,
+    Object? proposal_title = _undefined,
     Object? umkm_id = _undefined,
     Object? updated_at = _undefined,
   }) =>
@@ -59019,6 +67824,8 @@ class _CopyWithImpl$Input$proposal_min_order_by<TRes>
           'proposal_date': (proposal_date as Enum$order_by?),
         if (proposal_id != _undefined)
           'proposal_id': (proposal_id as Enum$order_by?),
+        if (proposal_title != _undefined)
+          'proposal_title': (proposal_title as Enum$order_by?),
         if (umkm_id != _undefined) 'umkm_id': (umkm_id as Enum$order_by?),
         if (updated_at != _undefined)
           'updated_at': (updated_at as Enum$order_by?),
@@ -59037,6 +67844,7 @@ class _CopyWithStubImpl$Input$proposal_min_order_by<TRes>
     Enum$order_by? proposal_content,
     Enum$order_by? proposal_date,
     Enum$order_by? proposal_id,
+    Enum$order_by? proposal_title,
     Enum$order_by? umkm_id,
     Enum$order_by? updated_at,
   }) =>
@@ -59391,6 +68199,7 @@ class Input$proposal_order_by {
     Enum$order_by? proposal_content,
     Enum$order_by? proposal_date,
     Enum$order_by? proposal_id,
+    Enum$order_by? proposal_title,
     Input$umkm_order_by? umkm,
     Enum$order_by? umkm_id,
     Enum$order_by? updated_at,
@@ -59404,6 +68213,7 @@ class Input$proposal_order_by {
         if (proposal_content != null) r'proposal_content': proposal_content,
         if (proposal_date != null) r'proposal_date': proposal_date,
         if (proposal_id != null) r'proposal_id': proposal_id,
+        if (proposal_title != null) r'proposal_title': proposal_title,
         if (umkm != null) r'umkm': umkm,
         if (umkm_id != null) r'umkm_id': umkm_id,
         if (updated_at != null) r'updated_at': updated_at,
@@ -59456,6 +68266,12 @@ class Input$proposal_order_by {
           ? null
           : fromJson$Enum$order_by((l$proposal_id as String));
     }
+    if (data.containsKey('proposal_title')) {
+      final l$proposal_title = data['proposal_title'];
+      result$data['proposal_title'] = l$proposal_title == null
+          ? null
+          : fromJson$Enum$order_by((l$proposal_title as String));
+    }
     if (data.containsKey('umkm')) {
       final l$umkm = data['umkm'];
       result$data['umkm'] = l$umkm == null
@@ -59491,6 +68307,8 @@ class Input$proposal_order_by {
   Enum$order_by? get proposal_date =>
       (_$data['proposal_date'] as Enum$order_by?);
   Enum$order_by? get proposal_id => (_$data['proposal_id'] as Enum$order_by?);
+  Enum$order_by? get proposal_title =>
+      (_$data['proposal_title'] as Enum$order_by?);
   Input$umkm_order_by? get umkm => (_$data['umkm'] as Input$umkm_order_by?);
   Enum$order_by? get umkm_id => (_$data['umkm_id'] as Enum$order_by?);
   Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
@@ -59533,6 +68351,12 @@ class Input$proposal_order_by {
       final l$proposal_id = proposal_id;
       result$data['proposal_id'] =
           l$proposal_id == null ? null : toJson$Enum$order_by(l$proposal_id);
+    }
+    if (_$data.containsKey('proposal_title')) {
+      final l$proposal_title = proposal_title;
+      result$data['proposal_title'] = l$proposal_title == null
+          ? null
+          : toJson$Enum$order_by(l$proposal_title);
     }
     if (_$data.containsKey('umkm')) {
       final l$umkm = umkm;
@@ -59628,6 +68452,15 @@ class Input$proposal_order_by {
     if (l$proposal_id != lOther$proposal_id) {
       return false;
     }
+    final l$proposal_title = proposal_title;
+    final lOther$proposal_title = other.proposal_title;
+    if (_$data.containsKey('proposal_title') !=
+        other._$data.containsKey('proposal_title')) {
+      return false;
+    }
+    if (l$proposal_title != lOther$proposal_title) {
+      return false;
+    }
     final l$umkm = umkm;
     final lOther$umkm = other.umkm;
     if (_$data.containsKey('umkm') != other._$data.containsKey('umkm')) {
@@ -59665,6 +68498,7 @@ class Input$proposal_order_by {
     final l$proposal_content = proposal_content;
     final l$proposal_date = proposal_date;
     final l$proposal_id = proposal_id;
+    final l$proposal_title = proposal_title;
     final l$umkm = umkm;
     final l$umkm_id = umkm_id;
     final l$updated_at = updated_at;
@@ -59678,6 +68512,7 @@ class Input$proposal_order_by {
       _$data.containsKey('proposal_content') ? l$proposal_content : const {},
       _$data.containsKey('proposal_date') ? l$proposal_date : const {},
       _$data.containsKey('proposal_id') ? l$proposal_id : const {},
+      _$data.containsKey('proposal_title') ? l$proposal_title : const {},
       _$data.containsKey('umkm') ? l$umkm : const {},
       _$data.containsKey('umkm_id') ? l$umkm_id : const {},
       _$data.containsKey('updated_at') ? l$updated_at : const {},
@@ -59702,6 +68537,7 @@ abstract class CopyWith$Input$proposal_order_by<TRes> {
     Enum$order_by? proposal_content,
     Enum$order_by? proposal_date,
     Enum$order_by? proposal_id,
+    Enum$order_by? proposal_title,
     Input$umkm_order_by? umkm,
     Enum$order_by? umkm_id,
     Enum$order_by? updated_at,
@@ -59731,6 +68567,7 @@ class _CopyWithImpl$Input$proposal_order_by<TRes>
     Object? proposal_content = _undefined,
     Object? proposal_date = _undefined,
     Object? proposal_id = _undefined,
+    Object? proposal_title = _undefined,
     Object? umkm = _undefined,
     Object? umkm_id = _undefined,
     Object? updated_at = _undefined,
@@ -59752,6 +68589,8 @@ class _CopyWithImpl$Input$proposal_order_by<TRes>
           'proposal_date': (proposal_date as Enum$order_by?),
         if (proposal_id != _undefined)
           'proposal_id': (proposal_id as Enum$order_by?),
+        if (proposal_title != _undefined)
+          'proposal_title': (proposal_title as Enum$order_by?),
         if (umkm != _undefined) 'umkm': (umkm as Input$umkm_order_by?),
         if (umkm_id != _undefined) 'umkm_id': (umkm_id as Enum$order_by?),
         if (updated_at != _undefined)
@@ -59787,6 +68626,7 @@ class _CopyWithStubImpl$Input$proposal_order_by<TRes>
     Enum$order_by? proposal_content,
     Enum$order_by? proposal_date,
     Enum$order_by? proposal_id,
+    Enum$order_by? proposal_title,
     Input$umkm_order_by? umkm,
     Enum$order_by? umkm_id,
     Enum$order_by? updated_at,
@@ -59902,6 +68742,7 @@ class Input$proposal_set_input {
     bool? proposal_approved,
     String? proposal_content,
     DateTime? proposal_date,
+    String? proposal_title,
     int? umkm_id,
     DateTime? updated_at,
   }) =>
@@ -59911,6 +68752,7 @@ class Input$proposal_set_input {
         if (proposal_approved != null) r'proposal_approved': proposal_approved,
         if (proposal_content != null) r'proposal_content': proposal_content,
         if (proposal_date != null) r'proposal_date': proposal_date,
+        if (proposal_title != null) r'proposal_title': proposal_title,
         if (umkm_id != null) r'umkm_id': umkm_id,
         if (updated_at != null) r'updated_at': updated_at,
       });
@@ -59943,6 +68785,10 @@ class Input$proposal_set_input {
           ? null
           : DateTime.parse((l$proposal_date as String));
     }
+    if (data.containsKey('proposal_title')) {
+      final l$proposal_title = data['proposal_title'];
+      result$data['proposal_title'] = (l$proposal_title as String?);
+    }
     if (data.containsKey('umkm_id')) {
       final l$umkm_id = data['umkm_id'];
       result$data['umkm_id'] = (l$umkm_id as int?);
@@ -59963,6 +68809,7 @@ class Input$proposal_set_input {
   bool? get proposal_approved => (_$data['proposal_approved'] as bool?);
   String? get proposal_content => (_$data['proposal_content'] as String?);
   DateTime? get proposal_date => (_$data['proposal_date'] as DateTime?);
+  String? get proposal_title => (_$data['proposal_title'] as String?);
   int? get umkm_id => (_$data['umkm_id'] as int?);
   DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
   Map<String, dynamic> toJson() {
@@ -59986,6 +68833,10 @@ class Input$proposal_set_input {
     if (_$data.containsKey('proposal_date')) {
       final l$proposal_date = proposal_date;
       result$data['proposal_date'] = l$proposal_date?.toIso8601String();
+    }
+    if (_$data.containsKey('proposal_title')) {
+      final l$proposal_title = proposal_title;
+      result$data['proposal_title'] = l$proposal_title;
     }
     if (_$data.containsKey('umkm_id')) {
       final l$umkm_id = umkm_id;
@@ -60057,6 +68908,15 @@ class Input$proposal_set_input {
     if (l$proposal_date != lOther$proposal_date) {
       return false;
     }
+    final l$proposal_title = proposal_title;
+    final lOther$proposal_title = other.proposal_title;
+    if (_$data.containsKey('proposal_title') !=
+        other._$data.containsKey('proposal_title')) {
+      return false;
+    }
+    if (l$proposal_title != lOther$proposal_title) {
+      return false;
+    }
     final l$umkm_id = umkm_id;
     final lOther$umkm_id = other.umkm_id;
     if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
@@ -60084,6 +68944,7 @@ class Input$proposal_set_input {
     final l$proposal_approved = proposal_approved;
     final l$proposal_content = proposal_content;
     final l$proposal_date = proposal_date;
+    final l$proposal_title = proposal_title;
     final l$umkm_id = umkm_id;
     final l$updated_at = updated_at;
     return Object.hashAll([
@@ -60092,6 +68953,7 @@ class Input$proposal_set_input {
       _$data.containsKey('proposal_approved') ? l$proposal_approved : const {},
       _$data.containsKey('proposal_content') ? l$proposal_content : const {},
       _$data.containsKey('proposal_date') ? l$proposal_date : const {},
+      _$data.containsKey('proposal_title') ? l$proposal_title : const {},
       _$data.containsKey('umkm_id') ? l$umkm_id : const {},
       _$data.containsKey('updated_at') ? l$updated_at : const {},
     ]);
@@ -60113,6 +68975,7 @@ abstract class CopyWith$Input$proposal_set_input<TRes> {
     bool? proposal_approved,
     String? proposal_content,
     DateTime? proposal_date,
+    String? proposal_title,
     int? umkm_id,
     DateTime? updated_at,
   });
@@ -60137,6 +69000,7 @@ class _CopyWithImpl$Input$proposal_set_input<TRes>
     Object? proposal_approved = _undefined,
     Object? proposal_content = _undefined,
     Object? proposal_date = _undefined,
+    Object? proposal_title = _undefined,
     Object? umkm_id = _undefined,
     Object? updated_at = _undefined,
   }) =>
@@ -60151,6 +69015,8 @@ class _CopyWithImpl$Input$proposal_set_input<TRes>
           'proposal_content': (proposal_content as String?),
         if (proposal_date != _undefined)
           'proposal_date': (proposal_date as DateTime?),
+        if (proposal_title != _undefined)
+          'proposal_title': (proposal_title as String?),
         if (umkm_id != _undefined) 'umkm_id': (umkm_id as int?),
         if (updated_at != _undefined) 'updated_at': (updated_at as DateTime?),
       }));
@@ -60168,6 +69034,7 @@ class _CopyWithStubImpl$Input$proposal_set_input<TRes>
     bool? proposal_approved,
     String? proposal_content,
     DateTime? proposal_date,
+    String? proposal_title,
     int? umkm_id,
     DateTime? updated_at,
   }) =>
@@ -60872,6 +69739,7 @@ class Input$proposal_stream_cursor_value_input {
     String? proposal_content,
     DateTime? proposal_date,
     int? proposal_id,
+    String? proposal_title,
     int? umkm_id,
     DateTime? updated_at,
   }) =>
@@ -60882,6 +69750,7 @@ class Input$proposal_stream_cursor_value_input {
         if (proposal_content != null) r'proposal_content': proposal_content,
         if (proposal_date != null) r'proposal_date': proposal_date,
         if (proposal_id != null) r'proposal_id': proposal_id,
+        if (proposal_title != null) r'proposal_title': proposal_title,
         if (umkm_id != null) r'umkm_id': umkm_id,
         if (updated_at != null) r'updated_at': updated_at,
       });
@@ -60919,6 +69788,10 @@ class Input$proposal_stream_cursor_value_input {
       final l$proposal_id = data['proposal_id'];
       result$data['proposal_id'] = (l$proposal_id as int?);
     }
+    if (data.containsKey('proposal_title')) {
+      final l$proposal_title = data['proposal_title'];
+      result$data['proposal_title'] = (l$proposal_title as String?);
+    }
     if (data.containsKey('umkm_id')) {
       final l$umkm_id = data['umkm_id'];
       result$data['umkm_id'] = (l$umkm_id as int?);
@@ -60940,6 +69813,7 @@ class Input$proposal_stream_cursor_value_input {
   String? get proposal_content => (_$data['proposal_content'] as String?);
   DateTime? get proposal_date => (_$data['proposal_date'] as DateTime?);
   int? get proposal_id => (_$data['proposal_id'] as int?);
+  String? get proposal_title => (_$data['proposal_title'] as String?);
   int? get umkm_id => (_$data['umkm_id'] as int?);
   DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
   Map<String, dynamic> toJson() {
@@ -60967,6 +69841,10 @@ class Input$proposal_stream_cursor_value_input {
     if (_$data.containsKey('proposal_id')) {
       final l$proposal_id = proposal_id;
       result$data['proposal_id'] = l$proposal_id;
+    }
+    if (_$data.containsKey('proposal_title')) {
+      final l$proposal_title = proposal_title;
+      result$data['proposal_title'] = l$proposal_title;
     }
     if (_$data.containsKey('umkm_id')) {
       final l$umkm_id = umkm_id;
@@ -61048,6 +69926,15 @@ class Input$proposal_stream_cursor_value_input {
     if (l$proposal_id != lOther$proposal_id) {
       return false;
     }
+    final l$proposal_title = proposal_title;
+    final lOther$proposal_title = other.proposal_title;
+    if (_$data.containsKey('proposal_title') !=
+        other._$data.containsKey('proposal_title')) {
+      return false;
+    }
+    if (l$proposal_title != lOther$proposal_title) {
+      return false;
+    }
     final l$umkm_id = umkm_id;
     final lOther$umkm_id = other.umkm_id;
     if (_$data.containsKey('umkm_id') != other._$data.containsKey('umkm_id')) {
@@ -61076,6 +69963,7 @@ class Input$proposal_stream_cursor_value_input {
     final l$proposal_content = proposal_content;
     final l$proposal_date = proposal_date;
     final l$proposal_id = proposal_id;
+    final l$proposal_title = proposal_title;
     final l$umkm_id = umkm_id;
     final l$updated_at = updated_at;
     return Object.hashAll([
@@ -61085,6 +69973,7 @@ class Input$proposal_stream_cursor_value_input {
       _$data.containsKey('proposal_content') ? l$proposal_content : const {},
       _$data.containsKey('proposal_date') ? l$proposal_date : const {},
       _$data.containsKey('proposal_id') ? l$proposal_id : const {},
+      _$data.containsKey('proposal_title') ? l$proposal_title : const {},
       _$data.containsKey('umkm_id') ? l$umkm_id : const {},
       _$data.containsKey('updated_at') ? l$updated_at : const {},
     ]);
@@ -61107,6 +69996,7 @@ abstract class CopyWith$Input$proposal_stream_cursor_value_input<TRes> {
     String? proposal_content,
     DateTime? proposal_date,
     int? proposal_id,
+    String? proposal_title,
     int? umkm_id,
     DateTime? updated_at,
   });
@@ -61132,6 +70022,7 @@ class _CopyWithImpl$Input$proposal_stream_cursor_value_input<TRes>
     Object? proposal_content = _undefined,
     Object? proposal_date = _undefined,
     Object? proposal_id = _undefined,
+    Object? proposal_title = _undefined,
     Object? umkm_id = _undefined,
     Object? updated_at = _undefined,
   }) =>
@@ -61147,6 +70038,8 @@ class _CopyWithImpl$Input$proposal_stream_cursor_value_input<TRes>
         if (proposal_date != _undefined)
           'proposal_date': (proposal_date as DateTime?),
         if (proposal_id != _undefined) 'proposal_id': (proposal_id as int?),
+        if (proposal_title != _undefined)
+          'proposal_title': (proposal_title as String?),
         if (umkm_id != _undefined) 'umkm_id': (umkm_id as int?),
         if (updated_at != _undefined) 'updated_at': (updated_at as DateTime?),
       }));
@@ -61165,6 +70058,7 @@ class _CopyWithStubImpl$Input$proposal_stream_cursor_value_input<TRes>
     String? proposal_content,
     DateTime? proposal_date,
     int? proposal_id,
+    String? proposal_title,
     int? umkm_id,
     DateTime? updated_at,
   }) =>
@@ -62437,6 +71331,8 @@ class Input$umkm_bool_exp {
     Input$umkm_bool_exp? $_not,
     List<Input$umkm_bool_exp>? $_or,
     Input$timestamptz_comparison_exp? created_at,
+    Input$payment_due_bool_exp? payment_dues,
+    Input$payment_due_aggregate_bool_exp? payment_dues_aggregate,
     Input$proposal_bool_exp? proposals,
     Input$proposal_aggregate_bool_exp? proposals_aggregate,
     Input$String_comparison_exp? umkm_desc,
@@ -62453,6 +71349,9 @@ class Input$umkm_bool_exp {
         if ($_not != null) r'_not': $_not,
         if ($_or != null) r'_or': $_or,
         if (created_at != null) r'created_at': created_at,
+        if (payment_dues != null) r'payment_dues': payment_dues,
+        if (payment_dues_aggregate != null)
+          r'payment_dues_aggregate': payment_dues_aggregate,
         if (proposals != null) r'proposals': proposals,
         if (proposals_aggregate != null)
           r'proposals_aggregate': proposals_aggregate,
@@ -62496,6 +71395,20 @@ class Input$umkm_bool_exp {
           ? null
           : Input$timestamptz_comparison_exp.fromJson(
               (l$created_at as Map<String, dynamic>));
+    }
+    if (data.containsKey('payment_dues')) {
+      final l$payment_dues = data['payment_dues'];
+      result$data['payment_dues'] = l$payment_dues == null
+          ? null
+          : Input$payment_due_bool_exp.fromJson(
+              (l$payment_dues as Map<String, dynamic>));
+    }
+    if (data.containsKey('payment_dues_aggregate')) {
+      final l$payment_dues_aggregate = data['payment_dues_aggregate'];
+      result$data['payment_dues_aggregate'] = l$payment_dues_aggregate == null
+          ? null
+          : Input$payment_due_aggregate_bool_exp.fromJson(
+              (l$payment_dues_aggregate as Map<String, dynamic>));
     }
     if (data.containsKey('proposals')) {
       final l$proposals = data['proposals'];
@@ -62578,6 +71491,11 @@ class Input$umkm_bool_exp {
       (_$data['_or'] as List<Input$umkm_bool_exp>?);
   Input$timestamptz_comparison_exp? get created_at =>
       (_$data['created_at'] as Input$timestamptz_comparison_exp?);
+  Input$payment_due_bool_exp? get payment_dues =>
+      (_$data['payment_dues'] as Input$payment_due_bool_exp?);
+  Input$payment_due_aggregate_bool_exp? get payment_dues_aggregate =>
+      (_$data['payment_dues_aggregate']
+          as Input$payment_due_aggregate_bool_exp?);
   Input$proposal_bool_exp? get proposals =>
       (_$data['proposals'] as Input$proposal_bool_exp?);
   Input$proposal_aggregate_bool_exp? get proposals_aggregate =>
@@ -62614,6 +71532,15 @@ class Input$umkm_bool_exp {
     if (_$data.containsKey('created_at')) {
       final l$created_at = created_at;
       result$data['created_at'] = l$created_at?.toJson();
+    }
+    if (_$data.containsKey('payment_dues')) {
+      final l$payment_dues = payment_dues;
+      result$data['payment_dues'] = l$payment_dues?.toJson();
+    }
+    if (_$data.containsKey('payment_dues_aggregate')) {
+      final l$payment_dues_aggregate = payment_dues_aggregate;
+      result$data['payment_dues_aggregate'] =
+          l$payment_dues_aggregate?.toJson();
     }
     if (_$data.containsKey('proposals')) {
       final l$proposals = proposals;
@@ -62726,6 +71653,24 @@ class Input$umkm_bool_exp {
     if (l$created_at != lOther$created_at) {
       return false;
     }
+    final l$payment_dues = payment_dues;
+    final lOther$payment_dues = other.payment_dues;
+    if (_$data.containsKey('payment_dues') !=
+        other._$data.containsKey('payment_dues')) {
+      return false;
+    }
+    if (l$payment_dues != lOther$payment_dues) {
+      return false;
+    }
+    final l$payment_dues_aggregate = payment_dues_aggregate;
+    final lOther$payment_dues_aggregate = other.payment_dues_aggregate;
+    if (_$data.containsKey('payment_dues_aggregate') !=
+        other._$data.containsKey('payment_dues_aggregate')) {
+      return false;
+    }
+    if (l$payment_dues_aggregate != lOther$payment_dues_aggregate) {
+      return false;
+    }
     final l$proposals = proposals;
     final lOther$proposals = other.proposals;
     if (_$data.containsKey('proposals') !=
@@ -62822,6 +71767,8 @@ class Input$umkm_bool_exp {
     final l$$_not = $_not;
     final l$$_or = $_or;
     final l$created_at = created_at;
+    final l$payment_dues = payment_dues;
+    final l$payment_dues_aggregate = payment_dues_aggregate;
     final l$proposals = proposals;
     final l$proposals_aggregate = proposals_aggregate;
     final l$umkm_desc = umkm_desc;
@@ -62845,6 +71792,10 @@ class Input$umkm_bool_exp {
               : Object.hashAll(l$$_or.map((v) => v))
           : const {},
       _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('payment_dues') ? l$payment_dues : const {},
+      _$data.containsKey('payment_dues_aggregate')
+          ? l$payment_dues_aggregate
+          : const {},
       _$data.containsKey('proposals') ? l$proposals : const {},
       _$data.containsKey('proposals_aggregate')
           ? l$proposals_aggregate
@@ -62875,6 +71826,8 @@ abstract class CopyWith$Input$umkm_bool_exp<TRes> {
     Input$umkm_bool_exp? $_not,
     List<Input$umkm_bool_exp>? $_or,
     Input$timestamptz_comparison_exp? created_at,
+    Input$payment_due_bool_exp? payment_dues,
+    Input$payment_due_aggregate_bool_exp? payment_dues_aggregate,
     Input$proposal_bool_exp? proposals,
     Input$proposal_aggregate_bool_exp? proposals_aggregate,
     Input$String_comparison_exp? umkm_desc,
@@ -62896,6 +71849,9 @@ abstract class CopyWith$Input$umkm_bool_exp<TRes> {
               Iterable<CopyWith$Input$umkm_bool_exp<Input$umkm_bool_exp>>?)
           _fn);
   CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at;
+  CopyWith$Input$payment_due_bool_exp<TRes> get payment_dues;
+  CopyWith$Input$payment_due_aggregate_bool_exp<TRes>
+      get payment_dues_aggregate;
   CopyWith$Input$proposal_bool_exp<TRes> get proposals;
   CopyWith$Input$proposal_aggregate_bool_exp<TRes> get proposals_aggregate;
   CopyWith$Input$String_comparison_exp<TRes> get umkm_desc;
@@ -62926,6 +71882,8 @@ class _CopyWithImpl$Input$umkm_bool_exp<TRes>
     Object? $_not = _undefined,
     Object? $_or = _undefined,
     Object? created_at = _undefined,
+    Object? payment_dues = _undefined,
+    Object? payment_dues_aggregate = _undefined,
     Object? proposals = _undefined,
     Object? proposals_aggregate = _undefined,
     Object? umkm_desc = _undefined,
@@ -62944,6 +71902,11 @@ class _CopyWithImpl$Input$umkm_bool_exp<TRes>
         if ($_or != _undefined) '_or': ($_or as List<Input$umkm_bool_exp>?),
         if (created_at != _undefined)
           'created_at': (created_at as Input$timestamptz_comparison_exp?),
+        if (payment_dues != _undefined)
+          'payment_dues': (payment_dues as Input$payment_due_bool_exp?),
+        if (payment_dues_aggregate != _undefined)
+          'payment_dues_aggregate':
+              (payment_dues_aggregate as Input$payment_due_aggregate_bool_exp?),
         if (proposals != _undefined)
           'proposals': (proposals as Input$proposal_bool_exp?),
         if (proposals_aggregate != _undefined)
@@ -62997,6 +71960,24 @@ class _CopyWithImpl$Input$umkm_bool_exp<TRes>
         ? CopyWith$Input$timestamptz_comparison_exp.stub(_then(_instance))
         : CopyWith$Input$timestamptz_comparison_exp(
             local$created_at, (e) => call(created_at: e));
+  }
+
+  CopyWith$Input$payment_due_bool_exp<TRes> get payment_dues {
+    final local$payment_dues = _instance.payment_dues;
+    return local$payment_dues == null
+        ? CopyWith$Input$payment_due_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$payment_due_bool_exp(
+            local$payment_dues, (e) => call(payment_dues: e));
+  }
+
+  CopyWith$Input$payment_due_aggregate_bool_exp<TRes>
+      get payment_dues_aggregate {
+    final local$payment_dues_aggregate = _instance.payment_dues_aggregate;
+    return local$payment_dues_aggregate == null
+        ? CopyWith$Input$payment_due_aggregate_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$payment_due_aggregate_bool_exp(
+            local$payment_dues_aggregate,
+            (e) => call(payment_dues_aggregate: e));
   }
 
   CopyWith$Input$proposal_bool_exp<TRes> get proposals {
@@ -63090,6 +72071,8 @@ class _CopyWithStubImpl$Input$umkm_bool_exp<TRes>
     Input$umkm_bool_exp? $_not,
     List<Input$umkm_bool_exp>? $_or,
     Input$timestamptz_comparison_exp? created_at,
+    Input$payment_due_bool_exp? payment_dues,
+    Input$payment_due_aggregate_bool_exp? payment_dues_aggregate,
     Input$proposal_bool_exp? proposals,
     Input$proposal_aggregate_bool_exp? proposals_aggregate,
     Input$String_comparison_exp? umkm_desc,
@@ -63108,6 +72091,11 @@ class _CopyWithStubImpl$Input$umkm_bool_exp<TRes>
   $_or(_fn) => _res;
   CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at =>
       CopyWith$Input$timestamptz_comparison_exp.stub(_res);
+  CopyWith$Input$payment_due_bool_exp<TRes> get payment_dues =>
+      CopyWith$Input$payment_due_bool_exp.stub(_res);
+  CopyWith$Input$payment_due_aggregate_bool_exp<TRes>
+      get payment_dues_aggregate =>
+          CopyWith$Input$payment_due_aggregate_bool_exp.stub(_res);
   CopyWith$Input$proposal_bool_exp<TRes> get proposals =>
       CopyWith$Input$proposal_bool_exp.stub(_res);
   CopyWith$Input$proposal_aggregate_bool_exp<TRes> get proposals_aggregate =>
@@ -63235,6 +72223,7 @@ class _CopyWithStubImpl$Input$umkm_inc_input<TRes>
 class Input$umkm_insert_input {
   factory Input$umkm_insert_input({
     DateTime? created_at,
+    Input$payment_due_arr_rel_insert_input? payment_dues,
     Input$proposal_arr_rel_insert_input? proposals,
     String? umkm_desc,
     String? umkm_name,
@@ -63246,6 +72235,7 @@ class Input$umkm_insert_input {
   }) =>
       Input$umkm_insert_input._({
         if (created_at != null) r'created_at': created_at,
+        if (payment_dues != null) r'payment_dues': payment_dues,
         if (proposals != null) r'proposals': proposals,
         if (umkm_desc != null) r'umkm_desc': umkm_desc,
         if (umkm_name != null) r'umkm_name': umkm_name,
@@ -63265,6 +72255,13 @@ class Input$umkm_insert_input {
       result$data['created_at'] = l$created_at == null
           ? null
           : DateTime.parse((l$created_at as String));
+    }
+    if (data.containsKey('payment_dues')) {
+      final l$payment_dues = data['payment_dues'];
+      result$data['payment_dues'] = l$payment_dues == null
+          ? null
+          : Input$payment_due_arr_rel_insert_input.fromJson(
+              (l$payment_dues as Map<String, dynamic>));
     }
     if (data.containsKey('proposals')) {
       final l$proposals = data['proposals'];
@@ -63313,6 +72310,8 @@ class Input$umkm_insert_input {
   Map<String, dynamic> _$data;
 
   DateTime? get created_at => (_$data['created_at'] as DateTime?);
+  Input$payment_due_arr_rel_insert_input? get payment_dues =>
+      (_$data['payment_dues'] as Input$payment_due_arr_rel_insert_input?);
   Input$proposal_arr_rel_insert_input? get proposals =>
       (_$data['proposals'] as Input$proposal_arr_rel_insert_input?);
   String? get umkm_desc => (_$data['umkm_desc'] as String?);
@@ -63328,6 +72327,10 @@ class Input$umkm_insert_input {
     if (_$data.containsKey('created_at')) {
       final l$created_at = created_at;
       result$data['created_at'] = l$created_at?.toIso8601String();
+    }
+    if (_$data.containsKey('payment_dues')) {
+      final l$payment_dues = payment_dues;
+      result$data['payment_dues'] = l$payment_dues?.toJson();
     }
     if (_$data.containsKey('proposals')) {
       final l$proposals = proposals;
@@ -63385,6 +72388,15 @@ class Input$umkm_insert_input {
       return false;
     }
     if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$payment_dues = payment_dues;
+    final lOther$payment_dues = other.payment_dues;
+    if (_$data.containsKey('payment_dues') !=
+        other._$data.containsKey('payment_dues')) {
+      return false;
+    }
+    if (l$payment_dues != lOther$payment_dues) {
       return false;
     }
     final l$proposals = proposals;
@@ -63463,6 +72475,7 @@ class Input$umkm_insert_input {
   @override
   int get hashCode {
     final l$created_at = created_at;
+    final l$payment_dues = payment_dues;
     final l$proposals = proposals;
     final l$umkm_desc = umkm_desc;
     final l$umkm_name = umkm_name;
@@ -63473,6 +72486,7 @@ class Input$umkm_insert_input {
     final l$user_id = user_id;
     return Object.hashAll([
       _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('payment_dues') ? l$payment_dues : const {},
       _$data.containsKey('proposals') ? l$proposals : const {},
       _$data.containsKey('umkm_desc') ? l$umkm_desc : const {},
       _$data.containsKey('umkm_name') ? l$umkm_name : const {},
@@ -63496,6 +72510,7 @@ abstract class CopyWith$Input$umkm_insert_input<TRes> {
 
   TRes call({
     DateTime? created_at,
+    Input$payment_due_arr_rel_insert_input? payment_dues,
     Input$proposal_arr_rel_insert_input? proposals,
     String? umkm_desc,
     String? umkm_name,
@@ -63505,6 +72520,7 @@ abstract class CopyWith$Input$umkm_insert_input<TRes> {
     Input$users_obj_rel_insert_input? user,
     UUID? user_id,
   });
+  CopyWith$Input$payment_due_arr_rel_insert_input<TRes> get payment_dues;
   CopyWith$Input$proposal_arr_rel_insert_input<TRes> get proposals;
   CopyWith$Input$users_obj_rel_insert_input<TRes> get user;
 }
@@ -63524,6 +72540,7 @@ class _CopyWithImpl$Input$umkm_insert_input<TRes>
 
   TRes call({
     Object? created_at = _undefined,
+    Object? payment_dues = _undefined,
     Object? proposals = _undefined,
     Object? umkm_desc = _undefined,
     Object? umkm_name = _undefined,
@@ -63536,6 +72553,9 @@ class _CopyWithImpl$Input$umkm_insert_input<TRes>
       _then(Input$umkm_insert_input._({
         ..._instance._$data,
         if (created_at != _undefined) 'created_at': (created_at as DateTime?),
+        if (payment_dues != _undefined)
+          'payment_dues':
+              (payment_dues as Input$payment_due_arr_rel_insert_input?),
         if (proposals != _undefined)
           'proposals': (proposals as Input$proposal_arr_rel_insert_input?),
         if (umkm_desc != _undefined) 'umkm_desc': (umkm_desc as String?),
@@ -63548,6 +72568,14 @@ class _CopyWithImpl$Input$umkm_insert_input<TRes>
           'user': (user as Input$users_obj_rel_insert_input?),
         if (user_id != _undefined) 'user_id': (user_id as UUID?),
       }));
+  CopyWith$Input$payment_due_arr_rel_insert_input<TRes> get payment_dues {
+    final local$payment_dues = _instance.payment_dues;
+    return local$payment_dues == null
+        ? CopyWith$Input$payment_due_arr_rel_insert_input.stub(_then(_instance))
+        : CopyWith$Input$payment_due_arr_rel_insert_input(
+            local$payment_dues, (e) => call(payment_dues: e));
+  }
+
   CopyWith$Input$proposal_arr_rel_insert_input<TRes> get proposals {
     final local$proposals = _instance.proposals;
     return local$proposals == null
@@ -63573,6 +72601,7 @@ class _CopyWithStubImpl$Input$umkm_insert_input<TRes>
 
   call({
     DateTime? created_at,
+    Input$payment_due_arr_rel_insert_input? payment_dues,
     Input$proposal_arr_rel_insert_input? proposals,
     String? umkm_desc,
     String? umkm_name,
@@ -63583,6 +72612,8 @@ class _CopyWithStubImpl$Input$umkm_insert_input<TRes>
     UUID? user_id,
   }) =>
       _res;
+  CopyWith$Input$payment_due_arr_rel_insert_input<TRes> get payment_dues =>
+      CopyWith$Input$payment_due_arr_rel_insert_input.stub(_res);
   CopyWith$Input$proposal_arr_rel_insert_input<TRes> get proposals =>
       CopyWith$Input$proposal_arr_rel_insert_input.stub(_res);
   CopyWith$Input$users_obj_rel_insert_input<TRes> get user =>
@@ -63925,6 +72956,7 @@ class _CopyWithStubImpl$Input$umkm_on_conflict<TRes>
 class Input$umkm_order_by {
   factory Input$umkm_order_by({
     Enum$order_by? created_at,
+    Input$payment_due_aggregate_order_by? payment_dues_aggregate,
     Input$proposal_aggregate_order_by? proposals_aggregate,
     Enum$order_by? umkm_desc,
     Enum$order_by? umkm_id,
@@ -63937,6 +72969,8 @@ class Input$umkm_order_by {
   }) =>
       Input$umkm_order_by._({
         if (created_at != null) r'created_at': created_at,
+        if (payment_dues_aggregate != null)
+          r'payment_dues_aggregate': payment_dues_aggregate,
         if (proposals_aggregate != null)
           r'proposals_aggregate': proposals_aggregate,
         if (umkm_desc != null) r'umkm_desc': umkm_desc,
@@ -63958,6 +72992,13 @@ class Input$umkm_order_by {
       result$data['created_at'] = l$created_at == null
           ? null
           : fromJson$Enum$order_by((l$created_at as String));
+    }
+    if (data.containsKey('payment_dues_aggregate')) {
+      final l$payment_dues_aggregate = data['payment_dues_aggregate'];
+      result$data['payment_dues_aggregate'] = l$payment_dues_aggregate == null
+          ? null
+          : Input$payment_due_aggregate_order_by.fromJson(
+              (l$payment_dues_aggregate as Map<String, dynamic>));
     }
     if (data.containsKey('proposals_aggregate')) {
       final l$proposals_aggregate = data['proposals_aggregate'];
@@ -64020,6 +73061,9 @@ class Input$umkm_order_by {
   Map<String, dynamic> _$data;
 
   Enum$order_by? get created_at => (_$data['created_at'] as Enum$order_by?);
+  Input$payment_due_aggregate_order_by? get payment_dues_aggregate =>
+      (_$data['payment_dues_aggregate']
+          as Input$payment_due_aggregate_order_by?);
   Input$proposal_aggregate_order_by? get proposals_aggregate =>
       (_$data['proposals_aggregate'] as Input$proposal_aggregate_order_by?);
   Enum$order_by? get umkm_desc => (_$data['umkm_desc'] as Enum$order_by?);
@@ -64037,6 +73081,11 @@ class Input$umkm_order_by {
       final l$created_at = created_at;
       result$data['created_at'] =
           l$created_at == null ? null : toJson$Enum$order_by(l$created_at);
+    }
+    if (_$data.containsKey('payment_dues_aggregate')) {
+      final l$payment_dues_aggregate = payment_dues_aggregate;
+      result$data['payment_dues_aggregate'] =
+          l$payment_dues_aggregate?.toJson();
     }
     if (_$data.containsKey('proposals_aggregate')) {
       final l$proposals_aggregate = proposals_aggregate;
@@ -64105,6 +73154,15 @@ class Input$umkm_order_by {
       return false;
     }
     if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$payment_dues_aggregate = payment_dues_aggregate;
+    final lOther$payment_dues_aggregate = other.payment_dues_aggregate;
+    if (_$data.containsKey('payment_dues_aggregate') !=
+        other._$data.containsKey('payment_dues_aggregate')) {
+      return false;
+    }
+    if (l$payment_dues_aggregate != lOther$payment_dues_aggregate) {
       return false;
     }
     final l$proposals_aggregate = proposals_aggregate;
@@ -64191,6 +73249,7 @@ class Input$umkm_order_by {
   @override
   int get hashCode {
     final l$created_at = created_at;
+    final l$payment_dues_aggregate = payment_dues_aggregate;
     final l$proposals_aggregate = proposals_aggregate;
     final l$umkm_desc = umkm_desc;
     final l$umkm_id = umkm_id;
@@ -64202,6 +73261,9 @@ class Input$umkm_order_by {
     final l$user_id = user_id;
     return Object.hashAll([
       _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('payment_dues_aggregate')
+          ? l$payment_dues_aggregate
+          : const {},
       _$data.containsKey('proposals_aggregate')
           ? l$proposals_aggregate
           : const {},
@@ -64228,6 +73290,7 @@ abstract class CopyWith$Input$umkm_order_by<TRes> {
 
   TRes call({
     Enum$order_by? created_at,
+    Input$payment_due_aggregate_order_by? payment_dues_aggregate,
     Input$proposal_aggregate_order_by? proposals_aggregate,
     Enum$order_by? umkm_desc,
     Enum$order_by? umkm_id,
@@ -64238,6 +73301,8 @@ abstract class CopyWith$Input$umkm_order_by<TRes> {
     Input$users_order_by? user,
     Enum$order_by? user_id,
   });
+  CopyWith$Input$payment_due_aggregate_order_by<TRes>
+      get payment_dues_aggregate;
   CopyWith$Input$proposal_aggregate_order_by<TRes> get proposals_aggregate;
   CopyWith$Input$users_order_by<TRes> get user;
 }
@@ -64257,6 +73322,7 @@ class _CopyWithImpl$Input$umkm_order_by<TRes>
 
   TRes call({
     Object? created_at = _undefined,
+    Object? payment_dues_aggregate = _undefined,
     Object? proposals_aggregate = _undefined,
     Object? umkm_desc = _undefined,
     Object? umkm_id = _undefined,
@@ -64271,6 +73337,9 @@ class _CopyWithImpl$Input$umkm_order_by<TRes>
         ..._instance._$data,
         if (created_at != _undefined)
           'created_at': (created_at as Enum$order_by?),
+        if (payment_dues_aggregate != _undefined)
+          'payment_dues_aggregate':
+              (payment_dues_aggregate as Input$payment_due_aggregate_order_by?),
         if (proposals_aggregate != _undefined)
           'proposals_aggregate':
               (proposals_aggregate as Input$proposal_aggregate_order_by?),
@@ -64286,6 +73355,16 @@ class _CopyWithImpl$Input$umkm_order_by<TRes>
         if (user != _undefined) 'user': (user as Input$users_order_by?),
         if (user_id != _undefined) 'user_id': (user_id as Enum$order_by?),
       }));
+  CopyWith$Input$payment_due_aggregate_order_by<TRes>
+      get payment_dues_aggregate {
+    final local$payment_dues_aggregate = _instance.payment_dues_aggregate;
+    return local$payment_dues_aggregate == null
+        ? CopyWith$Input$payment_due_aggregate_order_by.stub(_then(_instance))
+        : CopyWith$Input$payment_due_aggregate_order_by(
+            local$payment_dues_aggregate,
+            (e) => call(payment_dues_aggregate: e));
+  }
+
   CopyWith$Input$proposal_aggregate_order_by<TRes> get proposals_aggregate {
     final local$proposals_aggregate = _instance.proposals_aggregate;
     return local$proposals_aggregate == null
@@ -64310,6 +73389,7 @@ class _CopyWithStubImpl$Input$umkm_order_by<TRes>
 
   call({
     Enum$order_by? created_at,
+    Input$payment_due_aggregate_order_by? payment_dues_aggregate,
     Input$proposal_aggregate_order_by? proposals_aggregate,
     Enum$order_by? umkm_desc,
     Enum$order_by? umkm_id,
@@ -64321,6 +73401,9 @@ class _CopyWithStubImpl$Input$umkm_order_by<TRes>
     Enum$order_by? user_id,
   }) =>
       _res;
+  CopyWith$Input$payment_due_aggregate_order_by<TRes>
+      get payment_dues_aggregate =>
+          CopyWith$Input$payment_due_aggregate_order_by.stub(_res);
   CopyWith$Input$proposal_aggregate_order_by<TRes> get proposals_aggregate =>
       CopyWith$Input$proposal_aggregate_order_by.stub(_res);
   CopyWith$Input$users_order_by<TRes> get user =>
@@ -77498,6 +86581,308 @@ Enum$order_by fromJson$Enum$order_by(String value) {
   }
 }
 
+enum Enum$payment_due_constraint { payment_due_pkey, $unknown }
+
+String toJson$Enum$payment_due_constraint(Enum$payment_due_constraint e) {
+  switch (e) {
+    case Enum$payment_due_constraint.payment_due_pkey:
+      return r'payment_due_pkey';
+    case Enum$payment_due_constraint.$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$payment_due_constraint fromJson$Enum$payment_due_constraint(String value) {
+  switch (value) {
+    case r'payment_due_pkey':
+      return Enum$payment_due_constraint.payment_due_pkey;
+    default:
+      return Enum$payment_due_constraint.$unknown;
+  }
+}
+
+enum Enum$payment_due_select_column {
+  created_at,
+  deadline,
+  fulfilled,
+  payment_due,
+  payment_due_id,
+  umkm_id,
+  updated_at,
+  $unknown
+}
+
+String toJson$Enum$payment_due_select_column(Enum$payment_due_select_column e) {
+  switch (e) {
+    case Enum$payment_due_select_column.created_at:
+      return r'created_at';
+    case Enum$payment_due_select_column.deadline:
+      return r'deadline';
+    case Enum$payment_due_select_column.fulfilled:
+      return r'fulfilled';
+    case Enum$payment_due_select_column.payment_due:
+      return r'payment_due';
+    case Enum$payment_due_select_column.payment_due_id:
+      return r'payment_due_id';
+    case Enum$payment_due_select_column.umkm_id:
+      return r'umkm_id';
+    case Enum$payment_due_select_column.updated_at:
+      return r'updated_at';
+    case Enum$payment_due_select_column.$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$payment_due_select_column fromJson$Enum$payment_due_select_column(
+    String value) {
+  switch (value) {
+    case r'created_at':
+      return Enum$payment_due_select_column.created_at;
+    case r'deadline':
+      return Enum$payment_due_select_column.deadline;
+    case r'fulfilled':
+      return Enum$payment_due_select_column.fulfilled;
+    case r'payment_due':
+      return Enum$payment_due_select_column.payment_due;
+    case r'payment_due_id':
+      return Enum$payment_due_select_column.payment_due_id;
+    case r'umkm_id':
+      return Enum$payment_due_select_column.umkm_id;
+    case r'updated_at':
+      return Enum$payment_due_select_column.updated_at;
+    default:
+      return Enum$payment_due_select_column.$unknown;
+  }
+}
+
+enum Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_and_arguments_columns {
+  fulfilled,
+  $unknown
+}
+
+String toJson$Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_and_arguments_columns(
+    Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_and_arguments_columns
+        e) {
+  switch (e) {
+    case Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_and_arguments_columns
+          .fulfilled:
+      return r'fulfilled';
+    case Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_and_arguments_columns
+          .$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_and_arguments_columns
+    fromJson$Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_and_arguments_columns(
+        String value) {
+  switch (value) {
+    case r'fulfilled':
+      return Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_and_arguments_columns
+          .fulfilled;
+    default:
+      return Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_and_arguments_columns
+          .$unknown;
+  }
+}
+
+enum Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_columns {
+  fulfilled,
+  $unknown
+}
+
+String toJson$Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_columns(
+    Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_columns
+        e) {
+  switch (e) {
+    case Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_columns
+          .fulfilled:
+      return r'fulfilled';
+    case Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_columns
+          .$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_columns
+    fromJson$Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_columns(
+        String value) {
+  switch (value) {
+    case r'fulfilled':
+      return Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_columns
+          .fulfilled;
+    default:
+      return Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_columns
+          .$unknown;
+  }
+}
+
+enum Enum$payment_due_update_column {
+  created_at,
+  deadline,
+  fulfilled,
+  payment_due,
+  payment_due_id,
+  umkm_id,
+  updated_at,
+  $unknown
+}
+
+String toJson$Enum$payment_due_update_column(Enum$payment_due_update_column e) {
+  switch (e) {
+    case Enum$payment_due_update_column.created_at:
+      return r'created_at';
+    case Enum$payment_due_update_column.deadline:
+      return r'deadline';
+    case Enum$payment_due_update_column.fulfilled:
+      return r'fulfilled';
+    case Enum$payment_due_update_column.payment_due:
+      return r'payment_due';
+    case Enum$payment_due_update_column.payment_due_id:
+      return r'payment_due_id';
+    case Enum$payment_due_update_column.umkm_id:
+      return r'umkm_id';
+    case Enum$payment_due_update_column.updated_at:
+      return r'updated_at';
+    case Enum$payment_due_update_column.$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$payment_due_update_column fromJson$Enum$payment_due_update_column(
+    String value) {
+  switch (value) {
+    case r'created_at':
+      return Enum$payment_due_update_column.created_at;
+    case r'deadline':
+      return Enum$payment_due_update_column.deadline;
+    case r'fulfilled':
+      return Enum$payment_due_update_column.fulfilled;
+    case r'payment_due':
+      return Enum$payment_due_update_column.payment_due;
+    case r'payment_due_id':
+      return Enum$payment_due_update_column.payment_due_id;
+    case r'umkm_id':
+      return Enum$payment_due_update_column.umkm_id;
+    case r'updated_at':
+      return Enum$payment_due_update_column.updated_at;
+    default:
+      return Enum$payment_due_update_column.$unknown;
+  }
+}
+
+enum Enum$payment_investment_constraint { payment_investment_pkey, $unknown }
+
+String toJson$Enum$payment_investment_constraint(
+    Enum$payment_investment_constraint e) {
+  switch (e) {
+    case Enum$payment_investment_constraint.payment_investment_pkey:
+      return r'payment_investment_pkey';
+    case Enum$payment_investment_constraint.$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$payment_investment_constraint fromJson$Enum$payment_investment_constraint(
+    String value) {
+  switch (value) {
+    case r'payment_investment_pkey':
+      return Enum$payment_investment_constraint.payment_investment_pkey;
+    default:
+      return Enum$payment_investment_constraint.$unknown;
+  }
+}
+
+enum Enum$payment_investment_select_column {
+  created_at,
+  investment_id,
+  payment_investment_fulfilled,
+  payment_investment_id,
+  updated_at,
+  $unknown
+}
+
+String toJson$Enum$payment_investment_select_column(
+    Enum$payment_investment_select_column e) {
+  switch (e) {
+    case Enum$payment_investment_select_column.created_at:
+      return r'created_at';
+    case Enum$payment_investment_select_column.investment_id:
+      return r'investment_id';
+    case Enum$payment_investment_select_column.payment_investment_fulfilled:
+      return r'payment_investment_fulfilled';
+    case Enum$payment_investment_select_column.payment_investment_id:
+      return r'payment_investment_id';
+    case Enum$payment_investment_select_column.updated_at:
+      return r'updated_at';
+    case Enum$payment_investment_select_column.$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$payment_investment_select_column
+    fromJson$Enum$payment_investment_select_column(String value) {
+  switch (value) {
+    case r'created_at':
+      return Enum$payment_investment_select_column.created_at;
+    case r'investment_id':
+      return Enum$payment_investment_select_column.investment_id;
+    case r'payment_investment_fulfilled':
+      return Enum$payment_investment_select_column.payment_investment_fulfilled;
+    case r'payment_investment_id':
+      return Enum$payment_investment_select_column.payment_investment_id;
+    case r'updated_at':
+      return Enum$payment_investment_select_column.updated_at;
+    default:
+      return Enum$payment_investment_select_column.$unknown;
+  }
+}
+
+enum Enum$payment_investment_update_column {
+  created_at,
+  investment_id,
+  payment_investment_fulfilled,
+  payment_investment_id,
+  updated_at,
+  $unknown
+}
+
+String toJson$Enum$payment_investment_update_column(
+    Enum$payment_investment_update_column e) {
+  switch (e) {
+    case Enum$payment_investment_update_column.created_at:
+      return r'created_at';
+    case Enum$payment_investment_update_column.investment_id:
+      return r'investment_id';
+    case Enum$payment_investment_update_column.payment_investment_fulfilled:
+      return r'payment_investment_fulfilled';
+    case Enum$payment_investment_update_column.payment_investment_id:
+      return r'payment_investment_id';
+    case Enum$payment_investment_update_column.updated_at:
+      return r'updated_at';
+    case Enum$payment_investment_update_column.$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$payment_investment_update_column
+    fromJson$Enum$payment_investment_update_column(String value) {
+  switch (value) {
+    case r'created_at':
+      return Enum$payment_investment_update_column.created_at;
+    case r'investment_id':
+      return Enum$payment_investment_update_column.investment_id;
+    case r'payment_investment_fulfilled':
+      return Enum$payment_investment_update_column.payment_investment_fulfilled;
+    case r'payment_investment_id':
+      return Enum$payment_investment_update_column.payment_investment_id;
+    case r'updated_at':
+      return Enum$payment_investment_update_column.updated_at;
+    default:
+      return Enum$payment_investment_update_column.$unknown;
+  }
+}
+
 enum Enum$profile_constraint { profile_pkey, profile_user_id_key, $unknown }
 
 String toJson$Enum$profile_constraint(Enum$profile_constraint e) {
@@ -77680,6 +87065,7 @@ enum Enum$proposal_select_column {
   proposal_content,
   proposal_date,
   proposal_id,
+  proposal_title,
   umkm_id,
   updated_at,
   $unknown
@@ -77699,6 +87085,8 @@ String toJson$Enum$proposal_select_column(Enum$proposal_select_column e) {
       return r'proposal_date';
     case Enum$proposal_select_column.proposal_id:
       return r'proposal_id';
+    case Enum$proposal_select_column.proposal_title:
+      return r'proposal_title';
     case Enum$proposal_select_column.umkm_id:
       return r'umkm_id';
     case Enum$proposal_select_column.updated_at:
@@ -77722,6 +87110,8 @@ Enum$proposal_select_column fromJson$Enum$proposal_select_column(String value) {
       return Enum$proposal_select_column.proposal_date;
     case r'proposal_id':
       return Enum$proposal_select_column.proposal_id;
+    case r'proposal_title':
+      return Enum$proposal_select_column.proposal_title;
     case r'umkm_id':
       return Enum$proposal_select_column.umkm_id;
     case r'updated_at':
@@ -77799,6 +87189,7 @@ enum Enum$proposal_update_column {
   proposal_approved,
   proposal_content,
   proposal_date,
+  proposal_title,
   umkm_id,
   updated_at,
   $unknown
@@ -77816,6 +87207,8 @@ String toJson$Enum$proposal_update_column(Enum$proposal_update_column e) {
       return r'proposal_content';
     case Enum$proposal_update_column.proposal_date:
       return r'proposal_date';
+    case Enum$proposal_update_column.proposal_title:
+      return r'proposal_title';
     case Enum$proposal_update_column.umkm_id:
       return r'umkm_id';
     case Enum$proposal_update_column.updated_at:
@@ -77837,6 +87230,8 @@ Enum$proposal_update_column fromJson$Enum$proposal_update_column(String value) {
       return Enum$proposal_update_column.proposal_content;
     case r'proposal_date':
       return Enum$proposal_update_column.proposal_date;
+    case r'proposal_title':
+      return Enum$proposal_update_column.proposal_title;
     case r'umkm_id':
       return Enum$proposal_update_column.umkm_id;
     case r'updated_at':

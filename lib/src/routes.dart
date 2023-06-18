@@ -127,6 +127,17 @@ class AppRouter {
       builder: (context, state) => TalkerScreen(talker: Logger.talker),
       allowedRoles: [],
     ),
+    // RouteParams(
+    //   name: 'approve proposal',
+    //   path: '/proposal/:proposalId/approve',
+    //   builder: (context, state) {
+    //     return ApprovalConfirmationDialog(
+    //       proposalId:
+    //           int.tryParse(state.pathParameters['proposalId'] ?? "") ?? -1,
+    //     );
+    //   },
+    //   allowedRoles: ['cs', 'admin'],
+    // ),
   ];
   static final routeSet = routes.toSet();
 

@@ -10,7 +10,6 @@ class CSMessageTable extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final dateFormat = DateFormat.yMd(); // Date format for displaying dates
-
     return Center(
       child: Container(
         decoration: BoxDecoration(

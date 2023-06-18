@@ -51,6 +51,7 @@ class AppAuthState with ChangeNotifier {
         final res = await nhostClient.auth.signInWithStoredCredentials();
         final user = res.user;
         Logger.talker.log('user is signed in ${res.user?.id}');
+        Logger.talker.log('Bearer ${res.session?.accessToken}');
         if (user != null) {
           _authState = AuthenticationState.signedIn;
         } else {

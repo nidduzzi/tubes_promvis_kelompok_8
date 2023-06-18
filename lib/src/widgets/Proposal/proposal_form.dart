@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:nhost_flutter_graphql/nhost_flutter_graphql.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 import 'package:tubes_promvis_kelompok_8/src/types/graphql/__generated/proposal.graphql.dart';
@@ -33,6 +35,9 @@ class ProposalForm extends HookWidget {
       return const SizedBox();
     }
 
+    final amountController = useTextEditingController();
+    final titleController = useTextEditingController();
+
     final sendProposal = useMutation$InsertProposalMutation();
 
     final getUMKM = useQuery$GetAllUMKMQuery(
@@ -45,7 +50,8 @@ class ProposalForm extends HookWidget {
       ),
     );
     final listUMKM = getUMKM.result.parsedData?.umkm;
-    final umkmId = listUMKM?.isNotEmpty == true ? listUMKM!.first.umkm_id : null;
+    final umkmId =
+        listUMKM?.isNotEmpty == true ? listUMKM!.first.umkm_id : null;
 
     final getProposal = useQuery$GetAllProposalQuery(
       Options$Query$GetAllProposalQuery(
@@ -74,7 +80,8 @@ class ProposalForm extends HookWidget {
 
         isLoading.value = true;
 
-        final messageContent = quillController.document.toPlainText();
+        final messageContent =
+            jsonEncode(quillController.document.toDelta().toJson());
         if (messageContent.isEmpty) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
@@ -84,18 +91,19 @@ class ProposalForm extends HookWidget {
           return false;
         }
 
-        final res = await sendProposal.runMutation(
-          Variables$Mutation$InsertProposalMutation(
-            data: Input$proposal_insert_input(
-              proposal_content: messageContent,
-              umkm_id: umkmId,
-              proposal_amount: proposalAmount + 1,
-              proposal_date: DateTime.now(),
-              created_at: DateTime.now(),
-              updated_at: DateTime.now(),
-            ),
-          ),
-        ).networkResult;
+        final res = await sendProposal
+            .runMutation(
+              Variables$Mutation$InsertProposalMutation(
+                data: Input$proposal_insert_input(
+                  proposal_content: messageContent,
+                  proposal_title: titleController.text,
+                  umkm_id: umkmId,
+                  proposal_amount: int.parse(amountController.text),
+                  proposal_date: DateTime.now(),
+                ),
+              ),
+            )
+            .networkResult;
 
         if (res?.hasException == true) {
           Logger.talker.error("send proposal failed", res?.exception);
@@ -110,7 +118,9 @@ class ProposalForm extends HookWidget {
         return true;
       } on ApiException catch (err, st) {
         final decodedBody = const JsonDecoder().convert(err.response.body);
-        final reasonPhrase = decodedBody["proposal"] != null ? ": ${decodedBody["proposal"]}" : "";
+        final reasonPhrase = decodedBody["proposal"] != null
+            ? ": ${decodedBody["proposal"]}"
+            : "";
         Logger.talker.error("Failed to send proposal", err, st);
 
         ScaffoldMessenger.of(context).showSnackBar(
@@ -133,95 +143,136 @@ class ProposalForm extends HookWidget {
       } finally {
         isLoading.value = false;
       }
-    }, [quillController, userId, formKey, isFormSubmitted.value, getProposal, getUMKM, proposalAmount]);
-
+    }, [
+      quillController,
+      userId,
+      formKey,
+      isFormSubmitted.value,
+      getProposal,
+      getUMKM,
+      proposalAmount
+    ]);
 
     return Scaffold(
-      body: SafeArea(
-        child: ListView(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 40, left: 65, right: 65),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(top: 8, bottom: 16),
-                    child: Text(
-                      'Submit Proposal',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+      body: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 40, left: 65, right: 65),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(top: 8, bottom: 16),
+                  child: Text(
+                    'Submit Proposal',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Form(
-                    key: formKey,
-                    child: Column(
-                      children: [
-                        QuillToolbar.basic(
-                          controller: quillController,
+                ),
+                Form(
+                  key: formKey,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        child: TextFormField(
+                          controller: titleController,
+                          decoration: const InputDecoration(
+                            labelText: 'Title',
+                            border: OutlineInputBorder(),
+                          ),
+                          autofocus: true,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter a title';
+                            }
+                            return null;
+                          },
                         ),
-                        const SizedBox(height: 16),
-                        QuillEditor(
-                          controller: quillController,
-                          scrollController: ScrollController(),
-                          scrollable: true,
-                          autoFocus: true,
-                          focusNode: FocusNode(),
-                          readOnly: false,
-                          placeholder: 'Proposal Content',
-                          expands: false,
-                          padding: const EdgeInsets.all(0),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        child: TextFormField(
+                          controller: amountController,
+                          decoration: const InputDecoration(
+                            labelText: "Amount",
+                            border: OutlineInputBorder(),
+                          ),
+                          keyboardType: TextInputType.number,
+                          autofocus: true,
+                          validator: FormBuilderValidators.compose([
+                            FormBuilderValidators.required(),
+                          ]),
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly
+                          ],
+                        ),
+                      ),
+                      QuillToolbar.basic(
+                        controller: quillController,
+                      ),
+                      const SizedBox(height: 16),
+                      QuillEditor(
+                        controller: quillController,
+                        scrollController: ScrollController(),
+                        scrollable: true,
+                        autoFocus: true,
+                        focusNode: FocusNode(),
+                        readOnly: false,
+                        placeholder: 'Proposal Content',
+                        expands: false,
+                        padding: const EdgeInsets.all(0),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Row(
+                      children: [
+                        ElevatedButton(
+                          onPressed: handleCancel,
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(vertical: 12),
+                          ),
+                          child: const Text('Cancel'),
+                        ),
+                        const SizedBox(width: 16),
+                        ElevatedButton(
+                          onPressed: () {
+                            if (!quillController.document.isEmpty()) {
+                              trySendProposal();
+                            } else {
+                              Logger.talker
+                                  .log(quillController.document.root.children);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content:
+                                      Text('Proposal content cannot be empty'),
+                                ),
+                              );
+                            }
+                          },
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(vertical: 12),
+                          ),
+                          child: isLoading.value
+                              ? const CircularProgressIndicator()
+                              : const Text('Submit'),
                         ),
                       ],
                     ),
-
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Row(
-                        children: [
-                          ElevatedButton(
-                            onPressed: handleCancel,
-                            style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(vertical: 12),
-                            ),
-                            child: const Text('Cancel'),
-                          ),
-                          const SizedBox(width: 16),
-                          ElevatedButton(
-                            onPressed: () {
-                              isFormSubmitted.value = true;
-                              if (quillController.document.toPlainText().isNotEmpty) {
-                                trySendProposal();
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text('Proposal content cannot be empty'),
-                                  ),
-                                );
-                              }
-                            },
-                            style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(vertical: 12),
-                            ),
-                            child: isLoading.value
-                                ? const CircularProgressIndicator()
-                                : const Text('Submit'),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 80),
-                ],
-              ),
+                ),
+                const SizedBox(height: 80),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

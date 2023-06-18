@@ -4,6 +4,8 @@ fragment proposalData on proposal {
     proposal_content
     proposal_amount
     proposal_date
+    proposal_approved
+    proposal_title
     updated_at
     created_at
 }
@@ -14,6 +16,16 @@ mutation InsertProposalMutation($data: proposal_insert_input!) {
     }
 }
 
+mutation ApproveProposalMutation($proposal_id: Int!) {
+    update_proposal(
+        _set: { proposal_approved: true }
+        where: { proposal_id: { _eq: $proposal_id } }
+    ) {
+        returning {
+            ...proposalData
+        }
+    }
+}
 mutation UpdateProposalMutation(
     $data: proposal_set_input!
     $proposal_id: Int!
@@ -90,6 +102,33 @@ query GetUMKMProposalAggregate(
     }
 }
 
+query GetAllProposalAggregate(
+    $where: proposal_bool_exp
+    $whereInvestment: investment_bool_exp
+    $limit: Int
+    $distinct_on: [proposal_select_column!]
+    $offset: Int
+    $order_by: [proposal_order_by!]
+) {
+    proposal_aggregate(
+        where: $where
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...proposalAggregate
+        nodes {
+            investments_aggregate {
+                ...investmentsAggregate
+            }
+        }
+    }
+    investment_aggregate(where: $whereInvestment) {
+        ...investmentsAggregate
+    }
+}
+
 query GetUserProposalAggregate(
     $user_id: uuid!
     $limit: Int
@@ -128,6 +167,9 @@ query GetAllProposalQuery(
         order_by: $order_by
     ) {
         ...proposalData
+        umkm {
+            ...umkmData
+        }
     }
 }
 

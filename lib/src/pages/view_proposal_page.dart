@@ -18,9 +18,12 @@ class ViewProposalQueryWidget extends HookWidget {
 
     final listProposal = getProposal.result.parsedData?.proposal;
 
-    Logger.talker.log(listProposal?.length);
     return ProposalTable(
-            listProposal: listProposal) // Display the CSMessageTable widget
+      listProposal: listProposal ?? [],
+      updateList: () async {
+        await getProposal.refetch();
+      },
+    ) // Display the CSMessageTable widget
         ;
   }
 }
@@ -33,7 +36,7 @@ class ViewProposalPage extends StatelessWidget {
     return const AppHeader(
       title: "Proposals",
       child: Padding(
-        padding: EdgeInsets.only(left: 55, right: 55, top: 100, bottom: 100),
+        padding: EdgeInsets.only(top: 100, bottom: 100),
         child:
             ViewProposalQueryWidget(), // Pass the userId to the ViewProposalQueryWidget
       ),

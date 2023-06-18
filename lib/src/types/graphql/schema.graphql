@@ -3822,6 +3822,9 @@ type investment {
   investor_id: Int!
 
   """An object relationship"""
+  payment_investment: payment_investment
+
+  """An object relationship"""
   proposal: proposal!
   proposal_id: Int!
   updated_at: timestamptz
@@ -3920,6 +3923,7 @@ input investment_bool_exp {
   investment_id: Int_comparison_exp
   investor: investor_bool_exp
   investor_id: Int_comparison_exp
+  payment_investment: payment_investment_bool_exp
   proposal: proposal_bool_exp
   proposal_id: Int_comparison_exp
   updated_at: timestamptz_comparison_exp
@@ -3952,6 +3956,7 @@ input investment_insert_input {
   investment_amount: Int
   investor: investor_obj_rel_insert_input
   investor_id: Int
+  payment_investment: payment_investment_obj_rel_insert_input
   proposal: proposal_obj_rel_insert_input
   proposal_id: Int
   updated_at: timestamptz
@@ -4013,6 +4018,16 @@ type investment_mutation_response {
 }
 
 """
+input type for inserting object relation for remote table "investment"
+"""
+input investment_obj_rel_insert_input {
+  data: investment_insert_input!
+
+  """upsert condition"""
+  on_conflict: investment_on_conflict
+}
+
+"""
 on_conflict condition type for table "investment"
 """
 input investment_on_conflict {
@@ -4028,6 +4043,7 @@ input investment_order_by {
   investment_id: order_by
   investor: investor_order_by
   investor_id: order_by
+  payment_investment: payment_investment_order_by
   proposal: proposal_order_by
   proposal_id: order_by
   updated_at: order_by
@@ -4811,6 +4827,32 @@ type mutation_root {
   delete_investor_by_pk(investor_id: Int!): investor
 
   """
+  delete data from the table: "payment_due"
+  """
+  delete_payment_due(
+    """filter the rows which have to be deleted"""
+    where: payment_due_bool_exp!
+  ): payment_due_mutation_response
+
+  """
+  delete single row from the table: "payment_due"
+  """
+  delete_payment_due_by_pk(payment_due_id: uuid!): payment_due
+
+  """
+  delete data from the table: "payment_investment"
+  """
+  delete_payment_investment(
+    """filter the rows which have to be deleted"""
+    where: payment_investment_bool_exp!
+  ): payment_investment_mutation_response
+
+  """
+  delete single row from the table: "payment_investment"
+  """
+  delete_payment_investment_by_pk(payment_investment_id: uuid!): payment_investment
+
+  """
   delete data from the table: "profile"
   """
   delete_profile(
@@ -5178,6 +5220,50 @@ type mutation_root {
     """upsert condition"""
     on_conflict: investor_on_conflict
   ): investor
+
+  """
+  insert data into the table: "payment_due"
+  """
+  insert_payment_due(
+    """the rows to be inserted"""
+    objects: [payment_due_insert_input!]!
+
+    """upsert condition"""
+    on_conflict: payment_due_on_conflict
+  ): payment_due_mutation_response
+
+  """
+  insert a single row into the table: "payment_due"
+  """
+  insert_payment_due_one(
+    """the row to be inserted"""
+    object: payment_due_insert_input!
+
+    """upsert condition"""
+    on_conflict: payment_due_on_conflict
+  ): payment_due
+
+  """
+  insert data into the table: "payment_investment"
+  """
+  insert_payment_investment(
+    """the rows to be inserted"""
+    objects: [payment_investment_insert_input!]!
+
+    """upsert condition"""
+    on_conflict: payment_investment_on_conflict
+  ): payment_investment_mutation_response
+
+  """
+  insert a single row into the table: "payment_investment"
+  """
+  insert_payment_investment_one(
+    """the row to be inserted"""
+    object: payment_investment_insert_input!
+
+    """upsert condition"""
+    on_conflict: payment_investment_on_conflict
+  ): payment_investment
 
   """
   insert data into the table: "profile"
@@ -5814,6 +5900,74 @@ type mutation_root {
   ): [investor_mutation_response]
 
   """
+  update data of the table: "payment_due"
+  """
+  update_payment_due(
+    """increments the numeric columns with given value of the filtered values"""
+    _inc: payment_due_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: payment_due_set_input
+
+    """filter the rows which have to be updated"""
+    where: payment_due_bool_exp!
+  ): payment_due_mutation_response
+
+  """
+  update single row of the table: "payment_due"
+  """
+  update_payment_due_by_pk(
+    """increments the numeric columns with given value of the filtered values"""
+    _inc: payment_due_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: payment_due_set_input
+    pk_columns: payment_due_pk_columns_input!
+  ): payment_due
+
+  """
+  update multiples rows of table: "payment_due"
+  """
+  update_payment_due_many(
+    """updates to execute, in order"""
+    updates: [payment_due_updates!]!
+  ): [payment_due_mutation_response]
+
+  """
+  update data of the table: "payment_investment"
+  """
+  update_payment_investment(
+    """increments the numeric columns with given value of the filtered values"""
+    _inc: payment_investment_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: payment_investment_set_input
+
+    """filter the rows which have to be updated"""
+    where: payment_investment_bool_exp!
+  ): payment_investment_mutation_response
+
+  """
+  update single row of the table: "payment_investment"
+  """
+  update_payment_investment_by_pk(
+    """increments the numeric columns with given value of the filtered values"""
+    _inc: payment_investment_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: payment_investment_set_input
+    pk_columns: payment_investment_pk_columns_input!
+  ): payment_investment
+
+  """
+  update multiples rows of table: "payment_investment"
+  """
+  update_payment_investment_many(
+    """updates to execute, in order"""
+    updates: [payment_investment_updates!]!
+  ): [payment_investment_mutation_response]
+
+  """
   update data of the table: "profile"
   """
   update_profile(
@@ -5937,6 +6091,719 @@ enum order_by {
 
   """in descending order, nulls last"""
   desc_nulls_last
+}
+
+"""
+columns and relationships of "payment_due"
+"""
+type payment_due {
+  created_at: timestamptz!
+  deadline: timestamptz!
+  fulfilled: Boolean!
+  payment_due: Int!
+  payment_due_id: uuid!
+
+  """An object relationship"""
+  umkm: umkm!
+  umkm_id: Int!
+  updated_at: timestamptz!
+}
+
+"""
+aggregated selection of "payment_due"
+"""
+type payment_due_aggregate {
+  aggregate: payment_due_aggregate_fields
+  nodes: [payment_due!]!
+}
+
+input payment_due_aggregate_bool_exp {
+  bool_and: payment_due_aggregate_bool_exp_bool_and
+  bool_or: payment_due_aggregate_bool_exp_bool_or
+  count: payment_due_aggregate_bool_exp_count
+}
+
+input payment_due_aggregate_bool_exp_bool_and {
+  arguments: payment_due_select_column_payment_due_aggregate_bool_exp_bool_and_arguments_columns!
+  distinct: Boolean
+  filter: payment_due_bool_exp
+  predicate: Boolean_comparison_exp!
+}
+
+input payment_due_aggregate_bool_exp_bool_or {
+  arguments: payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_columns!
+  distinct: Boolean
+  filter: payment_due_bool_exp
+  predicate: Boolean_comparison_exp!
+}
+
+input payment_due_aggregate_bool_exp_count {
+  arguments: [payment_due_select_column!]
+  distinct: Boolean
+  filter: payment_due_bool_exp
+  predicate: Int_comparison_exp!
+}
+
+"""
+aggregate fields of "payment_due"
+"""
+type payment_due_aggregate_fields {
+  avg: payment_due_avg_fields
+  count(columns: [payment_due_select_column!], distinct: Boolean): Int!
+  max: payment_due_max_fields
+  min: payment_due_min_fields
+  stddev: payment_due_stddev_fields
+  stddev_pop: payment_due_stddev_pop_fields
+  stddev_samp: payment_due_stddev_samp_fields
+  sum: payment_due_sum_fields
+  var_pop: payment_due_var_pop_fields
+  var_samp: payment_due_var_samp_fields
+  variance: payment_due_variance_fields
+}
+
+"""
+order by aggregate values of table "payment_due"
+"""
+input payment_due_aggregate_order_by {
+  avg: payment_due_avg_order_by
+  count: order_by
+  max: payment_due_max_order_by
+  min: payment_due_min_order_by
+  stddev: payment_due_stddev_order_by
+  stddev_pop: payment_due_stddev_pop_order_by
+  stddev_samp: payment_due_stddev_samp_order_by
+  sum: payment_due_sum_order_by
+  var_pop: payment_due_var_pop_order_by
+  var_samp: payment_due_var_samp_order_by
+  variance: payment_due_variance_order_by
+}
+
+"""
+input type for inserting array relation for remote table "payment_due"
+"""
+input payment_due_arr_rel_insert_input {
+  data: [payment_due_insert_input!]!
+
+  """upsert condition"""
+  on_conflict: payment_due_on_conflict
+}
+
+"""aggregate avg on columns"""
+type payment_due_avg_fields {
+  payment_due: Float
+  umkm_id: Float
+}
+
+"""
+order by avg() on columns of table "payment_due"
+"""
+input payment_due_avg_order_by {
+  payment_due: order_by
+  umkm_id: order_by
+}
+
+"""
+Boolean expression to filter rows from the table "payment_due". All fields are combined with a logical 'AND'.
+"""
+input payment_due_bool_exp {
+  _and: [payment_due_bool_exp!]
+  _not: payment_due_bool_exp
+  _or: [payment_due_bool_exp!]
+  created_at: timestamptz_comparison_exp
+  deadline: timestamptz_comparison_exp
+  fulfilled: Boolean_comparison_exp
+  payment_due: Int_comparison_exp
+  payment_due_id: uuid_comparison_exp
+  umkm: umkm_bool_exp
+  umkm_id: Int_comparison_exp
+  updated_at: timestamptz_comparison_exp
+}
+
+"""
+unique or primary key constraints on table "payment_due"
+"""
+enum payment_due_constraint {
+  """
+  unique or primary key constraint on columns "payment_due_id"
+  """
+  payment_due_pkey
+}
+
+"""
+input type for incrementing numeric columns in table "payment_due"
+"""
+input payment_due_inc_input {
+  payment_due: Int
+  umkm_id: Int
+}
+
+"""
+input type for inserting data into table "payment_due"
+"""
+input payment_due_insert_input {
+  created_at: timestamptz
+  deadline: timestamptz
+  fulfilled: Boolean
+  payment_due: Int
+  payment_due_id: uuid
+  umkm: umkm_obj_rel_insert_input
+  umkm_id: Int
+  updated_at: timestamptz
+}
+
+"""aggregate max on columns"""
+type payment_due_max_fields {
+  created_at: timestamptz
+  deadline: timestamptz
+  payment_due: Int
+  payment_due_id: uuid
+  umkm_id: Int
+  updated_at: timestamptz
+}
+
+"""
+order by max() on columns of table "payment_due"
+"""
+input payment_due_max_order_by {
+  created_at: order_by
+  deadline: order_by
+  payment_due: order_by
+  payment_due_id: order_by
+  umkm_id: order_by
+  updated_at: order_by
+}
+
+"""aggregate min on columns"""
+type payment_due_min_fields {
+  created_at: timestamptz
+  deadline: timestamptz
+  payment_due: Int
+  payment_due_id: uuid
+  umkm_id: Int
+  updated_at: timestamptz
+}
+
+"""
+order by min() on columns of table "payment_due"
+"""
+input payment_due_min_order_by {
+  created_at: order_by
+  deadline: order_by
+  payment_due: order_by
+  payment_due_id: order_by
+  umkm_id: order_by
+  updated_at: order_by
+}
+
+"""
+response of any mutation on the table "payment_due"
+"""
+type payment_due_mutation_response {
+  """number of rows affected by the mutation"""
+  affected_rows: Int!
+
+  """data from the rows affected by the mutation"""
+  returning: [payment_due!]!
+}
+
+"""
+on_conflict condition type for table "payment_due"
+"""
+input payment_due_on_conflict {
+  constraint: payment_due_constraint!
+  update_columns: [payment_due_update_column!]! = []
+  where: payment_due_bool_exp
+}
+
+"""Ordering options when selecting data from "payment_due"."""
+input payment_due_order_by {
+  created_at: order_by
+  deadline: order_by
+  fulfilled: order_by
+  payment_due: order_by
+  payment_due_id: order_by
+  umkm: umkm_order_by
+  umkm_id: order_by
+  updated_at: order_by
+}
+
+"""primary key columns input for table: payment_due"""
+input payment_due_pk_columns_input {
+  payment_due_id: uuid!
+}
+
+"""
+select columns of table "payment_due"
+"""
+enum payment_due_select_column {
+  """column name"""
+  created_at
+
+  """column name"""
+  deadline
+
+  """column name"""
+  fulfilled
+
+  """column name"""
+  payment_due
+
+  """column name"""
+  payment_due_id
+
+  """column name"""
+  umkm_id
+
+  """column name"""
+  updated_at
+}
+
+"""
+select "payment_due_aggregate_bool_exp_bool_and_arguments_columns" columns of table "payment_due"
+"""
+enum payment_due_select_column_payment_due_aggregate_bool_exp_bool_and_arguments_columns {
+  """column name"""
+  fulfilled
+}
+
+"""
+select "payment_due_aggregate_bool_exp_bool_or_arguments_columns" columns of table "payment_due"
+"""
+enum payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_columns {
+  """column name"""
+  fulfilled
+}
+
+"""
+input type for updating data in table "payment_due"
+"""
+input payment_due_set_input {
+  created_at: timestamptz
+  deadline: timestamptz
+  fulfilled: Boolean
+  payment_due: Int
+  payment_due_id: uuid
+  umkm_id: Int
+  updated_at: timestamptz
+}
+
+"""aggregate stddev on columns"""
+type payment_due_stddev_fields {
+  payment_due: Float
+  umkm_id: Float
+}
+
+"""
+order by stddev() on columns of table "payment_due"
+"""
+input payment_due_stddev_order_by {
+  payment_due: order_by
+  umkm_id: order_by
+}
+
+"""aggregate stddev_pop on columns"""
+type payment_due_stddev_pop_fields {
+  payment_due: Float
+  umkm_id: Float
+}
+
+"""
+order by stddev_pop() on columns of table "payment_due"
+"""
+input payment_due_stddev_pop_order_by {
+  payment_due: order_by
+  umkm_id: order_by
+}
+
+"""aggregate stddev_samp on columns"""
+type payment_due_stddev_samp_fields {
+  payment_due: Float
+  umkm_id: Float
+}
+
+"""
+order by stddev_samp() on columns of table "payment_due"
+"""
+input payment_due_stddev_samp_order_by {
+  payment_due: order_by
+  umkm_id: order_by
+}
+
+"""
+Streaming cursor of the table "payment_due"
+"""
+input payment_due_stream_cursor_input {
+  """Stream column input with initial value"""
+  initial_value: payment_due_stream_cursor_value_input!
+
+  """cursor ordering"""
+  ordering: cursor_ordering
+}
+
+"""Initial value of the column from where the streaming should start"""
+input payment_due_stream_cursor_value_input {
+  created_at: timestamptz
+  deadline: timestamptz
+  fulfilled: Boolean
+  payment_due: Int
+  payment_due_id: uuid
+  umkm_id: Int
+  updated_at: timestamptz
+}
+
+"""aggregate sum on columns"""
+type payment_due_sum_fields {
+  payment_due: Int
+  umkm_id: Int
+}
+
+"""
+order by sum() on columns of table "payment_due"
+"""
+input payment_due_sum_order_by {
+  payment_due: order_by
+  umkm_id: order_by
+}
+
+"""
+update columns of table "payment_due"
+"""
+enum payment_due_update_column {
+  """column name"""
+  created_at
+
+  """column name"""
+  deadline
+
+  """column name"""
+  fulfilled
+
+  """column name"""
+  payment_due
+
+  """column name"""
+  payment_due_id
+
+  """column name"""
+  umkm_id
+
+  """column name"""
+  updated_at
+}
+
+input payment_due_updates {
+  """increments the numeric columns with given value of the filtered values"""
+  _inc: payment_due_inc_input
+
+  """sets the columns of the filtered rows to the given values"""
+  _set: payment_due_set_input
+  where: payment_due_bool_exp!
+}
+
+"""aggregate var_pop on columns"""
+type payment_due_var_pop_fields {
+  payment_due: Float
+  umkm_id: Float
+}
+
+"""
+order by var_pop() on columns of table "payment_due"
+"""
+input payment_due_var_pop_order_by {
+  payment_due: order_by
+  umkm_id: order_by
+}
+
+"""aggregate var_samp on columns"""
+type payment_due_var_samp_fields {
+  payment_due: Float
+  umkm_id: Float
+}
+
+"""
+order by var_samp() on columns of table "payment_due"
+"""
+input payment_due_var_samp_order_by {
+  payment_due: order_by
+  umkm_id: order_by
+}
+
+"""aggregate variance on columns"""
+type payment_due_variance_fields {
+  payment_due: Float
+  umkm_id: Float
+}
+
+"""
+order by variance() on columns of table "payment_due"
+"""
+input payment_due_variance_order_by {
+  payment_due: order_by
+  umkm_id: order_by
+}
+
+"""
+columns and relationships of "payment_investment"
+"""
+type payment_investment {
+  created_at: timestamptz!
+
+  """An object relationship"""
+  investment: investment!
+  investment_id: Int!
+  payment_investment_fulfilled: Boolean!
+  payment_investment_id: uuid!
+  updated_at: timestamptz!
+}
+
+"""
+aggregated selection of "payment_investment"
+"""
+type payment_investment_aggregate {
+  aggregate: payment_investment_aggregate_fields
+  nodes: [payment_investment!]!
+}
+
+"""
+aggregate fields of "payment_investment"
+"""
+type payment_investment_aggregate_fields {
+  avg: payment_investment_avg_fields
+  count(columns: [payment_investment_select_column!], distinct: Boolean): Int!
+  max: payment_investment_max_fields
+  min: payment_investment_min_fields
+  stddev: payment_investment_stddev_fields
+  stddev_pop: payment_investment_stddev_pop_fields
+  stddev_samp: payment_investment_stddev_samp_fields
+  sum: payment_investment_sum_fields
+  var_pop: payment_investment_var_pop_fields
+  var_samp: payment_investment_var_samp_fields
+  variance: payment_investment_variance_fields
+}
+
+"""aggregate avg on columns"""
+type payment_investment_avg_fields {
+  investment_id: Float
+}
+
+"""
+Boolean expression to filter rows from the table "payment_investment". All fields are combined with a logical 'AND'.
+"""
+input payment_investment_bool_exp {
+  _and: [payment_investment_bool_exp!]
+  _not: payment_investment_bool_exp
+  _or: [payment_investment_bool_exp!]
+  created_at: timestamptz_comparison_exp
+  investment: investment_bool_exp
+  investment_id: Int_comparison_exp
+  payment_investment_fulfilled: Boolean_comparison_exp
+  payment_investment_id: uuid_comparison_exp
+  updated_at: timestamptz_comparison_exp
+}
+
+"""
+unique or primary key constraints on table "payment_investment"
+"""
+enum payment_investment_constraint {
+  """
+  unique or primary key constraint on columns "payment_investment_id"
+  """
+  payment_investment_pkey
+}
+
+"""
+input type for incrementing numeric columns in table "payment_investment"
+"""
+input payment_investment_inc_input {
+  investment_id: Int
+}
+
+"""
+input type for inserting data into table "payment_investment"
+"""
+input payment_investment_insert_input {
+  created_at: timestamptz
+  investment: investment_obj_rel_insert_input
+  investment_id: Int
+  payment_investment_fulfilled: Boolean
+  payment_investment_id: uuid
+  updated_at: timestamptz
+}
+
+"""aggregate max on columns"""
+type payment_investment_max_fields {
+  created_at: timestamptz
+  investment_id: Int
+  payment_investment_id: uuid
+  updated_at: timestamptz
+}
+
+"""aggregate min on columns"""
+type payment_investment_min_fields {
+  created_at: timestamptz
+  investment_id: Int
+  payment_investment_id: uuid
+  updated_at: timestamptz
+}
+
+"""
+response of any mutation on the table "payment_investment"
+"""
+type payment_investment_mutation_response {
+  """number of rows affected by the mutation"""
+  affected_rows: Int!
+
+  """data from the rows affected by the mutation"""
+  returning: [payment_investment!]!
+}
+
+"""
+input type for inserting object relation for remote table "payment_investment"
+"""
+input payment_investment_obj_rel_insert_input {
+  data: payment_investment_insert_input!
+
+  """upsert condition"""
+  on_conflict: payment_investment_on_conflict
+}
+
+"""
+on_conflict condition type for table "payment_investment"
+"""
+input payment_investment_on_conflict {
+  constraint: payment_investment_constraint!
+  update_columns: [payment_investment_update_column!]! = []
+  where: payment_investment_bool_exp
+}
+
+"""Ordering options when selecting data from "payment_investment"."""
+input payment_investment_order_by {
+  created_at: order_by
+  investment: investment_order_by
+  investment_id: order_by
+  payment_investment_fulfilled: order_by
+  payment_investment_id: order_by
+  updated_at: order_by
+}
+
+"""primary key columns input for table: payment_investment"""
+input payment_investment_pk_columns_input {
+  payment_investment_id: uuid!
+}
+
+"""
+select columns of table "payment_investment"
+"""
+enum payment_investment_select_column {
+  """column name"""
+  created_at
+
+  """column name"""
+  investment_id
+
+  """column name"""
+  payment_investment_fulfilled
+
+  """column name"""
+  payment_investment_id
+
+  """column name"""
+  updated_at
+}
+
+"""
+input type for updating data in table "payment_investment"
+"""
+input payment_investment_set_input {
+  created_at: timestamptz
+  investment_id: Int
+  payment_investment_fulfilled: Boolean
+  payment_investment_id: uuid
+  updated_at: timestamptz
+}
+
+"""aggregate stddev on columns"""
+type payment_investment_stddev_fields {
+  investment_id: Float
+}
+
+"""aggregate stddev_pop on columns"""
+type payment_investment_stddev_pop_fields {
+  investment_id: Float
+}
+
+"""aggregate stddev_samp on columns"""
+type payment_investment_stddev_samp_fields {
+  investment_id: Float
+}
+
+"""
+Streaming cursor of the table "payment_investment"
+"""
+input payment_investment_stream_cursor_input {
+  """Stream column input with initial value"""
+  initial_value: payment_investment_stream_cursor_value_input!
+
+  """cursor ordering"""
+  ordering: cursor_ordering
+}
+
+"""Initial value of the column from where the streaming should start"""
+input payment_investment_stream_cursor_value_input {
+  created_at: timestamptz
+  investment_id: Int
+  payment_investment_fulfilled: Boolean
+  payment_investment_id: uuid
+  updated_at: timestamptz
+}
+
+"""aggregate sum on columns"""
+type payment_investment_sum_fields {
+  investment_id: Int
+}
+
+"""
+update columns of table "payment_investment"
+"""
+enum payment_investment_update_column {
+  """column name"""
+  created_at
+
+  """column name"""
+  investment_id
+
+  """column name"""
+  payment_investment_fulfilled
+
+  """column name"""
+  payment_investment_id
+
+  """column name"""
+  updated_at
+}
+
+input payment_investment_updates {
+  """increments the numeric columns with given value of the filtered values"""
+  _inc: payment_investment_inc_input
+
+  """sets the columns of the filtered rows to the given values"""
+  _set: payment_investment_set_input
+  where: payment_investment_bool_exp!
+}
+
+"""aggregate var_pop on columns"""
+type payment_investment_var_pop_fields {
+  investment_id: Float
+}
+
+"""aggregate var_samp on columns"""
+type payment_investment_var_samp_fields {
+  investment_id: Float
+}
+
+"""aggregate variance on columns"""
+type payment_investment_variance_fields {
+  investment_id: Float
 }
 
 """
@@ -6311,6 +7178,7 @@ type proposal {
   proposal_content: String!
   proposal_date: date!
   proposal_id: Int!
+  proposal_title: String!
 
   """An object relationship"""
   umkm: umkm!
@@ -6428,6 +7296,7 @@ input proposal_bool_exp {
   proposal_content: String_comparison_exp
   proposal_date: date_comparison_exp
   proposal_id: Int_comparison_exp
+  proposal_title: String_comparison_exp
   umkm: umkm_bool_exp
   umkm_id: Int_comparison_exp
   updated_at: timestamptz_comparison_exp
@@ -6461,6 +7330,7 @@ input proposal_insert_input {
   proposal_approved: Boolean
   proposal_content: String
   proposal_date: date
+  proposal_title: String
   umkm: umkm_obj_rel_insert_input
   umkm_id: Int
   updated_at: timestamptz
@@ -6473,6 +7343,7 @@ type proposal_max_fields {
   proposal_content: String
   proposal_date: date
   proposal_id: Int
+  proposal_title: String
   umkm_id: Int
   updated_at: timestamptz
 }
@@ -6486,6 +7357,7 @@ input proposal_max_order_by {
   proposal_content: order_by
   proposal_date: order_by
   proposal_id: order_by
+  proposal_title: order_by
   umkm_id: order_by
   updated_at: order_by
 }
@@ -6497,6 +7369,7 @@ type proposal_min_fields {
   proposal_content: String
   proposal_date: date
   proposal_id: Int
+  proposal_title: String
   umkm_id: Int
   updated_at: timestamptz
 }
@@ -6510,6 +7383,7 @@ input proposal_min_order_by {
   proposal_content: order_by
   proposal_date: order_by
   proposal_id: order_by
+  proposal_title: order_by
   umkm_id: order_by
   updated_at: order_by
 }
@@ -6553,6 +7427,7 @@ input proposal_order_by {
   proposal_content: order_by
   proposal_date: order_by
   proposal_id: order_by
+  proposal_title: order_by
   umkm: umkm_order_by
   umkm_id: order_by
   updated_at: order_by
@@ -6586,6 +7461,9 @@ enum proposal_select_column {
   proposal_id
 
   """column name"""
+  proposal_title
+
+  """column name"""
   umkm_id
 
   """column name"""
@@ -6617,6 +7495,7 @@ input proposal_set_input {
   proposal_approved: Boolean
   proposal_content: String
   proposal_date: date
+  proposal_title: String
   umkm_id: Int
   updated_at: timestamptz
 }
@@ -6688,6 +7567,7 @@ input proposal_stream_cursor_value_input {
   proposal_content: String
   proposal_date: date
   proposal_id: Int
+  proposal_title: String
   umkm_id: Int
   updated_at: timestamptz
 }
@@ -6726,6 +7606,9 @@ enum proposal_update_column {
 
   """column name"""
   proposal_date
+
+  """column name"""
+  proposal_title
 
   """column name"""
   umkm_id
@@ -7401,6 +8284,94 @@ type query_root {
 
   """fetch data from the table: "investor" using primary key columns"""
   investor_by_pk(investor_id: Int!): investor
+
+  """
+  fetch data from the table: "payment_due"
+  """
+  payment_due(
+    """distinct select on columns"""
+    distinct_on: [payment_due_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [payment_due_order_by!]
+
+    """filter the rows returned"""
+    where: payment_due_bool_exp
+  ): [payment_due!]!
+
+  """
+  fetch aggregated fields from the table: "payment_due"
+  """
+  payment_due_aggregate(
+    """distinct select on columns"""
+    distinct_on: [payment_due_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [payment_due_order_by!]
+
+    """filter the rows returned"""
+    where: payment_due_bool_exp
+  ): payment_due_aggregate!
+
+  """fetch data from the table: "payment_due" using primary key columns"""
+  payment_due_by_pk(payment_due_id: uuid!): payment_due
+
+  """
+  fetch data from the table: "payment_investment"
+  """
+  payment_investment(
+    """distinct select on columns"""
+    distinct_on: [payment_investment_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [payment_investment_order_by!]
+
+    """filter the rows returned"""
+    where: payment_investment_bool_exp
+  ): [payment_investment!]!
+
+  """
+  fetch aggregated fields from the table: "payment_investment"
+  """
+  payment_investment_aggregate(
+    """distinct select on columns"""
+    distinct_on: [payment_investment_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [payment_investment_order_by!]
+
+    """filter the rows returned"""
+    where: payment_investment_bool_exp
+  ): payment_investment_aggregate!
+
+  """
+  fetch data from the table: "payment_investment" using primary key columns
+  """
+  payment_investment_by_pk(payment_investment_id: uuid!): payment_investment
 
   """
   fetch data from the table: "profile"
@@ -8383,6 +9354,122 @@ type subscription_root {
   ): [investor!]!
 
   """
+  fetch data from the table: "payment_due"
+  """
+  payment_due(
+    """distinct select on columns"""
+    distinct_on: [payment_due_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [payment_due_order_by!]
+
+    """filter the rows returned"""
+    where: payment_due_bool_exp
+  ): [payment_due!]!
+
+  """
+  fetch aggregated fields from the table: "payment_due"
+  """
+  payment_due_aggregate(
+    """distinct select on columns"""
+    distinct_on: [payment_due_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [payment_due_order_by!]
+
+    """filter the rows returned"""
+    where: payment_due_bool_exp
+  ): payment_due_aggregate!
+
+  """fetch data from the table: "payment_due" using primary key columns"""
+  payment_due_by_pk(payment_due_id: uuid!): payment_due
+
+  """
+  fetch data from the table in a streaming manner: "payment_due"
+  """
+  payment_due_stream(
+    """maximum number of rows returned in a single batch"""
+    batch_size: Int!
+
+    """cursor to stream the results returned by the query"""
+    cursor: [payment_due_stream_cursor_input]!
+
+    """filter the rows returned"""
+    where: payment_due_bool_exp
+  ): [payment_due!]!
+
+  """
+  fetch data from the table: "payment_investment"
+  """
+  payment_investment(
+    """distinct select on columns"""
+    distinct_on: [payment_investment_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [payment_investment_order_by!]
+
+    """filter the rows returned"""
+    where: payment_investment_bool_exp
+  ): [payment_investment!]!
+
+  """
+  fetch aggregated fields from the table: "payment_investment"
+  """
+  payment_investment_aggregate(
+    """distinct select on columns"""
+    distinct_on: [payment_investment_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [payment_investment_order_by!]
+
+    """filter the rows returned"""
+    where: payment_investment_bool_exp
+  ): payment_investment_aggregate!
+
+  """
+  fetch data from the table: "payment_investment" using primary key columns
+  """
+  payment_investment_by_pk(payment_investment_id: uuid!): payment_investment
+
+  """
+  fetch data from the table in a streaming manner: "payment_investment"
+  """
+  payment_investment_stream(
+    """maximum number of rows returned in a single batch"""
+    batch_size: Int!
+
+    """cursor to stream the results returned by the query"""
+    cursor: [payment_investment_stream_cursor_input]!
+
+    """filter the rows returned"""
+    where: payment_investment_bool_exp
+  ): [payment_investment!]!
+
+  """
   fetch data from the table: "profile"
   """
   profile(
@@ -8635,6 +9722,42 @@ type umkm {
   created_at: timestamptz
 
   """An array relationship"""
+  payment_dues(
+    """distinct select on columns"""
+    distinct_on: [payment_due_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [payment_due_order_by!]
+
+    """filter the rows returned"""
+    where: payment_due_bool_exp
+  ): [payment_due!]!
+
+  """An aggregate relationship"""
+  payment_dues_aggregate(
+    """distinct select on columns"""
+    distinct_on: [payment_due_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [payment_due_order_by!]
+
+    """filter the rows returned"""
+    where: payment_due_bool_exp
+  ): payment_due_aggregate!
+
+  """An array relationship"""
   proposals(
     """distinct select on columns"""
     distinct_on: [proposal_select_column!]
@@ -8720,6 +9843,8 @@ input umkm_bool_exp {
   _not: umkm_bool_exp
   _or: [umkm_bool_exp!]
   created_at: timestamptz_comparison_exp
+  payment_dues: payment_due_bool_exp
+  payment_dues_aggregate: payment_due_aggregate_bool_exp
   proposals: proposal_bool_exp
   proposals_aggregate: proposal_aggregate_bool_exp
   umkm_desc: String_comparison_exp
@@ -8759,6 +9884,7 @@ input type for inserting data into table "umkm"
 """
 input umkm_insert_input {
   created_at: timestamptz
+  payment_dues: payment_due_arr_rel_insert_input
   proposals: proposal_arr_rel_insert_input
   umkm_desc: String
   umkm_name: String
@@ -8826,6 +9952,7 @@ input umkm_on_conflict {
 """Ordering options when selecting data from "umkm"."""
 input umkm_order_by {
   created_at: order_by
+  payment_dues_aggregate: payment_due_aggregate_order_by
   proposals_aggregate: proposal_aggregate_order_by
   umkm_desc: order_by
   umkm_id: order_by
