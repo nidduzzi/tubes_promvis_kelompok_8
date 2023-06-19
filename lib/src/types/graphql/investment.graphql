@@ -4,6 +4,9 @@ fragment investmentData on investment {
     investment_amount
     updated_at
     created_at
+    payment_investment {
+        payment_investment_id
+    }
 }
 
 mutation InsertInvestmentMutation($data: investment_insert_input!) {

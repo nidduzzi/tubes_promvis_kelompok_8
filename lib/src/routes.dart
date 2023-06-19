@@ -5,6 +5,7 @@ import 'package:talker_flutter/talker_flutter.dart';
 import 'package:tubes_promvis_kelompok_8/src/helpers/auth.dart';
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/blog_page.dart';
+import 'package:tubes_promvis_kelompok_8/src/pages/create_investment_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/csmessage_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/customer_message_page.dart';
 import 'package:tubes_promvis_kelompok_8/src/pages/home_page.dart';
@@ -87,15 +88,25 @@ class AppRouter {
     ),
     RouteParams(
       name: 'create proposal',
-      path: '/create_proposal',
+      path: '/proposal/create',
       builder: (context, state) => const ProposalPage(),
       allowedRoles: ['umkm', 'admin', 'cs'],
     ),
     RouteParams(
       name: 'view proposal',
-      path: '/view_proposal',
+      path: '/proposal',
       builder: (context, state) => const ViewProposalPage(),
       allowedRoles: ['umkm', 'investor', 'admin', 'cs'],
+    ),
+    RouteParams(
+      name: 'invest proposal',
+      path: '/proposal/:proposalId/invest',
+      builder: (context, state) {
+        return CreateProposalInvestmentPage(
+          proposalId: int.parse(state.pathParameters['proposalId'] ?? '-1'),
+        );
+      },
+      allowedRoles: ['investor'],
     ),
     RouteParams(
       name: 'blog',

@@ -25662,6 +25662,5644 @@ class _CopyWithStubImpl$Input$authUserSecurityKeys_variance_order_by<TRes>
   call({Enum$order_by? counter}) => _res;
 }
 
+class Input$bank_card_aggregate_bool_exp {
+  factory Input$bank_card_aggregate_bool_exp(
+          {Input$bank_card_aggregate_bool_exp_count? count}) =>
+      Input$bank_card_aggregate_bool_exp._({
+        if (count != null) r'count': count,
+      });
+
+  Input$bank_card_aggregate_bool_exp._(this._$data);
+
+  factory Input$bank_card_aggregate_bool_exp.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('count')) {
+      final l$count = data['count'];
+      result$data['count'] = l$count == null
+          ? null
+          : Input$bank_card_aggregate_bool_exp_count.fromJson(
+              (l$count as Map<String, dynamic>));
+    }
+    return Input$bank_card_aggregate_bool_exp._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$bank_card_aggregate_bool_exp_count? get count =>
+      (_$data['count'] as Input$bank_card_aggregate_bool_exp_count?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('count')) {
+      final l$count = count;
+      result$data['count'] = l$count?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_aggregate_bool_exp<
+          Input$bank_card_aggregate_bool_exp>
+      get copyWith => CopyWith$Input$bank_card_aggregate_bool_exp(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_aggregate_bool_exp) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$count = count;
+    final lOther$count = other.count;
+    if (_$data.containsKey('count') != other._$data.containsKey('count')) {
+      return false;
+    }
+    if (l$count != lOther$count) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$count = count;
+    return Object.hashAll([_$data.containsKey('count') ? l$count : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_aggregate_bool_exp<TRes> {
+  factory CopyWith$Input$bank_card_aggregate_bool_exp(
+    Input$bank_card_aggregate_bool_exp instance,
+    TRes Function(Input$bank_card_aggregate_bool_exp) then,
+  ) = _CopyWithImpl$Input$bank_card_aggregate_bool_exp;
+
+  factory CopyWith$Input$bank_card_aggregate_bool_exp.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_aggregate_bool_exp;
+
+  TRes call({Input$bank_card_aggregate_bool_exp_count? count});
+  CopyWith$Input$bank_card_aggregate_bool_exp_count<TRes> get count;
+}
+
+class _CopyWithImpl$Input$bank_card_aggregate_bool_exp<TRes>
+    implements CopyWith$Input$bank_card_aggregate_bool_exp<TRes> {
+  _CopyWithImpl$Input$bank_card_aggregate_bool_exp(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_aggregate_bool_exp _instance;
+
+  final TRes Function(Input$bank_card_aggregate_bool_exp) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? count = _undefined}) =>
+      _then(Input$bank_card_aggregate_bool_exp._({
+        ..._instance._$data,
+        if (count != _undefined)
+          'count': (count as Input$bank_card_aggregate_bool_exp_count?),
+      }));
+  CopyWith$Input$bank_card_aggregate_bool_exp_count<TRes> get count {
+    final local$count = _instance.count;
+    return local$count == null
+        ? CopyWith$Input$bank_card_aggregate_bool_exp_count.stub(
+            _then(_instance))
+        : CopyWith$Input$bank_card_aggregate_bool_exp_count(
+            local$count, (e) => call(count: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$bank_card_aggregate_bool_exp<TRes>
+    implements CopyWith$Input$bank_card_aggregate_bool_exp<TRes> {
+  _CopyWithStubImpl$Input$bank_card_aggregate_bool_exp(this._res);
+
+  TRes _res;
+
+  call({Input$bank_card_aggregate_bool_exp_count? count}) => _res;
+  CopyWith$Input$bank_card_aggregate_bool_exp_count<TRes> get count =>
+      CopyWith$Input$bank_card_aggregate_bool_exp_count.stub(_res);
+}
+
+class Input$bank_card_aggregate_bool_exp_count {
+  factory Input$bank_card_aggregate_bool_exp_count({
+    List<Enum$bank_card_select_column>? arguments,
+    bool? distinct,
+    Input$bank_card_bool_exp? filter,
+    required Input$Int_comparison_exp predicate,
+  }) =>
+      Input$bank_card_aggregate_bool_exp_count._({
+        if (arguments != null) r'arguments': arguments,
+        if (distinct != null) r'distinct': distinct,
+        if (filter != null) r'filter': filter,
+        r'predicate': predicate,
+      });
+
+  Input$bank_card_aggregate_bool_exp_count._(this._$data);
+
+  factory Input$bank_card_aggregate_bool_exp_count.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('arguments')) {
+      final l$arguments = data['arguments'];
+      result$data['arguments'] = (l$arguments as List<dynamic>?)
+          ?.map((e) => fromJson$Enum$bank_card_select_column((e as String)))
+          .toList();
+    }
+    if (data.containsKey('distinct')) {
+      final l$distinct = data['distinct'];
+      result$data['distinct'] = (l$distinct as bool?);
+    }
+    if (data.containsKey('filter')) {
+      final l$filter = data['filter'];
+      result$data['filter'] = l$filter == null
+          ? null
+          : Input$bank_card_bool_exp.fromJson(
+              (l$filter as Map<String, dynamic>));
+    }
+    final l$predicate = data['predicate'];
+    result$data['predicate'] = Input$Int_comparison_exp.fromJson(
+        (l$predicate as Map<String, dynamic>));
+    return Input$bank_card_aggregate_bool_exp_count._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  List<Enum$bank_card_select_column>? get arguments =>
+      (_$data['arguments'] as List<Enum$bank_card_select_column>?);
+  bool? get distinct => (_$data['distinct'] as bool?);
+  Input$bank_card_bool_exp? get filter =>
+      (_$data['filter'] as Input$bank_card_bool_exp?);
+  Input$Int_comparison_exp get predicate =>
+      (_$data['predicate'] as Input$Int_comparison_exp);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('arguments')) {
+      final l$arguments = arguments;
+      result$data['arguments'] = l$arguments
+          ?.map((e) => toJson$Enum$bank_card_select_column(e))
+          .toList();
+    }
+    if (_$data.containsKey('distinct')) {
+      final l$distinct = distinct;
+      result$data['distinct'] = l$distinct;
+    }
+    if (_$data.containsKey('filter')) {
+      final l$filter = filter;
+      result$data['filter'] = l$filter?.toJson();
+    }
+    final l$predicate = predicate;
+    result$data['predicate'] = l$predicate.toJson();
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_aggregate_bool_exp_count<
+          Input$bank_card_aggregate_bool_exp_count>
+      get copyWith => CopyWith$Input$bank_card_aggregate_bool_exp_count(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_aggregate_bool_exp_count) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$arguments = arguments;
+    final lOther$arguments = other.arguments;
+    if (_$data.containsKey('arguments') !=
+        other._$data.containsKey('arguments')) {
+      return false;
+    }
+    if (l$arguments != null && lOther$arguments != null) {
+      if (l$arguments.length != lOther$arguments.length) {
+        return false;
+      }
+      for (int i = 0; i < l$arguments.length; i++) {
+        final l$arguments$entry = l$arguments[i];
+        final lOther$arguments$entry = lOther$arguments[i];
+        if (l$arguments$entry != lOther$arguments$entry) {
+          return false;
+        }
+      }
+    } else if (l$arguments != lOther$arguments) {
+      return false;
+    }
+    final l$distinct = distinct;
+    final lOther$distinct = other.distinct;
+    if (_$data.containsKey('distinct') !=
+        other._$data.containsKey('distinct')) {
+      return false;
+    }
+    if (l$distinct != lOther$distinct) {
+      return false;
+    }
+    final l$filter = filter;
+    final lOther$filter = other.filter;
+    if (_$data.containsKey('filter') != other._$data.containsKey('filter')) {
+      return false;
+    }
+    if (l$filter != lOther$filter) {
+      return false;
+    }
+    final l$predicate = predicate;
+    final lOther$predicate = other.predicate;
+    if (l$predicate != lOther$predicate) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$arguments = arguments;
+    final l$distinct = distinct;
+    final l$filter = filter;
+    final l$predicate = predicate;
+    return Object.hashAll([
+      _$data.containsKey('arguments')
+          ? l$arguments == null
+              ? null
+              : Object.hashAll(l$arguments.map((v) => v))
+          : const {},
+      _$data.containsKey('distinct') ? l$distinct : const {},
+      _$data.containsKey('filter') ? l$filter : const {},
+      l$predicate,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_aggregate_bool_exp_count<TRes> {
+  factory CopyWith$Input$bank_card_aggregate_bool_exp_count(
+    Input$bank_card_aggregate_bool_exp_count instance,
+    TRes Function(Input$bank_card_aggregate_bool_exp_count) then,
+  ) = _CopyWithImpl$Input$bank_card_aggregate_bool_exp_count;
+
+  factory CopyWith$Input$bank_card_aggregate_bool_exp_count.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_aggregate_bool_exp_count;
+
+  TRes call({
+    List<Enum$bank_card_select_column>? arguments,
+    bool? distinct,
+    Input$bank_card_bool_exp? filter,
+    Input$Int_comparison_exp? predicate,
+  });
+  CopyWith$Input$bank_card_bool_exp<TRes> get filter;
+  CopyWith$Input$Int_comparison_exp<TRes> get predicate;
+}
+
+class _CopyWithImpl$Input$bank_card_aggregate_bool_exp_count<TRes>
+    implements CopyWith$Input$bank_card_aggregate_bool_exp_count<TRes> {
+  _CopyWithImpl$Input$bank_card_aggregate_bool_exp_count(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_aggregate_bool_exp_count _instance;
+
+  final TRes Function(Input$bank_card_aggregate_bool_exp_count) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? arguments = _undefined,
+    Object? distinct = _undefined,
+    Object? filter = _undefined,
+    Object? predicate = _undefined,
+  }) =>
+      _then(Input$bank_card_aggregate_bool_exp_count._({
+        ..._instance._$data,
+        if (arguments != _undefined)
+          'arguments': (arguments as List<Enum$bank_card_select_column>?),
+        if (distinct != _undefined) 'distinct': (distinct as bool?),
+        if (filter != _undefined)
+          'filter': (filter as Input$bank_card_bool_exp?),
+        if (predicate != _undefined && predicate != null)
+          'predicate': (predicate as Input$Int_comparison_exp),
+      }));
+  CopyWith$Input$bank_card_bool_exp<TRes> get filter {
+    final local$filter = _instance.filter;
+    return local$filter == null
+        ? CopyWith$Input$bank_card_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$bank_card_bool_exp(
+            local$filter, (e) => call(filter: e));
+  }
+
+  CopyWith$Input$Int_comparison_exp<TRes> get predicate {
+    final local$predicate = _instance.predicate;
+    return CopyWith$Input$Int_comparison_exp(
+        local$predicate, (e) => call(predicate: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$bank_card_aggregate_bool_exp_count<TRes>
+    implements CopyWith$Input$bank_card_aggregate_bool_exp_count<TRes> {
+  _CopyWithStubImpl$Input$bank_card_aggregate_bool_exp_count(this._res);
+
+  TRes _res;
+
+  call({
+    List<Enum$bank_card_select_column>? arguments,
+    bool? distinct,
+    Input$bank_card_bool_exp? filter,
+    Input$Int_comparison_exp? predicate,
+  }) =>
+      _res;
+  CopyWith$Input$bank_card_bool_exp<TRes> get filter =>
+      CopyWith$Input$bank_card_bool_exp.stub(_res);
+  CopyWith$Input$Int_comparison_exp<TRes> get predicate =>
+      CopyWith$Input$Int_comparison_exp.stub(_res);
+}
+
+class Input$bank_card_aggregate_order_by {
+  factory Input$bank_card_aggregate_order_by({
+    Input$bank_card_avg_order_by? avg,
+    Enum$order_by? count,
+    Input$bank_card_max_order_by? max,
+    Input$bank_card_min_order_by? min,
+    Input$bank_card_stddev_order_by? stddev,
+    Input$bank_card_stddev_pop_order_by? stddev_pop,
+    Input$bank_card_stddev_samp_order_by? stddev_samp,
+    Input$bank_card_sum_order_by? sum,
+    Input$bank_card_var_pop_order_by? var_pop,
+    Input$bank_card_var_samp_order_by? var_samp,
+    Input$bank_card_variance_order_by? variance,
+  }) =>
+      Input$bank_card_aggregate_order_by._({
+        if (avg != null) r'avg': avg,
+        if (count != null) r'count': count,
+        if (max != null) r'max': max,
+        if (min != null) r'min': min,
+        if (stddev != null) r'stddev': stddev,
+        if (stddev_pop != null) r'stddev_pop': stddev_pop,
+        if (stddev_samp != null) r'stddev_samp': stddev_samp,
+        if (sum != null) r'sum': sum,
+        if (var_pop != null) r'var_pop': var_pop,
+        if (var_samp != null) r'var_samp': var_samp,
+        if (variance != null) r'variance': variance,
+      });
+
+  Input$bank_card_aggregate_order_by._(this._$data);
+
+  factory Input$bank_card_aggregate_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('avg')) {
+      final l$avg = data['avg'];
+      result$data['avg'] = l$avg == null
+          ? null
+          : Input$bank_card_avg_order_by.fromJson(
+              (l$avg as Map<String, dynamic>));
+    }
+    if (data.containsKey('count')) {
+      final l$count = data['count'];
+      result$data['count'] =
+          l$count == null ? null : fromJson$Enum$order_by((l$count as String));
+    }
+    if (data.containsKey('max')) {
+      final l$max = data['max'];
+      result$data['max'] = l$max == null
+          ? null
+          : Input$bank_card_max_order_by.fromJson(
+              (l$max as Map<String, dynamic>));
+    }
+    if (data.containsKey('min')) {
+      final l$min = data['min'];
+      result$data['min'] = l$min == null
+          ? null
+          : Input$bank_card_min_order_by.fromJson(
+              (l$min as Map<String, dynamic>));
+    }
+    if (data.containsKey('stddev')) {
+      final l$stddev = data['stddev'];
+      result$data['stddev'] = l$stddev == null
+          ? null
+          : Input$bank_card_stddev_order_by.fromJson(
+              (l$stddev as Map<String, dynamic>));
+    }
+    if (data.containsKey('stddev_pop')) {
+      final l$stddev_pop = data['stddev_pop'];
+      result$data['stddev_pop'] = l$stddev_pop == null
+          ? null
+          : Input$bank_card_stddev_pop_order_by.fromJson(
+              (l$stddev_pop as Map<String, dynamic>));
+    }
+    if (data.containsKey('stddev_samp')) {
+      final l$stddev_samp = data['stddev_samp'];
+      result$data['stddev_samp'] = l$stddev_samp == null
+          ? null
+          : Input$bank_card_stddev_samp_order_by.fromJson(
+              (l$stddev_samp as Map<String, dynamic>));
+    }
+    if (data.containsKey('sum')) {
+      final l$sum = data['sum'];
+      result$data['sum'] = l$sum == null
+          ? null
+          : Input$bank_card_sum_order_by.fromJson(
+              (l$sum as Map<String, dynamic>));
+    }
+    if (data.containsKey('var_pop')) {
+      final l$var_pop = data['var_pop'];
+      result$data['var_pop'] = l$var_pop == null
+          ? null
+          : Input$bank_card_var_pop_order_by.fromJson(
+              (l$var_pop as Map<String, dynamic>));
+    }
+    if (data.containsKey('var_samp')) {
+      final l$var_samp = data['var_samp'];
+      result$data['var_samp'] = l$var_samp == null
+          ? null
+          : Input$bank_card_var_samp_order_by.fromJson(
+              (l$var_samp as Map<String, dynamic>));
+    }
+    if (data.containsKey('variance')) {
+      final l$variance = data['variance'];
+      result$data['variance'] = l$variance == null
+          ? null
+          : Input$bank_card_variance_order_by.fromJson(
+              (l$variance as Map<String, dynamic>));
+    }
+    return Input$bank_card_aggregate_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$bank_card_avg_order_by? get avg =>
+      (_$data['avg'] as Input$bank_card_avg_order_by?);
+  Enum$order_by? get count => (_$data['count'] as Enum$order_by?);
+  Input$bank_card_max_order_by? get max =>
+      (_$data['max'] as Input$bank_card_max_order_by?);
+  Input$bank_card_min_order_by? get min =>
+      (_$data['min'] as Input$bank_card_min_order_by?);
+  Input$bank_card_stddev_order_by? get stddev =>
+      (_$data['stddev'] as Input$bank_card_stddev_order_by?);
+  Input$bank_card_stddev_pop_order_by? get stddev_pop =>
+      (_$data['stddev_pop'] as Input$bank_card_stddev_pop_order_by?);
+  Input$bank_card_stddev_samp_order_by? get stddev_samp =>
+      (_$data['stddev_samp'] as Input$bank_card_stddev_samp_order_by?);
+  Input$bank_card_sum_order_by? get sum =>
+      (_$data['sum'] as Input$bank_card_sum_order_by?);
+  Input$bank_card_var_pop_order_by? get var_pop =>
+      (_$data['var_pop'] as Input$bank_card_var_pop_order_by?);
+  Input$bank_card_var_samp_order_by? get var_samp =>
+      (_$data['var_samp'] as Input$bank_card_var_samp_order_by?);
+  Input$bank_card_variance_order_by? get variance =>
+      (_$data['variance'] as Input$bank_card_variance_order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('avg')) {
+      final l$avg = avg;
+      result$data['avg'] = l$avg?.toJson();
+    }
+    if (_$data.containsKey('count')) {
+      final l$count = count;
+      result$data['count'] =
+          l$count == null ? null : toJson$Enum$order_by(l$count);
+    }
+    if (_$data.containsKey('max')) {
+      final l$max = max;
+      result$data['max'] = l$max?.toJson();
+    }
+    if (_$data.containsKey('min')) {
+      final l$min = min;
+      result$data['min'] = l$min?.toJson();
+    }
+    if (_$data.containsKey('stddev')) {
+      final l$stddev = stddev;
+      result$data['stddev'] = l$stddev?.toJson();
+    }
+    if (_$data.containsKey('stddev_pop')) {
+      final l$stddev_pop = stddev_pop;
+      result$data['stddev_pop'] = l$stddev_pop?.toJson();
+    }
+    if (_$data.containsKey('stddev_samp')) {
+      final l$stddev_samp = stddev_samp;
+      result$data['stddev_samp'] = l$stddev_samp?.toJson();
+    }
+    if (_$data.containsKey('sum')) {
+      final l$sum = sum;
+      result$data['sum'] = l$sum?.toJson();
+    }
+    if (_$data.containsKey('var_pop')) {
+      final l$var_pop = var_pop;
+      result$data['var_pop'] = l$var_pop?.toJson();
+    }
+    if (_$data.containsKey('var_samp')) {
+      final l$var_samp = var_samp;
+      result$data['var_samp'] = l$var_samp?.toJson();
+    }
+    if (_$data.containsKey('variance')) {
+      final l$variance = variance;
+      result$data['variance'] = l$variance?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_aggregate_order_by<
+          Input$bank_card_aggregate_order_by>
+      get copyWith => CopyWith$Input$bank_card_aggregate_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_aggregate_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$avg = avg;
+    final lOther$avg = other.avg;
+    if (_$data.containsKey('avg') != other._$data.containsKey('avg')) {
+      return false;
+    }
+    if (l$avg != lOther$avg) {
+      return false;
+    }
+    final l$count = count;
+    final lOther$count = other.count;
+    if (_$data.containsKey('count') != other._$data.containsKey('count')) {
+      return false;
+    }
+    if (l$count != lOther$count) {
+      return false;
+    }
+    final l$max = max;
+    final lOther$max = other.max;
+    if (_$data.containsKey('max') != other._$data.containsKey('max')) {
+      return false;
+    }
+    if (l$max != lOther$max) {
+      return false;
+    }
+    final l$min = min;
+    final lOther$min = other.min;
+    if (_$data.containsKey('min') != other._$data.containsKey('min')) {
+      return false;
+    }
+    if (l$min != lOther$min) {
+      return false;
+    }
+    final l$stddev = stddev;
+    final lOther$stddev = other.stddev;
+    if (_$data.containsKey('stddev') != other._$data.containsKey('stddev')) {
+      return false;
+    }
+    if (l$stddev != lOther$stddev) {
+      return false;
+    }
+    final l$stddev_pop = stddev_pop;
+    final lOther$stddev_pop = other.stddev_pop;
+    if (_$data.containsKey('stddev_pop') !=
+        other._$data.containsKey('stddev_pop')) {
+      return false;
+    }
+    if (l$stddev_pop != lOther$stddev_pop) {
+      return false;
+    }
+    final l$stddev_samp = stddev_samp;
+    final lOther$stddev_samp = other.stddev_samp;
+    if (_$data.containsKey('stddev_samp') !=
+        other._$data.containsKey('stddev_samp')) {
+      return false;
+    }
+    if (l$stddev_samp != lOther$stddev_samp) {
+      return false;
+    }
+    final l$sum = sum;
+    final lOther$sum = other.sum;
+    if (_$data.containsKey('sum') != other._$data.containsKey('sum')) {
+      return false;
+    }
+    if (l$sum != lOther$sum) {
+      return false;
+    }
+    final l$var_pop = var_pop;
+    final lOther$var_pop = other.var_pop;
+    if (_$data.containsKey('var_pop') != other._$data.containsKey('var_pop')) {
+      return false;
+    }
+    if (l$var_pop != lOther$var_pop) {
+      return false;
+    }
+    final l$var_samp = var_samp;
+    final lOther$var_samp = other.var_samp;
+    if (_$data.containsKey('var_samp') !=
+        other._$data.containsKey('var_samp')) {
+      return false;
+    }
+    if (l$var_samp != lOther$var_samp) {
+      return false;
+    }
+    final l$variance = variance;
+    final lOther$variance = other.variance;
+    if (_$data.containsKey('variance') !=
+        other._$data.containsKey('variance')) {
+      return false;
+    }
+    if (l$variance != lOther$variance) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$avg = avg;
+    final l$count = count;
+    final l$max = max;
+    final l$min = min;
+    final l$stddev = stddev;
+    final l$stddev_pop = stddev_pop;
+    final l$stddev_samp = stddev_samp;
+    final l$sum = sum;
+    final l$var_pop = var_pop;
+    final l$var_samp = var_samp;
+    final l$variance = variance;
+    return Object.hashAll([
+      _$data.containsKey('avg') ? l$avg : const {},
+      _$data.containsKey('count') ? l$count : const {},
+      _$data.containsKey('max') ? l$max : const {},
+      _$data.containsKey('min') ? l$min : const {},
+      _$data.containsKey('stddev') ? l$stddev : const {},
+      _$data.containsKey('stddev_pop') ? l$stddev_pop : const {},
+      _$data.containsKey('stddev_samp') ? l$stddev_samp : const {},
+      _$data.containsKey('sum') ? l$sum : const {},
+      _$data.containsKey('var_pop') ? l$var_pop : const {},
+      _$data.containsKey('var_samp') ? l$var_samp : const {},
+      _$data.containsKey('variance') ? l$variance : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_aggregate_order_by<TRes> {
+  factory CopyWith$Input$bank_card_aggregate_order_by(
+    Input$bank_card_aggregate_order_by instance,
+    TRes Function(Input$bank_card_aggregate_order_by) then,
+  ) = _CopyWithImpl$Input$bank_card_aggregate_order_by;
+
+  factory CopyWith$Input$bank_card_aggregate_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_aggregate_order_by;
+
+  TRes call({
+    Input$bank_card_avg_order_by? avg,
+    Enum$order_by? count,
+    Input$bank_card_max_order_by? max,
+    Input$bank_card_min_order_by? min,
+    Input$bank_card_stddev_order_by? stddev,
+    Input$bank_card_stddev_pop_order_by? stddev_pop,
+    Input$bank_card_stddev_samp_order_by? stddev_samp,
+    Input$bank_card_sum_order_by? sum,
+    Input$bank_card_var_pop_order_by? var_pop,
+    Input$bank_card_var_samp_order_by? var_samp,
+    Input$bank_card_variance_order_by? variance,
+  });
+  CopyWith$Input$bank_card_avg_order_by<TRes> get avg;
+  CopyWith$Input$bank_card_max_order_by<TRes> get max;
+  CopyWith$Input$bank_card_min_order_by<TRes> get min;
+  CopyWith$Input$bank_card_stddev_order_by<TRes> get stddev;
+  CopyWith$Input$bank_card_stddev_pop_order_by<TRes> get stddev_pop;
+  CopyWith$Input$bank_card_stddev_samp_order_by<TRes> get stddev_samp;
+  CopyWith$Input$bank_card_sum_order_by<TRes> get sum;
+  CopyWith$Input$bank_card_var_pop_order_by<TRes> get var_pop;
+  CopyWith$Input$bank_card_var_samp_order_by<TRes> get var_samp;
+  CopyWith$Input$bank_card_variance_order_by<TRes> get variance;
+}
+
+class _CopyWithImpl$Input$bank_card_aggregate_order_by<TRes>
+    implements CopyWith$Input$bank_card_aggregate_order_by<TRes> {
+  _CopyWithImpl$Input$bank_card_aggregate_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_aggregate_order_by _instance;
+
+  final TRes Function(Input$bank_card_aggregate_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? avg = _undefined,
+    Object? count = _undefined,
+    Object? max = _undefined,
+    Object? min = _undefined,
+    Object? stddev = _undefined,
+    Object? stddev_pop = _undefined,
+    Object? stddev_samp = _undefined,
+    Object? sum = _undefined,
+    Object? var_pop = _undefined,
+    Object? var_samp = _undefined,
+    Object? variance = _undefined,
+  }) =>
+      _then(Input$bank_card_aggregate_order_by._({
+        ..._instance._$data,
+        if (avg != _undefined) 'avg': (avg as Input$bank_card_avg_order_by?),
+        if (count != _undefined) 'count': (count as Enum$order_by?),
+        if (max != _undefined) 'max': (max as Input$bank_card_max_order_by?),
+        if (min != _undefined) 'min': (min as Input$bank_card_min_order_by?),
+        if (stddev != _undefined)
+          'stddev': (stddev as Input$bank_card_stddev_order_by?),
+        if (stddev_pop != _undefined)
+          'stddev_pop': (stddev_pop as Input$bank_card_stddev_pop_order_by?),
+        if (stddev_samp != _undefined)
+          'stddev_samp': (stddev_samp as Input$bank_card_stddev_samp_order_by?),
+        if (sum != _undefined) 'sum': (sum as Input$bank_card_sum_order_by?),
+        if (var_pop != _undefined)
+          'var_pop': (var_pop as Input$bank_card_var_pop_order_by?),
+        if (var_samp != _undefined)
+          'var_samp': (var_samp as Input$bank_card_var_samp_order_by?),
+        if (variance != _undefined)
+          'variance': (variance as Input$bank_card_variance_order_by?),
+      }));
+  CopyWith$Input$bank_card_avg_order_by<TRes> get avg {
+    final local$avg = _instance.avg;
+    return local$avg == null
+        ? CopyWith$Input$bank_card_avg_order_by.stub(_then(_instance))
+        : CopyWith$Input$bank_card_avg_order_by(local$avg, (e) => call(avg: e));
+  }
+
+  CopyWith$Input$bank_card_max_order_by<TRes> get max {
+    final local$max = _instance.max;
+    return local$max == null
+        ? CopyWith$Input$bank_card_max_order_by.stub(_then(_instance))
+        : CopyWith$Input$bank_card_max_order_by(local$max, (e) => call(max: e));
+  }
+
+  CopyWith$Input$bank_card_min_order_by<TRes> get min {
+    final local$min = _instance.min;
+    return local$min == null
+        ? CopyWith$Input$bank_card_min_order_by.stub(_then(_instance))
+        : CopyWith$Input$bank_card_min_order_by(local$min, (e) => call(min: e));
+  }
+
+  CopyWith$Input$bank_card_stddev_order_by<TRes> get stddev {
+    final local$stddev = _instance.stddev;
+    return local$stddev == null
+        ? CopyWith$Input$bank_card_stddev_order_by.stub(_then(_instance))
+        : CopyWith$Input$bank_card_stddev_order_by(
+            local$stddev, (e) => call(stddev: e));
+  }
+
+  CopyWith$Input$bank_card_stddev_pop_order_by<TRes> get stddev_pop {
+    final local$stddev_pop = _instance.stddev_pop;
+    return local$stddev_pop == null
+        ? CopyWith$Input$bank_card_stddev_pop_order_by.stub(_then(_instance))
+        : CopyWith$Input$bank_card_stddev_pop_order_by(
+            local$stddev_pop, (e) => call(stddev_pop: e));
+  }
+
+  CopyWith$Input$bank_card_stddev_samp_order_by<TRes> get stddev_samp {
+    final local$stddev_samp = _instance.stddev_samp;
+    return local$stddev_samp == null
+        ? CopyWith$Input$bank_card_stddev_samp_order_by.stub(_then(_instance))
+        : CopyWith$Input$bank_card_stddev_samp_order_by(
+            local$stddev_samp, (e) => call(stddev_samp: e));
+  }
+
+  CopyWith$Input$bank_card_sum_order_by<TRes> get sum {
+    final local$sum = _instance.sum;
+    return local$sum == null
+        ? CopyWith$Input$bank_card_sum_order_by.stub(_then(_instance))
+        : CopyWith$Input$bank_card_sum_order_by(local$sum, (e) => call(sum: e));
+  }
+
+  CopyWith$Input$bank_card_var_pop_order_by<TRes> get var_pop {
+    final local$var_pop = _instance.var_pop;
+    return local$var_pop == null
+        ? CopyWith$Input$bank_card_var_pop_order_by.stub(_then(_instance))
+        : CopyWith$Input$bank_card_var_pop_order_by(
+            local$var_pop, (e) => call(var_pop: e));
+  }
+
+  CopyWith$Input$bank_card_var_samp_order_by<TRes> get var_samp {
+    final local$var_samp = _instance.var_samp;
+    return local$var_samp == null
+        ? CopyWith$Input$bank_card_var_samp_order_by.stub(_then(_instance))
+        : CopyWith$Input$bank_card_var_samp_order_by(
+            local$var_samp, (e) => call(var_samp: e));
+  }
+
+  CopyWith$Input$bank_card_variance_order_by<TRes> get variance {
+    final local$variance = _instance.variance;
+    return local$variance == null
+        ? CopyWith$Input$bank_card_variance_order_by.stub(_then(_instance))
+        : CopyWith$Input$bank_card_variance_order_by(
+            local$variance, (e) => call(variance: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$bank_card_aggregate_order_by<TRes>
+    implements CopyWith$Input$bank_card_aggregate_order_by<TRes> {
+  _CopyWithStubImpl$Input$bank_card_aggregate_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Input$bank_card_avg_order_by? avg,
+    Enum$order_by? count,
+    Input$bank_card_max_order_by? max,
+    Input$bank_card_min_order_by? min,
+    Input$bank_card_stddev_order_by? stddev,
+    Input$bank_card_stddev_pop_order_by? stddev_pop,
+    Input$bank_card_stddev_samp_order_by? stddev_samp,
+    Input$bank_card_sum_order_by? sum,
+    Input$bank_card_var_pop_order_by? var_pop,
+    Input$bank_card_var_samp_order_by? var_samp,
+    Input$bank_card_variance_order_by? variance,
+  }) =>
+      _res;
+  CopyWith$Input$bank_card_avg_order_by<TRes> get avg =>
+      CopyWith$Input$bank_card_avg_order_by.stub(_res);
+  CopyWith$Input$bank_card_max_order_by<TRes> get max =>
+      CopyWith$Input$bank_card_max_order_by.stub(_res);
+  CopyWith$Input$bank_card_min_order_by<TRes> get min =>
+      CopyWith$Input$bank_card_min_order_by.stub(_res);
+  CopyWith$Input$bank_card_stddev_order_by<TRes> get stddev =>
+      CopyWith$Input$bank_card_stddev_order_by.stub(_res);
+  CopyWith$Input$bank_card_stddev_pop_order_by<TRes> get stddev_pop =>
+      CopyWith$Input$bank_card_stddev_pop_order_by.stub(_res);
+  CopyWith$Input$bank_card_stddev_samp_order_by<TRes> get stddev_samp =>
+      CopyWith$Input$bank_card_stddev_samp_order_by.stub(_res);
+  CopyWith$Input$bank_card_sum_order_by<TRes> get sum =>
+      CopyWith$Input$bank_card_sum_order_by.stub(_res);
+  CopyWith$Input$bank_card_var_pop_order_by<TRes> get var_pop =>
+      CopyWith$Input$bank_card_var_pop_order_by.stub(_res);
+  CopyWith$Input$bank_card_var_samp_order_by<TRes> get var_samp =>
+      CopyWith$Input$bank_card_var_samp_order_by.stub(_res);
+  CopyWith$Input$bank_card_variance_order_by<TRes> get variance =>
+      CopyWith$Input$bank_card_variance_order_by.stub(_res);
+}
+
+class Input$bank_card_arr_rel_insert_input {
+  factory Input$bank_card_arr_rel_insert_input({
+    required List<Input$bank_card_insert_input> data,
+    Input$bank_card_on_conflict? on_conflict,
+  }) =>
+      Input$bank_card_arr_rel_insert_input._({
+        r'data': data,
+        if (on_conflict != null) r'on_conflict': on_conflict,
+      });
+
+  Input$bank_card_arr_rel_insert_input._(this._$data);
+
+  factory Input$bank_card_arr_rel_insert_input.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$data = data['data'];
+    result$data['data'] = (l$data as List<dynamic>)
+        .map((e) =>
+            Input$bank_card_insert_input.fromJson((e as Map<String, dynamic>)))
+        .toList();
+    if (data.containsKey('on_conflict')) {
+      final l$on_conflict = data['on_conflict'];
+      result$data['on_conflict'] = l$on_conflict == null
+          ? null
+          : Input$bank_card_on_conflict.fromJson(
+              (l$on_conflict as Map<String, dynamic>));
+    }
+    return Input$bank_card_arr_rel_insert_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  List<Input$bank_card_insert_input> get data =>
+      (_$data['data'] as List<Input$bank_card_insert_input>);
+  Input$bank_card_on_conflict? get on_conflict =>
+      (_$data['on_conflict'] as Input$bank_card_on_conflict?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$data = data;
+    result$data['data'] = l$data.map((e) => e.toJson()).toList();
+    if (_$data.containsKey('on_conflict')) {
+      final l$on_conflict = on_conflict;
+      result$data['on_conflict'] = l$on_conflict?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_arr_rel_insert_input<
+          Input$bank_card_arr_rel_insert_input>
+      get copyWith => CopyWith$Input$bank_card_arr_rel_insert_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_arr_rel_insert_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$data = data;
+    final lOther$data = other.data;
+    if (l$data.length != lOther$data.length) {
+      return false;
+    }
+    for (int i = 0; i < l$data.length; i++) {
+      final l$data$entry = l$data[i];
+      final lOther$data$entry = lOther$data[i];
+      if (l$data$entry != lOther$data$entry) {
+        return false;
+      }
+    }
+    final l$on_conflict = on_conflict;
+    final lOther$on_conflict = other.on_conflict;
+    if (_$data.containsKey('on_conflict') !=
+        other._$data.containsKey('on_conflict')) {
+      return false;
+    }
+    if (l$on_conflict != lOther$on_conflict) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$data = data;
+    final l$on_conflict = on_conflict;
+    return Object.hashAll([
+      Object.hashAll(l$data.map((v) => v)),
+      _$data.containsKey('on_conflict') ? l$on_conflict : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_arr_rel_insert_input<TRes> {
+  factory CopyWith$Input$bank_card_arr_rel_insert_input(
+    Input$bank_card_arr_rel_insert_input instance,
+    TRes Function(Input$bank_card_arr_rel_insert_input) then,
+  ) = _CopyWithImpl$Input$bank_card_arr_rel_insert_input;
+
+  factory CopyWith$Input$bank_card_arr_rel_insert_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_arr_rel_insert_input;
+
+  TRes call({
+    List<Input$bank_card_insert_input>? data,
+    Input$bank_card_on_conflict? on_conflict,
+  });
+  TRes data(
+      Iterable<Input$bank_card_insert_input> Function(
+              Iterable<
+                  CopyWith$Input$bank_card_insert_input<
+                      Input$bank_card_insert_input>>)
+          _fn);
+  CopyWith$Input$bank_card_on_conflict<TRes> get on_conflict;
+}
+
+class _CopyWithImpl$Input$bank_card_arr_rel_insert_input<TRes>
+    implements CopyWith$Input$bank_card_arr_rel_insert_input<TRes> {
+  _CopyWithImpl$Input$bank_card_arr_rel_insert_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_arr_rel_insert_input _instance;
+
+  final TRes Function(Input$bank_card_arr_rel_insert_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? data = _undefined,
+    Object? on_conflict = _undefined,
+  }) =>
+      _then(Input$bank_card_arr_rel_insert_input._({
+        ..._instance._$data,
+        if (data != _undefined && data != null)
+          'data': (data as List<Input$bank_card_insert_input>),
+        if (on_conflict != _undefined)
+          'on_conflict': (on_conflict as Input$bank_card_on_conflict?),
+      }));
+  TRes data(
+          Iterable<Input$bank_card_insert_input> Function(
+                  Iterable<
+                      CopyWith$Input$bank_card_insert_input<
+                          Input$bank_card_insert_input>>)
+              _fn) =>
+      call(
+          data: _fn(
+              _instance.data.map((e) => CopyWith$Input$bank_card_insert_input(
+                    e,
+                    (i) => i,
+                  ))).toList());
+  CopyWith$Input$bank_card_on_conflict<TRes> get on_conflict {
+    final local$on_conflict = _instance.on_conflict;
+    return local$on_conflict == null
+        ? CopyWith$Input$bank_card_on_conflict.stub(_then(_instance))
+        : CopyWith$Input$bank_card_on_conflict(
+            local$on_conflict, (e) => call(on_conflict: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$bank_card_arr_rel_insert_input<TRes>
+    implements CopyWith$Input$bank_card_arr_rel_insert_input<TRes> {
+  _CopyWithStubImpl$Input$bank_card_arr_rel_insert_input(this._res);
+
+  TRes _res;
+
+  call({
+    List<Input$bank_card_insert_input>? data,
+    Input$bank_card_on_conflict? on_conflict,
+  }) =>
+      _res;
+  data(_fn) => _res;
+  CopyWith$Input$bank_card_on_conflict<TRes> get on_conflict =>
+      CopyWith$Input$bank_card_on_conflict.stub(_res);
+}
+
+class Input$bank_card_avg_order_by {
+  factory Input$bank_card_avg_order_by({Enum$order_by? profile_id}) =>
+      Input$bank_card_avg_order_by._({
+        if (profile_id != null) r'profile_id': profile_id,
+      });
+
+  Input$bank_card_avg_order_by._(this._$data);
+
+  factory Input$bank_card_avg_order_by.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('profile_id')) {
+      final l$profile_id = data['profile_id'];
+      result$data['profile_id'] = l$profile_id == null
+          ? null
+          : fromJson$Enum$order_by((l$profile_id as String));
+    }
+    return Input$bank_card_avg_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('profile_id')) {
+      final l$profile_id = profile_id;
+      result$data['profile_id'] =
+          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_avg_order_by<Input$bank_card_avg_order_by>
+      get copyWith => CopyWith$Input$bank_card_avg_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_avg_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$profile_id = profile_id;
+    final lOther$profile_id = other.profile_id;
+    if (_$data.containsKey('profile_id') !=
+        other._$data.containsKey('profile_id')) {
+      return false;
+    }
+    if (l$profile_id != lOther$profile_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$profile_id = profile_id;
+    return Object.hashAll(
+        [_$data.containsKey('profile_id') ? l$profile_id : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_avg_order_by<TRes> {
+  factory CopyWith$Input$bank_card_avg_order_by(
+    Input$bank_card_avg_order_by instance,
+    TRes Function(Input$bank_card_avg_order_by) then,
+  ) = _CopyWithImpl$Input$bank_card_avg_order_by;
+
+  factory CopyWith$Input$bank_card_avg_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_avg_order_by;
+
+  TRes call({Enum$order_by? profile_id});
+}
+
+class _CopyWithImpl$Input$bank_card_avg_order_by<TRes>
+    implements CopyWith$Input$bank_card_avg_order_by<TRes> {
+  _CopyWithImpl$Input$bank_card_avg_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_avg_order_by _instance;
+
+  final TRes Function(Input$bank_card_avg_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? profile_id = _undefined}) =>
+      _then(Input$bank_card_avg_order_by._({
+        ..._instance._$data,
+        if (profile_id != _undefined)
+          'profile_id': (profile_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$bank_card_avg_order_by<TRes>
+    implements CopyWith$Input$bank_card_avg_order_by<TRes> {
+  _CopyWithStubImpl$Input$bank_card_avg_order_by(this._res);
+
+  TRes _res;
+
+  call({Enum$order_by? profile_id}) => _res;
+}
+
+class Input$bank_card_bool_exp {
+  factory Input$bank_card_bool_exp({
+    List<Input$bank_card_bool_exp>? $_and,
+    Input$bank_card_bool_exp? $_not,
+    List<Input$bank_card_bool_exp>? $_or,
+    Input$String_comparison_exp? bank_card_cvc,
+    Input$uuid_comparison_exp? bank_card_id,
+    Input$String_comparison_exp? bank_card_name,
+    Input$String_comparison_exp? bank_card_number,
+    Input$timestamptz_comparison_exp? created_at,
+    Input$payment_due_bool_exp? payment_dues,
+    Input$payment_due_aggregate_bool_exp? payment_dues_aggregate,
+    Input$payment_investment_bool_exp? payment_investments,
+    Input$payment_investment_aggregate_bool_exp? payment_investments_aggregate,
+    Input$profile_bool_exp? profile,
+    Input$Int_comparison_exp? profile_id,
+    Input$timestamptz_comparison_exp? updated_at,
+  }) =>
+      Input$bank_card_bool_exp._({
+        if ($_and != null) r'_and': $_and,
+        if ($_not != null) r'_not': $_not,
+        if ($_or != null) r'_or': $_or,
+        if (bank_card_cvc != null) r'bank_card_cvc': bank_card_cvc,
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
+        if (bank_card_name != null) r'bank_card_name': bank_card_name,
+        if (bank_card_number != null) r'bank_card_number': bank_card_number,
+        if (created_at != null) r'created_at': created_at,
+        if (payment_dues != null) r'payment_dues': payment_dues,
+        if (payment_dues_aggregate != null)
+          r'payment_dues_aggregate': payment_dues_aggregate,
+        if (payment_investments != null)
+          r'payment_investments': payment_investments,
+        if (payment_investments_aggregate != null)
+          r'payment_investments_aggregate': payment_investments_aggregate,
+        if (profile != null) r'profile': profile,
+        if (profile_id != null) r'profile_id': profile_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$bank_card_bool_exp._(this._$data);
+
+  factory Input$bank_card_bool_exp.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('_and')) {
+      final l$$_and = data['_and'];
+      result$data['_and'] = (l$$_and as List<dynamic>?)
+          ?.map((e) =>
+              Input$bank_card_bool_exp.fromJson((e as Map<String, dynamic>)))
+          .toList();
+    }
+    if (data.containsKey('_not')) {
+      final l$$_not = data['_not'];
+      result$data['_not'] = l$$_not == null
+          ? null
+          : Input$bank_card_bool_exp.fromJson(
+              (l$$_not as Map<String, dynamic>));
+    }
+    if (data.containsKey('_or')) {
+      final l$$_or = data['_or'];
+      result$data['_or'] = (l$$_or as List<dynamic>?)
+          ?.map((e) =>
+              Input$bank_card_bool_exp.fromJson((e as Map<String, dynamic>)))
+          .toList();
+    }
+    if (data.containsKey('bank_card_cvc')) {
+      final l$bank_card_cvc = data['bank_card_cvc'];
+      result$data['bank_card_cvc'] = l$bank_card_cvc == null
+          ? null
+          : Input$String_comparison_exp.fromJson(
+              (l$bank_card_cvc as Map<String, dynamic>));
+    }
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] = l$bank_card_id == null
+          ? null
+          : Input$uuid_comparison_exp.fromJson(
+              (l$bank_card_id as Map<String, dynamic>));
+    }
+    if (data.containsKey('bank_card_name')) {
+      final l$bank_card_name = data['bank_card_name'];
+      result$data['bank_card_name'] = l$bank_card_name == null
+          ? null
+          : Input$String_comparison_exp.fromJson(
+              (l$bank_card_name as Map<String, dynamic>));
+    }
+    if (data.containsKey('bank_card_number')) {
+      final l$bank_card_number = data['bank_card_number'];
+      result$data['bank_card_number'] = l$bank_card_number == null
+          ? null
+          : Input$String_comparison_exp.fromJson(
+              (l$bank_card_number as Map<String, dynamic>));
+    }
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : Input$timestamptz_comparison_exp.fromJson(
+              (l$created_at as Map<String, dynamic>));
+    }
+    if (data.containsKey('payment_dues')) {
+      final l$payment_dues = data['payment_dues'];
+      result$data['payment_dues'] = l$payment_dues == null
+          ? null
+          : Input$payment_due_bool_exp.fromJson(
+              (l$payment_dues as Map<String, dynamic>));
+    }
+    if (data.containsKey('payment_dues_aggregate')) {
+      final l$payment_dues_aggregate = data['payment_dues_aggregate'];
+      result$data['payment_dues_aggregate'] = l$payment_dues_aggregate == null
+          ? null
+          : Input$payment_due_aggregate_bool_exp.fromJson(
+              (l$payment_dues_aggregate as Map<String, dynamic>));
+    }
+    if (data.containsKey('payment_investments')) {
+      final l$payment_investments = data['payment_investments'];
+      result$data['payment_investments'] = l$payment_investments == null
+          ? null
+          : Input$payment_investment_bool_exp.fromJson(
+              (l$payment_investments as Map<String, dynamic>));
+    }
+    if (data.containsKey('payment_investments_aggregate')) {
+      final l$payment_investments_aggregate =
+          data['payment_investments_aggregate'];
+      result$data['payment_investments_aggregate'] =
+          l$payment_investments_aggregate == null
+              ? null
+              : Input$payment_investment_aggregate_bool_exp.fromJson(
+                  (l$payment_investments_aggregate as Map<String, dynamic>));
+    }
+    if (data.containsKey('profile')) {
+      final l$profile = data['profile'];
+      result$data['profile'] = l$profile == null
+          ? null
+          : Input$profile_bool_exp.fromJson(
+              (l$profile as Map<String, dynamic>));
+    }
+    if (data.containsKey('profile_id')) {
+      final l$profile_id = data['profile_id'];
+      result$data['profile_id'] = l$profile_id == null
+          ? null
+          : Input$Int_comparison_exp.fromJson(
+              (l$profile_id as Map<String, dynamic>));
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : Input$timestamptz_comparison_exp.fromJson(
+              (l$updated_at as Map<String, dynamic>));
+    }
+    return Input$bank_card_bool_exp._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  List<Input$bank_card_bool_exp>? get $_and =>
+      (_$data['_and'] as List<Input$bank_card_bool_exp>?);
+  Input$bank_card_bool_exp? get $_not =>
+      (_$data['_not'] as Input$bank_card_bool_exp?);
+  List<Input$bank_card_bool_exp>? get $_or =>
+      (_$data['_or'] as List<Input$bank_card_bool_exp>?);
+  Input$String_comparison_exp? get bank_card_cvc =>
+      (_$data['bank_card_cvc'] as Input$String_comparison_exp?);
+  Input$uuid_comparison_exp? get bank_card_id =>
+      (_$data['bank_card_id'] as Input$uuid_comparison_exp?);
+  Input$String_comparison_exp? get bank_card_name =>
+      (_$data['bank_card_name'] as Input$String_comparison_exp?);
+  Input$String_comparison_exp? get bank_card_number =>
+      (_$data['bank_card_number'] as Input$String_comparison_exp?);
+  Input$timestamptz_comparison_exp? get created_at =>
+      (_$data['created_at'] as Input$timestamptz_comparison_exp?);
+  Input$payment_due_bool_exp? get payment_dues =>
+      (_$data['payment_dues'] as Input$payment_due_bool_exp?);
+  Input$payment_due_aggregate_bool_exp? get payment_dues_aggregate =>
+      (_$data['payment_dues_aggregate']
+          as Input$payment_due_aggregate_bool_exp?);
+  Input$payment_investment_bool_exp? get payment_investments =>
+      (_$data['payment_investments'] as Input$payment_investment_bool_exp?);
+  Input$payment_investment_aggregate_bool_exp?
+      get payment_investments_aggregate =>
+          (_$data['payment_investments_aggregate']
+              as Input$payment_investment_aggregate_bool_exp?);
+  Input$profile_bool_exp? get profile =>
+      (_$data['profile'] as Input$profile_bool_exp?);
+  Input$Int_comparison_exp? get profile_id =>
+      (_$data['profile_id'] as Input$Int_comparison_exp?);
+  Input$timestamptz_comparison_exp? get updated_at =>
+      (_$data['updated_at'] as Input$timestamptz_comparison_exp?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('_and')) {
+      final l$$_and = $_and;
+      result$data['_and'] = l$$_and?.map((e) => e.toJson()).toList();
+    }
+    if (_$data.containsKey('_not')) {
+      final l$$_not = $_not;
+      result$data['_not'] = l$$_not?.toJson();
+    }
+    if (_$data.containsKey('_or')) {
+      final l$$_or = $_or;
+      result$data['_or'] = l$$_or?.map((e) => e.toJson()).toList();
+    }
+    if (_$data.containsKey('bank_card_cvc')) {
+      final l$bank_card_cvc = bank_card_cvc;
+      result$data['bank_card_cvc'] = l$bank_card_cvc?.toJson();
+    }
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] = l$bank_card_id?.toJson();
+    }
+    if (_$data.containsKey('bank_card_name')) {
+      final l$bank_card_name = bank_card_name;
+      result$data['bank_card_name'] = l$bank_card_name?.toJson();
+    }
+    if (_$data.containsKey('bank_card_number')) {
+      final l$bank_card_number = bank_card_number;
+      result$data['bank_card_number'] = l$bank_card_number?.toJson();
+    }
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] = l$created_at?.toJson();
+    }
+    if (_$data.containsKey('payment_dues')) {
+      final l$payment_dues = payment_dues;
+      result$data['payment_dues'] = l$payment_dues?.toJson();
+    }
+    if (_$data.containsKey('payment_dues_aggregate')) {
+      final l$payment_dues_aggregate = payment_dues_aggregate;
+      result$data['payment_dues_aggregate'] =
+          l$payment_dues_aggregate?.toJson();
+    }
+    if (_$data.containsKey('payment_investments')) {
+      final l$payment_investments = payment_investments;
+      result$data['payment_investments'] = l$payment_investments?.toJson();
+    }
+    if (_$data.containsKey('payment_investments_aggregate')) {
+      final l$payment_investments_aggregate = payment_investments_aggregate;
+      result$data['payment_investments_aggregate'] =
+          l$payment_investments_aggregate?.toJson();
+    }
+    if (_$data.containsKey('profile')) {
+      final l$profile = profile;
+      result$data['profile'] = l$profile?.toJson();
+    }
+    if (_$data.containsKey('profile_id')) {
+      final l$profile_id = profile_id;
+      result$data['profile_id'] = l$profile_id?.toJson();
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] = l$updated_at?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_bool_exp<Input$bank_card_bool_exp> get copyWith =>
+      CopyWith$Input$bank_card_bool_exp(
+        this,
+        (i) => i,
+      );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_bool_exp) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$_and = $_and;
+    final lOther$$_and = other.$_and;
+    if (_$data.containsKey('_and') != other._$data.containsKey('_and')) {
+      return false;
+    }
+    if (l$$_and != null && lOther$$_and != null) {
+      if (l$$_and.length != lOther$$_and.length) {
+        return false;
+      }
+      for (int i = 0; i < l$$_and.length; i++) {
+        final l$$_and$entry = l$$_and[i];
+        final lOther$$_and$entry = lOther$$_and[i];
+        if (l$$_and$entry != lOther$$_and$entry) {
+          return false;
+        }
+      }
+    } else if (l$$_and != lOther$$_and) {
+      return false;
+    }
+    final l$$_not = $_not;
+    final lOther$$_not = other.$_not;
+    if (_$data.containsKey('_not') != other._$data.containsKey('_not')) {
+      return false;
+    }
+    if (l$$_not != lOther$$_not) {
+      return false;
+    }
+    final l$$_or = $_or;
+    final lOther$$_or = other.$_or;
+    if (_$data.containsKey('_or') != other._$data.containsKey('_or')) {
+      return false;
+    }
+    if (l$$_or != null && lOther$$_or != null) {
+      if (l$$_or.length != lOther$$_or.length) {
+        return false;
+      }
+      for (int i = 0; i < l$$_or.length; i++) {
+        final l$$_or$entry = l$$_or[i];
+        final lOther$$_or$entry = lOther$$_or[i];
+        if (l$$_or$entry != lOther$$_or$entry) {
+          return false;
+        }
+      }
+    } else if (l$$_or != lOther$$_or) {
+      return false;
+    }
+    final l$bank_card_cvc = bank_card_cvc;
+    final lOther$bank_card_cvc = other.bank_card_cvc;
+    if (_$data.containsKey('bank_card_cvc') !=
+        other._$data.containsKey('bank_card_cvc')) {
+      return false;
+    }
+    if (l$bank_card_cvc != lOther$bank_card_cvc) {
+      return false;
+    }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
+      return false;
+    }
+    final l$bank_card_name = bank_card_name;
+    final lOther$bank_card_name = other.bank_card_name;
+    if (_$data.containsKey('bank_card_name') !=
+        other._$data.containsKey('bank_card_name')) {
+      return false;
+    }
+    if (l$bank_card_name != lOther$bank_card_name) {
+      return false;
+    }
+    final l$bank_card_number = bank_card_number;
+    final lOther$bank_card_number = other.bank_card_number;
+    if (_$data.containsKey('bank_card_number') !=
+        other._$data.containsKey('bank_card_number')) {
+      return false;
+    }
+    if (l$bank_card_number != lOther$bank_card_number) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$payment_dues = payment_dues;
+    final lOther$payment_dues = other.payment_dues;
+    if (_$data.containsKey('payment_dues') !=
+        other._$data.containsKey('payment_dues')) {
+      return false;
+    }
+    if (l$payment_dues != lOther$payment_dues) {
+      return false;
+    }
+    final l$payment_dues_aggregate = payment_dues_aggregate;
+    final lOther$payment_dues_aggregate = other.payment_dues_aggregate;
+    if (_$data.containsKey('payment_dues_aggregate') !=
+        other._$data.containsKey('payment_dues_aggregate')) {
+      return false;
+    }
+    if (l$payment_dues_aggregate != lOther$payment_dues_aggregate) {
+      return false;
+    }
+    final l$payment_investments = payment_investments;
+    final lOther$payment_investments = other.payment_investments;
+    if (_$data.containsKey('payment_investments') !=
+        other._$data.containsKey('payment_investments')) {
+      return false;
+    }
+    if (l$payment_investments != lOther$payment_investments) {
+      return false;
+    }
+    final l$payment_investments_aggregate = payment_investments_aggregate;
+    final lOther$payment_investments_aggregate =
+        other.payment_investments_aggregate;
+    if (_$data.containsKey('payment_investments_aggregate') !=
+        other._$data.containsKey('payment_investments_aggregate')) {
+      return false;
+    }
+    if (l$payment_investments_aggregate !=
+        lOther$payment_investments_aggregate) {
+      return false;
+    }
+    final l$profile = profile;
+    final lOther$profile = other.profile;
+    if (_$data.containsKey('profile') != other._$data.containsKey('profile')) {
+      return false;
+    }
+    if (l$profile != lOther$profile) {
+      return false;
+    }
+    final l$profile_id = profile_id;
+    final lOther$profile_id = other.profile_id;
+    if (_$data.containsKey('profile_id') !=
+        other._$data.containsKey('profile_id')) {
+      return false;
+    }
+    if (l$profile_id != lOther$profile_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$$_and = $_and;
+    final l$$_not = $_not;
+    final l$$_or = $_or;
+    final l$bank_card_cvc = bank_card_cvc;
+    final l$bank_card_id = bank_card_id;
+    final l$bank_card_name = bank_card_name;
+    final l$bank_card_number = bank_card_number;
+    final l$created_at = created_at;
+    final l$payment_dues = payment_dues;
+    final l$payment_dues_aggregate = payment_dues_aggregate;
+    final l$payment_investments = payment_investments;
+    final l$payment_investments_aggregate = payment_investments_aggregate;
+    final l$profile = profile;
+    final l$profile_id = profile_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('_and')
+          ? l$$_and == null
+              ? null
+              : Object.hashAll(l$$_and.map((v) => v))
+          : const {},
+      _$data.containsKey('_not') ? l$$_not : const {},
+      _$data.containsKey('_or')
+          ? l$$_or == null
+              ? null
+              : Object.hashAll(l$$_or.map((v) => v))
+          : const {},
+      _$data.containsKey('bank_card_cvc') ? l$bank_card_cvc : const {},
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
+      _$data.containsKey('bank_card_name') ? l$bank_card_name : const {},
+      _$data.containsKey('bank_card_number') ? l$bank_card_number : const {},
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('payment_dues') ? l$payment_dues : const {},
+      _$data.containsKey('payment_dues_aggregate')
+          ? l$payment_dues_aggregate
+          : const {},
+      _$data.containsKey('payment_investments')
+          ? l$payment_investments
+          : const {},
+      _$data.containsKey('payment_investments_aggregate')
+          ? l$payment_investments_aggregate
+          : const {},
+      _$data.containsKey('profile') ? l$profile : const {},
+      _$data.containsKey('profile_id') ? l$profile_id : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_bool_exp<TRes> {
+  factory CopyWith$Input$bank_card_bool_exp(
+    Input$bank_card_bool_exp instance,
+    TRes Function(Input$bank_card_bool_exp) then,
+  ) = _CopyWithImpl$Input$bank_card_bool_exp;
+
+  factory CopyWith$Input$bank_card_bool_exp.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_bool_exp;
+
+  TRes call({
+    List<Input$bank_card_bool_exp>? $_and,
+    Input$bank_card_bool_exp? $_not,
+    List<Input$bank_card_bool_exp>? $_or,
+    Input$String_comparison_exp? bank_card_cvc,
+    Input$uuid_comparison_exp? bank_card_id,
+    Input$String_comparison_exp? bank_card_name,
+    Input$String_comparison_exp? bank_card_number,
+    Input$timestamptz_comparison_exp? created_at,
+    Input$payment_due_bool_exp? payment_dues,
+    Input$payment_due_aggregate_bool_exp? payment_dues_aggregate,
+    Input$payment_investment_bool_exp? payment_investments,
+    Input$payment_investment_aggregate_bool_exp? payment_investments_aggregate,
+    Input$profile_bool_exp? profile,
+    Input$Int_comparison_exp? profile_id,
+    Input$timestamptz_comparison_exp? updated_at,
+  });
+  TRes $_and(
+      Iterable<Input$bank_card_bool_exp>? Function(
+              Iterable<
+                  CopyWith$Input$bank_card_bool_exp<Input$bank_card_bool_exp>>?)
+          _fn);
+  CopyWith$Input$bank_card_bool_exp<TRes> get $_not;
+  TRes $_or(
+      Iterable<Input$bank_card_bool_exp>? Function(
+              Iterable<
+                  CopyWith$Input$bank_card_bool_exp<Input$bank_card_bool_exp>>?)
+          _fn);
+  CopyWith$Input$String_comparison_exp<TRes> get bank_card_cvc;
+  CopyWith$Input$uuid_comparison_exp<TRes> get bank_card_id;
+  CopyWith$Input$String_comparison_exp<TRes> get bank_card_name;
+  CopyWith$Input$String_comparison_exp<TRes> get bank_card_number;
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at;
+  CopyWith$Input$payment_due_bool_exp<TRes> get payment_dues;
+  CopyWith$Input$payment_due_aggregate_bool_exp<TRes>
+      get payment_dues_aggregate;
+  CopyWith$Input$payment_investment_bool_exp<TRes> get payment_investments;
+  CopyWith$Input$payment_investment_aggregate_bool_exp<TRes>
+      get payment_investments_aggregate;
+  CopyWith$Input$profile_bool_exp<TRes> get profile;
+  CopyWith$Input$Int_comparison_exp<TRes> get profile_id;
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get updated_at;
+}
+
+class _CopyWithImpl$Input$bank_card_bool_exp<TRes>
+    implements CopyWith$Input$bank_card_bool_exp<TRes> {
+  _CopyWithImpl$Input$bank_card_bool_exp(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_bool_exp _instance;
+
+  final TRes Function(Input$bank_card_bool_exp) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? $_and = _undefined,
+    Object? $_not = _undefined,
+    Object? $_or = _undefined,
+    Object? bank_card_cvc = _undefined,
+    Object? bank_card_id = _undefined,
+    Object? bank_card_name = _undefined,
+    Object? bank_card_number = _undefined,
+    Object? created_at = _undefined,
+    Object? payment_dues = _undefined,
+    Object? payment_dues_aggregate = _undefined,
+    Object? payment_investments = _undefined,
+    Object? payment_investments_aggregate = _undefined,
+    Object? profile = _undefined,
+    Object? profile_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$bank_card_bool_exp._({
+        ..._instance._$data,
+        if ($_and != _undefined)
+          '_and': ($_and as List<Input$bank_card_bool_exp>?),
+        if ($_not != _undefined) '_not': ($_not as Input$bank_card_bool_exp?),
+        if ($_or != _undefined)
+          '_or': ($_or as List<Input$bank_card_bool_exp>?),
+        if (bank_card_cvc != _undefined)
+          'bank_card_cvc': (bank_card_cvc as Input$String_comparison_exp?),
+        if (bank_card_id != _undefined)
+          'bank_card_id': (bank_card_id as Input$uuid_comparison_exp?),
+        if (bank_card_name != _undefined)
+          'bank_card_name': (bank_card_name as Input$String_comparison_exp?),
+        if (bank_card_number != _undefined)
+          'bank_card_number':
+              (bank_card_number as Input$String_comparison_exp?),
+        if (created_at != _undefined)
+          'created_at': (created_at as Input$timestamptz_comparison_exp?),
+        if (payment_dues != _undefined)
+          'payment_dues': (payment_dues as Input$payment_due_bool_exp?),
+        if (payment_dues_aggregate != _undefined)
+          'payment_dues_aggregate':
+              (payment_dues_aggregate as Input$payment_due_aggregate_bool_exp?),
+        if (payment_investments != _undefined)
+          'payment_investments':
+              (payment_investments as Input$payment_investment_bool_exp?),
+        if (payment_investments_aggregate != _undefined)
+          'payment_investments_aggregate': (payment_investments_aggregate
+              as Input$payment_investment_aggregate_bool_exp?),
+        if (profile != _undefined)
+          'profile': (profile as Input$profile_bool_exp?),
+        if (profile_id != _undefined)
+          'profile_id': (profile_id as Input$Int_comparison_exp?),
+        if (updated_at != _undefined)
+          'updated_at': (updated_at as Input$timestamptz_comparison_exp?),
+      }));
+  TRes $_and(
+          Iterable<Input$bank_card_bool_exp>? Function(
+                  Iterable<
+                      CopyWith$Input$bank_card_bool_exp<
+                          Input$bank_card_bool_exp>>?)
+              _fn) =>
+      call(
+          $_and:
+              _fn(_instance.$_and?.map((e) => CopyWith$Input$bank_card_bool_exp(
+                    e,
+                    (i) => i,
+                  )))?.toList());
+  CopyWith$Input$bank_card_bool_exp<TRes> get $_not {
+    final local$$_not = _instance.$_not;
+    return local$$_not == null
+        ? CopyWith$Input$bank_card_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$bank_card_bool_exp(local$$_not, (e) => call($_not: e));
+  }
+
+  TRes $_or(
+          Iterable<Input$bank_card_bool_exp>? Function(
+                  Iterable<
+                      CopyWith$Input$bank_card_bool_exp<
+                          Input$bank_card_bool_exp>>?)
+              _fn) =>
+      call(
+          $_or:
+              _fn(_instance.$_or?.map((e) => CopyWith$Input$bank_card_bool_exp(
+                    e,
+                    (i) => i,
+                  )))?.toList());
+  CopyWith$Input$String_comparison_exp<TRes> get bank_card_cvc {
+    final local$bank_card_cvc = _instance.bank_card_cvc;
+    return local$bank_card_cvc == null
+        ? CopyWith$Input$String_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$String_comparison_exp(
+            local$bank_card_cvc, (e) => call(bank_card_cvc: e));
+  }
+
+  CopyWith$Input$uuid_comparison_exp<TRes> get bank_card_id {
+    final local$bank_card_id = _instance.bank_card_id;
+    return local$bank_card_id == null
+        ? CopyWith$Input$uuid_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$uuid_comparison_exp(
+            local$bank_card_id, (e) => call(bank_card_id: e));
+  }
+
+  CopyWith$Input$String_comparison_exp<TRes> get bank_card_name {
+    final local$bank_card_name = _instance.bank_card_name;
+    return local$bank_card_name == null
+        ? CopyWith$Input$String_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$String_comparison_exp(
+            local$bank_card_name, (e) => call(bank_card_name: e));
+  }
+
+  CopyWith$Input$String_comparison_exp<TRes> get bank_card_number {
+    final local$bank_card_number = _instance.bank_card_number;
+    return local$bank_card_number == null
+        ? CopyWith$Input$String_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$String_comparison_exp(
+            local$bank_card_number, (e) => call(bank_card_number: e));
+  }
+
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at {
+    final local$created_at = _instance.created_at;
+    return local$created_at == null
+        ? CopyWith$Input$timestamptz_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$timestamptz_comparison_exp(
+            local$created_at, (e) => call(created_at: e));
+  }
+
+  CopyWith$Input$payment_due_bool_exp<TRes> get payment_dues {
+    final local$payment_dues = _instance.payment_dues;
+    return local$payment_dues == null
+        ? CopyWith$Input$payment_due_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$payment_due_bool_exp(
+            local$payment_dues, (e) => call(payment_dues: e));
+  }
+
+  CopyWith$Input$payment_due_aggregate_bool_exp<TRes>
+      get payment_dues_aggregate {
+    final local$payment_dues_aggregate = _instance.payment_dues_aggregate;
+    return local$payment_dues_aggregate == null
+        ? CopyWith$Input$payment_due_aggregate_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$payment_due_aggregate_bool_exp(
+            local$payment_dues_aggregate,
+            (e) => call(payment_dues_aggregate: e));
+  }
+
+  CopyWith$Input$payment_investment_bool_exp<TRes> get payment_investments {
+    final local$payment_investments = _instance.payment_investments;
+    return local$payment_investments == null
+        ? CopyWith$Input$payment_investment_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$payment_investment_bool_exp(
+            local$payment_investments, (e) => call(payment_investments: e));
+  }
+
+  CopyWith$Input$payment_investment_aggregate_bool_exp<TRes>
+      get payment_investments_aggregate {
+    final local$payment_investments_aggregate =
+        _instance.payment_investments_aggregate;
+    return local$payment_investments_aggregate == null
+        ? CopyWith$Input$payment_investment_aggregate_bool_exp.stub(
+            _then(_instance))
+        : CopyWith$Input$payment_investment_aggregate_bool_exp(
+            local$payment_investments_aggregate,
+            (e) => call(payment_investments_aggregate: e));
+  }
+
+  CopyWith$Input$profile_bool_exp<TRes> get profile {
+    final local$profile = _instance.profile;
+    return local$profile == null
+        ? CopyWith$Input$profile_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$profile_bool_exp(
+            local$profile, (e) => call(profile: e));
+  }
+
+  CopyWith$Input$Int_comparison_exp<TRes> get profile_id {
+    final local$profile_id = _instance.profile_id;
+    return local$profile_id == null
+        ? CopyWith$Input$Int_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$Int_comparison_exp(
+            local$profile_id, (e) => call(profile_id: e));
+  }
+
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get updated_at {
+    final local$updated_at = _instance.updated_at;
+    return local$updated_at == null
+        ? CopyWith$Input$timestamptz_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$timestamptz_comparison_exp(
+            local$updated_at, (e) => call(updated_at: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$bank_card_bool_exp<TRes>
+    implements CopyWith$Input$bank_card_bool_exp<TRes> {
+  _CopyWithStubImpl$Input$bank_card_bool_exp(this._res);
+
+  TRes _res;
+
+  call({
+    List<Input$bank_card_bool_exp>? $_and,
+    Input$bank_card_bool_exp? $_not,
+    List<Input$bank_card_bool_exp>? $_or,
+    Input$String_comparison_exp? bank_card_cvc,
+    Input$uuid_comparison_exp? bank_card_id,
+    Input$String_comparison_exp? bank_card_name,
+    Input$String_comparison_exp? bank_card_number,
+    Input$timestamptz_comparison_exp? created_at,
+    Input$payment_due_bool_exp? payment_dues,
+    Input$payment_due_aggregate_bool_exp? payment_dues_aggregate,
+    Input$payment_investment_bool_exp? payment_investments,
+    Input$payment_investment_aggregate_bool_exp? payment_investments_aggregate,
+    Input$profile_bool_exp? profile,
+    Input$Int_comparison_exp? profile_id,
+    Input$timestamptz_comparison_exp? updated_at,
+  }) =>
+      _res;
+  $_and(_fn) => _res;
+  CopyWith$Input$bank_card_bool_exp<TRes> get $_not =>
+      CopyWith$Input$bank_card_bool_exp.stub(_res);
+  $_or(_fn) => _res;
+  CopyWith$Input$String_comparison_exp<TRes> get bank_card_cvc =>
+      CopyWith$Input$String_comparison_exp.stub(_res);
+  CopyWith$Input$uuid_comparison_exp<TRes> get bank_card_id =>
+      CopyWith$Input$uuid_comparison_exp.stub(_res);
+  CopyWith$Input$String_comparison_exp<TRes> get bank_card_name =>
+      CopyWith$Input$String_comparison_exp.stub(_res);
+  CopyWith$Input$String_comparison_exp<TRes> get bank_card_number =>
+      CopyWith$Input$String_comparison_exp.stub(_res);
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at =>
+      CopyWith$Input$timestamptz_comparison_exp.stub(_res);
+  CopyWith$Input$payment_due_bool_exp<TRes> get payment_dues =>
+      CopyWith$Input$payment_due_bool_exp.stub(_res);
+  CopyWith$Input$payment_due_aggregate_bool_exp<TRes>
+      get payment_dues_aggregate =>
+          CopyWith$Input$payment_due_aggregate_bool_exp.stub(_res);
+  CopyWith$Input$payment_investment_bool_exp<TRes> get payment_investments =>
+      CopyWith$Input$payment_investment_bool_exp.stub(_res);
+  CopyWith$Input$payment_investment_aggregate_bool_exp<TRes>
+      get payment_investments_aggregate =>
+          CopyWith$Input$payment_investment_aggregate_bool_exp.stub(_res);
+  CopyWith$Input$profile_bool_exp<TRes> get profile =>
+      CopyWith$Input$profile_bool_exp.stub(_res);
+  CopyWith$Input$Int_comparison_exp<TRes> get profile_id =>
+      CopyWith$Input$Int_comparison_exp.stub(_res);
+  CopyWith$Input$timestamptz_comparison_exp<TRes> get updated_at =>
+      CopyWith$Input$timestamptz_comparison_exp.stub(_res);
+}
+
+class Input$bank_card_inc_input {
+  factory Input$bank_card_inc_input({int? profile_id}) =>
+      Input$bank_card_inc_input._({
+        if (profile_id != null) r'profile_id': profile_id,
+      });
+
+  Input$bank_card_inc_input._(this._$data);
+
+  factory Input$bank_card_inc_input.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('profile_id')) {
+      final l$profile_id = data['profile_id'];
+      result$data['profile_id'] = (l$profile_id as int?);
+    }
+    return Input$bank_card_inc_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int? get profile_id => (_$data['profile_id'] as int?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('profile_id')) {
+      final l$profile_id = profile_id;
+      result$data['profile_id'] = l$profile_id;
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_inc_input<Input$bank_card_inc_input> get copyWith =>
+      CopyWith$Input$bank_card_inc_input(
+        this,
+        (i) => i,
+      );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_inc_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$profile_id = profile_id;
+    final lOther$profile_id = other.profile_id;
+    if (_$data.containsKey('profile_id') !=
+        other._$data.containsKey('profile_id')) {
+      return false;
+    }
+    if (l$profile_id != lOther$profile_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$profile_id = profile_id;
+    return Object.hashAll(
+        [_$data.containsKey('profile_id') ? l$profile_id : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_inc_input<TRes> {
+  factory CopyWith$Input$bank_card_inc_input(
+    Input$bank_card_inc_input instance,
+    TRes Function(Input$bank_card_inc_input) then,
+  ) = _CopyWithImpl$Input$bank_card_inc_input;
+
+  factory CopyWith$Input$bank_card_inc_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_inc_input;
+
+  TRes call({int? profile_id});
+}
+
+class _CopyWithImpl$Input$bank_card_inc_input<TRes>
+    implements CopyWith$Input$bank_card_inc_input<TRes> {
+  _CopyWithImpl$Input$bank_card_inc_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_inc_input _instance;
+
+  final TRes Function(Input$bank_card_inc_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? profile_id = _undefined}) =>
+      _then(Input$bank_card_inc_input._({
+        ..._instance._$data,
+        if (profile_id != _undefined) 'profile_id': (profile_id as int?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$bank_card_inc_input<TRes>
+    implements CopyWith$Input$bank_card_inc_input<TRes> {
+  _CopyWithStubImpl$Input$bank_card_inc_input(this._res);
+
+  TRes _res;
+
+  call({int? profile_id}) => _res;
+}
+
+class Input$bank_card_insert_input {
+  factory Input$bank_card_insert_input({
+    String? bank_card_cvc,
+    UUID? bank_card_id,
+    String? bank_card_name,
+    String? bank_card_number,
+    DateTime? created_at,
+    Input$payment_due_arr_rel_insert_input? payment_dues,
+    Input$payment_investment_arr_rel_insert_input? payment_investments,
+    Input$profile_obj_rel_insert_input? profile,
+    int? profile_id,
+    DateTime? updated_at,
+  }) =>
+      Input$bank_card_insert_input._({
+        if (bank_card_cvc != null) r'bank_card_cvc': bank_card_cvc,
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
+        if (bank_card_name != null) r'bank_card_name': bank_card_name,
+        if (bank_card_number != null) r'bank_card_number': bank_card_number,
+        if (created_at != null) r'created_at': created_at,
+        if (payment_dues != null) r'payment_dues': payment_dues,
+        if (payment_investments != null)
+          r'payment_investments': payment_investments,
+        if (profile != null) r'profile': profile,
+        if (profile_id != null) r'profile_id': profile_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$bank_card_insert_input._(this._$data);
+
+  factory Input$bank_card_insert_input.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_card_cvc')) {
+      final l$bank_card_cvc = data['bank_card_cvc'];
+      result$data['bank_card_cvc'] = (l$bank_card_cvc as String?);
+    }
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : uuidFromJson(l$bank_card_id);
+    }
+    if (data.containsKey('bank_card_name')) {
+      final l$bank_card_name = data['bank_card_name'];
+      result$data['bank_card_name'] = (l$bank_card_name as String?);
+    }
+    if (data.containsKey('bank_card_number')) {
+      final l$bank_card_number = data['bank_card_number'];
+      result$data['bank_card_number'] = (l$bank_card_number as String?);
+    }
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : DateTime.parse((l$created_at as String));
+    }
+    if (data.containsKey('payment_dues')) {
+      final l$payment_dues = data['payment_dues'];
+      result$data['payment_dues'] = l$payment_dues == null
+          ? null
+          : Input$payment_due_arr_rel_insert_input.fromJson(
+              (l$payment_dues as Map<String, dynamic>));
+    }
+    if (data.containsKey('payment_investments')) {
+      final l$payment_investments = data['payment_investments'];
+      result$data['payment_investments'] = l$payment_investments == null
+          ? null
+          : Input$payment_investment_arr_rel_insert_input.fromJson(
+              (l$payment_investments as Map<String, dynamic>));
+    }
+    if (data.containsKey('profile')) {
+      final l$profile = data['profile'];
+      result$data['profile'] = l$profile == null
+          ? null
+          : Input$profile_obj_rel_insert_input.fromJson(
+              (l$profile as Map<String, dynamic>));
+    }
+    if (data.containsKey('profile_id')) {
+      final l$profile_id = data['profile_id'];
+      result$data['profile_id'] = (l$profile_id as int?);
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : DateTime.parse((l$updated_at as String));
+    }
+    return Input$bank_card_insert_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String? get bank_card_cvc => (_$data['bank_card_cvc'] as String?);
+  UUID? get bank_card_id => (_$data['bank_card_id'] as UUID?);
+  String? get bank_card_name => (_$data['bank_card_name'] as String?);
+  String? get bank_card_number => (_$data['bank_card_number'] as String?);
+  DateTime? get created_at => (_$data['created_at'] as DateTime?);
+  Input$payment_due_arr_rel_insert_input? get payment_dues =>
+      (_$data['payment_dues'] as Input$payment_due_arr_rel_insert_input?);
+  Input$payment_investment_arr_rel_insert_input? get payment_investments =>
+      (_$data['payment_investments']
+          as Input$payment_investment_arr_rel_insert_input?);
+  Input$profile_obj_rel_insert_input? get profile =>
+      (_$data['profile'] as Input$profile_obj_rel_insert_input?);
+  int? get profile_id => (_$data['profile_id'] as int?);
+  DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_card_cvc')) {
+      final l$bank_card_cvc = bank_card_cvc;
+      result$data['bank_card_cvc'] = l$bank_card_cvc;
+    }
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : uuidToJson(l$bank_card_id);
+    }
+    if (_$data.containsKey('bank_card_name')) {
+      final l$bank_card_name = bank_card_name;
+      result$data['bank_card_name'] = l$bank_card_name;
+    }
+    if (_$data.containsKey('bank_card_number')) {
+      final l$bank_card_number = bank_card_number;
+      result$data['bank_card_number'] = l$bank_card_number;
+    }
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] = l$created_at?.toIso8601String();
+    }
+    if (_$data.containsKey('payment_dues')) {
+      final l$payment_dues = payment_dues;
+      result$data['payment_dues'] = l$payment_dues?.toJson();
+    }
+    if (_$data.containsKey('payment_investments')) {
+      final l$payment_investments = payment_investments;
+      result$data['payment_investments'] = l$payment_investments?.toJson();
+    }
+    if (_$data.containsKey('profile')) {
+      final l$profile = profile;
+      result$data['profile'] = l$profile?.toJson();
+    }
+    if (_$data.containsKey('profile_id')) {
+      final l$profile_id = profile_id;
+      result$data['profile_id'] = l$profile_id;
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] = l$updated_at?.toIso8601String();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_insert_input<Input$bank_card_insert_input>
+      get copyWith => CopyWith$Input$bank_card_insert_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_insert_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bank_card_cvc = bank_card_cvc;
+    final lOther$bank_card_cvc = other.bank_card_cvc;
+    if (_$data.containsKey('bank_card_cvc') !=
+        other._$data.containsKey('bank_card_cvc')) {
+      return false;
+    }
+    if (l$bank_card_cvc != lOther$bank_card_cvc) {
+      return false;
+    }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
+      return false;
+    }
+    final l$bank_card_name = bank_card_name;
+    final lOther$bank_card_name = other.bank_card_name;
+    if (_$data.containsKey('bank_card_name') !=
+        other._$data.containsKey('bank_card_name')) {
+      return false;
+    }
+    if (l$bank_card_name != lOther$bank_card_name) {
+      return false;
+    }
+    final l$bank_card_number = bank_card_number;
+    final lOther$bank_card_number = other.bank_card_number;
+    if (_$data.containsKey('bank_card_number') !=
+        other._$data.containsKey('bank_card_number')) {
+      return false;
+    }
+    if (l$bank_card_number != lOther$bank_card_number) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$payment_dues = payment_dues;
+    final lOther$payment_dues = other.payment_dues;
+    if (_$data.containsKey('payment_dues') !=
+        other._$data.containsKey('payment_dues')) {
+      return false;
+    }
+    if (l$payment_dues != lOther$payment_dues) {
+      return false;
+    }
+    final l$payment_investments = payment_investments;
+    final lOther$payment_investments = other.payment_investments;
+    if (_$data.containsKey('payment_investments') !=
+        other._$data.containsKey('payment_investments')) {
+      return false;
+    }
+    if (l$payment_investments != lOther$payment_investments) {
+      return false;
+    }
+    final l$profile = profile;
+    final lOther$profile = other.profile;
+    if (_$data.containsKey('profile') != other._$data.containsKey('profile')) {
+      return false;
+    }
+    if (l$profile != lOther$profile) {
+      return false;
+    }
+    final l$profile_id = profile_id;
+    final lOther$profile_id = other.profile_id;
+    if (_$data.containsKey('profile_id') !=
+        other._$data.containsKey('profile_id')) {
+      return false;
+    }
+    if (l$profile_id != lOther$profile_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$bank_card_cvc = bank_card_cvc;
+    final l$bank_card_id = bank_card_id;
+    final l$bank_card_name = bank_card_name;
+    final l$bank_card_number = bank_card_number;
+    final l$created_at = created_at;
+    final l$payment_dues = payment_dues;
+    final l$payment_investments = payment_investments;
+    final l$profile = profile;
+    final l$profile_id = profile_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('bank_card_cvc') ? l$bank_card_cvc : const {},
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
+      _$data.containsKey('bank_card_name') ? l$bank_card_name : const {},
+      _$data.containsKey('bank_card_number') ? l$bank_card_number : const {},
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('payment_dues') ? l$payment_dues : const {},
+      _$data.containsKey('payment_investments')
+          ? l$payment_investments
+          : const {},
+      _$data.containsKey('profile') ? l$profile : const {},
+      _$data.containsKey('profile_id') ? l$profile_id : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_insert_input<TRes> {
+  factory CopyWith$Input$bank_card_insert_input(
+    Input$bank_card_insert_input instance,
+    TRes Function(Input$bank_card_insert_input) then,
+  ) = _CopyWithImpl$Input$bank_card_insert_input;
+
+  factory CopyWith$Input$bank_card_insert_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_insert_input;
+
+  TRes call({
+    String? bank_card_cvc,
+    UUID? bank_card_id,
+    String? bank_card_name,
+    String? bank_card_number,
+    DateTime? created_at,
+    Input$payment_due_arr_rel_insert_input? payment_dues,
+    Input$payment_investment_arr_rel_insert_input? payment_investments,
+    Input$profile_obj_rel_insert_input? profile,
+    int? profile_id,
+    DateTime? updated_at,
+  });
+  CopyWith$Input$payment_due_arr_rel_insert_input<TRes> get payment_dues;
+  CopyWith$Input$payment_investment_arr_rel_insert_input<TRes>
+      get payment_investments;
+  CopyWith$Input$profile_obj_rel_insert_input<TRes> get profile;
+}
+
+class _CopyWithImpl$Input$bank_card_insert_input<TRes>
+    implements CopyWith$Input$bank_card_insert_input<TRes> {
+  _CopyWithImpl$Input$bank_card_insert_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_insert_input _instance;
+
+  final TRes Function(Input$bank_card_insert_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? bank_card_cvc = _undefined,
+    Object? bank_card_id = _undefined,
+    Object? bank_card_name = _undefined,
+    Object? bank_card_number = _undefined,
+    Object? created_at = _undefined,
+    Object? payment_dues = _undefined,
+    Object? payment_investments = _undefined,
+    Object? profile = _undefined,
+    Object? profile_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$bank_card_insert_input._({
+        ..._instance._$data,
+        if (bank_card_cvc != _undefined)
+          'bank_card_cvc': (bank_card_cvc as String?),
+        if (bank_card_id != _undefined) 'bank_card_id': (bank_card_id as UUID?),
+        if (bank_card_name != _undefined)
+          'bank_card_name': (bank_card_name as String?),
+        if (bank_card_number != _undefined)
+          'bank_card_number': (bank_card_number as String?),
+        if (created_at != _undefined) 'created_at': (created_at as DateTime?),
+        if (payment_dues != _undefined)
+          'payment_dues':
+              (payment_dues as Input$payment_due_arr_rel_insert_input?),
+        if (payment_investments != _undefined)
+          'payment_investments': (payment_investments
+              as Input$payment_investment_arr_rel_insert_input?),
+        if (profile != _undefined)
+          'profile': (profile as Input$profile_obj_rel_insert_input?),
+        if (profile_id != _undefined) 'profile_id': (profile_id as int?),
+        if (updated_at != _undefined) 'updated_at': (updated_at as DateTime?),
+      }));
+  CopyWith$Input$payment_due_arr_rel_insert_input<TRes> get payment_dues {
+    final local$payment_dues = _instance.payment_dues;
+    return local$payment_dues == null
+        ? CopyWith$Input$payment_due_arr_rel_insert_input.stub(_then(_instance))
+        : CopyWith$Input$payment_due_arr_rel_insert_input(
+            local$payment_dues, (e) => call(payment_dues: e));
+  }
+
+  CopyWith$Input$payment_investment_arr_rel_insert_input<TRes>
+      get payment_investments {
+    final local$payment_investments = _instance.payment_investments;
+    return local$payment_investments == null
+        ? CopyWith$Input$payment_investment_arr_rel_insert_input.stub(
+            _then(_instance))
+        : CopyWith$Input$payment_investment_arr_rel_insert_input(
+            local$payment_investments, (e) => call(payment_investments: e));
+  }
+
+  CopyWith$Input$profile_obj_rel_insert_input<TRes> get profile {
+    final local$profile = _instance.profile;
+    return local$profile == null
+        ? CopyWith$Input$profile_obj_rel_insert_input.stub(_then(_instance))
+        : CopyWith$Input$profile_obj_rel_insert_input(
+            local$profile, (e) => call(profile: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$bank_card_insert_input<TRes>
+    implements CopyWith$Input$bank_card_insert_input<TRes> {
+  _CopyWithStubImpl$Input$bank_card_insert_input(this._res);
+
+  TRes _res;
+
+  call({
+    String? bank_card_cvc,
+    UUID? bank_card_id,
+    String? bank_card_name,
+    String? bank_card_number,
+    DateTime? created_at,
+    Input$payment_due_arr_rel_insert_input? payment_dues,
+    Input$payment_investment_arr_rel_insert_input? payment_investments,
+    Input$profile_obj_rel_insert_input? profile,
+    int? profile_id,
+    DateTime? updated_at,
+  }) =>
+      _res;
+  CopyWith$Input$payment_due_arr_rel_insert_input<TRes> get payment_dues =>
+      CopyWith$Input$payment_due_arr_rel_insert_input.stub(_res);
+  CopyWith$Input$payment_investment_arr_rel_insert_input<TRes>
+      get payment_investments =>
+          CopyWith$Input$payment_investment_arr_rel_insert_input.stub(_res);
+  CopyWith$Input$profile_obj_rel_insert_input<TRes> get profile =>
+      CopyWith$Input$profile_obj_rel_insert_input.stub(_res);
+}
+
+class Input$bank_card_max_order_by {
+  factory Input$bank_card_max_order_by({
+    Enum$order_by? bank_card_cvc,
+    Enum$order_by? bank_card_id,
+    Enum$order_by? bank_card_name,
+    Enum$order_by? bank_card_number,
+    Enum$order_by? created_at,
+    Enum$order_by? profile_id,
+    Enum$order_by? updated_at,
+  }) =>
+      Input$bank_card_max_order_by._({
+        if (bank_card_cvc != null) r'bank_card_cvc': bank_card_cvc,
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
+        if (bank_card_name != null) r'bank_card_name': bank_card_name,
+        if (bank_card_number != null) r'bank_card_number': bank_card_number,
+        if (created_at != null) r'created_at': created_at,
+        if (profile_id != null) r'profile_id': profile_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$bank_card_max_order_by._(this._$data);
+
+  factory Input$bank_card_max_order_by.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_card_cvc')) {
+      final l$bank_card_cvc = data['bank_card_cvc'];
+      result$data['bank_card_cvc'] = l$bank_card_cvc == null
+          ? null
+          : fromJson$Enum$order_by((l$bank_card_cvc as String));
+    }
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] = l$bank_card_id == null
+          ? null
+          : fromJson$Enum$order_by((l$bank_card_id as String));
+    }
+    if (data.containsKey('bank_card_name')) {
+      final l$bank_card_name = data['bank_card_name'];
+      result$data['bank_card_name'] = l$bank_card_name == null
+          ? null
+          : fromJson$Enum$order_by((l$bank_card_name as String));
+    }
+    if (data.containsKey('bank_card_number')) {
+      final l$bank_card_number = data['bank_card_number'];
+      result$data['bank_card_number'] = l$bank_card_number == null
+          ? null
+          : fromJson$Enum$order_by((l$bank_card_number as String));
+    }
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : fromJson$Enum$order_by((l$created_at as String));
+    }
+    if (data.containsKey('profile_id')) {
+      final l$profile_id = data['profile_id'];
+      result$data['profile_id'] = l$profile_id == null
+          ? null
+          : fromJson$Enum$order_by((l$profile_id as String));
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : fromJson$Enum$order_by((l$updated_at as String));
+    }
+    return Input$bank_card_max_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get bank_card_cvc =>
+      (_$data['bank_card_cvc'] as Enum$order_by?);
+  Enum$order_by? get bank_card_id => (_$data['bank_card_id'] as Enum$order_by?);
+  Enum$order_by? get bank_card_name =>
+      (_$data['bank_card_name'] as Enum$order_by?);
+  Enum$order_by? get bank_card_number =>
+      (_$data['bank_card_number'] as Enum$order_by?);
+  Enum$order_by? get created_at => (_$data['created_at'] as Enum$order_by?);
+  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
+  Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_card_cvc')) {
+      final l$bank_card_cvc = bank_card_cvc;
+      result$data['bank_card_cvc'] = l$bank_card_cvc == null
+          ? null
+          : toJson$Enum$order_by(l$bank_card_cvc);
+    }
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : toJson$Enum$order_by(l$bank_card_id);
+    }
+    if (_$data.containsKey('bank_card_name')) {
+      final l$bank_card_name = bank_card_name;
+      result$data['bank_card_name'] = l$bank_card_name == null
+          ? null
+          : toJson$Enum$order_by(l$bank_card_name);
+    }
+    if (_$data.containsKey('bank_card_number')) {
+      final l$bank_card_number = bank_card_number;
+      result$data['bank_card_number'] = l$bank_card_number == null
+          ? null
+          : toJson$Enum$order_by(l$bank_card_number);
+    }
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] =
+          l$created_at == null ? null : toJson$Enum$order_by(l$created_at);
+    }
+    if (_$data.containsKey('profile_id')) {
+      final l$profile_id = profile_id;
+      result$data['profile_id'] =
+          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] =
+          l$updated_at == null ? null : toJson$Enum$order_by(l$updated_at);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_max_order_by<Input$bank_card_max_order_by>
+      get copyWith => CopyWith$Input$bank_card_max_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_max_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bank_card_cvc = bank_card_cvc;
+    final lOther$bank_card_cvc = other.bank_card_cvc;
+    if (_$data.containsKey('bank_card_cvc') !=
+        other._$data.containsKey('bank_card_cvc')) {
+      return false;
+    }
+    if (l$bank_card_cvc != lOther$bank_card_cvc) {
+      return false;
+    }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
+      return false;
+    }
+    final l$bank_card_name = bank_card_name;
+    final lOther$bank_card_name = other.bank_card_name;
+    if (_$data.containsKey('bank_card_name') !=
+        other._$data.containsKey('bank_card_name')) {
+      return false;
+    }
+    if (l$bank_card_name != lOther$bank_card_name) {
+      return false;
+    }
+    final l$bank_card_number = bank_card_number;
+    final lOther$bank_card_number = other.bank_card_number;
+    if (_$data.containsKey('bank_card_number') !=
+        other._$data.containsKey('bank_card_number')) {
+      return false;
+    }
+    if (l$bank_card_number != lOther$bank_card_number) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$profile_id = profile_id;
+    final lOther$profile_id = other.profile_id;
+    if (_$data.containsKey('profile_id') !=
+        other._$data.containsKey('profile_id')) {
+      return false;
+    }
+    if (l$profile_id != lOther$profile_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$bank_card_cvc = bank_card_cvc;
+    final l$bank_card_id = bank_card_id;
+    final l$bank_card_name = bank_card_name;
+    final l$bank_card_number = bank_card_number;
+    final l$created_at = created_at;
+    final l$profile_id = profile_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('bank_card_cvc') ? l$bank_card_cvc : const {},
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
+      _$data.containsKey('bank_card_name') ? l$bank_card_name : const {},
+      _$data.containsKey('bank_card_number') ? l$bank_card_number : const {},
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('profile_id') ? l$profile_id : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_max_order_by<TRes> {
+  factory CopyWith$Input$bank_card_max_order_by(
+    Input$bank_card_max_order_by instance,
+    TRes Function(Input$bank_card_max_order_by) then,
+  ) = _CopyWithImpl$Input$bank_card_max_order_by;
+
+  factory CopyWith$Input$bank_card_max_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_max_order_by;
+
+  TRes call({
+    Enum$order_by? bank_card_cvc,
+    Enum$order_by? bank_card_id,
+    Enum$order_by? bank_card_name,
+    Enum$order_by? bank_card_number,
+    Enum$order_by? created_at,
+    Enum$order_by? profile_id,
+    Enum$order_by? updated_at,
+  });
+}
+
+class _CopyWithImpl$Input$bank_card_max_order_by<TRes>
+    implements CopyWith$Input$bank_card_max_order_by<TRes> {
+  _CopyWithImpl$Input$bank_card_max_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_max_order_by _instance;
+
+  final TRes Function(Input$bank_card_max_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? bank_card_cvc = _undefined,
+    Object? bank_card_id = _undefined,
+    Object? bank_card_name = _undefined,
+    Object? bank_card_number = _undefined,
+    Object? created_at = _undefined,
+    Object? profile_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$bank_card_max_order_by._({
+        ..._instance._$data,
+        if (bank_card_cvc != _undefined)
+          'bank_card_cvc': (bank_card_cvc as Enum$order_by?),
+        if (bank_card_id != _undefined)
+          'bank_card_id': (bank_card_id as Enum$order_by?),
+        if (bank_card_name != _undefined)
+          'bank_card_name': (bank_card_name as Enum$order_by?),
+        if (bank_card_number != _undefined)
+          'bank_card_number': (bank_card_number as Enum$order_by?),
+        if (created_at != _undefined)
+          'created_at': (created_at as Enum$order_by?),
+        if (profile_id != _undefined)
+          'profile_id': (profile_id as Enum$order_by?),
+        if (updated_at != _undefined)
+          'updated_at': (updated_at as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$bank_card_max_order_by<TRes>
+    implements CopyWith$Input$bank_card_max_order_by<TRes> {
+  _CopyWithStubImpl$Input$bank_card_max_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$order_by? bank_card_cvc,
+    Enum$order_by? bank_card_id,
+    Enum$order_by? bank_card_name,
+    Enum$order_by? bank_card_number,
+    Enum$order_by? created_at,
+    Enum$order_by? profile_id,
+    Enum$order_by? updated_at,
+  }) =>
+      _res;
+}
+
+class Input$bank_card_min_order_by {
+  factory Input$bank_card_min_order_by({
+    Enum$order_by? bank_card_cvc,
+    Enum$order_by? bank_card_id,
+    Enum$order_by? bank_card_name,
+    Enum$order_by? bank_card_number,
+    Enum$order_by? created_at,
+    Enum$order_by? profile_id,
+    Enum$order_by? updated_at,
+  }) =>
+      Input$bank_card_min_order_by._({
+        if (bank_card_cvc != null) r'bank_card_cvc': bank_card_cvc,
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
+        if (bank_card_name != null) r'bank_card_name': bank_card_name,
+        if (bank_card_number != null) r'bank_card_number': bank_card_number,
+        if (created_at != null) r'created_at': created_at,
+        if (profile_id != null) r'profile_id': profile_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$bank_card_min_order_by._(this._$data);
+
+  factory Input$bank_card_min_order_by.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_card_cvc')) {
+      final l$bank_card_cvc = data['bank_card_cvc'];
+      result$data['bank_card_cvc'] = l$bank_card_cvc == null
+          ? null
+          : fromJson$Enum$order_by((l$bank_card_cvc as String));
+    }
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] = l$bank_card_id == null
+          ? null
+          : fromJson$Enum$order_by((l$bank_card_id as String));
+    }
+    if (data.containsKey('bank_card_name')) {
+      final l$bank_card_name = data['bank_card_name'];
+      result$data['bank_card_name'] = l$bank_card_name == null
+          ? null
+          : fromJson$Enum$order_by((l$bank_card_name as String));
+    }
+    if (data.containsKey('bank_card_number')) {
+      final l$bank_card_number = data['bank_card_number'];
+      result$data['bank_card_number'] = l$bank_card_number == null
+          ? null
+          : fromJson$Enum$order_by((l$bank_card_number as String));
+    }
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : fromJson$Enum$order_by((l$created_at as String));
+    }
+    if (data.containsKey('profile_id')) {
+      final l$profile_id = data['profile_id'];
+      result$data['profile_id'] = l$profile_id == null
+          ? null
+          : fromJson$Enum$order_by((l$profile_id as String));
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : fromJson$Enum$order_by((l$updated_at as String));
+    }
+    return Input$bank_card_min_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get bank_card_cvc =>
+      (_$data['bank_card_cvc'] as Enum$order_by?);
+  Enum$order_by? get bank_card_id => (_$data['bank_card_id'] as Enum$order_by?);
+  Enum$order_by? get bank_card_name =>
+      (_$data['bank_card_name'] as Enum$order_by?);
+  Enum$order_by? get bank_card_number =>
+      (_$data['bank_card_number'] as Enum$order_by?);
+  Enum$order_by? get created_at => (_$data['created_at'] as Enum$order_by?);
+  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
+  Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_card_cvc')) {
+      final l$bank_card_cvc = bank_card_cvc;
+      result$data['bank_card_cvc'] = l$bank_card_cvc == null
+          ? null
+          : toJson$Enum$order_by(l$bank_card_cvc);
+    }
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : toJson$Enum$order_by(l$bank_card_id);
+    }
+    if (_$data.containsKey('bank_card_name')) {
+      final l$bank_card_name = bank_card_name;
+      result$data['bank_card_name'] = l$bank_card_name == null
+          ? null
+          : toJson$Enum$order_by(l$bank_card_name);
+    }
+    if (_$data.containsKey('bank_card_number')) {
+      final l$bank_card_number = bank_card_number;
+      result$data['bank_card_number'] = l$bank_card_number == null
+          ? null
+          : toJson$Enum$order_by(l$bank_card_number);
+    }
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] =
+          l$created_at == null ? null : toJson$Enum$order_by(l$created_at);
+    }
+    if (_$data.containsKey('profile_id')) {
+      final l$profile_id = profile_id;
+      result$data['profile_id'] =
+          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] =
+          l$updated_at == null ? null : toJson$Enum$order_by(l$updated_at);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_min_order_by<Input$bank_card_min_order_by>
+      get copyWith => CopyWith$Input$bank_card_min_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_min_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bank_card_cvc = bank_card_cvc;
+    final lOther$bank_card_cvc = other.bank_card_cvc;
+    if (_$data.containsKey('bank_card_cvc') !=
+        other._$data.containsKey('bank_card_cvc')) {
+      return false;
+    }
+    if (l$bank_card_cvc != lOther$bank_card_cvc) {
+      return false;
+    }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
+      return false;
+    }
+    final l$bank_card_name = bank_card_name;
+    final lOther$bank_card_name = other.bank_card_name;
+    if (_$data.containsKey('bank_card_name') !=
+        other._$data.containsKey('bank_card_name')) {
+      return false;
+    }
+    if (l$bank_card_name != lOther$bank_card_name) {
+      return false;
+    }
+    final l$bank_card_number = bank_card_number;
+    final lOther$bank_card_number = other.bank_card_number;
+    if (_$data.containsKey('bank_card_number') !=
+        other._$data.containsKey('bank_card_number')) {
+      return false;
+    }
+    if (l$bank_card_number != lOther$bank_card_number) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$profile_id = profile_id;
+    final lOther$profile_id = other.profile_id;
+    if (_$data.containsKey('profile_id') !=
+        other._$data.containsKey('profile_id')) {
+      return false;
+    }
+    if (l$profile_id != lOther$profile_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$bank_card_cvc = bank_card_cvc;
+    final l$bank_card_id = bank_card_id;
+    final l$bank_card_name = bank_card_name;
+    final l$bank_card_number = bank_card_number;
+    final l$created_at = created_at;
+    final l$profile_id = profile_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('bank_card_cvc') ? l$bank_card_cvc : const {},
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
+      _$data.containsKey('bank_card_name') ? l$bank_card_name : const {},
+      _$data.containsKey('bank_card_number') ? l$bank_card_number : const {},
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('profile_id') ? l$profile_id : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_min_order_by<TRes> {
+  factory CopyWith$Input$bank_card_min_order_by(
+    Input$bank_card_min_order_by instance,
+    TRes Function(Input$bank_card_min_order_by) then,
+  ) = _CopyWithImpl$Input$bank_card_min_order_by;
+
+  factory CopyWith$Input$bank_card_min_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_min_order_by;
+
+  TRes call({
+    Enum$order_by? bank_card_cvc,
+    Enum$order_by? bank_card_id,
+    Enum$order_by? bank_card_name,
+    Enum$order_by? bank_card_number,
+    Enum$order_by? created_at,
+    Enum$order_by? profile_id,
+    Enum$order_by? updated_at,
+  });
+}
+
+class _CopyWithImpl$Input$bank_card_min_order_by<TRes>
+    implements CopyWith$Input$bank_card_min_order_by<TRes> {
+  _CopyWithImpl$Input$bank_card_min_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_min_order_by _instance;
+
+  final TRes Function(Input$bank_card_min_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? bank_card_cvc = _undefined,
+    Object? bank_card_id = _undefined,
+    Object? bank_card_name = _undefined,
+    Object? bank_card_number = _undefined,
+    Object? created_at = _undefined,
+    Object? profile_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$bank_card_min_order_by._({
+        ..._instance._$data,
+        if (bank_card_cvc != _undefined)
+          'bank_card_cvc': (bank_card_cvc as Enum$order_by?),
+        if (bank_card_id != _undefined)
+          'bank_card_id': (bank_card_id as Enum$order_by?),
+        if (bank_card_name != _undefined)
+          'bank_card_name': (bank_card_name as Enum$order_by?),
+        if (bank_card_number != _undefined)
+          'bank_card_number': (bank_card_number as Enum$order_by?),
+        if (created_at != _undefined)
+          'created_at': (created_at as Enum$order_by?),
+        if (profile_id != _undefined)
+          'profile_id': (profile_id as Enum$order_by?),
+        if (updated_at != _undefined)
+          'updated_at': (updated_at as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$bank_card_min_order_by<TRes>
+    implements CopyWith$Input$bank_card_min_order_by<TRes> {
+  _CopyWithStubImpl$Input$bank_card_min_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$order_by? bank_card_cvc,
+    Enum$order_by? bank_card_id,
+    Enum$order_by? bank_card_name,
+    Enum$order_by? bank_card_number,
+    Enum$order_by? created_at,
+    Enum$order_by? profile_id,
+    Enum$order_by? updated_at,
+  }) =>
+      _res;
+}
+
+class Input$bank_card_obj_rel_insert_input {
+  factory Input$bank_card_obj_rel_insert_input({
+    required Input$bank_card_insert_input data,
+    Input$bank_card_on_conflict? on_conflict,
+  }) =>
+      Input$bank_card_obj_rel_insert_input._({
+        r'data': data,
+        if (on_conflict != null) r'on_conflict': on_conflict,
+      });
+
+  Input$bank_card_obj_rel_insert_input._(this._$data);
+
+  factory Input$bank_card_obj_rel_insert_input.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$data = data['data'];
+    result$data['data'] =
+        Input$bank_card_insert_input.fromJson((l$data as Map<String, dynamic>));
+    if (data.containsKey('on_conflict')) {
+      final l$on_conflict = data['on_conflict'];
+      result$data['on_conflict'] = l$on_conflict == null
+          ? null
+          : Input$bank_card_on_conflict.fromJson(
+              (l$on_conflict as Map<String, dynamic>));
+    }
+    return Input$bank_card_obj_rel_insert_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$bank_card_insert_input get data =>
+      (_$data['data'] as Input$bank_card_insert_input);
+  Input$bank_card_on_conflict? get on_conflict =>
+      (_$data['on_conflict'] as Input$bank_card_on_conflict?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$data = data;
+    result$data['data'] = l$data.toJson();
+    if (_$data.containsKey('on_conflict')) {
+      final l$on_conflict = on_conflict;
+      result$data['on_conflict'] = l$on_conflict?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_obj_rel_insert_input<
+          Input$bank_card_obj_rel_insert_input>
+      get copyWith => CopyWith$Input$bank_card_obj_rel_insert_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_obj_rel_insert_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$data = data;
+    final lOther$data = other.data;
+    if (l$data != lOther$data) {
+      return false;
+    }
+    final l$on_conflict = on_conflict;
+    final lOther$on_conflict = other.on_conflict;
+    if (_$data.containsKey('on_conflict') !=
+        other._$data.containsKey('on_conflict')) {
+      return false;
+    }
+    if (l$on_conflict != lOther$on_conflict) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$data = data;
+    final l$on_conflict = on_conflict;
+    return Object.hashAll([
+      l$data,
+      _$data.containsKey('on_conflict') ? l$on_conflict : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_obj_rel_insert_input<TRes> {
+  factory CopyWith$Input$bank_card_obj_rel_insert_input(
+    Input$bank_card_obj_rel_insert_input instance,
+    TRes Function(Input$bank_card_obj_rel_insert_input) then,
+  ) = _CopyWithImpl$Input$bank_card_obj_rel_insert_input;
+
+  factory CopyWith$Input$bank_card_obj_rel_insert_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_obj_rel_insert_input;
+
+  TRes call({
+    Input$bank_card_insert_input? data,
+    Input$bank_card_on_conflict? on_conflict,
+  });
+  CopyWith$Input$bank_card_insert_input<TRes> get data;
+  CopyWith$Input$bank_card_on_conflict<TRes> get on_conflict;
+}
+
+class _CopyWithImpl$Input$bank_card_obj_rel_insert_input<TRes>
+    implements CopyWith$Input$bank_card_obj_rel_insert_input<TRes> {
+  _CopyWithImpl$Input$bank_card_obj_rel_insert_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_obj_rel_insert_input _instance;
+
+  final TRes Function(Input$bank_card_obj_rel_insert_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? data = _undefined,
+    Object? on_conflict = _undefined,
+  }) =>
+      _then(Input$bank_card_obj_rel_insert_input._({
+        ..._instance._$data,
+        if (data != _undefined && data != null)
+          'data': (data as Input$bank_card_insert_input),
+        if (on_conflict != _undefined)
+          'on_conflict': (on_conflict as Input$bank_card_on_conflict?),
+      }));
+  CopyWith$Input$bank_card_insert_input<TRes> get data {
+    final local$data = _instance.data;
+    return CopyWith$Input$bank_card_insert_input(
+        local$data, (e) => call(data: e));
+  }
+
+  CopyWith$Input$bank_card_on_conflict<TRes> get on_conflict {
+    final local$on_conflict = _instance.on_conflict;
+    return local$on_conflict == null
+        ? CopyWith$Input$bank_card_on_conflict.stub(_then(_instance))
+        : CopyWith$Input$bank_card_on_conflict(
+            local$on_conflict, (e) => call(on_conflict: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$bank_card_obj_rel_insert_input<TRes>
+    implements CopyWith$Input$bank_card_obj_rel_insert_input<TRes> {
+  _CopyWithStubImpl$Input$bank_card_obj_rel_insert_input(this._res);
+
+  TRes _res;
+
+  call({
+    Input$bank_card_insert_input? data,
+    Input$bank_card_on_conflict? on_conflict,
+  }) =>
+      _res;
+  CopyWith$Input$bank_card_insert_input<TRes> get data =>
+      CopyWith$Input$bank_card_insert_input.stub(_res);
+  CopyWith$Input$bank_card_on_conflict<TRes> get on_conflict =>
+      CopyWith$Input$bank_card_on_conflict.stub(_res);
+}
+
+class Input$bank_card_on_conflict {
+  factory Input$bank_card_on_conflict({
+    required Enum$bank_card_constraint constraint,
+    required List<Enum$bank_card_update_column> update_columns,
+    Input$bank_card_bool_exp? where,
+  }) =>
+      Input$bank_card_on_conflict._({
+        r'constraint': constraint,
+        r'update_columns': update_columns,
+        if (where != null) r'where': where,
+      });
+
+  Input$bank_card_on_conflict._(this._$data);
+
+  factory Input$bank_card_on_conflict.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$constraint = data['constraint'];
+    result$data['constraint'] =
+        fromJson$Enum$bank_card_constraint((l$constraint as String));
+    final l$update_columns = data['update_columns'];
+    result$data['update_columns'] = (l$update_columns as List<dynamic>)
+        .map((e) => fromJson$Enum$bank_card_update_column((e as String)))
+        .toList();
+    if (data.containsKey('where')) {
+      final l$where = data['where'];
+      result$data['where'] = l$where == null
+          ? null
+          : Input$bank_card_bool_exp.fromJson(
+              (l$where as Map<String, dynamic>));
+    }
+    return Input$bank_card_on_conflict._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$bank_card_constraint get constraint =>
+      (_$data['constraint'] as Enum$bank_card_constraint);
+  List<Enum$bank_card_update_column> get update_columns =>
+      (_$data['update_columns'] as List<Enum$bank_card_update_column>);
+  Input$bank_card_bool_exp? get where =>
+      (_$data['where'] as Input$bank_card_bool_exp?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$constraint = constraint;
+    result$data['constraint'] = toJson$Enum$bank_card_constraint(l$constraint);
+    final l$update_columns = update_columns;
+    result$data['update_columns'] = l$update_columns
+        .map((e) => toJson$Enum$bank_card_update_column(e))
+        .toList();
+    if (_$data.containsKey('where')) {
+      final l$where = where;
+      result$data['where'] = l$where?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_on_conflict<Input$bank_card_on_conflict>
+      get copyWith => CopyWith$Input$bank_card_on_conflict(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_on_conflict) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$constraint = constraint;
+    final lOther$constraint = other.constraint;
+    if (l$constraint != lOther$constraint) {
+      return false;
+    }
+    final l$update_columns = update_columns;
+    final lOther$update_columns = other.update_columns;
+    if (l$update_columns.length != lOther$update_columns.length) {
+      return false;
+    }
+    for (int i = 0; i < l$update_columns.length; i++) {
+      final l$update_columns$entry = l$update_columns[i];
+      final lOther$update_columns$entry = lOther$update_columns[i];
+      if (l$update_columns$entry != lOther$update_columns$entry) {
+        return false;
+      }
+    }
+    final l$where = where;
+    final lOther$where = other.where;
+    if (_$data.containsKey('where') != other._$data.containsKey('where')) {
+      return false;
+    }
+    if (l$where != lOther$where) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$constraint = constraint;
+    final l$update_columns = update_columns;
+    final l$where = where;
+    return Object.hashAll([
+      l$constraint,
+      Object.hashAll(l$update_columns.map((v) => v)),
+      _$data.containsKey('where') ? l$where : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_on_conflict<TRes> {
+  factory CopyWith$Input$bank_card_on_conflict(
+    Input$bank_card_on_conflict instance,
+    TRes Function(Input$bank_card_on_conflict) then,
+  ) = _CopyWithImpl$Input$bank_card_on_conflict;
+
+  factory CopyWith$Input$bank_card_on_conflict.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_on_conflict;
+
+  TRes call({
+    Enum$bank_card_constraint? constraint,
+    List<Enum$bank_card_update_column>? update_columns,
+    Input$bank_card_bool_exp? where,
+  });
+  CopyWith$Input$bank_card_bool_exp<TRes> get where;
+}
+
+class _CopyWithImpl$Input$bank_card_on_conflict<TRes>
+    implements CopyWith$Input$bank_card_on_conflict<TRes> {
+  _CopyWithImpl$Input$bank_card_on_conflict(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_on_conflict _instance;
+
+  final TRes Function(Input$bank_card_on_conflict) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? constraint = _undefined,
+    Object? update_columns = _undefined,
+    Object? where = _undefined,
+  }) =>
+      _then(Input$bank_card_on_conflict._({
+        ..._instance._$data,
+        if (constraint != _undefined && constraint != null)
+          'constraint': (constraint as Enum$bank_card_constraint),
+        if (update_columns != _undefined && update_columns != null)
+          'update_columns':
+              (update_columns as List<Enum$bank_card_update_column>),
+        if (where != _undefined) 'where': (where as Input$bank_card_bool_exp?),
+      }));
+  CopyWith$Input$bank_card_bool_exp<TRes> get where {
+    final local$where = _instance.where;
+    return local$where == null
+        ? CopyWith$Input$bank_card_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$bank_card_bool_exp(local$where, (e) => call(where: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$bank_card_on_conflict<TRes>
+    implements CopyWith$Input$bank_card_on_conflict<TRes> {
+  _CopyWithStubImpl$Input$bank_card_on_conflict(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$bank_card_constraint? constraint,
+    List<Enum$bank_card_update_column>? update_columns,
+    Input$bank_card_bool_exp? where,
+  }) =>
+      _res;
+  CopyWith$Input$bank_card_bool_exp<TRes> get where =>
+      CopyWith$Input$bank_card_bool_exp.stub(_res);
+}
+
+class Input$bank_card_order_by {
+  factory Input$bank_card_order_by({
+    Enum$order_by? bank_card_cvc,
+    Enum$order_by? bank_card_id,
+    Enum$order_by? bank_card_name,
+    Enum$order_by? bank_card_number,
+    Enum$order_by? created_at,
+    Input$payment_due_aggregate_order_by? payment_dues_aggregate,
+    Input$payment_investment_aggregate_order_by? payment_investments_aggregate,
+    Input$profile_order_by? profile,
+    Enum$order_by? profile_id,
+    Enum$order_by? updated_at,
+  }) =>
+      Input$bank_card_order_by._({
+        if (bank_card_cvc != null) r'bank_card_cvc': bank_card_cvc,
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
+        if (bank_card_name != null) r'bank_card_name': bank_card_name,
+        if (bank_card_number != null) r'bank_card_number': bank_card_number,
+        if (created_at != null) r'created_at': created_at,
+        if (payment_dues_aggregate != null)
+          r'payment_dues_aggregate': payment_dues_aggregate,
+        if (payment_investments_aggregate != null)
+          r'payment_investments_aggregate': payment_investments_aggregate,
+        if (profile != null) r'profile': profile,
+        if (profile_id != null) r'profile_id': profile_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$bank_card_order_by._(this._$data);
+
+  factory Input$bank_card_order_by.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_card_cvc')) {
+      final l$bank_card_cvc = data['bank_card_cvc'];
+      result$data['bank_card_cvc'] = l$bank_card_cvc == null
+          ? null
+          : fromJson$Enum$order_by((l$bank_card_cvc as String));
+    }
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] = l$bank_card_id == null
+          ? null
+          : fromJson$Enum$order_by((l$bank_card_id as String));
+    }
+    if (data.containsKey('bank_card_name')) {
+      final l$bank_card_name = data['bank_card_name'];
+      result$data['bank_card_name'] = l$bank_card_name == null
+          ? null
+          : fromJson$Enum$order_by((l$bank_card_name as String));
+    }
+    if (data.containsKey('bank_card_number')) {
+      final l$bank_card_number = data['bank_card_number'];
+      result$data['bank_card_number'] = l$bank_card_number == null
+          ? null
+          : fromJson$Enum$order_by((l$bank_card_number as String));
+    }
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : fromJson$Enum$order_by((l$created_at as String));
+    }
+    if (data.containsKey('payment_dues_aggregate')) {
+      final l$payment_dues_aggregate = data['payment_dues_aggregate'];
+      result$data['payment_dues_aggregate'] = l$payment_dues_aggregate == null
+          ? null
+          : Input$payment_due_aggregate_order_by.fromJson(
+              (l$payment_dues_aggregate as Map<String, dynamic>));
+    }
+    if (data.containsKey('payment_investments_aggregate')) {
+      final l$payment_investments_aggregate =
+          data['payment_investments_aggregate'];
+      result$data['payment_investments_aggregate'] =
+          l$payment_investments_aggregate == null
+              ? null
+              : Input$payment_investment_aggregate_order_by.fromJson(
+                  (l$payment_investments_aggregate as Map<String, dynamic>));
+    }
+    if (data.containsKey('profile')) {
+      final l$profile = data['profile'];
+      result$data['profile'] = l$profile == null
+          ? null
+          : Input$profile_order_by.fromJson(
+              (l$profile as Map<String, dynamic>));
+    }
+    if (data.containsKey('profile_id')) {
+      final l$profile_id = data['profile_id'];
+      result$data['profile_id'] = l$profile_id == null
+          ? null
+          : fromJson$Enum$order_by((l$profile_id as String));
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : fromJson$Enum$order_by((l$updated_at as String));
+    }
+    return Input$bank_card_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get bank_card_cvc =>
+      (_$data['bank_card_cvc'] as Enum$order_by?);
+  Enum$order_by? get bank_card_id => (_$data['bank_card_id'] as Enum$order_by?);
+  Enum$order_by? get bank_card_name =>
+      (_$data['bank_card_name'] as Enum$order_by?);
+  Enum$order_by? get bank_card_number =>
+      (_$data['bank_card_number'] as Enum$order_by?);
+  Enum$order_by? get created_at => (_$data['created_at'] as Enum$order_by?);
+  Input$payment_due_aggregate_order_by? get payment_dues_aggregate =>
+      (_$data['payment_dues_aggregate']
+          as Input$payment_due_aggregate_order_by?);
+  Input$payment_investment_aggregate_order_by?
+      get payment_investments_aggregate =>
+          (_$data['payment_investments_aggregate']
+              as Input$payment_investment_aggregate_order_by?);
+  Input$profile_order_by? get profile =>
+      (_$data['profile'] as Input$profile_order_by?);
+  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
+  Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_card_cvc')) {
+      final l$bank_card_cvc = bank_card_cvc;
+      result$data['bank_card_cvc'] = l$bank_card_cvc == null
+          ? null
+          : toJson$Enum$order_by(l$bank_card_cvc);
+    }
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : toJson$Enum$order_by(l$bank_card_id);
+    }
+    if (_$data.containsKey('bank_card_name')) {
+      final l$bank_card_name = bank_card_name;
+      result$data['bank_card_name'] = l$bank_card_name == null
+          ? null
+          : toJson$Enum$order_by(l$bank_card_name);
+    }
+    if (_$data.containsKey('bank_card_number')) {
+      final l$bank_card_number = bank_card_number;
+      result$data['bank_card_number'] = l$bank_card_number == null
+          ? null
+          : toJson$Enum$order_by(l$bank_card_number);
+    }
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] =
+          l$created_at == null ? null : toJson$Enum$order_by(l$created_at);
+    }
+    if (_$data.containsKey('payment_dues_aggregate')) {
+      final l$payment_dues_aggregate = payment_dues_aggregate;
+      result$data['payment_dues_aggregate'] =
+          l$payment_dues_aggregate?.toJson();
+    }
+    if (_$data.containsKey('payment_investments_aggregate')) {
+      final l$payment_investments_aggregate = payment_investments_aggregate;
+      result$data['payment_investments_aggregate'] =
+          l$payment_investments_aggregate?.toJson();
+    }
+    if (_$data.containsKey('profile')) {
+      final l$profile = profile;
+      result$data['profile'] = l$profile?.toJson();
+    }
+    if (_$data.containsKey('profile_id')) {
+      final l$profile_id = profile_id;
+      result$data['profile_id'] =
+          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] =
+          l$updated_at == null ? null : toJson$Enum$order_by(l$updated_at);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_order_by<Input$bank_card_order_by> get copyWith =>
+      CopyWith$Input$bank_card_order_by(
+        this,
+        (i) => i,
+      );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bank_card_cvc = bank_card_cvc;
+    final lOther$bank_card_cvc = other.bank_card_cvc;
+    if (_$data.containsKey('bank_card_cvc') !=
+        other._$data.containsKey('bank_card_cvc')) {
+      return false;
+    }
+    if (l$bank_card_cvc != lOther$bank_card_cvc) {
+      return false;
+    }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
+      return false;
+    }
+    final l$bank_card_name = bank_card_name;
+    final lOther$bank_card_name = other.bank_card_name;
+    if (_$data.containsKey('bank_card_name') !=
+        other._$data.containsKey('bank_card_name')) {
+      return false;
+    }
+    if (l$bank_card_name != lOther$bank_card_name) {
+      return false;
+    }
+    final l$bank_card_number = bank_card_number;
+    final lOther$bank_card_number = other.bank_card_number;
+    if (_$data.containsKey('bank_card_number') !=
+        other._$data.containsKey('bank_card_number')) {
+      return false;
+    }
+    if (l$bank_card_number != lOther$bank_card_number) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$payment_dues_aggregate = payment_dues_aggregate;
+    final lOther$payment_dues_aggregate = other.payment_dues_aggregate;
+    if (_$data.containsKey('payment_dues_aggregate') !=
+        other._$data.containsKey('payment_dues_aggregate')) {
+      return false;
+    }
+    if (l$payment_dues_aggregate != lOther$payment_dues_aggregate) {
+      return false;
+    }
+    final l$payment_investments_aggregate = payment_investments_aggregate;
+    final lOther$payment_investments_aggregate =
+        other.payment_investments_aggregate;
+    if (_$data.containsKey('payment_investments_aggregate') !=
+        other._$data.containsKey('payment_investments_aggregate')) {
+      return false;
+    }
+    if (l$payment_investments_aggregate !=
+        lOther$payment_investments_aggregate) {
+      return false;
+    }
+    final l$profile = profile;
+    final lOther$profile = other.profile;
+    if (_$data.containsKey('profile') != other._$data.containsKey('profile')) {
+      return false;
+    }
+    if (l$profile != lOther$profile) {
+      return false;
+    }
+    final l$profile_id = profile_id;
+    final lOther$profile_id = other.profile_id;
+    if (_$data.containsKey('profile_id') !=
+        other._$data.containsKey('profile_id')) {
+      return false;
+    }
+    if (l$profile_id != lOther$profile_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$bank_card_cvc = bank_card_cvc;
+    final l$bank_card_id = bank_card_id;
+    final l$bank_card_name = bank_card_name;
+    final l$bank_card_number = bank_card_number;
+    final l$created_at = created_at;
+    final l$payment_dues_aggregate = payment_dues_aggregate;
+    final l$payment_investments_aggregate = payment_investments_aggregate;
+    final l$profile = profile;
+    final l$profile_id = profile_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('bank_card_cvc') ? l$bank_card_cvc : const {},
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
+      _$data.containsKey('bank_card_name') ? l$bank_card_name : const {},
+      _$data.containsKey('bank_card_number') ? l$bank_card_number : const {},
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('payment_dues_aggregate')
+          ? l$payment_dues_aggregate
+          : const {},
+      _$data.containsKey('payment_investments_aggregate')
+          ? l$payment_investments_aggregate
+          : const {},
+      _$data.containsKey('profile') ? l$profile : const {},
+      _$data.containsKey('profile_id') ? l$profile_id : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_order_by<TRes> {
+  factory CopyWith$Input$bank_card_order_by(
+    Input$bank_card_order_by instance,
+    TRes Function(Input$bank_card_order_by) then,
+  ) = _CopyWithImpl$Input$bank_card_order_by;
+
+  factory CopyWith$Input$bank_card_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_order_by;
+
+  TRes call({
+    Enum$order_by? bank_card_cvc,
+    Enum$order_by? bank_card_id,
+    Enum$order_by? bank_card_name,
+    Enum$order_by? bank_card_number,
+    Enum$order_by? created_at,
+    Input$payment_due_aggregate_order_by? payment_dues_aggregate,
+    Input$payment_investment_aggregate_order_by? payment_investments_aggregate,
+    Input$profile_order_by? profile,
+    Enum$order_by? profile_id,
+    Enum$order_by? updated_at,
+  });
+  CopyWith$Input$payment_due_aggregate_order_by<TRes>
+      get payment_dues_aggregate;
+  CopyWith$Input$payment_investment_aggregate_order_by<TRes>
+      get payment_investments_aggregate;
+  CopyWith$Input$profile_order_by<TRes> get profile;
+}
+
+class _CopyWithImpl$Input$bank_card_order_by<TRes>
+    implements CopyWith$Input$bank_card_order_by<TRes> {
+  _CopyWithImpl$Input$bank_card_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_order_by _instance;
+
+  final TRes Function(Input$bank_card_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? bank_card_cvc = _undefined,
+    Object? bank_card_id = _undefined,
+    Object? bank_card_name = _undefined,
+    Object? bank_card_number = _undefined,
+    Object? created_at = _undefined,
+    Object? payment_dues_aggregate = _undefined,
+    Object? payment_investments_aggregate = _undefined,
+    Object? profile = _undefined,
+    Object? profile_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$bank_card_order_by._({
+        ..._instance._$data,
+        if (bank_card_cvc != _undefined)
+          'bank_card_cvc': (bank_card_cvc as Enum$order_by?),
+        if (bank_card_id != _undefined)
+          'bank_card_id': (bank_card_id as Enum$order_by?),
+        if (bank_card_name != _undefined)
+          'bank_card_name': (bank_card_name as Enum$order_by?),
+        if (bank_card_number != _undefined)
+          'bank_card_number': (bank_card_number as Enum$order_by?),
+        if (created_at != _undefined)
+          'created_at': (created_at as Enum$order_by?),
+        if (payment_dues_aggregate != _undefined)
+          'payment_dues_aggregate':
+              (payment_dues_aggregate as Input$payment_due_aggregate_order_by?),
+        if (payment_investments_aggregate != _undefined)
+          'payment_investments_aggregate': (payment_investments_aggregate
+              as Input$payment_investment_aggregate_order_by?),
+        if (profile != _undefined)
+          'profile': (profile as Input$profile_order_by?),
+        if (profile_id != _undefined)
+          'profile_id': (profile_id as Enum$order_by?),
+        if (updated_at != _undefined)
+          'updated_at': (updated_at as Enum$order_by?),
+      }));
+  CopyWith$Input$payment_due_aggregate_order_by<TRes>
+      get payment_dues_aggregate {
+    final local$payment_dues_aggregate = _instance.payment_dues_aggregate;
+    return local$payment_dues_aggregate == null
+        ? CopyWith$Input$payment_due_aggregate_order_by.stub(_then(_instance))
+        : CopyWith$Input$payment_due_aggregate_order_by(
+            local$payment_dues_aggregate,
+            (e) => call(payment_dues_aggregate: e));
+  }
+
+  CopyWith$Input$payment_investment_aggregate_order_by<TRes>
+      get payment_investments_aggregate {
+    final local$payment_investments_aggregate =
+        _instance.payment_investments_aggregate;
+    return local$payment_investments_aggregate == null
+        ? CopyWith$Input$payment_investment_aggregate_order_by.stub(
+            _then(_instance))
+        : CopyWith$Input$payment_investment_aggregate_order_by(
+            local$payment_investments_aggregate,
+            (e) => call(payment_investments_aggregate: e));
+  }
+
+  CopyWith$Input$profile_order_by<TRes> get profile {
+    final local$profile = _instance.profile;
+    return local$profile == null
+        ? CopyWith$Input$profile_order_by.stub(_then(_instance))
+        : CopyWith$Input$profile_order_by(
+            local$profile, (e) => call(profile: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$bank_card_order_by<TRes>
+    implements CopyWith$Input$bank_card_order_by<TRes> {
+  _CopyWithStubImpl$Input$bank_card_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$order_by? bank_card_cvc,
+    Enum$order_by? bank_card_id,
+    Enum$order_by? bank_card_name,
+    Enum$order_by? bank_card_number,
+    Enum$order_by? created_at,
+    Input$payment_due_aggregate_order_by? payment_dues_aggregate,
+    Input$payment_investment_aggregate_order_by? payment_investments_aggregate,
+    Input$profile_order_by? profile,
+    Enum$order_by? profile_id,
+    Enum$order_by? updated_at,
+  }) =>
+      _res;
+  CopyWith$Input$payment_due_aggregate_order_by<TRes>
+      get payment_dues_aggregate =>
+          CopyWith$Input$payment_due_aggregate_order_by.stub(_res);
+  CopyWith$Input$payment_investment_aggregate_order_by<TRes>
+      get payment_investments_aggregate =>
+          CopyWith$Input$payment_investment_aggregate_order_by.stub(_res);
+  CopyWith$Input$profile_order_by<TRes> get profile =>
+      CopyWith$Input$profile_order_by.stub(_res);
+}
+
+class Input$bank_card_pk_columns_input {
+  factory Input$bank_card_pk_columns_input({required UUID bank_card_id}) =>
+      Input$bank_card_pk_columns_input._({
+        r'bank_card_id': bank_card_id,
+      });
+
+  Input$bank_card_pk_columns_input._(this._$data);
+
+  factory Input$bank_card_pk_columns_input.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$bank_card_id = data['bank_card_id'];
+    result$data['bank_card_id'] = uuidFromJson(l$bank_card_id);
+    return Input$bank_card_pk_columns_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  UUID get bank_card_id => (_$data['bank_card_id'] as UUID);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$bank_card_id = bank_card_id;
+    result$data['bank_card_id'] = uuidToJson(l$bank_card_id);
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_pk_columns_input<Input$bank_card_pk_columns_input>
+      get copyWith => CopyWith$Input$bank_card_pk_columns_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_pk_columns_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (l$bank_card_id != lOther$bank_card_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$bank_card_id = bank_card_id;
+    return Object.hashAll([l$bank_card_id]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_pk_columns_input<TRes> {
+  factory CopyWith$Input$bank_card_pk_columns_input(
+    Input$bank_card_pk_columns_input instance,
+    TRes Function(Input$bank_card_pk_columns_input) then,
+  ) = _CopyWithImpl$Input$bank_card_pk_columns_input;
+
+  factory CopyWith$Input$bank_card_pk_columns_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_pk_columns_input;
+
+  TRes call({UUID? bank_card_id});
+}
+
+class _CopyWithImpl$Input$bank_card_pk_columns_input<TRes>
+    implements CopyWith$Input$bank_card_pk_columns_input<TRes> {
+  _CopyWithImpl$Input$bank_card_pk_columns_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_pk_columns_input _instance;
+
+  final TRes Function(Input$bank_card_pk_columns_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? bank_card_id = _undefined}) =>
+      _then(Input$bank_card_pk_columns_input._({
+        ..._instance._$data,
+        if (bank_card_id != _undefined && bank_card_id != null)
+          'bank_card_id': (bank_card_id as UUID),
+      }));
+}
+
+class _CopyWithStubImpl$Input$bank_card_pk_columns_input<TRes>
+    implements CopyWith$Input$bank_card_pk_columns_input<TRes> {
+  _CopyWithStubImpl$Input$bank_card_pk_columns_input(this._res);
+
+  TRes _res;
+
+  call({UUID? bank_card_id}) => _res;
+}
+
+class Input$bank_card_set_input {
+  factory Input$bank_card_set_input({
+    String? bank_card_cvc,
+    UUID? bank_card_id,
+    String? bank_card_name,
+    String? bank_card_number,
+    DateTime? created_at,
+    int? profile_id,
+    DateTime? updated_at,
+  }) =>
+      Input$bank_card_set_input._({
+        if (bank_card_cvc != null) r'bank_card_cvc': bank_card_cvc,
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
+        if (bank_card_name != null) r'bank_card_name': bank_card_name,
+        if (bank_card_number != null) r'bank_card_number': bank_card_number,
+        if (created_at != null) r'created_at': created_at,
+        if (profile_id != null) r'profile_id': profile_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$bank_card_set_input._(this._$data);
+
+  factory Input$bank_card_set_input.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_card_cvc')) {
+      final l$bank_card_cvc = data['bank_card_cvc'];
+      result$data['bank_card_cvc'] = (l$bank_card_cvc as String?);
+    }
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : uuidFromJson(l$bank_card_id);
+    }
+    if (data.containsKey('bank_card_name')) {
+      final l$bank_card_name = data['bank_card_name'];
+      result$data['bank_card_name'] = (l$bank_card_name as String?);
+    }
+    if (data.containsKey('bank_card_number')) {
+      final l$bank_card_number = data['bank_card_number'];
+      result$data['bank_card_number'] = (l$bank_card_number as String?);
+    }
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : DateTime.parse((l$created_at as String));
+    }
+    if (data.containsKey('profile_id')) {
+      final l$profile_id = data['profile_id'];
+      result$data['profile_id'] = (l$profile_id as int?);
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : DateTime.parse((l$updated_at as String));
+    }
+    return Input$bank_card_set_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String? get bank_card_cvc => (_$data['bank_card_cvc'] as String?);
+  UUID? get bank_card_id => (_$data['bank_card_id'] as UUID?);
+  String? get bank_card_name => (_$data['bank_card_name'] as String?);
+  String? get bank_card_number => (_$data['bank_card_number'] as String?);
+  DateTime? get created_at => (_$data['created_at'] as DateTime?);
+  int? get profile_id => (_$data['profile_id'] as int?);
+  DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_card_cvc')) {
+      final l$bank_card_cvc = bank_card_cvc;
+      result$data['bank_card_cvc'] = l$bank_card_cvc;
+    }
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : uuidToJson(l$bank_card_id);
+    }
+    if (_$data.containsKey('bank_card_name')) {
+      final l$bank_card_name = bank_card_name;
+      result$data['bank_card_name'] = l$bank_card_name;
+    }
+    if (_$data.containsKey('bank_card_number')) {
+      final l$bank_card_number = bank_card_number;
+      result$data['bank_card_number'] = l$bank_card_number;
+    }
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] = l$created_at?.toIso8601String();
+    }
+    if (_$data.containsKey('profile_id')) {
+      final l$profile_id = profile_id;
+      result$data['profile_id'] = l$profile_id;
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] = l$updated_at?.toIso8601String();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_set_input<Input$bank_card_set_input> get copyWith =>
+      CopyWith$Input$bank_card_set_input(
+        this,
+        (i) => i,
+      );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_set_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bank_card_cvc = bank_card_cvc;
+    final lOther$bank_card_cvc = other.bank_card_cvc;
+    if (_$data.containsKey('bank_card_cvc') !=
+        other._$data.containsKey('bank_card_cvc')) {
+      return false;
+    }
+    if (l$bank_card_cvc != lOther$bank_card_cvc) {
+      return false;
+    }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
+      return false;
+    }
+    final l$bank_card_name = bank_card_name;
+    final lOther$bank_card_name = other.bank_card_name;
+    if (_$data.containsKey('bank_card_name') !=
+        other._$data.containsKey('bank_card_name')) {
+      return false;
+    }
+    if (l$bank_card_name != lOther$bank_card_name) {
+      return false;
+    }
+    final l$bank_card_number = bank_card_number;
+    final lOther$bank_card_number = other.bank_card_number;
+    if (_$data.containsKey('bank_card_number') !=
+        other._$data.containsKey('bank_card_number')) {
+      return false;
+    }
+    if (l$bank_card_number != lOther$bank_card_number) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$profile_id = profile_id;
+    final lOther$profile_id = other.profile_id;
+    if (_$data.containsKey('profile_id') !=
+        other._$data.containsKey('profile_id')) {
+      return false;
+    }
+    if (l$profile_id != lOther$profile_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$bank_card_cvc = bank_card_cvc;
+    final l$bank_card_id = bank_card_id;
+    final l$bank_card_name = bank_card_name;
+    final l$bank_card_number = bank_card_number;
+    final l$created_at = created_at;
+    final l$profile_id = profile_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('bank_card_cvc') ? l$bank_card_cvc : const {},
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
+      _$data.containsKey('bank_card_name') ? l$bank_card_name : const {},
+      _$data.containsKey('bank_card_number') ? l$bank_card_number : const {},
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('profile_id') ? l$profile_id : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_set_input<TRes> {
+  factory CopyWith$Input$bank_card_set_input(
+    Input$bank_card_set_input instance,
+    TRes Function(Input$bank_card_set_input) then,
+  ) = _CopyWithImpl$Input$bank_card_set_input;
+
+  factory CopyWith$Input$bank_card_set_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_set_input;
+
+  TRes call({
+    String? bank_card_cvc,
+    UUID? bank_card_id,
+    String? bank_card_name,
+    String? bank_card_number,
+    DateTime? created_at,
+    int? profile_id,
+    DateTime? updated_at,
+  });
+}
+
+class _CopyWithImpl$Input$bank_card_set_input<TRes>
+    implements CopyWith$Input$bank_card_set_input<TRes> {
+  _CopyWithImpl$Input$bank_card_set_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_set_input _instance;
+
+  final TRes Function(Input$bank_card_set_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? bank_card_cvc = _undefined,
+    Object? bank_card_id = _undefined,
+    Object? bank_card_name = _undefined,
+    Object? bank_card_number = _undefined,
+    Object? created_at = _undefined,
+    Object? profile_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$bank_card_set_input._({
+        ..._instance._$data,
+        if (bank_card_cvc != _undefined)
+          'bank_card_cvc': (bank_card_cvc as String?),
+        if (bank_card_id != _undefined) 'bank_card_id': (bank_card_id as UUID?),
+        if (bank_card_name != _undefined)
+          'bank_card_name': (bank_card_name as String?),
+        if (bank_card_number != _undefined)
+          'bank_card_number': (bank_card_number as String?),
+        if (created_at != _undefined) 'created_at': (created_at as DateTime?),
+        if (profile_id != _undefined) 'profile_id': (profile_id as int?),
+        if (updated_at != _undefined) 'updated_at': (updated_at as DateTime?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$bank_card_set_input<TRes>
+    implements CopyWith$Input$bank_card_set_input<TRes> {
+  _CopyWithStubImpl$Input$bank_card_set_input(this._res);
+
+  TRes _res;
+
+  call({
+    String? bank_card_cvc,
+    UUID? bank_card_id,
+    String? bank_card_name,
+    String? bank_card_number,
+    DateTime? created_at,
+    int? profile_id,
+    DateTime? updated_at,
+  }) =>
+      _res;
+}
+
+class Input$bank_card_stddev_order_by {
+  factory Input$bank_card_stddev_order_by({Enum$order_by? profile_id}) =>
+      Input$bank_card_stddev_order_by._({
+        if (profile_id != null) r'profile_id': profile_id,
+      });
+
+  Input$bank_card_stddev_order_by._(this._$data);
+
+  factory Input$bank_card_stddev_order_by.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('profile_id')) {
+      final l$profile_id = data['profile_id'];
+      result$data['profile_id'] = l$profile_id == null
+          ? null
+          : fromJson$Enum$order_by((l$profile_id as String));
+    }
+    return Input$bank_card_stddev_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('profile_id')) {
+      final l$profile_id = profile_id;
+      result$data['profile_id'] =
+          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_stddev_order_by<Input$bank_card_stddev_order_by>
+      get copyWith => CopyWith$Input$bank_card_stddev_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_stddev_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$profile_id = profile_id;
+    final lOther$profile_id = other.profile_id;
+    if (_$data.containsKey('profile_id') !=
+        other._$data.containsKey('profile_id')) {
+      return false;
+    }
+    if (l$profile_id != lOther$profile_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$profile_id = profile_id;
+    return Object.hashAll(
+        [_$data.containsKey('profile_id') ? l$profile_id : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_stddev_order_by<TRes> {
+  factory CopyWith$Input$bank_card_stddev_order_by(
+    Input$bank_card_stddev_order_by instance,
+    TRes Function(Input$bank_card_stddev_order_by) then,
+  ) = _CopyWithImpl$Input$bank_card_stddev_order_by;
+
+  factory CopyWith$Input$bank_card_stddev_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_stddev_order_by;
+
+  TRes call({Enum$order_by? profile_id});
+}
+
+class _CopyWithImpl$Input$bank_card_stddev_order_by<TRes>
+    implements CopyWith$Input$bank_card_stddev_order_by<TRes> {
+  _CopyWithImpl$Input$bank_card_stddev_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_stddev_order_by _instance;
+
+  final TRes Function(Input$bank_card_stddev_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? profile_id = _undefined}) =>
+      _then(Input$bank_card_stddev_order_by._({
+        ..._instance._$data,
+        if (profile_id != _undefined)
+          'profile_id': (profile_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$bank_card_stddev_order_by<TRes>
+    implements CopyWith$Input$bank_card_stddev_order_by<TRes> {
+  _CopyWithStubImpl$Input$bank_card_stddev_order_by(this._res);
+
+  TRes _res;
+
+  call({Enum$order_by? profile_id}) => _res;
+}
+
+class Input$bank_card_stddev_pop_order_by {
+  factory Input$bank_card_stddev_pop_order_by({Enum$order_by? profile_id}) =>
+      Input$bank_card_stddev_pop_order_by._({
+        if (profile_id != null) r'profile_id': profile_id,
+      });
+
+  Input$bank_card_stddev_pop_order_by._(this._$data);
+
+  factory Input$bank_card_stddev_pop_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('profile_id')) {
+      final l$profile_id = data['profile_id'];
+      result$data['profile_id'] = l$profile_id == null
+          ? null
+          : fromJson$Enum$order_by((l$profile_id as String));
+    }
+    return Input$bank_card_stddev_pop_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('profile_id')) {
+      final l$profile_id = profile_id;
+      result$data['profile_id'] =
+          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_stddev_pop_order_by<
+          Input$bank_card_stddev_pop_order_by>
+      get copyWith => CopyWith$Input$bank_card_stddev_pop_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_stddev_pop_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$profile_id = profile_id;
+    final lOther$profile_id = other.profile_id;
+    if (_$data.containsKey('profile_id') !=
+        other._$data.containsKey('profile_id')) {
+      return false;
+    }
+    if (l$profile_id != lOther$profile_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$profile_id = profile_id;
+    return Object.hashAll(
+        [_$data.containsKey('profile_id') ? l$profile_id : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_stddev_pop_order_by<TRes> {
+  factory CopyWith$Input$bank_card_stddev_pop_order_by(
+    Input$bank_card_stddev_pop_order_by instance,
+    TRes Function(Input$bank_card_stddev_pop_order_by) then,
+  ) = _CopyWithImpl$Input$bank_card_stddev_pop_order_by;
+
+  factory CopyWith$Input$bank_card_stddev_pop_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_stddev_pop_order_by;
+
+  TRes call({Enum$order_by? profile_id});
+}
+
+class _CopyWithImpl$Input$bank_card_stddev_pop_order_by<TRes>
+    implements CopyWith$Input$bank_card_stddev_pop_order_by<TRes> {
+  _CopyWithImpl$Input$bank_card_stddev_pop_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_stddev_pop_order_by _instance;
+
+  final TRes Function(Input$bank_card_stddev_pop_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? profile_id = _undefined}) =>
+      _then(Input$bank_card_stddev_pop_order_by._({
+        ..._instance._$data,
+        if (profile_id != _undefined)
+          'profile_id': (profile_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$bank_card_stddev_pop_order_by<TRes>
+    implements CopyWith$Input$bank_card_stddev_pop_order_by<TRes> {
+  _CopyWithStubImpl$Input$bank_card_stddev_pop_order_by(this._res);
+
+  TRes _res;
+
+  call({Enum$order_by? profile_id}) => _res;
+}
+
+class Input$bank_card_stddev_samp_order_by {
+  factory Input$bank_card_stddev_samp_order_by({Enum$order_by? profile_id}) =>
+      Input$bank_card_stddev_samp_order_by._({
+        if (profile_id != null) r'profile_id': profile_id,
+      });
+
+  Input$bank_card_stddev_samp_order_by._(this._$data);
+
+  factory Input$bank_card_stddev_samp_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('profile_id')) {
+      final l$profile_id = data['profile_id'];
+      result$data['profile_id'] = l$profile_id == null
+          ? null
+          : fromJson$Enum$order_by((l$profile_id as String));
+    }
+    return Input$bank_card_stddev_samp_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('profile_id')) {
+      final l$profile_id = profile_id;
+      result$data['profile_id'] =
+          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_stddev_samp_order_by<
+          Input$bank_card_stddev_samp_order_by>
+      get copyWith => CopyWith$Input$bank_card_stddev_samp_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_stddev_samp_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$profile_id = profile_id;
+    final lOther$profile_id = other.profile_id;
+    if (_$data.containsKey('profile_id') !=
+        other._$data.containsKey('profile_id')) {
+      return false;
+    }
+    if (l$profile_id != lOther$profile_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$profile_id = profile_id;
+    return Object.hashAll(
+        [_$data.containsKey('profile_id') ? l$profile_id : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_stddev_samp_order_by<TRes> {
+  factory CopyWith$Input$bank_card_stddev_samp_order_by(
+    Input$bank_card_stddev_samp_order_by instance,
+    TRes Function(Input$bank_card_stddev_samp_order_by) then,
+  ) = _CopyWithImpl$Input$bank_card_stddev_samp_order_by;
+
+  factory CopyWith$Input$bank_card_stddev_samp_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_stddev_samp_order_by;
+
+  TRes call({Enum$order_by? profile_id});
+}
+
+class _CopyWithImpl$Input$bank_card_stddev_samp_order_by<TRes>
+    implements CopyWith$Input$bank_card_stddev_samp_order_by<TRes> {
+  _CopyWithImpl$Input$bank_card_stddev_samp_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_stddev_samp_order_by _instance;
+
+  final TRes Function(Input$bank_card_stddev_samp_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? profile_id = _undefined}) =>
+      _then(Input$bank_card_stddev_samp_order_by._({
+        ..._instance._$data,
+        if (profile_id != _undefined)
+          'profile_id': (profile_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$bank_card_stddev_samp_order_by<TRes>
+    implements CopyWith$Input$bank_card_stddev_samp_order_by<TRes> {
+  _CopyWithStubImpl$Input$bank_card_stddev_samp_order_by(this._res);
+
+  TRes _res;
+
+  call({Enum$order_by? profile_id}) => _res;
+}
+
+class Input$bank_card_stream_cursor_input {
+  factory Input$bank_card_stream_cursor_input({
+    required Input$bank_card_stream_cursor_value_input initial_value,
+    Enum$cursor_ordering? ordering,
+  }) =>
+      Input$bank_card_stream_cursor_input._({
+        r'initial_value': initial_value,
+        if (ordering != null) r'ordering': ordering,
+      });
+
+  Input$bank_card_stream_cursor_input._(this._$data);
+
+  factory Input$bank_card_stream_cursor_input.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$initial_value = data['initial_value'];
+    result$data['initial_value'] =
+        Input$bank_card_stream_cursor_value_input.fromJson(
+            (l$initial_value as Map<String, dynamic>));
+    if (data.containsKey('ordering')) {
+      final l$ordering = data['ordering'];
+      result$data['ordering'] = l$ordering == null
+          ? null
+          : fromJson$Enum$cursor_ordering((l$ordering as String));
+    }
+    return Input$bank_card_stream_cursor_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$bank_card_stream_cursor_value_input get initial_value =>
+      (_$data['initial_value'] as Input$bank_card_stream_cursor_value_input);
+  Enum$cursor_ordering? get ordering =>
+      (_$data['ordering'] as Enum$cursor_ordering?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$initial_value = initial_value;
+    result$data['initial_value'] = l$initial_value.toJson();
+    if (_$data.containsKey('ordering')) {
+      final l$ordering = ordering;
+      result$data['ordering'] =
+          l$ordering == null ? null : toJson$Enum$cursor_ordering(l$ordering);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_stream_cursor_input<
+          Input$bank_card_stream_cursor_input>
+      get copyWith => CopyWith$Input$bank_card_stream_cursor_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_stream_cursor_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$initial_value = initial_value;
+    final lOther$initial_value = other.initial_value;
+    if (l$initial_value != lOther$initial_value) {
+      return false;
+    }
+    final l$ordering = ordering;
+    final lOther$ordering = other.ordering;
+    if (_$data.containsKey('ordering') !=
+        other._$data.containsKey('ordering')) {
+      return false;
+    }
+    if (l$ordering != lOther$ordering) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$initial_value = initial_value;
+    final l$ordering = ordering;
+    return Object.hashAll([
+      l$initial_value,
+      _$data.containsKey('ordering') ? l$ordering : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_stream_cursor_input<TRes> {
+  factory CopyWith$Input$bank_card_stream_cursor_input(
+    Input$bank_card_stream_cursor_input instance,
+    TRes Function(Input$bank_card_stream_cursor_input) then,
+  ) = _CopyWithImpl$Input$bank_card_stream_cursor_input;
+
+  factory CopyWith$Input$bank_card_stream_cursor_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_stream_cursor_input;
+
+  TRes call({
+    Input$bank_card_stream_cursor_value_input? initial_value,
+    Enum$cursor_ordering? ordering,
+  });
+  CopyWith$Input$bank_card_stream_cursor_value_input<TRes> get initial_value;
+}
+
+class _CopyWithImpl$Input$bank_card_stream_cursor_input<TRes>
+    implements CopyWith$Input$bank_card_stream_cursor_input<TRes> {
+  _CopyWithImpl$Input$bank_card_stream_cursor_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_stream_cursor_input _instance;
+
+  final TRes Function(Input$bank_card_stream_cursor_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? initial_value = _undefined,
+    Object? ordering = _undefined,
+  }) =>
+      _then(Input$bank_card_stream_cursor_input._({
+        ..._instance._$data,
+        if (initial_value != _undefined && initial_value != null)
+          'initial_value':
+              (initial_value as Input$bank_card_stream_cursor_value_input),
+        if (ordering != _undefined)
+          'ordering': (ordering as Enum$cursor_ordering?),
+      }));
+  CopyWith$Input$bank_card_stream_cursor_value_input<TRes> get initial_value {
+    final local$initial_value = _instance.initial_value;
+    return CopyWith$Input$bank_card_stream_cursor_value_input(
+        local$initial_value, (e) => call(initial_value: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$bank_card_stream_cursor_input<TRes>
+    implements CopyWith$Input$bank_card_stream_cursor_input<TRes> {
+  _CopyWithStubImpl$Input$bank_card_stream_cursor_input(this._res);
+
+  TRes _res;
+
+  call({
+    Input$bank_card_stream_cursor_value_input? initial_value,
+    Enum$cursor_ordering? ordering,
+  }) =>
+      _res;
+  CopyWith$Input$bank_card_stream_cursor_value_input<TRes> get initial_value =>
+      CopyWith$Input$bank_card_stream_cursor_value_input.stub(_res);
+}
+
+class Input$bank_card_stream_cursor_value_input {
+  factory Input$bank_card_stream_cursor_value_input({
+    String? bank_card_cvc,
+    UUID? bank_card_id,
+    String? bank_card_name,
+    String? bank_card_number,
+    DateTime? created_at,
+    int? profile_id,
+    DateTime? updated_at,
+  }) =>
+      Input$bank_card_stream_cursor_value_input._({
+        if (bank_card_cvc != null) r'bank_card_cvc': bank_card_cvc,
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
+        if (bank_card_name != null) r'bank_card_name': bank_card_name,
+        if (bank_card_number != null) r'bank_card_number': bank_card_number,
+        if (created_at != null) r'created_at': created_at,
+        if (profile_id != null) r'profile_id': profile_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$bank_card_stream_cursor_value_input._(this._$data);
+
+  factory Input$bank_card_stream_cursor_value_input.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_card_cvc')) {
+      final l$bank_card_cvc = data['bank_card_cvc'];
+      result$data['bank_card_cvc'] = (l$bank_card_cvc as String?);
+    }
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : uuidFromJson(l$bank_card_id);
+    }
+    if (data.containsKey('bank_card_name')) {
+      final l$bank_card_name = data['bank_card_name'];
+      result$data['bank_card_name'] = (l$bank_card_name as String?);
+    }
+    if (data.containsKey('bank_card_number')) {
+      final l$bank_card_number = data['bank_card_number'];
+      result$data['bank_card_number'] = (l$bank_card_number as String?);
+    }
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : DateTime.parse((l$created_at as String));
+    }
+    if (data.containsKey('profile_id')) {
+      final l$profile_id = data['profile_id'];
+      result$data['profile_id'] = (l$profile_id as int?);
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : DateTime.parse((l$updated_at as String));
+    }
+    return Input$bank_card_stream_cursor_value_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String? get bank_card_cvc => (_$data['bank_card_cvc'] as String?);
+  UUID? get bank_card_id => (_$data['bank_card_id'] as UUID?);
+  String? get bank_card_name => (_$data['bank_card_name'] as String?);
+  String? get bank_card_number => (_$data['bank_card_number'] as String?);
+  DateTime? get created_at => (_$data['created_at'] as DateTime?);
+  int? get profile_id => (_$data['profile_id'] as int?);
+  DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_card_cvc')) {
+      final l$bank_card_cvc = bank_card_cvc;
+      result$data['bank_card_cvc'] = l$bank_card_cvc;
+    }
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : uuidToJson(l$bank_card_id);
+    }
+    if (_$data.containsKey('bank_card_name')) {
+      final l$bank_card_name = bank_card_name;
+      result$data['bank_card_name'] = l$bank_card_name;
+    }
+    if (_$data.containsKey('bank_card_number')) {
+      final l$bank_card_number = bank_card_number;
+      result$data['bank_card_number'] = l$bank_card_number;
+    }
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] = l$created_at?.toIso8601String();
+    }
+    if (_$data.containsKey('profile_id')) {
+      final l$profile_id = profile_id;
+      result$data['profile_id'] = l$profile_id;
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] = l$updated_at?.toIso8601String();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_stream_cursor_value_input<
+          Input$bank_card_stream_cursor_value_input>
+      get copyWith => CopyWith$Input$bank_card_stream_cursor_value_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_stream_cursor_value_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bank_card_cvc = bank_card_cvc;
+    final lOther$bank_card_cvc = other.bank_card_cvc;
+    if (_$data.containsKey('bank_card_cvc') !=
+        other._$data.containsKey('bank_card_cvc')) {
+      return false;
+    }
+    if (l$bank_card_cvc != lOther$bank_card_cvc) {
+      return false;
+    }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
+      return false;
+    }
+    final l$bank_card_name = bank_card_name;
+    final lOther$bank_card_name = other.bank_card_name;
+    if (_$data.containsKey('bank_card_name') !=
+        other._$data.containsKey('bank_card_name')) {
+      return false;
+    }
+    if (l$bank_card_name != lOther$bank_card_name) {
+      return false;
+    }
+    final l$bank_card_number = bank_card_number;
+    final lOther$bank_card_number = other.bank_card_number;
+    if (_$data.containsKey('bank_card_number') !=
+        other._$data.containsKey('bank_card_number')) {
+      return false;
+    }
+    if (l$bank_card_number != lOther$bank_card_number) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$profile_id = profile_id;
+    final lOther$profile_id = other.profile_id;
+    if (_$data.containsKey('profile_id') !=
+        other._$data.containsKey('profile_id')) {
+      return false;
+    }
+    if (l$profile_id != lOther$profile_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$bank_card_cvc = bank_card_cvc;
+    final l$bank_card_id = bank_card_id;
+    final l$bank_card_name = bank_card_name;
+    final l$bank_card_number = bank_card_number;
+    final l$created_at = created_at;
+    final l$profile_id = profile_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('bank_card_cvc') ? l$bank_card_cvc : const {},
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
+      _$data.containsKey('bank_card_name') ? l$bank_card_name : const {},
+      _$data.containsKey('bank_card_number') ? l$bank_card_number : const {},
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('profile_id') ? l$profile_id : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_stream_cursor_value_input<TRes> {
+  factory CopyWith$Input$bank_card_stream_cursor_value_input(
+    Input$bank_card_stream_cursor_value_input instance,
+    TRes Function(Input$bank_card_stream_cursor_value_input) then,
+  ) = _CopyWithImpl$Input$bank_card_stream_cursor_value_input;
+
+  factory CopyWith$Input$bank_card_stream_cursor_value_input.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_stream_cursor_value_input;
+
+  TRes call({
+    String? bank_card_cvc,
+    UUID? bank_card_id,
+    String? bank_card_name,
+    String? bank_card_number,
+    DateTime? created_at,
+    int? profile_id,
+    DateTime? updated_at,
+  });
+}
+
+class _CopyWithImpl$Input$bank_card_stream_cursor_value_input<TRes>
+    implements CopyWith$Input$bank_card_stream_cursor_value_input<TRes> {
+  _CopyWithImpl$Input$bank_card_stream_cursor_value_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_stream_cursor_value_input _instance;
+
+  final TRes Function(Input$bank_card_stream_cursor_value_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? bank_card_cvc = _undefined,
+    Object? bank_card_id = _undefined,
+    Object? bank_card_name = _undefined,
+    Object? bank_card_number = _undefined,
+    Object? created_at = _undefined,
+    Object? profile_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$bank_card_stream_cursor_value_input._({
+        ..._instance._$data,
+        if (bank_card_cvc != _undefined)
+          'bank_card_cvc': (bank_card_cvc as String?),
+        if (bank_card_id != _undefined) 'bank_card_id': (bank_card_id as UUID?),
+        if (bank_card_name != _undefined)
+          'bank_card_name': (bank_card_name as String?),
+        if (bank_card_number != _undefined)
+          'bank_card_number': (bank_card_number as String?),
+        if (created_at != _undefined) 'created_at': (created_at as DateTime?),
+        if (profile_id != _undefined) 'profile_id': (profile_id as int?),
+        if (updated_at != _undefined) 'updated_at': (updated_at as DateTime?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$bank_card_stream_cursor_value_input<TRes>
+    implements CopyWith$Input$bank_card_stream_cursor_value_input<TRes> {
+  _CopyWithStubImpl$Input$bank_card_stream_cursor_value_input(this._res);
+
+  TRes _res;
+
+  call({
+    String? bank_card_cvc,
+    UUID? bank_card_id,
+    String? bank_card_name,
+    String? bank_card_number,
+    DateTime? created_at,
+    int? profile_id,
+    DateTime? updated_at,
+  }) =>
+      _res;
+}
+
+class Input$bank_card_sum_order_by {
+  factory Input$bank_card_sum_order_by({Enum$order_by? profile_id}) =>
+      Input$bank_card_sum_order_by._({
+        if (profile_id != null) r'profile_id': profile_id,
+      });
+
+  Input$bank_card_sum_order_by._(this._$data);
+
+  factory Input$bank_card_sum_order_by.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('profile_id')) {
+      final l$profile_id = data['profile_id'];
+      result$data['profile_id'] = l$profile_id == null
+          ? null
+          : fromJson$Enum$order_by((l$profile_id as String));
+    }
+    return Input$bank_card_sum_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('profile_id')) {
+      final l$profile_id = profile_id;
+      result$data['profile_id'] =
+          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_sum_order_by<Input$bank_card_sum_order_by>
+      get copyWith => CopyWith$Input$bank_card_sum_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_sum_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$profile_id = profile_id;
+    final lOther$profile_id = other.profile_id;
+    if (_$data.containsKey('profile_id') !=
+        other._$data.containsKey('profile_id')) {
+      return false;
+    }
+    if (l$profile_id != lOther$profile_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$profile_id = profile_id;
+    return Object.hashAll(
+        [_$data.containsKey('profile_id') ? l$profile_id : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_sum_order_by<TRes> {
+  factory CopyWith$Input$bank_card_sum_order_by(
+    Input$bank_card_sum_order_by instance,
+    TRes Function(Input$bank_card_sum_order_by) then,
+  ) = _CopyWithImpl$Input$bank_card_sum_order_by;
+
+  factory CopyWith$Input$bank_card_sum_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_sum_order_by;
+
+  TRes call({Enum$order_by? profile_id});
+}
+
+class _CopyWithImpl$Input$bank_card_sum_order_by<TRes>
+    implements CopyWith$Input$bank_card_sum_order_by<TRes> {
+  _CopyWithImpl$Input$bank_card_sum_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_sum_order_by _instance;
+
+  final TRes Function(Input$bank_card_sum_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? profile_id = _undefined}) =>
+      _then(Input$bank_card_sum_order_by._({
+        ..._instance._$data,
+        if (profile_id != _undefined)
+          'profile_id': (profile_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$bank_card_sum_order_by<TRes>
+    implements CopyWith$Input$bank_card_sum_order_by<TRes> {
+  _CopyWithStubImpl$Input$bank_card_sum_order_by(this._res);
+
+  TRes _res;
+
+  call({Enum$order_by? profile_id}) => _res;
+}
+
+class Input$bank_card_updates {
+  factory Input$bank_card_updates({
+    Input$bank_card_inc_input? $_inc,
+    Input$bank_card_set_input? $_set,
+    required Input$bank_card_bool_exp where,
+  }) =>
+      Input$bank_card_updates._({
+        if ($_inc != null) r'_inc': $_inc,
+        if ($_set != null) r'_set': $_set,
+        r'where': where,
+      });
+
+  Input$bank_card_updates._(this._$data);
+
+  factory Input$bank_card_updates.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('_inc')) {
+      final l$$_inc = data['_inc'];
+      result$data['_inc'] = l$$_inc == null
+          ? null
+          : Input$bank_card_inc_input.fromJson(
+              (l$$_inc as Map<String, dynamic>));
+    }
+    if (data.containsKey('_set')) {
+      final l$$_set = data['_set'];
+      result$data['_set'] = l$$_set == null
+          ? null
+          : Input$bank_card_set_input.fromJson(
+              (l$$_set as Map<String, dynamic>));
+    }
+    final l$where = data['where'];
+    result$data['where'] =
+        Input$bank_card_bool_exp.fromJson((l$where as Map<String, dynamic>));
+    return Input$bank_card_updates._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$bank_card_inc_input? get $_inc =>
+      (_$data['_inc'] as Input$bank_card_inc_input?);
+  Input$bank_card_set_input? get $_set =>
+      (_$data['_set'] as Input$bank_card_set_input?);
+  Input$bank_card_bool_exp get where =>
+      (_$data['where'] as Input$bank_card_bool_exp);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('_inc')) {
+      final l$$_inc = $_inc;
+      result$data['_inc'] = l$$_inc?.toJson();
+    }
+    if (_$data.containsKey('_set')) {
+      final l$$_set = $_set;
+      result$data['_set'] = l$$_set?.toJson();
+    }
+    final l$where = where;
+    result$data['where'] = l$where.toJson();
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_updates<Input$bank_card_updates> get copyWith =>
+      CopyWith$Input$bank_card_updates(
+        this,
+        (i) => i,
+      );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_updates) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$_inc = $_inc;
+    final lOther$$_inc = other.$_inc;
+    if (_$data.containsKey('_inc') != other._$data.containsKey('_inc')) {
+      return false;
+    }
+    if (l$$_inc != lOther$$_inc) {
+      return false;
+    }
+    final l$$_set = $_set;
+    final lOther$$_set = other.$_set;
+    if (_$data.containsKey('_set') != other._$data.containsKey('_set')) {
+      return false;
+    }
+    if (l$$_set != lOther$$_set) {
+      return false;
+    }
+    final l$where = where;
+    final lOther$where = other.where;
+    if (l$where != lOther$where) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$$_inc = $_inc;
+    final l$$_set = $_set;
+    final l$where = where;
+    return Object.hashAll([
+      _$data.containsKey('_inc') ? l$$_inc : const {},
+      _$data.containsKey('_set') ? l$$_set : const {},
+      l$where,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_updates<TRes> {
+  factory CopyWith$Input$bank_card_updates(
+    Input$bank_card_updates instance,
+    TRes Function(Input$bank_card_updates) then,
+  ) = _CopyWithImpl$Input$bank_card_updates;
+
+  factory CopyWith$Input$bank_card_updates.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_updates;
+
+  TRes call({
+    Input$bank_card_inc_input? $_inc,
+    Input$bank_card_set_input? $_set,
+    Input$bank_card_bool_exp? where,
+  });
+  CopyWith$Input$bank_card_inc_input<TRes> get $_inc;
+  CopyWith$Input$bank_card_set_input<TRes> get $_set;
+  CopyWith$Input$bank_card_bool_exp<TRes> get where;
+}
+
+class _CopyWithImpl$Input$bank_card_updates<TRes>
+    implements CopyWith$Input$bank_card_updates<TRes> {
+  _CopyWithImpl$Input$bank_card_updates(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_updates _instance;
+
+  final TRes Function(Input$bank_card_updates) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? $_inc = _undefined,
+    Object? $_set = _undefined,
+    Object? where = _undefined,
+  }) =>
+      _then(Input$bank_card_updates._({
+        ..._instance._$data,
+        if ($_inc != _undefined) '_inc': ($_inc as Input$bank_card_inc_input?),
+        if ($_set != _undefined) '_set': ($_set as Input$bank_card_set_input?),
+        if (where != _undefined && where != null)
+          'where': (where as Input$bank_card_bool_exp),
+      }));
+  CopyWith$Input$bank_card_inc_input<TRes> get $_inc {
+    final local$$_inc = _instance.$_inc;
+    return local$$_inc == null
+        ? CopyWith$Input$bank_card_inc_input.stub(_then(_instance))
+        : CopyWith$Input$bank_card_inc_input(
+            local$$_inc, (e) => call($_inc: e));
+  }
+
+  CopyWith$Input$bank_card_set_input<TRes> get $_set {
+    final local$$_set = _instance.$_set;
+    return local$$_set == null
+        ? CopyWith$Input$bank_card_set_input.stub(_then(_instance))
+        : CopyWith$Input$bank_card_set_input(
+            local$$_set, (e) => call($_set: e));
+  }
+
+  CopyWith$Input$bank_card_bool_exp<TRes> get where {
+    final local$where = _instance.where;
+    return CopyWith$Input$bank_card_bool_exp(
+        local$where, (e) => call(where: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$bank_card_updates<TRes>
+    implements CopyWith$Input$bank_card_updates<TRes> {
+  _CopyWithStubImpl$Input$bank_card_updates(this._res);
+
+  TRes _res;
+
+  call({
+    Input$bank_card_inc_input? $_inc,
+    Input$bank_card_set_input? $_set,
+    Input$bank_card_bool_exp? where,
+  }) =>
+      _res;
+  CopyWith$Input$bank_card_inc_input<TRes> get $_inc =>
+      CopyWith$Input$bank_card_inc_input.stub(_res);
+  CopyWith$Input$bank_card_set_input<TRes> get $_set =>
+      CopyWith$Input$bank_card_set_input.stub(_res);
+  CopyWith$Input$bank_card_bool_exp<TRes> get where =>
+      CopyWith$Input$bank_card_bool_exp.stub(_res);
+}
+
+class Input$bank_card_var_pop_order_by {
+  factory Input$bank_card_var_pop_order_by({Enum$order_by? profile_id}) =>
+      Input$bank_card_var_pop_order_by._({
+        if (profile_id != null) r'profile_id': profile_id,
+      });
+
+  Input$bank_card_var_pop_order_by._(this._$data);
+
+  factory Input$bank_card_var_pop_order_by.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('profile_id')) {
+      final l$profile_id = data['profile_id'];
+      result$data['profile_id'] = l$profile_id == null
+          ? null
+          : fromJson$Enum$order_by((l$profile_id as String));
+    }
+    return Input$bank_card_var_pop_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('profile_id')) {
+      final l$profile_id = profile_id;
+      result$data['profile_id'] =
+          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_var_pop_order_by<Input$bank_card_var_pop_order_by>
+      get copyWith => CopyWith$Input$bank_card_var_pop_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_var_pop_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$profile_id = profile_id;
+    final lOther$profile_id = other.profile_id;
+    if (_$data.containsKey('profile_id') !=
+        other._$data.containsKey('profile_id')) {
+      return false;
+    }
+    if (l$profile_id != lOther$profile_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$profile_id = profile_id;
+    return Object.hashAll(
+        [_$data.containsKey('profile_id') ? l$profile_id : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_var_pop_order_by<TRes> {
+  factory CopyWith$Input$bank_card_var_pop_order_by(
+    Input$bank_card_var_pop_order_by instance,
+    TRes Function(Input$bank_card_var_pop_order_by) then,
+  ) = _CopyWithImpl$Input$bank_card_var_pop_order_by;
+
+  factory CopyWith$Input$bank_card_var_pop_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_var_pop_order_by;
+
+  TRes call({Enum$order_by? profile_id});
+}
+
+class _CopyWithImpl$Input$bank_card_var_pop_order_by<TRes>
+    implements CopyWith$Input$bank_card_var_pop_order_by<TRes> {
+  _CopyWithImpl$Input$bank_card_var_pop_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_var_pop_order_by _instance;
+
+  final TRes Function(Input$bank_card_var_pop_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? profile_id = _undefined}) =>
+      _then(Input$bank_card_var_pop_order_by._({
+        ..._instance._$data,
+        if (profile_id != _undefined)
+          'profile_id': (profile_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$bank_card_var_pop_order_by<TRes>
+    implements CopyWith$Input$bank_card_var_pop_order_by<TRes> {
+  _CopyWithStubImpl$Input$bank_card_var_pop_order_by(this._res);
+
+  TRes _res;
+
+  call({Enum$order_by? profile_id}) => _res;
+}
+
+class Input$bank_card_var_samp_order_by {
+  factory Input$bank_card_var_samp_order_by({Enum$order_by? profile_id}) =>
+      Input$bank_card_var_samp_order_by._({
+        if (profile_id != null) r'profile_id': profile_id,
+      });
+
+  Input$bank_card_var_samp_order_by._(this._$data);
+
+  factory Input$bank_card_var_samp_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('profile_id')) {
+      final l$profile_id = data['profile_id'];
+      result$data['profile_id'] = l$profile_id == null
+          ? null
+          : fromJson$Enum$order_by((l$profile_id as String));
+    }
+    return Input$bank_card_var_samp_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('profile_id')) {
+      final l$profile_id = profile_id;
+      result$data['profile_id'] =
+          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_var_samp_order_by<Input$bank_card_var_samp_order_by>
+      get copyWith => CopyWith$Input$bank_card_var_samp_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_var_samp_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$profile_id = profile_id;
+    final lOther$profile_id = other.profile_id;
+    if (_$data.containsKey('profile_id') !=
+        other._$data.containsKey('profile_id')) {
+      return false;
+    }
+    if (l$profile_id != lOther$profile_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$profile_id = profile_id;
+    return Object.hashAll(
+        [_$data.containsKey('profile_id') ? l$profile_id : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_var_samp_order_by<TRes> {
+  factory CopyWith$Input$bank_card_var_samp_order_by(
+    Input$bank_card_var_samp_order_by instance,
+    TRes Function(Input$bank_card_var_samp_order_by) then,
+  ) = _CopyWithImpl$Input$bank_card_var_samp_order_by;
+
+  factory CopyWith$Input$bank_card_var_samp_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_var_samp_order_by;
+
+  TRes call({Enum$order_by? profile_id});
+}
+
+class _CopyWithImpl$Input$bank_card_var_samp_order_by<TRes>
+    implements CopyWith$Input$bank_card_var_samp_order_by<TRes> {
+  _CopyWithImpl$Input$bank_card_var_samp_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_var_samp_order_by _instance;
+
+  final TRes Function(Input$bank_card_var_samp_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? profile_id = _undefined}) =>
+      _then(Input$bank_card_var_samp_order_by._({
+        ..._instance._$data,
+        if (profile_id != _undefined)
+          'profile_id': (profile_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$bank_card_var_samp_order_by<TRes>
+    implements CopyWith$Input$bank_card_var_samp_order_by<TRes> {
+  _CopyWithStubImpl$Input$bank_card_var_samp_order_by(this._res);
+
+  TRes _res;
+
+  call({Enum$order_by? profile_id}) => _res;
+}
+
+class Input$bank_card_variance_order_by {
+  factory Input$bank_card_variance_order_by({Enum$order_by? profile_id}) =>
+      Input$bank_card_variance_order_by._({
+        if (profile_id != null) r'profile_id': profile_id,
+      });
+
+  Input$bank_card_variance_order_by._(this._$data);
+
+  factory Input$bank_card_variance_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('profile_id')) {
+      final l$profile_id = data['profile_id'];
+      result$data['profile_id'] = l$profile_id == null
+          ? null
+          : fromJson$Enum$order_by((l$profile_id as String));
+    }
+    return Input$bank_card_variance_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get profile_id => (_$data['profile_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('profile_id')) {
+      final l$profile_id = profile_id;
+      result$data['profile_id'] =
+          l$profile_id == null ? null : toJson$Enum$order_by(l$profile_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$bank_card_variance_order_by<Input$bank_card_variance_order_by>
+      get copyWith => CopyWith$Input$bank_card_variance_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$bank_card_variance_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$profile_id = profile_id;
+    final lOther$profile_id = other.profile_id;
+    if (_$data.containsKey('profile_id') !=
+        other._$data.containsKey('profile_id')) {
+      return false;
+    }
+    if (l$profile_id != lOther$profile_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$profile_id = profile_id;
+    return Object.hashAll(
+        [_$data.containsKey('profile_id') ? l$profile_id : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$bank_card_variance_order_by<TRes> {
+  factory CopyWith$Input$bank_card_variance_order_by(
+    Input$bank_card_variance_order_by instance,
+    TRes Function(Input$bank_card_variance_order_by) then,
+  ) = _CopyWithImpl$Input$bank_card_variance_order_by;
+
+  factory CopyWith$Input$bank_card_variance_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$bank_card_variance_order_by;
+
+  TRes call({Enum$order_by? profile_id});
+}
+
+class _CopyWithImpl$Input$bank_card_variance_order_by<TRes>
+    implements CopyWith$Input$bank_card_variance_order_by<TRes> {
+  _CopyWithImpl$Input$bank_card_variance_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$bank_card_variance_order_by _instance;
+
+  final TRes Function(Input$bank_card_variance_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? profile_id = _undefined}) =>
+      _then(Input$bank_card_variance_order_by._({
+        ..._instance._$data,
+        if (profile_id != _undefined)
+          'profile_id': (profile_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$bank_card_variance_order_by<TRes>
+    implements CopyWith$Input$bank_card_variance_order_by<TRes> {
+  _CopyWithStubImpl$Input$bank_card_variance_order_by(this._res);
+
+  TRes _res;
+
+  call({Enum$order_by? profile_id}) => _res;
+}
+
 class Input$bigint_comparison_exp {
   factory Input$bigint_comparison_exp({
     int? $_eq,
@@ -54554,6 +60192,8 @@ class Input$payment_due_bool_exp {
     List<Input$payment_due_bool_exp>? $_and,
     Input$payment_due_bool_exp? $_not,
     List<Input$payment_due_bool_exp>? $_or,
+    Input$uuid_comparison_exp? bank_card_id,
+    Input$bank_card_bool_exp? bank_card_used,
     Input$timestamptz_comparison_exp? created_at,
     Input$timestamptz_comparison_exp? deadline,
     Input$Boolean_comparison_exp? fulfilled,
@@ -54567,6 +60207,8 @@ class Input$payment_due_bool_exp {
         if ($_and != null) r'_and': $_and,
         if ($_not != null) r'_not': $_not,
         if ($_or != null) r'_or': $_or,
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
+        if (bank_card_used != null) r'bank_card_used': bank_card_used,
         if (created_at != null) r'created_at': created_at,
         if (deadline != null) r'deadline': deadline,
         if (fulfilled != null) r'fulfilled': fulfilled,
@@ -54601,6 +60243,20 @@ class Input$payment_due_bool_exp {
           ?.map((e) =>
               Input$payment_due_bool_exp.fromJson((e as Map<String, dynamic>)))
           .toList();
+    }
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] = l$bank_card_id == null
+          ? null
+          : Input$uuid_comparison_exp.fromJson(
+              (l$bank_card_id as Map<String, dynamic>));
+    }
+    if (data.containsKey('bank_card_used')) {
+      final l$bank_card_used = data['bank_card_used'];
+      result$data['bank_card_used'] = l$bank_card_used == null
+          ? null
+          : Input$bank_card_bool_exp.fromJson(
+              (l$bank_card_used as Map<String, dynamic>));
     }
     if (data.containsKey('created_at')) {
       final l$created_at = data['created_at'];
@@ -54668,6 +60324,10 @@ class Input$payment_due_bool_exp {
       (_$data['_not'] as Input$payment_due_bool_exp?);
   List<Input$payment_due_bool_exp>? get $_or =>
       (_$data['_or'] as List<Input$payment_due_bool_exp>?);
+  Input$uuid_comparison_exp? get bank_card_id =>
+      (_$data['bank_card_id'] as Input$uuid_comparison_exp?);
+  Input$bank_card_bool_exp? get bank_card_used =>
+      (_$data['bank_card_used'] as Input$bank_card_bool_exp?);
   Input$timestamptz_comparison_exp? get created_at =>
       (_$data['created_at'] as Input$timestamptz_comparison_exp?);
   Input$timestamptz_comparison_exp? get deadline =>
@@ -54696,6 +60356,14 @@ class Input$payment_due_bool_exp {
     if (_$data.containsKey('_or')) {
       final l$$_or = $_or;
       result$data['_or'] = l$$_or?.map((e) => e.toJson()).toList();
+    }
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] = l$bank_card_id?.toJson();
+    }
+    if (_$data.containsKey('bank_card_used')) {
+      final l$bank_card_used = bank_card_used;
+      result$data['bank_card_used'] = l$bank_card_used?.toJson();
     }
     if (_$data.containsKey('created_at')) {
       final l$created_at = created_at;
@@ -54792,6 +60460,24 @@ class Input$payment_due_bool_exp {
     } else if (l$$_or != lOther$$_or) {
       return false;
     }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
+      return false;
+    }
+    final l$bank_card_used = bank_card_used;
+    final lOther$bank_card_used = other.bank_card_used;
+    if (_$data.containsKey('bank_card_used') !=
+        other._$data.containsKey('bank_card_used')) {
+      return false;
+    }
+    if (l$bank_card_used != lOther$bank_card_used) {
+      return false;
+    }
     final l$created_at = created_at;
     final lOther$created_at = other.created_at;
     if (_$data.containsKey('created_at') !=
@@ -54870,6 +60556,8 @@ class Input$payment_due_bool_exp {
     final l$$_and = $_and;
     final l$$_not = $_not;
     final l$$_or = $_or;
+    final l$bank_card_id = bank_card_id;
+    final l$bank_card_used = bank_card_used;
     final l$created_at = created_at;
     final l$deadline = deadline;
     final l$fulfilled = fulfilled;
@@ -54890,6 +60578,8 @@ class Input$payment_due_bool_exp {
               ? null
               : Object.hashAll(l$$_or.map((v) => v))
           : const {},
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
+      _$data.containsKey('bank_card_used') ? l$bank_card_used : const {},
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('deadline') ? l$deadline : const {},
       _$data.containsKey('fulfilled') ? l$fulfilled : const {},
@@ -54915,6 +60605,8 @@ abstract class CopyWith$Input$payment_due_bool_exp<TRes> {
     List<Input$payment_due_bool_exp>? $_and,
     Input$payment_due_bool_exp? $_not,
     List<Input$payment_due_bool_exp>? $_or,
+    Input$uuid_comparison_exp? bank_card_id,
+    Input$bank_card_bool_exp? bank_card_used,
     Input$timestamptz_comparison_exp? created_at,
     Input$timestamptz_comparison_exp? deadline,
     Input$Boolean_comparison_exp? fulfilled,
@@ -54937,6 +60629,8 @@ abstract class CopyWith$Input$payment_due_bool_exp<TRes> {
                   CopyWith$Input$payment_due_bool_exp<
                       Input$payment_due_bool_exp>>?)
           _fn);
+  CopyWith$Input$uuid_comparison_exp<TRes> get bank_card_id;
+  CopyWith$Input$bank_card_bool_exp<TRes> get bank_card_used;
   CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at;
   CopyWith$Input$timestamptz_comparison_exp<TRes> get deadline;
   CopyWith$Input$Boolean_comparison_exp<TRes> get fulfilled;
@@ -54964,6 +60658,8 @@ class _CopyWithImpl$Input$payment_due_bool_exp<TRes>
     Object? $_and = _undefined,
     Object? $_not = _undefined,
     Object? $_or = _undefined,
+    Object? bank_card_id = _undefined,
+    Object? bank_card_used = _undefined,
     Object? created_at = _undefined,
     Object? deadline = _undefined,
     Object? fulfilled = _undefined,
@@ -54980,6 +60676,10 @@ class _CopyWithImpl$Input$payment_due_bool_exp<TRes>
         if ($_not != _undefined) '_not': ($_not as Input$payment_due_bool_exp?),
         if ($_or != _undefined)
           '_or': ($_or as List<Input$payment_due_bool_exp>?),
+        if (bank_card_id != _undefined)
+          'bank_card_id': (bank_card_id as Input$uuid_comparison_exp?),
+        if (bank_card_used != _undefined)
+          'bank_card_used': (bank_card_used as Input$bank_card_bool_exp?),
         if (created_at != _undefined)
           'created_at': (created_at as Input$timestamptz_comparison_exp?),
         if (deadline != _undefined)
@@ -55028,6 +60728,22 @@ class _CopyWithImpl$Input$payment_due_bool_exp<TRes>
                     e,
                     (i) => i,
                   )))?.toList());
+  CopyWith$Input$uuid_comparison_exp<TRes> get bank_card_id {
+    final local$bank_card_id = _instance.bank_card_id;
+    return local$bank_card_id == null
+        ? CopyWith$Input$uuid_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$uuid_comparison_exp(
+            local$bank_card_id, (e) => call(bank_card_id: e));
+  }
+
+  CopyWith$Input$bank_card_bool_exp<TRes> get bank_card_used {
+    final local$bank_card_used = _instance.bank_card_used;
+    return local$bank_card_used == null
+        ? CopyWith$Input$bank_card_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$bank_card_bool_exp(
+            local$bank_card_used, (e) => call(bank_card_used: e));
+  }
+
   CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at {
     final local$created_at = _instance.created_at;
     return local$created_at == null
@@ -55102,6 +60818,8 @@ class _CopyWithStubImpl$Input$payment_due_bool_exp<TRes>
     List<Input$payment_due_bool_exp>? $_and,
     Input$payment_due_bool_exp? $_not,
     List<Input$payment_due_bool_exp>? $_or,
+    Input$uuid_comparison_exp? bank_card_id,
+    Input$bank_card_bool_exp? bank_card_used,
     Input$timestamptz_comparison_exp? created_at,
     Input$timestamptz_comparison_exp? deadline,
     Input$Boolean_comparison_exp? fulfilled,
@@ -55116,6 +60834,10 @@ class _CopyWithStubImpl$Input$payment_due_bool_exp<TRes>
   CopyWith$Input$payment_due_bool_exp<TRes> get $_not =>
       CopyWith$Input$payment_due_bool_exp.stub(_res);
   $_or(_fn) => _res;
+  CopyWith$Input$uuid_comparison_exp<TRes> get bank_card_id =>
+      CopyWith$Input$uuid_comparison_exp.stub(_res);
+  CopyWith$Input$bank_card_bool_exp<TRes> get bank_card_used =>
+      CopyWith$Input$bank_card_bool_exp.stub(_res);
   CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at =>
       CopyWith$Input$timestamptz_comparison_exp.stub(_res);
   CopyWith$Input$timestamptz_comparison_exp<TRes> get deadline =>
@@ -55275,6 +60997,8 @@ class _CopyWithStubImpl$Input$payment_due_inc_input<TRes>
 
 class Input$payment_due_insert_input {
   factory Input$payment_due_insert_input({
+    UUID? bank_card_id,
+    Input$bank_card_obj_rel_insert_input? bank_card_used,
     DateTime? created_at,
     DateTime? deadline,
     bool? fulfilled,
@@ -55285,6 +61009,8 @@ class Input$payment_due_insert_input {
     DateTime? updated_at,
   }) =>
       Input$payment_due_insert_input._({
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
+        if (bank_card_used != null) r'bank_card_used': bank_card_used,
         if (created_at != null) r'created_at': created_at,
         if (deadline != null) r'deadline': deadline,
         if (fulfilled != null) r'fulfilled': fulfilled,
@@ -55299,6 +61025,18 @@ class Input$payment_due_insert_input {
 
   factory Input$payment_due_insert_input.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : uuidFromJson(l$bank_card_id);
+    }
+    if (data.containsKey('bank_card_used')) {
+      final l$bank_card_used = data['bank_card_used'];
+      result$data['bank_card_used'] = l$bank_card_used == null
+          ? null
+          : Input$bank_card_obj_rel_insert_input.fromJson(
+              (l$bank_card_used as Map<String, dynamic>));
+    }
     if (data.containsKey('created_at')) {
       final l$created_at = data['created_at'];
       result$data['created_at'] = l$created_at == null
@@ -55345,6 +61083,9 @@ class Input$payment_due_insert_input {
 
   Map<String, dynamic> _$data;
 
+  UUID? get bank_card_id => (_$data['bank_card_id'] as UUID?);
+  Input$bank_card_obj_rel_insert_input? get bank_card_used =>
+      (_$data['bank_card_used'] as Input$bank_card_obj_rel_insert_input?);
   DateTime? get created_at => (_$data['created_at'] as DateTime?);
   DateTime? get deadline => (_$data['deadline'] as DateTime?);
   bool? get fulfilled => (_$data['fulfilled'] as bool?);
@@ -55356,6 +61097,15 @@ class Input$payment_due_insert_input {
   DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : uuidToJson(l$bank_card_id);
+    }
+    if (_$data.containsKey('bank_card_used')) {
+      final l$bank_card_used = bank_card_used;
+      result$data['bank_card_used'] = l$bank_card_used?.toJson();
+    }
     if (_$data.containsKey('created_at')) {
       final l$created_at = created_at;
       result$data['created_at'] = l$created_at?.toIso8601String();
@@ -55404,6 +61154,24 @@ class Input$payment_due_insert_input {
     }
     if (!(other is Input$payment_due_insert_input) ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
+      return false;
+    }
+    final l$bank_card_used = bank_card_used;
+    final lOther$bank_card_used = other.bank_card_used;
+    if (_$data.containsKey('bank_card_used') !=
+        other._$data.containsKey('bank_card_used')) {
+      return false;
+    }
+    if (l$bank_card_used != lOther$bank_card_used) {
       return false;
     }
     final l$created_at = created_at;
@@ -55481,6 +61249,8 @@ class Input$payment_due_insert_input {
 
   @override
   int get hashCode {
+    final l$bank_card_id = bank_card_id;
+    final l$bank_card_used = bank_card_used;
     final l$created_at = created_at;
     final l$deadline = deadline;
     final l$fulfilled = fulfilled;
@@ -55490,6 +61260,8 @@ class Input$payment_due_insert_input {
     final l$umkm_id = umkm_id;
     final l$updated_at = updated_at;
     return Object.hashAll([
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
+      _$data.containsKey('bank_card_used') ? l$bank_card_used : const {},
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('deadline') ? l$deadline : const {},
       _$data.containsKey('fulfilled') ? l$fulfilled : const {},
@@ -55512,6 +61284,8 @@ abstract class CopyWith$Input$payment_due_insert_input<TRes> {
       _CopyWithStubImpl$Input$payment_due_insert_input;
 
   TRes call({
+    UUID? bank_card_id,
+    Input$bank_card_obj_rel_insert_input? bank_card_used,
     DateTime? created_at,
     DateTime? deadline,
     bool? fulfilled,
@@ -55521,6 +61295,7 @@ abstract class CopyWith$Input$payment_due_insert_input<TRes> {
     int? umkm_id,
     DateTime? updated_at,
   });
+  CopyWith$Input$bank_card_obj_rel_insert_input<TRes> get bank_card_used;
   CopyWith$Input$umkm_obj_rel_insert_input<TRes> get umkm;
 }
 
@@ -55538,6 +61313,8 @@ class _CopyWithImpl$Input$payment_due_insert_input<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? bank_card_id = _undefined,
+    Object? bank_card_used = _undefined,
     Object? created_at = _undefined,
     Object? deadline = _undefined,
     Object? fulfilled = _undefined,
@@ -55549,6 +61326,10 @@ class _CopyWithImpl$Input$payment_due_insert_input<TRes>
   }) =>
       _then(Input$payment_due_insert_input._({
         ..._instance._$data,
+        if (bank_card_id != _undefined) 'bank_card_id': (bank_card_id as UUID?),
+        if (bank_card_used != _undefined)
+          'bank_card_used':
+              (bank_card_used as Input$bank_card_obj_rel_insert_input?),
         if (created_at != _undefined) 'created_at': (created_at as DateTime?),
         if (deadline != _undefined) 'deadline': (deadline as DateTime?),
         if (fulfilled != _undefined) 'fulfilled': (fulfilled as bool?),
@@ -55560,6 +61341,14 @@ class _CopyWithImpl$Input$payment_due_insert_input<TRes>
         if (umkm_id != _undefined) 'umkm_id': (umkm_id as int?),
         if (updated_at != _undefined) 'updated_at': (updated_at as DateTime?),
       }));
+  CopyWith$Input$bank_card_obj_rel_insert_input<TRes> get bank_card_used {
+    final local$bank_card_used = _instance.bank_card_used;
+    return local$bank_card_used == null
+        ? CopyWith$Input$bank_card_obj_rel_insert_input.stub(_then(_instance))
+        : CopyWith$Input$bank_card_obj_rel_insert_input(
+            local$bank_card_used, (e) => call(bank_card_used: e));
+  }
+
   CopyWith$Input$umkm_obj_rel_insert_input<TRes> get umkm {
     final local$umkm = _instance.umkm;
     return local$umkm == null
@@ -55576,6 +61365,8 @@ class _CopyWithStubImpl$Input$payment_due_insert_input<TRes>
   TRes _res;
 
   call({
+    UUID? bank_card_id,
+    Input$bank_card_obj_rel_insert_input? bank_card_used,
     DateTime? created_at,
     DateTime? deadline,
     bool? fulfilled,
@@ -55586,12 +61377,15 @@ class _CopyWithStubImpl$Input$payment_due_insert_input<TRes>
     DateTime? updated_at,
   }) =>
       _res;
+  CopyWith$Input$bank_card_obj_rel_insert_input<TRes> get bank_card_used =>
+      CopyWith$Input$bank_card_obj_rel_insert_input.stub(_res);
   CopyWith$Input$umkm_obj_rel_insert_input<TRes> get umkm =>
       CopyWith$Input$umkm_obj_rel_insert_input.stub(_res);
 }
 
 class Input$payment_due_max_order_by {
   factory Input$payment_due_max_order_by({
+    Enum$order_by? bank_card_id,
     Enum$order_by? created_at,
     Enum$order_by? deadline,
     Enum$order_by? payment_due,
@@ -55600,6 +61394,7 @@ class Input$payment_due_max_order_by {
     Enum$order_by? updated_at,
   }) =>
       Input$payment_due_max_order_by._({
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
         if (created_at != null) r'created_at': created_at,
         if (deadline != null) r'deadline': deadline,
         if (payment_due != null) r'payment_due': payment_due,
@@ -55612,6 +61407,12 @@ class Input$payment_due_max_order_by {
 
   factory Input$payment_due_max_order_by.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] = l$bank_card_id == null
+          ? null
+          : fromJson$Enum$order_by((l$bank_card_id as String));
+    }
     if (data.containsKey('created_at')) {
       final l$created_at = data['created_at'];
       result$data['created_at'] = l$created_at == null
@@ -55653,6 +61454,7 @@ class Input$payment_due_max_order_by {
 
   Map<String, dynamic> _$data;
 
+  Enum$order_by? get bank_card_id => (_$data['bank_card_id'] as Enum$order_by?);
   Enum$order_by? get created_at => (_$data['created_at'] as Enum$order_by?);
   Enum$order_by? get deadline => (_$data['deadline'] as Enum$order_by?);
   Enum$order_by? get payment_due => (_$data['payment_due'] as Enum$order_by?);
@@ -55662,6 +61464,11 @@ class Input$payment_due_max_order_by {
   Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : toJson$Enum$order_by(l$bank_card_id);
+    }
     if (_$data.containsKey('created_at')) {
       final l$created_at = created_at;
       result$data['created_at'] =
@@ -55710,6 +61517,15 @@ class Input$payment_due_max_order_by {
         runtimeType != other.runtimeType) {
       return false;
     }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
+      return false;
+    }
     final l$created_at = created_at;
     final lOther$created_at = other.created_at;
     if (_$data.containsKey('created_at') !=
@@ -55768,6 +61584,7 @@ class Input$payment_due_max_order_by {
 
   @override
   int get hashCode {
+    final l$bank_card_id = bank_card_id;
     final l$created_at = created_at;
     final l$deadline = deadline;
     final l$payment_due = payment_due;
@@ -55775,6 +61592,7 @@ class Input$payment_due_max_order_by {
     final l$umkm_id = umkm_id;
     final l$updated_at = updated_at;
     return Object.hashAll([
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('deadline') ? l$deadline : const {},
       _$data.containsKey('payment_due') ? l$payment_due : const {},
@@ -55795,6 +61613,7 @@ abstract class CopyWith$Input$payment_due_max_order_by<TRes> {
       _CopyWithStubImpl$Input$payment_due_max_order_by;
 
   TRes call({
+    Enum$order_by? bank_card_id,
     Enum$order_by? created_at,
     Enum$order_by? deadline,
     Enum$order_by? payment_due,
@@ -55818,6 +61637,7 @@ class _CopyWithImpl$Input$payment_due_max_order_by<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? bank_card_id = _undefined,
     Object? created_at = _undefined,
     Object? deadline = _undefined,
     Object? payment_due = _undefined,
@@ -55827,6 +61647,8 @@ class _CopyWithImpl$Input$payment_due_max_order_by<TRes>
   }) =>
       _then(Input$payment_due_max_order_by._({
         ..._instance._$data,
+        if (bank_card_id != _undefined)
+          'bank_card_id': (bank_card_id as Enum$order_by?),
         if (created_at != _undefined)
           'created_at': (created_at as Enum$order_by?),
         if (deadline != _undefined) 'deadline': (deadline as Enum$order_by?),
@@ -55847,6 +61669,7 @@ class _CopyWithStubImpl$Input$payment_due_max_order_by<TRes>
   TRes _res;
 
   call({
+    Enum$order_by? bank_card_id,
     Enum$order_by? created_at,
     Enum$order_by? deadline,
     Enum$order_by? payment_due,
@@ -55859,6 +61682,7 @@ class _CopyWithStubImpl$Input$payment_due_max_order_by<TRes>
 
 class Input$payment_due_min_order_by {
   factory Input$payment_due_min_order_by({
+    Enum$order_by? bank_card_id,
     Enum$order_by? created_at,
     Enum$order_by? deadline,
     Enum$order_by? payment_due,
@@ -55867,6 +61691,7 @@ class Input$payment_due_min_order_by {
     Enum$order_by? updated_at,
   }) =>
       Input$payment_due_min_order_by._({
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
         if (created_at != null) r'created_at': created_at,
         if (deadline != null) r'deadline': deadline,
         if (payment_due != null) r'payment_due': payment_due,
@@ -55879,6 +61704,12 @@ class Input$payment_due_min_order_by {
 
   factory Input$payment_due_min_order_by.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] = l$bank_card_id == null
+          ? null
+          : fromJson$Enum$order_by((l$bank_card_id as String));
+    }
     if (data.containsKey('created_at')) {
       final l$created_at = data['created_at'];
       result$data['created_at'] = l$created_at == null
@@ -55920,6 +61751,7 @@ class Input$payment_due_min_order_by {
 
   Map<String, dynamic> _$data;
 
+  Enum$order_by? get bank_card_id => (_$data['bank_card_id'] as Enum$order_by?);
   Enum$order_by? get created_at => (_$data['created_at'] as Enum$order_by?);
   Enum$order_by? get deadline => (_$data['deadline'] as Enum$order_by?);
   Enum$order_by? get payment_due => (_$data['payment_due'] as Enum$order_by?);
@@ -55929,6 +61761,11 @@ class Input$payment_due_min_order_by {
   Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : toJson$Enum$order_by(l$bank_card_id);
+    }
     if (_$data.containsKey('created_at')) {
       final l$created_at = created_at;
       result$data['created_at'] =
@@ -55977,6 +61814,15 @@ class Input$payment_due_min_order_by {
         runtimeType != other.runtimeType) {
       return false;
     }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
+      return false;
+    }
     final l$created_at = created_at;
     final lOther$created_at = other.created_at;
     if (_$data.containsKey('created_at') !=
@@ -56035,6 +61881,7 @@ class Input$payment_due_min_order_by {
 
   @override
   int get hashCode {
+    final l$bank_card_id = bank_card_id;
     final l$created_at = created_at;
     final l$deadline = deadline;
     final l$payment_due = payment_due;
@@ -56042,6 +61889,7 @@ class Input$payment_due_min_order_by {
     final l$umkm_id = umkm_id;
     final l$updated_at = updated_at;
     return Object.hashAll([
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('deadline') ? l$deadline : const {},
       _$data.containsKey('payment_due') ? l$payment_due : const {},
@@ -56062,6 +61910,7 @@ abstract class CopyWith$Input$payment_due_min_order_by<TRes> {
       _CopyWithStubImpl$Input$payment_due_min_order_by;
 
   TRes call({
+    Enum$order_by? bank_card_id,
     Enum$order_by? created_at,
     Enum$order_by? deadline,
     Enum$order_by? payment_due,
@@ -56085,6 +61934,7 @@ class _CopyWithImpl$Input$payment_due_min_order_by<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? bank_card_id = _undefined,
     Object? created_at = _undefined,
     Object? deadline = _undefined,
     Object? payment_due = _undefined,
@@ -56094,6 +61944,8 @@ class _CopyWithImpl$Input$payment_due_min_order_by<TRes>
   }) =>
       _then(Input$payment_due_min_order_by._({
         ..._instance._$data,
+        if (bank_card_id != _undefined)
+          'bank_card_id': (bank_card_id as Enum$order_by?),
         if (created_at != _undefined)
           'created_at': (created_at as Enum$order_by?),
         if (deadline != _undefined) 'deadline': (deadline as Enum$order_by?),
@@ -56114,6 +61966,7 @@ class _CopyWithStubImpl$Input$payment_due_min_order_by<TRes>
   TRes _res;
 
   call({
+    Enum$order_by? bank_card_id,
     Enum$order_by? created_at,
     Enum$order_by? deadline,
     Enum$order_by? payment_due,
@@ -56308,6 +62161,8 @@ class _CopyWithStubImpl$Input$payment_due_on_conflict<TRes>
 
 class Input$payment_due_order_by {
   factory Input$payment_due_order_by({
+    Enum$order_by? bank_card_id,
+    Input$bank_card_order_by? bank_card_used,
     Enum$order_by? created_at,
     Enum$order_by? deadline,
     Enum$order_by? fulfilled,
@@ -56318,6 +62173,8 @@ class Input$payment_due_order_by {
     Enum$order_by? updated_at,
   }) =>
       Input$payment_due_order_by._({
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
+        if (bank_card_used != null) r'bank_card_used': bank_card_used,
         if (created_at != null) r'created_at': created_at,
         if (deadline != null) r'deadline': deadline,
         if (fulfilled != null) r'fulfilled': fulfilled,
@@ -56332,6 +62189,19 @@ class Input$payment_due_order_by {
 
   factory Input$payment_due_order_by.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] = l$bank_card_id == null
+          ? null
+          : fromJson$Enum$order_by((l$bank_card_id as String));
+    }
+    if (data.containsKey('bank_card_used')) {
+      final l$bank_card_used = data['bank_card_used'];
+      result$data['bank_card_used'] = l$bank_card_used == null
+          ? null
+          : Input$bank_card_order_by.fromJson(
+              (l$bank_card_used as Map<String, dynamic>));
+    }
     if (data.containsKey('created_at')) {
       final l$created_at = data['created_at'];
       result$data['created_at'] = l$created_at == null
@@ -56385,6 +62255,9 @@ class Input$payment_due_order_by {
 
   Map<String, dynamic> _$data;
 
+  Enum$order_by? get bank_card_id => (_$data['bank_card_id'] as Enum$order_by?);
+  Input$bank_card_order_by? get bank_card_used =>
+      (_$data['bank_card_used'] as Input$bank_card_order_by?);
   Enum$order_by? get created_at => (_$data['created_at'] as Enum$order_by?);
   Enum$order_by? get deadline => (_$data['deadline'] as Enum$order_by?);
   Enum$order_by? get fulfilled => (_$data['fulfilled'] as Enum$order_by?);
@@ -56396,6 +62269,15 @@ class Input$payment_due_order_by {
   Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : toJson$Enum$order_by(l$bank_card_id);
+    }
+    if (_$data.containsKey('bank_card_used')) {
+      final l$bank_card_used = bank_card_used;
+      result$data['bank_card_used'] = l$bank_card_used?.toJson();
+    }
     if (_$data.containsKey('created_at')) {
       final l$created_at = created_at;
       result$data['created_at'] =
@@ -56451,6 +62333,24 @@ class Input$payment_due_order_by {
     }
     if (!(other is Input$payment_due_order_by) ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
+      return false;
+    }
+    final l$bank_card_used = bank_card_used;
+    final lOther$bank_card_used = other.bank_card_used;
+    if (_$data.containsKey('bank_card_used') !=
+        other._$data.containsKey('bank_card_used')) {
+      return false;
+    }
+    if (l$bank_card_used != lOther$bank_card_used) {
       return false;
     }
     final l$created_at = created_at;
@@ -56528,6 +62428,8 @@ class Input$payment_due_order_by {
 
   @override
   int get hashCode {
+    final l$bank_card_id = bank_card_id;
+    final l$bank_card_used = bank_card_used;
     final l$created_at = created_at;
     final l$deadline = deadline;
     final l$fulfilled = fulfilled;
@@ -56537,6 +62439,8 @@ class Input$payment_due_order_by {
     final l$umkm_id = umkm_id;
     final l$updated_at = updated_at;
     return Object.hashAll([
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
+      _$data.containsKey('bank_card_used') ? l$bank_card_used : const {},
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('deadline') ? l$deadline : const {},
       _$data.containsKey('fulfilled') ? l$fulfilled : const {},
@@ -56559,6 +62463,8 @@ abstract class CopyWith$Input$payment_due_order_by<TRes> {
       _CopyWithStubImpl$Input$payment_due_order_by;
 
   TRes call({
+    Enum$order_by? bank_card_id,
+    Input$bank_card_order_by? bank_card_used,
     Enum$order_by? created_at,
     Enum$order_by? deadline,
     Enum$order_by? fulfilled,
@@ -56568,6 +62474,7 @@ abstract class CopyWith$Input$payment_due_order_by<TRes> {
     Enum$order_by? umkm_id,
     Enum$order_by? updated_at,
   });
+  CopyWith$Input$bank_card_order_by<TRes> get bank_card_used;
   CopyWith$Input$umkm_order_by<TRes> get umkm;
 }
 
@@ -56585,6 +62492,8 @@ class _CopyWithImpl$Input$payment_due_order_by<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? bank_card_id = _undefined,
+    Object? bank_card_used = _undefined,
     Object? created_at = _undefined,
     Object? deadline = _undefined,
     Object? fulfilled = _undefined,
@@ -56596,6 +62505,10 @@ class _CopyWithImpl$Input$payment_due_order_by<TRes>
   }) =>
       _then(Input$payment_due_order_by._({
         ..._instance._$data,
+        if (bank_card_id != _undefined)
+          'bank_card_id': (bank_card_id as Enum$order_by?),
+        if (bank_card_used != _undefined)
+          'bank_card_used': (bank_card_used as Input$bank_card_order_by?),
         if (created_at != _undefined)
           'created_at': (created_at as Enum$order_by?),
         if (deadline != _undefined) 'deadline': (deadline as Enum$order_by?),
@@ -56609,6 +62522,14 @@ class _CopyWithImpl$Input$payment_due_order_by<TRes>
         if (updated_at != _undefined)
           'updated_at': (updated_at as Enum$order_by?),
       }));
+  CopyWith$Input$bank_card_order_by<TRes> get bank_card_used {
+    final local$bank_card_used = _instance.bank_card_used;
+    return local$bank_card_used == null
+        ? CopyWith$Input$bank_card_order_by.stub(_then(_instance))
+        : CopyWith$Input$bank_card_order_by(
+            local$bank_card_used, (e) => call(bank_card_used: e));
+  }
+
   CopyWith$Input$umkm_order_by<TRes> get umkm {
     final local$umkm = _instance.umkm;
     return local$umkm == null
@@ -56624,6 +62545,8 @@ class _CopyWithStubImpl$Input$payment_due_order_by<TRes>
   TRes _res;
 
   call({
+    Enum$order_by? bank_card_id,
+    Input$bank_card_order_by? bank_card_used,
     Enum$order_by? created_at,
     Enum$order_by? deadline,
     Enum$order_by? fulfilled,
@@ -56634,6 +62557,8 @@ class _CopyWithStubImpl$Input$payment_due_order_by<TRes>
     Enum$order_by? updated_at,
   }) =>
       _res;
+  CopyWith$Input$bank_card_order_by<TRes> get bank_card_used =>
+      CopyWith$Input$bank_card_order_by.stub(_res);
   CopyWith$Input$umkm_order_by<TRes> get umkm =>
       CopyWith$Input$umkm_order_by.stub(_res);
 }
@@ -56738,6 +62663,7 @@ class _CopyWithStubImpl$Input$payment_due_pk_columns_input<TRes>
 
 class Input$payment_due_set_input {
   factory Input$payment_due_set_input({
+    UUID? bank_card_id,
     DateTime? created_at,
     DateTime? deadline,
     bool? fulfilled,
@@ -56747,6 +62673,7 @@ class Input$payment_due_set_input {
     DateTime? updated_at,
   }) =>
       Input$payment_due_set_input._({
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
         if (created_at != null) r'created_at': created_at,
         if (deadline != null) r'deadline': deadline,
         if (fulfilled != null) r'fulfilled': fulfilled,
@@ -56760,6 +62687,11 @@ class Input$payment_due_set_input {
 
   factory Input$payment_due_set_input.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : uuidFromJson(l$bank_card_id);
+    }
     if (data.containsKey('created_at')) {
       final l$created_at = data['created_at'];
       result$data['created_at'] = l$created_at == null
@@ -56799,6 +62731,7 @@ class Input$payment_due_set_input {
 
   Map<String, dynamic> _$data;
 
+  UUID? get bank_card_id => (_$data['bank_card_id'] as UUID?);
   DateTime? get created_at => (_$data['created_at'] as DateTime?);
   DateTime? get deadline => (_$data['deadline'] as DateTime?);
   bool? get fulfilled => (_$data['fulfilled'] as bool?);
@@ -56808,6 +62741,11 @@ class Input$payment_due_set_input {
   DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : uuidToJson(l$bank_card_id);
+    }
     if (_$data.containsKey('created_at')) {
       final l$created_at = created_at;
       result$data['created_at'] = l$created_at?.toIso8601String();
@@ -56852,6 +62790,15 @@ class Input$payment_due_set_input {
     }
     if (!(other is Input$payment_due_set_input) ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
       return false;
     }
     final l$created_at = created_at;
@@ -56921,6 +62868,7 @@ class Input$payment_due_set_input {
 
   @override
   int get hashCode {
+    final l$bank_card_id = bank_card_id;
     final l$created_at = created_at;
     final l$deadline = deadline;
     final l$fulfilled = fulfilled;
@@ -56929,6 +62877,7 @@ class Input$payment_due_set_input {
     final l$umkm_id = umkm_id;
     final l$updated_at = updated_at;
     return Object.hashAll([
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('deadline') ? l$deadline : const {},
       _$data.containsKey('fulfilled') ? l$fulfilled : const {},
@@ -56950,6 +62899,7 @@ abstract class CopyWith$Input$payment_due_set_input<TRes> {
       _CopyWithStubImpl$Input$payment_due_set_input;
 
   TRes call({
+    UUID? bank_card_id,
     DateTime? created_at,
     DateTime? deadline,
     bool? fulfilled,
@@ -56974,6 +62924,7 @@ class _CopyWithImpl$Input$payment_due_set_input<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? bank_card_id = _undefined,
     Object? created_at = _undefined,
     Object? deadline = _undefined,
     Object? fulfilled = _undefined,
@@ -56984,6 +62935,7 @@ class _CopyWithImpl$Input$payment_due_set_input<TRes>
   }) =>
       _then(Input$payment_due_set_input._({
         ..._instance._$data,
+        if (bank_card_id != _undefined) 'bank_card_id': (bank_card_id as UUID?),
         if (created_at != _undefined) 'created_at': (created_at as DateTime?),
         if (deadline != _undefined) 'deadline': (deadline as DateTime?),
         if (fulfilled != _undefined) 'fulfilled': (fulfilled as bool?),
@@ -57002,6 +62954,7 @@ class _CopyWithStubImpl$Input$payment_due_set_input<TRes>
   TRes _res;
 
   call({
+    UUID? bank_card_id,
     DateTime? created_at,
     DateTime? deadline,
     bool? fulfilled,
@@ -57611,6 +63564,7 @@ class _CopyWithStubImpl$Input$payment_due_stream_cursor_input<TRes>
 
 class Input$payment_due_stream_cursor_value_input {
   factory Input$payment_due_stream_cursor_value_input({
+    UUID? bank_card_id,
     DateTime? created_at,
     DateTime? deadline,
     bool? fulfilled,
@@ -57620,6 +63574,7 @@ class Input$payment_due_stream_cursor_value_input {
     DateTime? updated_at,
   }) =>
       Input$payment_due_stream_cursor_value_input._({
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
         if (created_at != null) r'created_at': created_at,
         if (deadline != null) r'deadline': deadline,
         if (fulfilled != null) r'fulfilled': fulfilled,
@@ -57634,6 +63589,11 @@ class Input$payment_due_stream_cursor_value_input {
   factory Input$payment_due_stream_cursor_value_input.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : uuidFromJson(l$bank_card_id);
+    }
     if (data.containsKey('created_at')) {
       final l$created_at = data['created_at'];
       result$data['created_at'] = l$created_at == null
@@ -57673,6 +63633,7 @@ class Input$payment_due_stream_cursor_value_input {
 
   Map<String, dynamic> _$data;
 
+  UUID? get bank_card_id => (_$data['bank_card_id'] as UUID?);
   DateTime? get created_at => (_$data['created_at'] as DateTime?);
   DateTime? get deadline => (_$data['deadline'] as DateTime?);
   bool? get fulfilled => (_$data['fulfilled'] as bool?);
@@ -57682,6 +63643,11 @@ class Input$payment_due_stream_cursor_value_input {
   DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : uuidToJson(l$bank_card_id);
+    }
     if (_$data.containsKey('created_at')) {
       final l$created_at = created_at;
       result$data['created_at'] = l$created_at?.toIso8601String();
@@ -57727,6 +63693,15 @@ class Input$payment_due_stream_cursor_value_input {
     }
     if (!(other is Input$payment_due_stream_cursor_value_input) ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
       return false;
     }
     final l$created_at = created_at;
@@ -57796,6 +63771,7 @@ class Input$payment_due_stream_cursor_value_input {
 
   @override
   int get hashCode {
+    final l$bank_card_id = bank_card_id;
     final l$created_at = created_at;
     final l$deadline = deadline;
     final l$fulfilled = fulfilled;
@@ -57804,6 +63780,7 @@ class Input$payment_due_stream_cursor_value_input {
     final l$umkm_id = umkm_id;
     final l$updated_at = updated_at;
     return Object.hashAll([
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('deadline') ? l$deadline : const {},
       _$data.containsKey('fulfilled') ? l$fulfilled : const {},
@@ -57825,6 +63802,7 @@ abstract class CopyWith$Input$payment_due_stream_cursor_value_input<TRes> {
       _CopyWithStubImpl$Input$payment_due_stream_cursor_value_input;
 
   TRes call({
+    UUID? bank_card_id,
     DateTime? created_at,
     DateTime? deadline,
     bool? fulfilled,
@@ -57849,6 +63827,7 @@ class _CopyWithImpl$Input$payment_due_stream_cursor_value_input<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? bank_card_id = _undefined,
     Object? created_at = _undefined,
     Object? deadline = _undefined,
     Object? fulfilled = _undefined,
@@ -57859,6 +63838,7 @@ class _CopyWithImpl$Input$payment_due_stream_cursor_value_input<TRes>
   }) =>
       _then(Input$payment_due_stream_cursor_value_input._({
         ..._instance._$data,
+        if (bank_card_id != _undefined) 'bank_card_id': (bank_card_id as UUID?),
         if (created_at != _undefined) 'created_at': (created_at as DateTime?),
         if (deadline != _undefined) 'deadline': (deadline as DateTime?),
         if (fulfilled != _undefined) 'fulfilled': (fulfilled as bool?),
@@ -57877,6 +63857,7 @@ class _CopyWithStubImpl$Input$payment_due_stream_cursor_value_input<TRes>
   TRes _res;
 
   call({
+    UUID? bank_card_id,
     DateTime? created_at,
     DateTime? deadline,
     bool? fulfilled,
@@ -58677,11 +64658,1762 @@ class _CopyWithStubImpl$Input$payment_due_variance_order_by<TRes>
       _res;
 }
 
+class Input$payment_investment_aggregate_bool_exp {
+  factory Input$payment_investment_aggregate_bool_exp({
+    Input$payment_investment_aggregate_bool_exp_bool_and? bool_and,
+    Input$payment_investment_aggregate_bool_exp_bool_or? bool_or,
+    Input$payment_investment_aggregate_bool_exp_count? count,
+  }) =>
+      Input$payment_investment_aggregate_bool_exp._({
+        if (bool_and != null) r'bool_and': bool_and,
+        if (bool_or != null) r'bool_or': bool_or,
+        if (count != null) r'count': count,
+      });
+
+  Input$payment_investment_aggregate_bool_exp._(this._$data);
+
+  factory Input$payment_investment_aggregate_bool_exp.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('bool_and')) {
+      final l$bool_and = data['bool_and'];
+      result$data['bool_and'] = l$bool_and == null
+          ? null
+          : Input$payment_investment_aggregate_bool_exp_bool_and.fromJson(
+              (l$bool_and as Map<String, dynamic>));
+    }
+    if (data.containsKey('bool_or')) {
+      final l$bool_or = data['bool_or'];
+      result$data['bool_or'] = l$bool_or == null
+          ? null
+          : Input$payment_investment_aggregate_bool_exp_bool_or.fromJson(
+              (l$bool_or as Map<String, dynamic>));
+    }
+    if (data.containsKey('count')) {
+      final l$count = data['count'];
+      result$data['count'] = l$count == null
+          ? null
+          : Input$payment_investment_aggregate_bool_exp_count.fromJson(
+              (l$count as Map<String, dynamic>));
+    }
+    return Input$payment_investment_aggregate_bool_exp._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$payment_investment_aggregate_bool_exp_bool_and? get bool_and =>
+      (_$data['bool_and']
+          as Input$payment_investment_aggregate_bool_exp_bool_and?);
+  Input$payment_investment_aggregate_bool_exp_bool_or? get bool_or =>
+      (_$data['bool_or']
+          as Input$payment_investment_aggregate_bool_exp_bool_or?);
+  Input$payment_investment_aggregate_bool_exp_count? get count =>
+      (_$data['count'] as Input$payment_investment_aggregate_bool_exp_count?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bool_and')) {
+      final l$bool_and = bool_and;
+      result$data['bool_and'] = l$bool_and?.toJson();
+    }
+    if (_$data.containsKey('bool_or')) {
+      final l$bool_or = bool_or;
+      result$data['bool_or'] = l$bool_or?.toJson();
+    }
+    if (_$data.containsKey('count')) {
+      final l$count = count;
+      result$data['count'] = l$count?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_aggregate_bool_exp<
+          Input$payment_investment_aggregate_bool_exp>
+      get copyWith => CopyWith$Input$payment_investment_aggregate_bool_exp(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_aggregate_bool_exp) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bool_and = bool_and;
+    final lOther$bool_and = other.bool_and;
+    if (_$data.containsKey('bool_and') !=
+        other._$data.containsKey('bool_and')) {
+      return false;
+    }
+    if (l$bool_and != lOther$bool_and) {
+      return false;
+    }
+    final l$bool_or = bool_or;
+    final lOther$bool_or = other.bool_or;
+    if (_$data.containsKey('bool_or') != other._$data.containsKey('bool_or')) {
+      return false;
+    }
+    if (l$bool_or != lOther$bool_or) {
+      return false;
+    }
+    final l$count = count;
+    final lOther$count = other.count;
+    if (_$data.containsKey('count') != other._$data.containsKey('count')) {
+      return false;
+    }
+    if (l$count != lOther$count) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$bool_and = bool_and;
+    final l$bool_or = bool_or;
+    final l$count = count;
+    return Object.hashAll([
+      _$data.containsKey('bool_and') ? l$bool_and : const {},
+      _$data.containsKey('bool_or') ? l$bool_or : const {},
+      _$data.containsKey('count') ? l$count : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_aggregate_bool_exp<TRes> {
+  factory CopyWith$Input$payment_investment_aggregate_bool_exp(
+    Input$payment_investment_aggregate_bool_exp instance,
+    TRes Function(Input$payment_investment_aggregate_bool_exp) then,
+  ) = _CopyWithImpl$Input$payment_investment_aggregate_bool_exp;
+
+  factory CopyWith$Input$payment_investment_aggregate_bool_exp.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_aggregate_bool_exp;
+
+  TRes call({
+    Input$payment_investment_aggregate_bool_exp_bool_and? bool_and,
+    Input$payment_investment_aggregate_bool_exp_bool_or? bool_or,
+    Input$payment_investment_aggregate_bool_exp_count? count,
+  });
+  CopyWith$Input$payment_investment_aggregate_bool_exp_bool_and<TRes>
+      get bool_and;
+  CopyWith$Input$payment_investment_aggregate_bool_exp_bool_or<TRes>
+      get bool_or;
+  CopyWith$Input$payment_investment_aggregate_bool_exp_count<TRes> get count;
+}
+
+class _CopyWithImpl$Input$payment_investment_aggregate_bool_exp<TRes>
+    implements CopyWith$Input$payment_investment_aggregate_bool_exp<TRes> {
+  _CopyWithImpl$Input$payment_investment_aggregate_bool_exp(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_aggregate_bool_exp _instance;
+
+  final TRes Function(Input$payment_investment_aggregate_bool_exp) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? bool_and = _undefined,
+    Object? bool_or = _undefined,
+    Object? count = _undefined,
+  }) =>
+      _then(Input$payment_investment_aggregate_bool_exp._({
+        ..._instance._$data,
+        if (bool_and != _undefined)
+          'bool_and': (bool_and
+              as Input$payment_investment_aggregate_bool_exp_bool_and?),
+        if (bool_or != _undefined)
+          'bool_or':
+              (bool_or as Input$payment_investment_aggregate_bool_exp_bool_or?),
+        if (count != _undefined)
+          'count':
+              (count as Input$payment_investment_aggregate_bool_exp_count?),
+      }));
+  CopyWith$Input$payment_investment_aggregate_bool_exp_bool_and<TRes>
+      get bool_and {
+    final local$bool_and = _instance.bool_and;
+    return local$bool_and == null
+        ? CopyWith$Input$payment_investment_aggregate_bool_exp_bool_and.stub(
+            _then(_instance))
+        : CopyWith$Input$payment_investment_aggregate_bool_exp_bool_and(
+            local$bool_and, (e) => call(bool_and: e));
+  }
+
+  CopyWith$Input$payment_investment_aggregate_bool_exp_bool_or<TRes>
+      get bool_or {
+    final local$bool_or = _instance.bool_or;
+    return local$bool_or == null
+        ? CopyWith$Input$payment_investment_aggregate_bool_exp_bool_or.stub(
+            _then(_instance))
+        : CopyWith$Input$payment_investment_aggregate_bool_exp_bool_or(
+            local$bool_or, (e) => call(bool_or: e));
+  }
+
+  CopyWith$Input$payment_investment_aggregate_bool_exp_count<TRes> get count {
+    final local$count = _instance.count;
+    return local$count == null
+        ? CopyWith$Input$payment_investment_aggregate_bool_exp_count.stub(
+            _then(_instance))
+        : CopyWith$Input$payment_investment_aggregate_bool_exp_count(
+            local$count, (e) => call(count: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_investment_aggregate_bool_exp<TRes>
+    implements CopyWith$Input$payment_investment_aggregate_bool_exp<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_aggregate_bool_exp(this._res);
+
+  TRes _res;
+
+  call({
+    Input$payment_investment_aggregate_bool_exp_bool_and? bool_and,
+    Input$payment_investment_aggregate_bool_exp_bool_or? bool_or,
+    Input$payment_investment_aggregate_bool_exp_count? count,
+  }) =>
+      _res;
+  CopyWith$Input$payment_investment_aggregate_bool_exp_bool_and<TRes>
+      get bool_and =>
+          CopyWith$Input$payment_investment_aggregate_bool_exp_bool_and.stub(
+              _res);
+  CopyWith$Input$payment_investment_aggregate_bool_exp_bool_or<TRes>
+      get bool_or =>
+          CopyWith$Input$payment_investment_aggregate_bool_exp_bool_or.stub(
+              _res);
+  CopyWith$Input$payment_investment_aggregate_bool_exp_count<TRes> get count =>
+      CopyWith$Input$payment_investment_aggregate_bool_exp_count.stub(_res);
+}
+
+class Input$payment_investment_aggregate_bool_exp_bool_and {
+  factory Input$payment_investment_aggregate_bool_exp_bool_and({
+    required Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_and_arguments_columns
+        arguments,
+    bool? distinct,
+    Input$payment_investment_bool_exp? filter,
+    required Input$Boolean_comparison_exp predicate,
+  }) =>
+      Input$payment_investment_aggregate_bool_exp_bool_and._({
+        r'arguments': arguments,
+        if (distinct != null) r'distinct': distinct,
+        if (filter != null) r'filter': filter,
+        r'predicate': predicate,
+      });
+
+  Input$payment_investment_aggregate_bool_exp_bool_and._(this._$data);
+
+  factory Input$payment_investment_aggregate_bool_exp_bool_and.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$arguments = data['arguments'];
+    result$data['arguments'] =
+        fromJson$Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_and_arguments_columns(
+            (l$arguments as String));
+    if (data.containsKey('distinct')) {
+      final l$distinct = data['distinct'];
+      result$data['distinct'] = (l$distinct as bool?);
+    }
+    if (data.containsKey('filter')) {
+      final l$filter = data['filter'];
+      result$data['filter'] = l$filter == null
+          ? null
+          : Input$payment_investment_bool_exp.fromJson(
+              (l$filter as Map<String, dynamic>));
+    }
+    final l$predicate = data['predicate'];
+    result$data['predicate'] = Input$Boolean_comparison_exp.fromJson(
+        (l$predicate as Map<String, dynamic>));
+    return Input$payment_investment_aggregate_bool_exp_bool_and._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_and_arguments_columns
+      get arguments => (_$data['arguments']
+          as Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_and_arguments_columns);
+  bool? get distinct => (_$data['distinct'] as bool?);
+  Input$payment_investment_bool_exp? get filter =>
+      (_$data['filter'] as Input$payment_investment_bool_exp?);
+  Input$Boolean_comparison_exp get predicate =>
+      (_$data['predicate'] as Input$Boolean_comparison_exp);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$arguments = arguments;
+    result$data['arguments'] =
+        toJson$Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_and_arguments_columns(
+            l$arguments);
+    if (_$data.containsKey('distinct')) {
+      final l$distinct = distinct;
+      result$data['distinct'] = l$distinct;
+    }
+    if (_$data.containsKey('filter')) {
+      final l$filter = filter;
+      result$data['filter'] = l$filter?.toJson();
+    }
+    final l$predicate = predicate;
+    result$data['predicate'] = l$predicate.toJson();
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_aggregate_bool_exp_bool_and<
+          Input$payment_investment_aggregate_bool_exp_bool_and>
+      get copyWith =>
+          CopyWith$Input$payment_investment_aggregate_bool_exp_bool_and(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_aggregate_bool_exp_bool_and) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$arguments = arguments;
+    final lOther$arguments = other.arguments;
+    if (l$arguments != lOther$arguments) {
+      return false;
+    }
+    final l$distinct = distinct;
+    final lOther$distinct = other.distinct;
+    if (_$data.containsKey('distinct') !=
+        other._$data.containsKey('distinct')) {
+      return false;
+    }
+    if (l$distinct != lOther$distinct) {
+      return false;
+    }
+    final l$filter = filter;
+    final lOther$filter = other.filter;
+    if (_$data.containsKey('filter') != other._$data.containsKey('filter')) {
+      return false;
+    }
+    if (l$filter != lOther$filter) {
+      return false;
+    }
+    final l$predicate = predicate;
+    final lOther$predicate = other.predicate;
+    if (l$predicate != lOther$predicate) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$arguments = arguments;
+    final l$distinct = distinct;
+    final l$filter = filter;
+    final l$predicate = predicate;
+    return Object.hashAll([
+      l$arguments,
+      _$data.containsKey('distinct') ? l$distinct : const {},
+      _$data.containsKey('filter') ? l$filter : const {},
+      l$predicate,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_aggregate_bool_exp_bool_and<
+    TRes> {
+  factory CopyWith$Input$payment_investment_aggregate_bool_exp_bool_and(
+    Input$payment_investment_aggregate_bool_exp_bool_and instance,
+    TRes Function(Input$payment_investment_aggregate_bool_exp_bool_and) then,
+  ) = _CopyWithImpl$Input$payment_investment_aggregate_bool_exp_bool_and;
+
+  factory CopyWith$Input$payment_investment_aggregate_bool_exp_bool_and.stub(
+          TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_aggregate_bool_exp_bool_and;
+
+  TRes call({
+    Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_and_arguments_columns?
+        arguments,
+    bool? distinct,
+    Input$payment_investment_bool_exp? filter,
+    Input$Boolean_comparison_exp? predicate,
+  });
+  CopyWith$Input$payment_investment_bool_exp<TRes> get filter;
+  CopyWith$Input$Boolean_comparison_exp<TRes> get predicate;
+}
+
+class _CopyWithImpl$Input$payment_investment_aggregate_bool_exp_bool_and<TRes>
+    implements
+        CopyWith$Input$payment_investment_aggregate_bool_exp_bool_and<TRes> {
+  _CopyWithImpl$Input$payment_investment_aggregate_bool_exp_bool_and(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_aggregate_bool_exp_bool_and _instance;
+
+  final TRes Function(Input$payment_investment_aggregate_bool_exp_bool_and)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? arguments = _undefined,
+    Object? distinct = _undefined,
+    Object? filter = _undefined,
+    Object? predicate = _undefined,
+  }) =>
+      _then(Input$payment_investment_aggregate_bool_exp_bool_and._({
+        ..._instance._$data,
+        if (arguments != _undefined && arguments != null)
+          'arguments': (arguments
+              as Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_and_arguments_columns),
+        if (distinct != _undefined) 'distinct': (distinct as bool?),
+        if (filter != _undefined)
+          'filter': (filter as Input$payment_investment_bool_exp?),
+        if (predicate != _undefined && predicate != null)
+          'predicate': (predicate as Input$Boolean_comparison_exp),
+      }));
+  CopyWith$Input$payment_investment_bool_exp<TRes> get filter {
+    final local$filter = _instance.filter;
+    return local$filter == null
+        ? CopyWith$Input$payment_investment_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$payment_investment_bool_exp(
+            local$filter, (e) => call(filter: e));
+  }
+
+  CopyWith$Input$Boolean_comparison_exp<TRes> get predicate {
+    final local$predicate = _instance.predicate;
+    return CopyWith$Input$Boolean_comparison_exp(
+        local$predicate, (e) => call(predicate: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_investment_aggregate_bool_exp_bool_and<
+        TRes>
+    implements
+        CopyWith$Input$payment_investment_aggregate_bool_exp_bool_and<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_aggregate_bool_exp_bool_and(
+      this._res);
+
+  TRes _res;
+
+  call({
+    Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_and_arguments_columns?
+        arguments,
+    bool? distinct,
+    Input$payment_investment_bool_exp? filter,
+    Input$Boolean_comparison_exp? predicate,
+  }) =>
+      _res;
+  CopyWith$Input$payment_investment_bool_exp<TRes> get filter =>
+      CopyWith$Input$payment_investment_bool_exp.stub(_res);
+  CopyWith$Input$Boolean_comparison_exp<TRes> get predicate =>
+      CopyWith$Input$Boolean_comparison_exp.stub(_res);
+}
+
+class Input$payment_investment_aggregate_bool_exp_bool_or {
+  factory Input$payment_investment_aggregate_bool_exp_bool_or({
+    required Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_or_arguments_columns
+        arguments,
+    bool? distinct,
+    Input$payment_investment_bool_exp? filter,
+    required Input$Boolean_comparison_exp predicate,
+  }) =>
+      Input$payment_investment_aggregate_bool_exp_bool_or._({
+        r'arguments': arguments,
+        if (distinct != null) r'distinct': distinct,
+        if (filter != null) r'filter': filter,
+        r'predicate': predicate,
+      });
+
+  Input$payment_investment_aggregate_bool_exp_bool_or._(this._$data);
+
+  factory Input$payment_investment_aggregate_bool_exp_bool_or.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$arguments = data['arguments'];
+    result$data['arguments'] =
+        fromJson$Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_or_arguments_columns(
+            (l$arguments as String));
+    if (data.containsKey('distinct')) {
+      final l$distinct = data['distinct'];
+      result$data['distinct'] = (l$distinct as bool?);
+    }
+    if (data.containsKey('filter')) {
+      final l$filter = data['filter'];
+      result$data['filter'] = l$filter == null
+          ? null
+          : Input$payment_investment_bool_exp.fromJson(
+              (l$filter as Map<String, dynamic>));
+    }
+    final l$predicate = data['predicate'];
+    result$data['predicate'] = Input$Boolean_comparison_exp.fromJson(
+        (l$predicate as Map<String, dynamic>));
+    return Input$payment_investment_aggregate_bool_exp_bool_or._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_or_arguments_columns
+      get arguments => (_$data['arguments']
+          as Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_or_arguments_columns);
+  bool? get distinct => (_$data['distinct'] as bool?);
+  Input$payment_investment_bool_exp? get filter =>
+      (_$data['filter'] as Input$payment_investment_bool_exp?);
+  Input$Boolean_comparison_exp get predicate =>
+      (_$data['predicate'] as Input$Boolean_comparison_exp);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$arguments = arguments;
+    result$data['arguments'] =
+        toJson$Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_or_arguments_columns(
+            l$arguments);
+    if (_$data.containsKey('distinct')) {
+      final l$distinct = distinct;
+      result$data['distinct'] = l$distinct;
+    }
+    if (_$data.containsKey('filter')) {
+      final l$filter = filter;
+      result$data['filter'] = l$filter?.toJson();
+    }
+    final l$predicate = predicate;
+    result$data['predicate'] = l$predicate.toJson();
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_aggregate_bool_exp_bool_or<
+          Input$payment_investment_aggregate_bool_exp_bool_or>
+      get copyWith =>
+          CopyWith$Input$payment_investment_aggregate_bool_exp_bool_or(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_aggregate_bool_exp_bool_or) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$arguments = arguments;
+    final lOther$arguments = other.arguments;
+    if (l$arguments != lOther$arguments) {
+      return false;
+    }
+    final l$distinct = distinct;
+    final lOther$distinct = other.distinct;
+    if (_$data.containsKey('distinct') !=
+        other._$data.containsKey('distinct')) {
+      return false;
+    }
+    if (l$distinct != lOther$distinct) {
+      return false;
+    }
+    final l$filter = filter;
+    final lOther$filter = other.filter;
+    if (_$data.containsKey('filter') != other._$data.containsKey('filter')) {
+      return false;
+    }
+    if (l$filter != lOther$filter) {
+      return false;
+    }
+    final l$predicate = predicate;
+    final lOther$predicate = other.predicate;
+    if (l$predicate != lOther$predicate) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$arguments = arguments;
+    final l$distinct = distinct;
+    final l$filter = filter;
+    final l$predicate = predicate;
+    return Object.hashAll([
+      l$arguments,
+      _$data.containsKey('distinct') ? l$distinct : const {},
+      _$data.containsKey('filter') ? l$filter : const {},
+      l$predicate,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_aggregate_bool_exp_bool_or<
+    TRes> {
+  factory CopyWith$Input$payment_investment_aggregate_bool_exp_bool_or(
+    Input$payment_investment_aggregate_bool_exp_bool_or instance,
+    TRes Function(Input$payment_investment_aggregate_bool_exp_bool_or) then,
+  ) = _CopyWithImpl$Input$payment_investment_aggregate_bool_exp_bool_or;
+
+  factory CopyWith$Input$payment_investment_aggregate_bool_exp_bool_or.stub(
+          TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_aggregate_bool_exp_bool_or;
+
+  TRes call({
+    Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_or_arguments_columns?
+        arguments,
+    bool? distinct,
+    Input$payment_investment_bool_exp? filter,
+    Input$Boolean_comparison_exp? predicate,
+  });
+  CopyWith$Input$payment_investment_bool_exp<TRes> get filter;
+  CopyWith$Input$Boolean_comparison_exp<TRes> get predicate;
+}
+
+class _CopyWithImpl$Input$payment_investment_aggregate_bool_exp_bool_or<TRes>
+    implements
+        CopyWith$Input$payment_investment_aggregate_bool_exp_bool_or<TRes> {
+  _CopyWithImpl$Input$payment_investment_aggregate_bool_exp_bool_or(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_aggregate_bool_exp_bool_or _instance;
+
+  final TRes Function(Input$payment_investment_aggregate_bool_exp_bool_or)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? arguments = _undefined,
+    Object? distinct = _undefined,
+    Object? filter = _undefined,
+    Object? predicate = _undefined,
+  }) =>
+      _then(Input$payment_investment_aggregate_bool_exp_bool_or._({
+        ..._instance._$data,
+        if (arguments != _undefined && arguments != null)
+          'arguments': (arguments
+              as Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_or_arguments_columns),
+        if (distinct != _undefined) 'distinct': (distinct as bool?),
+        if (filter != _undefined)
+          'filter': (filter as Input$payment_investment_bool_exp?),
+        if (predicate != _undefined && predicate != null)
+          'predicate': (predicate as Input$Boolean_comparison_exp),
+      }));
+  CopyWith$Input$payment_investment_bool_exp<TRes> get filter {
+    final local$filter = _instance.filter;
+    return local$filter == null
+        ? CopyWith$Input$payment_investment_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$payment_investment_bool_exp(
+            local$filter, (e) => call(filter: e));
+  }
+
+  CopyWith$Input$Boolean_comparison_exp<TRes> get predicate {
+    final local$predicate = _instance.predicate;
+    return CopyWith$Input$Boolean_comparison_exp(
+        local$predicate, (e) => call(predicate: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_investment_aggregate_bool_exp_bool_or<
+        TRes>
+    implements
+        CopyWith$Input$payment_investment_aggregate_bool_exp_bool_or<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_aggregate_bool_exp_bool_or(
+      this._res);
+
+  TRes _res;
+
+  call({
+    Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_or_arguments_columns?
+        arguments,
+    bool? distinct,
+    Input$payment_investment_bool_exp? filter,
+    Input$Boolean_comparison_exp? predicate,
+  }) =>
+      _res;
+  CopyWith$Input$payment_investment_bool_exp<TRes> get filter =>
+      CopyWith$Input$payment_investment_bool_exp.stub(_res);
+  CopyWith$Input$Boolean_comparison_exp<TRes> get predicate =>
+      CopyWith$Input$Boolean_comparison_exp.stub(_res);
+}
+
+class Input$payment_investment_aggregate_bool_exp_count {
+  factory Input$payment_investment_aggregate_bool_exp_count({
+    List<Enum$payment_investment_select_column>? arguments,
+    bool? distinct,
+    Input$payment_investment_bool_exp? filter,
+    required Input$Int_comparison_exp predicate,
+  }) =>
+      Input$payment_investment_aggregate_bool_exp_count._({
+        if (arguments != null) r'arguments': arguments,
+        if (distinct != null) r'distinct': distinct,
+        if (filter != null) r'filter': filter,
+        r'predicate': predicate,
+      });
+
+  Input$payment_investment_aggregate_bool_exp_count._(this._$data);
+
+  factory Input$payment_investment_aggregate_bool_exp_count.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('arguments')) {
+      final l$arguments = data['arguments'];
+      result$data['arguments'] = (l$arguments as List<dynamic>?)
+          ?.map((e) =>
+              fromJson$Enum$payment_investment_select_column((e as String)))
+          .toList();
+    }
+    if (data.containsKey('distinct')) {
+      final l$distinct = data['distinct'];
+      result$data['distinct'] = (l$distinct as bool?);
+    }
+    if (data.containsKey('filter')) {
+      final l$filter = data['filter'];
+      result$data['filter'] = l$filter == null
+          ? null
+          : Input$payment_investment_bool_exp.fromJson(
+              (l$filter as Map<String, dynamic>));
+    }
+    final l$predicate = data['predicate'];
+    result$data['predicate'] = Input$Int_comparison_exp.fromJson(
+        (l$predicate as Map<String, dynamic>));
+    return Input$payment_investment_aggregate_bool_exp_count._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  List<Enum$payment_investment_select_column>? get arguments =>
+      (_$data['arguments'] as List<Enum$payment_investment_select_column>?);
+  bool? get distinct => (_$data['distinct'] as bool?);
+  Input$payment_investment_bool_exp? get filter =>
+      (_$data['filter'] as Input$payment_investment_bool_exp?);
+  Input$Int_comparison_exp get predicate =>
+      (_$data['predicate'] as Input$Int_comparison_exp);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('arguments')) {
+      final l$arguments = arguments;
+      result$data['arguments'] = l$arguments
+          ?.map((e) => toJson$Enum$payment_investment_select_column(e))
+          .toList();
+    }
+    if (_$data.containsKey('distinct')) {
+      final l$distinct = distinct;
+      result$data['distinct'] = l$distinct;
+    }
+    if (_$data.containsKey('filter')) {
+      final l$filter = filter;
+      result$data['filter'] = l$filter?.toJson();
+    }
+    final l$predicate = predicate;
+    result$data['predicate'] = l$predicate.toJson();
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_aggregate_bool_exp_count<
+          Input$payment_investment_aggregate_bool_exp_count>
+      get copyWith =>
+          CopyWith$Input$payment_investment_aggregate_bool_exp_count(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_aggregate_bool_exp_count) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$arguments = arguments;
+    final lOther$arguments = other.arguments;
+    if (_$data.containsKey('arguments') !=
+        other._$data.containsKey('arguments')) {
+      return false;
+    }
+    if (l$arguments != null && lOther$arguments != null) {
+      if (l$arguments.length != lOther$arguments.length) {
+        return false;
+      }
+      for (int i = 0; i < l$arguments.length; i++) {
+        final l$arguments$entry = l$arguments[i];
+        final lOther$arguments$entry = lOther$arguments[i];
+        if (l$arguments$entry != lOther$arguments$entry) {
+          return false;
+        }
+      }
+    } else if (l$arguments != lOther$arguments) {
+      return false;
+    }
+    final l$distinct = distinct;
+    final lOther$distinct = other.distinct;
+    if (_$data.containsKey('distinct') !=
+        other._$data.containsKey('distinct')) {
+      return false;
+    }
+    if (l$distinct != lOther$distinct) {
+      return false;
+    }
+    final l$filter = filter;
+    final lOther$filter = other.filter;
+    if (_$data.containsKey('filter') != other._$data.containsKey('filter')) {
+      return false;
+    }
+    if (l$filter != lOther$filter) {
+      return false;
+    }
+    final l$predicate = predicate;
+    final lOther$predicate = other.predicate;
+    if (l$predicate != lOther$predicate) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$arguments = arguments;
+    final l$distinct = distinct;
+    final l$filter = filter;
+    final l$predicate = predicate;
+    return Object.hashAll([
+      _$data.containsKey('arguments')
+          ? l$arguments == null
+              ? null
+              : Object.hashAll(l$arguments.map((v) => v))
+          : const {},
+      _$data.containsKey('distinct') ? l$distinct : const {},
+      _$data.containsKey('filter') ? l$filter : const {},
+      l$predicate,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_aggregate_bool_exp_count<
+    TRes> {
+  factory CopyWith$Input$payment_investment_aggregate_bool_exp_count(
+    Input$payment_investment_aggregate_bool_exp_count instance,
+    TRes Function(Input$payment_investment_aggregate_bool_exp_count) then,
+  ) = _CopyWithImpl$Input$payment_investment_aggregate_bool_exp_count;
+
+  factory CopyWith$Input$payment_investment_aggregate_bool_exp_count.stub(
+          TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_aggregate_bool_exp_count;
+
+  TRes call({
+    List<Enum$payment_investment_select_column>? arguments,
+    bool? distinct,
+    Input$payment_investment_bool_exp? filter,
+    Input$Int_comparison_exp? predicate,
+  });
+  CopyWith$Input$payment_investment_bool_exp<TRes> get filter;
+  CopyWith$Input$Int_comparison_exp<TRes> get predicate;
+}
+
+class _CopyWithImpl$Input$payment_investment_aggregate_bool_exp_count<TRes>
+    implements
+        CopyWith$Input$payment_investment_aggregate_bool_exp_count<TRes> {
+  _CopyWithImpl$Input$payment_investment_aggregate_bool_exp_count(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_aggregate_bool_exp_count _instance;
+
+  final TRes Function(Input$payment_investment_aggregate_bool_exp_count) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? arguments = _undefined,
+    Object? distinct = _undefined,
+    Object? filter = _undefined,
+    Object? predicate = _undefined,
+  }) =>
+      _then(Input$payment_investment_aggregate_bool_exp_count._({
+        ..._instance._$data,
+        if (arguments != _undefined)
+          'arguments':
+              (arguments as List<Enum$payment_investment_select_column>?),
+        if (distinct != _undefined) 'distinct': (distinct as bool?),
+        if (filter != _undefined)
+          'filter': (filter as Input$payment_investment_bool_exp?),
+        if (predicate != _undefined && predicate != null)
+          'predicate': (predicate as Input$Int_comparison_exp),
+      }));
+  CopyWith$Input$payment_investment_bool_exp<TRes> get filter {
+    final local$filter = _instance.filter;
+    return local$filter == null
+        ? CopyWith$Input$payment_investment_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$payment_investment_bool_exp(
+            local$filter, (e) => call(filter: e));
+  }
+
+  CopyWith$Input$Int_comparison_exp<TRes> get predicate {
+    final local$predicate = _instance.predicate;
+    return CopyWith$Input$Int_comparison_exp(
+        local$predicate, (e) => call(predicate: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_investment_aggregate_bool_exp_count<TRes>
+    implements
+        CopyWith$Input$payment_investment_aggregate_bool_exp_count<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_aggregate_bool_exp_count(
+      this._res);
+
+  TRes _res;
+
+  call({
+    List<Enum$payment_investment_select_column>? arguments,
+    bool? distinct,
+    Input$payment_investment_bool_exp? filter,
+    Input$Int_comparison_exp? predicate,
+  }) =>
+      _res;
+  CopyWith$Input$payment_investment_bool_exp<TRes> get filter =>
+      CopyWith$Input$payment_investment_bool_exp.stub(_res);
+  CopyWith$Input$Int_comparison_exp<TRes> get predicate =>
+      CopyWith$Input$Int_comparison_exp.stub(_res);
+}
+
+class Input$payment_investment_aggregate_order_by {
+  factory Input$payment_investment_aggregate_order_by({
+    Input$payment_investment_avg_order_by? avg,
+    Enum$order_by? count,
+    Input$payment_investment_max_order_by? max,
+    Input$payment_investment_min_order_by? min,
+    Input$payment_investment_stddev_order_by? stddev,
+    Input$payment_investment_stddev_pop_order_by? stddev_pop,
+    Input$payment_investment_stddev_samp_order_by? stddev_samp,
+    Input$payment_investment_sum_order_by? sum,
+    Input$payment_investment_var_pop_order_by? var_pop,
+    Input$payment_investment_var_samp_order_by? var_samp,
+    Input$payment_investment_variance_order_by? variance,
+  }) =>
+      Input$payment_investment_aggregate_order_by._({
+        if (avg != null) r'avg': avg,
+        if (count != null) r'count': count,
+        if (max != null) r'max': max,
+        if (min != null) r'min': min,
+        if (stddev != null) r'stddev': stddev,
+        if (stddev_pop != null) r'stddev_pop': stddev_pop,
+        if (stddev_samp != null) r'stddev_samp': stddev_samp,
+        if (sum != null) r'sum': sum,
+        if (var_pop != null) r'var_pop': var_pop,
+        if (var_samp != null) r'var_samp': var_samp,
+        if (variance != null) r'variance': variance,
+      });
+
+  Input$payment_investment_aggregate_order_by._(this._$data);
+
+  factory Input$payment_investment_aggregate_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('avg')) {
+      final l$avg = data['avg'];
+      result$data['avg'] = l$avg == null
+          ? null
+          : Input$payment_investment_avg_order_by.fromJson(
+              (l$avg as Map<String, dynamic>));
+    }
+    if (data.containsKey('count')) {
+      final l$count = data['count'];
+      result$data['count'] =
+          l$count == null ? null : fromJson$Enum$order_by((l$count as String));
+    }
+    if (data.containsKey('max')) {
+      final l$max = data['max'];
+      result$data['max'] = l$max == null
+          ? null
+          : Input$payment_investment_max_order_by.fromJson(
+              (l$max as Map<String, dynamic>));
+    }
+    if (data.containsKey('min')) {
+      final l$min = data['min'];
+      result$data['min'] = l$min == null
+          ? null
+          : Input$payment_investment_min_order_by.fromJson(
+              (l$min as Map<String, dynamic>));
+    }
+    if (data.containsKey('stddev')) {
+      final l$stddev = data['stddev'];
+      result$data['stddev'] = l$stddev == null
+          ? null
+          : Input$payment_investment_stddev_order_by.fromJson(
+              (l$stddev as Map<String, dynamic>));
+    }
+    if (data.containsKey('stddev_pop')) {
+      final l$stddev_pop = data['stddev_pop'];
+      result$data['stddev_pop'] = l$stddev_pop == null
+          ? null
+          : Input$payment_investment_stddev_pop_order_by.fromJson(
+              (l$stddev_pop as Map<String, dynamic>));
+    }
+    if (data.containsKey('stddev_samp')) {
+      final l$stddev_samp = data['stddev_samp'];
+      result$data['stddev_samp'] = l$stddev_samp == null
+          ? null
+          : Input$payment_investment_stddev_samp_order_by.fromJson(
+              (l$stddev_samp as Map<String, dynamic>));
+    }
+    if (data.containsKey('sum')) {
+      final l$sum = data['sum'];
+      result$data['sum'] = l$sum == null
+          ? null
+          : Input$payment_investment_sum_order_by.fromJson(
+              (l$sum as Map<String, dynamic>));
+    }
+    if (data.containsKey('var_pop')) {
+      final l$var_pop = data['var_pop'];
+      result$data['var_pop'] = l$var_pop == null
+          ? null
+          : Input$payment_investment_var_pop_order_by.fromJson(
+              (l$var_pop as Map<String, dynamic>));
+    }
+    if (data.containsKey('var_samp')) {
+      final l$var_samp = data['var_samp'];
+      result$data['var_samp'] = l$var_samp == null
+          ? null
+          : Input$payment_investment_var_samp_order_by.fromJson(
+              (l$var_samp as Map<String, dynamic>));
+    }
+    if (data.containsKey('variance')) {
+      final l$variance = data['variance'];
+      result$data['variance'] = l$variance == null
+          ? null
+          : Input$payment_investment_variance_order_by.fromJson(
+              (l$variance as Map<String, dynamic>));
+    }
+    return Input$payment_investment_aggregate_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$payment_investment_avg_order_by? get avg =>
+      (_$data['avg'] as Input$payment_investment_avg_order_by?);
+  Enum$order_by? get count => (_$data['count'] as Enum$order_by?);
+  Input$payment_investment_max_order_by? get max =>
+      (_$data['max'] as Input$payment_investment_max_order_by?);
+  Input$payment_investment_min_order_by? get min =>
+      (_$data['min'] as Input$payment_investment_min_order_by?);
+  Input$payment_investment_stddev_order_by? get stddev =>
+      (_$data['stddev'] as Input$payment_investment_stddev_order_by?);
+  Input$payment_investment_stddev_pop_order_by? get stddev_pop =>
+      (_$data['stddev_pop'] as Input$payment_investment_stddev_pop_order_by?);
+  Input$payment_investment_stddev_samp_order_by? get stddev_samp =>
+      (_$data['stddev_samp'] as Input$payment_investment_stddev_samp_order_by?);
+  Input$payment_investment_sum_order_by? get sum =>
+      (_$data['sum'] as Input$payment_investment_sum_order_by?);
+  Input$payment_investment_var_pop_order_by? get var_pop =>
+      (_$data['var_pop'] as Input$payment_investment_var_pop_order_by?);
+  Input$payment_investment_var_samp_order_by? get var_samp =>
+      (_$data['var_samp'] as Input$payment_investment_var_samp_order_by?);
+  Input$payment_investment_variance_order_by? get variance =>
+      (_$data['variance'] as Input$payment_investment_variance_order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('avg')) {
+      final l$avg = avg;
+      result$data['avg'] = l$avg?.toJson();
+    }
+    if (_$data.containsKey('count')) {
+      final l$count = count;
+      result$data['count'] =
+          l$count == null ? null : toJson$Enum$order_by(l$count);
+    }
+    if (_$data.containsKey('max')) {
+      final l$max = max;
+      result$data['max'] = l$max?.toJson();
+    }
+    if (_$data.containsKey('min')) {
+      final l$min = min;
+      result$data['min'] = l$min?.toJson();
+    }
+    if (_$data.containsKey('stddev')) {
+      final l$stddev = stddev;
+      result$data['stddev'] = l$stddev?.toJson();
+    }
+    if (_$data.containsKey('stddev_pop')) {
+      final l$stddev_pop = stddev_pop;
+      result$data['stddev_pop'] = l$stddev_pop?.toJson();
+    }
+    if (_$data.containsKey('stddev_samp')) {
+      final l$stddev_samp = stddev_samp;
+      result$data['stddev_samp'] = l$stddev_samp?.toJson();
+    }
+    if (_$data.containsKey('sum')) {
+      final l$sum = sum;
+      result$data['sum'] = l$sum?.toJson();
+    }
+    if (_$data.containsKey('var_pop')) {
+      final l$var_pop = var_pop;
+      result$data['var_pop'] = l$var_pop?.toJson();
+    }
+    if (_$data.containsKey('var_samp')) {
+      final l$var_samp = var_samp;
+      result$data['var_samp'] = l$var_samp?.toJson();
+    }
+    if (_$data.containsKey('variance')) {
+      final l$variance = variance;
+      result$data['variance'] = l$variance?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_aggregate_order_by<
+          Input$payment_investment_aggregate_order_by>
+      get copyWith => CopyWith$Input$payment_investment_aggregate_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_aggregate_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$avg = avg;
+    final lOther$avg = other.avg;
+    if (_$data.containsKey('avg') != other._$data.containsKey('avg')) {
+      return false;
+    }
+    if (l$avg != lOther$avg) {
+      return false;
+    }
+    final l$count = count;
+    final lOther$count = other.count;
+    if (_$data.containsKey('count') != other._$data.containsKey('count')) {
+      return false;
+    }
+    if (l$count != lOther$count) {
+      return false;
+    }
+    final l$max = max;
+    final lOther$max = other.max;
+    if (_$data.containsKey('max') != other._$data.containsKey('max')) {
+      return false;
+    }
+    if (l$max != lOther$max) {
+      return false;
+    }
+    final l$min = min;
+    final lOther$min = other.min;
+    if (_$data.containsKey('min') != other._$data.containsKey('min')) {
+      return false;
+    }
+    if (l$min != lOther$min) {
+      return false;
+    }
+    final l$stddev = stddev;
+    final lOther$stddev = other.stddev;
+    if (_$data.containsKey('stddev') != other._$data.containsKey('stddev')) {
+      return false;
+    }
+    if (l$stddev != lOther$stddev) {
+      return false;
+    }
+    final l$stddev_pop = stddev_pop;
+    final lOther$stddev_pop = other.stddev_pop;
+    if (_$data.containsKey('stddev_pop') !=
+        other._$data.containsKey('stddev_pop')) {
+      return false;
+    }
+    if (l$stddev_pop != lOther$stddev_pop) {
+      return false;
+    }
+    final l$stddev_samp = stddev_samp;
+    final lOther$stddev_samp = other.stddev_samp;
+    if (_$data.containsKey('stddev_samp') !=
+        other._$data.containsKey('stddev_samp')) {
+      return false;
+    }
+    if (l$stddev_samp != lOther$stddev_samp) {
+      return false;
+    }
+    final l$sum = sum;
+    final lOther$sum = other.sum;
+    if (_$data.containsKey('sum') != other._$data.containsKey('sum')) {
+      return false;
+    }
+    if (l$sum != lOther$sum) {
+      return false;
+    }
+    final l$var_pop = var_pop;
+    final lOther$var_pop = other.var_pop;
+    if (_$data.containsKey('var_pop') != other._$data.containsKey('var_pop')) {
+      return false;
+    }
+    if (l$var_pop != lOther$var_pop) {
+      return false;
+    }
+    final l$var_samp = var_samp;
+    final lOther$var_samp = other.var_samp;
+    if (_$data.containsKey('var_samp') !=
+        other._$data.containsKey('var_samp')) {
+      return false;
+    }
+    if (l$var_samp != lOther$var_samp) {
+      return false;
+    }
+    final l$variance = variance;
+    final lOther$variance = other.variance;
+    if (_$data.containsKey('variance') !=
+        other._$data.containsKey('variance')) {
+      return false;
+    }
+    if (l$variance != lOther$variance) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$avg = avg;
+    final l$count = count;
+    final l$max = max;
+    final l$min = min;
+    final l$stddev = stddev;
+    final l$stddev_pop = stddev_pop;
+    final l$stddev_samp = stddev_samp;
+    final l$sum = sum;
+    final l$var_pop = var_pop;
+    final l$var_samp = var_samp;
+    final l$variance = variance;
+    return Object.hashAll([
+      _$data.containsKey('avg') ? l$avg : const {},
+      _$data.containsKey('count') ? l$count : const {},
+      _$data.containsKey('max') ? l$max : const {},
+      _$data.containsKey('min') ? l$min : const {},
+      _$data.containsKey('stddev') ? l$stddev : const {},
+      _$data.containsKey('stddev_pop') ? l$stddev_pop : const {},
+      _$data.containsKey('stddev_samp') ? l$stddev_samp : const {},
+      _$data.containsKey('sum') ? l$sum : const {},
+      _$data.containsKey('var_pop') ? l$var_pop : const {},
+      _$data.containsKey('var_samp') ? l$var_samp : const {},
+      _$data.containsKey('variance') ? l$variance : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_aggregate_order_by<TRes> {
+  factory CopyWith$Input$payment_investment_aggregate_order_by(
+    Input$payment_investment_aggregate_order_by instance,
+    TRes Function(Input$payment_investment_aggregate_order_by) then,
+  ) = _CopyWithImpl$Input$payment_investment_aggregate_order_by;
+
+  factory CopyWith$Input$payment_investment_aggregate_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_aggregate_order_by;
+
+  TRes call({
+    Input$payment_investment_avg_order_by? avg,
+    Enum$order_by? count,
+    Input$payment_investment_max_order_by? max,
+    Input$payment_investment_min_order_by? min,
+    Input$payment_investment_stddev_order_by? stddev,
+    Input$payment_investment_stddev_pop_order_by? stddev_pop,
+    Input$payment_investment_stddev_samp_order_by? stddev_samp,
+    Input$payment_investment_sum_order_by? sum,
+    Input$payment_investment_var_pop_order_by? var_pop,
+    Input$payment_investment_var_samp_order_by? var_samp,
+    Input$payment_investment_variance_order_by? variance,
+  });
+  CopyWith$Input$payment_investment_avg_order_by<TRes> get avg;
+  CopyWith$Input$payment_investment_max_order_by<TRes> get max;
+  CopyWith$Input$payment_investment_min_order_by<TRes> get min;
+  CopyWith$Input$payment_investment_stddev_order_by<TRes> get stddev;
+  CopyWith$Input$payment_investment_stddev_pop_order_by<TRes> get stddev_pop;
+  CopyWith$Input$payment_investment_stddev_samp_order_by<TRes> get stddev_samp;
+  CopyWith$Input$payment_investment_sum_order_by<TRes> get sum;
+  CopyWith$Input$payment_investment_var_pop_order_by<TRes> get var_pop;
+  CopyWith$Input$payment_investment_var_samp_order_by<TRes> get var_samp;
+  CopyWith$Input$payment_investment_variance_order_by<TRes> get variance;
+}
+
+class _CopyWithImpl$Input$payment_investment_aggregate_order_by<TRes>
+    implements CopyWith$Input$payment_investment_aggregate_order_by<TRes> {
+  _CopyWithImpl$Input$payment_investment_aggregate_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_aggregate_order_by _instance;
+
+  final TRes Function(Input$payment_investment_aggregate_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? avg = _undefined,
+    Object? count = _undefined,
+    Object? max = _undefined,
+    Object? min = _undefined,
+    Object? stddev = _undefined,
+    Object? stddev_pop = _undefined,
+    Object? stddev_samp = _undefined,
+    Object? sum = _undefined,
+    Object? var_pop = _undefined,
+    Object? var_samp = _undefined,
+    Object? variance = _undefined,
+  }) =>
+      _then(Input$payment_investment_aggregate_order_by._({
+        ..._instance._$data,
+        if (avg != _undefined)
+          'avg': (avg as Input$payment_investment_avg_order_by?),
+        if (count != _undefined) 'count': (count as Enum$order_by?),
+        if (max != _undefined)
+          'max': (max as Input$payment_investment_max_order_by?),
+        if (min != _undefined)
+          'min': (min as Input$payment_investment_min_order_by?),
+        if (stddev != _undefined)
+          'stddev': (stddev as Input$payment_investment_stddev_order_by?),
+        if (stddev_pop != _undefined)
+          'stddev_pop':
+              (stddev_pop as Input$payment_investment_stddev_pop_order_by?),
+        if (stddev_samp != _undefined)
+          'stddev_samp':
+              (stddev_samp as Input$payment_investment_stddev_samp_order_by?),
+        if (sum != _undefined)
+          'sum': (sum as Input$payment_investment_sum_order_by?),
+        if (var_pop != _undefined)
+          'var_pop': (var_pop as Input$payment_investment_var_pop_order_by?),
+        if (var_samp != _undefined)
+          'var_samp': (var_samp as Input$payment_investment_var_samp_order_by?),
+        if (variance != _undefined)
+          'variance': (variance as Input$payment_investment_variance_order_by?),
+      }));
+  CopyWith$Input$payment_investment_avg_order_by<TRes> get avg {
+    final local$avg = _instance.avg;
+    return local$avg == null
+        ? CopyWith$Input$payment_investment_avg_order_by.stub(_then(_instance))
+        : CopyWith$Input$payment_investment_avg_order_by(
+            local$avg, (e) => call(avg: e));
+  }
+
+  CopyWith$Input$payment_investment_max_order_by<TRes> get max {
+    final local$max = _instance.max;
+    return local$max == null
+        ? CopyWith$Input$payment_investment_max_order_by.stub(_then(_instance))
+        : CopyWith$Input$payment_investment_max_order_by(
+            local$max, (e) => call(max: e));
+  }
+
+  CopyWith$Input$payment_investment_min_order_by<TRes> get min {
+    final local$min = _instance.min;
+    return local$min == null
+        ? CopyWith$Input$payment_investment_min_order_by.stub(_then(_instance))
+        : CopyWith$Input$payment_investment_min_order_by(
+            local$min, (e) => call(min: e));
+  }
+
+  CopyWith$Input$payment_investment_stddev_order_by<TRes> get stddev {
+    final local$stddev = _instance.stddev;
+    return local$stddev == null
+        ? CopyWith$Input$payment_investment_stddev_order_by.stub(
+            _then(_instance))
+        : CopyWith$Input$payment_investment_stddev_order_by(
+            local$stddev, (e) => call(stddev: e));
+  }
+
+  CopyWith$Input$payment_investment_stddev_pop_order_by<TRes> get stddev_pop {
+    final local$stddev_pop = _instance.stddev_pop;
+    return local$stddev_pop == null
+        ? CopyWith$Input$payment_investment_stddev_pop_order_by.stub(
+            _then(_instance))
+        : CopyWith$Input$payment_investment_stddev_pop_order_by(
+            local$stddev_pop, (e) => call(stddev_pop: e));
+  }
+
+  CopyWith$Input$payment_investment_stddev_samp_order_by<TRes> get stddev_samp {
+    final local$stddev_samp = _instance.stddev_samp;
+    return local$stddev_samp == null
+        ? CopyWith$Input$payment_investment_stddev_samp_order_by.stub(
+            _then(_instance))
+        : CopyWith$Input$payment_investment_stddev_samp_order_by(
+            local$stddev_samp, (e) => call(stddev_samp: e));
+  }
+
+  CopyWith$Input$payment_investment_sum_order_by<TRes> get sum {
+    final local$sum = _instance.sum;
+    return local$sum == null
+        ? CopyWith$Input$payment_investment_sum_order_by.stub(_then(_instance))
+        : CopyWith$Input$payment_investment_sum_order_by(
+            local$sum, (e) => call(sum: e));
+  }
+
+  CopyWith$Input$payment_investment_var_pop_order_by<TRes> get var_pop {
+    final local$var_pop = _instance.var_pop;
+    return local$var_pop == null
+        ? CopyWith$Input$payment_investment_var_pop_order_by.stub(
+            _then(_instance))
+        : CopyWith$Input$payment_investment_var_pop_order_by(
+            local$var_pop, (e) => call(var_pop: e));
+  }
+
+  CopyWith$Input$payment_investment_var_samp_order_by<TRes> get var_samp {
+    final local$var_samp = _instance.var_samp;
+    return local$var_samp == null
+        ? CopyWith$Input$payment_investment_var_samp_order_by.stub(
+            _then(_instance))
+        : CopyWith$Input$payment_investment_var_samp_order_by(
+            local$var_samp, (e) => call(var_samp: e));
+  }
+
+  CopyWith$Input$payment_investment_variance_order_by<TRes> get variance {
+    final local$variance = _instance.variance;
+    return local$variance == null
+        ? CopyWith$Input$payment_investment_variance_order_by.stub(
+            _then(_instance))
+        : CopyWith$Input$payment_investment_variance_order_by(
+            local$variance, (e) => call(variance: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_investment_aggregate_order_by<TRes>
+    implements CopyWith$Input$payment_investment_aggregate_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_aggregate_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Input$payment_investment_avg_order_by? avg,
+    Enum$order_by? count,
+    Input$payment_investment_max_order_by? max,
+    Input$payment_investment_min_order_by? min,
+    Input$payment_investment_stddev_order_by? stddev,
+    Input$payment_investment_stddev_pop_order_by? stddev_pop,
+    Input$payment_investment_stddev_samp_order_by? stddev_samp,
+    Input$payment_investment_sum_order_by? sum,
+    Input$payment_investment_var_pop_order_by? var_pop,
+    Input$payment_investment_var_samp_order_by? var_samp,
+    Input$payment_investment_variance_order_by? variance,
+  }) =>
+      _res;
+  CopyWith$Input$payment_investment_avg_order_by<TRes> get avg =>
+      CopyWith$Input$payment_investment_avg_order_by.stub(_res);
+  CopyWith$Input$payment_investment_max_order_by<TRes> get max =>
+      CopyWith$Input$payment_investment_max_order_by.stub(_res);
+  CopyWith$Input$payment_investment_min_order_by<TRes> get min =>
+      CopyWith$Input$payment_investment_min_order_by.stub(_res);
+  CopyWith$Input$payment_investment_stddev_order_by<TRes> get stddev =>
+      CopyWith$Input$payment_investment_stddev_order_by.stub(_res);
+  CopyWith$Input$payment_investment_stddev_pop_order_by<TRes> get stddev_pop =>
+      CopyWith$Input$payment_investment_stddev_pop_order_by.stub(_res);
+  CopyWith$Input$payment_investment_stddev_samp_order_by<TRes>
+      get stddev_samp =>
+          CopyWith$Input$payment_investment_stddev_samp_order_by.stub(_res);
+  CopyWith$Input$payment_investment_sum_order_by<TRes> get sum =>
+      CopyWith$Input$payment_investment_sum_order_by.stub(_res);
+  CopyWith$Input$payment_investment_var_pop_order_by<TRes> get var_pop =>
+      CopyWith$Input$payment_investment_var_pop_order_by.stub(_res);
+  CopyWith$Input$payment_investment_var_samp_order_by<TRes> get var_samp =>
+      CopyWith$Input$payment_investment_var_samp_order_by.stub(_res);
+  CopyWith$Input$payment_investment_variance_order_by<TRes> get variance =>
+      CopyWith$Input$payment_investment_variance_order_by.stub(_res);
+}
+
+class Input$payment_investment_arr_rel_insert_input {
+  factory Input$payment_investment_arr_rel_insert_input({
+    required List<Input$payment_investment_insert_input> data,
+    Input$payment_investment_on_conflict? on_conflict,
+  }) =>
+      Input$payment_investment_arr_rel_insert_input._({
+        r'data': data,
+        if (on_conflict != null) r'on_conflict': on_conflict,
+      });
+
+  Input$payment_investment_arr_rel_insert_input._(this._$data);
+
+  factory Input$payment_investment_arr_rel_insert_input.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$data = data['data'];
+    result$data['data'] = (l$data as List<dynamic>)
+        .map((e) => Input$payment_investment_insert_input.fromJson(
+            (e as Map<String, dynamic>)))
+        .toList();
+    if (data.containsKey('on_conflict')) {
+      final l$on_conflict = data['on_conflict'];
+      result$data['on_conflict'] = l$on_conflict == null
+          ? null
+          : Input$payment_investment_on_conflict.fromJson(
+              (l$on_conflict as Map<String, dynamic>));
+    }
+    return Input$payment_investment_arr_rel_insert_input._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  List<Input$payment_investment_insert_input> get data =>
+      (_$data['data'] as List<Input$payment_investment_insert_input>);
+  Input$payment_investment_on_conflict? get on_conflict =>
+      (_$data['on_conflict'] as Input$payment_investment_on_conflict?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$data = data;
+    result$data['data'] = l$data.map((e) => e.toJson()).toList();
+    if (_$data.containsKey('on_conflict')) {
+      final l$on_conflict = on_conflict;
+      result$data['on_conflict'] = l$on_conflict?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_arr_rel_insert_input<
+          Input$payment_investment_arr_rel_insert_input>
+      get copyWith => CopyWith$Input$payment_investment_arr_rel_insert_input(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_arr_rel_insert_input) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$data = data;
+    final lOther$data = other.data;
+    if (l$data.length != lOther$data.length) {
+      return false;
+    }
+    for (int i = 0; i < l$data.length; i++) {
+      final l$data$entry = l$data[i];
+      final lOther$data$entry = lOther$data[i];
+      if (l$data$entry != lOther$data$entry) {
+        return false;
+      }
+    }
+    final l$on_conflict = on_conflict;
+    final lOther$on_conflict = other.on_conflict;
+    if (_$data.containsKey('on_conflict') !=
+        other._$data.containsKey('on_conflict')) {
+      return false;
+    }
+    if (l$on_conflict != lOther$on_conflict) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$data = data;
+    final l$on_conflict = on_conflict;
+    return Object.hashAll([
+      Object.hashAll(l$data.map((v) => v)),
+      _$data.containsKey('on_conflict') ? l$on_conflict : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_arr_rel_insert_input<TRes> {
+  factory CopyWith$Input$payment_investment_arr_rel_insert_input(
+    Input$payment_investment_arr_rel_insert_input instance,
+    TRes Function(Input$payment_investment_arr_rel_insert_input) then,
+  ) = _CopyWithImpl$Input$payment_investment_arr_rel_insert_input;
+
+  factory CopyWith$Input$payment_investment_arr_rel_insert_input.stub(
+          TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_arr_rel_insert_input;
+
+  TRes call({
+    List<Input$payment_investment_insert_input>? data,
+    Input$payment_investment_on_conflict? on_conflict,
+  });
+  TRes data(
+      Iterable<Input$payment_investment_insert_input> Function(
+              Iterable<
+                  CopyWith$Input$payment_investment_insert_input<
+                      Input$payment_investment_insert_input>>)
+          _fn);
+  CopyWith$Input$payment_investment_on_conflict<TRes> get on_conflict;
+}
+
+class _CopyWithImpl$Input$payment_investment_arr_rel_insert_input<TRes>
+    implements CopyWith$Input$payment_investment_arr_rel_insert_input<TRes> {
+  _CopyWithImpl$Input$payment_investment_arr_rel_insert_input(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_arr_rel_insert_input _instance;
+
+  final TRes Function(Input$payment_investment_arr_rel_insert_input) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? data = _undefined,
+    Object? on_conflict = _undefined,
+  }) =>
+      _then(Input$payment_investment_arr_rel_insert_input._({
+        ..._instance._$data,
+        if (data != _undefined && data != null)
+          'data': (data as List<Input$payment_investment_insert_input>),
+        if (on_conflict != _undefined)
+          'on_conflict': (on_conflict as Input$payment_investment_on_conflict?),
+      }));
+  TRes data(
+          Iterable<Input$payment_investment_insert_input> Function(
+                  Iterable<
+                      CopyWith$Input$payment_investment_insert_input<
+                          Input$payment_investment_insert_input>>)
+              _fn) =>
+      call(
+          data: _fn(_instance.data
+              .map((e) => CopyWith$Input$payment_investment_insert_input(
+                    e,
+                    (i) => i,
+                  ))).toList());
+  CopyWith$Input$payment_investment_on_conflict<TRes> get on_conflict {
+    final local$on_conflict = _instance.on_conflict;
+    return local$on_conflict == null
+        ? CopyWith$Input$payment_investment_on_conflict.stub(_then(_instance))
+        : CopyWith$Input$payment_investment_on_conflict(
+            local$on_conflict, (e) => call(on_conflict: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$payment_investment_arr_rel_insert_input<TRes>
+    implements CopyWith$Input$payment_investment_arr_rel_insert_input<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_arr_rel_insert_input(this._res);
+
+  TRes _res;
+
+  call({
+    List<Input$payment_investment_insert_input>? data,
+    Input$payment_investment_on_conflict? on_conflict,
+  }) =>
+      _res;
+  data(_fn) => _res;
+  CopyWith$Input$payment_investment_on_conflict<TRes> get on_conflict =>
+      CopyWith$Input$payment_investment_on_conflict.stub(_res);
+}
+
+class Input$payment_investment_avg_order_by {
+  factory Input$payment_investment_avg_order_by(
+          {Enum$order_by? investment_id}) =>
+      Input$payment_investment_avg_order_by._({
+        if (investment_id != null) r'investment_id': investment_id,
+      });
+
+  Input$payment_investment_avg_order_by._(this._$data);
+
+  factory Input$payment_investment_avg_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('investment_id')) {
+      final l$investment_id = data['investment_id'];
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : fromJson$Enum$order_by((l$investment_id as String));
+    }
+    return Input$payment_investment_avg_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get investment_id =>
+      (_$data['investment_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('investment_id')) {
+      final l$investment_id = investment_id;
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : toJson$Enum$order_by(l$investment_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_avg_order_by<
+          Input$payment_investment_avg_order_by>
+      get copyWith => CopyWith$Input$payment_investment_avg_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_avg_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$investment_id = investment_id;
+    final lOther$investment_id = other.investment_id;
+    if (_$data.containsKey('investment_id') !=
+        other._$data.containsKey('investment_id')) {
+      return false;
+    }
+    if (l$investment_id != lOther$investment_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$investment_id = investment_id;
+    return Object.hashAll(
+        [_$data.containsKey('investment_id') ? l$investment_id : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_avg_order_by<TRes> {
+  factory CopyWith$Input$payment_investment_avg_order_by(
+    Input$payment_investment_avg_order_by instance,
+    TRes Function(Input$payment_investment_avg_order_by) then,
+  ) = _CopyWithImpl$Input$payment_investment_avg_order_by;
+
+  factory CopyWith$Input$payment_investment_avg_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_avg_order_by;
+
+  TRes call({Enum$order_by? investment_id});
+}
+
+class _CopyWithImpl$Input$payment_investment_avg_order_by<TRes>
+    implements CopyWith$Input$payment_investment_avg_order_by<TRes> {
+  _CopyWithImpl$Input$payment_investment_avg_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_avg_order_by _instance;
+
+  final TRes Function(Input$payment_investment_avg_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? investment_id = _undefined}) =>
+      _then(Input$payment_investment_avg_order_by._({
+        ..._instance._$data,
+        if (investment_id != _undefined)
+          'investment_id': (investment_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_investment_avg_order_by<TRes>
+    implements CopyWith$Input$payment_investment_avg_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_avg_order_by(this._res);
+
+  TRes _res;
+
+  call({Enum$order_by? investment_id}) => _res;
+}
+
 class Input$payment_investment_bool_exp {
   factory Input$payment_investment_bool_exp({
     List<Input$payment_investment_bool_exp>? $_and,
     Input$payment_investment_bool_exp? $_not,
     List<Input$payment_investment_bool_exp>? $_or,
+    Input$uuid_comparison_exp? bank_card_id,
+    Input$bank_card_bool_exp? bank_card_used,
     Input$timestamptz_comparison_exp? created_at,
     Input$investment_bool_exp? investment,
     Input$Int_comparison_exp? investment_id,
@@ -58693,6 +66425,8 @@ class Input$payment_investment_bool_exp {
         if ($_and != null) r'_and': $_and,
         if ($_not != null) r'_not': $_not,
         if ($_or != null) r'_or': $_or,
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
+        if (bank_card_used != null) r'bank_card_used': bank_card_used,
         if (created_at != null) r'created_at': created_at,
         if (investment != null) r'investment': investment,
         if (investment_id != null) r'investment_id': investment_id,
@@ -58728,6 +66462,20 @@ class Input$payment_investment_bool_exp {
           ?.map((e) => Input$payment_investment_bool_exp.fromJson(
               (e as Map<String, dynamic>)))
           .toList();
+    }
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] = l$bank_card_id == null
+          ? null
+          : Input$uuid_comparison_exp.fromJson(
+              (l$bank_card_id as Map<String, dynamic>));
+    }
+    if (data.containsKey('bank_card_used')) {
+      final l$bank_card_used = data['bank_card_used'];
+      result$data['bank_card_used'] = l$bank_card_used == null
+          ? null
+          : Input$bank_card_bool_exp.fromJson(
+              (l$bank_card_used as Map<String, dynamic>));
     }
     if (data.containsKey('created_at')) {
       final l$created_at = data['created_at'];
@@ -58784,6 +66532,10 @@ class Input$payment_investment_bool_exp {
       (_$data['_not'] as Input$payment_investment_bool_exp?);
   List<Input$payment_investment_bool_exp>? get $_or =>
       (_$data['_or'] as List<Input$payment_investment_bool_exp>?);
+  Input$uuid_comparison_exp? get bank_card_id =>
+      (_$data['bank_card_id'] as Input$uuid_comparison_exp?);
+  Input$bank_card_bool_exp? get bank_card_used =>
+      (_$data['bank_card_used'] as Input$bank_card_bool_exp?);
   Input$timestamptz_comparison_exp? get created_at =>
       (_$data['created_at'] as Input$timestamptz_comparison_exp?);
   Input$investment_bool_exp? get investment =>
@@ -58809,6 +66561,14 @@ class Input$payment_investment_bool_exp {
     if (_$data.containsKey('_or')) {
       final l$$_or = $_or;
       result$data['_or'] = l$$_or?.map((e) => e.toJson()).toList();
+    }
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] = l$bank_card_id?.toJson();
+    }
+    if (_$data.containsKey('bank_card_used')) {
+      final l$bank_card_used = bank_card_used;
+      result$data['bank_card_used'] = l$bank_card_used?.toJson();
     }
     if (_$data.containsKey('created_at')) {
       final l$created_at = created_at;
@@ -58898,6 +66658,24 @@ class Input$payment_investment_bool_exp {
     } else if (l$$_or != lOther$$_or) {
       return false;
     }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
+      return false;
+    }
+    final l$bank_card_used = bank_card_used;
+    final lOther$bank_card_used = other.bank_card_used;
+    if (_$data.containsKey('bank_card_used') !=
+        other._$data.containsKey('bank_card_used')) {
+      return false;
+    }
+    if (l$bank_card_used != lOther$bank_card_used) {
+      return false;
+    }
     final l$created_at = created_at;
     final lOther$created_at = other.created_at;
     if (_$data.containsKey('created_at') !=
@@ -58961,6 +66739,8 @@ class Input$payment_investment_bool_exp {
     final l$$_and = $_and;
     final l$$_not = $_not;
     final l$$_or = $_or;
+    final l$bank_card_id = bank_card_id;
+    final l$bank_card_used = bank_card_used;
     final l$created_at = created_at;
     final l$investment = investment;
     final l$investment_id = investment_id;
@@ -58979,6 +66759,8 @@ class Input$payment_investment_bool_exp {
               ? null
               : Object.hashAll(l$$_or.map((v) => v))
           : const {},
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
+      _$data.containsKey('bank_card_used') ? l$bank_card_used : const {},
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('investment') ? l$investment : const {},
       _$data.containsKey('investment_id') ? l$investment_id : const {},
@@ -59006,6 +66788,8 @@ abstract class CopyWith$Input$payment_investment_bool_exp<TRes> {
     List<Input$payment_investment_bool_exp>? $_and,
     Input$payment_investment_bool_exp? $_not,
     List<Input$payment_investment_bool_exp>? $_or,
+    Input$uuid_comparison_exp? bank_card_id,
+    Input$bank_card_bool_exp? bank_card_used,
     Input$timestamptz_comparison_exp? created_at,
     Input$investment_bool_exp? investment,
     Input$Int_comparison_exp? investment_id,
@@ -59026,6 +66810,8 @@ abstract class CopyWith$Input$payment_investment_bool_exp<TRes> {
                   CopyWith$Input$payment_investment_bool_exp<
                       Input$payment_investment_bool_exp>>?)
           _fn);
+  CopyWith$Input$uuid_comparison_exp<TRes> get bank_card_id;
+  CopyWith$Input$bank_card_bool_exp<TRes> get bank_card_used;
   CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at;
   CopyWith$Input$investment_bool_exp<TRes> get investment;
   CopyWith$Input$Int_comparison_exp<TRes> get investment_id;
@@ -59051,6 +66837,8 @@ class _CopyWithImpl$Input$payment_investment_bool_exp<TRes>
     Object? $_and = _undefined,
     Object? $_not = _undefined,
     Object? $_or = _undefined,
+    Object? bank_card_id = _undefined,
+    Object? bank_card_used = _undefined,
     Object? created_at = _undefined,
     Object? investment = _undefined,
     Object? investment_id = _undefined,
@@ -59066,6 +66854,10 @@ class _CopyWithImpl$Input$payment_investment_bool_exp<TRes>
           '_not': ($_not as Input$payment_investment_bool_exp?),
         if ($_or != _undefined)
           '_or': ($_or as List<Input$payment_investment_bool_exp>?),
+        if (bank_card_id != _undefined)
+          'bank_card_id': (bank_card_id as Input$uuid_comparison_exp?),
+        if (bank_card_used != _undefined)
+          'bank_card_used': (bank_card_used as Input$bank_card_bool_exp?),
         if (created_at != _undefined)
           'created_at': (created_at as Input$timestamptz_comparison_exp?),
         if (investment != _undefined)
@@ -59113,6 +66905,22 @@ class _CopyWithImpl$Input$payment_investment_bool_exp<TRes>
                     e,
                     (i) => i,
                   )))?.toList());
+  CopyWith$Input$uuid_comparison_exp<TRes> get bank_card_id {
+    final local$bank_card_id = _instance.bank_card_id;
+    return local$bank_card_id == null
+        ? CopyWith$Input$uuid_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$uuid_comparison_exp(
+            local$bank_card_id, (e) => call(bank_card_id: e));
+  }
+
+  CopyWith$Input$bank_card_bool_exp<TRes> get bank_card_used {
+    final local$bank_card_used = _instance.bank_card_used;
+    return local$bank_card_used == null
+        ? CopyWith$Input$bank_card_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$bank_card_bool_exp(
+            local$bank_card_used, (e) => call(bank_card_used: e));
+  }
+
   CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at {
     final local$created_at = _instance.created_at;
     return local$created_at == null
@@ -59174,6 +66982,8 @@ class _CopyWithStubImpl$Input$payment_investment_bool_exp<TRes>
     List<Input$payment_investment_bool_exp>? $_and,
     Input$payment_investment_bool_exp? $_not,
     List<Input$payment_investment_bool_exp>? $_or,
+    Input$uuid_comparison_exp? bank_card_id,
+    Input$bank_card_bool_exp? bank_card_used,
     Input$timestamptz_comparison_exp? created_at,
     Input$investment_bool_exp? investment,
     Input$Int_comparison_exp? investment_id,
@@ -59186,6 +66996,10 @@ class _CopyWithStubImpl$Input$payment_investment_bool_exp<TRes>
   CopyWith$Input$payment_investment_bool_exp<TRes> get $_not =>
       CopyWith$Input$payment_investment_bool_exp.stub(_res);
   $_or(_fn) => _res;
+  CopyWith$Input$uuid_comparison_exp<TRes> get bank_card_id =>
+      CopyWith$Input$uuid_comparison_exp.stub(_res);
+  CopyWith$Input$bank_card_bool_exp<TRes> get bank_card_used =>
+      CopyWith$Input$bank_card_bool_exp.stub(_res);
   CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at =>
       CopyWith$Input$timestamptz_comparison_exp.stub(_res);
   CopyWith$Input$investment_bool_exp<TRes> get investment =>
@@ -59310,6 +67124,8 @@ class _CopyWithStubImpl$Input$payment_investment_inc_input<TRes>
 
 class Input$payment_investment_insert_input {
   factory Input$payment_investment_insert_input({
+    UUID? bank_card_id,
+    Input$bank_card_obj_rel_insert_input? bank_card_used,
     DateTime? created_at,
     Input$investment_obj_rel_insert_input? investment,
     int? investment_id,
@@ -59318,6 +67134,8 @@ class Input$payment_investment_insert_input {
     DateTime? updated_at,
   }) =>
       Input$payment_investment_insert_input._({
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
+        if (bank_card_used != null) r'bank_card_used': bank_card_used,
         if (created_at != null) r'created_at': created_at,
         if (investment != null) r'investment': investment,
         if (investment_id != null) r'investment_id': investment_id,
@@ -59333,6 +67151,18 @@ class Input$payment_investment_insert_input {
   factory Input$payment_investment_insert_input.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : uuidFromJson(l$bank_card_id);
+    }
+    if (data.containsKey('bank_card_used')) {
+      final l$bank_card_used = data['bank_card_used'];
+      result$data['bank_card_used'] = l$bank_card_used == null
+          ? null
+          : Input$bank_card_obj_rel_insert_input.fromJson(
+              (l$bank_card_used as Map<String, dynamic>));
+    }
     if (data.containsKey('created_at')) {
       final l$created_at = data['created_at'];
       result$data['created_at'] = l$created_at == null
@@ -59373,6 +67203,9 @@ class Input$payment_investment_insert_input {
 
   Map<String, dynamic> _$data;
 
+  UUID? get bank_card_id => (_$data['bank_card_id'] as UUID?);
+  Input$bank_card_obj_rel_insert_input? get bank_card_used =>
+      (_$data['bank_card_used'] as Input$bank_card_obj_rel_insert_input?);
   DateTime? get created_at => (_$data['created_at'] as DateTime?);
   Input$investment_obj_rel_insert_input? get investment =>
       (_$data['investment'] as Input$investment_obj_rel_insert_input?);
@@ -59383,6 +67216,15 @@ class Input$payment_investment_insert_input {
   DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : uuidToJson(l$bank_card_id);
+    }
+    if (_$data.containsKey('bank_card_used')) {
+      final l$bank_card_used = bank_card_used;
+      result$data['bank_card_used'] = l$bank_card_used?.toJson();
+    }
     if (_$data.containsKey('created_at')) {
       final l$created_at = created_at;
       result$data['created_at'] = l$created_at?.toIso8601String();
@@ -59426,6 +67268,24 @@ class Input$payment_investment_insert_input {
     }
     if (!(other is Input$payment_investment_insert_input) ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
+      return false;
+    }
+    final l$bank_card_used = bank_card_used;
+    final lOther$bank_card_used = other.bank_card_used;
+    if (_$data.containsKey('bank_card_used') !=
+        other._$data.containsKey('bank_card_used')) {
+      return false;
+    }
+    if (l$bank_card_used != lOther$bank_card_used) {
       return false;
     }
     final l$created_at = created_at;
@@ -59488,6 +67348,8 @@ class Input$payment_investment_insert_input {
 
   @override
   int get hashCode {
+    final l$bank_card_id = bank_card_id;
+    final l$bank_card_used = bank_card_used;
     final l$created_at = created_at;
     final l$investment = investment;
     final l$investment_id = investment_id;
@@ -59495,6 +67357,8 @@ class Input$payment_investment_insert_input {
     final l$payment_investment_id = payment_investment_id;
     final l$updated_at = updated_at;
     return Object.hashAll([
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
+      _$data.containsKey('bank_card_used') ? l$bank_card_used : const {},
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('investment') ? l$investment : const {},
       _$data.containsKey('investment_id') ? l$investment_id : const {},
@@ -59519,6 +67383,8 @@ abstract class CopyWith$Input$payment_investment_insert_input<TRes> {
       _CopyWithStubImpl$Input$payment_investment_insert_input;
 
   TRes call({
+    UUID? bank_card_id,
+    Input$bank_card_obj_rel_insert_input? bank_card_used,
     DateTime? created_at,
     Input$investment_obj_rel_insert_input? investment,
     int? investment_id,
@@ -59526,6 +67392,7 @@ abstract class CopyWith$Input$payment_investment_insert_input<TRes> {
     UUID? payment_investment_id,
     DateTime? updated_at,
   });
+  CopyWith$Input$bank_card_obj_rel_insert_input<TRes> get bank_card_used;
   CopyWith$Input$investment_obj_rel_insert_input<TRes> get investment;
 }
 
@@ -59543,6 +67410,8 @@ class _CopyWithImpl$Input$payment_investment_insert_input<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? bank_card_id = _undefined,
+    Object? bank_card_used = _undefined,
     Object? created_at = _undefined,
     Object? investment = _undefined,
     Object? investment_id = _undefined,
@@ -59552,6 +67421,10 @@ class _CopyWithImpl$Input$payment_investment_insert_input<TRes>
   }) =>
       _then(Input$payment_investment_insert_input._({
         ..._instance._$data,
+        if (bank_card_id != _undefined) 'bank_card_id': (bank_card_id as UUID?),
+        if (bank_card_used != _undefined)
+          'bank_card_used':
+              (bank_card_used as Input$bank_card_obj_rel_insert_input?),
         if (created_at != _undefined) 'created_at': (created_at as DateTime?),
         if (investment != _undefined)
           'investment': (investment as Input$investment_obj_rel_insert_input?),
@@ -59564,6 +67437,14 @@ class _CopyWithImpl$Input$payment_investment_insert_input<TRes>
           'payment_investment_id': (payment_investment_id as UUID?),
         if (updated_at != _undefined) 'updated_at': (updated_at as DateTime?),
       }));
+  CopyWith$Input$bank_card_obj_rel_insert_input<TRes> get bank_card_used {
+    final local$bank_card_used = _instance.bank_card_used;
+    return local$bank_card_used == null
+        ? CopyWith$Input$bank_card_obj_rel_insert_input.stub(_then(_instance))
+        : CopyWith$Input$bank_card_obj_rel_insert_input(
+            local$bank_card_used, (e) => call(bank_card_used: e));
+  }
+
   CopyWith$Input$investment_obj_rel_insert_input<TRes> get investment {
     final local$investment = _instance.investment;
     return local$investment == null
@@ -59580,6 +67461,8 @@ class _CopyWithStubImpl$Input$payment_investment_insert_input<TRes>
   TRes _res;
 
   call({
+    UUID? bank_card_id,
+    Input$bank_card_obj_rel_insert_input? bank_card_used,
     DateTime? created_at,
     Input$investment_obj_rel_insert_input? investment,
     int? investment_id,
@@ -59588,8 +67471,504 @@ class _CopyWithStubImpl$Input$payment_investment_insert_input<TRes>
     DateTime? updated_at,
   }) =>
       _res;
+  CopyWith$Input$bank_card_obj_rel_insert_input<TRes> get bank_card_used =>
+      CopyWith$Input$bank_card_obj_rel_insert_input.stub(_res);
   CopyWith$Input$investment_obj_rel_insert_input<TRes> get investment =>
       CopyWith$Input$investment_obj_rel_insert_input.stub(_res);
+}
+
+class Input$payment_investment_max_order_by {
+  factory Input$payment_investment_max_order_by({
+    Enum$order_by? bank_card_id,
+    Enum$order_by? created_at,
+    Enum$order_by? investment_id,
+    Enum$order_by? payment_investment_id,
+    Enum$order_by? updated_at,
+  }) =>
+      Input$payment_investment_max_order_by._({
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
+        if (created_at != null) r'created_at': created_at,
+        if (investment_id != null) r'investment_id': investment_id,
+        if (payment_investment_id != null)
+          r'payment_investment_id': payment_investment_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$payment_investment_max_order_by._(this._$data);
+
+  factory Input$payment_investment_max_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] = l$bank_card_id == null
+          ? null
+          : fromJson$Enum$order_by((l$bank_card_id as String));
+    }
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : fromJson$Enum$order_by((l$created_at as String));
+    }
+    if (data.containsKey('investment_id')) {
+      final l$investment_id = data['investment_id'];
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : fromJson$Enum$order_by((l$investment_id as String));
+    }
+    if (data.containsKey('payment_investment_id')) {
+      final l$payment_investment_id = data['payment_investment_id'];
+      result$data['payment_investment_id'] = l$payment_investment_id == null
+          ? null
+          : fromJson$Enum$order_by((l$payment_investment_id as String));
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : fromJson$Enum$order_by((l$updated_at as String));
+    }
+    return Input$payment_investment_max_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get bank_card_id => (_$data['bank_card_id'] as Enum$order_by?);
+  Enum$order_by? get created_at => (_$data['created_at'] as Enum$order_by?);
+  Enum$order_by? get investment_id =>
+      (_$data['investment_id'] as Enum$order_by?);
+  Enum$order_by? get payment_investment_id =>
+      (_$data['payment_investment_id'] as Enum$order_by?);
+  Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : toJson$Enum$order_by(l$bank_card_id);
+    }
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] =
+          l$created_at == null ? null : toJson$Enum$order_by(l$created_at);
+    }
+    if (_$data.containsKey('investment_id')) {
+      final l$investment_id = investment_id;
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : toJson$Enum$order_by(l$investment_id);
+    }
+    if (_$data.containsKey('payment_investment_id')) {
+      final l$payment_investment_id = payment_investment_id;
+      result$data['payment_investment_id'] = l$payment_investment_id == null
+          ? null
+          : toJson$Enum$order_by(l$payment_investment_id);
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] =
+          l$updated_at == null ? null : toJson$Enum$order_by(l$updated_at);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_max_order_by<
+          Input$payment_investment_max_order_by>
+      get copyWith => CopyWith$Input$payment_investment_max_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_max_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$investment_id = investment_id;
+    final lOther$investment_id = other.investment_id;
+    if (_$data.containsKey('investment_id') !=
+        other._$data.containsKey('investment_id')) {
+      return false;
+    }
+    if (l$investment_id != lOther$investment_id) {
+      return false;
+    }
+    final l$payment_investment_id = payment_investment_id;
+    final lOther$payment_investment_id = other.payment_investment_id;
+    if (_$data.containsKey('payment_investment_id') !=
+        other._$data.containsKey('payment_investment_id')) {
+      return false;
+    }
+    if (l$payment_investment_id != lOther$payment_investment_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$bank_card_id = bank_card_id;
+    final l$created_at = created_at;
+    final l$investment_id = investment_id;
+    final l$payment_investment_id = payment_investment_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('investment_id') ? l$investment_id : const {},
+      _$data.containsKey('payment_investment_id')
+          ? l$payment_investment_id
+          : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_max_order_by<TRes> {
+  factory CopyWith$Input$payment_investment_max_order_by(
+    Input$payment_investment_max_order_by instance,
+    TRes Function(Input$payment_investment_max_order_by) then,
+  ) = _CopyWithImpl$Input$payment_investment_max_order_by;
+
+  factory CopyWith$Input$payment_investment_max_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_max_order_by;
+
+  TRes call({
+    Enum$order_by? bank_card_id,
+    Enum$order_by? created_at,
+    Enum$order_by? investment_id,
+    Enum$order_by? payment_investment_id,
+    Enum$order_by? updated_at,
+  });
+}
+
+class _CopyWithImpl$Input$payment_investment_max_order_by<TRes>
+    implements CopyWith$Input$payment_investment_max_order_by<TRes> {
+  _CopyWithImpl$Input$payment_investment_max_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_max_order_by _instance;
+
+  final TRes Function(Input$payment_investment_max_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? bank_card_id = _undefined,
+    Object? created_at = _undefined,
+    Object? investment_id = _undefined,
+    Object? payment_investment_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$payment_investment_max_order_by._({
+        ..._instance._$data,
+        if (bank_card_id != _undefined)
+          'bank_card_id': (bank_card_id as Enum$order_by?),
+        if (created_at != _undefined)
+          'created_at': (created_at as Enum$order_by?),
+        if (investment_id != _undefined)
+          'investment_id': (investment_id as Enum$order_by?),
+        if (payment_investment_id != _undefined)
+          'payment_investment_id': (payment_investment_id as Enum$order_by?),
+        if (updated_at != _undefined)
+          'updated_at': (updated_at as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_investment_max_order_by<TRes>
+    implements CopyWith$Input$payment_investment_max_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_max_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$order_by? bank_card_id,
+    Enum$order_by? created_at,
+    Enum$order_by? investment_id,
+    Enum$order_by? payment_investment_id,
+    Enum$order_by? updated_at,
+  }) =>
+      _res;
+}
+
+class Input$payment_investment_min_order_by {
+  factory Input$payment_investment_min_order_by({
+    Enum$order_by? bank_card_id,
+    Enum$order_by? created_at,
+    Enum$order_by? investment_id,
+    Enum$order_by? payment_investment_id,
+    Enum$order_by? updated_at,
+  }) =>
+      Input$payment_investment_min_order_by._({
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
+        if (created_at != null) r'created_at': created_at,
+        if (investment_id != null) r'investment_id': investment_id,
+        if (payment_investment_id != null)
+          r'payment_investment_id': payment_investment_id,
+        if (updated_at != null) r'updated_at': updated_at,
+      });
+
+  Input$payment_investment_min_order_by._(this._$data);
+
+  factory Input$payment_investment_min_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] = l$bank_card_id == null
+          ? null
+          : fromJson$Enum$order_by((l$bank_card_id as String));
+    }
+    if (data.containsKey('created_at')) {
+      final l$created_at = data['created_at'];
+      result$data['created_at'] = l$created_at == null
+          ? null
+          : fromJson$Enum$order_by((l$created_at as String));
+    }
+    if (data.containsKey('investment_id')) {
+      final l$investment_id = data['investment_id'];
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : fromJson$Enum$order_by((l$investment_id as String));
+    }
+    if (data.containsKey('payment_investment_id')) {
+      final l$payment_investment_id = data['payment_investment_id'];
+      result$data['payment_investment_id'] = l$payment_investment_id == null
+          ? null
+          : fromJson$Enum$order_by((l$payment_investment_id as String));
+    }
+    if (data.containsKey('updated_at')) {
+      final l$updated_at = data['updated_at'];
+      result$data['updated_at'] = l$updated_at == null
+          ? null
+          : fromJson$Enum$order_by((l$updated_at as String));
+    }
+    return Input$payment_investment_min_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get bank_card_id => (_$data['bank_card_id'] as Enum$order_by?);
+  Enum$order_by? get created_at => (_$data['created_at'] as Enum$order_by?);
+  Enum$order_by? get investment_id =>
+      (_$data['investment_id'] as Enum$order_by?);
+  Enum$order_by? get payment_investment_id =>
+      (_$data['payment_investment_id'] as Enum$order_by?);
+  Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : toJson$Enum$order_by(l$bank_card_id);
+    }
+    if (_$data.containsKey('created_at')) {
+      final l$created_at = created_at;
+      result$data['created_at'] =
+          l$created_at == null ? null : toJson$Enum$order_by(l$created_at);
+    }
+    if (_$data.containsKey('investment_id')) {
+      final l$investment_id = investment_id;
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : toJson$Enum$order_by(l$investment_id);
+    }
+    if (_$data.containsKey('payment_investment_id')) {
+      final l$payment_investment_id = payment_investment_id;
+      result$data['payment_investment_id'] = l$payment_investment_id == null
+          ? null
+          : toJson$Enum$order_by(l$payment_investment_id);
+    }
+    if (_$data.containsKey('updated_at')) {
+      final l$updated_at = updated_at;
+      result$data['updated_at'] =
+          l$updated_at == null ? null : toJson$Enum$order_by(l$updated_at);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_min_order_by<
+          Input$payment_investment_min_order_by>
+      get copyWith => CopyWith$Input$payment_investment_min_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_min_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (_$data.containsKey('created_at') !=
+        other._$data.containsKey('created_at')) {
+      return false;
+    }
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$investment_id = investment_id;
+    final lOther$investment_id = other.investment_id;
+    if (_$data.containsKey('investment_id') !=
+        other._$data.containsKey('investment_id')) {
+      return false;
+    }
+    if (l$investment_id != lOther$investment_id) {
+      return false;
+    }
+    final l$payment_investment_id = payment_investment_id;
+    final lOther$payment_investment_id = other.payment_investment_id;
+    if (_$data.containsKey('payment_investment_id') !=
+        other._$data.containsKey('payment_investment_id')) {
+      return false;
+    }
+    if (l$payment_investment_id != lOther$payment_investment_id) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (_$data.containsKey('updated_at') !=
+        other._$data.containsKey('updated_at')) {
+      return false;
+    }
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$bank_card_id = bank_card_id;
+    final l$created_at = created_at;
+    final l$investment_id = investment_id;
+    final l$payment_investment_id = payment_investment_id;
+    final l$updated_at = updated_at;
+    return Object.hashAll([
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
+      _$data.containsKey('created_at') ? l$created_at : const {},
+      _$data.containsKey('investment_id') ? l$investment_id : const {},
+      _$data.containsKey('payment_investment_id')
+          ? l$payment_investment_id
+          : const {},
+      _$data.containsKey('updated_at') ? l$updated_at : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_min_order_by<TRes> {
+  factory CopyWith$Input$payment_investment_min_order_by(
+    Input$payment_investment_min_order_by instance,
+    TRes Function(Input$payment_investment_min_order_by) then,
+  ) = _CopyWithImpl$Input$payment_investment_min_order_by;
+
+  factory CopyWith$Input$payment_investment_min_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_min_order_by;
+
+  TRes call({
+    Enum$order_by? bank_card_id,
+    Enum$order_by? created_at,
+    Enum$order_by? investment_id,
+    Enum$order_by? payment_investment_id,
+    Enum$order_by? updated_at,
+  });
+}
+
+class _CopyWithImpl$Input$payment_investment_min_order_by<TRes>
+    implements CopyWith$Input$payment_investment_min_order_by<TRes> {
+  _CopyWithImpl$Input$payment_investment_min_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_min_order_by _instance;
+
+  final TRes Function(Input$payment_investment_min_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? bank_card_id = _undefined,
+    Object? created_at = _undefined,
+    Object? investment_id = _undefined,
+    Object? payment_investment_id = _undefined,
+    Object? updated_at = _undefined,
+  }) =>
+      _then(Input$payment_investment_min_order_by._({
+        ..._instance._$data,
+        if (bank_card_id != _undefined)
+          'bank_card_id': (bank_card_id as Enum$order_by?),
+        if (created_at != _undefined)
+          'created_at': (created_at as Enum$order_by?),
+        if (investment_id != _undefined)
+          'investment_id': (investment_id as Enum$order_by?),
+        if (payment_investment_id != _undefined)
+          'payment_investment_id': (payment_investment_id as Enum$order_by?),
+        if (updated_at != _undefined)
+          'updated_at': (updated_at as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_investment_min_order_by<TRes>
+    implements CopyWith$Input$payment_investment_min_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_min_order_by(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$order_by? bank_card_id,
+    Enum$order_by? created_at,
+    Enum$order_by? investment_id,
+    Enum$order_by? payment_investment_id,
+    Enum$order_by? updated_at,
+  }) =>
+      _res;
 }
 
 class Input$payment_investment_obj_rel_insert_input {
@@ -59941,6 +68320,8 @@ class _CopyWithStubImpl$Input$payment_investment_on_conflict<TRes>
 
 class Input$payment_investment_order_by {
   factory Input$payment_investment_order_by({
+    Enum$order_by? bank_card_id,
+    Input$bank_card_order_by? bank_card_used,
     Enum$order_by? created_at,
     Input$investment_order_by? investment,
     Enum$order_by? investment_id,
@@ -59949,6 +68330,8 @@ class Input$payment_investment_order_by {
     Enum$order_by? updated_at,
   }) =>
       Input$payment_investment_order_by._({
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
+        if (bank_card_used != null) r'bank_card_used': bank_card_used,
         if (created_at != null) r'created_at': created_at,
         if (investment != null) r'investment': investment,
         if (investment_id != null) r'investment_id': investment_id,
@@ -59964,6 +68347,19 @@ class Input$payment_investment_order_by {
   factory Input$payment_investment_order_by.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] = l$bank_card_id == null
+          ? null
+          : fromJson$Enum$order_by((l$bank_card_id as String));
+    }
+    if (data.containsKey('bank_card_used')) {
+      final l$bank_card_used = data['bank_card_used'];
+      result$data['bank_card_used'] = l$bank_card_used == null
+          ? null
+          : Input$bank_card_order_by.fromJson(
+              (l$bank_card_used as Map<String, dynamic>));
+    }
     if (data.containsKey('created_at')) {
       final l$created_at = data['created_at'];
       result$data['created_at'] = l$created_at == null
@@ -60009,6 +68405,9 @@ class Input$payment_investment_order_by {
 
   Map<String, dynamic> _$data;
 
+  Enum$order_by? get bank_card_id => (_$data['bank_card_id'] as Enum$order_by?);
+  Input$bank_card_order_by? get bank_card_used =>
+      (_$data['bank_card_used'] as Input$bank_card_order_by?);
   Enum$order_by? get created_at => (_$data['created_at'] as Enum$order_by?);
   Input$investment_order_by? get investment =>
       (_$data['investment'] as Input$investment_order_by?);
@@ -60021,6 +68420,15 @@ class Input$payment_investment_order_by {
   Enum$order_by? get updated_at => (_$data['updated_at'] as Enum$order_by?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : toJson$Enum$order_by(l$bank_card_id);
+    }
+    if (_$data.containsKey('bank_card_used')) {
+      final l$bank_card_used = bank_card_used;
+      result$data['bank_card_used'] = l$bank_card_used?.toJson();
+    }
     if (_$data.containsKey('created_at')) {
       final l$created_at = created_at;
       result$data['created_at'] =
@@ -60069,6 +68477,24 @@ class Input$payment_investment_order_by {
     }
     if (!(other is Input$payment_investment_order_by) ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
+      return false;
+    }
+    final l$bank_card_used = bank_card_used;
+    final lOther$bank_card_used = other.bank_card_used;
+    if (_$data.containsKey('bank_card_used') !=
+        other._$data.containsKey('bank_card_used')) {
+      return false;
+    }
+    if (l$bank_card_used != lOther$bank_card_used) {
       return false;
     }
     final l$created_at = created_at;
@@ -60131,6 +68557,8 @@ class Input$payment_investment_order_by {
 
   @override
   int get hashCode {
+    final l$bank_card_id = bank_card_id;
+    final l$bank_card_used = bank_card_used;
     final l$created_at = created_at;
     final l$investment = investment;
     final l$investment_id = investment_id;
@@ -60138,6 +68566,8 @@ class Input$payment_investment_order_by {
     final l$payment_investment_id = payment_investment_id;
     final l$updated_at = updated_at;
     return Object.hashAll([
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
+      _$data.containsKey('bank_card_used') ? l$bank_card_used : const {},
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('investment') ? l$investment : const {},
       _$data.containsKey('investment_id') ? l$investment_id : const {},
@@ -60162,6 +68592,8 @@ abstract class CopyWith$Input$payment_investment_order_by<TRes> {
       _CopyWithStubImpl$Input$payment_investment_order_by;
 
   TRes call({
+    Enum$order_by? bank_card_id,
+    Input$bank_card_order_by? bank_card_used,
     Enum$order_by? created_at,
     Input$investment_order_by? investment,
     Enum$order_by? investment_id,
@@ -60169,6 +68601,7 @@ abstract class CopyWith$Input$payment_investment_order_by<TRes> {
     Enum$order_by? payment_investment_id,
     Enum$order_by? updated_at,
   });
+  CopyWith$Input$bank_card_order_by<TRes> get bank_card_used;
   CopyWith$Input$investment_order_by<TRes> get investment;
 }
 
@@ -60186,6 +68619,8 @@ class _CopyWithImpl$Input$payment_investment_order_by<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? bank_card_id = _undefined,
+    Object? bank_card_used = _undefined,
     Object? created_at = _undefined,
     Object? investment = _undefined,
     Object? investment_id = _undefined,
@@ -60195,6 +68630,10 @@ class _CopyWithImpl$Input$payment_investment_order_by<TRes>
   }) =>
       _then(Input$payment_investment_order_by._({
         ..._instance._$data,
+        if (bank_card_id != _undefined)
+          'bank_card_id': (bank_card_id as Enum$order_by?),
+        if (bank_card_used != _undefined)
+          'bank_card_used': (bank_card_used as Input$bank_card_order_by?),
         if (created_at != _undefined)
           'created_at': (created_at as Enum$order_by?),
         if (investment != _undefined)
@@ -60209,6 +68648,14 @@ class _CopyWithImpl$Input$payment_investment_order_by<TRes>
         if (updated_at != _undefined)
           'updated_at': (updated_at as Enum$order_by?),
       }));
+  CopyWith$Input$bank_card_order_by<TRes> get bank_card_used {
+    final local$bank_card_used = _instance.bank_card_used;
+    return local$bank_card_used == null
+        ? CopyWith$Input$bank_card_order_by.stub(_then(_instance))
+        : CopyWith$Input$bank_card_order_by(
+            local$bank_card_used, (e) => call(bank_card_used: e));
+  }
+
   CopyWith$Input$investment_order_by<TRes> get investment {
     final local$investment = _instance.investment;
     return local$investment == null
@@ -60225,6 +68672,8 @@ class _CopyWithStubImpl$Input$payment_investment_order_by<TRes>
   TRes _res;
 
   call({
+    Enum$order_by? bank_card_id,
+    Input$bank_card_order_by? bank_card_used,
     Enum$order_by? created_at,
     Input$investment_order_by? investment,
     Enum$order_by? investment_id,
@@ -60233,6 +68682,8 @@ class _CopyWithStubImpl$Input$payment_investment_order_by<TRes>
     Enum$order_by? updated_at,
   }) =>
       _res;
+  CopyWith$Input$bank_card_order_by<TRes> get bank_card_used =>
+      CopyWith$Input$bank_card_order_by.stub(_res);
   CopyWith$Input$investment_order_by<TRes> get investment =>
       CopyWith$Input$investment_order_by.stub(_res);
 }
@@ -60340,6 +68791,7 @@ class _CopyWithStubImpl$Input$payment_investment_pk_columns_input<TRes>
 
 class Input$payment_investment_set_input {
   factory Input$payment_investment_set_input({
+    UUID? bank_card_id,
     DateTime? created_at,
     int? investment_id,
     bool? payment_investment_fulfilled,
@@ -60347,6 +68799,7 @@ class Input$payment_investment_set_input {
     DateTime? updated_at,
   }) =>
       Input$payment_investment_set_input._({
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
         if (created_at != null) r'created_at': created_at,
         if (investment_id != null) r'investment_id': investment_id,
         if (payment_investment_fulfilled != null)
@@ -60361,6 +68814,11 @@ class Input$payment_investment_set_input {
   factory Input$payment_investment_set_input.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : uuidFromJson(l$bank_card_id);
+    }
     if (data.containsKey('created_at')) {
       final l$created_at = data['created_at'];
       result$data['created_at'] = l$created_at == null
@@ -60394,6 +68852,7 @@ class Input$payment_investment_set_input {
 
   Map<String, dynamic> _$data;
 
+  UUID? get bank_card_id => (_$data['bank_card_id'] as UUID?);
   DateTime? get created_at => (_$data['created_at'] as DateTime?);
   int? get investment_id => (_$data['investment_id'] as int?);
   bool? get payment_investment_fulfilled =>
@@ -60402,6 +68861,11 @@ class Input$payment_investment_set_input {
   DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : uuidToJson(l$bank_card_id);
+    }
     if (_$data.containsKey('created_at')) {
       final l$created_at = created_at;
       result$data['created_at'] = l$created_at?.toIso8601String();
@@ -60441,6 +68905,15 @@ class Input$payment_investment_set_input {
     }
     if (!(other is Input$payment_investment_set_input) ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
       return false;
     }
     final l$created_at = created_at;
@@ -60494,12 +68967,14 @@ class Input$payment_investment_set_input {
 
   @override
   int get hashCode {
+    final l$bank_card_id = bank_card_id;
     final l$created_at = created_at;
     final l$investment_id = investment_id;
     final l$payment_investment_fulfilled = payment_investment_fulfilled;
     final l$payment_investment_id = payment_investment_id;
     final l$updated_at = updated_at;
     return Object.hashAll([
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('investment_id') ? l$investment_id : const {},
       _$data.containsKey('payment_investment_fulfilled')
@@ -60523,6 +68998,7 @@ abstract class CopyWith$Input$payment_investment_set_input<TRes> {
       _CopyWithStubImpl$Input$payment_investment_set_input;
 
   TRes call({
+    UUID? bank_card_id,
     DateTime? created_at,
     int? investment_id,
     bool? payment_investment_fulfilled,
@@ -60545,6 +69021,7 @@ class _CopyWithImpl$Input$payment_investment_set_input<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? bank_card_id = _undefined,
     Object? created_at = _undefined,
     Object? investment_id = _undefined,
     Object? payment_investment_fulfilled = _undefined,
@@ -60553,6 +69030,7 @@ class _CopyWithImpl$Input$payment_investment_set_input<TRes>
   }) =>
       _then(Input$payment_investment_set_input._({
         ..._instance._$data,
+        if (bank_card_id != _undefined) 'bank_card_id': (bank_card_id as UUID?),
         if (created_at != _undefined) 'created_at': (created_at as DateTime?),
         if (investment_id != _undefined)
           'investment_id': (investment_id as int?),
@@ -60572,6 +69050,7 @@ class _CopyWithStubImpl$Input$payment_investment_set_input<TRes>
   TRes _res;
 
   call({
+    UUID? bank_card_id,
     DateTime? created_at,
     int? investment_id,
     bool? payment_investment_fulfilled,
@@ -60579,6 +69058,346 @@ class _CopyWithStubImpl$Input$payment_investment_set_input<TRes>
     DateTime? updated_at,
   }) =>
       _res;
+}
+
+class Input$payment_investment_stddev_order_by {
+  factory Input$payment_investment_stddev_order_by(
+          {Enum$order_by? investment_id}) =>
+      Input$payment_investment_stddev_order_by._({
+        if (investment_id != null) r'investment_id': investment_id,
+      });
+
+  Input$payment_investment_stddev_order_by._(this._$data);
+
+  factory Input$payment_investment_stddev_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('investment_id')) {
+      final l$investment_id = data['investment_id'];
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : fromJson$Enum$order_by((l$investment_id as String));
+    }
+    return Input$payment_investment_stddev_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get investment_id =>
+      (_$data['investment_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('investment_id')) {
+      final l$investment_id = investment_id;
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : toJson$Enum$order_by(l$investment_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_stddev_order_by<
+          Input$payment_investment_stddev_order_by>
+      get copyWith => CopyWith$Input$payment_investment_stddev_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_stddev_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$investment_id = investment_id;
+    final lOther$investment_id = other.investment_id;
+    if (_$data.containsKey('investment_id') !=
+        other._$data.containsKey('investment_id')) {
+      return false;
+    }
+    if (l$investment_id != lOther$investment_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$investment_id = investment_id;
+    return Object.hashAll(
+        [_$data.containsKey('investment_id') ? l$investment_id : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_stddev_order_by<TRes> {
+  factory CopyWith$Input$payment_investment_stddev_order_by(
+    Input$payment_investment_stddev_order_by instance,
+    TRes Function(Input$payment_investment_stddev_order_by) then,
+  ) = _CopyWithImpl$Input$payment_investment_stddev_order_by;
+
+  factory CopyWith$Input$payment_investment_stddev_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_stddev_order_by;
+
+  TRes call({Enum$order_by? investment_id});
+}
+
+class _CopyWithImpl$Input$payment_investment_stddev_order_by<TRes>
+    implements CopyWith$Input$payment_investment_stddev_order_by<TRes> {
+  _CopyWithImpl$Input$payment_investment_stddev_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_stddev_order_by _instance;
+
+  final TRes Function(Input$payment_investment_stddev_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? investment_id = _undefined}) =>
+      _then(Input$payment_investment_stddev_order_by._({
+        ..._instance._$data,
+        if (investment_id != _undefined)
+          'investment_id': (investment_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_investment_stddev_order_by<TRes>
+    implements CopyWith$Input$payment_investment_stddev_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_stddev_order_by(this._res);
+
+  TRes _res;
+
+  call({Enum$order_by? investment_id}) => _res;
+}
+
+class Input$payment_investment_stddev_pop_order_by {
+  factory Input$payment_investment_stddev_pop_order_by(
+          {Enum$order_by? investment_id}) =>
+      Input$payment_investment_stddev_pop_order_by._({
+        if (investment_id != null) r'investment_id': investment_id,
+      });
+
+  Input$payment_investment_stddev_pop_order_by._(this._$data);
+
+  factory Input$payment_investment_stddev_pop_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('investment_id')) {
+      final l$investment_id = data['investment_id'];
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : fromJson$Enum$order_by((l$investment_id as String));
+    }
+    return Input$payment_investment_stddev_pop_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get investment_id =>
+      (_$data['investment_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('investment_id')) {
+      final l$investment_id = investment_id;
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : toJson$Enum$order_by(l$investment_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_stddev_pop_order_by<
+          Input$payment_investment_stddev_pop_order_by>
+      get copyWith => CopyWith$Input$payment_investment_stddev_pop_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_stddev_pop_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$investment_id = investment_id;
+    final lOther$investment_id = other.investment_id;
+    if (_$data.containsKey('investment_id') !=
+        other._$data.containsKey('investment_id')) {
+      return false;
+    }
+    if (l$investment_id != lOther$investment_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$investment_id = investment_id;
+    return Object.hashAll(
+        [_$data.containsKey('investment_id') ? l$investment_id : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_stddev_pop_order_by<TRes> {
+  factory CopyWith$Input$payment_investment_stddev_pop_order_by(
+    Input$payment_investment_stddev_pop_order_by instance,
+    TRes Function(Input$payment_investment_stddev_pop_order_by) then,
+  ) = _CopyWithImpl$Input$payment_investment_stddev_pop_order_by;
+
+  factory CopyWith$Input$payment_investment_stddev_pop_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_stddev_pop_order_by;
+
+  TRes call({Enum$order_by? investment_id});
+}
+
+class _CopyWithImpl$Input$payment_investment_stddev_pop_order_by<TRes>
+    implements CopyWith$Input$payment_investment_stddev_pop_order_by<TRes> {
+  _CopyWithImpl$Input$payment_investment_stddev_pop_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_stddev_pop_order_by _instance;
+
+  final TRes Function(Input$payment_investment_stddev_pop_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? investment_id = _undefined}) =>
+      _then(Input$payment_investment_stddev_pop_order_by._({
+        ..._instance._$data,
+        if (investment_id != _undefined)
+          'investment_id': (investment_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_investment_stddev_pop_order_by<TRes>
+    implements CopyWith$Input$payment_investment_stddev_pop_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_stddev_pop_order_by(this._res);
+
+  TRes _res;
+
+  call({Enum$order_by? investment_id}) => _res;
+}
+
+class Input$payment_investment_stddev_samp_order_by {
+  factory Input$payment_investment_stddev_samp_order_by(
+          {Enum$order_by? investment_id}) =>
+      Input$payment_investment_stddev_samp_order_by._({
+        if (investment_id != null) r'investment_id': investment_id,
+      });
+
+  Input$payment_investment_stddev_samp_order_by._(this._$data);
+
+  factory Input$payment_investment_stddev_samp_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('investment_id')) {
+      final l$investment_id = data['investment_id'];
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : fromJson$Enum$order_by((l$investment_id as String));
+    }
+    return Input$payment_investment_stddev_samp_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get investment_id =>
+      (_$data['investment_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('investment_id')) {
+      final l$investment_id = investment_id;
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : toJson$Enum$order_by(l$investment_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_stddev_samp_order_by<
+          Input$payment_investment_stddev_samp_order_by>
+      get copyWith => CopyWith$Input$payment_investment_stddev_samp_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_stddev_samp_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$investment_id = investment_id;
+    final lOther$investment_id = other.investment_id;
+    if (_$data.containsKey('investment_id') !=
+        other._$data.containsKey('investment_id')) {
+      return false;
+    }
+    if (l$investment_id != lOther$investment_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$investment_id = investment_id;
+    return Object.hashAll(
+        [_$data.containsKey('investment_id') ? l$investment_id : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_stddev_samp_order_by<TRes> {
+  factory CopyWith$Input$payment_investment_stddev_samp_order_by(
+    Input$payment_investment_stddev_samp_order_by instance,
+    TRes Function(Input$payment_investment_stddev_samp_order_by) then,
+  ) = _CopyWithImpl$Input$payment_investment_stddev_samp_order_by;
+
+  factory CopyWith$Input$payment_investment_stddev_samp_order_by.stub(
+          TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_stddev_samp_order_by;
+
+  TRes call({Enum$order_by? investment_id});
+}
+
+class _CopyWithImpl$Input$payment_investment_stddev_samp_order_by<TRes>
+    implements CopyWith$Input$payment_investment_stddev_samp_order_by<TRes> {
+  _CopyWithImpl$Input$payment_investment_stddev_samp_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_stddev_samp_order_by _instance;
+
+  final TRes Function(Input$payment_investment_stddev_samp_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? investment_id = _undefined}) =>
+      _then(Input$payment_investment_stddev_samp_order_by._({
+        ..._instance._$data,
+        if (investment_id != _undefined)
+          'investment_id': (investment_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_investment_stddev_samp_order_by<TRes>
+    implements CopyWith$Input$payment_investment_stddev_samp_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_stddev_samp_order_by(this._res);
+
+  TRes _res;
+
+  call({Enum$order_by? investment_id}) => _res;
 }
 
 class Input$payment_investment_stream_cursor_input {
@@ -60740,6 +69559,7 @@ class _CopyWithStubImpl$Input$payment_investment_stream_cursor_input<TRes>
 
 class Input$payment_investment_stream_cursor_value_input {
   factory Input$payment_investment_stream_cursor_value_input({
+    UUID? bank_card_id,
     DateTime? created_at,
     int? investment_id,
     bool? payment_investment_fulfilled,
@@ -60747,6 +69567,7 @@ class Input$payment_investment_stream_cursor_value_input {
     DateTime? updated_at,
   }) =>
       Input$payment_investment_stream_cursor_value_input._({
+        if (bank_card_id != null) r'bank_card_id': bank_card_id,
         if (created_at != null) r'created_at': created_at,
         if (investment_id != null) r'investment_id': investment_id,
         if (payment_investment_fulfilled != null)
@@ -60761,6 +69582,11 @@ class Input$payment_investment_stream_cursor_value_input {
   factory Input$payment_investment_stream_cursor_value_input.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_card_id')) {
+      final l$bank_card_id = data['bank_card_id'];
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : uuidFromJson(l$bank_card_id);
+    }
     if (data.containsKey('created_at')) {
       final l$created_at = data['created_at'];
       result$data['created_at'] = l$created_at == null
@@ -60794,6 +69620,7 @@ class Input$payment_investment_stream_cursor_value_input {
 
   Map<String, dynamic> _$data;
 
+  UUID? get bank_card_id => (_$data['bank_card_id'] as UUID?);
   DateTime? get created_at => (_$data['created_at'] as DateTime?);
   int? get investment_id => (_$data['investment_id'] as int?);
   bool? get payment_investment_fulfilled =>
@@ -60802,6 +69629,11 @@ class Input$payment_investment_stream_cursor_value_input {
   DateTime? get updated_at => (_$data['updated_at'] as DateTime?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_card_id')) {
+      final l$bank_card_id = bank_card_id;
+      result$data['bank_card_id'] =
+          l$bank_card_id == null ? null : uuidToJson(l$bank_card_id);
+    }
     if (_$data.containsKey('created_at')) {
       final l$created_at = created_at;
       result$data['created_at'] = l$created_at?.toIso8601String();
@@ -60842,6 +69674,15 @@ class Input$payment_investment_stream_cursor_value_input {
     }
     if (!(other is Input$payment_investment_stream_cursor_value_input) ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bank_card_id = bank_card_id;
+    final lOther$bank_card_id = other.bank_card_id;
+    if (_$data.containsKey('bank_card_id') !=
+        other._$data.containsKey('bank_card_id')) {
+      return false;
+    }
+    if (l$bank_card_id != lOther$bank_card_id) {
       return false;
     }
     final l$created_at = created_at;
@@ -60895,12 +69736,14 @@ class Input$payment_investment_stream_cursor_value_input {
 
   @override
   int get hashCode {
+    final l$bank_card_id = bank_card_id;
     final l$created_at = created_at;
     final l$investment_id = investment_id;
     final l$payment_investment_fulfilled = payment_investment_fulfilled;
     final l$payment_investment_id = payment_investment_id;
     final l$updated_at = updated_at;
     return Object.hashAll([
+      _$data.containsKey('bank_card_id') ? l$bank_card_id : const {},
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('investment_id') ? l$investment_id : const {},
       _$data.containsKey('payment_investment_fulfilled')
@@ -60926,6 +69769,7 @@ abstract class CopyWith$Input$payment_investment_stream_cursor_value_input<
       _CopyWithStubImpl$Input$payment_investment_stream_cursor_value_input;
 
   TRes call({
+    UUID? bank_card_id,
     DateTime? created_at,
     int? investment_id,
     bool? payment_investment_fulfilled,
@@ -60949,6 +69793,7 @@ class _CopyWithImpl$Input$payment_investment_stream_cursor_value_input<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? bank_card_id = _undefined,
     Object? created_at = _undefined,
     Object? investment_id = _undefined,
     Object? payment_investment_fulfilled = _undefined,
@@ -60957,6 +69802,7 @@ class _CopyWithImpl$Input$payment_investment_stream_cursor_value_input<TRes>
   }) =>
       _then(Input$payment_investment_stream_cursor_value_input._({
         ..._instance._$data,
+        if (bank_card_id != _undefined) 'bank_card_id': (bank_card_id as UUID?),
         if (created_at != _undefined) 'created_at': (created_at as DateTime?),
         if (investment_id != _undefined)
           'investment_id': (investment_id as int?),
@@ -60978,6 +69824,7 @@ class _CopyWithStubImpl$Input$payment_investment_stream_cursor_value_input<TRes>
   TRes _res;
 
   call({
+    UUID? bank_card_id,
     DateTime? created_at,
     int? investment_id,
     bool? payment_investment_fulfilled,
@@ -60985,6 +69832,119 @@ class _CopyWithStubImpl$Input$payment_investment_stream_cursor_value_input<TRes>
     DateTime? updated_at,
   }) =>
       _res;
+}
+
+class Input$payment_investment_sum_order_by {
+  factory Input$payment_investment_sum_order_by(
+          {Enum$order_by? investment_id}) =>
+      Input$payment_investment_sum_order_by._({
+        if (investment_id != null) r'investment_id': investment_id,
+      });
+
+  Input$payment_investment_sum_order_by._(this._$data);
+
+  factory Input$payment_investment_sum_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('investment_id')) {
+      final l$investment_id = data['investment_id'];
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : fromJson$Enum$order_by((l$investment_id as String));
+    }
+    return Input$payment_investment_sum_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get investment_id =>
+      (_$data['investment_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('investment_id')) {
+      final l$investment_id = investment_id;
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : toJson$Enum$order_by(l$investment_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_sum_order_by<
+          Input$payment_investment_sum_order_by>
+      get copyWith => CopyWith$Input$payment_investment_sum_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_sum_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$investment_id = investment_id;
+    final lOther$investment_id = other.investment_id;
+    if (_$data.containsKey('investment_id') !=
+        other._$data.containsKey('investment_id')) {
+      return false;
+    }
+    if (l$investment_id != lOther$investment_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$investment_id = investment_id;
+    return Object.hashAll(
+        [_$data.containsKey('investment_id') ? l$investment_id : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_sum_order_by<TRes> {
+  factory CopyWith$Input$payment_investment_sum_order_by(
+    Input$payment_investment_sum_order_by instance,
+    TRes Function(Input$payment_investment_sum_order_by) then,
+  ) = _CopyWithImpl$Input$payment_investment_sum_order_by;
+
+  factory CopyWith$Input$payment_investment_sum_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_sum_order_by;
+
+  TRes call({Enum$order_by? investment_id});
+}
+
+class _CopyWithImpl$Input$payment_investment_sum_order_by<TRes>
+    implements CopyWith$Input$payment_investment_sum_order_by<TRes> {
+  _CopyWithImpl$Input$payment_investment_sum_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_sum_order_by _instance;
+
+  final TRes Function(Input$payment_investment_sum_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? investment_id = _undefined}) =>
+      _then(Input$payment_investment_sum_order_by._({
+        ..._instance._$data,
+        if (investment_id != _undefined)
+          'investment_id': (investment_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_investment_sum_order_by<TRes>
+    implements CopyWith$Input$payment_investment_sum_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_sum_order_by(this._res);
+
+  TRes _res;
+
+  call({Enum$order_by? investment_id}) => _res;
 }
 
 class Input$payment_investment_updates {
@@ -61186,11 +70146,352 @@ class _CopyWithStubImpl$Input$payment_investment_updates<TRes>
       CopyWith$Input$payment_investment_bool_exp.stub(_res);
 }
 
+class Input$payment_investment_var_pop_order_by {
+  factory Input$payment_investment_var_pop_order_by(
+          {Enum$order_by? investment_id}) =>
+      Input$payment_investment_var_pop_order_by._({
+        if (investment_id != null) r'investment_id': investment_id,
+      });
+
+  Input$payment_investment_var_pop_order_by._(this._$data);
+
+  factory Input$payment_investment_var_pop_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('investment_id')) {
+      final l$investment_id = data['investment_id'];
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : fromJson$Enum$order_by((l$investment_id as String));
+    }
+    return Input$payment_investment_var_pop_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get investment_id =>
+      (_$data['investment_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('investment_id')) {
+      final l$investment_id = investment_id;
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : toJson$Enum$order_by(l$investment_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_var_pop_order_by<
+          Input$payment_investment_var_pop_order_by>
+      get copyWith => CopyWith$Input$payment_investment_var_pop_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_var_pop_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$investment_id = investment_id;
+    final lOther$investment_id = other.investment_id;
+    if (_$data.containsKey('investment_id') !=
+        other._$data.containsKey('investment_id')) {
+      return false;
+    }
+    if (l$investment_id != lOther$investment_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$investment_id = investment_id;
+    return Object.hashAll(
+        [_$data.containsKey('investment_id') ? l$investment_id : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_var_pop_order_by<TRes> {
+  factory CopyWith$Input$payment_investment_var_pop_order_by(
+    Input$payment_investment_var_pop_order_by instance,
+    TRes Function(Input$payment_investment_var_pop_order_by) then,
+  ) = _CopyWithImpl$Input$payment_investment_var_pop_order_by;
+
+  factory CopyWith$Input$payment_investment_var_pop_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_var_pop_order_by;
+
+  TRes call({Enum$order_by? investment_id});
+}
+
+class _CopyWithImpl$Input$payment_investment_var_pop_order_by<TRes>
+    implements CopyWith$Input$payment_investment_var_pop_order_by<TRes> {
+  _CopyWithImpl$Input$payment_investment_var_pop_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_var_pop_order_by _instance;
+
+  final TRes Function(Input$payment_investment_var_pop_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? investment_id = _undefined}) =>
+      _then(Input$payment_investment_var_pop_order_by._({
+        ..._instance._$data,
+        if (investment_id != _undefined)
+          'investment_id': (investment_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_investment_var_pop_order_by<TRes>
+    implements CopyWith$Input$payment_investment_var_pop_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_var_pop_order_by(this._res);
+
+  TRes _res;
+
+  call({Enum$order_by? investment_id}) => _res;
+}
+
+class Input$payment_investment_var_samp_order_by {
+  factory Input$payment_investment_var_samp_order_by(
+          {Enum$order_by? investment_id}) =>
+      Input$payment_investment_var_samp_order_by._({
+        if (investment_id != null) r'investment_id': investment_id,
+      });
+
+  Input$payment_investment_var_samp_order_by._(this._$data);
+
+  factory Input$payment_investment_var_samp_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('investment_id')) {
+      final l$investment_id = data['investment_id'];
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : fromJson$Enum$order_by((l$investment_id as String));
+    }
+    return Input$payment_investment_var_samp_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get investment_id =>
+      (_$data['investment_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('investment_id')) {
+      final l$investment_id = investment_id;
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : toJson$Enum$order_by(l$investment_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_var_samp_order_by<
+          Input$payment_investment_var_samp_order_by>
+      get copyWith => CopyWith$Input$payment_investment_var_samp_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_var_samp_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$investment_id = investment_id;
+    final lOther$investment_id = other.investment_id;
+    if (_$data.containsKey('investment_id') !=
+        other._$data.containsKey('investment_id')) {
+      return false;
+    }
+    if (l$investment_id != lOther$investment_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$investment_id = investment_id;
+    return Object.hashAll(
+        [_$data.containsKey('investment_id') ? l$investment_id : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_var_samp_order_by<TRes> {
+  factory CopyWith$Input$payment_investment_var_samp_order_by(
+    Input$payment_investment_var_samp_order_by instance,
+    TRes Function(Input$payment_investment_var_samp_order_by) then,
+  ) = _CopyWithImpl$Input$payment_investment_var_samp_order_by;
+
+  factory CopyWith$Input$payment_investment_var_samp_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_var_samp_order_by;
+
+  TRes call({Enum$order_by? investment_id});
+}
+
+class _CopyWithImpl$Input$payment_investment_var_samp_order_by<TRes>
+    implements CopyWith$Input$payment_investment_var_samp_order_by<TRes> {
+  _CopyWithImpl$Input$payment_investment_var_samp_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_var_samp_order_by _instance;
+
+  final TRes Function(Input$payment_investment_var_samp_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? investment_id = _undefined}) =>
+      _then(Input$payment_investment_var_samp_order_by._({
+        ..._instance._$data,
+        if (investment_id != _undefined)
+          'investment_id': (investment_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_investment_var_samp_order_by<TRes>
+    implements CopyWith$Input$payment_investment_var_samp_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_var_samp_order_by(this._res);
+
+  TRes _res;
+
+  call({Enum$order_by? investment_id}) => _res;
+}
+
+class Input$payment_investment_variance_order_by {
+  factory Input$payment_investment_variance_order_by(
+          {Enum$order_by? investment_id}) =>
+      Input$payment_investment_variance_order_by._({
+        if (investment_id != null) r'investment_id': investment_id,
+      });
+
+  Input$payment_investment_variance_order_by._(this._$data);
+
+  factory Input$payment_investment_variance_order_by.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('investment_id')) {
+      final l$investment_id = data['investment_id'];
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : fromJson$Enum$order_by((l$investment_id as String));
+    }
+    return Input$payment_investment_variance_order_by._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$order_by? get investment_id =>
+      (_$data['investment_id'] as Enum$order_by?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('investment_id')) {
+      final l$investment_id = investment_id;
+      result$data['investment_id'] = l$investment_id == null
+          ? null
+          : toJson$Enum$order_by(l$investment_id);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$payment_investment_variance_order_by<
+          Input$payment_investment_variance_order_by>
+      get copyWith => CopyWith$Input$payment_investment_variance_order_by(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$payment_investment_variance_order_by) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$investment_id = investment_id;
+    final lOther$investment_id = other.investment_id;
+    if (_$data.containsKey('investment_id') !=
+        other._$data.containsKey('investment_id')) {
+      return false;
+    }
+    if (l$investment_id != lOther$investment_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$investment_id = investment_id;
+    return Object.hashAll(
+        [_$data.containsKey('investment_id') ? l$investment_id : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$payment_investment_variance_order_by<TRes> {
+  factory CopyWith$Input$payment_investment_variance_order_by(
+    Input$payment_investment_variance_order_by instance,
+    TRes Function(Input$payment_investment_variance_order_by) then,
+  ) = _CopyWithImpl$Input$payment_investment_variance_order_by;
+
+  factory CopyWith$Input$payment_investment_variance_order_by.stub(TRes res) =
+      _CopyWithStubImpl$Input$payment_investment_variance_order_by;
+
+  TRes call({Enum$order_by? investment_id});
+}
+
+class _CopyWithImpl$Input$payment_investment_variance_order_by<TRes>
+    implements CopyWith$Input$payment_investment_variance_order_by<TRes> {
+  _CopyWithImpl$Input$payment_investment_variance_order_by(
+    this._instance,
+    this._then,
+  );
+
+  final Input$payment_investment_variance_order_by _instance;
+
+  final TRes Function(Input$payment_investment_variance_order_by) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? investment_id = _undefined}) =>
+      _then(Input$payment_investment_variance_order_by._({
+        ..._instance._$data,
+        if (investment_id != _undefined)
+          'investment_id': (investment_id as Enum$order_by?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$payment_investment_variance_order_by<TRes>
+    implements CopyWith$Input$payment_investment_variance_order_by<TRes> {
+  _CopyWithStubImpl$Input$payment_investment_variance_order_by(this._res);
+
+  TRes _res;
+
+  call({Enum$order_by? investment_id}) => _res;
+}
+
 class Input$profile_bool_exp {
   factory Input$profile_bool_exp({
     List<Input$profile_bool_exp>? $_and,
     Input$profile_bool_exp? $_not,
     List<Input$profile_bool_exp>? $_or,
+    Input$bank_card_bool_exp? bank_cards,
+    Input$bank_card_aggregate_bool_exp? bank_cards_aggregate,
     Input$timestamptz_comparison_exp? created_at,
     Input$String_comparison_exp? profile_address,
     Input$String_comparison_exp? profile_first_name,
@@ -61207,6 +70508,9 @@ class Input$profile_bool_exp {
         if ($_and != null) r'_and': $_and,
         if ($_not != null) r'_not': $_not,
         if ($_or != null) r'_or': $_or,
+        if (bank_cards != null) r'bank_cards': bank_cards,
+        if (bank_cards_aggregate != null)
+          r'bank_cards_aggregate': bank_cards_aggregate,
         if (created_at != null) r'created_at': created_at,
         if (profile_address != null) r'profile_address': profile_address,
         if (profile_first_name != null)
@@ -61244,6 +70548,20 @@ class Input$profile_bool_exp {
           ?.map((e) =>
               Input$profile_bool_exp.fromJson((e as Map<String, dynamic>)))
           .toList();
+    }
+    if (data.containsKey('bank_cards')) {
+      final l$bank_cards = data['bank_cards'];
+      result$data['bank_cards'] = l$bank_cards == null
+          ? null
+          : Input$bank_card_bool_exp.fromJson(
+              (l$bank_cards as Map<String, dynamic>));
+    }
+    if (data.containsKey('bank_cards_aggregate')) {
+      final l$bank_cards_aggregate = data['bank_cards_aggregate'];
+      result$data['bank_cards_aggregate'] = l$bank_cards_aggregate == null
+          ? null
+          : Input$bank_card_aggregate_bool_exp.fromJson(
+              (l$bank_cards_aggregate as Map<String, dynamic>));
     }
     if (data.containsKey('created_at')) {
       final l$created_at = data['created_at'];
@@ -61332,6 +70650,10 @@ class Input$profile_bool_exp {
       (_$data['_not'] as Input$profile_bool_exp?);
   List<Input$profile_bool_exp>? get $_or =>
       (_$data['_or'] as List<Input$profile_bool_exp>?);
+  Input$bank_card_bool_exp? get bank_cards =>
+      (_$data['bank_cards'] as Input$bank_card_bool_exp?);
+  Input$bank_card_aggregate_bool_exp? get bank_cards_aggregate =>
+      (_$data['bank_cards_aggregate'] as Input$bank_card_aggregate_bool_exp?);
   Input$timestamptz_comparison_exp? get created_at =>
       (_$data['created_at'] as Input$timestamptz_comparison_exp?);
   Input$String_comparison_exp? get profile_address =>
@@ -61366,6 +70688,14 @@ class Input$profile_bool_exp {
     if (_$data.containsKey('_or')) {
       final l$$_or = $_or;
       result$data['_or'] = l$$_or?.map((e) => e.toJson()).toList();
+    }
+    if (_$data.containsKey('bank_cards')) {
+      final l$bank_cards = bank_cards;
+      result$data['bank_cards'] = l$bank_cards?.toJson();
+    }
+    if (_$data.containsKey('bank_cards_aggregate')) {
+      final l$bank_cards_aggregate = bank_cards_aggregate;
+      result$data['bank_cards_aggregate'] = l$bank_cards_aggregate?.toJson();
     }
     if (_$data.containsKey('created_at')) {
       final l$created_at = created_at;
@@ -61474,6 +70804,24 @@ class Input$profile_bool_exp {
     } else if (l$$_or != lOther$$_or) {
       return false;
     }
+    final l$bank_cards = bank_cards;
+    final lOther$bank_cards = other.bank_cards;
+    if (_$data.containsKey('bank_cards') !=
+        other._$data.containsKey('bank_cards')) {
+      return false;
+    }
+    if (l$bank_cards != lOther$bank_cards) {
+      return false;
+    }
+    final l$bank_cards_aggregate = bank_cards_aggregate;
+    final lOther$bank_cards_aggregate = other.bank_cards_aggregate;
+    if (_$data.containsKey('bank_cards_aggregate') !=
+        other._$data.containsKey('bank_cards_aggregate')) {
+      return false;
+    }
+    if (l$bank_cards_aggregate != lOther$bank_cards_aggregate) {
+      return false;
+    }
     final l$created_at = created_at;
     final lOther$created_at = other.created_at;
     if (_$data.containsKey('created_at') !=
@@ -61579,6 +70927,8 @@ class Input$profile_bool_exp {
     final l$$_and = $_and;
     final l$$_not = $_not;
     final l$$_or = $_or;
+    final l$bank_cards = bank_cards;
+    final l$bank_cards_aggregate = bank_cards_aggregate;
     final l$created_at = created_at;
     final l$profile_address = profile_address;
     final l$profile_first_name = profile_first_name;
@@ -61601,6 +70951,10 @@ class Input$profile_bool_exp {
           ? l$$_or == null
               ? null
               : Object.hashAll(l$$_or.map((v) => v))
+          : const {},
+      _$data.containsKey('bank_cards') ? l$bank_cards : const {},
+      _$data.containsKey('bank_cards_aggregate')
+          ? l$bank_cards_aggregate
           : const {},
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('profile_address') ? l$profile_address : const {},
@@ -61632,6 +70986,8 @@ abstract class CopyWith$Input$profile_bool_exp<TRes> {
     List<Input$profile_bool_exp>? $_and,
     Input$profile_bool_exp? $_not,
     List<Input$profile_bool_exp>? $_or,
+    Input$bank_card_bool_exp? bank_cards,
+    Input$bank_card_aggregate_bool_exp? bank_cards_aggregate,
     Input$timestamptz_comparison_exp? created_at,
     Input$String_comparison_exp? profile_address,
     Input$String_comparison_exp? profile_first_name,
@@ -61655,6 +71011,8 @@ abstract class CopyWith$Input$profile_bool_exp<TRes> {
               Iterable<
                   CopyWith$Input$profile_bool_exp<Input$profile_bool_exp>>?)
           _fn);
+  CopyWith$Input$bank_card_bool_exp<TRes> get bank_cards;
+  CopyWith$Input$bank_card_aggregate_bool_exp<TRes> get bank_cards_aggregate;
   CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at;
   CopyWith$Input$String_comparison_exp<TRes> get profile_address;
   CopyWith$Input$String_comparison_exp<TRes> get profile_first_name;
@@ -61685,6 +71043,8 @@ class _CopyWithImpl$Input$profile_bool_exp<TRes>
     Object? $_and = _undefined,
     Object? $_not = _undefined,
     Object? $_or = _undefined,
+    Object? bank_cards = _undefined,
+    Object? bank_cards_aggregate = _undefined,
     Object? created_at = _undefined,
     Object? profile_address = _undefined,
     Object? profile_first_name = _undefined,
@@ -61703,6 +71063,11 @@ class _CopyWithImpl$Input$profile_bool_exp<TRes>
           '_and': ($_and as List<Input$profile_bool_exp>?),
         if ($_not != _undefined) '_not': ($_not as Input$profile_bool_exp?),
         if ($_or != _undefined) '_or': ($_or as List<Input$profile_bool_exp>?),
+        if (bank_cards != _undefined)
+          'bank_cards': (bank_cards as Input$bank_card_bool_exp?),
+        if (bank_cards_aggregate != _undefined)
+          'bank_cards_aggregate':
+              (bank_cards_aggregate as Input$bank_card_aggregate_bool_exp?),
         if (created_at != _undefined)
           'created_at': (created_at as Input$timestamptz_comparison_exp?),
         if (profile_address != _undefined)
@@ -61755,6 +71120,22 @@ class _CopyWithImpl$Input$profile_bool_exp<TRes>
                 e,
                 (i) => i,
               )))?.toList());
+  CopyWith$Input$bank_card_bool_exp<TRes> get bank_cards {
+    final local$bank_cards = _instance.bank_cards;
+    return local$bank_cards == null
+        ? CopyWith$Input$bank_card_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$bank_card_bool_exp(
+            local$bank_cards, (e) => call(bank_cards: e));
+  }
+
+  CopyWith$Input$bank_card_aggregate_bool_exp<TRes> get bank_cards_aggregate {
+    final local$bank_cards_aggregate = _instance.bank_cards_aggregate;
+    return local$bank_cards_aggregate == null
+        ? CopyWith$Input$bank_card_aggregate_bool_exp.stub(_then(_instance))
+        : CopyWith$Input$bank_card_aggregate_bool_exp(
+            local$bank_cards_aggregate, (e) => call(bank_cards_aggregate: e));
+  }
+
   CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at {
     final local$created_at = _instance.created_at;
     return local$created_at == null
@@ -61853,6 +71234,8 @@ class _CopyWithStubImpl$Input$profile_bool_exp<TRes>
     List<Input$profile_bool_exp>? $_and,
     Input$profile_bool_exp? $_not,
     List<Input$profile_bool_exp>? $_or,
+    Input$bank_card_bool_exp? bank_cards,
+    Input$bank_card_aggregate_bool_exp? bank_cards_aggregate,
     Input$timestamptz_comparison_exp? created_at,
     Input$String_comparison_exp? profile_address,
     Input$String_comparison_exp? profile_first_name,
@@ -61870,6 +71253,10 @@ class _CopyWithStubImpl$Input$profile_bool_exp<TRes>
   CopyWith$Input$profile_bool_exp<TRes> get $_not =>
       CopyWith$Input$profile_bool_exp.stub(_res);
   $_or(_fn) => _res;
+  CopyWith$Input$bank_card_bool_exp<TRes> get bank_cards =>
+      CopyWith$Input$bank_card_bool_exp.stub(_res);
+  CopyWith$Input$bank_card_aggregate_bool_exp<TRes> get bank_cards_aggregate =>
+      CopyWith$Input$bank_card_aggregate_bool_exp.stub(_res);
   CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at =>
       CopyWith$Input$timestamptz_comparison_exp.stub(_res);
   CopyWith$Input$String_comparison_exp<TRes> get profile_address =>
@@ -61896,6 +71283,7 @@ class _CopyWithStubImpl$Input$profile_bool_exp<TRes>
 
 class Input$profile_insert_input {
   factory Input$profile_insert_input({
+    Input$bank_card_arr_rel_insert_input? bank_cards,
     DateTime? created_at,
     String? profile_address,
     String? profile_first_name,
@@ -61908,6 +71296,7 @@ class Input$profile_insert_input {
     UUID? user_id,
   }) =>
       Input$profile_insert_input._({
+        if (bank_cards != null) r'bank_cards': bank_cards,
         if (created_at != null) r'created_at': created_at,
         if (profile_address != null) r'profile_address': profile_address,
         if (profile_first_name != null)
@@ -61925,6 +71314,13 @@ class Input$profile_insert_input {
 
   factory Input$profile_insert_input.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_cards')) {
+      final l$bank_cards = data['bank_cards'];
+      result$data['bank_cards'] = l$bank_cards == null
+          ? null
+          : Input$bank_card_arr_rel_insert_input.fromJson(
+              (l$bank_cards as Map<String, dynamic>));
+    }
     if (data.containsKey('created_at')) {
       final l$created_at = data['created_at'];
       result$data['created_at'] = l$created_at == null
@@ -61978,6 +71374,8 @@ class Input$profile_insert_input {
 
   Map<String, dynamic> _$data;
 
+  Input$bank_card_arr_rel_insert_input? get bank_cards =>
+      (_$data['bank_cards'] as Input$bank_card_arr_rel_insert_input?);
   DateTime? get created_at => (_$data['created_at'] as DateTime?);
   String? get profile_address => (_$data['profile_address'] as String?);
   String? get profile_first_name => (_$data['profile_first_name'] as String?);
@@ -61991,6 +71389,10 @@ class Input$profile_insert_input {
   UUID? get user_id => (_$data['user_id'] as UUID?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_cards')) {
+      final l$bank_cards = bank_cards;
+      result$data['bank_cards'] = l$bank_cards?.toJson();
+    }
     if (_$data.containsKey('created_at')) {
       final l$created_at = created_at;
       result$data['created_at'] = l$created_at?.toIso8601String();
@@ -62046,6 +71448,15 @@ class Input$profile_insert_input {
     }
     if (!(other is Input$profile_insert_input) ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bank_cards = bank_cards;
+    final lOther$bank_cards = other.bank_cards;
+    if (_$data.containsKey('bank_cards') !=
+        other._$data.containsKey('bank_cards')) {
+      return false;
+    }
+    if (l$bank_cards != lOther$bank_cards) {
       return false;
     }
     final l$created_at = created_at;
@@ -62141,6 +71552,7 @@ class Input$profile_insert_input {
 
   @override
   int get hashCode {
+    final l$bank_cards = bank_cards;
     final l$created_at = created_at;
     final l$profile_address = profile_address;
     final l$profile_first_name = profile_first_name;
@@ -62152,6 +71564,7 @@ class Input$profile_insert_input {
     final l$user = user;
     final l$user_id = user_id;
     return Object.hashAll([
+      _$data.containsKey('bank_cards') ? l$bank_cards : const {},
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('profile_address') ? l$profile_address : const {},
       _$data.containsKey('profile_first_name')
@@ -62178,6 +71591,7 @@ abstract class CopyWith$Input$profile_insert_input<TRes> {
       _CopyWithStubImpl$Input$profile_insert_input;
 
   TRes call({
+    Input$bank_card_arr_rel_insert_input? bank_cards,
     DateTime? created_at,
     String? profile_address,
     String? profile_first_name,
@@ -62189,6 +71603,7 @@ abstract class CopyWith$Input$profile_insert_input<TRes> {
     Input$users_obj_rel_insert_input? user,
     UUID? user_id,
   });
+  CopyWith$Input$bank_card_arr_rel_insert_input<TRes> get bank_cards;
   CopyWith$Input$users_obj_rel_insert_input<TRes> get user;
 }
 
@@ -62206,6 +71621,7 @@ class _CopyWithImpl$Input$profile_insert_input<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? bank_cards = _undefined,
     Object? created_at = _undefined,
     Object? profile_address = _undefined,
     Object? profile_first_name = _undefined,
@@ -62219,6 +71635,8 @@ class _CopyWithImpl$Input$profile_insert_input<TRes>
   }) =>
       _then(Input$profile_insert_input._({
         ..._instance._$data,
+        if (bank_cards != _undefined)
+          'bank_cards': (bank_cards as Input$bank_card_arr_rel_insert_input?),
         if (created_at != _undefined) 'created_at': (created_at as DateTime?),
         if (profile_address != _undefined)
           'profile_address': (profile_address as String?),
@@ -62237,6 +71655,14 @@ class _CopyWithImpl$Input$profile_insert_input<TRes>
           'user': (user as Input$users_obj_rel_insert_input?),
         if (user_id != _undefined) 'user_id': (user_id as UUID?),
       }));
+  CopyWith$Input$bank_card_arr_rel_insert_input<TRes> get bank_cards {
+    final local$bank_cards = _instance.bank_cards;
+    return local$bank_cards == null
+        ? CopyWith$Input$bank_card_arr_rel_insert_input.stub(_then(_instance))
+        : CopyWith$Input$bank_card_arr_rel_insert_input(
+            local$bank_cards, (e) => call(bank_cards: e));
+  }
+
   CopyWith$Input$users_obj_rel_insert_input<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
@@ -62253,6 +71679,7 @@ class _CopyWithStubImpl$Input$profile_insert_input<TRes>
   TRes _res;
 
   call({
+    Input$bank_card_arr_rel_insert_input? bank_cards,
     DateTime? created_at,
     String? profile_address,
     String? profile_first_name,
@@ -62265,6 +71692,8 @@ class _CopyWithStubImpl$Input$profile_insert_input<TRes>
     UUID? user_id,
   }) =>
       _res;
+  CopyWith$Input$bank_card_arr_rel_insert_input<TRes> get bank_cards =>
+      CopyWith$Input$bank_card_arr_rel_insert_input.stub(_res);
   CopyWith$Input$users_obj_rel_insert_input<TRes> get user =>
       CopyWith$Input$users_obj_rel_insert_input.stub(_res);
 }
@@ -62610,6 +72039,7 @@ class _CopyWithStubImpl$Input$profile_on_conflict<TRes>
 
 class Input$profile_order_by {
   factory Input$profile_order_by({
+    Input$bank_card_aggregate_order_by? bank_cards_aggregate,
     Enum$order_by? created_at,
     Enum$order_by? profile_address,
     Enum$order_by? profile_first_name,
@@ -62623,6 +72053,8 @@ class Input$profile_order_by {
     Enum$order_by? user_id,
   }) =>
       Input$profile_order_by._({
+        if (bank_cards_aggregate != null)
+          r'bank_cards_aggregate': bank_cards_aggregate,
         if (created_at != null) r'created_at': created_at,
         if (profile_address != null) r'profile_address': profile_address,
         if (profile_first_name != null)
@@ -62641,6 +72073,13 @@ class Input$profile_order_by {
 
   factory Input$profile_order_by.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('bank_cards_aggregate')) {
+      final l$bank_cards_aggregate = data['bank_cards_aggregate'];
+      result$data['bank_cards_aggregate'] = l$bank_cards_aggregate == null
+          ? null
+          : Input$bank_card_aggregate_order_by.fromJson(
+              (l$bank_cards_aggregate as Map<String, dynamic>));
+    }
     if (data.containsKey('created_at')) {
       final l$created_at = data['created_at'];
       result$data['created_at'] = l$created_at == null
@@ -62712,6 +72151,8 @@ class Input$profile_order_by {
 
   Map<String, dynamic> _$data;
 
+  Input$bank_card_aggregate_order_by? get bank_cards_aggregate =>
+      (_$data['bank_cards_aggregate'] as Input$bank_card_aggregate_order_by?);
   Enum$order_by? get created_at => (_$data['created_at'] as Enum$order_by?);
   Enum$order_by? get profile_address =>
       (_$data['profile_address'] as Enum$order_by?);
@@ -62731,6 +72172,10 @@ class Input$profile_order_by {
   Enum$order_by? get user_id => (_$data['user_id'] as Enum$order_by?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('bank_cards_aggregate')) {
+      final l$bank_cards_aggregate = bank_cards_aggregate;
+      result$data['bank_cards_aggregate'] = l$bank_cards_aggregate?.toJson();
+    }
     if (_$data.containsKey('created_at')) {
       final l$created_at = created_at;
       result$data['created_at'] =
@@ -62806,6 +72251,15 @@ class Input$profile_order_by {
     }
     if (!(other is Input$profile_order_by) ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$bank_cards_aggregate = bank_cards_aggregate;
+    final lOther$bank_cards_aggregate = other.bank_cards_aggregate;
+    if (_$data.containsKey('bank_cards_aggregate') !=
+        other._$data.containsKey('bank_cards_aggregate')) {
+      return false;
+    }
+    if (l$bank_cards_aggregate != lOther$bank_cards_aggregate) {
       return false;
     }
     final l$created_at = created_at;
@@ -62910,6 +72364,7 @@ class Input$profile_order_by {
 
   @override
   int get hashCode {
+    final l$bank_cards_aggregate = bank_cards_aggregate;
     final l$created_at = created_at;
     final l$profile_address = profile_address;
     final l$profile_first_name = profile_first_name;
@@ -62922,6 +72377,9 @@ class Input$profile_order_by {
     final l$user = user;
     final l$user_id = user_id;
     return Object.hashAll([
+      _$data.containsKey('bank_cards_aggregate')
+          ? l$bank_cards_aggregate
+          : const {},
       _$data.containsKey('created_at') ? l$created_at : const {},
       _$data.containsKey('profile_address') ? l$profile_address : const {},
       _$data.containsKey('profile_first_name')
@@ -62949,6 +72407,7 @@ abstract class CopyWith$Input$profile_order_by<TRes> {
       _CopyWithStubImpl$Input$profile_order_by;
 
   TRes call({
+    Input$bank_card_aggregate_order_by? bank_cards_aggregate,
     Enum$order_by? created_at,
     Enum$order_by? profile_address,
     Enum$order_by? profile_first_name,
@@ -62961,6 +72420,7 @@ abstract class CopyWith$Input$profile_order_by<TRes> {
     Input$users_order_by? user,
     Enum$order_by? user_id,
   });
+  CopyWith$Input$bank_card_aggregate_order_by<TRes> get bank_cards_aggregate;
   CopyWith$Input$users_order_by<TRes> get user;
 }
 
@@ -62978,6 +72438,7 @@ class _CopyWithImpl$Input$profile_order_by<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? bank_cards_aggregate = _undefined,
     Object? created_at = _undefined,
     Object? profile_address = _undefined,
     Object? profile_first_name = _undefined,
@@ -62992,6 +72453,9 @@ class _CopyWithImpl$Input$profile_order_by<TRes>
   }) =>
       _then(Input$profile_order_by._({
         ..._instance._$data,
+        if (bank_cards_aggregate != _undefined)
+          'bank_cards_aggregate':
+              (bank_cards_aggregate as Input$bank_card_aggregate_order_by?),
         if (created_at != _undefined)
           'created_at': (created_at as Enum$order_by?),
         if (profile_address != _undefined)
@@ -63013,6 +72477,14 @@ class _CopyWithImpl$Input$profile_order_by<TRes>
         if (user != _undefined) 'user': (user as Input$users_order_by?),
         if (user_id != _undefined) 'user_id': (user_id as Enum$order_by?),
       }));
+  CopyWith$Input$bank_card_aggregate_order_by<TRes> get bank_cards_aggregate {
+    final local$bank_cards_aggregate = _instance.bank_cards_aggregate;
+    return local$bank_cards_aggregate == null
+        ? CopyWith$Input$bank_card_aggregate_order_by.stub(_then(_instance))
+        : CopyWith$Input$bank_card_aggregate_order_by(
+            local$bank_cards_aggregate, (e) => call(bank_cards_aggregate: e));
+  }
+
   CopyWith$Input$users_order_by<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
@@ -63028,6 +72500,7 @@ class _CopyWithStubImpl$Input$profile_order_by<TRes>
   TRes _res;
 
   call({
+    Input$bank_card_aggregate_order_by? bank_cards_aggregate,
     Enum$order_by? created_at,
     Enum$order_by? profile_address,
     Enum$order_by? profile_first_name,
@@ -63041,6 +72514,8 @@ class _CopyWithStubImpl$Input$profile_order_by<TRes>
     Enum$order_by? user_id,
   }) =>
       _res;
+  CopyWith$Input$bank_card_aggregate_order_by<TRes> get bank_cards_aggregate =>
+      CopyWith$Input$bank_card_aggregate_order_by.stub(_res);
   CopyWith$Input$users_order_by<TRes> get user =>
       CopyWith$Input$users_order_by.stub(_res);
 }
@@ -65908,7 +75383,7 @@ class Input$proposal_bool_exp {
     Input$timestamptz_comparison_exp? created_at,
     Input$investment_bool_exp? investments,
     Input$investment_aggregate_bool_exp? investments_aggregate,
-    Input$Int_comparison_exp? proposal_amount,
+    Input$bigint_comparison_exp? proposal_amount,
     Input$Boolean_comparison_exp? proposal_approved,
     Input$String_comparison_exp? proposal_content,
     Input$date_comparison_exp? proposal_date,
@@ -65986,7 +75461,7 @@ class Input$proposal_bool_exp {
       final l$proposal_amount = data['proposal_amount'];
       result$data['proposal_amount'] = l$proposal_amount == null
           ? null
-          : Input$Int_comparison_exp.fromJson(
+          : Input$bigint_comparison_exp.fromJson(
               (l$proposal_amount as Map<String, dynamic>));
     }
     if (data.containsKey('proposal_approved')) {
@@ -66061,8 +75536,8 @@ class Input$proposal_bool_exp {
       (_$data['investments'] as Input$investment_bool_exp?);
   Input$investment_aggregate_bool_exp? get investments_aggregate =>
       (_$data['investments_aggregate'] as Input$investment_aggregate_bool_exp?);
-  Input$Int_comparison_exp? get proposal_amount =>
-      (_$data['proposal_amount'] as Input$Int_comparison_exp?);
+  Input$bigint_comparison_exp? get proposal_amount =>
+      (_$data['proposal_amount'] as Input$bigint_comparison_exp?);
   Input$Boolean_comparison_exp? get proposal_approved =>
       (_$data['proposal_approved'] as Input$Boolean_comparison_exp?);
   Input$String_comparison_exp? get proposal_content =>
@@ -66375,7 +75850,7 @@ abstract class CopyWith$Input$proposal_bool_exp<TRes> {
     Input$timestamptz_comparison_exp? created_at,
     Input$investment_bool_exp? investments,
     Input$investment_aggregate_bool_exp? investments_aggregate,
-    Input$Int_comparison_exp? proposal_amount,
+    Input$bigint_comparison_exp? proposal_amount,
     Input$Boolean_comparison_exp? proposal_approved,
     Input$String_comparison_exp? proposal_content,
     Input$date_comparison_exp? proposal_date,
@@ -66399,7 +75874,7 @@ abstract class CopyWith$Input$proposal_bool_exp<TRes> {
   CopyWith$Input$timestamptz_comparison_exp<TRes> get created_at;
   CopyWith$Input$investment_bool_exp<TRes> get investments;
   CopyWith$Input$investment_aggregate_bool_exp<TRes> get investments_aggregate;
-  CopyWith$Input$Int_comparison_exp<TRes> get proposal_amount;
+  CopyWith$Input$bigint_comparison_exp<TRes> get proposal_amount;
   CopyWith$Input$Boolean_comparison_exp<TRes> get proposal_approved;
   CopyWith$Input$String_comparison_exp<TRes> get proposal_content;
   CopyWith$Input$date_comparison_exp<TRes> get proposal_date;
@@ -66454,7 +75929,7 @@ class _CopyWithImpl$Input$proposal_bool_exp<TRes>
           'investments_aggregate':
               (investments_aggregate as Input$investment_aggregate_bool_exp?),
         if (proposal_amount != _undefined)
-          'proposal_amount': (proposal_amount as Input$Int_comparison_exp?),
+          'proposal_amount': (proposal_amount as Input$bigint_comparison_exp?),
         if (proposal_approved != _undefined)
           'proposal_approved':
               (proposal_approved as Input$Boolean_comparison_exp?),
@@ -66527,11 +76002,11 @@ class _CopyWithImpl$Input$proposal_bool_exp<TRes>
             local$investments_aggregate, (e) => call(investments_aggregate: e));
   }
 
-  CopyWith$Input$Int_comparison_exp<TRes> get proposal_amount {
+  CopyWith$Input$bigint_comparison_exp<TRes> get proposal_amount {
     final local$proposal_amount = _instance.proposal_amount;
     return local$proposal_amount == null
-        ? CopyWith$Input$Int_comparison_exp.stub(_then(_instance))
-        : CopyWith$Input$Int_comparison_exp(
+        ? CopyWith$Input$bigint_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$bigint_comparison_exp(
             local$proposal_amount, (e) => call(proposal_amount: e));
   }
 
@@ -66612,7 +76087,7 @@ class _CopyWithStubImpl$Input$proposal_bool_exp<TRes>
     Input$timestamptz_comparison_exp? created_at,
     Input$investment_bool_exp? investments,
     Input$investment_aggregate_bool_exp? investments_aggregate,
-    Input$Int_comparison_exp? proposal_amount,
+    Input$bigint_comparison_exp? proposal_amount,
     Input$Boolean_comparison_exp? proposal_approved,
     Input$String_comparison_exp? proposal_content,
     Input$date_comparison_exp? proposal_date,
@@ -66634,8 +76109,8 @@ class _CopyWithStubImpl$Input$proposal_bool_exp<TRes>
   CopyWith$Input$investment_aggregate_bool_exp<TRes>
       get investments_aggregate =>
           CopyWith$Input$investment_aggregate_bool_exp.stub(_res);
-  CopyWith$Input$Int_comparison_exp<TRes> get proposal_amount =>
-      CopyWith$Input$Int_comparison_exp.stub(_res);
+  CopyWith$Input$bigint_comparison_exp<TRes> get proposal_amount =>
+      CopyWith$Input$bigint_comparison_exp.stub(_res);
   CopyWith$Input$Boolean_comparison_exp<TRes> get proposal_approved =>
       CopyWith$Input$Boolean_comparison_exp.stub(_res);
   CopyWith$Input$String_comparison_exp<TRes> get proposal_content =>
@@ -85693,6 +95168,134 @@ Enum$authUserSecurityKeys_update_column
   }
 }
 
+enum Enum$bank_card_constraint { bank_card_pkey, $unknown }
+
+String toJson$Enum$bank_card_constraint(Enum$bank_card_constraint e) {
+  switch (e) {
+    case Enum$bank_card_constraint.bank_card_pkey:
+      return r'bank_card_pkey';
+    case Enum$bank_card_constraint.$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$bank_card_constraint fromJson$Enum$bank_card_constraint(String value) {
+  switch (value) {
+    case r'bank_card_pkey':
+      return Enum$bank_card_constraint.bank_card_pkey;
+    default:
+      return Enum$bank_card_constraint.$unknown;
+  }
+}
+
+enum Enum$bank_card_select_column {
+  bank_card_cvc,
+  bank_card_id,
+  bank_card_name,
+  bank_card_number,
+  created_at,
+  profile_id,
+  updated_at,
+  $unknown
+}
+
+String toJson$Enum$bank_card_select_column(Enum$bank_card_select_column e) {
+  switch (e) {
+    case Enum$bank_card_select_column.bank_card_cvc:
+      return r'bank_card_cvc';
+    case Enum$bank_card_select_column.bank_card_id:
+      return r'bank_card_id';
+    case Enum$bank_card_select_column.bank_card_name:
+      return r'bank_card_name';
+    case Enum$bank_card_select_column.bank_card_number:
+      return r'bank_card_number';
+    case Enum$bank_card_select_column.created_at:
+      return r'created_at';
+    case Enum$bank_card_select_column.profile_id:
+      return r'profile_id';
+    case Enum$bank_card_select_column.updated_at:
+      return r'updated_at';
+    case Enum$bank_card_select_column.$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$bank_card_select_column fromJson$Enum$bank_card_select_column(
+    String value) {
+  switch (value) {
+    case r'bank_card_cvc':
+      return Enum$bank_card_select_column.bank_card_cvc;
+    case r'bank_card_id':
+      return Enum$bank_card_select_column.bank_card_id;
+    case r'bank_card_name':
+      return Enum$bank_card_select_column.bank_card_name;
+    case r'bank_card_number':
+      return Enum$bank_card_select_column.bank_card_number;
+    case r'created_at':
+      return Enum$bank_card_select_column.created_at;
+    case r'profile_id':
+      return Enum$bank_card_select_column.profile_id;
+    case r'updated_at':
+      return Enum$bank_card_select_column.updated_at;
+    default:
+      return Enum$bank_card_select_column.$unknown;
+  }
+}
+
+enum Enum$bank_card_update_column {
+  bank_card_cvc,
+  bank_card_id,
+  bank_card_name,
+  bank_card_number,
+  created_at,
+  profile_id,
+  updated_at,
+  $unknown
+}
+
+String toJson$Enum$bank_card_update_column(Enum$bank_card_update_column e) {
+  switch (e) {
+    case Enum$bank_card_update_column.bank_card_cvc:
+      return r'bank_card_cvc';
+    case Enum$bank_card_update_column.bank_card_id:
+      return r'bank_card_id';
+    case Enum$bank_card_update_column.bank_card_name:
+      return r'bank_card_name';
+    case Enum$bank_card_update_column.bank_card_number:
+      return r'bank_card_number';
+    case Enum$bank_card_update_column.created_at:
+      return r'created_at';
+    case Enum$bank_card_update_column.profile_id:
+      return r'profile_id';
+    case Enum$bank_card_update_column.updated_at:
+      return r'updated_at';
+    case Enum$bank_card_update_column.$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$bank_card_update_column fromJson$Enum$bank_card_update_column(
+    String value) {
+  switch (value) {
+    case r'bank_card_cvc':
+      return Enum$bank_card_update_column.bank_card_cvc;
+    case r'bank_card_id':
+      return Enum$bank_card_update_column.bank_card_id;
+    case r'bank_card_name':
+      return Enum$bank_card_update_column.bank_card_name;
+    case r'bank_card_number':
+      return Enum$bank_card_update_column.bank_card_number;
+    case r'created_at':
+      return Enum$bank_card_update_column.created_at;
+    case r'profile_id':
+      return Enum$bank_card_update_column.profile_id;
+    case r'updated_at':
+      return Enum$bank_card_update_column.updated_at;
+    default:
+      return Enum$bank_card_update_column.$unknown;
+  }
+}
+
 enum Enum$blog_constraint { blog_pkey, $unknown }
 
 String toJson$Enum$blog_constraint(Enum$blog_constraint e) {
@@ -86602,6 +96205,7 @@ Enum$payment_due_constraint fromJson$Enum$payment_due_constraint(String value) {
 }
 
 enum Enum$payment_due_select_column {
+  bank_card_id,
   created_at,
   deadline,
   fulfilled,
@@ -86614,6 +96218,8 @@ enum Enum$payment_due_select_column {
 
 String toJson$Enum$payment_due_select_column(Enum$payment_due_select_column e) {
   switch (e) {
+    case Enum$payment_due_select_column.bank_card_id:
+      return r'bank_card_id';
     case Enum$payment_due_select_column.created_at:
       return r'created_at';
     case Enum$payment_due_select_column.deadline:
@@ -86636,6 +96242,8 @@ String toJson$Enum$payment_due_select_column(Enum$payment_due_select_column e) {
 Enum$payment_due_select_column fromJson$Enum$payment_due_select_column(
     String value) {
   switch (value) {
+    case r'bank_card_id':
+      return Enum$payment_due_select_column.bank_card_id;
     case r'created_at':
       return Enum$payment_due_select_column.created_at;
     case r'deadline':
@@ -86718,6 +96326,7 @@ Enum$payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_
 }
 
 enum Enum$payment_due_update_column {
+  bank_card_id,
   created_at,
   deadline,
   fulfilled,
@@ -86730,6 +96339,8 @@ enum Enum$payment_due_update_column {
 
 String toJson$Enum$payment_due_update_column(Enum$payment_due_update_column e) {
   switch (e) {
+    case Enum$payment_due_update_column.bank_card_id:
+      return r'bank_card_id';
     case Enum$payment_due_update_column.created_at:
       return r'created_at';
     case Enum$payment_due_update_column.deadline:
@@ -86752,6 +96363,8 @@ String toJson$Enum$payment_due_update_column(Enum$payment_due_update_column e) {
 Enum$payment_due_update_column fromJson$Enum$payment_due_update_column(
     String value) {
   switch (value) {
+    case r'bank_card_id':
+      return Enum$payment_due_update_column.bank_card_id;
     case r'created_at':
       return Enum$payment_due_update_column.created_at;
     case r'deadline':
@@ -86794,6 +96407,7 @@ Enum$payment_investment_constraint fromJson$Enum$payment_investment_constraint(
 }
 
 enum Enum$payment_investment_select_column {
+  bank_card_id,
   created_at,
   investment_id,
   payment_investment_fulfilled,
@@ -86805,6 +96419,8 @@ enum Enum$payment_investment_select_column {
 String toJson$Enum$payment_investment_select_column(
     Enum$payment_investment_select_column e) {
   switch (e) {
+    case Enum$payment_investment_select_column.bank_card_id:
+      return r'bank_card_id';
     case Enum$payment_investment_select_column.created_at:
       return r'created_at';
     case Enum$payment_investment_select_column.investment_id:
@@ -86823,6 +96439,8 @@ String toJson$Enum$payment_investment_select_column(
 Enum$payment_investment_select_column
     fromJson$Enum$payment_investment_select_column(String value) {
   switch (value) {
+    case r'bank_card_id':
+      return Enum$payment_investment_select_column.bank_card_id;
     case r'created_at':
       return Enum$payment_investment_select_column.created_at;
     case r'investment_id':
@@ -86838,7 +96456,70 @@ Enum$payment_investment_select_column
   }
 }
 
+enum Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_and_arguments_columns {
+  payment_investment_fulfilled,
+  $unknown
+}
+
+String toJson$Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_and_arguments_columns(
+    Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_and_arguments_columns
+        e) {
+  switch (e) {
+    case Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_and_arguments_columns
+          .payment_investment_fulfilled:
+      return r'payment_investment_fulfilled';
+    case Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_and_arguments_columns
+          .$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_and_arguments_columns
+    fromJson$Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_and_arguments_columns(
+        String value) {
+  switch (value) {
+    case r'payment_investment_fulfilled':
+      return Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_and_arguments_columns
+          .payment_investment_fulfilled;
+    default:
+      return Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_and_arguments_columns
+          .$unknown;
+  }
+}
+
+enum Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_or_arguments_columns {
+  payment_investment_fulfilled,
+  $unknown
+}
+
+String toJson$Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_or_arguments_columns(
+    Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_or_arguments_columns
+        e) {
+  switch (e) {
+    case Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_or_arguments_columns
+          .payment_investment_fulfilled:
+      return r'payment_investment_fulfilled';
+    case Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_or_arguments_columns
+          .$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_or_arguments_columns
+    fromJson$Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_or_arguments_columns(
+        String value) {
+  switch (value) {
+    case r'payment_investment_fulfilled':
+      return Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_or_arguments_columns
+          .payment_investment_fulfilled;
+    default:
+      return Enum$payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_or_arguments_columns
+          .$unknown;
+  }
+}
+
 enum Enum$payment_investment_update_column {
+  bank_card_id,
   created_at,
   investment_id,
   payment_investment_fulfilled,
@@ -86850,6 +96531,8 @@ enum Enum$payment_investment_update_column {
 String toJson$Enum$payment_investment_update_column(
     Enum$payment_investment_update_column e) {
   switch (e) {
+    case Enum$payment_investment_update_column.bank_card_id:
+      return r'bank_card_id';
     case Enum$payment_investment_update_column.created_at:
       return r'created_at';
     case Enum$payment_investment_update_column.investment_id:
@@ -86868,6 +96551,8 @@ String toJson$Enum$payment_investment_update_column(
 Enum$payment_investment_update_column
     fromJson$Enum$payment_investment_update_column(String value) {
   switch (value) {
+    case r'bank_card_id':
+      return Enum$payment_investment_update_column.bank_card_id;
     case r'created_at':
       return Enum$payment_investment_update_column.created_at;
     case r'investment_id':

@@ -1,0 +1,158 @@
+fragment paymentInvestmentData on payment_investment {
+    payment_investment_id
+    payment_investment_fulfilled
+    payment_investment_id
+    updated_at
+    created_at
+    bank_card_used {
+        bank_card_id
+    }
+}
+
+mutation InsertPaymentInvestmentMutation(
+    $data: payment_investment_insert_input!
+) {
+    insert_payment_investment_one(object: $data) {
+        ...paymentInvestmentData
+    }
+}
+
+mutation UpdatePaymentInvestmentMutation(
+    $data: payment_investment_set_input!
+    $payment_investment_id: uuid!
+) {
+    update_payment_investment(
+        _set: $data
+        where: { payment_investment_id: { _eq: $payment_investment_id } }
+    ) {
+        returning {
+            ...paymentInvestmentData
+        }
+    }
+}
+
+query GetUserInvestorPaymentInvestmentQuery(
+    $user_id: uuid!
+    $limit: Int
+    $distinct_on: [payment_investment_select_column!]
+    $offset: Int
+    $order_by: [payment_investment_order_by!]
+) {
+    payment_investment(
+        where: { investment: { investor: { user_id: { _eq: $user_id } } } }
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...paymentInvestmentData
+    }
+}
+
+query GetByPkPaymentInvestmentQuery($payment_investment_id: uuid!) {
+    payment_investment_by_pk(payment_investment_id: $payment_investment_id) {
+        ...paymentInvestmentData
+        investment {
+            ...investmentData
+        }
+    }
+}
+
+fragment paymentInvestmentAggregate on payment_investment_aggregate {
+    aggregate {
+        count
+    }
+}
+
+query GetAllPaymentInvestmentAggregate(
+    $where: payment_investment_bool_exp
+    $limit: Int
+    $distinct_on: [payment_investment_select_column!]
+    $offset: Int
+    $order_by: [payment_investment_order_by!]
+) {
+    payment_investment_aggregate(
+        where: $where
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...paymentInvestmentAggregate
+    }
+}
+
+query GetInvestorPaymentInvestmentAggregate(
+    $investor_id: Int
+    $limit: Int
+    $distinct_on: [payment_investment_select_column!]
+    $offset: Int
+    $order_by: [payment_investment_order_by!]
+) {
+    payment_investment_aggregate(
+        where: { investment: { investor_id: { _eq: $investor_id } } }
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...paymentInvestmentAggregate
+    }
+}
+
+query GetUserPaymentInvestmentAggregate(
+    $user_id: uuid!
+    $limit: Int
+    $distinct_on: [payment_investment_select_column!]
+    $offset: Int
+    $order_by: [payment_investment_order_by!]
+) {
+    payment_investment_aggregate(
+        where: { investment: { investor: { user_id: { _eq: $user_id } } } }
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...paymentInvestmentAggregate
+    }
+}
+
+query GetAllPaymentInvestmentQuery(
+    $where: payment_investment_bool_exp
+    $limit: Int
+    $distinct_on: [payment_investment_select_column!]
+    $offset: Int
+    $order_by: [payment_investment_order_by!]
+) {
+    payment_investment(
+        where: $where
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...paymentInvestmentData
+    }
+}
+
+query GetAllPaymentInvestmentInvestorQuery(
+    $where: payment_investment_bool_exp
+    $limit: Int
+    $distinct_on: [payment_investment_select_column!]
+    $offset: Int
+    $order_by: [payment_investment_order_by!]
+) {
+    payment_investment(
+        where: $where
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...paymentInvestmentData
+        investment {
+            ...investmentData
+        }
+    }
+}

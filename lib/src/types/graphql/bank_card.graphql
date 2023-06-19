@@ -1,0 +1,130 @@
+fragment bankCardData on bank_card {
+    bank_card_id
+    bank_card_name
+    bank_card_number
+    bank_card_cvc
+    updated_at
+    created_at
+}
+
+mutation InsertBankCardMutation($data: bank_card_insert_input!) {
+    insert_bank_card_one(object: $data) {
+        ...bankCardData
+    }
+}
+
+mutation UpdateBankCardMutation(
+    $data: bank_card_set_input!
+    $bank_card_id: uuid!
+) {
+    update_bank_card(
+        _set: $data
+        where: { bank_card_id: { _eq: $bank_card_id } }
+    ) {
+        returning {
+            ...bankCardData
+        }
+    }
+}
+
+query GetUserInvestorBankCardQuery(
+    $user_id: uuid!
+    $limit: Int
+    $distinct_on: [bank_card_select_column!]
+    $offset: Int
+    $order_by: [bank_card_order_by!]
+) {
+    bank_card(
+        where: { profile: { user_id: { _eq: $user_id } } }
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...bankCardData
+    }
+}
+
+query GetByPkBankCardQuery($bank_card_id: uuid!) {
+    bank_card_by_pk(bank_card_id: $bank_card_id) {
+        ...bankCardData
+    }
+}
+
+fragment bankCardAggregate on bank_card_aggregate {
+    aggregate {
+        count
+    }
+}
+
+query GetAllBankCardAggregate(
+    $where: bank_card_bool_exp
+    $limit: Int
+    $distinct_on: [bank_card_select_column!]
+    $offset: Int
+    $order_by: [bank_card_order_by!]
+) {
+    bank_card_aggregate(
+        where: $where
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...bankCardAggregate
+    }
+}
+
+query GetUserBankCardAggregate(
+    $user_id: uuid!
+    $limit: Int
+    $distinct_on: [bank_card_select_column!]
+    $offset: Int
+    $order_by: [bank_card_order_by!]
+) {
+    bank_card_aggregate(
+        where: { profile: { user_id: { _eq: $user_id } } }
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...bankCardAggregate
+    }
+}
+
+query GetAllBankCardQuery(
+    $where: bank_card_bool_exp
+    $limit: Int
+    $distinct_on: [bank_card_select_column!]
+    $offset: Int
+    $order_by: [bank_card_order_by!]
+) {
+    bank_card(
+        where: $where
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...bankCardData
+    }
+}
+
+query GetUserBankCardQuery(
+    $user_id: uuid!
+    $limit: Int
+    $distinct_on: [bank_card_select_column!]
+    $offset: Int
+    $order_by: [bank_card_order_by!]
+) {
+    bank_card(
+        where: { profile: { user_id: { _eq: $user_id } } }
+        limit: $limit
+        distinct_on: $distinct_on
+        offset: $offset
+        order_by: $order_by
+    ) {
+        ...bankCardData
+    }
+}

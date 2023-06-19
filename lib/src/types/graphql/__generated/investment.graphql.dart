@@ -16,6 +16,7 @@ class Fragment$investmentData {
     required this.investment_amount,
     this.updated_at,
     this.created_at,
+    this.payment_investment,
     this.$__typename = 'investment',
   });
 
@@ -25,6 +26,7 @@ class Fragment$investmentData {
     final l$investment_amount = json['investment_amount'];
     final l$updated_at = json['updated_at'];
     final l$created_at = json['created_at'];
+    final l$payment_investment = json['payment_investment'];
     final l$$__typename = json['__typename'];
     return Fragment$investmentData(
       investment_id: (l$investment_id as int),
@@ -36,6 +38,10 @@ class Fragment$investmentData {
       created_at: l$created_at == null
           ? null
           : DateTime.parse((l$created_at as String)),
+      payment_investment: l$payment_investment == null
+          ? null
+          : Fragment$investmentData$payment_investment.fromJson(
+              (l$payment_investment as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -49,6 +55,8 @@ class Fragment$investmentData {
   final DateTime? updated_at;
 
   final DateTime? created_at;
+
+  final Fragment$investmentData$payment_investment? payment_investment;
 
   final String $__typename;
 
@@ -64,6 +72,8 @@ class Fragment$investmentData {
     _resultData['updated_at'] = l$updated_at?.toIso8601String();
     final l$created_at = created_at;
     _resultData['created_at'] = l$created_at?.toIso8601String();
+    final l$payment_investment = payment_investment;
+    _resultData['payment_investment'] = l$payment_investment?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -76,6 +86,7 @@ class Fragment$investmentData {
     final l$investment_amount = investment_amount;
     final l$updated_at = updated_at;
     final l$created_at = created_at;
+    final l$payment_investment = payment_investment;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$investment_id,
@@ -83,6 +94,7 @@ class Fragment$investmentData {
       l$investment_amount,
       l$updated_at,
       l$created_at,
+      l$payment_investment,
       l$$__typename,
     ]);
   }
@@ -121,6 +133,11 @@ class Fragment$investmentData {
     if (l$created_at != lOther$created_at) {
       return false;
     }
+    final l$payment_investment = payment_investment;
+    final lOther$payment_investment = other.payment_investment;
+    if (l$payment_investment != lOther$payment_investment) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) {
@@ -153,8 +170,11 @@ abstract class CopyWith$Fragment$investmentData<TRes> {
     int? investment_amount,
     DateTime? updated_at,
     DateTime? created_at,
+    Fragment$investmentData$payment_investment? payment_investment,
     String? $__typename,
   });
+  CopyWith$Fragment$investmentData$payment_investment<TRes>
+      get payment_investment;
 }
 
 class _CopyWithImpl$Fragment$investmentData<TRes>
@@ -176,6 +196,7 @@ class _CopyWithImpl$Fragment$investmentData<TRes>
     Object? investment_amount = _undefined,
     Object? updated_at = _undefined,
     Object? created_at = _undefined,
+    Object? payment_investment = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Fragment$investmentData(
@@ -195,10 +216,23 @@ class _CopyWithImpl$Fragment$investmentData<TRes>
         created_at: created_at == _undefined
             ? _instance.created_at
             : (created_at as DateTime?),
+        payment_investment: payment_investment == _undefined
+            ? _instance.payment_investment
+            : (payment_investment
+                as Fragment$investmentData$payment_investment?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
+  CopyWith$Fragment$investmentData$payment_investment<TRes>
+      get payment_investment {
+    final local$payment_investment = _instance.payment_investment;
+    return local$payment_investment == null
+        ? CopyWith$Fragment$investmentData$payment_investment.stub(
+            _then(_instance))
+        : CopyWith$Fragment$investmentData$payment_investment(
+            local$payment_investment, (e) => call(payment_investment: e));
+  }
 }
 
 class _CopyWithStubImpl$Fragment$investmentData<TRes>
@@ -213,9 +247,13 @@ class _CopyWithStubImpl$Fragment$investmentData<TRes>
     int? investment_amount,
     DateTime? updated_at,
     DateTime? created_at,
+    Fragment$investmentData$payment_investment? payment_investment,
     String? $__typename,
   }) =>
       _res;
+  CopyWith$Fragment$investmentData$payment_investment<TRes>
+      get payment_investment =>
+          CopyWith$Fragment$investmentData$payment_investment.stub(_res);
 }
 
 const fragmentDefinitioninvestmentData = FragmentDefinitionNode(
@@ -263,6 +301,28 @@ const fragmentDefinitioninvestmentData = FragmentDefinitionNode(
       selectionSet: null,
     ),
     FieldNode(
+      name: NameNode(value: 'payment_investment'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FieldNode(
+          name: NameNode(value: 'payment_investment_id'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+      ]),
+    ),
+    FieldNode(
       name: NameNode(value: '__typename'),
       alias: null,
       arguments: [],
@@ -308,6 +368,134 @@ extension ClientExtension$Fragment$investmentData on graphql.GraphQLClient {
     );
     return result == null ? null : Fragment$investmentData.fromJson(result);
   }
+}
+
+class Fragment$investmentData$payment_investment {
+  Fragment$investmentData$payment_investment({
+    required this.payment_investment_id,
+    this.$__typename = 'payment_investment',
+  });
+
+  factory Fragment$investmentData$payment_investment.fromJson(
+      Map<String, dynamic> json) {
+    final l$payment_investment_id = json['payment_investment_id'];
+    final l$$__typename = json['__typename'];
+    return Fragment$investmentData$payment_investment(
+      payment_investment_id: uuidFromJson(l$payment_investment_id),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final UUID payment_investment_id;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$payment_investment_id = payment_investment_id;
+    _resultData['payment_investment_id'] = uuidToJson(l$payment_investment_id);
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$payment_investment_id = payment_investment_id;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$payment_investment_id,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$investmentData$payment_investment) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$payment_investment_id = payment_investment_id;
+    final lOther$payment_investment_id = other.payment_investment_id;
+    if (l$payment_investment_id != lOther$payment_investment_id) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$investmentData$payment_investment
+    on Fragment$investmentData$payment_investment {
+  CopyWith$Fragment$investmentData$payment_investment<
+          Fragment$investmentData$payment_investment>
+      get copyWith => CopyWith$Fragment$investmentData$payment_investment(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$investmentData$payment_investment<TRes> {
+  factory CopyWith$Fragment$investmentData$payment_investment(
+    Fragment$investmentData$payment_investment instance,
+    TRes Function(Fragment$investmentData$payment_investment) then,
+  ) = _CopyWithImpl$Fragment$investmentData$payment_investment;
+
+  factory CopyWith$Fragment$investmentData$payment_investment.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$investmentData$payment_investment;
+
+  TRes call({
+    UUID? payment_investment_id,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Fragment$investmentData$payment_investment<TRes>
+    implements CopyWith$Fragment$investmentData$payment_investment<TRes> {
+  _CopyWithImpl$Fragment$investmentData$payment_investment(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$investmentData$payment_investment _instance;
+
+  final TRes Function(Fragment$investmentData$payment_investment) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? payment_investment_id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$investmentData$payment_investment(
+        payment_investment_id:
+            payment_investment_id == _undefined || payment_investment_id == null
+                ? _instance.payment_investment_id
+                : (payment_investment_id as UUID),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Fragment$investmentData$payment_investment<TRes>
+    implements CopyWith$Fragment$investmentData$payment_investment<TRes> {
+  _CopyWithStubImpl$Fragment$investmentData$payment_investment(this._res);
+
+  TRes _res;
+
+  call({
+    UUID? payment_investment_id,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Fragment$investmentsAggregate {
@@ -3473,6 +3661,7 @@ class Query$GetByPkInvestmentQuery$investment_by_pk
     required this.investment_amount,
     this.updated_at,
     this.created_at,
+    this.payment_investment,
     this.$__typename = 'investment',
     required this.investor,
   });
@@ -3484,6 +3673,7 @@ class Query$GetByPkInvestmentQuery$investment_by_pk
     final l$investment_amount = json['investment_amount'];
     final l$updated_at = json['updated_at'];
     final l$created_at = json['created_at'];
+    final l$payment_investment = json['payment_investment'];
     final l$$__typename = json['__typename'];
     final l$investor = json['investor'];
     return Query$GetByPkInvestmentQuery$investment_by_pk(
@@ -3496,6 +3686,10 @@ class Query$GetByPkInvestmentQuery$investment_by_pk
       created_at: l$created_at == null
           ? null
           : DateTime.parse((l$created_at as String)),
+      payment_investment: l$payment_investment == null
+          ? null
+          : Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment
+              .fromJson((l$payment_investment as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
       investor:
           Fragment$investorData.fromJson((l$investor as Map<String, dynamic>)),
@@ -3511,6 +3705,9 @@ class Query$GetByPkInvestmentQuery$investment_by_pk
   final DateTime? updated_at;
 
   final DateTime? created_at;
+
+  final Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment?
+      payment_investment;
 
   final String $__typename;
 
@@ -3528,6 +3725,8 @@ class Query$GetByPkInvestmentQuery$investment_by_pk
     _resultData['updated_at'] = l$updated_at?.toIso8601String();
     final l$created_at = created_at;
     _resultData['created_at'] = l$created_at?.toIso8601String();
+    final l$payment_investment = payment_investment;
+    _resultData['payment_investment'] = l$payment_investment?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     final l$investor = investor;
@@ -3542,6 +3741,7 @@ class Query$GetByPkInvestmentQuery$investment_by_pk
     final l$investment_amount = investment_amount;
     final l$updated_at = updated_at;
     final l$created_at = created_at;
+    final l$payment_investment = payment_investment;
     final l$$__typename = $__typename;
     final l$investor = investor;
     return Object.hashAll([
@@ -3550,6 +3750,7 @@ class Query$GetByPkInvestmentQuery$investment_by_pk
       l$investment_amount,
       l$updated_at,
       l$created_at,
+      l$payment_investment,
       l$$__typename,
       l$investor,
     ]);
@@ -3587,6 +3788,11 @@ class Query$GetByPkInvestmentQuery$investment_by_pk
     final l$created_at = created_at;
     final lOther$created_at = other.created_at;
     if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$payment_investment = payment_investment;
+    final lOther$payment_investment = other.payment_investment;
+    if (l$payment_investment != lOther$payment_investment) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -3629,9 +3835,13 @@ abstract class CopyWith$Query$GetByPkInvestmentQuery$investment_by_pk<TRes> {
     int? investment_amount,
     DateTime? updated_at,
     DateTime? created_at,
+    Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment?
+        payment_investment,
     String? $__typename,
     Fragment$investorData? investor,
   });
+  CopyWith$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment<
+      TRes> get payment_investment;
   CopyWith$Fragment$investorData<TRes> get investor;
 }
 
@@ -3654,6 +3864,7 @@ class _CopyWithImpl$Query$GetByPkInvestmentQuery$investment_by_pk<TRes>
     Object? investment_amount = _undefined,
     Object? updated_at = _undefined,
     Object? created_at = _undefined,
+    Object? payment_investment = _undefined,
     Object? $__typename = _undefined,
     Object? investor = _undefined,
   }) =>
@@ -3674,6 +3885,10 @@ class _CopyWithImpl$Query$GetByPkInvestmentQuery$investment_by_pk<TRes>
         created_at: created_at == _undefined
             ? _instance.created_at
             : (created_at as DateTime?),
+        payment_investment: payment_investment == _undefined
+            ? _instance.payment_investment
+            : (payment_investment
+                as Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -3681,6 +3896,16 @@ class _CopyWithImpl$Query$GetByPkInvestmentQuery$investment_by_pk<TRes>
             ? _instance.investor
             : (investor as Fragment$investorData),
       ));
+  CopyWith$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment<
+      TRes> get payment_investment {
+    final local$payment_investment = _instance.payment_investment;
+    return local$payment_investment == null
+        ? CopyWith$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment
+            .stub(_then(_instance))
+        : CopyWith$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment(
+            local$payment_investment, (e) => call(payment_investment: e));
+  }
+
   CopyWith$Fragment$investorData<TRes> get investor {
     final local$investor = _instance.investor;
     return CopyWith$Fragment$investorData(
@@ -3700,12 +3925,163 @@ class _CopyWithStubImpl$Query$GetByPkInvestmentQuery$investment_by_pk<TRes>
     int? investment_amount,
     DateTime? updated_at,
     DateTime? created_at,
+    Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment?
+        payment_investment,
     String? $__typename,
     Fragment$investorData? investor,
   }) =>
       _res;
+  CopyWith$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment<
+          TRes>
+      get payment_investment =>
+          CopyWith$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment
+              .stub(_res);
   CopyWith$Fragment$investorData<TRes> get investor =>
       CopyWith$Fragment$investorData.stub(_res);
+}
+
+class Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment
+    implements Fragment$investmentData$payment_investment {
+  Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment({
+    required this.payment_investment_id,
+    this.$__typename = 'payment_investment',
+  });
+
+  factory Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment.fromJson(
+      Map<String, dynamic> json) {
+    final l$payment_investment_id = json['payment_investment_id'];
+    final l$$__typename = json['__typename'];
+    return Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment(
+      payment_investment_id: uuidFromJson(l$payment_investment_id),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final UUID payment_investment_id;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$payment_investment_id = payment_investment_id;
+    _resultData['payment_investment_id'] = uuidToJson(l$payment_investment_id);
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$payment_investment_id = payment_investment_id;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$payment_investment_id,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$payment_investment_id = payment_investment_id;
+    final lOther$payment_investment_id = other.payment_investment_id;
+    if (l$payment_investment_id != lOther$payment_investment_id) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment
+    on Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment {
+  CopyWith$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment<
+          Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment>
+      get copyWith =>
+          CopyWith$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment<
+    TRes> {
+  factory CopyWith$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment(
+    Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment instance,
+    TRes Function(
+            Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment)
+        then,
+  ) = _CopyWithImpl$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment;
+
+  factory CopyWith$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment;
+
+  TRes call({
+    UUID? payment_investment_id,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment<
+        TRes>
+    implements
+        CopyWith$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment<
+            TRes> {
+  _CopyWithImpl$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment
+      _instance;
+
+  final TRes Function(
+      Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? payment_investment_id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment(
+        payment_investment_id:
+            payment_investment_id == _undefined || payment_investment_id == null
+                ? _instance.payment_investment_id
+                : (payment_investment_id as UUID),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment<
+        TRes>
+    implements
+        CopyWith$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment<
+            TRes> {
+  _CopyWithStubImpl$Query$GetByPkInvestmentQuery$investment_by_pk$payment_investment(
+      this._res);
+
+  TRes _res;
+
+  call({
+    UUID? payment_investment_id,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Variables$Query$GetAllInvestmentAggregate {
@@ -7171,6 +7547,7 @@ class Query$GetAllInvestmentInvestorQuery$investment
     required this.investment_amount,
     this.updated_at,
     this.created_at,
+    this.payment_investment,
     this.$__typename = 'investment',
     required this.investor,
   });
@@ -7182,6 +7559,7 @@ class Query$GetAllInvestmentInvestorQuery$investment
     final l$investment_amount = json['investment_amount'];
     final l$updated_at = json['updated_at'];
     final l$created_at = json['created_at'];
+    final l$payment_investment = json['payment_investment'];
     final l$$__typename = json['__typename'];
     final l$investor = json['investor'];
     return Query$GetAllInvestmentInvestorQuery$investment(
@@ -7194,6 +7572,10 @@ class Query$GetAllInvestmentInvestorQuery$investment
       created_at: l$created_at == null
           ? null
           : DateTime.parse((l$created_at as String)),
+      payment_investment: l$payment_investment == null
+          ? null
+          : Query$GetAllInvestmentInvestorQuery$investment$payment_investment
+              .fromJson((l$payment_investment as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
       investor:
           Fragment$investorData.fromJson((l$investor as Map<String, dynamic>)),
@@ -7209,6 +7591,9 @@ class Query$GetAllInvestmentInvestorQuery$investment
   final DateTime? updated_at;
 
   final DateTime? created_at;
+
+  final Query$GetAllInvestmentInvestorQuery$investment$payment_investment?
+      payment_investment;
 
   final String $__typename;
 
@@ -7226,6 +7611,8 @@ class Query$GetAllInvestmentInvestorQuery$investment
     _resultData['updated_at'] = l$updated_at?.toIso8601String();
     final l$created_at = created_at;
     _resultData['created_at'] = l$created_at?.toIso8601String();
+    final l$payment_investment = payment_investment;
+    _resultData['payment_investment'] = l$payment_investment?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     final l$investor = investor;
@@ -7240,6 +7627,7 @@ class Query$GetAllInvestmentInvestorQuery$investment
     final l$investment_amount = investment_amount;
     final l$updated_at = updated_at;
     final l$created_at = created_at;
+    final l$payment_investment = payment_investment;
     final l$$__typename = $__typename;
     final l$investor = investor;
     return Object.hashAll([
@@ -7248,6 +7636,7 @@ class Query$GetAllInvestmentInvestorQuery$investment
       l$investment_amount,
       l$updated_at,
       l$created_at,
+      l$payment_investment,
       l$$__typename,
       l$investor,
     ]);
@@ -7285,6 +7674,11 @@ class Query$GetAllInvestmentInvestorQuery$investment
     final l$created_at = created_at;
     final lOther$created_at = other.created_at;
     if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$payment_investment = payment_investment;
+    final lOther$payment_investment = other.payment_investment;
+    if (l$payment_investment != lOther$payment_investment) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -7327,9 +7721,13 @@ abstract class CopyWith$Query$GetAllInvestmentInvestorQuery$investment<TRes> {
     int? investment_amount,
     DateTime? updated_at,
     DateTime? created_at,
+    Query$GetAllInvestmentInvestorQuery$investment$payment_investment?
+        payment_investment,
     String? $__typename,
     Fragment$investorData? investor,
   });
+  CopyWith$Query$GetAllInvestmentInvestorQuery$investment$payment_investment<
+      TRes> get payment_investment;
   CopyWith$Fragment$investorData<TRes> get investor;
 }
 
@@ -7352,6 +7750,7 @@ class _CopyWithImpl$Query$GetAllInvestmentInvestorQuery$investment<TRes>
     Object? investment_amount = _undefined,
     Object? updated_at = _undefined,
     Object? created_at = _undefined,
+    Object? payment_investment = _undefined,
     Object? $__typename = _undefined,
     Object? investor = _undefined,
   }) =>
@@ -7372,6 +7771,10 @@ class _CopyWithImpl$Query$GetAllInvestmentInvestorQuery$investment<TRes>
         created_at: created_at == _undefined
             ? _instance.created_at
             : (created_at as DateTime?),
+        payment_investment: payment_investment == _undefined
+            ? _instance.payment_investment
+            : (payment_investment
+                as Query$GetAllInvestmentInvestorQuery$investment$payment_investment?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -7379,6 +7782,16 @@ class _CopyWithImpl$Query$GetAllInvestmentInvestorQuery$investment<TRes>
             ? _instance.investor
             : (investor as Fragment$investorData),
       ));
+  CopyWith$Query$GetAllInvestmentInvestorQuery$investment$payment_investment<
+      TRes> get payment_investment {
+    final local$payment_investment = _instance.payment_investment;
+    return local$payment_investment == null
+        ? CopyWith$Query$GetAllInvestmentInvestorQuery$investment$payment_investment
+            .stub(_then(_instance))
+        : CopyWith$Query$GetAllInvestmentInvestorQuery$investment$payment_investment(
+            local$payment_investment, (e) => call(payment_investment: e));
+  }
+
   CopyWith$Fragment$investorData<TRes> get investor {
     final local$investor = _instance.investor;
     return CopyWith$Fragment$investorData(
@@ -7398,10 +7811,161 @@ class _CopyWithStubImpl$Query$GetAllInvestmentInvestorQuery$investment<TRes>
     int? investment_amount,
     DateTime? updated_at,
     DateTime? created_at,
+    Query$GetAllInvestmentInvestorQuery$investment$payment_investment?
+        payment_investment,
     String? $__typename,
     Fragment$investorData? investor,
   }) =>
       _res;
+  CopyWith$Query$GetAllInvestmentInvestorQuery$investment$payment_investment<
+          TRes>
+      get payment_investment =>
+          CopyWith$Query$GetAllInvestmentInvestorQuery$investment$payment_investment
+              .stub(_res);
   CopyWith$Fragment$investorData<TRes> get investor =>
       CopyWith$Fragment$investorData.stub(_res);
+}
+
+class Query$GetAllInvestmentInvestorQuery$investment$payment_investment
+    implements Fragment$investmentData$payment_investment {
+  Query$GetAllInvestmentInvestorQuery$investment$payment_investment({
+    required this.payment_investment_id,
+    this.$__typename = 'payment_investment',
+  });
+
+  factory Query$GetAllInvestmentInvestorQuery$investment$payment_investment.fromJson(
+      Map<String, dynamic> json) {
+    final l$payment_investment_id = json['payment_investment_id'];
+    final l$$__typename = json['__typename'];
+    return Query$GetAllInvestmentInvestorQuery$investment$payment_investment(
+      payment_investment_id: uuidFromJson(l$payment_investment_id),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final UUID payment_investment_id;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$payment_investment_id = payment_investment_id;
+    _resultData['payment_investment_id'] = uuidToJson(l$payment_investment_id);
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$payment_investment_id = payment_investment_id;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$payment_investment_id,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Query$GetAllInvestmentInvestorQuery$investment$payment_investment) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$payment_investment_id = payment_investment_id;
+    final lOther$payment_investment_id = other.payment_investment_id;
+    if (l$payment_investment_id != lOther$payment_investment_id) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetAllInvestmentInvestorQuery$investment$payment_investment
+    on Query$GetAllInvestmentInvestorQuery$investment$payment_investment {
+  CopyWith$Query$GetAllInvestmentInvestorQuery$investment$payment_investment<
+          Query$GetAllInvestmentInvestorQuery$investment$payment_investment>
+      get copyWith =>
+          CopyWith$Query$GetAllInvestmentInvestorQuery$investment$payment_investment(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GetAllInvestmentInvestorQuery$investment$payment_investment<
+    TRes> {
+  factory CopyWith$Query$GetAllInvestmentInvestorQuery$investment$payment_investment(
+    Query$GetAllInvestmentInvestorQuery$investment$payment_investment instance,
+    TRes Function(
+            Query$GetAllInvestmentInvestorQuery$investment$payment_investment)
+        then,
+  ) = _CopyWithImpl$Query$GetAllInvestmentInvestorQuery$investment$payment_investment;
+
+  factory CopyWith$Query$GetAllInvestmentInvestorQuery$investment$payment_investment.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$GetAllInvestmentInvestorQuery$investment$payment_investment;
+
+  TRes call({
+    UUID? payment_investment_id,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$GetAllInvestmentInvestorQuery$investment$payment_investment<
+        TRes>
+    implements
+        CopyWith$Query$GetAllInvestmentInvestorQuery$investment$payment_investment<
+            TRes> {
+  _CopyWithImpl$Query$GetAllInvestmentInvestorQuery$investment$payment_investment(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetAllInvestmentInvestorQuery$investment$payment_investment
+      _instance;
+
+  final TRes Function(
+      Query$GetAllInvestmentInvestorQuery$investment$payment_investment) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? payment_investment_id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GetAllInvestmentInvestorQuery$investment$payment_investment(
+        payment_investment_id:
+            payment_investment_id == _undefined || payment_investment_id == null
+                ? _instance.payment_investment_id
+                : (payment_investment_id as UUID),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$GetAllInvestmentInvestorQuery$investment$payment_investment<
+        TRes>
+    implements
+        CopyWith$Query$GetAllInvestmentInvestorQuery$investment$payment_investment<
+            TRes> {
+  _CopyWithStubImpl$Query$GetAllInvestmentInvestorQuery$investment$payment_investment(
+      this._res);
+
+  TRes _res;
+
+  call({
+    UUID? payment_investment_id,
+    String? $__typename,
+  }) =>
+      _res;
 }

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_quill/flutter_quill.dart' as Quill;
+import 'package:flutter_quill/flutter_quill.dart' as quill;
 import 'package:tubes_promvis_kelompok_8/src/logger.dart';
 
 class ProposalDetailDialog extends HookWidget {
@@ -11,26 +11,29 @@ class ProposalDetailDialog extends HookWidget {
   final String proposalContent;
   final int proposalAmount;
   final DateTime proposalDate;
+  final bool isInvestor;
+  final void Function()? investCallback;
 
-  const ProposalDetailDialog({
-    super.key,
-    required this.proposalId,
-    required this.proposalTitle,
-    required this.proposalContent,
-    required this.proposalAmount,
-    required this.proposalDate,
-  });
+  const ProposalDetailDialog(
+      {super.key,
+      required this.proposalId,
+      required this.proposalTitle,
+      required this.proposalContent,
+      required this.proposalAmount,
+      required this.proposalDate,
+      this.isInvestor = false,
+      this.investCallback});
 
   @override
   Widget build(BuildContext context) {
     late Widget content;
 
     try {
-      Quill.QuillController quillController = Quill.QuillController(
-        document: Quill.Document.fromJson(jsonDecode(proposalContent)),
+      quill.QuillController quillController = quill.QuillController(
+        document: quill.Document.fromJson(jsonDecode(proposalContent)),
         selection: const TextSelection.collapsed(offset: 0),
       );
-      content = Quill.QuillEditor(
+      content = quill.QuillEditor(
         controller: quillController,
         scrollController: ScrollController(),
         scrollable: true,
@@ -76,6 +79,15 @@ class ProposalDetailDialog extends HookWidget {
         ),
       ),
       actions: <Widget>[
+        if (isInvestor)
+          TextButton(
+            child: const Text('Invest'),
+            onPressed: () {
+              Navigator.of(context).pop();
+              final investCallback = this.investCallback;
+              if (investCallback != null) investCallback();
+            },
+          ),
         TextButton(
           child: const Text('Done'),
           onPressed: () {

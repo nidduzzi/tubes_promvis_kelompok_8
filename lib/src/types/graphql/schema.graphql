@@ -2213,6 +2213,500 @@ input authUserSecurityKeys_variance_order_by {
   counter: order_by
 }
 
+"""
+columns and relationships of "bank_card"
+"""
+type bank_card {
+  bank_card_cvc: String!
+  bank_card_id: uuid!
+  bank_card_name: String!
+  bank_card_number: String!
+  created_at: timestamptz!
+
+  """An array relationship"""
+  payment_dues(
+    """distinct select on columns"""
+    distinct_on: [payment_due_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [payment_due_order_by!]
+
+    """filter the rows returned"""
+    where: payment_due_bool_exp
+  ): [payment_due!]!
+
+  """An aggregate relationship"""
+  payment_dues_aggregate(
+    """distinct select on columns"""
+    distinct_on: [payment_due_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [payment_due_order_by!]
+
+    """filter the rows returned"""
+    where: payment_due_bool_exp
+  ): payment_due_aggregate!
+
+  """An array relationship"""
+  payment_investments(
+    """distinct select on columns"""
+    distinct_on: [payment_investment_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [payment_investment_order_by!]
+
+    """filter the rows returned"""
+    where: payment_investment_bool_exp
+  ): [payment_investment!]!
+
+  """An aggregate relationship"""
+  payment_investments_aggregate(
+    """distinct select on columns"""
+    distinct_on: [payment_investment_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [payment_investment_order_by!]
+
+    """filter the rows returned"""
+    where: payment_investment_bool_exp
+  ): payment_investment_aggregate!
+
+  """An object relationship"""
+  profile: profile!
+  profile_id: Int!
+  updated_at: timestamptz!
+}
+
+"""
+aggregated selection of "bank_card"
+"""
+type bank_card_aggregate {
+  aggregate: bank_card_aggregate_fields
+  nodes: [bank_card!]!
+}
+
+input bank_card_aggregate_bool_exp {
+  count: bank_card_aggregate_bool_exp_count
+}
+
+input bank_card_aggregate_bool_exp_count {
+  arguments: [bank_card_select_column!]
+  distinct: Boolean
+  filter: bank_card_bool_exp
+  predicate: Int_comparison_exp!
+}
+
+"""
+aggregate fields of "bank_card"
+"""
+type bank_card_aggregate_fields {
+  avg: bank_card_avg_fields
+  count(columns: [bank_card_select_column!], distinct: Boolean): Int!
+  max: bank_card_max_fields
+  min: bank_card_min_fields
+  stddev: bank_card_stddev_fields
+  stddev_pop: bank_card_stddev_pop_fields
+  stddev_samp: bank_card_stddev_samp_fields
+  sum: bank_card_sum_fields
+  var_pop: bank_card_var_pop_fields
+  var_samp: bank_card_var_samp_fields
+  variance: bank_card_variance_fields
+}
+
+"""
+order by aggregate values of table "bank_card"
+"""
+input bank_card_aggregate_order_by {
+  avg: bank_card_avg_order_by
+  count: order_by
+  max: bank_card_max_order_by
+  min: bank_card_min_order_by
+  stddev: bank_card_stddev_order_by
+  stddev_pop: bank_card_stddev_pop_order_by
+  stddev_samp: bank_card_stddev_samp_order_by
+  sum: bank_card_sum_order_by
+  var_pop: bank_card_var_pop_order_by
+  var_samp: bank_card_var_samp_order_by
+  variance: bank_card_variance_order_by
+}
+
+"""
+input type for inserting array relation for remote table "bank_card"
+"""
+input bank_card_arr_rel_insert_input {
+  data: [bank_card_insert_input!]!
+
+  """upsert condition"""
+  on_conflict: bank_card_on_conflict
+}
+
+"""aggregate avg on columns"""
+type bank_card_avg_fields {
+  profile_id: Float
+}
+
+"""
+order by avg() on columns of table "bank_card"
+"""
+input bank_card_avg_order_by {
+  profile_id: order_by
+}
+
+"""
+Boolean expression to filter rows from the table "bank_card". All fields are combined with a logical 'AND'.
+"""
+input bank_card_bool_exp {
+  _and: [bank_card_bool_exp!]
+  _not: bank_card_bool_exp
+  _or: [bank_card_bool_exp!]
+  bank_card_cvc: String_comparison_exp
+  bank_card_id: uuid_comparison_exp
+  bank_card_name: String_comparison_exp
+  bank_card_number: String_comparison_exp
+  created_at: timestamptz_comparison_exp
+  payment_dues: payment_due_bool_exp
+  payment_dues_aggregate: payment_due_aggregate_bool_exp
+  payment_investments: payment_investment_bool_exp
+  payment_investments_aggregate: payment_investment_aggregate_bool_exp
+  profile: profile_bool_exp
+  profile_id: Int_comparison_exp
+  updated_at: timestamptz_comparison_exp
+}
+
+"""
+unique or primary key constraints on table "bank_card"
+"""
+enum bank_card_constraint {
+  """
+  unique or primary key constraint on columns "bank_card_id"
+  """
+  bank_card_pkey
+}
+
+"""
+input type for incrementing numeric columns in table "bank_card"
+"""
+input bank_card_inc_input {
+  profile_id: Int
+}
+
+"""
+input type for inserting data into table "bank_card"
+"""
+input bank_card_insert_input {
+  bank_card_cvc: String
+  bank_card_id: uuid
+  bank_card_name: String
+  bank_card_number: String
+  created_at: timestamptz
+  payment_dues: payment_due_arr_rel_insert_input
+  payment_investments: payment_investment_arr_rel_insert_input
+  profile: profile_obj_rel_insert_input
+  profile_id: Int
+  updated_at: timestamptz
+}
+
+"""aggregate max on columns"""
+type bank_card_max_fields {
+  bank_card_cvc: String
+  bank_card_id: uuid
+  bank_card_name: String
+  bank_card_number: String
+  created_at: timestamptz
+  profile_id: Int
+  updated_at: timestamptz
+}
+
+"""
+order by max() on columns of table "bank_card"
+"""
+input bank_card_max_order_by {
+  bank_card_cvc: order_by
+  bank_card_id: order_by
+  bank_card_name: order_by
+  bank_card_number: order_by
+  created_at: order_by
+  profile_id: order_by
+  updated_at: order_by
+}
+
+"""aggregate min on columns"""
+type bank_card_min_fields {
+  bank_card_cvc: String
+  bank_card_id: uuid
+  bank_card_name: String
+  bank_card_number: String
+  created_at: timestamptz
+  profile_id: Int
+  updated_at: timestamptz
+}
+
+"""
+order by min() on columns of table "bank_card"
+"""
+input bank_card_min_order_by {
+  bank_card_cvc: order_by
+  bank_card_id: order_by
+  bank_card_name: order_by
+  bank_card_number: order_by
+  created_at: order_by
+  profile_id: order_by
+  updated_at: order_by
+}
+
+"""
+response of any mutation on the table "bank_card"
+"""
+type bank_card_mutation_response {
+  """number of rows affected by the mutation"""
+  affected_rows: Int!
+
+  """data from the rows affected by the mutation"""
+  returning: [bank_card!]!
+}
+
+"""
+input type for inserting object relation for remote table "bank_card"
+"""
+input bank_card_obj_rel_insert_input {
+  data: bank_card_insert_input!
+
+  """upsert condition"""
+  on_conflict: bank_card_on_conflict
+}
+
+"""
+on_conflict condition type for table "bank_card"
+"""
+input bank_card_on_conflict {
+  constraint: bank_card_constraint!
+  update_columns: [bank_card_update_column!]! = []
+  where: bank_card_bool_exp
+}
+
+"""Ordering options when selecting data from "bank_card"."""
+input bank_card_order_by {
+  bank_card_cvc: order_by
+  bank_card_id: order_by
+  bank_card_name: order_by
+  bank_card_number: order_by
+  created_at: order_by
+  payment_dues_aggregate: payment_due_aggregate_order_by
+  payment_investments_aggregate: payment_investment_aggregate_order_by
+  profile: profile_order_by
+  profile_id: order_by
+  updated_at: order_by
+}
+
+"""primary key columns input for table: bank_card"""
+input bank_card_pk_columns_input {
+  bank_card_id: uuid!
+}
+
+"""
+select columns of table "bank_card"
+"""
+enum bank_card_select_column {
+  """column name"""
+  bank_card_cvc
+
+  """column name"""
+  bank_card_id
+
+  """column name"""
+  bank_card_name
+
+  """column name"""
+  bank_card_number
+
+  """column name"""
+  created_at
+
+  """column name"""
+  profile_id
+
+  """column name"""
+  updated_at
+}
+
+"""
+input type for updating data in table "bank_card"
+"""
+input bank_card_set_input {
+  bank_card_cvc: String
+  bank_card_id: uuid
+  bank_card_name: String
+  bank_card_number: String
+  created_at: timestamptz
+  profile_id: Int
+  updated_at: timestamptz
+}
+
+"""aggregate stddev on columns"""
+type bank_card_stddev_fields {
+  profile_id: Float
+}
+
+"""
+order by stddev() on columns of table "bank_card"
+"""
+input bank_card_stddev_order_by {
+  profile_id: order_by
+}
+
+"""aggregate stddev_pop on columns"""
+type bank_card_stddev_pop_fields {
+  profile_id: Float
+}
+
+"""
+order by stddev_pop() on columns of table "bank_card"
+"""
+input bank_card_stddev_pop_order_by {
+  profile_id: order_by
+}
+
+"""aggregate stddev_samp on columns"""
+type bank_card_stddev_samp_fields {
+  profile_id: Float
+}
+
+"""
+order by stddev_samp() on columns of table "bank_card"
+"""
+input bank_card_stddev_samp_order_by {
+  profile_id: order_by
+}
+
+"""
+Streaming cursor of the table "bank_card"
+"""
+input bank_card_stream_cursor_input {
+  """Stream column input with initial value"""
+  initial_value: bank_card_stream_cursor_value_input!
+
+  """cursor ordering"""
+  ordering: cursor_ordering
+}
+
+"""Initial value of the column from where the streaming should start"""
+input bank_card_stream_cursor_value_input {
+  bank_card_cvc: String
+  bank_card_id: uuid
+  bank_card_name: String
+  bank_card_number: String
+  created_at: timestamptz
+  profile_id: Int
+  updated_at: timestamptz
+}
+
+"""aggregate sum on columns"""
+type bank_card_sum_fields {
+  profile_id: Int
+}
+
+"""
+order by sum() on columns of table "bank_card"
+"""
+input bank_card_sum_order_by {
+  profile_id: order_by
+}
+
+"""
+update columns of table "bank_card"
+"""
+enum bank_card_update_column {
+  """column name"""
+  bank_card_cvc
+
+  """column name"""
+  bank_card_id
+
+  """column name"""
+  bank_card_name
+
+  """column name"""
+  bank_card_number
+
+  """column name"""
+  created_at
+
+  """column name"""
+  profile_id
+
+  """column name"""
+  updated_at
+}
+
+input bank_card_updates {
+  """increments the numeric columns with given value of the filtered values"""
+  _inc: bank_card_inc_input
+
+  """sets the columns of the filtered rows to the given values"""
+  _set: bank_card_set_input
+  where: bank_card_bool_exp!
+}
+
+"""aggregate var_pop on columns"""
+type bank_card_var_pop_fields {
+  profile_id: Float
+}
+
+"""
+order by var_pop() on columns of table "bank_card"
+"""
+input bank_card_var_pop_order_by {
+  profile_id: order_by
+}
+
+"""aggregate var_samp on columns"""
+type bank_card_var_samp_fields {
+  profile_id: Float
+}
+
+"""
+order by var_samp() on columns of table "bank_card"
+"""
+input bank_card_var_samp_order_by {
+  profile_id: order_by
+}
+
+"""aggregate variance on columns"""
+type bank_card_variance_fields {
+  profile_id: Float
+}
+
+"""
+order by variance() on columns of table "bank_card"
+"""
+input bank_card_variance_order_by {
+  profile_id: order_by
+}
+
 scalar bigint
 
 """
@@ -4775,6 +5269,19 @@ type mutation_root {
   ): users_mutation_response
 
   """
+  delete data from the table: "bank_card"
+  """
+  delete_bank_card(
+    """filter the rows which have to be deleted"""
+    where: bank_card_bool_exp!
+  ): bank_card_mutation_response
+
+  """
+  delete single row from the table: "bank_card"
+  """
+  delete_bank_card_by_pk(bank_card_id: uuid!): bank_card
+
+  """
   delete data from the table: "blog"
   """
   delete_blog(
@@ -5132,6 +5639,28 @@ type mutation_root {
     """upsert condition"""
     on_conflict: users_on_conflict
   ): users_mutation_response
+
+  """
+  insert data into the table: "bank_card"
+  """
+  insert_bank_card(
+    """the rows to be inserted"""
+    objects: [bank_card_insert_input!]!
+
+    """upsert condition"""
+    on_conflict: bank_card_on_conflict
+  ): bank_card_mutation_response
+
+  """
+  insert a single row into the table: "bank_card"
+  """
+  insert_bank_card_one(
+    """the row to be inserted"""
+    object: bank_card_insert_input!
+
+    """upsert condition"""
+    on_conflict: bank_card_on_conflict
+  ): bank_card
 
   """
   insert data into the table: "blog"
@@ -5760,6 +6289,40 @@ type mutation_root {
   ): [authUserSecurityKeys_mutation_response]
 
   """
+  update data of the table: "bank_card"
+  """
+  update_bank_card(
+    """increments the numeric columns with given value of the filtered values"""
+    _inc: bank_card_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: bank_card_set_input
+
+    """filter the rows which have to be updated"""
+    where: bank_card_bool_exp!
+  ): bank_card_mutation_response
+
+  """
+  update single row of the table: "bank_card"
+  """
+  update_bank_card_by_pk(
+    """increments the numeric columns with given value of the filtered values"""
+    _inc: bank_card_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: bank_card_set_input
+    pk_columns: bank_card_pk_columns_input!
+  ): bank_card
+
+  """
+  update multiples rows of table: "bank_card"
+  """
+  update_bank_card_many(
+    """updates to execute, in order"""
+    updates: [bank_card_updates!]!
+  ): [bank_card_mutation_response]
+
+  """
   update data of the table: "blog"
   """
   update_blog(
@@ -6097,6 +6660,10 @@ enum order_by {
 columns and relationships of "payment_due"
 """
 type payment_due {
+  bank_card_id: uuid
+
+  """An object relationship"""
+  bank_card_used: bank_card
   created_at: timestamptz!
   deadline: timestamptz!
   fulfilled: Boolean!
@@ -6209,6 +6776,8 @@ input payment_due_bool_exp {
   _and: [payment_due_bool_exp!]
   _not: payment_due_bool_exp
   _or: [payment_due_bool_exp!]
+  bank_card_id: uuid_comparison_exp
+  bank_card_used: bank_card_bool_exp
   created_at: timestamptz_comparison_exp
   deadline: timestamptz_comparison_exp
   fulfilled: Boolean_comparison_exp
@@ -6241,6 +6810,8 @@ input payment_due_inc_input {
 input type for inserting data into table "payment_due"
 """
 input payment_due_insert_input {
+  bank_card_id: uuid
+  bank_card_used: bank_card_obj_rel_insert_input
   created_at: timestamptz
   deadline: timestamptz
   fulfilled: Boolean
@@ -6253,6 +6824,7 @@ input payment_due_insert_input {
 
 """aggregate max on columns"""
 type payment_due_max_fields {
+  bank_card_id: uuid
   created_at: timestamptz
   deadline: timestamptz
   payment_due: Int
@@ -6265,6 +6837,7 @@ type payment_due_max_fields {
 order by max() on columns of table "payment_due"
 """
 input payment_due_max_order_by {
+  bank_card_id: order_by
   created_at: order_by
   deadline: order_by
   payment_due: order_by
@@ -6275,6 +6848,7 @@ input payment_due_max_order_by {
 
 """aggregate min on columns"""
 type payment_due_min_fields {
+  bank_card_id: uuid
   created_at: timestamptz
   deadline: timestamptz
   payment_due: Int
@@ -6287,6 +6861,7 @@ type payment_due_min_fields {
 order by min() on columns of table "payment_due"
 """
 input payment_due_min_order_by {
+  bank_card_id: order_by
   created_at: order_by
   deadline: order_by
   payment_due: order_by
@@ -6317,6 +6892,8 @@ input payment_due_on_conflict {
 
 """Ordering options when selecting data from "payment_due"."""
 input payment_due_order_by {
+  bank_card_id: order_by
+  bank_card_used: bank_card_order_by
   created_at: order_by
   deadline: order_by
   fulfilled: order_by
@@ -6336,6 +6913,9 @@ input payment_due_pk_columns_input {
 select columns of table "payment_due"
 """
 enum payment_due_select_column {
+  """column name"""
+  bank_card_id
+
   """column name"""
   created_at
 
@@ -6378,6 +6958,7 @@ enum payment_due_select_column_payment_due_aggregate_bool_exp_bool_or_arguments_
 input type for updating data in table "payment_due"
 """
 input payment_due_set_input {
+  bank_card_id: uuid
   created_at: timestamptz
   deadline: timestamptz
   fulfilled: Boolean
@@ -6442,6 +7023,7 @@ input payment_due_stream_cursor_input {
 
 """Initial value of the column from where the streaming should start"""
 input payment_due_stream_cursor_value_input {
+  bank_card_id: uuid
   created_at: timestamptz
   deadline: timestamptz
   fulfilled: Boolean
@@ -6469,6 +7051,9 @@ input payment_due_sum_order_by {
 update columns of table "payment_due"
 """
 enum payment_due_update_column {
+  """column name"""
+  bank_card_id
+
   """column name"""
   created_at
 
@@ -6546,6 +7131,10 @@ input payment_due_variance_order_by {
 columns and relationships of "payment_investment"
 """
 type payment_investment {
+  bank_card_id: uuid
+
+  """An object relationship"""
+  bank_card_used: bank_card
   created_at: timestamptz!
 
   """An object relationship"""
@@ -6562,6 +7151,33 @@ aggregated selection of "payment_investment"
 type payment_investment_aggregate {
   aggregate: payment_investment_aggregate_fields
   nodes: [payment_investment!]!
+}
+
+input payment_investment_aggregate_bool_exp {
+  bool_and: payment_investment_aggregate_bool_exp_bool_and
+  bool_or: payment_investment_aggregate_bool_exp_bool_or
+  count: payment_investment_aggregate_bool_exp_count
+}
+
+input payment_investment_aggregate_bool_exp_bool_and {
+  arguments: payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_and_arguments_columns!
+  distinct: Boolean
+  filter: payment_investment_bool_exp
+  predicate: Boolean_comparison_exp!
+}
+
+input payment_investment_aggregate_bool_exp_bool_or {
+  arguments: payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_or_arguments_columns!
+  distinct: Boolean
+  filter: payment_investment_bool_exp
+  predicate: Boolean_comparison_exp!
+}
+
+input payment_investment_aggregate_bool_exp_count {
+  arguments: [payment_investment_select_column!]
+  distinct: Boolean
+  filter: payment_investment_bool_exp
+  predicate: Int_comparison_exp!
 }
 
 """
@@ -6581,9 +7197,43 @@ type payment_investment_aggregate_fields {
   variance: payment_investment_variance_fields
 }
 
+"""
+order by aggregate values of table "payment_investment"
+"""
+input payment_investment_aggregate_order_by {
+  avg: payment_investment_avg_order_by
+  count: order_by
+  max: payment_investment_max_order_by
+  min: payment_investment_min_order_by
+  stddev: payment_investment_stddev_order_by
+  stddev_pop: payment_investment_stddev_pop_order_by
+  stddev_samp: payment_investment_stddev_samp_order_by
+  sum: payment_investment_sum_order_by
+  var_pop: payment_investment_var_pop_order_by
+  var_samp: payment_investment_var_samp_order_by
+  variance: payment_investment_variance_order_by
+}
+
+"""
+input type for inserting array relation for remote table "payment_investment"
+"""
+input payment_investment_arr_rel_insert_input {
+  data: [payment_investment_insert_input!]!
+
+  """upsert condition"""
+  on_conflict: payment_investment_on_conflict
+}
+
 """aggregate avg on columns"""
 type payment_investment_avg_fields {
   investment_id: Float
+}
+
+"""
+order by avg() on columns of table "payment_investment"
+"""
+input payment_investment_avg_order_by {
+  investment_id: order_by
 }
 
 """
@@ -6593,6 +7243,8 @@ input payment_investment_bool_exp {
   _and: [payment_investment_bool_exp!]
   _not: payment_investment_bool_exp
   _or: [payment_investment_bool_exp!]
+  bank_card_id: uuid_comparison_exp
+  bank_card_used: bank_card_bool_exp
   created_at: timestamptz_comparison_exp
   investment: investment_bool_exp
   investment_id: Int_comparison_exp
@@ -6622,6 +7274,8 @@ input payment_investment_inc_input {
 input type for inserting data into table "payment_investment"
 """
 input payment_investment_insert_input {
+  bank_card_id: uuid
+  bank_card_used: bank_card_obj_rel_insert_input
   created_at: timestamptz
   investment: investment_obj_rel_insert_input
   investment_id: Int
@@ -6632,18 +7286,42 @@ input payment_investment_insert_input {
 
 """aggregate max on columns"""
 type payment_investment_max_fields {
+  bank_card_id: uuid
   created_at: timestamptz
   investment_id: Int
   payment_investment_id: uuid
   updated_at: timestamptz
 }
 
+"""
+order by max() on columns of table "payment_investment"
+"""
+input payment_investment_max_order_by {
+  bank_card_id: order_by
+  created_at: order_by
+  investment_id: order_by
+  payment_investment_id: order_by
+  updated_at: order_by
+}
+
 """aggregate min on columns"""
 type payment_investment_min_fields {
+  bank_card_id: uuid
   created_at: timestamptz
   investment_id: Int
   payment_investment_id: uuid
   updated_at: timestamptz
+}
+
+"""
+order by min() on columns of table "payment_investment"
+"""
+input payment_investment_min_order_by {
+  bank_card_id: order_by
+  created_at: order_by
+  investment_id: order_by
+  payment_investment_id: order_by
+  updated_at: order_by
 }
 
 """
@@ -6678,6 +7356,8 @@ input payment_investment_on_conflict {
 
 """Ordering options when selecting data from "payment_investment"."""
 input payment_investment_order_by {
+  bank_card_id: order_by
+  bank_card_used: bank_card_order_by
   created_at: order_by
   investment: investment_order_by
   investment_id: order_by
@@ -6696,6 +7376,9 @@ select columns of table "payment_investment"
 """
 enum payment_investment_select_column {
   """column name"""
+  bank_card_id
+
+  """column name"""
   created_at
 
   """column name"""
@@ -6712,9 +7395,26 @@ enum payment_investment_select_column {
 }
 
 """
+select "payment_investment_aggregate_bool_exp_bool_and_arguments_columns" columns of table "payment_investment"
+"""
+enum payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_and_arguments_columns {
+  """column name"""
+  payment_investment_fulfilled
+}
+
+"""
+select "payment_investment_aggregate_bool_exp_bool_or_arguments_columns" columns of table "payment_investment"
+"""
+enum payment_investment_select_column_payment_investment_aggregate_bool_exp_bool_or_arguments_columns {
+  """column name"""
+  payment_investment_fulfilled
+}
+
+"""
 input type for updating data in table "payment_investment"
 """
 input payment_investment_set_input {
+  bank_card_id: uuid
   created_at: timestamptz
   investment_id: Int
   payment_investment_fulfilled: Boolean
@@ -6727,14 +7427,35 @@ type payment_investment_stddev_fields {
   investment_id: Float
 }
 
+"""
+order by stddev() on columns of table "payment_investment"
+"""
+input payment_investment_stddev_order_by {
+  investment_id: order_by
+}
+
 """aggregate stddev_pop on columns"""
 type payment_investment_stddev_pop_fields {
   investment_id: Float
 }
 
+"""
+order by stddev_pop() on columns of table "payment_investment"
+"""
+input payment_investment_stddev_pop_order_by {
+  investment_id: order_by
+}
+
 """aggregate stddev_samp on columns"""
 type payment_investment_stddev_samp_fields {
   investment_id: Float
+}
+
+"""
+order by stddev_samp() on columns of table "payment_investment"
+"""
+input payment_investment_stddev_samp_order_by {
+  investment_id: order_by
 }
 
 """
@@ -6750,6 +7471,7 @@ input payment_investment_stream_cursor_input {
 
 """Initial value of the column from where the streaming should start"""
 input payment_investment_stream_cursor_value_input {
+  bank_card_id: uuid
   created_at: timestamptz
   investment_id: Int
   payment_investment_fulfilled: Boolean
@@ -6763,9 +7485,19 @@ type payment_investment_sum_fields {
 }
 
 """
+order by sum() on columns of table "payment_investment"
+"""
+input payment_investment_sum_order_by {
+  investment_id: order_by
+}
+
+"""
 update columns of table "payment_investment"
 """
 enum payment_investment_update_column {
+  """column name"""
+  bank_card_id
+
   """column name"""
   created_at
 
@@ -6796,9 +7528,23 @@ type payment_investment_var_pop_fields {
   investment_id: Float
 }
 
+"""
+order by var_pop() on columns of table "payment_investment"
+"""
+input payment_investment_var_pop_order_by {
+  investment_id: order_by
+}
+
 """aggregate var_samp on columns"""
 type payment_investment_var_samp_fields {
   investment_id: Float
+}
+
+"""
+order by var_samp() on columns of table "payment_investment"
+"""
+input payment_investment_var_samp_order_by {
+  investment_id: order_by
 }
 
 """aggregate variance on columns"""
@@ -6807,9 +7553,51 @@ type payment_investment_variance_fields {
 }
 
 """
+order by variance() on columns of table "payment_investment"
+"""
+input payment_investment_variance_order_by {
+  investment_id: order_by
+}
+
+"""
 columns and relationships of "profile"
 """
 type profile {
+  """An array relationship"""
+  bank_cards(
+    """distinct select on columns"""
+    distinct_on: [bank_card_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [bank_card_order_by!]
+
+    """filter the rows returned"""
+    where: bank_card_bool_exp
+  ): [bank_card!]!
+
+  """An aggregate relationship"""
+  bank_cards_aggregate(
+    """distinct select on columns"""
+    distinct_on: [bank_card_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [bank_card_order_by!]
+
+    """filter the rows returned"""
+    where: bank_card_bool_exp
+  ): bank_card_aggregate!
   created_at: timestamptz
   profile_address: String!
   profile_first_name: String!
@@ -6862,6 +7650,8 @@ input profile_bool_exp {
   _and: [profile_bool_exp!]
   _not: profile_bool_exp
   _or: [profile_bool_exp!]
+  bank_cards: bank_card_bool_exp
+  bank_cards_aggregate: bank_card_aggregate_bool_exp
   created_at: timestamptz_comparison_exp
   profile_address: String_comparison_exp
   profile_first_name: String_comparison_exp
@@ -6894,6 +7684,7 @@ enum profile_constraint {
 input type for inserting data into table "profile"
 """
 input profile_insert_input {
+  bank_cards: bank_card_arr_rel_insert_input
   created_at: timestamptz
   profile_address: String
   profile_first_name: String
@@ -6966,6 +7757,7 @@ input profile_on_conflict {
 
 """Ordering options when selecting data from "profile"."""
 input profile_order_by {
+  bank_cards_aggregate: bank_card_aggregate_order_by
   created_at: order_by
   profile_address: order_by
   profile_first_name: order_by
@@ -7173,7 +7965,7 @@ type proposal {
     """filter the rows returned"""
     where: investment_bool_exp
   ): investment_aggregate!
-  proposal_amount: Int!
+  proposal_amount: bigint!
   proposal_approved: Boolean!
   proposal_content: String!
   proposal_date: date!
@@ -7291,7 +8083,7 @@ input proposal_bool_exp {
   created_at: timestamptz_comparison_exp
   investments: investment_bool_exp
   investments_aggregate: investment_aggregate_bool_exp
-  proposal_amount: Int_comparison_exp
+  proposal_amount: bigint_comparison_exp
   proposal_approved: Boolean_comparison_exp
   proposal_content: String_comparison_exp
   proposal_date: date_comparison_exp
@@ -7316,7 +8108,7 @@ enum proposal_constraint {
 input type for incrementing numeric columns in table "proposal"
 """
 input proposal_inc_input {
-  proposal_amount: Int
+  proposal_amount: bigint
   umkm_id: Int
 }
 
@@ -7326,7 +8118,7 @@ input type for inserting data into table "proposal"
 input proposal_insert_input {
   created_at: timestamptz
   investments: investment_arr_rel_insert_input
-  proposal_amount: Int
+  proposal_amount: bigint
   proposal_approved: Boolean
   proposal_content: String
   proposal_date: date
@@ -7339,7 +8131,7 @@ input proposal_insert_input {
 """aggregate max on columns"""
 type proposal_max_fields {
   created_at: timestamptz
-  proposal_amount: Int
+  proposal_amount: bigint
   proposal_content: String
   proposal_date: date
   proposal_id: Int
@@ -7365,7 +8157,7 @@ input proposal_max_order_by {
 """aggregate min on columns"""
 type proposal_min_fields {
   created_at: timestamptz
-  proposal_amount: Int
+  proposal_amount: bigint
   proposal_content: String
   proposal_date: date
   proposal_id: Int
@@ -7491,7 +8283,7 @@ input type for updating data in table "proposal"
 """
 input proposal_set_input {
   created_at: timestamptz
-  proposal_amount: Int
+  proposal_amount: bigint
   proposal_approved: Boolean
   proposal_content: String
   proposal_date: date
@@ -7562,7 +8354,7 @@ input proposal_stream_cursor_input {
 """Initial value of the column from where the streaming should start"""
 input proposal_stream_cursor_value_input {
   created_at: timestamptz
-  proposal_amount: Int
+  proposal_amount: bigint
   proposal_approved: Boolean
   proposal_content: String
   proposal_date: date
@@ -7574,7 +8366,7 @@ input proposal_stream_cursor_value_input {
 
 """aggregate sum on columns"""
 type proposal_sum_fields {
-  proposal_amount: Int
+  proposal_amount: bigint
   proposal_id: Int
   umkm_id: Int
 }
@@ -8028,6 +8820,49 @@ type query_root {
     """filter the rows returned"""
     where: authUserSecurityKeys_bool_exp
   ): authUserSecurityKeys_aggregate!
+
+  """
+  fetch data from the table: "bank_card"
+  """
+  bank_card(
+    """distinct select on columns"""
+    distinct_on: [bank_card_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [bank_card_order_by!]
+
+    """filter the rows returned"""
+    where: bank_card_bool_exp
+  ): [bank_card!]!
+
+  """
+  fetch aggregated fields from the table: "bank_card"
+  """
+  bank_card_aggregate(
+    """distinct select on columns"""
+    distinct_on: [bank_card_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [bank_card_order_by!]
+
+    """filter the rows returned"""
+    where: bank_card_bool_exp
+  ): bank_card_aggregate!
+
+  """fetch data from the table: "bank_card" using primary key columns"""
+  bank_card_by_pk(bank_card_id: uuid!): bank_card
 
   """
   fetch data from the table: "blog"
@@ -9012,6 +9847,63 @@ type subscription_root {
     """filter the rows returned"""
     where: authUserSecurityKeys_bool_exp
   ): [authUserSecurityKeys!]!
+
+  """
+  fetch data from the table: "bank_card"
+  """
+  bank_card(
+    """distinct select on columns"""
+    distinct_on: [bank_card_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [bank_card_order_by!]
+
+    """filter the rows returned"""
+    where: bank_card_bool_exp
+  ): [bank_card!]!
+
+  """
+  fetch aggregated fields from the table: "bank_card"
+  """
+  bank_card_aggregate(
+    """distinct select on columns"""
+    distinct_on: [bank_card_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [bank_card_order_by!]
+
+    """filter the rows returned"""
+    where: bank_card_bool_exp
+  ): bank_card_aggregate!
+
+  """fetch data from the table: "bank_card" using primary key columns"""
+  bank_card_by_pk(bank_card_id: uuid!): bank_card
+
+  """
+  fetch data from the table in a streaming manner: "bank_card"
+  """
+  bank_card_stream(
+    """maximum number of rows returned in a single batch"""
+    batch_size: Int!
+
+    """cursor to stream the results returned by the query"""
+    cursor: [bank_card_stream_cursor_input]!
+
+    """filter the rows returned"""
+    where: bank_card_bool_exp
+  ): [bank_card!]!
 
   """
   fetch data from the table: "blog"
